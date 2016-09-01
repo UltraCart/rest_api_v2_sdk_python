@@ -1,0 +1,13 @@
+# WebhookLogSummariesResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**error** | [**Error**](Error.md) |  | [optional] 
+**metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**success** | **bool** |  | [optional] 
+**webhook_log_summaries** | [**list[WebhookLogSummary]**](WebhookLogSummary.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
