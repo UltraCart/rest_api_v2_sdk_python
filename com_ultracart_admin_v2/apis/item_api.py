@@ -67,6 +67,12 @@ class ItemApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int parent_category_id: The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root
+        :param int limit: The maximum number of records to return on this one API call.
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch items that have been created/modified since this date/time.
+        :param str sort: The sort order of the items.  See documentation for examples
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -94,12 +100,18 @@ class ItemApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int parent_category_id: The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root
+        :param int limit: The maximum number of records to return on this one API call.
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch items that have been created/modified since this date/time.
+        :param str sort: The sort order of the items.  See documentation for examples
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['parent_category_id']
+        all_params = ['parent_category_id', 'limit', 'offset', 'since', 'sort', 'expand', 'placeholders']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -119,6 +131,18 @@ class ItemApi(object):
         query_params = {}
         if 'parent_category_id' in params:
             query_params['parent_category_id'] = params['parent_category_id']
+        if 'limit' in params:
+            query_params['_limit'] = params['limit']
+        if 'offset' in params:
+            query_params['_offset'] = params['offset']
+        if 'since' in params:
+            query_params['_since'] = params['since']
+        if 'sort' in params:
+            query_params['_sort'] = params['sort']
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+        if 'placeholders' in params:
+            query_params['_placeholders'] = params['placeholders']
 
         header_params = {}
 
@@ -272,6 +296,8 @@ class ItemApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int merchant_item_oid: The item oid to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -299,12 +325,14 @@ class ItemApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int merchant_item_oid: The item oid to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['merchant_item_oid']
+        all_params = ['merchant_item_oid', 'expand', 'placeholders']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -327,6 +355,10 @@ class ItemApi(object):
             path_params['merchant_item_oid'] = params['merchant_item_oid']
 
         query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+        if 'placeholders' in params:
+            query_params['_placeholders'] = params['placeholders']
 
         header_params = {}
 

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **item_items_get**
-> ItemsResponse item_items_get(parent_category_id=parent_category_id)
+> ItemsResponse item_items_get(parent_category_id=parent_category_id, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
 
 Retrieve items
 
@@ -36,10 +36,16 @@ com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_A
 # create an instance of the API class
 api_instance = com_ultracart_admin_v2.ItemApi()
 parent_category_id = 56 # int | The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root (optional)
+limit = 56 # int | The maximum number of records to return on this one API call. (optional)
+offset = 56 # int | Pagination of the record set.  Offset is a zero based index. (optional)
+since = 'since_example' # str | Fetch items that have been created/modified since this date/time. (optional)
+sort = 'sort_example' # str | The sort order of the items.  See documentation for examples (optional)
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
 try: 
     # Retrieve items
-    api_response = api_instance.item_items_get(parent_category_id=parent_category_id)
+    api_response = api_instance.item_items_get(parent_category_id=parent_category_id, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling ItemApi->item_items_get: %s\n" % e
@@ -50,6 +56,12 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **parent_category_id** | **int**| The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional] 
+ **limit** | **int**| The maximum number of records to return on this one API call. | [optional] 
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] 
+ **since** | **str**| Fetch items that have been created/modified since this date/time. | [optional] 
+ **sort** | **str**| The sort order of the items.  See documentation for examples | [optional] 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
@@ -120,7 +132,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **item_items_merchant_item_oid_get**
-> ItemResponse item_items_merchant_item_oid_get(merchant_item_oid)
+> ItemResponse item_items_merchant_item_oid_get(merchant_item_oid, expand=expand, placeholders=placeholders)
 
 Retrieve an item
 
@@ -143,10 +155,12 @@ com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_A
 # create an instance of the API class
 api_instance = com_ultracart_admin_v2.ItemApi()
 merchant_item_oid = 56 # int | The item oid to retrieve.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
 try: 
     # Retrieve an item
-    api_response = api_instance.item_items_merchant_item_oid_get(merchant_item_oid)
+    api_response = api_instance.item_items_merchant_item_oid_get(merchant_item_oid, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling ItemApi->item_items_merchant_item_oid_get: %s\n" % e
@@ -157,6 +171,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchant_item_oid** | **int**| The item oid to retrieve. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
