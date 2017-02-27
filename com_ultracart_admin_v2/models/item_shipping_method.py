@@ -97,7 +97,7 @@ class ItemShippingMethod(object):
     def cost(self):
         """
         Gets the cost of this ItemShippingMethod.
-
+        Cost
 
         :return: The cost of this ItemShippingMethod.
         :rtype: float
@@ -108,7 +108,7 @@ class ItemShippingMethod(object):
     def cost(self, cost):
         """
         Sets the cost of this ItemShippingMethod.
-
+        Cost
 
         :param cost: The cost of this ItemShippingMethod.
         :type: float
@@ -120,7 +120,7 @@ class ItemShippingMethod(object):
     def each_additional_item_markup(self):
         """
         Gets the each_additional_item_markup of this ItemShippingMethod.
-
+        Each additional item markup
 
         :return: The each_additional_item_markup of this ItemShippingMethod.
         :rtype: float
@@ -131,7 +131,7 @@ class ItemShippingMethod(object):
     def each_additional_item_markup(self, each_additional_item_markup):
         """
         Sets the each_additional_item_markup of this ItemShippingMethod.
-
+        Each additional item markup
 
         :param each_additional_item_markup: The each_additional_item_markup of this ItemShippingMethod.
         :type: float
@@ -143,7 +143,7 @@ class ItemShippingMethod(object):
     def filter_to_if_available(self):
         """
         Gets the filter_to_if_available of this ItemShippingMethod.
-
+        Filter to this method if available
 
         :return: The filter_to_if_available of this ItemShippingMethod.
         :rtype: bool
@@ -154,7 +154,7 @@ class ItemShippingMethod(object):
     def filter_to_if_available(self, filter_to_if_available):
         """
         Sets the filter_to_if_available of this ItemShippingMethod.
-
+        Filter to this method if available
 
         :param filter_to_if_available: The filter_to_if_available of this ItemShippingMethod.
         :type: bool
@@ -166,7 +166,7 @@ class ItemShippingMethod(object):
     def first_item_markup(self):
         """
         Gets the first_item_markup of this ItemShippingMethod.
-
+        First item markup
 
         :return: The first_item_markup of this ItemShippingMethod.
         :rtype: float
@@ -177,7 +177,7 @@ class ItemShippingMethod(object):
     def first_item_markup(self, first_item_markup):
         """
         Sets the first_item_markup of this ItemShippingMethod.
-
+        First item markup
 
         :param first_item_markup: The first_item_markup of this ItemShippingMethod.
         :type: float
@@ -189,7 +189,7 @@ class ItemShippingMethod(object):
     def fixed_shipping_cost(self):
         """
         Gets the fixed_shipping_cost of this ItemShippingMethod.
-
+        Fixed shipping cost
 
         :return: The fixed_shipping_cost of this ItemShippingMethod.
         :rtype: float
@@ -200,7 +200,7 @@ class ItemShippingMethod(object):
     def fixed_shipping_cost(self, fixed_shipping_cost):
         """
         Sets the fixed_shipping_cost of this ItemShippingMethod.
-
+        Fixed shipping cost
 
         :param fixed_shipping_cost: The fixed_shipping_cost of this ItemShippingMethod.
         :type: float
@@ -212,7 +212,7 @@ class ItemShippingMethod(object):
     def flat_fee_markup(self):
         """
         Gets the flat_fee_markup of this ItemShippingMethod.
-
+        Flat fee markup
 
         :return: The flat_fee_markup of this ItemShippingMethod.
         :rtype: float
@@ -223,7 +223,7 @@ class ItemShippingMethod(object):
     def flat_fee_markup(self, flat_fee_markup):
         """
         Sets the flat_fee_markup of this ItemShippingMethod.
-
+        Flat fee markup
 
         :param flat_fee_markup: The flat_fee_markup of this ItemShippingMethod.
         :type: float
@@ -235,7 +235,7 @@ class ItemShippingMethod(object):
     def free_shipping(self):
         """
         Gets the free_shipping of this ItemShippingMethod.
-
+        Free shipping
 
         :return: The free_shipping of this ItemShippingMethod.
         :rtype: bool
@@ -246,7 +246,7 @@ class ItemShippingMethod(object):
     def free_shipping(self, free_shipping):
         """
         Sets the free_shipping of this ItemShippingMethod.
-
+        Free shipping
 
         :param free_shipping: The free_shipping of this ItemShippingMethod.
         :type: bool
@@ -258,7 +258,7 @@ class ItemShippingMethod(object):
     def per_item_fee_markup(self):
         """
         Gets the per_item_fee_markup of this ItemShippingMethod.
-
+        Per item fee markup
 
         :return: The per_item_fee_markup of this ItemShippingMethod.
         :rtype: float
@@ -269,7 +269,7 @@ class ItemShippingMethod(object):
     def per_item_fee_markup(self, per_item_fee_markup):
         """
         Sets the per_item_fee_markup of this ItemShippingMethod.
-
+        Per item fee markup
 
         :param per_item_fee_markup: The per_item_fee_markup of this ItemShippingMethod.
         :type: float
@@ -281,7 +281,7 @@ class ItemShippingMethod(object):
     def percentage_markup(self):
         """
         Gets the percentage_markup of this ItemShippingMethod.
-
+        Percentage markup
 
         :return: The percentage_markup of this ItemShippingMethod.
         :rtype: float
@@ -292,7 +292,7 @@ class ItemShippingMethod(object):
     def percentage_markup(self, percentage_markup):
         """
         Sets the percentage_markup of this ItemShippingMethod.
-
+        Percentage markup
 
         :param percentage_markup: The percentage_markup of this ItemShippingMethod.
         :type: float
@@ -304,7 +304,7 @@ class ItemShippingMethod(object):
     def percentage_of_item_markup(self):
         """
         Gets the percentage_of_item_markup of this ItemShippingMethod.
-
+        Percentage of item markup
 
         :return: The percentage_of_item_markup of this ItemShippingMethod.
         :rtype: float
@@ -315,7 +315,7 @@ class ItemShippingMethod(object):
     def percentage_of_item_markup(self, percentage_of_item_markup):
         """
         Sets the percentage_of_item_markup of this ItemShippingMethod.
-
+        Percentage of item markup
 
         :param percentage_of_item_markup: The percentage_of_item_markup of this ItemShippingMethod.
         :type: float
@@ -327,7 +327,7 @@ class ItemShippingMethod(object):
     def relax_restrictions_on_upsell(self):
         """
         Gets the relax_restrictions_on_upsell of this ItemShippingMethod.
-
+        Relax restrictions on upsell
 
         :return: The relax_restrictions_on_upsell of this ItemShippingMethod.
         :rtype: bool
@@ -338,7 +338,7 @@ class ItemShippingMethod(object):
     def relax_restrictions_on_upsell(self, relax_restrictions_on_upsell):
         """
         Sets the relax_restrictions_on_upsell of this ItemShippingMethod.
-
+        Relax restrictions on upsell
 
         :param relax_restrictions_on_upsell: The relax_restrictions_on_upsell of this ItemShippingMethod.
         :type: bool
@@ -350,7 +350,7 @@ class ItemShippingMethod(object):
     def shipping_method(self):
         """
         Gets the shipping_method of this ItemShippingMethod.
-
+        Shipping method name
 
         :return: The shipping_method of this ItemShippingMethod.
         :rtype: str
@@ -361,7 +361,7 @@ class ItemShippingMethod(object):
     def shipping_method(self, shipping_method):
         """
         Sets the shipping_method of this ItemShippingMethod.
-
+        Shipping method name
 
         :param shipping_method: The shipping_method of this ItemShippingMethod.
         :type: str
@@ -373,7 +373,7 @@ class ItemShippingMethod(object):
     def shipping_method_oid(self):
         """
         Gets the shipping_method_oid of this ItemShippingMethod.
-
+        Shipping method object identifier
 
         :return: The shipping_method_oid of this ItemShippingMethod.
         :rtype: int
@@ -384,7 +384,7 @@ class ItemShippingMethod(object):
     def shipping_method_oid(self, shipping_method_oid):
         """
         Sets the shipping_method_oid of this ItemShippingMethod.
-
+        Shipping method object identifier
 
         :param shipping_method_oid: The shipping_method_oid of this ItemShippingMethod.
         :type: int
@@ -396,7 +396,7 @@ class ItemShippingMethod(object):
     def shipping_method_validity(self):
         """
         Gets the shipping_method_validity of this ItemShippingMethod.
-
+        Shipping method validity
 
         :return: The shipping_method_validity of this ItemShippingMethod.
         :rtype: str
@@ -407,11 +407,17 @@ class ItemShippingMethod(object):
     def shipping_method_validity(self, shipping_method_validity):
         """
         Sets the shipping_method_validity of this ItemShippingMethod.
-
+        Shipping method validity
 
         :param shipping_method_validity: The shipping_method_validity of this ItemShippingMethod.
         :type: str
         """
+        allowed_values = ["invalid for", "valid for", "valid only for"]
+        if shipping_method_validity not in allowed_values:
+            raise ValueError(
+                "Invalid value for `shipping_method_validity` ({0}), must be one of {1}"
+                .format(shipping_method_validity, allowed_values)
+            )
 
         self._shipping_method_validity = shipping_method_validity
 
@@ -419,7 +425,7 @@ class ItemShippingMethod(object):
     def signature_required(self):
         """
         Gets the signature_required of this ItemShippingMethod.
-
+        Signature required
 
         :return: The signature_required of this ItemShippingMethod.
         :rtype: bool
@@ -430,7 +436,7 @@ class ItemShippingMethod(object):
     def signature_required(self, signature_required):
         """
         Sets the signature_required of this ItemShippingMethod.
-
+        Signature required
 
         :param signature_required: The signature_required of this ItemShippingMethod.
         :type: bool

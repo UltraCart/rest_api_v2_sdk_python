@@ -64,7 +64,7 @@ class ItemShippingCase(object):
     def case_label(self):
         """
         Gets the case_label of this ItemShippingCase.
-
+        Case label
 
         :return: The case_label of this ItemShippingCase.
         :rtype: str
@@ -75,11 +75,16 @@ class ItemShippingCase(object):
     def case_label(self, case_label):
         """
         Sets the case_label of this ItemShippingCase.
-
+        Case label
 
         :param case_label: The case_label of this ItemShippingCase.
         :type: str
         """
+
+        if not case_label:
+            raise ValueError("Invalid value for `case_label`, must not be `None`")
+        if len(case_label) > 20:
+            raise ValueError("Invalid value for `case_label`, length must be less than `20`")
 
         self._case_label = case_label
 
@@ -87,7 +92,7 @@ class ItemShippingCase(object):
     def case_merchant_item_id(self):
         """
         Gets the case_merchant_item_id of this ItemShippingCase.
-
+        Case item id
 
         :return: The case_merchant_item_id of this ItemShippingCase.
         :rtype: str
@@ -98,7 +103,7 @@ class ItemShippingCase(object):
     def case_merchant_item_id(self, case_merchant_item_id):
         """
         Sets the case_merchant_item_id of this ItemShippingCase.
-
+        Case item id
 
         :param case_merchant_item_id: The case_merchant_item_id of this ItemShippingCase.
         :type: str
@@ -110,7 +115,7 @@ class ItemShippingCase(object):
     def case_merchant_item_oid(self):
         """
         Gets the case_merchant_item_oid of this ItemShippingCase.
-
+        Case item object identifier
 
         :return: The case_merchant_item_oid of this ItemShippingCase.
         :rtype: int
@@ -121,7 +126,7 @@ class ItemShippingCase(object):
     def case_merchant_item_oid(self, case_merchant_item_oid):
         """
         Sets the case_merchant_item_oid of this ItemShippingCase.
-
+        Case item object identifier
 
         :param case_merchant_item_oid: The case_merchant_item_oid of this ItemShippingCase.
         :type: int
@@ -133,7 +138,7 @@ class ItemShippingCase(object):
     def quantity(self):
         """
         Gets the quantity of this ItemShippingCase.
-
+        Case quantity
 
         :return: The quantity of this ItemShippingCase.
         :rtype: int
@@ -144,7 +149,7 @@ class ItemShippingCase(object):
     def quantity(self, quantity):
         """
         Sets the quantity of this ItemShippingCase.
-
+        Case quantity
 
         :param quantity: The quantity of this ItemShippingCase.
         :type: int

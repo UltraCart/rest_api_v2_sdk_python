@@ -67,7 +67,7 @@ class ItemDigitalItem(object):
     def creation_dts(self):
         """
         Gets the creation_dts of this ItemDigitalItem.
-
+        File creation date
 
         :return: The creation_dts of this ItemDigitalItem.
         :rtype: str
@@ -78,7 +78,7 @@ class ItemDigitalItem(object):
     def creation_dts(self, creation_dts):
         """
         Sets the creation_dts of this ItemDigitalItem.
-
+        File creation date
 
         :param creation_dts: The creation_dts of this ItemDigitalItem.
         :type: str
@@ -90,7 +90,7 @@ class ItemDigitalItem(object):
     def description(self):
         """
         Gets the description of this ItemDigitalItem.
-
+        Description of the digital item
 
         :return: The description of this ItemDigitalItem.
         :rtype: str
@@ -101,11 +101,16 @@ class ItemDigitalItem(object):
     def description(self, description):
         """
         Sets the description of this ItemDigitalItem.
-
+        Description of the digital item
 
         :param description: The description of this ItemDigitalItem.
         :type: str
         """
+
+        if not description:
+            raise ValueError("Invalid value for `description`, must not be `None`")
+        if len(description) > 200:
+            raise ValueError("Invalid value for `description`, length must be less than `200`")
 
         self._description = description
 
@@ -113,7 +118,7 @@ class ItemDigitalItem(object):
     def file_size(self):
         """
         Gets the file_size of this ItemDigitalItem.
-
+        File size
 
         :return: The file_size of this ItemDigitalItem.
         :rtype: int
@@ -124,7 +129,7 @@ class ItemDigitalItem(object):
     def file_size(self, file_size):
         """
         Sets the file_size of this ItemDigitalItem.
-
+        File size
 
         :param file_size: The file_size of this ItemDigitalItem.
         :type: int
@@ -136,7 +141,7 @@ class ItemDigitalItem(object):
     def mime_type(self):
         """
         Gets the mime_type of this ItemDigitalItem.
-
+        Mime type associated with the file
 
         :return: The mime_type of this ItemDigitalItem.
         :rtype: str
@@ -147,11 +152,16 @@ class ItemDigitalItem(object):
     def mime_type(self, mime_type):
         """
         Sets the mime_type of this ItemDigitalItem.
-
+        Mime type associated with the file
 
         :param mime_type: The mime_type of this ItemDigitalItem.
         :type: str
         """
+
+        if not mime_type:
+            raise ValueError("Invalid value for `mime_type`, must not be `None`")
+        if len(mime_type) > 100:
+            raise ValueError("Invalid value for `mime_type`, length must be less than `100`")
 
         self._mime_type = mime_type
 
@@ -159,7 +169,7 @@ class ItemDigitalItem(object):
     def original_filename(self):
         """
         Gets the original_filename of this ItemDigitalItem.
-
+        Original filename
 
         :return: The original_filename of this ItemDigitalItem.
         :rtype: str
@@ -170,11 +180,16 @@ class ItemDigitalItem(object):
     def original_filename(self, original_filename):
         """
         Sets the original_filename of this ItemDigitalItem.
-
+        Original filename
 
         :param original_filename: The original_filename of this ItemDigitalItem.
         :type: str
         """
+
+        if not original_filename:
+            raise ValueError("Invalid value for `original_filename`, must not be `None`")
+        if len(original_filename) > 250:
+            raise ValueError("Invalid value for `original_filename`, length must be less than `250`")
 
         self._original_filename = original_filename
 

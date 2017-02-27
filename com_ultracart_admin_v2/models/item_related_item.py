@@ -61,7 +61,7 @@ class ItemRelatedItem(object):
     def related_merchant_item_id(self):
         """
         Gets the related_merchant_item_id of this ItemRelatedItem.
-
+        Related item id
 
         :return: The related_merchant_item_id of this ItemRelatedItem.
         :rtype: str
@@ -72,7 +72,7 @@ class ItemRelatedItem(object):
     def related_merchant_item_id(self, related_merchant_item_id):
         """
         Sets the related_merchant_item_id of this ItemRelatedItem.
-
+        Related item id
 
         :param related_merchant_item_id: The related_merchant_item_id of this ItemRelatedItem.
         :type: str
@@ -84,7 +84,7 @@ class ItemRelatedItem(object):
     def related_merchant_item_oid(self):
         """
         Gets the related_merchant_item_oid of this ItemRelatedItem.
-
+        Related item object identifier
 
         :return: The related_merchant_item_oid of this ItemRelatedItem.
         :rtype: int
@@ -95,7 +95,7 @@ class ItemRelatedItem(object):
     def related_merchant_item_oid(self, related_merchant_item_oid):
         """
         Sets the related_merchant_item_oid of this ItemRelatedItem.
-
+        Related item object identifier
 
         :param related_merchant_item_oid: The related_merchant_item_oid of this ItemRelatedItem.
         :type: int
@@ -107,7 +107,7 @@ class ItemRelatedItem(object):
     def type(self):
         """
         Gets the type of this ItemRelatedItem.
-
+        Relationship type
 
         :return: The type of this ItemRelatedItem.
         :rtype: str
@@ -118,11 +118,17 @@ class ItemRelatedItem(object):
     def type(self, type):
         """
         Sets the type of this ItemRelatedItem.
-
+        Relationship type
 
         :param type: The type of this ItemRelatedItem.
         :type: str
         """
+        allowed_values = ["System", "UserDefined"]
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"
+                .format(type, allowed_values)
+            )
 
         self._type = type
 

@@ -85,7 +85,7 @@ class ItemContent(object):
     def assignments(self):
         """
         Gets the assignments of this ItemContent.
-
+        StoreFront assignments
 
         :return: The assignments of this ItemContent.
         :rtype: list[ItemContentAssignment]
@@ -96,7 +96,7 @@ class ItemContent(object):
     def assignments(self, assignments):
         """
         Sets the assignments of this ItemContent.
-
+        StoreFront assignments
 
         :param assignments: The assignments of this ItemContent.
         :type: list[ItemContentAssignment]
@@ -108,7 +108,7 @@ class ItemContent(object):
     def attributes(self):
         """
         Gets the attributes of this ItemContent.
-
+        StoreFront attributes
 
         :return: The attributes of this ItemContent.
         :rtype: list[ItemContentAttribute]
@@ -119,7 +119,7 @@ class ItemContent(object):
     def attributes(self, attributes):
         """
         Sets the attributes of this ItemContent.
-
+        StoreFront attributes
 
         :param attributes: The attributes of this ItemContent.
         :type: list[ItemContentAttribute]
@@ -131,7 +131,7 @@ class ItemContent(object):
     def exclude_from_search(self):
         """
         Gets the exclude_from_search of this ItemContent.
-
+        Exclude from search
 
         :return: The exclude_from_search of this ItemContent.
         :rtype: bool
@@ -142,7 +142,7 @@ class ItemContent(object):
     def exclude_from_search(self, exclude_from_search):
         """
         Sets the exclude_from_search of this ItemContent.
-
+        Exclude from search
 
         :param exclude_from_search: The exclude_from_search of this ItemContent.
         :type: bool
@@ -154,7 +154,7 @@ class ItemContent(object):
     def exclude_from_top_sellers(self):
         """
         Gets the exclude_from_top_sellers of this ItemContent.
-
+        Exclude from the top sellers list in the StoreFront
 
         :return: The exclude_from_top_sellers of this ItemContent.
         :rtype: bool
@@ -165,7 +165,7 @@ class ItemContent(object):
     def exclude_from_top_sellers(self, exclude_from_top_sellers):
         """
         Sets the exclude_from_top_sellers of this ItemContent.
-
+        Exclude from the top sellers list in the StoreFront
 
         :param exclude_from_top_sellers: The exclude_from_top_sellers of this ItemContent.
         :type: bool
@@ -177,7 +177,7 @@ class ItemContent(object):
     def extended_description(self):
         """
         Gets the extended_description of this ItemContent.
-
+        Extended description (max 2000 characters)
 
         :return: The extended_description of this ItemContent.
         :rtype: str
@@ -188,11 +188,16 @@ class ItemContent(object):
     def extended_description(self, extended_description):
         """
         Sets the extended_description of this ItemContent.
-
+        Extended description (max 2000 characters)
 
         :param extended_description: The extended_description of this ItemContent.
         :type: str
         """
+
+        if not extended_description:
+            raise ValueError("Invalid value for `extended_description`, must not be `None`")
+        if len(extended_description) > 2000:
+            raise ValueError("Invalid value for `extended_description`, length must be less than `2000`")
 
         self._extended_description = extended_description
 
@@ -200,7 +205,7 @@ class ItemContent(object):
     def extended_description_translated_text_instance_oid(self):
         """
         Gets the extended_description_translated_text_instance_oid of this ItemContent.
-
+        Extneded description text translation instance identifier
 
         :return: The extended_description_translated_text_instance_oid of this ItemContent.
         :rtype: int
@@ -211,7 +216,7 @@ class ItemContent(object):
     def extended_description_translated_text_instance_oid(self, extended_description_translated_text_instance_oid):
         """
         Sets the extended_description_translated_text_instance_oid of this ItemContent.
-
+        Extneded description text translation instance identifier
 
         :param extended_description_translated_text_instance_oid: The extended_description_translated_text_instance_oid of this ItemContent.
         :type: int
@@ -223,7 +228,7 @@ class ItemContent(object):
     def multimedia(self):
         """
         Gets the multimedia of this ItemContent.
-
+        Multimedia
 
         :return: The multimedia of this ItemContent.
         :rtype: list[ItemContentMultimedia]
@@ -234,7 +239,7 @@ class ItemContent(object):
     def multimedia(self, multimedia):
         """
         Sets the multimedia of this ItemContent.
-
+        Multimedia
 
         :param multimedia: The multimedia of this ItemContent.
         :type: list[ItemContentMultimedia]
@@ -246,7 +251,7 @@ class ItemContent(object):
     def new_item(self):
         """
         Gets the new_item of this ItemContent.
-
+        True if the item is new
 
         :return: The new_item of this ItemContent.
         :rtype: bool
@@ -257,7 +262,7 @@ class ItemContent(object):
     def new_item(self, new_item):
         """
         Sets the new_item of this ItemContent.
-
+        True if the item is new
 
         :param new_item: The new_item of this ItemContent.
         :type: bool
@@ -269,7 +274,7 @@ class ItemContent(object):
     def new_item_end(self):
         """
         Gets the new_item_end of this ItemContent.
-
+        The date the item should no longer be considered new
 
         :return: The new_item_end of this ItemContent.
         :rtype: str
@@ -280,7 +285,7 @@ class ItemContent(object):
     def new_item_end(self, new_item_end):
         """
         Sets the new_item_end of this ItemContent.
-
+        The date the item should no longer be considered new
 
         :param new_item_end: The new_item_end of this ItemContent.
         :type: str
@@ -292,7 +297,7 @@ class ItemContent(object):
     def new_item_start(self):
         """
         Gets the new_item_start of this ItemContent.
-
+        The date the item should start being considered new
 
         :return: The new_item_start of this ItemContent.
         :rtype: str
@@ -303,7 +308,7 @@ class ItemContent(object):
     def new_item_start(self, new_item_start):
         """
         Sets the new_item_start of this ItemContent.
-
+        The date the item should start being considered new
 
         :param new_item_start: The new_item_start of this ItemContent.
         :type: str
@@ -315,7 +320,7 @@ class ItemContent(object):
     def view_url(self):
         """
         Gets the view_url of this ItemContent.
-
+        Legacy view URL (not used by StoreFronts)
 
         :return: The view_url of this ItemContent.
         :rtype: str
@@ -326,7 +331,7 @@ class ItemContent(object):
     def view_url(self, view_url):
         """
         Sets the view_url of this ItemContent.
-
+        Legacy view URL (not used by StoreFronts)
 
         :param view_url: The view_url of this ItemContent.
         :type: str

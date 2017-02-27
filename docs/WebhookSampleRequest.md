@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request** | **str** |  | [optional] 
-**request_headers** | [**list[HTTPHeader]**](HTTPHeader.md) |  | [optional] 
-**request_id** | **str** |  | [optional] 
-**uri** | **str** |  | [optional] 
+**request** | **str** | Request | [optional] 
+**request_headers** | [**list[HTTPHeader]**](HTTPHeader.md) | Request headers | [optional] 
+**request_id** | **str** | Request id | [optional] 
+**uri** | **str** | URI to send request to | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

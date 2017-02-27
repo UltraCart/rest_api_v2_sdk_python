@@ -73,7 +73,7 @@ class ItemReviews(object):
     def has_approved_review(self):
         """
         Gets the has_approved_review of this ItemReviews.
-
+        True if the item has an approved review
 
         :return: The has_approved_review of this ItemReviews.
         :rtype: bool
@@ -84,7 +84,7 @@ class ItemReviews(object):
     def has_approved_review(self, has_approved_review):
         """
         Sets the has_approved_review of this ItemReviews.
-
+        True if the item has an approved review
 
         :param has_approved_review: The has_approved_review of this ItemReviews.
         :type: bool
@@ -96,7 +96,7 @@ class ItemReviews(object):
     def has_review(self):
         """
         Gets the has_review of this ItemReviews.
-
+        True if the item has a review
 
         :return: The has_review of this ItemReviews.
         :rtype: bool
@@ -107,7 +107,7 @@ class ItemReviews(object):
     def has_review(self, has_review):
         """
         Sets the has_review of this ItemReviews.
-
+        True if the item has a review
 
         :param has_review: The has_review of this ItemReviews.
         :type: bool
@@ -119,7 +119,7 @@ class ItemReviews(object):
     def review_count(self):
         """
         Gets the review_count of this ItemReviews.
-
+        Number of approved reviews
 
         :return: The review_count of this ItemReviews.
         :rtype: int
@@ -130,7 +130,7 @@ class ItemReviews(object):
     def review_count(self, review_count):
         """
         Sets the review_count of this ItemReviews.
-
+        Number of approved reviews
 
         :param review_count: The review_count of this ItemReviews.
         :type: int
@@ -142,7 +142,7 @@ class ItemReviews(object):
     def review_overall(self):
         """
         Gets the review_overall of this ItemReviews.
-
+        Overall score of reviews
 
         :return: The review_overall of this ItemReviews.
         :rtype: float
@@ -153,7 +153,7 @@ class ItemReviews(object):
     def review_overall(self, review_overall):
         """
         Sets the review_overall of this ItemReviews.
-
+        Overall score of reviews
 
         :param review_overall: The review_overall of this ItemReviews.
         :type: float
@@ -165,7 +165,7 @@ class ItemReviews(object):
     def review_template_name(self):
         """
         Gets the review_template_name of this ItemReviews.
-
+        Review template name
 
         :return: The review_template_name of this ItemReviews.
         :rtype: str
@@ -176,7 +176,7 @@ class ItemReviews(object):
     def review_template_name(self, review_template_name):
         """
         Sets the review_template_name of this ItemReviews.
-
+        Review template name
 
         :param review_template_name: The review_template_name of this ItemReviews.
         :type: str
@@ -188,7 +188,7 @@ class ItemReviews(object):
     def review_template_oid(self):
         """
         Gets the review_template_oid of this ItemReviews.
-
+        Review template object identifier
 
         :return: The review_template_oid of this ItemReviews.
         :rtype: int
@@ -199,7 +199,7 @@ class ItemReviews(object):
     def review_template_oid(self, review_template_oid):
         """
         Sets the review_template_oid of this ItemReviews.
-
+        Review template object identifier
 
         :param review_template_oid: The review_template_oid of this ItemReviews.
         :type: int
@@ -211,7 +211,7 @@ class ItemReviews(object):
     def reviewable(self):
         """
         Gets the reviewable of this ItemReviews.
-
+        True if the item is reviewable
 
         :return: The reviewable of this ItemReviews.
         :rtype: bool
@@ -222,7 +222,7 @@ class ItemReviews(object):
     def reviewable(self, reviewable):
         """
         Sets the reviewable of this ItemReviews.
-
+        True if the item is reviewable
 
         :param reviewable: The reviewable of this ItemReviews.
         :type: bool

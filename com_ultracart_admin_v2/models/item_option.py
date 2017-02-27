@@ -94,7 +94,7 @@ class ItemOption(object):
     def cost_if_specified(self):
         """
         Gets the cost_if_specified of this ItemOption.
-
+        Cost if specified
 
         :return: The cost_if_specified of this ItemOption.
         :rtype: float
@@ -105,7 +105,7 @@ class ItemOption(object):
     def cost_if_specified(self, cost_if_specified):
         """
         Sets the cost_if_specified of this ItemOption.
-
+        Cost if specified
 
         :param cost_if_specified: The cost_if_specified of this ItemOption.
         :type: float
@@ -117,7 +117,7 @@ class ItemOption(object):
     def cost_per_letter(self):
         """
         Gets the cost_per_letter of this ItemOption.
-
+        Cost per letter
 
         :return: The cost_per_letter of this ItemOption.
         :rtype: float
@@ -128,7 +128,7 @@ class ItemOption(object):
     def cost_per_letter(self, cost_per_letter):
         """
         Sets the cost_per_letter of this ItemOption.
-
+        Cost per letter
 
         :param cost_per_letter: The cost_per_letter of this ItemOption.
         :type: float
@@ -140,7 +140,7 @@ class ItemOption(object):
     def cost_per_line(self):
         """
         Gets the cost_per_line of this ItemOption.
-
+        Cost per line
 
         :return: The cost_per_line of this ItemOption.
         :rtype: float
@@ -151,7 +151,7 @@ class ItemOption(object):
     def cost_per_line(self, cost_per_line):
         """
         Sets the cost_per_line of this ItemOption.
-
+        Cost per line
 
         :param cost_per_line: The cost_per_line of this ItemOption.
         :type: float
@@ -163,7 +163,7 @@ class ItemOption(object):
     def ignore_if_default(self):
         """
         Gets the ignore_if_default of this ItemOption.
-
+        Ignore this option on the order if the default value is selected
 
         :return: The ignore_if_default of this ItemOption.
         :rtype: bool
@@ -174,7 +174,7 @@ class ItemOption(object):
     def ignore_if_default(self, ignore_if_default):
         """
         Sets the ignore_if_default of this ItemOption.
-
+        Ignore this option on the order if the default value is selected
 
         :param ignore_if_default: The ignore_if_default of this ItemOption.
         :type: bool
@@ -186,7 +186,7 @@ class ItemOption(object):
     def label(self):
         """
         Gets the label of this ItemOption.
-
+        Label
 
         :return: The label of this ItemOption.
         :rtype: str
@@ -197,11 +197,16 @@ class ItemOption(object):
     def label(self, label):
         """
         Sets the label of this ItemOption.
-
+        Label
 
         :param label: The label of this ItemOption.
         :type: str
         """
+
+        if not label:
+            raise ValueError("Invalid value for `label`, must not be `None`")
+        if len(label) > 50:
+            raise ValueError("Invalid value for `label`, length must be less than `50`")
 
         self._label = label
 
@@ -209,7 +214,7 @@ class ItemOption(object):
     def label_translated_text_instance_oid(self):
         """
         Gets the label_translated_text_instance_oid of this ItemOption.
-
+        Label translated text instance ID
 
         :return: The label_translated_text_instance_oid of this ItemOption.
         :rtype: int
@@ -220,7 +225,7 @@ class ItemOption(object):
     def label_translated_text_instance_oid(self, label_translated_text_instance_oid):
         """
         Sets the label_translated_text_instance_oid of this ItemOption.
-
+        Label translated text instance ID
 
         :param label_translated_text_instance_oid: The label_translated_text_instance_oid of this ItemOption.
         :type: int
@@ -232,7 +237,7 @@ class ItemOption(object):
     def name(self):
         """
         Gets the name of this ItemOption.
-
+        Name
 
         :return: The name of this ItemOption.
         :rtype: str
@@ -243,11 +248,16 @@ class ItemOption(object):
     def name(self, name):
         """
         Sets the name of this ItemOption.
-
+        Name
 
         :param name: The name of this ItemOption.
         :type: str
         """
+
+        if not name:
+            raise ValueError("Invalid value for `name`, must not be `None`")
+        if len(name) > 50:
+            raise ValueError("Invalid value for `name`, length must be less than `50`")
 
         self._name = name
 
@@ -255,7 +265,7 @@ class ItemOption(object):
     def name_translated_text_instance_oid(self):
         """
         Gets the name_translated_text_instance_oid of this ItemOption.
-
+        Name translated text instance ID
 
         :return: The name_translated_text_instance_oid of this ItemOption.
         :rtype: int
@@ -266,7 +276,7 @@ class ItemOption(object):
     def name_translated_text_instance_oid(self, name_translated_text_instance_oid):
         """
         Sets the name_translated_text_instance_oid of this ItemOption.
-
+        Name translated text instance ID
 
         :param name_translated_text_instance_oid: The name_translated_text_instance_oid of this ItemOption.
         :type: int
@@ -278,7 +288,7 @@ class ItemOption(object):
     def one_time_fee(self):
         """
         Gets the one_time_fee of this ItemOption.
-
+        One time fee
 
         :return: The one_time_fee of this ItemOption.
         :rtype: bool
@@ -289,7 +299,7 @@ class ItemOption(object):
     def one_time_fee(self, one_time_fee):
         """
         Sets the one_time_fee of this ItemOption.
-
+        One time fee
 
         :param one_time_fee: The one_time_fee of this ItemOption.
         :type: bool
@@ -301,7 +311,7 @@ class ItemOption(object):
     def option_oid(self):
         """
         Gets the option_oid of this ItemOption.
-
+        Option object identifier
 
         :return: The option_oid of this ItemOption.
         :rtype: int
@@ -312,7 +322,7 @@ class ItemOption(object):
     def option_oid(self, option_oid):
         """
         Sets the option_oid of this ItemOption.
-
+        Option object identifier
 
         :param option_oid: The option_oid of this ItemOption.
         :type: int
@@ -324,7 +334,7 @@ class ItemOption(object):
     def required(self):
         """
         Gets the required of this ItemOption.
-
+        True if the customer is required to specify an answer
 
         :return: The required of this ItemOption.
         :rtype: bool
@@ -335,7 +345,7 @@ class ItemOption(object):
     def required(self, required):
         """
         Sets the required of this ItemOption.
-
+        True if the customer is required to specify an answer
 
         :param required: The required of this ItemOption.
         :type: bool
@@ -347,7 +357,7 @@ class ItemOption(object):
     def system_option(self):
         """
         Gets the system_option of this ItemOption.
-
+        True if this is a system option
 
         :return: The system_option of this ItemOption.
         :rtype: bool
@@ -358,7 +368,7 @@ class ItemOption(object):
     def system_option(self, system_option):
         """
         Sets the system_option of this ItemOption.
-
+        True if this is a system option
 
         :param system_option: The system_option of this ItemOption.
         :type: bool
@@ -370,7 +380,7 @@ class ItemOption(object):
     def type(self):
         """
         Gets the type of this ItemOption.
-
+        Type of option
 
         :return: The type of this ItemOption.
         :rtype: str
@@ -381,11 +391,17 @@ class ItemOption(object):
     def type(self, type):
         """
         Sets the type of this ItemOption.
-
+        Type of option
 
         :param type: The type of this ItemOption.
         :type: str
         """
+        allowed_values = ["dropdown", "file attachment", "fixed", "hidden", "multiline", "radio", "single"]
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"
+                .format(type, allowed_values)
+            )
 
         self._type = type
 
@@ -393,7 +409,7 @@ class ItemOption(object):
     def values(self):
         """
         Gets the values of this ItemOption.
-
+        Values
 
         :return: The values of this ItemOption.
         :rtype: list[ItemOptionValue]
@@ -404,7 +420,7 @@ class ItemOption(object):
     def values(self, values):
         """
         Sets the values of this ItemOption.
-
+        Values
 
         :param values: The values of this ItemOption.
         :type: list[ItemOptionValue]

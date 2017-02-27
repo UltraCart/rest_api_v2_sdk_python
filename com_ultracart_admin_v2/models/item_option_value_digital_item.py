@@ -58,7 +58,7 @@ class ItemOptionValueDigitalItem(object):
     def digital_item_oid(self):
         """
         Gets the digital_item_oid of this ItemOptionValueDigitalItem.
-
+        Digital item object identifier
 
         :return: The digital_item_oid of this ItemOptionValueDigitalItem.
         :rtype: int
@@ -69,7 +69,7 @@ class ItemOptionValueDigitalItem(object):
     def digital_item_oid(self, digital_item_oid):
         """
         Sets the digital_item_oid of this ItemOptionValueDigitalItem.
-
+        Digital item object identifier
 
         :param digital_item_oid: The digital_item_oid of this ItemOptionValueDigitalItem.
         :type: int
@@ -81,7 +81,7 @@ class ItemOptionValueDigitalItem(object):
     def original_filename(self):
         """
         Gets the original_filename of this ItemOptionValueDigitalItem.
-
+        Original filename
 
         :return: The original_filename of this ItemOptionValueDigitalItem.
         :rtype: str
@@ -92,7 +92,7 @@ class ItemOptionValueDigitalItem(object):
     def original_filename(self, original_filename):
         """
         Sets the original_filename of this ItemOptionValueDigitalItem.
-
+        Original filename
 
         :param original_filename: The original_filename of this ItemOptionValueDigitalItem.
         :type: str

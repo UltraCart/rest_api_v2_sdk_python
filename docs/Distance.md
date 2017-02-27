@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uom** | **str** |  | [optional] 
-**value** | **float** |  | [optional] 
+**uom** | **str** | Unit of measure | [optional] 
+**value** | **float** | The distance measured in UOM | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

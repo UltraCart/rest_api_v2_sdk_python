@@ -64,7 +64,7 @@ class ItemChargebackAddendum(object):
     def chargeback_addendum_oid(self):
         """
         Gets the chargeback_addendum_oid of this ItemChargebackAddendum.
-
+        Chargeback addendum object identifier
 
         :return: The chargeback_addendum_oid of this ItemChargebackAddendum.
         :rtype: int
@@ -75,7 +75,7 @@ class ItemChargebackAddendum(object):
     def chargeback_addendum_oid(self, chargeback_addendum_oid):
         """
         Sets the chargeback_addendum_oid of this ItemChargebackAddendum.
-
+        Chargeback addendum object identifier
 
         :param chargeback_addendum_oid: The chargeback_addendum_oid of this ItemChargebackAddendum.
         :type: int
@@ -87,7 +87,7 @@ class ItemChargebackAddendum(object):
     def description(self):
         """
         Gets the description of this ItemChargebackAddendum.
-
+        Description
 
         :return: The description of this ItemChargebackAddendum.
         :rtype: str
@@ -98,7 +98,7 @@ class ItemChargebackAddendum(object):
     def description(self, description):
         """
         Sets the description of this ItemChargebackAddendum.
-
+        Description
 
         :param description: The description of this ItemChargebackAddendum.
         :type: str
@@ -110,7 +110,7 @@ class ItemChargebackAddendum(object):
     def file_size(self):
         """
         Gets the file_size of this ItemChargebackAddendum.
-
+        Size of the file
 
         :return: The file_size of this ItemChargebackAddendum.
         :rtype: int
@@ -121,7 +121,7 @@ class ItemChargebackAddendum(object):
     def file_size(self, file_size):
         """
         Sets the file_size of this ItemChargebackAddendum.
-
+        Size of the file
 
         :param file_size: The file_size of this ItemChargebackAddendum.
         :type: int
@@ -133,7 +133,7 @@ class ItemChargebackAddendum(object):
     def pages(self):
         """
         Gets the pages of this ItemChargebackAddendum.
-
+        Number of pages
 
         :return: The pages of this ItemChargebackAddendum.
         :rtype: int
@@ -144,7 +144,7 @@ class ItemChargebackAddendum(object):
     def pages(self, pages):
         """
         Sets the pages of this ItemChargebackAddendum.
-
+        Number of pages
 
         :param pages: The pages of this ItemChargebackAddendum.
         :type: int

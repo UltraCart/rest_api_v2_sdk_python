@@ -97,7 +97,7 @@ class ItemOptionValue(object):
     def additional_dimension_application(self):
         """
         Gets the additional_dimension_application of this ItemOptionValue.
-
+        Additional dimensions application
 
         :return: The additional_dimension_application of this ItemOptionValue.
         :rtype: str
@@ -108,11 +108,17 @@ class ItemOptionValue(object):
     def additional_dimension_application(self, additional_dimension_application):
         """
         Sets the additional_dimension_application of this ItemOptionValue.
-
+        Additional dimensions application
 
         :param additional_dimension_application: The additional_dimension_application of this ItemOptionValue.
         :type: str
         """
+        allowed_values = ["none", "set item to", "add item"]
+        if additional_dimension_application not in allowed_values:
+            raise ValueError(
+                "Invalid value for `additional_dimension_application` ({0}), must be one of {1}"
+                .format(additional_dimension_application, allowed_values)
+            )
 
         self._additional_dimension_application = additional_dimension_application
 
@@ -120,7 +126,7 @@ class ItemOptionValue(object):
     def additional_items(self):
         """
         Gets the additional_items of this ItemOptionValue.
-
+        Additional items to add to the order if this value is selected
 
         :return: The additional_items of this ItemOptionValue.
         :rtype: list[ItemOptionValueAdditionalItem]
@@ -131,7 +137,7 @@ class ItemOptionValue(object):
     def additional_items(self, additional_items):
         """
         Sets the additional_items of this ItemOptionValue.
-
+        Additional items to add to the order if this value is selected
 
         :param additional_items: The additional_items of this ItemOptionValue.
         :type: list[ItemOptionValueAdditionalItem]
@@ -143,7 +149,7 @@ class ItemOptionValue(object):
     def cost_change(self):
         """
         Gets the cost_change of this ItemOptionValue.
-
+        Cost change
 
         :return: The cost_change of this ItemOptionValue.
         :rtype: float
@@ -154,7 +160,7 @@ class ItemOptionValue(object):
     def cost_change(self, cost_change):
         """
         Sets the cost_change of this ItemOptionValue.
-
+        Cost change
 
         :param cost_change: The cost_change of this ItemOptionValue.
         :type: float
@@ -166,7 +172,7 @@ class ItemOptionValue(object):
     def default_value(self):
         """
         Gets the default_value of this ItemOptionValue.
-
+        True if default value
 
         :return: The default_value of this ItemOptionValue.
         :rtype: bool
@@ -177,7 +183,7 @@ class ItemOptionValue(object):
     def default_value(self, default_value):
         """
         Sets the default_value of this ItemOptionValue.
-
+        True if default value
 
         :param default_value: The default_value of this ItemOptionValue.
         :type: bool
@@ -189,7 +195,7 @@ class ItemOptionValue(object):
     def digital_items(self):
         """
         Gets the digital_items of this ItemOptionValue.
-
+        Digital items to allow the customer to download if this option value is selected
 
         :return: The digital_items of this ItemOptionValue.
         :rtype: list[ItemOptionValueDigitalItem]
@@ -200,7 +206,7 @@ class ItemOptionValue(object):
     def digital_items(self, digital_items):
         """
         Sets the digital_items of this ItemOptionValue.
-
+        Digital items to allow the customer to download if this option value is selected
 
         :param digital_items: The digital_items of this ItemOptionValue.
         :type: list[ItemOptionValueDigitalItem]
@@ -258,7 +264,7 @@ class ItemOptionValue(object):
     def merchant_item_multimedia_oid(self):
         """
         Gets the merchant_item_multimedia_oid of this ItemOptionValue.
-
+        Multimedia object identifier associated with this option value
 
         :return: The merchant_item_multimedia_oid of this ItemOptionValue.
         :rtype: int
@@ -269,7 +275,7 @@ class ItemOptionValue(object):
     def merchant_item_multimedia_oid(self, merchant_item_multimedia_oid):
         """
         Sets the merchant_item_multimedia_oid of this ItemOptionValue.
-
+        Multimedia object identifier associated with this option value
 
         :param merchant_item_multimedia_oid: The merchant_item_multimedia_oid of this ItemOptionValue.
         :type: int
@@ -281,7 +287,7 @@ class ItemOptionValue(object):
     def option_value_oid(self):
         """
         Gets the option_value_oid of this ItemOptionValue.
-
+        Option value object identifier
 
         :return: The option_value_oid of this ItemOptionValue.
         :rtype: int
@@ -292,7 +298,7 @@ class ItemOptionValue(object):
     def option_value_oid(self, option_value_oid):
         """
         Sets the option_value_oid of this ItemOptionValue.
-
+        Option value object identifier
 
         :param option_value_oid: The option_value_oid of this ItemOptionValue.
         :type: int
@@ -304,7 +310,7 @@ class ItemOptionValue(object):
     def percent_cost_change(self):
         """
         Gets the percent_cost_change of this ItemOptionValue.
-
+        Percentage cost change
 
         :return: The percent_cost_change of this ItemOptionValue.
         :rtype: float
@@ -315,7 +321,7 @@ class ItemOptionValue(object):
     def percent_cost_change(self, percent_cost_change):
         """
         Sets the percent_cost_change of this ItemOptionValue.
-
+        Percentage cost change
 
         :param percent_cost_change: The percent_cost_change of this ItemOptionValue.
         :type: float
@@ -327,7 +333,7 @@ class ItemOptionValue(object):
     def translated_text_instance_oid(self):
         """
         Gets the translated_text_instance_oid of this ItemOptionValue.
-
+        Translated text instance id
 
         :return: The translated_text_instance_oid of this ItemOptionValue.
         :rtype: int
@@ -338,7 +344,7 @@ class ItemOptionValue(object):
     def translated_text_instance_oid(self, translated_text_instance_oid):
         """
         Sets the translated_text_instance_oid of this ItemOptionValue.
-
+        Translated text instance id
 
         :param translated_text_instance_oid: The translated_text_instance_oid of this ItemOptionValue.
         :type: int
@@ -350,7 +356,7 @@ class ItemOptionValue(object):
     def value(self):
         """
         Gets the value of this ItemOptionValue.
-
+        Value
 
         :return: The value of this ItemOptionValue.
         :rtype: str
@@ -361,11 +367,16 @@ class ItemOptionValue(object):
     def value(self, value):
         """
         Sets the value of this ItemOptionValue.
-
+        Value
 
         :param value: The value of this ItemOptionValue.
         :type: str
         """
+
+        if not value:
+            raise ValueError("Invalid value for `value`, must not be `None`")
+        if len(value) > 1024:
+            raise ValueError("Invalid value for `value`, length must be less than `1024`")
 
         self._value = value
 
@@ -396,7 +407,7 @@ class ItemOptionValue(object):
     def weight_change_percent(self):
         """
         Gets the weight_change_percent of this ItemOptionValue.
-
+        Percentage weight change
 
         :return: The weight_change_percent of this ItemOptionValue.
         :rtype: float
@@ -407,7 +418,7 @@ class ItemOptionValue(object):
     def weight_change_percent(self, weight_change_percent):
         """
         Sets the weight_change_percent of this ItemOptionValue.
-
+        Percentage weight change
 
         :param weight_change_percent: The weight_change_percent of this ItemOptionValue.
         :type: float

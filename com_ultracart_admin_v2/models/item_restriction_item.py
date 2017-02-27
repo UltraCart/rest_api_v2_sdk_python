@@ -61,7 +61,7 @@ class ItemRestrictionItem(object):
     def restrict_merchant_item_id(self):
         """
         Gets the restrict_merchant_item_id of this ItemRestrictionItem.
-
+        Restrict item id
 
         :return: The restrict_merchant_item_id of this ItemRestrictionItem.
         :rtype: str
@@ -72,7 +72,7 @@ class ItemRestrictionItem(object):
     def restrict_merchant_item_id(self, restrict_merchant_item_id):
         """
         Sets the restrict_merchant_item_id of this ItemRestrictionItem.
-
+        Restrict item id
 
         :param restrict_merchant_item_id: The restrict_merchant_item_id of this ItemRestrictionItem.
         :type: str
@@ -84,7 +84,7 @@ class ItemRestrictionItem(object):
     def restrict_merchant_item_oid(self):
         """
         Gets the restrict_merchant_item_oid of this ItemRestrictionItem.
-
+        Restrict item object identifier
 
         :return: The restrict_merchant_item_oid of this ItemRestrictionItem.
         :rtype: int
@@ -95,7 +95,7 @@ class ItemRestrictionItem(object):
     def restrict_merchant_item_oid(self, restrict_merchant_item_oid):
         """
         Sets the restrict_merchant_item_oid of this ItemRestrictionItem.
-
+        Restrict item object identifier
 
         :param restrict_merchant_item_oid: The restrict_merchant_item_oid of this ItemRestrictionItem.
         :type: int
@@ -107,7 +107,7 @@ class ItemRestrictionItem(object):
     def type(self):
         """
         Gets the type of this ItemRestrictionItem.
-
+        Restriction type
 
         :return: The type of this ItemRestrictionItem.
         :rtype: str
@@ -118,11 +118,17 @@ class ItemRestrictionItem(object):
     def type(self, type):
         """
         Sets the type of this ItemRestrictionItem.
-
+        Restriction type
 
         :param type: The type of this ItemRestrictionItem.
         :type: str
         """
+        allowed_values = ["can not be purchased with", "can only be purchased with", "must be purchased with"]
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"
+                .format(type, allowed_values)
+            )
 
         self._type = type
 

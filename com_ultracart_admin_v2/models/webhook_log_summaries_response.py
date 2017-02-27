@@ -110,7 +110,7 @@ class WebhookLogSummariesResponse(object):
     def success(self):
         """
         Gets the success of this WebhookLogSummariesResponse.
-
+        Indicates if API call was successful
 
         :return: The success of this WebhookLogSummariesResponse.
         :rtype: bool
@@ -121,7 +121,7 @@ class WebhookLogSummariesResponse(object):
     def success(self, success):
         """
         Sets the success of this WebhookLogSummariesResponse.
-
+        Indicates if API call was successful
 
         :param success: The success of this WebhookLogSummariesResponse.
         :type: bool
@@ -133,7 +133,7 @@ class WebhookLogSummariesResponse(object):
     def webhook_log_summaries(self):
         """
         Gets the webhook_log_summaries of this WebhookLogSummariesResponse.
-
+        Webhook log summaries
 
         :return: The webhook_log_summaries of this WebhookLogSummariesResponse.
         :rtype: list[WebhookLogSummary]
@@ -144,7 +144,7 @@ class WebhookLogSummariesResponse(object):
     def webhook_log_summaries(self, webhook_log_summaries):
         """
         Sets the webhook_log_summaries of this WebhookLogSummariesResponse.
-
+        Webhook log summaries
 
         :param webhook_log_summaries: The webhook_log_summaries of this WebhookLogSummariesResponse.
         :type: list[WebhookLogSummary]

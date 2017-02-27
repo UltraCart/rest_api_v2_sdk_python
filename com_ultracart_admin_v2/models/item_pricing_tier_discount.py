@@ -58,7 +58,7 @@ class ItemPricingTierDiscount(object):
     def cost(self):
         """
         Gets the cost of this ItemPricingTierDiscount.
-
+        Cost
 
         :return: The cost of this ItemPricingTierDiscount.
         :rtype: float
@@ -69,7 +69,7 @@ class ItemPricingTierDiscount(object):
     def cost(self, cost):
         """
         Sets the cost of this ItemPricingTierDiscount.
-
+        Cost
 
         :param cost: The cost of this ItemPricingTierDiscount.
         :type: float
@@ -81,7 +81,7 @@ class ItemPricingTierDiscount(object):
     def quantity(self):
         """
         Gets the quantity of this ItemPricingTierDiscount.
-
+        Quantity
 
         :return: The quantity of this ItemPricingTierDiscount.
         :rtype: int
@@ -92,7 +92,7 @@ class ItemPricingTierDiscount(object):
     def quantity(self, quantity):
         """
         Sets the quantity of this ItemPricingTierDiscount.
-
+        Quantity
 
         :param quantity: The quantity of this ItemPricingTierDiscount.
         :type: int

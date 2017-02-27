@@ -61,7 +61,7 @@ class ItemPricingTierLimit(object):
     def cumulative_order_limit(self):
         """
         Gets the cumulative_order_limit of this ItemPricingTierLimit.
-
+        Cumulative order limit
 
         :return: The cumulative_order_limit of this ItemPricingTierLimit.
         :rtype: int
@@ -72,7 +72,7 @@ class ItemPricingTierLimit(object):
     def cumulative_order_limit(self, cumulative_order_limit):
         """
         Sets the cumulative_order_limit of this ItemPricingTierLimit.
-
+        Cumulative order limit
 
         :param cumulative_order_limit: The cumulative_order_limit of this ItemPricingTierLimit.
         :type: int
@@ -84,7 +84,7 @@ class ItemPricingTierLimit(object):
     def individual_order_limit(self):
         """
         Gets the individual_order_limit of this ItemPricingTierLimit.
-
+        Individual order limit
 
         :return: The individual_order_limit of this ItemPricingTierLimit.
         :rtype: int
@@ -95,7 +95,7 @@ class ItemPricingTierLimit(object):
     def individual_order_limit(self, individual_order_limit):
         """
         Sets the individual_order_limit of this ItemPricingTierLimit.
-
+        Individual order limit
 
         :param individual_order_limit: The individual_order_limit of this ItemPricingTierLimit.
         :type: int
@@ -107,7 +107,7 @@ class ItemPricingTierLimit(object):
     def multiple_quantity(self):
         """
         Gets the multiple_quantity of this ItemPricingTierLimit.
-
+        Multiple quantity
 
         :return: The multiple_quantity of this ItemPricingTierLimit.
         :rtype: int
@@ -118,7 +118,7 @@ class ItemPricingTierLimit(object):
     def multiple_quantity(self, multiple_quantity):
         """
         Sets the multiple_quantity of this ItemPricingTierLimit.
-
+        Multiple quantity
 
         :param multiple_quantity: The multiple_quantity of this ItemPricingTierLimit.
         :type: int

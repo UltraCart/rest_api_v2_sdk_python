@@ -58,7 +58,7 @@ class ItemOptionValueAdditionalItem(object):
     def additional_merchant_item_id(self):
         """
         Gets the additional_merchant_item_id of this ItemOptionValueAdditionalItem.
-
+        Additional item id
 
         :return: The additional_merchant_item_id of this ItemOptionValueAdditionalItem.
         :rtype: str
@@ -69,7 +69,7 @@ class ItemOptionValueAdditionalItem(object):
     def additional_merchant_item_id(self, additional_merchant_item_id):
         """
         Sets the additional_merchant_item_id of this ItemOptionValueAdditionalItem.
-
+        Additional item id
 
         :param additional_merchant_item_id: The additional_merchant_item_id of this ItemOptionValueAdditionalItem.
         :type: str
@@ -81,7 +81,7 @@ class ItemOptionValueAdditionalItem(object):
     def additional_merchant_item_oid(self):
         """
         Gets the additional_merchant_item_oid of this ItemOptionValueAdditionalItem.
-
+        Additional item object identifier
 
         :return: The additional_merchant_item_oid of this ItemOptionValueAdditionalItem.
         :rtype: int
@@ -92,7 +92,7 @@ class ItemOptionValueAdditionalItem(object):
     def additional_merchant_item_oid(self, additional_merchant_item_oid):
         """
         Sets the additional_merchant_item_oid of this ItemOptionValueAdditionalItem.
-
+        Additional item object identifier
 
         :param additional_merchant_item_oid: The additional_merchant_item_oid of this ItemOptionValueAdditionalItem.
         :type: int

@@ -61,7 +61,7 @@ class ItemRelated(object):
     def no_system_calculated_related_items(self):
         """
         Gets the no_system_calculated_related_items of this ItemRelated.
-
+        True to suppress system calculated relationships
 
         :return: The no_system_calculated_related_items of this ItemRelated.
         :rtype: bool
@@ -72,7 +72,7 @@ class ItemRelated(object):
     def no_system_calculated_related_items(self, no_system_calculated_related_items):
         """
         Sets the no_system_calculated_related_items of this ItemRelated.
-
+        True to suppress system calculated relationships
 
         :param no_system_calculated_related_items: The no_system_calculated_related_items of this ItemRelated.
         :type: bool
@@ -84,7 +84,7 @@ class ItemRelated(object):
     def not_relatable(self):
         """
         Gets the not_relatable of this ItemRelated.
-
+        Not relatable
 
         :return: The not_relatable of this ItemRelated.
         :rtype: bool
@@ -95,7 +95,7 @@ class ItemRelated(object):
     def not_relatable(self, not_relatable):
         """
         Sets the not_relatable of this ItemRelated.
-
+        Not relatable
 
         :param not_relatable: The not_relatable of this ItemRelated.
         :type: bool
@@ -107,7 +107,7 @@ class ItemRelated(object):
     def related_items(self):
         """
         Gets the related_items of this ItemRelated.
-
+        Related items
 
         :return: The related_items of this ItemRelated.
         :rtype: list[ItemRelatedItem]
@@ -118,7 +118,7 @@ class ItemRelated(object):
     def related_items(self, related_items):
         """
         Sets the related_items of this ItemRelated.
-
+        Related items
 
         :param related_items: The related_items of this ItemRelated.
         :type: list[ItemRelatedItem]

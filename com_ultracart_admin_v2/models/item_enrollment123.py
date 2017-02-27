@@ -55,7 +55,7 @@ class ItemEnrollment123(object):
     def enrollment123_product_code(self):
         """
         Gets the enrollment123_product_code of this ItemEnrollment123.
-
+        Enrolment 123 product code
 
         :return: The enrollment123_product_code of this ItemEnrollment123.
         :rtype: str
@@ -66,7 +66,7 @@ class ItemEnrollment123(object):
     def enrollment123_product_code(self, enrollment123_product_code):
         """
         Sets the enrollment123_product_code of this ItemEnrollment123.
-
+        Enrolment 123 product code
 
         :param enrollment123_product_code: The enrollment123_product_code of this ItemEnrollment123.
         :type: str

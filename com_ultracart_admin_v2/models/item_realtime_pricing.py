@@ -61,7 +61,7 @@ class ItemRealtimePricing(object):
     def realtime_pricing_parameter(self):
         """
         Gets the realtime_pricing_parameter of this ItemRealtimePricing.
-
+        Real-time pricing provider parameters
 
         :return: The realtime_pricing_parameter of this ItemRealtimePricing.
         :rtype: str
@@ -72,7 +72,7 @@ class ItemRealtimePricing(object):
     def realtime_pricing_parameter(self, realtime_pricing_parameter):
         """
         Sets the realtime_pricing_parameter of this ItemRealtimePricing.
-
+        Real-time pricing provider parameters
 
         :param realtime_pricing_parameter: The realtime_pricing_parameter of this ItemRealtimePricing.
         :type: str
@@ -84,7 +84,7 @@ class ItemRealtimePricing(object):
     def realtime_pricing_provider(self):
         """
         Gets the realtime_pricing_provider of this ItemRealtimePricing.
-
+        Real-time pricing provider name
 
         :return: The realtime_pricing_provider of this ItemRealtimePricing.
         :rtype: str
@@ -95,7 +95,7 @@ class ItemRealtimePricing(object):
     def realtime_pricing_provider(self, realtime_pricing_provider):
         """
         Sets the realtime_pricing_provider of this ItemRealtimePricing.
-
+        Real-time pricing provider name
 
         :param realtime_pricing_provider: The realtime_pricing_provider of this ItemRealtimePricing.
         :type: str
@@ -107,7 +107,7 @@ class ItemRealtimePricing(object):
     def realtime_pricing_provider_oid(self):
         """
         Gets the realtime_pricing_provider_oid of this ItemRealtimePricing.
-
+        Real-time pricing provide object identifier
 
         :return: The realtime_pricing_provider_oid of this ItemRealtimePricing.
         :rtype: int
@@ -118,7 +118,7 @@ class ItemRealtimePricing(object):
     def realtime_pricing_provider_oid(self, realtime_pricing_provider_oid):
         """
         Sets the realtime_pricing_provider_oid of this ItemRealtimePricing.
-
+        Real-time pricing provide object identifier
 
         :param realtime_pricing_provider_oid: The realtime_pricing_provider_oid of this ItemRealtimePricing.
         :type: int

@@ -58,7 +58,7 @@ class ItemAmember(object):
     def amember_payment_duration_days(self):
         """
         Gets the amember_payment_duration_days of this ItemAmember.
-
+        The number of days that the customer should be given access to the item
 
         :return: The amember_payment_duration_days of this ItemAmember.
         :rtype: int
@@ -69,7 +69,7 @@ class ItemAmember(object):
     def amember_payment_duration_days(self, amember_payment_duration_days):
         """
         Sets the amember_payment_duration_days of this ItemAmember.
-
+        The number of days that the customer should be given access to the item
 
         :param amember_payment_duration_days: The amember_payment_duration_days of this ItemAmember.
         :type: int
@@ -81,7 +81,7 @@ class ItemAmember(object):
     def amember_product_id(self):
         """
         Gets the amember_product_id of this ItemAmember.
-
+        A-member product id give customer access to when they purchase this item
 
         :return: The amember_product_id of this ItemAmember.
         :rtype: str
@@ -92,11 +92,16 @@ class ItemAmember(object):
     def amember_product_id(self, amember_product_id):
         """
         Sets the amember_product_id of this ItemAmember.
-
+        A-member product id give customer access to when they purchase this item
 
         :param amember_product_id: The amember_product_id of this ItemAmember.
         :type: str
         """
+
+        if not amember_product_id:
+            raise ValueError("Invalid value for `amember_product_id`, must not be `None`")
+        if len(amember_product_id) > 10:
+            raise ValueError("Invalid value for `amember_product_id`, length must be less than `10`")
 
         self._amember_product_id = amember_product_id
 

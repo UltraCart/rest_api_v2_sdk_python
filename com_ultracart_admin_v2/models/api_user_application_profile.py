@@ -67,7 +67,7 @@ class ApiUserApplicationProfile(object):
     def api_application_logo_url(self):
         """
         Gets the api_application_logo_url of this ApiUserApplicationProfile.
-
+        Application logo URL
 
         :return: The api_application_logo_url of this ApiUserApplicationProfile.
         :rtype: str
@@ -78,7 +78,7 @@ class ApiUserApplicationProfile(object):
     def api_application_logo_url(self, api_application_logo_url):
         """
         Sets the api_application_logo_url of this ApiUserApplicationProfile.
-
+        Application logo URL
 
         :param api_application_logo_url: The api_application_logo_url of this ApiUserApplicationProfile.
         :type: str
@@ -90,7 +90,7 @@ class ApiUserApplicationProfile(object):
     def application_description(self):
         """
         Gets the application_description of this ApiUserApplicationProfile.
-
+        Application description
 
         :return: The application_description of this ApiUserApplicationProfile.
         :rtype: str
@@ -101,7 +101,7 @@ class ApiUserApplicationProfile(object):
     def application_description(self, application_description):
         """
         Sets the application_description of this ApiUserApplicationProfile.
-
+        Application description
 
         :param application_description: The application_description of this ApiUserApplicationProfile.
         :type: str
@@ -113,7 +113,7 @@ class ApiUserApplicationProfile(object):
     def application_name(self):
         """
         Gets the application_name of this ApiUserApplicationProfile.
-
+        Application name
 
         :return: The application_name of this ApiUserApplicationProfile.
         :rtype: str
@@ -124,7 +124,7 @@ class ApiUserApplicationProfile(object):
     def application_name(self, application_name):
         """
         Sets the application_name of this ApiUserApplicationProfile.
-
+        Application name
 
         :param application_name: The application_name of this ApiUserApplicationProfile.
         :type: str
@@ -136,7 +136,7 @@ class ApiUserApplicationProfile(object):
     def developer_name(self):
         """
         Gets the developer_name of this ApiUserApplicationProfile.
-
+        Developer name
 
         :return: The developer_name of this ApiUserApplicationProfile.
         :rtype: str
@@ -147,7 +147,7 @@ class ApiUserApplicationProfile(object):
     def developer_name(self, developer_name):
         """
         Sets the developer_name of this ApiUserApplicationProfile.
-
+        Developer name
 
         :param developer_name: The developer_name of this ApiUserApplicationProfile.
         :type: str
@@ -159,7 +159,7 @@ class ApiUserApplicationProfile(object):
     def developer_website(self):
         """
         Gets the developer_website of this ApiUserApplicationProfile.
-
+        Developer website
 
         :return: The developer_website of this ApiUserApplicationProfile.
         :rtype: str
@@ -170,7 +170,7 @@ class ApiUserApplicationProfile(object):
     def developer_website(self, developer_website):
         """
         Sets the developer_website of this ApiUserApplicationProfile.
-
+        Developer website
 
         :param developer_website: The developer_website of this ApiUserApplicationProfile.
         :type: str

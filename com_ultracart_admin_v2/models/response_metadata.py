@@ -58,7 +58,7 @@ class ResponseMetadata(object):
     def payload_name(self):
         """
         Gets the payload_name of this ResponseMetadata.
-
+        Payload name
 
         :return: The payload_name of this ResponseMetadata.
         :rtype: str
@@ -69,7 +69,7 @@ class ResponseMetadata(object):
     def payload_name(self, payload_name):
         """
         Sets the payload_name of this ResponseMetadata.
-
+        Payload name
 
         :param payload_name: The payload_name of this ResponseMetadata.
         :type: str

@@ -61,7 +61,7 @@ class ItemInstantPaymentNotification(object):
     def post_operation(self):
         """
         Gets the post_operation of this ItemInstantPaymentNotification.
-
+        True for HTTP POST instead of GET
 
         :return: The post_operation of this ItemInstantPaymentNotification.
         :rtype: bool
@@ -72,7 +72,7 @@ class ItemInstantPaymentNotification(object):
     def post_operation(self, post_operation):
         """
         Sets the post_operation of this ItemInstantPaymentNotification.
-
+        True for HTTP POST instead of GET
 
         :param post_operation: The post_operation of this ItemInstantPaymentNotification.
         :type: bool
@@ -84,7 +84,7 @@ class ItemInstantPaymentNotification(object):
     def successful_response_text(self):
         """
         Gets the successful_response_text of this ItemInstantPaymentNotification.
-
+        Successful response text
 
         :return: The successful_response_text of this ItemInstantPaymentNotification.
         :rtype: str
@@ -95,11 +95,16 @@ class ItemInstantPaymentNotification(object):
     def successful_response_text(self, successful_response_text):
         """
         Sets the successful_response_text of this ItemInstantPaymentNotification.
-
+        Successful response text
 
         :param successful_response_text: The successful_response_text of this ItemInstantPaymentNotification.
         :type: str
         """
+
+        if not successful_response_text:
+            raise ValueError("Invalid value for `successful_response_text`, must not be `None`")
+        if len(successful_response_text) > 1024:
+            raise ValueError("Invalid value for `successful_response_text`, length must be less than `1024`")
 
         self._successful_response_text = successful_response_text
 
@@ -107,7 +112,7 @@ class ItemInstantPaymentNotification(object):
     def url(self):
         """
         Gets the url of this ItemInstantPaymentNotification.
-
+        URL
 
         :return: The url of this ItemInstantPaymentNotification.
         :rtype: str
@@ -118,11 +123,16 @@ class ItemInstantPaymentNotification(object):
     def url(self, url):
         """
         Sets the url of this ItemInstantPaymentNotification.
-
+        URL
 
         :param url: The url of this ItemInstantPaymentNotification.
         :type: str
         """
+
+        if not url:
+            raise ValueError("Invalid value for `url`, must not be `None`")
+        if len(url) > 1024:
+            raise ValueError("Invalid value for `url`, length must be less than `1024`")
 
         self._url = url
 

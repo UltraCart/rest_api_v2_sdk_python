@@ -70,7 +70,7 @@ class ItemDigitalDelivery(object):
     def activation_code_description(self):
         """
         Gets the activation_code_description of this ItemDigitalDelivery.
-
+        Description of the activation code
 
         :return: The activation_code_description of this ItemDigitalDelivery.
         :rtype: str
@@ -81,11 +81,16 @@ class ItemDigitalDelivery(object):
     def activation_code_description(self, activation_code_description):
         """
         Sets the activation_code_description of this ItemDigitalDelivery.
-
+        Description of the activation code
 
         :param activation_code_description: The activation_code_description of this ItemDigitalDelivery.
         :type: str
         """
+
+        if not activation_code_description:
+            raise ValueError("Invalid value for `activation_code_description`, must not be `None`")
+        if len(activation_code_description) > 50:
+            raise ValueError("Invalid value for `activation_code_description`, length must be less than `50`")
 
         self._activation_code_description = activation_code_description
 
@@ -93,7 +98,7 @@ class ItemDigitalDelivery(object):
     def activation_code_low_warning(self):
         """
         Gets the activation_code_low_warning of this ItemDigitalDelivery.
-
+        The number of activation codes whcih should generate a warning email
 
         :return: The activation_code_low_warning of this ItemDigitalDelivery.
         :rtype: int
@@ -104,7 +109,7 @@ class ItemDigitalDelivery(object):
     def activation_code_low_warning(self, activation_code_low_warning):
         """
         Sets the activation_code_low_warning of this ItemDigitalDelivery.
-
+        The number of activation codes whcih should generate a warning email
 
         :param activation_code_low_warning: The activation_code_low_warning of this ItemDigitalDelivery.
         :type: int
@@ -116,7 +121,7 @@ class ItemDigitalDelivery(object):
     def activation_code_realtime_url(self):
         """
         Gets the activation_code_realtime_url of this ItemDigitalDelivery.
-
+        The URL to retrieve activation codes from in real-time
 
         :return: The activation_code_realtime_url of this ItemDigitalDelivery.
         :rtype: str
@@ -127,11 +132,16 @@ class ItemDigitalDelivery(object):
     def activation_code_realtime_url(self, activation_code_realtime_url):
         """
         Sets the activation_code_realtime_url of this ItemDigitalDelivery.
-
+        The URL to retrieve activation codes from in real-time
 
         :param activation_code_realtime_url: The activation_code_realtime_url of this ItemDigitalDelivery.
         :type: str
         """
+
+        if not activation_code_realtime_url:
+            raise ValueError("Invalid value for `activation_code_realtime_url`, must not be `None`")
+        if len(activation_code_realtime_url) > 350:
+            raise ValueError("Invalid value for `activation_code_realtime_url`, length must be less than `350`")
 
         self._activation_code_realtime_url = activation_code_realtime_url
 
@@ -139,7 +149,7 @@ class ItemDigitalDelivery(object):
     def activation_code_shared_secret(self):
         """
         Gets the activation_code_shared_secret of this ItemDigitalDelivery.
-
+        Shared secret used when communicating with the real-time URL
 
         :return: The activation_code_shared_secret of this ItemDigitalDelivery.
         :rtype: str
@@ -150,11 +160,16 @@ class ItemDigitalDelivery(object):
     def activation_code_shared_secret(self, activation_code_shared_secret):
         """
         Sets the activation_code_shared_secret of this ItemDigitalDelivery.
-
+        Shared secret used when communicating with the real-time URL
 
         :param activation_code_shared_secret: The activation_code_shared_secret of this ItemDigitalDelivery.
         :type: str
         """
+
+        if not activation_code_shared_secret:
+            raise ValueError("Invalid value for `activation_code_shared_secret`, must not be `None`")
+        if len(activation_code_shared_secret) > 20:
+            raise ValueError("Invalid value for `activation_code_shared_secret`, length must be less than `20`")
 
         self._activation_code_shared_secret = activation_code_shared_secret
 
@@ -162,7 +177,7 @@ class ItemDigitalDelivery(object):
     def activation_code_type(self):
         """
         Gets the activation_code_type of this ItemDigitalDelivery.
-
+        Type of activation code
 
         :return: The activation_code_type of this ItemDigitalDelivery.
         :rtype: str
@@ -173,7 +188,7 @@ class ItemDigitalDelivery(object):
     def activation_code_type(self, activation_code_type):
         """
         Sets the activation_code_type of this ItemDigitalDelivery.
-
+        Type of activation code
 
         :param activation_code_type: The activation_code_type of this ItemDigitalDelivery.
         :type: str
@@ -185,7 +200,7 @@ class ItemDigitalDelivery(object):
     def digital_items(self):
         """
         Gets the digital_items of this ItemDigitalDelivery.
-
+        Digital items that customer can download when this item is purchased
 
         :return: The digital_items of this ItemDigitalDelivery.
         :rtype: list[ItemDigitalItem]
@@ -196,7 +211,7 @@ class ItemDigitalDelivery(object):
     def digital_items(self, digital_items):
         """
         Sets the digital_items of this ItemDigitalDelivery.
-
+        Digital items that customer can download when this item is purchased
 
         :param digital_items: The digital_items of this ItemDigitalDelivery.
         :type: list[ItemDigitalItem]

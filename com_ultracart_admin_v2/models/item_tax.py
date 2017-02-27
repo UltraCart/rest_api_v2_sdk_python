@@ -61,7 +61,7 @@ class ItemTax(object):
     def exemptions(self):
         """
         Gets the exemptions of this ItemTax.
-
+        Exemptions
 
         :return: The exemptions of this ItemTax.
         :rtype: list[ItemTaxExemption]
@@ -72,7 +72,7 @@ class ItemTax(object):
     def exemptions(self, exemptions):
         """
         Sets the exemptions of this ItemTax.
-
+        Exemptions
 
         :param exemptions: The exemptions of this ItemTax.
         :type: list[ItemTaxExemption]
@@ -84,7 +84,7 @@ class ItemTax(object):
     def tax_free(self):
         """
         Gets the tax_free of this ItemTax.
-
+        True if tax free
 
         :return: The tax_free of this ItemTax.
         :rtype: bool
@@ -95,7 +95,7 @@ class ItemTax(object):
     def tax_free(self, tax_free):
         """
         Sets the tax_free of this ItemTax.
-
+        True if tax free
 
         :param tax_free: The tax_free of this ItemTax.
         :type: bool
@@ -107,7 +107,7 @@ class ItemTax(object):
     def taxable_cost(self):
         """
         Gets the taxable_cost of this ItemTax.
-
+        Taxable cost if different than regular cost
 
         :return: The taxable_cost of this ItemTax.
         :rtype: float
@@ -118,7 +118,7 @@ class ItemTax(object):
     def taxable_cost(self, taxable_cost):
         """
         Sets the taxable_cost of this ItemTax.
-
+        Taxable cost if different than regular cost
 
         :param taxable_cost: The taxable_cost of this ItemTax.
         :type: float

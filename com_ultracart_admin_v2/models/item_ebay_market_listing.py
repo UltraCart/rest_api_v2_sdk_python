@@ -67,7 +67,7 @@ class ItemEbayMarketListing(object):
     def auction_id(self):
         """
         Gets the auction_id of this ItemEbayMarketListing.
-
+        Auction ID
 
         :return: The auction_id of this ItemEbayMarketListing.
         :rtype: str
@@ -78,7 +78,7 @@ class ItemEbayMarketListing(object):
     def auction_id(self, auction_id):
         """
         Sets the auction_id of this ItemEbayMarketListing.
-
+        Auction ID
 
         :param auction_id: The auction_id of this ItemEbayMarketListing.
         :type: str
@@ -90,7 +90,7 @@ class ItemEbayMarketListing(object):
     def price(self):
         """
         Gets the price of this ItemEbayMarketListing.
-
+        Price
 
         :return: The price of this ItemEbayMarketListing.
         :rtype: float
@@ -101,7 +101,7 @@ class ItemEbayMarketListing(object):
     def price(self, price):
         """
         Sets the price of this ItemEbayMarketListing.
-
+        Price
 
         :param price: The price of this ItemEbayMarketListing.
         :type: float
@@ -113,7 +113,7 @@ class ItemEbayMarketListing(object):
     def seller(self):
         """
         Gets the seller of this ItemEbayMarketListing.
-
+        Seller
 
         :return: The seller of this ItemEbayMarketListing.
         :rtype: str
@@ -124,7 +124,7 @@ class ItemEbayMarketListing(object):
     def seller(self, seller):
         """
         Sets the seller of this ItemEbayMarketListing.
-
+        Seller
 
         :param seller: The seller of this ItemEbayMarketListing.
         :type: str
@@ -136,7 +136,7 @@ class ItemEbayMarketListing(object):
     def shipping(self):
         """
         Gets the shipping of this ItemEbayMarketListing.
-
+        Shipping
 
         :return: The shipping of this ItemEbayMarketListing.
         :rtype: float
@@ -147,7 +147,7 @@ class ItemEbayMarketListing(object):
     def shipping(self, shipping):
         """
         Sets the shipping of this ItemEbayMarketListing.
-
+        Shipping
 
         :param shipping: The shipping of this ItemEbayMarketListing.
         :type: float
@@ -159,7 +159,7 @@ class ItemEbayMarketListing(object):
     def total(self):
         """
         Gets the total of this ItemEbayMarketListing.
-
+        Total
 
         :return: The total of this ItemEbayMarketListing.
         :rtype: float
@@ -170,7 +170,7 @@ class ItemEbayMarketListing(object):
     def total(self, total):
         """
         Sets the total of this ItemEbayMarketListing.
-
+        Total
 
         :param total: The total of this ItemEbayMarketListing.
         :type: float

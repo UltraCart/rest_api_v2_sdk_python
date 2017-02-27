@@ -76,7 +76,7 @@ class ItemRestriction(object):
     def exclude_coupon(self):
         """
         Gets the exclude_coupon of this ItemRestriction.
-
+        Exclude coupons
 
         :return: The exclude_coupon of this ItemRestriction.
         :rtype: bool
@@ -87,7 +87,7 @@ class ItemRestriction(object):
     def exclude_coupon(self, exclude_coupon):
         """
         Sets the exclude_coupon of this ItemRestriction.
-
+        Exclude coupons
 
         :param exclude_coupon: The exclude_coupon of this ItemRestriction.
         :type: bool
@@ -99,7 +99,7 @@ class ItemRestriction(object):
     def exclude_from_free_promotion(self):
         """
         Gets the exclude_from_free_promotion of this ItemRestriction.
-
+        Exclude from free promotion
 
         :return: The exclude_from_free_promotion of this ItemRestriction.
         :rtype: bool
@@ -110,7 +110,7 @@ class ItemRestriction(object):
     def exclude_from_free_promotion(self, exclude_from_free_promotion):
         """
         Sets the exclude_from_free_promotion of this ItemRestriction.
-
+        Exclude from free promotion
 
         :param exclude_from_free_promotion: The exclude_from_free_promotion of this ItemRestriction.
         :type: bool
@@ -122,7 +122,7 @@ class ItemRestriction(object):
     def items(self):
         """
         Gets the items of this ItemRestriction.
-
+        Items
 
         :return: The items of this ItemRestriction.
         :rtype: list[ItemRestrictionItem]
@@ -133,7 +133,7 @@ class ItemRestriction(object):
     def items(self, items):
         """
         Sets the items of this ItemRestriction.
-
+        Items
 
         :param items: The items of this ItemRestriction.
         :type: list[ItemRestrictionItem]
@@ -145,7 +145,7 @@ class ItemRestriction(object):
     def maximum_quantity(self):
         """
         Gets the maximum_quantity of this ItemRestriction.
-
+        Maximum quantity
 
         :return: The maximum_quantity of this ItemRestriction.
         :rtype: int
@@ -156,7 +156,7 @@ class ItemRestriction(object):
     def maximum_quantity(self, maximum_quantity):
         """
         Sets the maximum_quantity of this ItemRestriction.
-
+        Maximum quantity
 
         :param maximum_quantity: The maximum_quantity of this ItemRestriction.
         :type: int
@@ -168,7 +168,7 @@ class ItemRestriction(object):
     def minimum_quantity(self):
         """
         Gets the minimum_quantity of this ItemRestriction.
-
+        Minimum quantity (defaults to 1)
 
         :return: The minimum_quantity of this ItemRestriction.
         :rtype: int
@@ -179,7 +179,7 @@ class ItemRestriction(object):
     def minimum_quantity(self, minimum_quantity):
         """
         Sets the minimum_quantity of this ItemRestriction.
-
+        Minimum quantity (defaults to 1)
 
         :param minimum_quantity: The minimum_quantity of this ItemRestriction.
         :type: int
@@ -191,7 +191,7 @@ class ItemRestriction(object):
     def multiple_quantity(self):
         """
         Gets the multiple_quantity of this ItemRestriction.
-
+        Multiple of quantity
 
         :return: The multiple_quantity of this ItemRestriction.
         :rtype: int
@@ -202,7 +202,7 @@ class ItemRestriction(object):
     def multiple_quantity(self, multiple_quantity):
         """
         Sets the multiple_quantity of this ItemRestriction.
-
+        Multiple of quantity
 
         :param multiple_quantity: The multiple_quantity of this ItemRestriction.
         :type: int
@@ -214,7 +214,7 @@ class ItemRestriction(object):
     def one_per_customer(self):
         """
         Gets the one_per_customer of this ItemRestriction.
-
+        One per customer
 
         :return: The one_per_customer of this ItemRestriction.
         :rtype: bool
@@ -225,7 +225,7 @@ class ItemRestriction(object):
     def one_per_customer(self, one_per_customer):
         """
         Sets the one_per_customer of this ItemRestriction.
-
+        One per customer
 
         :param one_per_customer: The one_per_customer of this ItemRestriction.
         :type: bool
@@ -237,7 +237,7 @@ class ItemRestriction(object):
     def purchase_separately(self):
         """
         Gets the purchase_separately of this ItemRestriction.
-
+        Purchase separately
 
         :return: The purchase_separately of this ItemRestriction.
         :rtype: bool
@@ -248,7 +248,7 @@ class ItemRestriction(object):
     def purchase_separately(self, purchase_separately):
         """
         Sets the purchase_separately of this ItemRestriction.
-
+        Purchase separately
 
         :param purchase_separately: The purchase_separately of this ItemRestriction.
         :type: bool

@@ -58,7 +58,7 @@ class ItemGiftCertificate(object):
     def gift_certificate(self):
         """
         Gets the gift_certificate of this ItemGiftCertificate.
-
+        True if the purchase of this item generates a gift certificate
 
         :return: The gift_certificate of this ItemGiftCertificate.
         :rtype: bool
@@ -69,7 +69,7 @@ class ItemGiftCertificate(object):
     def gift_certificate(self, gift_certificate):
         """
         Sets the gift_certificate of this ItemGiftCertificate.
-
+        True if the purchase of this item generates a gift certificate
 
         :param gift_certificate: The gift_certificate of this ItemGiftCertificate.
         :type: bool
@@ -81,7 +81,7 @@ class ItemGiftCertificate(object):
     def gift_certificate_expiration_days(self):
         """
         Gets the gift_certificate_expiration_days of this ItemGiftCertificate.
-
+        The number of days that the gift certificate is good for (optional)
 
         :return: The gift_certificate_expiration_days of this ItemGiftCertificate.
         :rtype: int
@@ -92,7 +92,7 @@ class ItemGiftCertificate(object):
     def gift_certificate_expiration_days(self, gift_certificate_expiration_days):
         """
         Sets the gift_certificate_expiration_days of this ItemGiftCertificate.
-
+        The number of days that the gift certificate is good for (optional)
 
         :param gift_certificate_expiration_days: The gift_certificate_expiration_days of this ItemGiftCertificate.
         :type: int

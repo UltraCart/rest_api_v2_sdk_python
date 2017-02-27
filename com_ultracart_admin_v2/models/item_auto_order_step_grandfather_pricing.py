@@ -58,7 +58,7 @@ class ItemAutoOrderStepGrandfatherPricing(object):
     def on_or_before_date(self):
         """
         Gets the on_or_before_date of this ItemAutoOrderStepGrandfatherPricing.
-
+        On or before date
 
         :return: The on_or_before_date of this ItemAutoOrderStepGrandfatherPricing.
         :rtype: str
@@ -69,7 +69,7 @@ class ItemAutoOrderStepGrandfatherPricing(object):
     def on_or_before_date(self, on_or_before_date):
         """
         Sets the on_or_before_date of this ItemAutoOrderStepGrandfatherPricing.
-
+        On or before date
 
         :param on_or_before_date: The on_or_before_date of this ItemAutoOrderStepGrandfatherPricing.
         :type: str
@@ -81,7 +81,7 @@ class ItemAutoOrderStepGrandfatherPricing(object):
     def unit_cost(self):
         """
         Gets the unit_cost of this ItemAutoOrderStepGrandfatherPricing.
-
+        Unit cost
 
         :return: The unit_cost of this ItemAutoOrderStepGrandfatherPricing.
         :rtype: float
@@ -92,7 +92,7 @@ class ItemAutoOrderStepGrandfatherPricing(object):
     def unit_cost(self, unit_cost):
         """
         Sets the unit_cost of this ItemAutoOrderStepGrandfatherPricing.
-
+        Unit cost
 
         :param unit_cost: The unit_cost of this ItemAutoOrderStepGrandfatherPricing.
         :type: float

@@ -55,7 +55,7 @@ class ItemInternal(object):
     def memo(self):
         """
         Gets the memo of this ItemInternal.
-
+        Memo
 
         :return: The memo of this ItemInternal.
         :rtype: str
@@ -66,11 +66,16 @@ class ItemInternal(object):
     def memo(self, memo):
         """
         Sets the memo of this ItemInternal.
-
+        Memo
 
         :param memo: The memo of this ItemInternal.
         :type: str
         """
+
+        if not memo:
+            raise ValueError("Invalid value for `memo`, must not be `None`")
+        if len(memo) > 250:
+            raise ValueError("Invalid value for `memo`, length must be less than `250`")
 
         self._memo = memo
 

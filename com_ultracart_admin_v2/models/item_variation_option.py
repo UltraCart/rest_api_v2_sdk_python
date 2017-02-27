@@ -64,7 +64,7 @@ class ItemVariationOption(object):
     def default_option(self):
         """
         Gets the default_option of this ItemVariationOption.
-
+        True if default option
 
         :return: The default_option of this ItemVariationOption.
         :rtype: bool
@@ -75,7 +75,7 @@ class ItemVariationOption(object):
     def default_option(self, default_option):
         """
         Sets the default_option of this ItemVariationOption.
-
+        True if default option
 
         :param default_option: The default_option of this ItemVariationOption.
         :type: bool
@@ -87,7 +87,7 @@ class ItemVariationOption(object):
     def merchant_item_multimedia_oid(self):
         """
         Gets the merchant_item_multimedia_oid of this ItemVariationOption.
-
+        Multimedia object identifier
 
         :return: The merchant_item_multimedia_oid of this ItemVariationOption.
         :rtype: int
@@ -98,7 +98,7 @@ class ItemVariationOption(object):
     def merchant_item_multimedia_oid(self, merchant_item_multimedia_oid):
         """
         Sets the merchant_item_multimedia_oid of this ItemVariationOption.
-
+        Multimedia object identifier
 
         :param merchant_item_multimedia_oid: The merchant_item_multimedia_oid of this ItemVariationOption.
         :type: int
@@ -110,7 +110,7 @@ class ItemVariationOption(object):
     def translated_text_instance_oid(self):
         """
         Gets the translated_text_instance_oid of this ItemVariationOption.
-
+        Translated text instance id
 
         :return: The translated_text_instance_oid of this ItemVariationOption.
         :rtype: int
@@ -121,7 +121,7 @@ class ItemVariationOption(object):
     def translated_text_instance_oid(self, translated_text_instance_oid):
         """
         Sets the translated_text_instance_oid of this ItemVariationOption.
-
+        Translated text instance id
 
         :param translated_text_instance_oid: The translated_text_instance_oid of this ItemVariationOption.
         :type: int
@@ -133,7 +133,7 @@ class ItemVariationOption(object):
     def value(self):
         """
         Gets the value of this ItemVariationOption.
-
+        Value
 
         :return: The value of this ItemVariationOption.
         :rtype: str
@@ -144,11 +144,16 @@ class ItemVariationOption(object):
     def value(self, value):
         """
         Sets the value of this ItemVariationOption.
-
+        Value
 
         :param value: The value of this ItemVariationOption.
         :type: str
         """
+
+        if not value:
+            raise ValueError("Invalid value for `value`, must not be `None`")
+        if len(value) > 50:
+            raise ValueError("Invalid value for `value`, length must be less than `50`")
 
         self._value = value
 

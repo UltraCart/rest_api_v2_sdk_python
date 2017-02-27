@@ -64,7 +64,7 @@ class Error(object):
     def developer_message(self):
         """
         Gets the developer_message of this Error.
-
+        A technical message meant to be read by a developer
 
         :return: The developer_message of this Error.
         :rtype: str
@@ -75,7 +75,7 @@ class Error(object):
     def developer_message(self, developer_message):
         """
         Sets the developer_message of this Error.
-
+        A technical message meant to be read by a developer
 
         :param developer_message: The developer_message of this Error.
         :type: str
@@ -87,7 +87,7 @@ class Error(object):
     def error_code(self):
         """
         Gets the error_code of this Error.
-
+        HTTP status code
 
         :return: The error_code of this Error.
         :rtype: str
@@ -98,7 +98,7 @@ class Error(object):
     def error_code(self, error_code):
         """
         Sets the error_code of this Error.
-
+        HTTP status code
 
         :param error_code: The error_code of this Error.
         :type: str
@@ -110,7 +110,7 @@ class Error(object):
     def more_info(self):
         """
         Gets the more_info of this Error.
-
+        Additional information often a link to additional documentation
 
         :return: The more_info of this Error.
         :rtype: str
@@ -121,7 +121,7 @@ class Error(object):
     def more_info(self, more_info):
         """
         Sets the more_info of this Error.
-
+        Additional information often a link to additional documentation
 
         :param more_info: The more_info of this Error.
         :type: str
@@ -133,7 +133,7 @@ class Error(object):
     def user_message(self):
         """
         Gets the user_message of this Error.
-
+        An end-user friendly message suitable for display to the customer
 
         :return: The user_message of this Error.
         :rtype: str
@@ -144,7 +144,7 @@ class Error(object):
     def user_message(self, user_message):
         """
         Sets the user_message of this Error.
-
+        An end-user friendly message suitable for display to the customer
 
         :param user_message: The user_message of this Error.
         :type: str

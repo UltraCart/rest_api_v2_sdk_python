@@ -70,7 +70,7 @@ class ItemCCBill(object):
     def ccbill_allowed_currencies(self):
         """
         Gets the ccbill_allowed_currencies of this ItemCCBill.
-
+        Allowed currencies
 
         :return: The ccbill_allowed_currencies of this ItemCCBill.
         :rtype: str
@@ -81,7 +81,7 @@ class ItemCCBill(object):
     def ccbill_allowed_currencies(self, ccbill_allowed_currencies):
         """
         Sets the ccbill_allowed_currencies of this ItemCCBill.
-
+        Allowed currencies
 
         :param ccbill_allowed_currencies: The ccbill_allowed_currencies of this ItemCCBill.
         :type: str
@@ -93,7 +93,7 @@ class ItemCCBill(object):
     def ccbill_allowed_types(self):
         """
         Gets the ccbill_allowed_types of this ItemCCBill.
-
+        Allowed types
 
         :return: The ccbill_allowed_types of this ItemCCBill.
         :rtype: str
@@ -104,7 +104,7 @@ class ItemCCBill(object):
     def ccbill_allowed_types(self, ccbill_allowed_types):
         """
         Sets the ccbill_allowed_types of this ItemCCBill.
-
+        Allowed types
 
         :param ccbill_allowed_types: The ccbill_allowed_types of this ItemCCBill.
         :type: str
@@ -116,7 +116,7 @@ class ItemCCBill(object):
     def ccbill_currency_code(self):
         """
         Gets the ccbill_currency_code of this ItemCCBill.
-
+        Currency code
 
         :return: The ccbill_currency_code of this ItemCCBill.
         :rtype: str
@@ -127,7 +127,7 @@ class ItemCCBill(object):
     def ccbill_currency_code(self, ccbill_currency_code):
         """
         Sets the ccbill_currency_code of this ItemCCBill.
-
+        Currency code
 
         :param ccbill_currency_code: The ccbill_currency_code of this ItemCCBill.
         :type: str
@@ -139,7 +139,7 @@ class ItemCCBill(object):
     def ccbill_form_name(self):
         """
         Gets the ccbill_form_name of this ItemCCBill.
-
+        Form name
 
         :return: The ccbill_form_name of this ItemCCBill.
         :rtype: str
@@ -150,7 +150,7 @@ class ItemCCBill(object):
     def ccbill_form_name(self, ccbill_form_name):
         """
         Sets the ccbill_form_name of this ItemCCBill.
-
+        Form name
 
         :param ccbill_form_name: The ccbill_form_name of this ItemCCBill.
         :type: str
@@ -162,7 +162,7 @@ class ItemCCBill(object):
     def ccbill_subaccount_id(self):
         """
         Gets the ccbill_subaccount_id of this ItemCCBill.
-
+        Sub-account id
 
         :return: The ccbill_subaccount_id of this ItemCCBill.
         :rtype: str
@@ -173,7 +173,7 @@ class ItemCCBill(object):
     def ccbill_subaccount_id(self, ccbill_subaccount_id):
         """
         Sets the ccbill_subaccount_id of this ItemCCBill.
-
+        Sub-account id
 
         :param ccbill_subaccount_id: The ccbill_subaccount_id of this ItemCCBill.
         :type: str
@@ -185,7 +185,7 @@ class ItemCCBill(object):
     def ccbill_subscription_type_id(self):
         """
         Gets the ccbill_subscription_type_id of this ItemCCBill.
-
+        Subscription type id
 
         :return: The ccbill_subscription_type_id of this ItemCCBill.
         :rtype: str
@@ -196,7 +196,7 @@ class ItemCCBill(object):
     def ccbill_subscription_type_id(self, ccbill_subscription_type_id):
         """
         Sets the ccbill_subscription_type_id of this ItemCCBill.
-
+        Subscription type id
 
         :param ccbill_subscription_type_id: The ccbill_subscription_type_id of this ItemCCBill.
         :type: str

@@ -58,7 +58,7 @@ class ItemSalesforce(object):
     def sfdc_pricebook_id(self):
         """
         Gets the sfdc_pricebook_id of this ItemSalesforce.
-
+        Salesforce.com pricebook id
 
         :return: The sfdc_pricebook_id of this ItemSalesforce.
         :rtype: str
@@ -69,7 +69,7 @@ class ItemSalesforce(object):
     def sfdc_pricebook_id(self, sfdc_pricebook_id):
         """
         Sets the sfdc_pricebook_id of this ItemSalesforce.
-
+        Salesforce.com pricebook id
 
         :param sfdc_pricebook_id: The sfdc_pricebook_id of this ItemSalesforce.
         :type: str
@@ -81,7 +81,7 @@ class ItemSalesforce(object):
     def sfdc_product_id(self):
         """
         Gets the sfdc_product_id of this ItemSalesforce.
-
+        Salesforce.com product id
 
         :return: The sfdc_product_id of this ItemSalesforce.
         :rtype: str
@@ -92,7 +92,7 @@ class ItemSalesforce(object):
     def sfdc_product_id(self, sfdc_product_id):
         """
         Sets the sfdc_product_id of this ItemSalesforce.
-
+        Salesforce.com product id
 
         :param sfdc_product_id: The sfdc_product_id of this ItemSalesforce.
         :type: str

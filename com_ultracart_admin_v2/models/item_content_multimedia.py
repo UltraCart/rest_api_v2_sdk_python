@@ -97,7 +97,7 @@ class ItemContentMultimedia(object):
     def cloud_url(self):
         """
         Gets the cloud_url of this ItemContentMultimedia.
-
+        URL where the image can be downloaded from the cloud
 
         :return: The cloud_url of this ItemContentMultimedia.
         :rtype: str
@@ -108,7 +108,7 @@ class ItemContentMultimedia(object):
     def cloud_url(self, cloud_url):
         """
         Sets the cloud_url of this ItemContentMultimedia.
-
+        URL where the image can be downloaded from the cloud
 
         :param cloud_url: The cloud_url of this ItemContentMultimedia.
         :type: str
@@ -120,7 +120,7 @@ class ItemContentMultimedia(object):
     def cloud_url_expiration(self):
         """
         Gets the cloud_url_expiration of this ItemContentMultimedia.
-
+        Expiration date of the cloud URL
 
         :return: The cloud_url_expiration of this ItemContentMultimedia.
         :rtype: str
@@ -131,7 +131,7 @@ class ItemContentMultimedia(object):
     def cloud_url_expiration(self, cloud_url_expiration):
         """
         Sets the cloud_url_expiration of this ItemContentMultimedia.
-
+        Expiration date of the cloud URL
 
         :param cloud_url_expiration: The cloud_url_expiration of this ItemContentMultimedia.
         :type: str
@@ -143,7 +143,7 @@ class ItemContentMultimedia(object):
     def code(self):
         """
         Gets the code of this ItemContentMultimedia.
-
+        Code assigned to the file
 
         :return: The code of this ItemContentMultimedia.
         :rtype: str
@@ -154,11 +154,16 @@ class ItemContentMultimedia(object):
     def code(self, code):
         """
         Sets the code of this ItemContentMultimedia.
-
+        Code assigned to the file
 
         :param code: The code of this ItemContentMultimedia.
         :type: str
         """
+
+        if not code:
+            raise ValueError("Invalid value for `code`, must not be `None`")
+        if len(code) > 20:
+            raise ValueError("Invalid value for `code`, length must be less than `20`")
 
         self._code = code
 
@@ -166,7 +171,7 @@ class ItemContentMultimedia(object):
     def description(self):
         """
         Gets the description of this ItemContentMultimedia.
-
+        Description
 
         :return: The description of this ItemContentMultimedia.
         :rtype: str
@@ -177,11 +182,16 @@ class ItemContentMultimedia(object):
     def description(self, description):
         """
         Sets the description of this ItemContentMultimedia.
-
+        Description
 
         :param description: The description of this ItemContentMultimedia.
         :type: str
         """
+
+        if not description:
+            raise ValueError("Invalid value for `description`, must not be `None`")
+        if len(description) > 50000:
+            raise ValueError("Invalid value for `description`, length must be less than `50000`")
 
         self._description = description
 
@@ -189,7 +199,7 @@ class ItemContentMultimedia(object):
     def exclude_from_gallery(self):
         """
         Gets the exclude_from_gallery of this ItemContentMultimedia.
-
+        True to exclude from multimedia gallery
 
         :return: The exclude_from_gallery of this ItemContentMultimedia.
         :rtype: bool
@@ -200,7 +210,7 @@ class ItemContentMultimedia(object):
     def exclude_from_gallery(self, exclude_from_gallery):
         """
         Sets the exclude_from_gallery of this ItemContentMultimedia.
-
+        True to exclude from multimedia gallery
 
         :param exclude_from_gallery: The exclude_from_gallery of this ItemContentMultimedia.
         :type: bool
@@ -212,7 +222,7 @@ class ItemContentMultimedia(object):
     def file_name(self):
         """
         Gets the file_name of this ItemContentMultimedia.
-
+        File name
 
         :return: The file_name of this ItemContentMultimedia.
         :rtype: str
@@ -223,11 +233,16 @@ class ItemContentMultimedia(object):
     def file_name(self, file_name):
         """
         Sets the file_name of this ItemContentMultimedia.
-
+        File name
 
         :param file_name: The file_name of this ItemContentMultimedia.
         :type: str
         """
+
+        if not file_name:
+            raise ValueError("Invalid value for `file_name`, must not be `None`")
+        if len(file_name) > 75:
+            raise ValueError("Invalid value for `file_name`, length must be less than `75`")
 
         self._file_name = file_name
 
@@ -235,7 +250,7 @@ class ItemContentMultimedia(object):
     def height(self):
         """
         Gets the height of this ItemContentMultimedia.
-
+        Height of the image
 
         :return: The height of this ItemContentMultimedia.
         :rtype: int
@@ -246,7 +261,7 @@ class ItemContentMultimedia(object):
     def height(self, height):
         """
         Sets the height of this ItemContentMultimedia.
-
+        Height of the image
 
         :param height: The height of this ItemContentMultimedia.
         :type: int
@@ -258,7 +273,7 @@ class ItemContentMultimedia(object):
     def merchant_item_multimedia_oid(self):
         """
         Gets the merchant_item_multimedia_oid of this ItemContentMultimedia.
-
+        Item multimedia object identifier
 
         :return: The merchant_item_multimedia_oid of this ItemContentMultimedia.
         :rtype: int
@@ -269,7 +284,7 @@ class ItemContentMultimedia(object):
     def merchant_item_multimedia_oid(self, merchant_item_multimedia_oid):
         """
         Sets the merchant_item_multimedia_oid of this ItemContentMultimedia.
-
+        Item multimedia object identifier
 
         :param merchant_item_multimedia_oid: The merchant_item_multimedia_oid of this ItemContentMultimedia.
         :type: int
@@ -281,7 +296,7 @@ class ItemContentMultimedia(object):
     def orphan(self):
         """
         Gets the orphan of this ItemContentMultimedia.
-
+        True if the multimedia is an orphan of the active StoreFront themes
 
         :return: The orphan of this ItemContentMultimedia.
         :rtype: bool
@@ -292,7 +307,7 @@ class ItemContentMultimedia(object):
     def orphan(self, orphan):
         """
         Sets the orphan of this ItemContentMultimedia.
-
+        True if the multimedia is an orphan of the active StoreFront themes
 
         :param orphan: The orphan of this ItemContentMultimedia.
         :type: bool
@@ -304,7 +319,7 @@ class ItemContentMultimedia(object):
     def placeholder(self):
         """
         Gets the placeholder of this ItemContentMultimedia.
-
+        True if the object is a place holder that can be populated
 
         :return: The placeholder of this ItemContentMultimedia.
         :rtype: bool
@@ -315,7 +330,7 @@ class ItemContentMultimedia(object):
     def placeholder(self, placeholder):
         """
         Sets the placeholder of this ItemContentMultimedia.
-
+        True if the object is a place holder that can be populated
 
         :param placeholder: The placeholder of this ItemContentMultimedia.
         :type: bool
@@ -327,7 +342,7 @@ class ItemContentMultimedia(object):
     def temp_multimedia_oid(self):
         """
         Gets the temp_multimedia_oid of this ItemContentMultimedia.
-
+        Temporary multimedia object identifier assigned if uploading new multimedia
 
         :return: The temp_multimedia_oid of this ItemContentMultimedia.
         :rtype: int
@@ -338,7 +353,7 @@ class ItemContentMultimedia(object):
     def temp_multimedia_oid(self, temp_multimedia_oid):
         """
         Sets the temp_multimedia_oid of this ItemContentMultimedia.
-
+        Temporary multimedia object identifier assigned if uploading new multimedia
 
         :param temp_multimedia_oid: The temp_multimedia_oid of this ItemContentMultimedia.
         :type: int
@@ -350,7 +365,7 @@ class ItemContentMultimedia(object):
     def thumbnails(self):
         """
         Gets the thumbnails of this ItemContentMultimedia.
-
+        Thumbnails of this image
 
         :return: The thumbnails of this ItemContentMultimedia.
         :rtype: list[ItemContentMultimediaThumbnail]
@@ -361,7 +376,7 @@ class ItemContentMultimedia(object):
     def thumbnails(self, thumbnails):
         """
         Sets the thumbnails of this ItemContentMultimedia.
-
+        Thumbnails of this image
 
         :param thumbnails: The thumbnails of this ItemContentMultimedia.
         :type: list[ItemContentMultimediaThumbnail]
@@ -373,7 +388,7 @@ class ItemContentMultimedia(object):
     def type(self):
         """
         Gets the type of this ItemContentMultimedia.
-
+        Type of file
 
         :return: The type of this ItemContentMultimedia.
         :rtype: str
@@ -384,11 +399,17 @@ class ItemContentMultimedia(object):
     def type(self, type):
         """
         Sets the type of this ItemContentMultimedia.
-
+        Type of file
 
         :param type: The type of this ItemContentMultimedia.
         :type: str
         """
+        allowed_values = ["Image", "PDF", "Text", "Unknown", "Video"]
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"
+                .format(type, allowed_values)
+            )
 
         self._type = type
 
@@ -396,7 +417,7 @@ class ItemContentMultimedia(object):
     def url(self):
         """
         Gets the url of this ItemContentMultimedia.
-
+        URL to download file
 
         :return: The url of this ItemContentMultimedia.
         :rtype: str
@@ -407,7 +428,7 @@ class ItemContentMultimedia(object):
     def url(self, url):
         """
         Sets the url of this ItemContentMultimedia.
-
+        URL to download file
 
         :param url: The url of this ItemContentMultimedia.
         :type: str
@@ -419,7 +440,7 @@ class ItemContentMultimedia(object):
     def width(self):
         """
         Gets the width of this ItemContentMultimedia.
-
+        Width of the image
 
         :return: The width of this ItemContentMultimedia.
         :rtype: int
@@ -430,7 +451,7 @@ class ItemContentMultimedia(object):
     def width(self, width):
         """
         Sets the width of this ItemContentMultimedia.
-
+        Width of the image
 
         :param width: The width of this ItemContentMultimedia.
         :type: int

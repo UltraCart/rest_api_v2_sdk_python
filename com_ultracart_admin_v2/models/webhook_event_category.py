@@ -61,7 +61,7 @@ class WebhookEventCategory(object):
     def event_category(self):
         """
         Gets the event_category of this WebhookEventCategory.
-
+        Name of the event category
 
         :return: The event_category of this WebhookEventCategory.
         :rtype: str
@@ -72,7 +72,7 @@ class WebhookEventCategory(object):
     def event_category(self, event_category):
         """
         Sets the event_category of this WebhookEventCategory.
-
+        Name of the event category
 
         :param event_category: The event_category of this WebhookEventCategory.
         :type: str
@@ -84,7 +84,7 @@ class WebhookEventCategory(object):
     def events(self):
         """
         Gets the events of this WebhookEventCategory.
-
+        The events within the category.  Individual subscription flags contained within the child object.
 
         :return: The events of this WebhookEventCategory.
         :rtype: list[WebhookEventSubscription]
@@ -95,7 +95,7 @@ class WebhookEventCategory(object):
     def events(self, events):
         """
         Sets the events of this WebhookEventCategory.
-
+        The events within the category.  Individual subscription flags contained within the child object.
 
         :param events: The events of this WebhookEventCategory.
         :type: list[WebhookEventSubscription]
@@ -107,7 +107,7 @@ class WebhookEventCategory(object):
     def subscribed(self):
         """
         Gets the subscribed of this WebhookEventCategory.
-
+        True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.
 
         :return: The subscribed of this WebhookEventCategory.
         :rtype: bool
@@ -118,7 +118,7 @@ class WebhookEventCategory(object):
     def subscribed(self, subscribed):
         """
         Sets the subscribed of this WebhookEventCategory.
-
+        True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.
 
         :param subscribed: The subscribed of this WebhookEventCategory.
         :type: bool

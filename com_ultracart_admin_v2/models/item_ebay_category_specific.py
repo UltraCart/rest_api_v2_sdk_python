@@ -58,7 +58,7 @@ class ItemEbayCategorySpecific(object):
     def name(self):
         """
         Gets the name of this ItemEbayCategorySpecific.
-
+        Name of the category specification field
 
         :return: The name of this ItemEbayCategorySpecific.
         :rtype: str
@@ -69,7 +69,7 @@ class ItemEbayCategorySpecific(object):
     def name(self, name):
         """
         Sets the name of this ItemEbayCategorySpecific.
-
+        Name of the category specification field
 
         :param name: The name of this ItemEbayCategorySpecific.
         :type: str
@@ -81,7 +81,7 @@ class ItemEbayCategorySpecific(object):
     def value(self):
         """
         Gets the value of this ItemEbayCategorySpecific.
-
+        Value
 
         :return: The value of this ItemEbayCategorySpecific.
         :rtype: str
@@ -92,7 +92,7 @@ class ItemEbayCategorySpecific(object):
     def value(self, value):
         """
         Sets the value of this ItemEbayCategorySpecific.
-
+        Value
 
         :param value: The value of this ItemEbayCategorySpecific.
         :type: str

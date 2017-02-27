@@ -66,6 +66,10 @@ class WebhookApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
+        :param int limit: The maximum number of records to return on this one API call.
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the webhooks.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: WebhooksResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -92,12 +96,16 @@ class WebhookApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
+        :param int limit: The maximum number of records to return on this one API call.
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the webhooks.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: WebhooksResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['limit', 'offset', 'sort', 'placeholders']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -115,6 +123,14 @@ class WebhookApi(object):
         path_params = {}
 
         query_params = {}
+        if 'limit' in params:
+            query_params['_limit'] = params['limit']
+        if 'offset' in params:
+            query_params['_offset'] = params['offset']
+        if 'sort' in params:
+            query_params['_sort'] = params['sort']
+        if 'placeholders' in params:
+            query_params['_placeholders'] = params['placeholders']
 
         header_params = {}
 
@@ -151,7 +167,7 @@ class WebhookApi(object):
     def webhook_webhooks_post(self, webhook, **kwargs):
         """
         Add a webhook
-        Adds a new webhook on the account 
+        Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -164,7 +180,8 @@ class WebhookApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Webhook webhook: Webhook to create (required)
-        :return: WebhooksResponse
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: WebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -178,7 +195,7 @@ class WebhookApi(object):
     def webhook_webhooks_post_with_http_info(self, webhook, **kwargs):
         """
         Add a webhook
-        Adds a new webhook on the account 
+        Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -191,12 +208,13 @@ class WebhookApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Webhook webhook: Webhook to create (required)
-        :return: WebhooksResponse
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: WebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['webhook']
+        all_params = ['webhook', 'placeholders']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -217,6 +235,8 @@ class WebhookApi(object):
         path_params = {}
 
         query_params = {}
+        if 'placeholders' in params:
+            query_params['_placeholders'] = params['placeholders']
 
         header_params = {}
 
@@ -235,7 +255,7 @@ class WebhookApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
+            select_header_content_type(['application/json; charset=UTF-8'])
 
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
@@ -247,7 +267,7 @@ class WebhookApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='WebhooksResponse',
+                                            response_type='WebhookResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -372,6 +392,9 @@ class WebhookApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int webhook_oid: The webhook oid to retrieve log summaries for. (required)
+        :param int limit: The maximum number of records to return on this one API call.
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch log summaries that have been delivered since this date/time.
         :return: WebhookLogSummariesResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -399,12 +422,15 @@ class WebhookApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int webhook_oid: The webhook oid to retrieve log summaries for. (required)
+        :param int limit: The maximum number of records to return on this one API call.
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch log summaries that have been delivered since this date/time.
         :return: WebhookLogSummariesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['webhook_oid']
+        all_params = ['webhook_oid', 'limit', 'offset', 'since']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -427,6 +453,12 @@ class WebhookApi(object):
             path_params['webhookOid'] = params['webhook_oid']
 
         query_params = {}
+        if 'limit' in params:
+            query_params['_limit'] = params['limit']
+        if 'offset' in params:
+            query_params['_offset'] = params['offset']
+        if 'since' in params:
+            query_params['_since'] = params['since']
 
         header_params = {}
 
@@ -588,7 +620,8 @@ class WebhookApi(object):
             for asynchronous request. (optional)
         :param Webhook webhook: Webhook to update (required)
         :param int webhook_oid: The webhook oid to update. (required)
-        :return: WebhooksResponse
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: WebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -616,12 +649,13 @@ class WebhookApi(object):
             for asynchronous request. (optional)
         :param Webhook webhook: Webhook to update (required)
         :param int webhook_oid: The webhook oid to update. (required)
-        :return: WebhooksResponse
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: WebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['webhook', 'webhook_oid']
+        all_params = ['webhook', 'webhook_oid', 'placeholders']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -647,6 +681,8 @@ class WebhookApi(object):
             path_params['webhookOid'] = params['webhook_oid']
 
         query_params = {}
+        if 'placeholders' in params:
+            query_params['_placeholders'] = params['placeholders']
 
         header_params = {}
 
@@ -665,7 +701,7 @@ class WebhookApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
+            select_header_content_type(['application/json; charset=UTF-8'])
 
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
@@ -677,7 +713,7 @@ class WebhookApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='WebhooksResponse',
+                                            response_type='WebhookResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -776,7 +812,7 @@ class WebhookApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
+            select_header_content_type(['application/json; charset=UTF-8'])
 
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
@@ -789,221 +825,6 @@ class WebhookApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='WebhookSampleRequestResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def webhook_webhooks_webhook_oid_samples_get(self, webhook_oid, **kwargs):
-        """
-        Retrieve a sample notification.
-        Retrieves a sample notification for the webhook.  This provides as example of what the notifications that can be delivered will look like. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_samples_get(webhook_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid to retrieve samples for. (required)
-        :return: WebhookSampleRequestResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.webhook_webhooks_webhook_oid_samples_get_with_http_info(webhook_oid, **kwargs)
-        else:
-            (data) = self.webhook_webhooks_webhook_oid_samples_get_with_http_info(webhook_oid, **kwargs)
-            return data
-
-    def webhook_webhooks_webhook_oid_samples_get_with_http_info(self, webhook_oid, **kwargs):
-        """
-        Retrieve a sample notification.
-        Retrieves a sample notification for the webhook.  This provides as example of what the notifications that can be delivered will look like. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_samples_get_with_http_info(webhook_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid to retrieve samples for. (required)
-        :return: WebhookSampleRequestResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['webhook_oid']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method webhook_webhooks_webhook_oid_samples_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'webhook_oid' is set
-        if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
-            raise ValueError("Missing the required parameter `webhook_oid` when calling `webhook_webhooks_webhook_oid_samples_get`")
-
-        resource_path = '/webhook/webhooks/{webhookOid}/samples'.replace('{format}', 'json')
-        path_params = {}
-        if 'webhook_oid' in params:
-            path_params['webhookOid'] = params['webhook_oid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='WebhookSampleRequestResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def webhook_webhooks_webhook_oid_validate_post(self, samples, webhook_oid, **kwargs):
-        """
-        Send test message to an endpoint.
-        Performs a test of the webhook endpoint given the specified sample request and returns the log associated with the response. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_validate_post(samples, webhook_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param WebhookSampleRequest samples: Samples to send in the test (required)
-        :param int webhook_oid: The webhook oid that is being tested. (required)
-        :return: WebhookLogResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.webhook_webhooks_webhook_oid_validate_post_with_http_info(samples, webhook_oid, **kwargs)
-        else:
-            (data) = self.webhook_webhooks_webhook_oid_validate_post_with_http_info(samples, webhook_oid, **kwargs)
-            return data
-
-    def webhook_webhooks_webhook_oid_validate_post_with_http_info(self, samples, webhook_oid, **kwargs):
-        """
-        Send test message to an endpoint.
-        Performs a test of the webhook endpoint given the specified sample request and returns the log associated with the response. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_validate_post_with_http_info(samples, webhook_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param WebhookSampleRequest samples: Samples to send in the test (required)
-        :param int webhook_oid: The webhook oid that is being tested. (required)
-        :return: WebhookLogResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['samples', 'webhook_oid']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method webhook_webhooks_webhook_oid_validate_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'samples' is set
-        if ('samples' not in params) or (params['samples'] is None):
-            raise ValueError("Missing the required parameter `samples` when calling `webhook_webhooks_webhook_oid_validate_post`")
-        # verify the required parameter 'webhook_oid' is set
-        if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
-            raise ValueError("Missing the required parameter `webhook_oid` when calling `webhook_webhooks_webhook_oid_validate_post`")
-
-        resource_path = '/webhook/webhooks/{webhookOid}/validate'.replace('{format}', 'json')
-        path_params = {}
-        if 'webhook_oid' in params:
-            path_params['webhookOid'] = params['webhook_oid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'samples' in params:
-            body_params = params['samples']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'POST',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='WebhookLogResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

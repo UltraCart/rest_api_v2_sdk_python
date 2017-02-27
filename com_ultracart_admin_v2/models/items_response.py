@@ -87,7 +87,7 @@ class ItemsResponse(object):
     def items(self):
         """
         Gets the items of this ItemsResponse.
-
+        items
 
         :return: The items of this ItemsResponse.
         :rtype: list[Item]
@@ -98,7 +98,7 @@ class ItemsResponse(object):
     def items(self, items):
         """
         Sets the items of this ItemsResponse.
-
+        items
 
         :param items: The items of this ItemsResponse.
         :type: list[Item]
@@ -133,7 +133,7 @@ class ItemsResponse(object):
     def success(self):
         """
         Gets the success of this ItemsResponse.
-
+        Indicates if API call was successful
 
         :return: The success of this ItemsResponse.
         :rtype: bool
@@ -144,7 +144,7 @@ class ItemsResponse(object):
     def success(self, success):
         """
         Sets the success of this ItemsResponse.
-
+        Indicates if API call was successful
 
         :param success: The success of this ItemsResponse.
         :type: bool

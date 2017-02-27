@@ -58,7 +58,7 @@ class ItemAccounting(object):
     def accounting_code(self):
         """
         Gets the accounting_code of this ItemAccounting.
-
+        QuickBooks item name if different than the item id
 
         :return: The accounting_code of this ItemAccounting.
         :rtype: str
@@ -69,11 +69,16 @@ class ItemAccounting(object):
     def accounting_code(self, accounting_code):
         """
         Sets the accounting_code of this ItemAccounting.
-
+        QuickBooks item name if different than the item id
 
         :param accounting_code: The accounting_code of this ItemAccounting.
         :type: str
         """
+
+        if not accounting_code:
+            raise ValueError("Invalid value for `accounting_code`, must not be `None`")
+        if len(accounting_code) > 50:
+            raise ValueError("Invalid value for `accounting_code`, length must be less than `50`")
 
         self._accounting_code = accounting_code
 
@@ -81,7 +86,7 @@ class ItemAccounting(object):
     def qb_class(self):
         """
         Gets the qb_class of this ItemAccounting.
-
+        QuickBooks class if you are classifying items on your invoices/receipts
 
         :return: The qb_class of this ItemAccounting.
         :rtype: str
@@ -92,11 +97,16 @@ class ItemAccounting(object):
     def qb_class(self, qb_class):
         """
         Sets the qb_class of this ItemAccounting.
-
+        QuickBooks class if you are classifying items on your invoices/receipts
 
         :param qb_class: The qb_class of this ItemAccounting.
         :type: str
         """
+
+        if not qb_class:
+            raise ValueError("Invalid value for `qb_class`, must not be `None`")
+        if len(qb_class) > 31:
+            raise ValueError("Invalid value for `qb_class`, length must be less than `31`")
 
         self._qb_class = qb_class
 

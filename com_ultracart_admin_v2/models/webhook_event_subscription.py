@@ -76,7 +76,7 @@ class WebhookEventSubscription(object):
     def comments(self):
         """
         Gets the comments of this WebhookEventSubscription.
-
+        Comment about the event to provide further clarification to the end user
 
         :return: The comments of this WebhookEventSubscription.
         :rtype: str
@@ -87,7 +87,7 @@ class WebhookEventSubscription(object):
     def comments(self, comments):
         """
         Sets the comments of this WebhookEventSubscription.
-
+        Comment about the event to provide further clarification to the end user
 
         :param comments: The comments of this WebhookEventSubscription.
         :type: str
@@ -99,7 +99,7 @@ class WebhookEventSubscription(object):
     def deprecated_flag(self):
         """
         Gets the deprecated_flag of this WebhookEventSubscription.
-
+        True if the event is deprecated.  See the API change log for details on when it will be discontinued.
 
         :return: The deprecated_flag of this WebhookEventSubscription.
         :rtype: bool
@@ -110,7 +110,7 @@ class WebhookEventSubscription(object):
     def deprecated_flag(self, deprecated_flag):
         """
         Sets the deprecated_flag of this WebhookEventSubscription.
-
+        True if the event is deprecated.  See the API change log for details on when it will be discontinued.
 
         :param deprecated_flag: The deprecated_flag of this WebhookEventSubscription.
         :type: bool
@@ -122,7 +122,7 @@ class WebhookEventSubscription(object):
     def discontinued_flag(self):
         """
         Gets the discontinued_flag of this WebhookEventSubscription.
-
+        True if the event is discontinued.  See the API change log for details on migration details.
 
         :return: The discontinued_flag of this WebhookEventSubscription.
         :rtype: bool
@@ -133,7 +133,7 @@ class WebhookEventSubscription(object):
     def discontinued_flag(self, discontinued_flag):
         """
         Sets the discontinued_flag of this WebhookEventSubscription.
-
+        True if the event is discontinued.  See the API change log for details on migration details.
 
         :param discontinued_flag: The discontinued_flag of this WebhookEventSubscription.
         :type: bool
@@ -145,7 +145,7 @@ class WebhookEventSubscription(object):
     def event_description(self):
         """
         Gets the event_description of this WebhookEventSubscription.
-
+        Description of the event
 
         :return: The event_description of this WebhookEventSubscription.
         :rtype: str
@@ -156,7 +156,7 @@ class WebhookEventSubscription(object):
     def event_description(self, event_description):
         """
         Sets the event_description of this WebhookEventSubscription.
-
+        Description of the event
 
         :param event_description: The event_description of this WebhookEventSubscription.
         :type: str
@@ -168,7 +168,7 @@ class WebhookEventSubscription(object):
     def event_name(self):
         """
         Gets the event_name of this WebhookEventSubscription.
-
+        Event name
 
         :return: The event_name of this WebhookEventSubscription.
         :rtype: str
@@ -179,7 +179,7 @@ class WebhookEventSubscription(object):
     def event_name(self, event_name):
         """
         Sets the event_name of this WebhookEventSubscription.
-
+        Event name
 
         :param event_name: The event_name of this WebhookEventSubscription.
         :type: str
@@ -191,7 +191,7 @@ class WebhookEventSubscription(object):
     def expansion(self):
         """
         Gets the expansion of this WebhookEventSubscription.
-
+        The expand string for the notification object.  See the individual resource _expand documentation for valid values.
 
         :return: The expansion of this WebhookEventSubscription.
         :rtype: str
@@ -202,7 +202,7 @@ class WebhookEventSubscription(object):
     def expansion(self, expansion):
         """
         Sets the expansion of this WebhookEventSubscription.
-
+        The expand string for the notification object.  See the individual resource _expand documentation for valid values.
 
         :param expansion: The expansion of this WebhookEventSubscription.
         :type: str
@@ -214,7 +214,7 @@ class WebhookEventSubscription(object):
     def subscribed(self):
         """
         Gets the subscribed of this WebhookEventSubscription.
-
+        True if this is event is subscribed to
 
         :return: The subscribed of this WebhookEventSubscription.
         :rtype: bool
@@ -225,7 +225,7 @@ class WebhookEventSubscription(object):
     def subscribed(self, subscribed):
         """
         Sets the subscribed of this WebhookEventSubscription.
-
+        True if this is event is subscribed to
 
         :param subscribed: The subscribed of this WebhookEventSubscription.
         :type: bool
@@ -237,7 +237,7 @@ class WebhookEventSubscription(object):
     def webhook_event_oid(self):
         """
         Gets the webhook_event_oid of this WebhookEventSubscription.
-
+        The webhook event object identifier
 
         :return: The webhook_event_oid of this WebhookEventSubscription.
         :rtype: int
@@ -248,7 +248,7 @@ class WebhookEventSubscription(object):
     def webhook_event_oid(self, webhook_event_oid):
         """
         Sets the webhook_event_oid of this WebhookEventSubscription.
-
+        The webhook event object identifier
 
         :param webhook_event_oid: The webhook_event_oid of this WebhookEventSubscription.
         :type: int

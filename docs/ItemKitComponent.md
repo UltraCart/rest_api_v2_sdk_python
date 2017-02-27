@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**component_cost** | **float** |  | [optional] 
-**component_description** | **str** |  | [optional] 
-**component_merchant_item_id** | **str** |  | [optional] 
-**component_merchant_item_oid** | **int** |  | [optional] 
-**quantity** | **int** |  | [optional] 
+**component_cost** | **float** | Component item cost | [optional] 
+**component_description** | **str** | Component item description | [optional] 
+**component_merchant_item_id** | **str** | Component item ID | [optional] 
+**component_merchant_item_oid** | **int** | Component item object identifier | [optional] 
+**quantity** | **int** | Quantity | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

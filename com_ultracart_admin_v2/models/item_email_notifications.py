@@ -58,7 +58,7 @@ class ItemEmailNotifications(object):
     def skip_receipt(self):
         """
         Gets the skip_receipt of this ItemEmailNotifications.
-
+        Skip receipt email to customer
 
         :return: The skip_receipt of this ItemEmailNotifications.
         :rtype: bool
@@ -69,7 +69,7 @@ class ItemEmailNotifications(object):
     def skip_receipt(self, skip_receipt):
         """
         Sets the skip_receipt of this ItemEmailNotifications.
-
+        Skip receipt email to customer
 
         :param skip_receipt: The skip_receipt of this ItemEmailNotifications.
         :type: bool
@@ -81,7 +81,7 @@ class ItemEmailNotifications(object):
     def skip_shipment_notification(self):
         """
         Gets the skip_shipment_notification of this ItemEmailNotifications.
-
+        Skip shipment notification to customer
 
         :return: The skip_shipment_notification of this ItemEmailNotifications.
         :rtype: bool
@@ -92,7 +92,7 @@ class ItemEmailNotifications(object):
     def skip_shipment_notification(self, skip_shipment_notification):
         """
         Sets the skip_shipment_notification of this ItemEmailNotifications.
-
+        Skip shipment notification to customer
 
         :param skip_shipment_notification: The skip_shipment_notification of this ItemEmailNotifications.
         :type: bool

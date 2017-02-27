@@ -64,7 +64,7 @@ class WebhookSampleRequest(object):
     def request(self):
         """
         Gets the request of this WebhookSampleRequest.
-
+        Request
 
         :return: The request of this WebhookSampleRequest.
         :rtype: str
@@ -75,7 +75,7 @@ class WebhookSampleRequest(object):
     def request(self, request):
         """
         Sets the request of this WebhookSampleRequest.
-
+        Request
 
         :param request: The request of this WebhookSampleRequest.
         :type: str
@@ -87,7 +87,7 @@ class WebhookSampleRequest(object):
     def request_headers(self):
         """
         Gets the request_headers of this WebhookSampleRequest.
-
+        Request headers
 
         :return: The request_headers of this WebhookSampleRequest.
         :rtype: list[HTTPHeader]
@@ -98,7 +98,7 @@ class WebhookSampleRequest(object):
     def request_headers(self, request_headers):
         """
         Sets the request_headers of this WebhookSampleRequest.
-
+        Request headers
 
         :param request_headers: The request_headers of this WebhookSampleRequest.
         :type: list[HTTPHeader]
@@ -110,7 +110,7 @@ class WebhookSampleRequest(object):
     def request_id(self):
         """
         Gets the request_id of this WebhookSampleRequest.
-
+        Request id
 
         :return: The request_id of this WebhookSampleRequest.
         :rtype: str
@@ -121,7 +121,7 @@ class WebhookSampleRequest(object):
     def request_id(self, request_id):
         """
         Sets the request_id of this WebhookSampleRequest.
-
+        Request id
 
         :param request_id: The request_id of this WebhookSampleRequest.
         :type: str
@@ -133,7 +133,7 @@ class WebhookSampleRequest(object):
     def uri(self):
         """
         Gets the uri of this WebhookSampleRequest.
-
+        URI to send request to
 
         :return: The uri of this WebhookSampleRequest.
         :rtype: str
@@ -144,7 +144,7 @@ class WebhookSampleRequest(object):
     def uri(self, uri):
         """
         Sets the uri of this WebhookSampleRequest.
-
+        URI to send request to
 
         :param uri: The uri of this WebhookSampleRequest.
         :type: str

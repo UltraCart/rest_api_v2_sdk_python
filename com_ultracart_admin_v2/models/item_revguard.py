@@ -73,7 +73,7 @@ class ItemRevguard(object):
     def revguard_canceled_csr_prompt_group(self):
         """
         Gets the revguard_canceled_csr_prompt_group of this ItemRevguard.
-
+        Canceled CSR prompt group
 
         :return: The revguard_canceled_csr_prompt_group of this ItemRevguard.
         :rtype: int
@@ -84,7 +84,7 @@ class ItemRevguard(object):
     def revguard_canceled_csr_prompt_group(self, revguard_canceled_csr_prompt_group):
         """
         Sets the revguard_canceled_csr_prompt_group of this ItemRevguard.
-
+        Canceled CSR prompt group
 
         :param revguard_canceled_csr_prompt_group: The revguard_canceled_csr_prompt_group of this ItemRevguard.
         :type: int
@@ -96,7 +96,7 @@ class ItemRevguard(object):
     def revguard_canceled_ivr_prompt_group(self):
         """
         Gets the revguard_canceled_ivr_prompt_group of this ItemRevguard.
-
+        IVR prompt group
 
         :return: The revguard_canceled_ivr_prompt_group of this ItemRevguard.
         :rtype: int
@@ -107,7 +107,7 @@ class ItemRevguard(object):
     def revguard_canceled_ivr_prompt_group(self, revguard_canceled_ivr_prompt_group):
         """
         Sets the revguard_canceled_ivr_prompt_group of this ItemRevguard.
-
+        IVR prompt group
 
         :param revguard_canceled_ivr_prompt_group: The revguard_canceled_ivr_prompt_group of this ItemRevguard.
         :type: int
@@ -119,7 +119,7 @@ class ItemRevguard(object):
     def revguard_canceled_web_prompt_group(self):
         """
         Gets the revguard_canceled_web_prompt_group of this ItemRevguard.
-
+        Canceled web prompt group
 
         :return: The revguard_canceled_web_prompt_group of this ItemRevguard.
         :rtype: int
@@ -130,7 +130,7 @@ class ItemRevguard(object):
     def revguard_canceled_web_prompt_group(self, revguard_canceled_web_prompt_group):
         """
         Sets the revguard_canceled_web_prompt_group of this ItemRevguard.
-
+        Canceled web prompt group
 
         :param revguard_canceled_web_prompt_group: The revguard_canceled_web_prompt_group of this ItemRevguard.
         :type: int
@@ -142,7 +142,7 @@ class ItemRevguard(object):
     def revguard_client_brand(self):
         """
         Gets the revguard_client_brand of this ItemRevguard.
-
+        Client brand
 
         :return: The revguard_client_brand of this ItemRevguard.
         :rtype: int
@@ -153,7 +153,7 @@ class ItemRevguard(object):
     def revguard_client_brand(self, revguard_client_brand):
         """
         Sets the revguard_client_brand of this ItemRevguard.
-
+        Client brand
 
         :param revguard_client_brand: The revguard_client_brand of this ItemRevguard.
         :type: int
@@ -165,7 +165,7 @@ class ItemRevguard(object):
     def revguard_csr_prompt_group(self):
         """
         Gets the revguard_csr_prompt_group of this ItemRevguard.
-
+        CSR prompt group
 
         :return: The revguard_csr_prompt_group of this ItemRevguard.
         :rtype: int
@@ -176,7 +176,7 @@ class ItemRevguard(object):
     def revguard_csr_prompt_group(self, revguard_csr_prompt_group):
         """
         Sets the revguard_csr_prompt_group of this ItemRevguard.
-
+        CSR prompt group
 
         :param revguard_csr_prompt_group: The revguard_csr_prompt_group of this ItemRevguard.
         :type: int
@@ -188,7 +188,7 @@ class ItemRevguard(object):
     def revguard_ivr_prompt_group(self):
         """
         Gets the revguard_ivr_prompt_group of this ItemRevguard.
-
+        IVR prompt group
 
         :return: The revguard_ivr_prompt_group of this ItemRevguard.
         :rtype: int
@@ -199,7 +199,7 @@ class ItemRevguard(object):
     def revguard_ivr_prompt_group(self, revguard_ivr_prompt_group):
         """
         Sets the revguard_ivr_prompt_group of this ItemRevguard.
-
+        IVR prompt group
 
         :param revguard_ivr_prompt_group: The revguard_ivr_prompt_group of this ItemRevguard.
         :type: int
@@ -211,7 +211,7 @@ class ItemRevguard(object):
     def revguard_web_prompt_group(self):
         """
         Gets the revguard_web_prompt_group of this ItemRevguard.
-
+        Web prompt group
 
         :return: The revguard_web_prompt_group of this ItemRevguard.
         :rtype: int
@@ -222,7 +222,7 @@ class ItemRevguard(object):
     def revguard_web_prompt_group(self, revguard_web_prompt_group):
         """
         Sets the revguard_web_prompt_group of this ItemRevguard.
-
+        Web prompt group
 
         :param revguard_web_prompt_group: The revguard_web_prompt_group of this ItemRevguard.
         :type: int

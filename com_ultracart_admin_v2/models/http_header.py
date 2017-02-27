@@ -58,7 +58,7 @@ class HTTPHeader(object):
     def name(self):
         """
         Gets the name of this HTTPHeader.
-
+        Name of the HTTP header
 
         :return: The name of this HTTPHeader.
         :rtype: str
@@ -69,7 +69,7 @@ class HTTPHeader(object):
     def name(self, name):
         """
         Sets the name of this HTTPHeader.
-
+        Name of the HTTP header
 
         :param name: The name of this HTTPHeader.
         :type: str
@@ -81,7 +81,7 @@ class HTTPHeader(object):
     def value(self):
         """
         Gets the value of this HTTPHeader.
-
+        Value of the HTTP header
 
         :return: The value of this HTTPHeader.
         :rtype: str
@@ -92,7 +92,7 @@ class HTTPHeader(object):
     def value(self, value):
         """
         Sets the value of this HTTPHeader.
-
+        Value of the HTTP header
 
         :param value: The value of this HTTPHeader.
         :type: str

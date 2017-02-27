@@ -67,7 +67,7 @@ class ItemThirdPartyEmailMarketing(object):
     def add_tags(self):
         """
         Gets the add_tags of this ItemThirdPartyEmailMarketing.
-
+        Add tags
 
         :return: The add_tags of this ItemThirdPartyEmailMarketing.
         :rtype: list[str]
@@ -78,7 +78,7 @@ class ItemThirdPartyEmailMarketing(object):
     def add_tags(self, add_tags):
         """
         Sets the add_tags of this ItemThirdPartyEmailMarketing.
-
+        Add tags
 
         :param add_tags: The add_tags of this ItemThirdPartyEmailMarketing.
         :type: list[str]
@@ -90,7 +90,7 @@ class ItemThirdPartyEmailMarketing(object):
     def provider_name(self):
         """
         Gets the provider_name of this ItemThirdPartyEmailMarketing.
-
+        Provider name
 
         :return: The provider_name of this ItemThirdPartyEmailMarketing.
         :rtype: str
@@ -101,11 +101,17 @@ class ItemThirdPartyEmailMarketing(object):
     def provider_name(self, provider_name):
         """
         Sets the provider_name of this ItemThirdPartyEmailMarketing.
-
+        Provider name
 
         :param provider_name: The provider_name of this ItemThirdPartyEmailMarketing.
         :type: str
         """
+        allowed_values = ["ActiveCampaign", "AWeber", "Campaign Monitor", "ConstantContact", "Emma", "GetResponse", "iContact", "Klaviyo", "Lyris", "LyrisHQ", "MailChimp", "SilverPop"]
+        if provider_name not in allowed_values:
+            raise ValueError(
+                "Invalid value for `provider_name` ({0}), must be one of {1}"
+                .format(provider_name, allowed_values)
+            )
 
         self._provider_name = provider_name
 
@@ -113,7 +119,7 @@ class ItemThirdPartyEmailMarketing(object):
     def remove_tags(self):
         """
         Gets the remove_tags of this ItemThirdPartyEmailMarketing.
-
+        Remove tags
 
         :return: The remove_tags of this ItemThirdPartyEmailMarketing.
         :rtype: list[str]
@@ -124,7 +130,7 @@ class ItemThirdPartyEmailMarketing(object):
     def remove_tags(self, remove_tags):
         """
         Sets the remove_tags of this ItemThirdPartyEmailMarketing.
-
+        Remove tags
 
         :param remove_tags: The remove_tags of this ItemThirdPartyEmailMarketing.
         :type: list[str]
@@ -136,7 +142,7 @@ class ItemThirdPartyEmailMarketing(object):
     def subscribe_lists(self):
         """
         Gets the subscribe_lists of this ItemThirdPartyEmailMarketing.
-
+        Subscribe to lists
 
         :return: The subscribe_lists of this ItemThirdPartyEmailMarketing.
         :rtype: list[str]
@@ -147,7 +153,7 @@ class ItemThirdPartyEmailMarketing(object):
     def subscribe_lists(self, subscribe_lists):
         """
         Sets the subscribe_lists of this ItemThirdPartyEmailMarketing.
-
+        Subscribe to lists
 
         :param subscribe_lists: The subscribe_lists of this ItemThirdPartyEmailMarketing.
         :type: list[str]
@@ -159,7 +165,7 @@ class ItemThirdPartyEmailMarketing(object):
     def unsubscribe_lists(self):
         """
         Gets the unsubscribe_lists of this ItemThirdPartyEmailMarketing.
-
+        Unsubscribe from lists
 
         :return: The unsubscribe_lists of this ItemThirdPartyEmailMarketing.
         :rtype: list[str]
@@ -170,7 +176,7 @@ class ItemThirdPartyEmailMarketing(object):
     def unsubscribe_lists(self, unsubscribe_lists):
         """
         Sets the unsubscribe_lists of this ItemThirdPartyEmailMarketing.
-
+        Unsubscribe from lists
 
         :param unsubscribe_lists: The unsubscribe_lists of this ItemThirdPartyEmailMarketing.
         :type: list[str]

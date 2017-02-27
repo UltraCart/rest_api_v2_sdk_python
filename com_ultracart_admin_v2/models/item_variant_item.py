@@ -70,7 +70,7 @@ class ItemVariantItem(object):
     def description(self):
         """
         Gets the description of this ItemVariantItem.
-
+        Description
 
         :return: The description of this ItemVariantItem.
         :rtype: str
@@ -81,11 +81,16 @@ class ItemVariantItem(object):
     def description(self, description):
         """
         Sets the description of this ItemVariantItem.
-
+        Description
 
         :param description: The description of this ItemVariantItem.
         :type: str
         """
+
+        if not description:
+            raise ValueError("Invalid value for `description`, must not be `None`")
+        if len(description) > 512:
+            raise ValueError("Invalid value for `description`, length must be less than `512`")
 
         self._description = description
 
@@ -93,7 +98,7 @@ class ItemVariantItem(object):
     def merchant_item_multimedia_oid(self):
         """
         Gets the merchant_item_multimedia_oid of this ItemVariantItem.
-
+        Multimedia object identifier
 
         :return: The merchant_item_multimedia_oid of this ItemVariantItem.
         :rtype: int
@@ -104,7 +109,7 @@ class ItemVariantItem(object):
     def merchant_item_multimedia_oid(self, merchant_item_multimedia_oid):
         """
         Sets the merchant_item_multimedia_oid of this ItemVariantItem.
-
+        Multimedia object identifier
 
         :param merchant_item_multimedia_oid: The merchant_item_multimedia_oid of this ItemVariantItem.
         :type: int
@@ -116,7 +121,7 @@ class ItemVariantItem(object):
     def variant_merchant_item_id(self):
         """
         Gets the variant_merchant_item_id of this ItemVariantItem.
-
+        Variant item id
 
         :return: The variant_merchant_item_id of this ItemVariantItem.
         :rtype: str
@@ -127,7 +132,7 @@ class ItemVariantItem(object):
     def variant_merchant_item_id(self, variant_merchant_item_id):
         """
         Sets the variant_merchant_item_id of this ItemVariantItem.
-
+        Variant item id
 
         :param variant_merchant_item_id: The variant_merchant_item_id of this ItemVariantItem.
         :type: str
@@ -139,7 +144,7 @@ class ItemVariantItem(object):
     def variant_merchant_item_oid(self):
         """
         Gets the variant_merchant_item_oid of this ItemVariantItem.
-
+        Variant item object identifier
 
         :return: The variant_merchant_item_oid of this ItemVariantItem.
         :rtype: int
@@ -150,7 +155,7 @@ class ItemVariantItem(object):
     def variant_merchant_item_oid(self, variant_merchant_item_oid):
         """
         Sets the variant_merchant_item_oid of this ItemVariantItem.
-
+        Variant item object identifier
 
         :param variant_merchant_item_oid: The variant_merchant_item_oid of this ItemVariantItem.
         :type: int
@@ -162,7 +167,7 @@ class ItemVariantItem(object):
     def variation_options(self):
         """
         Gets the variation_options of this ItemVariantItem.
-
+        Variation options
 
         :return: The variation_options of this ItemVariantItem.
         :rtype: list[str]
@@ -173,7 +178,7 @@ class ItemVariantItem(object):
     def variation_options(self, variation_options):
         """
         Sets the variation_options of this ItemVariantItem.
-
+        Variation options
 
         :param variation_options: The variation_options of this ItemVariantItem.
         :type: list[str]
@@ -185,7 +190,7 @@ class ItemVariantItem(object):
     def variations(self):
         """
         Gets the variations of this ItemVariantItem.
-
+        Variations
 
         :return: The variations of this ItemVariantItem.
         :rtype: list[str]
@@ -196,7 +201,7 @@ class ItemVariantItem(object):
     def variations(self, variations):
         """
         Sets the variations of this ItemVariantItem.
-
+        Variations
 
         :param variations: The variations of this ItemVariantItem.
         :type: list[str]

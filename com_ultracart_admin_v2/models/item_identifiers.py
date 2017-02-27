@@ -64,7 +64,7 @@ class ItemIdentifiers(object):
     def barcode(self):
         """
         Gets the barcode of this ItemIdentifiers.
-
+        Barcode
 
         :return: The barcode of this ItemIdentifiers.
         :rtype: str
@@ -75,11 +75,16 @@ class ItemIdentifiers(object):
     def barcode(self, barcode):
         """
         Sets the barcode of this ItemIdentifiers.
-
+        Barcode
 
         :param barcode: The barcode of this ItemIdentifiers.
         :type: str
         """
+
+        if not barcode:
+            raise ValueError("Invalid value for `barcode`, must not be `None`")
+        if len(barcode) > 30:
+            raise ValueError("Invalid value for `barcode`, length must be less than `30`")
 
         self._barcode = barcode
 
@@ -87,7 +92,7 @@ class ItemIdentifiers(object):
     def manufacturer_name(self):
         """
         Gets the manufacturer_name of this ItemIdentifiers.
-
+        Manufacturer Name
 
         :return: The manufacturer_name of this ItemIdentifiers.
         :rtype: str
@@ -98,11 +103,16 @@ class ItemIdentifiers(object):
     def manufacturer_name(self, manufacturer_name):
         """
         Sets the manufacturer_name of this ItemIdentifiers.
-
+        Manufacturer Name
 
         :param manufacturer_name: The manufacturer_name of this ItemIdentifiers.
         :type: str
         """
+
+        if not manufacturer_name:
+            raise ValueError("Invalid value for `manufacturer_name`, must not be `None`")
+        if len(manufacturer_name) > 50:
+            raise ValueError("Invalid value for `manufacturer_name`, length must be less than `50`")
 
         self._manufacturer_name = manufacturer_name
 
@@ -110,7 +120,7 @@ class ItemIdentifiers(object):
     def manufacturer_sku(self):
         """
         Gets the manufacturer_sku of this ItemIdentifiers.
-
+        Manufacturer SKU
 
         :return: The manufacturer_sku of this ItemIdentifiers.
         :rtype: str
@@ -121,11 +131,16 @@ class ItemIdentifiers(object):
     def manufacturer_sku(self, manufacturer_sku):
         """
         Sets the manufacturer_sku of this ItemIdentifiers.
-
+        Manufacturer SKU
 
         :param manufacturer_sku: The manufacturer_sku of this ItemIdentifiers.
         :type: str
         """
+
+        if not manufacturer_sku:
+            raise ValueError("Invalid value for `manufacturer_sku`, must not be `None`")
+        if len(manufacturer_sku) > 25:
+            raise ValueError("Invalid value for `manufacturer_sku`, length must be less than `25`")
 
         self._manufacturer_sku = manufacturer_sku
 
@@ -133,7 +148,7 @@ class ItemIdentifiers(object):
     def unspsc(self):
         """
         Gets the unspsc of this ItemIdentifiers.
-
+        UNSPSC
 
         :return: The unspsc of this ItemIdentifiers.
         :rtype: str
@@ -144,11 +159,16 @@ class ItemIdentifiers(object):
     def unspsc(self, unspsc):
         """
         Sets the unspsc of this ItemIdentifiers.
-
+        UNSPSC
 
         :param unspsc: The unspsc of this ItemIdentifiers.
         :type: str
         """
+
+        if not unspsc:
+            raise ValueError("Invalid value for `unspsc`, must not be `None`")
+        if len(unspsc) > 20:
+            raise ValueError("Invalid value for `unspsc`, length must be less than `20`")
 
         self._unspsc = unspsc
 

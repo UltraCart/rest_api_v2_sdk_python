@@ -73,7 +73,7 @@ class TempMultimedia(object):
     def filename(self):
         """
         Gets the filename of this TempMultimedia.
-
+        Filename
 
         :return: The filename of this TempMultimedia.
         :rtype: str
@@ -84,11 +84,16 @@ class TempMultimedia(object):
     def filename(self, filename):
         """
         Sets the filename of this TempMultimedia.
-
+        Filename
 
         :param filename: The filename of this TempMultimedia.
         :type: str
         """
+
+        if not filename:
+            raise ValueError("Invalid value for `filename`, must not be `None`")
+        if len(filename) > 75:
+            raise ValueError("Invalid value for `filename`, length must be less than `75`")
 
         self._filename = filename
 
@@ -96,7 +101,7 @@ class TempMultimedia(object):
     def height(self):
         """
         Gets the height of this TempMultimedia.
-
+        Height
 
         :return: The height of this TempMultimedia.
         :rtype: int
@@ -107,7 +112,7 @@ class TempMultimedia(object):
     def height(self, height):
         """
         Sets the height of this TempMultimedia.
-
+        Height
 
         :param height: The height of this TempMultimedia.
         :type: int
@@ -119,7 +124,7 @@ class TempMultimedia(object):
     def multimedia_type(self):
         """
         Gets the multimedia_type of this TempMultimedia.
-
+        Multimedia type
 
         :return: The multimedia_type of this TempMultimedia.
         :rtype: str
@@ -130,11 +135,17 @@ class TempMultimedia(object):
     def multimedia_type(self, multimedia_type):
         """
         Sets the multimedia_type of this TempMultimedia.
-
+        Multimedia type
 
         :param multimedia_type: The multimedia_type of this TempMultimedia.
         :type: str
         """
+        allowed_values = ["Image", "PDF", "Text", "Video"]
+        if multimedia_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `multimedia_type` ({0}), must be one of {1}"
+                .format(multimedia_type, allowed_values)
+            )
 
         self._multimedia_type = multimedia_type
 
@@ -142,7 +153,7 @@ class TempMultimedia(object):
     def size(self):
         """
         Gets the size of this TempMultimedia.
-
+        Size
 
         :return: The size of this TempMultimedia.
         :rtype: int
@@ -153,7 +164,7 @@ class TempMultimedia(object):
     def size(self, size):
         """
         Sets the size of this TempMultimedia.
-
+        Size
 
         :param size: The size of this TempMultimedia.
         :type: int
@@ -165,7 +176,7 @@ class TempMultimedia(object):
     def temp_multimedia_oid(self):
         """
         Gets the temp_multimedia_oid of this TempMultimedia.
-
+        Temporary multimedia object identifier
 
         :return: The temp_multimedia_oid of this TempMultimedia.
         :rtype: int
@@ -176,7 +187,7 @@ class TempMultimedia(object):
     def temp_multimedia_oid(self, temp_multimedia_oid):
         """
         Sets the temp_multimedia_oid of this TempMultimedia.
-
+        Temporary multimedia object identifier
 
         :param temp_multimedia_oid: The temp_multimedia_oid of this TempMultimedia.
         :type: int
@@ -188,7 +199,7 @@ class TempMultimedia(object):
     def url(self):
         """
         Gets the url of this TempMultimedia.
-
+        URL
 
         :return: The url of this TempMultimedia.
         :rtype: str
@@ -199,7 +210,7 @@ class TempMultimedia(object):
     def url(self, url):
         """
         Sets the url of this TempMultimedia.
-
+        URL
 
         :param url: The url of this TempMultimedia.
         :type: str
@@ -211,7 +222,7 @@ class TempMultimedia(object):
     def width(self):
         """
         Gets the width of this TempMultimedia.
-
+        Width
 
         :return: The width of this TempMultimedia.
         :rtype: int
@@ -222,7 +233,7 @@ class TempMultimedia(object):
     def width(self, width):
         """
         Sets the width of this TempMultimedia.
-
+        Width
 
         :param width: The width of this TempMultimedia.
         :type: int

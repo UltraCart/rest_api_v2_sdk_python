@@ -61,7 +61,7 @@ class Configuration(object):
         Constructor
         """
         # Default Base url
-        self.host = "https://secure.ultracart.com/rest/admin/v2"
+        self.host = "https://secure.ultracart.com/rest/v2"
         # Default api client
         self.api_client = None
         # Temp file folder for downloading files
@@ -221,6 +221,13 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         return {
+            'ultraCartBrowserApiKey':
+                {
+                    'type': 'api_key',
+                    'in': 'header',
+                    'key': 'x-ultracart-browser-key',
+                    'value': self.get_api_key_with_prefix('x-ultracart-browser-key')
+                },
 
             'ultraCartOauth': 
                 {

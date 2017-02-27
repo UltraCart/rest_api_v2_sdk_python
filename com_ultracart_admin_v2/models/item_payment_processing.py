@@ -45,8 +45,8 @@ class ItemPaymentProcessing(object):
             'block_prepaid': 'bool',
             'credit_card_transaction_type': 'str',
             'no_realtime_charge': 'bool',
-            'payment_method_validity': 'str',
-            'rotating_transaction_gateway_codes': 'str'
+            'payment_method_validity': 'list[str]',
+            'rotating_transaction_gateway_codes': 'list[str]'
         }
 
         self.attribute_map = {
@@ -67,7 +67,7 @@ class ItemPaymentProcessing(object):
     def block_prepaid(self):
         """
         Gets the block_prepaid of this ItemPaymentProcessing.
-
+        True if prepaid cards should be blocked from buying this item
 
         :return: The block_prepaid of this ItemPaymentProcessing.
         :rtype: bool
@@ -78,7 +78,7 @@ class ItemPaymentProcessing(object):
     def block_prepaid(self, block_prepaid):
         """
         Sets the block_prepaid of this ItemPaymentProcessing.
-
+        True if prepaid cards should be blocked from buying this item
 
         :param block_prepaid: The block_prepaid of this ItemPaymentProcessing.
         :type: bool
@@ -90,7 +90,7 @@ class ItemPaymentProcessing(object):
     def credit_card_transaction_type(self):
         """
         Gets the credit_card_transaction_type of this ItemPaymentProcessing.
-
+        Credit card transaction type
 
         :return: The credit_card_transaction_type of this ItemPaymentProcessing.
         :rtype: str
@@ -101,7 +101,7 @@ class ItemPaymentProcessing(object):
     def credit_card_transaction_type(self, credit_card_transaction_type):
         """
         Sets the credit_card_transaction_type of this ItemPaymentProcessing.
-
+        Credit card transaction type
 
         :param credit_card_transaction_type: The credit_card_transaction_type of this ItemPaymentProcessing.
         :type: str
@@ -113,7 +113,7 @@ class ItemPaymentProcessing(object):
     def no_realtime_charge(self):
         """
         Gets the no_realtime_charge of this ItemPaymentProcessing.
-
+        True if no real-time charge should be performed on this item.
 
         :return: The no_realtime_charge of this ItemPaymentProcessing.
         :rtype: bool
@@ -124,7 +124,7 @@ class ItemPaymentProcessing(object):
     def no_realtime_charge(self, no_realtime_charge):
         """
         Sets the no_realtime_charge of this ItemPaymentProcessing.
-
+        True if no real-time charge should be performed on this item.
 
         :param no_realtime_charge: The no_realtime_charge of this ItemPaymentProcessing.
         :type: bool
@@ -136,10 +136,10 @@ class ItemPaymentProcessing(object):
     def payment_method_validity(self):
         """
         Gets the payment_method_validity of this ItemPaymentProcessing.
-
+        Payment method validity
 
         :return: The payment_method_validity of this ItemPaymentProcessing.
-        :rtype: str
+        :rtype: list[str]
         """
         return self._payment_method_validity
 
@@ -147,10 +147,10 @@ class ItemPaymentProcessing(object):
     def payment_method_validity(self, payment_method_validity):
         """
         Sets the payment_method_validity of this ItemPaymentProcessing.
-
+        Payment method validity
 
         :param payment_method_validity: The payment_method_validity of this ItemPaymentProcessing.
-        :type: str
+        :type: list[str]
         """
 
         self._payment_method_validity = payment_method_validity
@@ -159,10 +159,10 @@ class ItemPaymentProcessing(object):
     def rotating_transaction_gateway_codes(self):
         """
         Gets the rotating_transaction_gateway_codes of this ItemPaymentProcessing.
-
+        Rotating transaction gateway codes
 
         :return: The rotating_transaction_gateway_codes of this ItemPaymentProcessing.
-        :rtype: str
+        :rtype: list[str]
         """
         return self._rotating_transaction_gateway_codes
 
@@ -170,10 +170,10 @@ class ItemPaymentProcessing(object):
     def rotating_transaction_gateway_codes(self, rotating_transaction_gateway_codes):
         """
         Sets the rotating_transaction_gateway_codes of this ItemPaymentProcessing.
-
+        Rotating transaction gateway codes
 
         :param rotating_transaction_gateway_codes: The rotating_transaction_gateway_codes of this ItemPaymentProcessing.
-        :type: str
+        :type: list[str]
         """
 
         self._rotating_transaction_gateway_codes = rotating_transaction_gateway_codes

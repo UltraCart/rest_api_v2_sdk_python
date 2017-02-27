@@ -43,7 +43,7 @@ class ItemReporting(object):
         """
         self.swagger_types = {
             'report_as_upsell': 'bool',
-            'report_pickable_quantities': 'str'
+            'report_pickable_quantities': 'list[int]'
         }
 
         self.attribute_map = {
@@ -58,7 +58,7 @@ class ItemReporting(object):
     def report_as_upsell(self):
         """
         Gets the report_as_upsell of this ItemReporting.
-
+        Report as an upsell
 
         :return: The report_as_upsell of this ItemReporting.
         :rtype: bool
@@ -69,7 +69,7 @@ class ItemReporting(object):
     def report_as_upsell(self, report_as_upsell):
         """
         Sets the report_as_upsell of this ItemReporting.
-
+        Report as an upsell
 
         :param report_as_upsell: The report_as_upsell of this ItemReporting.
         :type: bool
@@ -81,10 +81,10 @@ class ItemReporting(object):
     def report_pickable_quantities(self):
         """
         Gets the report_pickable_quantities of this ItemReporting.
-
+        Report pickable quantities
 
         :return: The report_pickable_quantities of this ItemReporting.
-        :rtype: str
+        :rtype: list[int]
         """
         return self._report_pickable_quantities
 
@@ -92,10 +92,10 @@ class ItemReporting(object):
     def report_pickable_quantities(self, report_pickable_quantities):
         """
         Sets the report_pickable_quantities of this ItemReporting.
-
+        Report pickable quantities
 
         :param report_pickable_quantities: The report_pickable_quantities of this ItemReporting.
-        :type: str
+        :type: list[int]
         """
 
         self._report_pickable_quantities = report_pickable_quantities

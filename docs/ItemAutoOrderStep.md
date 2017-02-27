@@ -3,21 +3,21 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**arbitrary_schedule_days** | **int** |  | [optional] 
-**arbitrary_unit_cost** | **float** |  | [optional] 
-**arbitrary_unit_cost_schedules** | [**list[ItemAutoOrderStepArbitraryUnitCostSchedule]**](ItemAutoOrderStepArbitraryUnitCostSchedule.md) |  | [optional] 
-**grandfather_pricing** | [**list[ItemAutoOrderStepGrandfatherPricing]**](ItemAutoOrderStepGrandfatherPricing.md) |  | [optional] 
-**managed_by** | **str** |  | [optional] 
-**pause_days** | **int** |  | [optional] 
-**pause_unit_date** | **str** |  | [optional] 
-**preshipment_notice_days** | **int** |  | [optional] 
-**recurring_merchant_item_id** | **str** |  | [optional] 
-**recurring_merchant_item_oid** | **int** |  | [optional] 
-**repeat_count** | **int** |  | [optional] 
-**schedule** | **str** |  | [optional] 
-**subscribe_email_list_name** | **str** |  | [optional] 
-**subscribe_email_list_oid** | **int** |  | [optional] 
-**type** | **str** |  | [optional] 
+**arbitrary_schedule_days** | **int** | If the schedule is arbitrary, then this is the number of days | [optional] 
+**arbitrary_unit_cost** | **float** | Arbitrary unit cost used to override the regular item cost | [optional] 
+**arbitrary_unit_cost_schedules** | [**list[ItemAutoOrderStepArbitraryUnitCostSchedule]**](ItemAutoOrderStepArbitraryUnitCostSchedule.md) | Arbitrary unit costs schedules for more advanced discounting by rebill attempt | [optional] 
+**grandfather_pricing** | [**list[ItemAutoOrderStepGrandfatherPricing]**](ItemAutoOrderStepGrandfatherPricing.md) | Grand-father pricing configuration if the rebill schedule has changed over time | [optional] 
+**managed_by** | **str** | Managed by (defaults to UltraCart) | [optional] 
+**pause_days** | **int** | Number of days to pause | [optional] 
+**pause_until_date** | **str** | Wait for this step to happen until the specified date | [optional] 
+**preshipment_notice_days** | **int** | If set, a pre-shipment notice is sent to the customer this many days in advance | [optional] 
+**recurring_merchant_item_id** | **str** | Item id to rebill | [optional] 
+**recurring_merchant_item_oid** | **int** | Item object identifier to rebill | [optional] 
+**repeat_count** | **int** | Number of times to rebill.  Last step can be null for infinite | [optional] 
+**schedule** | **str** | Frequency of the rebill | [optional] 
+**subscribe_email_list_name** | **str** | Email list name to subscribe the customer to when the rebill occurs | [optional] 
+**subscribe_email_list_oid** | **int** | Email list identifier to subscribe the customer to when this rebill occurs | [optional] 
+**type** | **str** | Type of step (item or pause) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

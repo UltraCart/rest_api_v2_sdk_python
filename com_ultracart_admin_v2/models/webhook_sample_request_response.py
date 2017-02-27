@@ -110,7 +110,7 @@ class WebhookSampleRequestResponse(object):
     def success(self):
         """
         Gets the success of this WebhookSampleRequestResponse.
-
+        Indicates if API call was successful
 
         :return: The success of this WebhookSampleRequestResponse.
         :rtype: bool
@@ -121,7 +121,7 @@ class WebhookSampleRequestResponse(object):
     def success(self, success):
         """
         Sets the success of this WebhookSampleRequestResponse.
-
+        Indicates if API call was successful
 
         :param success: The success of this WebhookSampleRequestResponse.
         :type: bool

@@ -58,7 +58,7 @@ class Weight(object):
     def uom(self):
         """
         Gets the uom of this Weight.
-
+        Unit of measure
 
         :return: The uom of this Weight.
         :rtype: str
@@ -69,11 +69,17 @@ class Weight(object):
     def uom(self, uom):
         """
         Sets the uom of this Weight.
-
+        Unit of measure
 
         :param uom: The uom of this Weight.
         :type: str
         """
+        allowed_values = ["KG", "LB", "OZ"]
+        if uom not in allowed_values:
+            raise ValueError(
+                "Invalid value for `uom` ({0}), must be one of {1}"
+                .format(uom, allowed_values)
+            )
 
         self._uom = uom
 
@@ -81,7 +87,7 @@ class Weight(object):
     def value(self):
         """
         Gets the value of this Weight.
-
+        Weight
 
         :return: The value of this Weight.
         :rtype: float
@@ -92,7 +98,7 @@ class Weight(object):
     def value(self, value):
         """
         Sets the value of this Weight.
-
+        Weight
 
         :param value: The value of this Weight.
         :type: float

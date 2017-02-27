@@ -82,7 +82,7 @@ class WebhookLog(object):
     def delivery_dts(self):
         """
         Gets the delivery_dts of this WebhookLog.
-
+        Date/time of delivery
 
         :return: The delivery_dts of this WebhookLog.
         :rtype: str
@@ -93,7 +93,7 @@ class WebhookLog(object):
     def delivery_dts(self, delivery_dts):
         """
         Sets the delivery_dts of this WebhookLog.
-
+        Date/time of delivery
 
         :param delivery_dts: The delivery_dts of this WebhookLog.
         :type: str
@@ -105,7 +105,7 @@ class WebhookLog(object):
     def duration(self):
         """
         Gets the duration of this WebhookLog.
-
+        Number of milliseconds to process the notification
 
         :return: The duration of this WebhookLog.
         :rtype: int
@@ -116,7 +116,7 @@ class WebhookLog(object):
     def duration(self, duration):
         """
         Sets the duration of this WebhookLog.
-
+        Number of milliseconds to process the notification
 
         :param duration: The duration of this WebhookLog.
         :type: int
@@ -128,7 +128,7 @@ class WebhookLog(object):
     def request(self):
         """
         Gets the request of this WebhookLog.
-
+        Request payload (first 100,000 characters)
 
         :return: The request of this WebhookLog.
         :rtype: str
@@ -139,7 +139,7 @@ class WebhookLog(object):
     def request(self, request):
         """
         Sets the request of this WebhookLog.
-
+        Request payload (first 100,000 characters)
 
         :param request: The request of this WebhookLog.
         :type: str
@@ -151,7 +151,7 @@ class WebhookLog(object):
     def request_headers(self):
         """
         Gets the request_headers of this WebhookLog.
-
+        Request headers sent to the server
 
         :return: The request_headers of this WebhookLog.
         :rtype: list[HTTPHeader]
@@ -162,7 +162,7 @@ class WebhookLog(object):
     def request_headers(self, request_headers):
         """
         Sets the request_headers of this WebhookLog.
-
+        Request headers sent to the server
 
         :param request_headers: The request_headers of this WebhookLog.
         :type: list[HTTPHeader]
@@ -174,7 +174,7 @@ class WebhookLog(object):
     def request_id(self):
         """
         Gets the request_id of this WebhookLog.
-
+        Request id is a unique string that you can look up in the logs
 
         :return: The request_id of this WebhookLog.
         :rtype: str
@@ -185,7 +185,7 @@ class WebhookLog(object):
     def request_id(self, request_id):
         """
         Sets the request_id of this WebhookLog.
-
+        Request id is a unique string that you can look up in the logs
 
         :param request_id: The request_id of this WebhookLog.
         :type: str
@@ -197,7 +197,7 @@ class WebhookLog(object):
     def response(self):
         """
         Gets the response of this WebhookLog.
-
+        Response payload (first 100,000 characters)
 
         :return: The response of this WebhookLog.
         :rtype: str
@@ -208,7 +208,7 @@ class WebhookLog(object):
     def response(self, response):
         """
         Sets the response of this WebhookLog.
-
+        Response payload (first 100,000 characters)
 
         :param response: The response of this WebhookLog.
         :type: str
@@ -220,7 +220,7 @@ class WebhookLog(object):
     def response_headers(self):
         """
         Gets the response_headers of this WebhookLog.
-
+        Response headers received from the server
 
         :return: The response_headers of this WebhookLog.
         :rtype: list[HTTPHeader]
@@ -231,7 +231,7 @@ class WebhookLog(object):
     def response_headers(self, response_headers):
         """
         Sets the response_headers of this WebhookLog.
-
+        Response headers received from the server
 
         :param response_headers: The response_headers of this WebhookLog.
         :type: list[HTTPHeader]
@@ -243,7 +243,7 @@ class WebhookLog(object):
     def status_code(self):
         """
         Gets the status_code of this WebhookLog.
-
+        HTTP status code received from the server
 
         :return: The status_code of this WebhookLog.
         :rtype: int
@@ -254,7 +254,7 @@ class WebhookLog(object):
     def status_code(self, status_code):
         """
         Sets the status_code of this WebhookLog.
-
+        HTTP status code received from the server
 
         :param status_code: The status_code of this WebhookLog.
         :type: int
@@ -266,7 +266,7 @@ class WebhookLog(object):
     def success(self):
         """
         Gets the success of this WebhookLog.
-
+        True if the delivery was successful
 
         :return: The success of this WebhookLog.
         :rtype: bool
@@ -277,7 +277,7 @@ class WebhookLog(object):
     def success(self, success):
         """
         Sets the success of this WebhookLog.
-
+        True if the delivery was successful
 
         :param success: The success of this WebhookLog.
         :type: bool
@@ -289,7 +289,7 @@ class WebhookLog(object):
     def uri(self):
         """
         Gets the uri of this WebhookLog.
-
+        URI of the webhook delivered to
 
         :return: The uri of this WebhookLog.
         :rtype: str
@@ -300,7 +300,7 @@ class WebhookLog(object):
     def uri(self, uri):
         """
         Sets the uri of this WebhookLog.
-
+        URI of the webhook delivered to
 
         :param uri: The uri of this WebhookLog.
         :type: str

@@ -67,7 +67,7 @@ class ItemTaxExemption(object):
     def city(self):
         """
         Gets the city of this ItemTaxExemption.
-
+        City
 
         :return: The city of this ItemTaxExemption.
         :rtype: str
@@ -78,11 +78,16 @@ class ItemTaxExemption(object):
     def city(self, city):
         """
         Sets the city of this ItemTaxExemption.
-
+        City
 
         :param city: The city of this ItemTaxExemption.
         :type: str
         """
+
+        if not city:
+            raise ValueError("Invalid value for `city`, must not be `None`")
+        if len(city) > 32:
+            raise ValueError("Invalid value for `city`, length must be less than `32`")
 
         self._city = city
 
@@ -90,7 +95,7 @@ class ItemTaxExemption(object):
     def country_code(self):
         """
         Gets the country_code of this ItemTaxExemption.
-
+        Country code (ISO-3166 two letter)
 
         :return: The country_code of this ItemTaxExemption.
         :rtype: str
@@ -101,11 +106,16 @@ class ItemTaxExemption(object):
     def country_code(self, country_code):
         """
         Sets the country_code of this ItemTaxExemption.
-
+        Country code (ISO-3166 two letter)
 
         :param country_code: The country_code of this ItemTaxExemption.
         :type: str
         """
+
+        if not country_code:
+            raise ValueError("Invalid value for `country_code`, must not be `None`")
+        if len(country_code) > 2:
+            raise ValueError("Invalid value for `country_code`, length must be less than `2`")
 
         self._country_code = country_code
 
@@ -113,7 +123,7 @@ class ItemTaxExemption(object):
     def county(self):
         """
         Gets the county of this ItemTaxExemption.
-
+        County
 
         :return: The county of this ItemTaxExemption.
         :rtype: str
@@ -124,11 +134,16 @@ class ItemTaxExemption(object):
     def county(self, county):
         """
         Sets the county of this ItemTaxExemption.
-
+        County
 
         :param county: The county of this ItemTaxExemption.
         :type: str
         """
+
+        if not county:
+            raise ValueError("Invalid value for `county`, must not be `None`")
+        if len(county) > 32:
+            raise ValueError("Invalid value for `county`, length must be less than `32`")
 
         self._county = county
 
@@ -136,7 +151,7 @@ class ItemTaxExemption(object):
     def postal_code(self):
         """
         Gets the postal_code of this ItemTaxExemption.
-
+        Postal code
 
         :return: The postal_code of this ItemTaxExemption.
         :rtype: str
@@ -147,11 +162,16 @@ class ItemTaxExemption(object):
     def postal_code(self, postal_code):
         """
         Sets the postal_code of this ItemTaxExemption.
-
+        Postal code
 
         :param postal_code: The postal_code of this ItemTaxExemption.
         :type: str
         """
+
+        if not postal_code:
+            raise ValueError("Invalid value for `postal_code`, must not be `None`")
+        if len(postal_code) > 20:
+            raise ValueError("Invalid value for `postal_code`, length must be less than `20`")
 
         self._postal_code = postal_code
 
@@ -159,7 +179,7 @@ class ItemTaxExemption(object):
     def state_code(self):
         """
         Gets the state_code of this ItemTaxExemption.
-
+        State code
 
         :return: The state_code of this ItemTaxExemption.
         :rtype: str
@@ -170,11 +190,16 @@ class ItemTaxExemption(object):
     def state_code(self, state_code):
         """
         Sets the state_code of this ItemTaxExemption.
-
+        State code
 
         :param state_code: The state_code of this ItemTaxExemption.
         :type: str
         """
+
+        if not state_code:
+            raise ValueError("Invalid value for `state_code`, must not be `None`")
+        if len(state_code) > 32:
+            raise ValueError("Invalid value for `state_code`, length must be less than `32`")
 
         self._state_code = state_code
 

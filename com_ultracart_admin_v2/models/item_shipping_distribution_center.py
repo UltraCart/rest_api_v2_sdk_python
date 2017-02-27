@@ -91,7 +91,7 @@ class ItemShippingDistributionCenter(object):
     def allocated_to_placed_orders(self):
         """
         Gets the allocated_to_placed_orders of this ItemShippingDistributionCenter.
-
+        Allocated to placed orders
 
         :return: The allocated_to_placed_orders of this ItemShippingDistributionCenter.
         :rtype: float
@@ -102,7 +102,7 @@ class ItemShippingDistributionCenter(object):
     def allocated_to_placed_orders(self, allocated_to_placed_orders):
         """
         Sets the allocated_to_placed_orders of this ItemShippingDistributionCenter.
-
+        Allocated to placed orders
 
         :param allocated_to_placed_orders: The allocated_to_placed_orders of this ItemShippingDistributionCenter.
         :type: float
@@ -114,7 +114,7 @@ class ItemShippingDistributionCenter(object):
     def allocated_to_shopping_carts(self):
         """
         Gets the allocated_to_shopping_carts of this ItemShippingDistributionCenter.
-
+        Allocated to shopping carts
 
         :return: The allocated_to_shopping_carts of this ItemShippingDistributionCenter.
         :rtype: float
@@ -125,7 +125,7 @@ class ItemShippingDistributionCenter(object):
     def allocated_to_shopping_carts(self, allocated_to_shopping_carts):
         """
         Sets the allocated_to_shopping_carts of this ItemShippingDistributionCenter.
-
+        Allocated to shopping carts
 
         :param allocated_to_shopping_carts: The allocated_to_shopping_carts of this ItemShippingDistributionCenter.
         :type: float
@@ -137,7 +137,7 @@ class ItemShippingDistributionCenter(object):
     def available_to_allocate(self):
         """
         Gets the available_to_allocate of this ItemShippingDistributionCenter.
-
+        Available to allocate
 
         :return: The available_to_allocate of this ItemShippingDistributionCenter.
         :rtype: float
@@ -148,7 +148,7 @@ class ItemShippingDistributionCenter(object):
     def available_to_allocate(self, available_to_allocate):
         """
         Sets the available_to_allocate of this ItemShippingDistributionCenter.
-
+        Available to allocate
 
         :param available_to_allocate: The available_to_allocate of this ItemShippingDistributionCenter.
         :type: float
@@ -160,7 +160,7 @@ class ItemShippingDistributionCenter(object):
     def desired_inventory_level(self):
         """
         Gets the desired_inventory_level of this ItemShippingDistributionCenter.
-
+        Desired inventory level
 
         :return: The desired_inventory_level of this ItemShippingDistributionCenter.
         :rtype: float
@@ -171,7 +171,7 @@ class ItemShippingDistributionCenter(object):
     def desired_inventory_level(self, desired_inventory_level):
         """
         Sets the desired_inventory_level of this ItemShippingDistributionCenter.
-
+        Desired inventory level
 
         :param desired_inventory_level: The desired_inventory_level of this ItemShippingDistributionCenter.
         :type: float
@@ -183,7 +183,7 @@ class ItemShippingDistributionCenter(object):
     def distribution_center_code(self):
         """
         Gets the distribution_center_code of this ItemShippingDistributionCenter.
-
+        Distribution center code
 
         :return: The distribution_center_code of this ItemShippingDistributionCenter.
         :rtype: str
@@ -194,7 +194,7 @@ class ItemShippingDistributionCenter(object):
     def distribution_center_code(self, distribution_center_code):
         """
         Sets the distribution_center_code of this ItemShippingDistributionCenter.
-
+        Distribution center code
 
         :param distribution_center_code: The distribution_center_code of this ItemShippingDistributionCenter.
         :type: str
@@ -206,7 +206,7 @@ class ItemShippingDistributionCenter(object):
     def distribution_center_oid(self):
         """
         Gets the distribution_center_oid of this ItemShippingDistributionCenter.
-
+        Distribution center object identifier
 
         :return: The distribution_center_oid of this ItemShippingDistributionCenter.
         :rtype: int
@@ -217,7 +217,7 @@ class ItemShippingDistributionCenter(object):
     def distribution_center_oid(self, distribution_center_oid):
         """
         Sets the distribution_center_oid of this ItemShippingDistributionCenter.
-
+        Distribution center object identifier
 
         :param distribution_center_oid: The distribution_center_oid of this ItemShippingDistributionCenter.
         :type: int
@@ -229,7 +229,7 @@ class ItemShippingDistributionCenter(object):
     def eta(self):
         """
         Gets the eta of this ItemShippingDistributionCenter.
-
+        Estimated time of arrival
 
         :return: The eta of this ItemShippingDistributionCenter.
         :rtype: str
@@ -240,7 +240,7 @@ class ItemShippingDistributionCenter(object):
     def eta(self, eta):
         """
         Sets the eta of this ItemShippingDistributionCenter.
-
+        Estimated time of arrival
 
         :param eta: The eta of this ItemShippingDistributionCenter.
         :type: str
@@ -252,7 +252,7 @@ class ItemShippingDistributionCenter(object):
     def handles(self):
         """
         Gets the handles of this ItemShippingDistributionCenter.
-
+        True if this distribution center handles this item
 
         :return: The handles of this ItemShippingDistributionCenter.
         :rtype: bool
@@ -263,7 +263,7 @@ class ItemShippingDistributionCenter(object):
     def handles(self, handles):
         """
         Sets the handles of this ItemShippingDistributionCenter.
-
+        True if this distribution center handles this item
 
         :param handles: The handles of this ItemShippingDistributionCenter.
         :type: bool
@@ -275,7 +275,7 @@ class ItemShippingDistributionCenter(object):
     def inventory_level(self):
         """
         Gets the inventory_level of this ItemShippingDistributionCenter.
-
+        Inventory level
 
         :return: The inventory_level of this ItemShippingDistributionCenter.
         :rtype: float
@@ -286,7 +286,7 @@ class ItemShippingDistributionCenter(object):
     def inventory_level(self, inventory_level):
         """
         Sets the inventory_level of this ItemShippingDistributionCenter.
-
+        Inventory level
 
         :param inventory_level: The inventory_level of this ItemShippingDistributionCenter.
         :type: float
@@ -298,7 +298,7 @@ class ItemShippingDistributionCenter(object):
     def maximum_backorder(self):
         """
         Gets the maximum_backorder of this ItemShippingDistributionCenter.
-
+        Maximum back-order
 
         :return: The maximum_backorder of this ItemShippingDistributionCenter.
         :rtype: int
@@ -309,7 +309,7 @@ class ItemShippingDistributionCenter(object):
     def maximum_backorder(self, maximum_backorder):
         """
         Sets the maximum_backorder of this ItemShippingDistributionCenter.
-
+        Maximum back-order
 
         :param maximum_backorder: The maximum_backorder of this ItemShippingDistributionCenter.
         :type: int
@@ -321,7 +321,7 @@ class ItemShippingDistributionCenter(object):
     def reorder_inventory_level(self):
         """
         Gets the reorder_inventory_level of this ItemShippingDistributionCenter.
-
+        Reorder inventory level (triggers notification)
 
         :return: The reorder_inventory_level of this ItemShippingDistributionCenter.
         :rtype: float
@@ -332,7 +332,7 @@ class ItemShippingDistributionCenter(object):
     def reorder_inventory_level(self, reorder_inventory_level):
         """
         Sets the reorder_inventory_level of this ItemShippingDistributionCenter.
-
+        Reorder inventory level (triggers notification)
 
         :param reorder_inventory_level: The reorder_inventory_level of this ItemShippingDistributionCenter.
         :type: float
@@ -344,7 +344,7 @@ class ItemShippingDistributionCenter(object):
     def sku(self):
         """
         Gets the sku of this ItemShippingDistributionCenter.
-
+        SKU
 
         :return: The sku of this ItemShippingDistributionCenter.
         :rtype: str
@@ -355,11 +355,16 @@ class ItemShippingDistributionCenter(object):
     def sku(self, sku):
         """
         Sets the sku of this ItemShippingDistributionCenter.
-
+        SKU
 
         :param sku: The sku of this ItemShippingDistributionCenter.
         :type: str
         """
+
+        if not sku:
+            raise ValueError("Invalid value for `sku`, must not be `None`")
+        if len(sku) > 50:
+            raise ValueError("Invalid value for `sku`, length must be less than `50`")
 
         self._sku = sku
 
@@ -367,7 +372,7 @@ class ItemShippingDistributionCenter(object):
     def stock_picking_location(self):
         """
         Gets the stock_picking_location of this ItemShippingDistributionCenter.
-
+        Stock picking location
 
         :return: The stock_picking_location of this ItemShippingDistributionCenter.
         :rtype: str
@@ -378,11 +383,16 @@ class ItemShippingDistributionCenter(object):
     def stock_picking_location(self, stock_picking_location):
         """
         Sets the stock_picking_location of this ItemShippingDistributionCenter.
-
+        Stock picking location
 
         :param stock_picking_location: The stock_picking_location of this ItemShippingDistributionCenter.
         :type: str
         """
+
+        if not stock_picking_location:
+            raise ValueError("Invalid value for `stock_picking_location`, must not be `None`")
+        if len(stock_picking_location) > 20:
+            raise ValueError("Invalid value for `stock_picking_location`, length must be less than `20`")
 
         self._stock_picking_location = stock_picking_location
 

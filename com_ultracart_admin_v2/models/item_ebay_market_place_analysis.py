@@ -82,7 +82,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def adjusted_price(self):
         """
         Gets the adjusted_price of this ItemEbayMarketPlaceAnalysis.
-
+        Adjusted price
 
         :return: The adjusted_price of this ItemEbayMarketPlaceAnalysis.
         :rtype: float
@@ -93,7 +93,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def adjusted_price(self, adjusted_price):
         """
         Sets the adjusted_price of this ItemEbayMarketPlaceAnalysis.
-
+        Adjusted price
 
         :param adjusted_price: The adjusted_price of this ItemEbayMarketPlaceAnalysis.
         :type: float
@@ -105,7 +105,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def adjusted_shipping(self):
         """
         Gets the adjusted_shipping of this ItemEbayMarketPlaceAnalysis.
-
+        Adjusted shipping
 
         :return: The adjusted_shipping of this ItemEbayMarketPlaceAnalysis.
         :rtype: float
@@ -116,7 +116,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def adjusted_shipping(self, adjusted_shipping):
         """
         Sets the adjusted_shipping of this ItemEbayMarketPlaceAnalysis.
-
+        Adjusted shipping
 
         :param adjusted_shipping: The adjusted_shipping of this ItemEbayMarketPlaceAnalysis.
         :type: float
@@ -128,7 +128,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def adjusted_total(self):
         """
         Gets the adjusted_total of this ItemEbayMarketPlaceAnalysis.
-
+        Adjusted total
 
         :return: The adjusted_total of this ItemEbayMarketPlaceAnalysis.
         :rtype: float
@@ -139,7 +139,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def adjusted_total(self, adjusted_total):
         """
         Sets the adjusted_total of this ItemEbayMarketPlaceAnalysis.
-
+        Adjusted total
 
         :param adjusted_total: The adjusted_total of this ItemEbayMarketPlaceAnalysis.
         :type: float
@@ -151,7 +151,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def cogs(self):
         """
         Gets the cogs of this ItemEbayMarketPlaceAnalysis.
-
+        Cost of goods sold
 
         :return: The cogs of this ItemEbayMarketPlaceAnalysis.
         :rtype: float
@@ -162,7 +162,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def cogs(self, cogs):
         """
         Sets the cogs of this ItemEbayMarketPlaceAnalysis.
-
+        Cost of goods sold
 
         :param cogs: The cogs of this ItemEbayMarketPlaceAnalysis.
         :type: float
@@ -174,7 +174,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def final_value_fee(self):
         """
         Gets the final_value_fee of this ItemEbayMarketPlaceAnalysis.
-
+        Final value fee
 
         :return: The final_value_fee of this ItemEbayMarketPlaceAnalysis.
         :rtype: float
@@ -185,7 +185,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def final_value_fee(self, final_value_fee):
         """
         Sets the final_value_fee of this ItemEbayMarketPlaceAnalysis.
-
+        Final value fee
 
         :param final_value_fee: The final_value_fee of this ItemEbayMarketPlaceAnalysis.
         :type: float
@@ -197,7 +197,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def minimum_advertised_price(self):
         """
         Gets the minimum_advertised_price of this ItemEbayMarketPlaceAnalysis.
-
+        Minimum advertised price
 
         :return: The minimum_advertised_price of this ItemEbayMarketPlaceAnalysis.
         :rtype: float
@@ -208,7 +208,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def minimum_advertised_price(self, minimum_advertised_price):
         """
         Sets the minimum_advertised_price of this ItemEbayMarketPlaceAnalysis.
-
+        Minimum advertised price
 
         :param minimum_advertised_price: The minimum_advertised_price of this ItemEbayMarketPlaceAnalysis.
         :type: float
@@ -220,7 +220,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def other_listings(self):
         """
         Gets the other_listings of this ItemEbayMarketPlaceAnalysis.
-
+        Other listings
 
         :return: The other_listings of this ItemEbayMarketPlaceAnalysis.
         :rtype: list[ItemEbayMarketListing]
@@ -231,7 +231,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def other_listings(self, other_listings):
         """
         Sets the other_listings of this ItemEbayMarketPlaceAnalysis.
-
+        Other listings
 
         :param other_listings: The other_listings of this ItemEbayMarketPlaceAnalysis.
         :type: list[ItemEbayMarketListing]
@@ -266,7 +266,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def overhead(self):
         """
         Gets the overhead of this ItemEbayMarketPlaceAnalysis.
-
+        Overhead
 
         :return: The overhead of this ItemEbayMarketPlaceAnalysis.
         :rtype: float
@@ -277,7 +277,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def overhead(self, overhead):
         """
         Sets the overhead of this ItemEbayMarketPlaceAnalysis.
-
+        Overhead
 
         :param overhead: The overhead of this ItemEbayMarketPlaceAnalysis.
         :type: float
@@ -289,7 +289,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def profit_potential(self):
         """
         Gets the profit_potential of this ItemEbayMarketPlaceAnalysis.
-
+        Profit potential
 
         :return: The profit_potential of this ItemEbayMarketPlaceAnalysis.
         :rtype: float
@@ -300,7 +300,7 @@ class ItemEbayMarketPlaceAnalysis(object):
     def profit_potential(self, profit_potential):
         """
         Sets the profit_potential of this ItemEbayMarketPlaceAnalysis.
-
+        Profit potential
 
         :param profit_potential: The profit_potential of this ItemEbayMarketPlaceAnalysis.
         :type: float

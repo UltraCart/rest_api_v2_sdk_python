@@ -133,7 +133,7 @@ class ItemResponse(object):
     def success(self):
         """
         Gets the success of this ItemResponse.
-
+        Indicates if API call was successful
 
         :return: The success of this ItemResponse.
         :rtype: bool
@@ -144,7 +144,7 @@ class ItemResponse(object):
     def success(self, success):
         """
         Sets the success of this ItemResponse.
-
+        Indicates if API call was successful
 
         :param success: The success of this ItemResponse.
         :type: bool

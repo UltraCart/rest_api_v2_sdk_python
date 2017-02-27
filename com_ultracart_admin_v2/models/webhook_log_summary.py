@@ -61,7 +61,7 @@ class WebhookLogSummary(object):
     def delivery_dts(self):
         """
         Gets the delivery_dts of this WebhookLogSummary.
-
+        Date/time of the delivery
 
         :return: The delivery_dts of this WebhookLogSummary.
         :rtype: str
@@ -72,7 +72,7 @@ class WebhookLogSummary(object):
     def delivery_dts(self, delivery_dts):
         """
         Sets the delivery_dts of this WebhookLogSummary.
-
+        Date/time of the delivery
 
         :param delivery_dts: The delivery_dts of this WebhookLogSummary.
         :type: str
@@ -84,7 +84,7 @@ class WebhookLogSummary(object):
     def request_id(self):
         """
         Gets the request_id of this WebhookLogSummary.
-
+        Request id
 
         :return: The request_id of this WebhookLogSummary.
         :rtype: str
@@ -95,7 +95,7 @@ class WebhookLogSummary(object):
     def request_id(self, request_id):
         """
         Sets the request_id of this WebhookLogSummary.
-
+        Request id
 
         :param request_id: The request_id of this WebhookLogSummary.
         :type: str
@@ -107,7 +107,7 @@ class WebhookLogSummary(object):
     def success(self):
         """
         Gets the success of this WebhookLogSummary.
-
+        True if the notification was successful
 
         :return: The success of this WebhookLogSummary.
         :rtype: bool
@@ -118,7 +118,7 @@ class WebhookLogSummary(object):
     def success(self, success):
         """
         Sets the success of this WebhookLogSummary.
-
+        True if the notification was successful
 
         :param success: The success of this WebhookLogSummary.
         :type: bool

@@ -61,7 +61,7 @@ class ItemChargebackAdjustmentRequest(object):
     def chargeback_adjustment_request_oid(self):
         """
         Gets the chargeback_adjustment_request_oid of this ItemChargebackAdjustmentRequest.
-
+        Chargeback adjustment request object identifier
 
         :return: The chargeback_adjustment_request_oid of this ItemChargebackAdjustmentRequest.
         :rtype: int
@@ -72,7 +72,7 @@ class ItemChargebackAdjustmentRequest(object):
     def chargeback_adjustment_request_oid(self, chargeback_adjustment_request_oid):
         """
         Sets the chargeback_adjustment_request_oid of this ItemChargebackAdjustmentRequest.
-
+        Chargeback adjustment request object identifier
 
         :param chargeback_adjustment_request_oid: The chargeback_adjustment_request_oid of this ItemChargebackAdjustmentRequest.
         :type: int
@@ -84,7 +84,7 @@ class ItemChargebackAdjustmentRequest(object):
     def description(self):
         """
         Gets the description of this ItemChargebackAdjustmentRequest.
-
+        Description
 
         :return: The description of this ItemChargebackAdjustmentRequest.
         :rtype: str
@@ -95,7 +95,7 @@ class ItemChargebackAdjustmentRequest(object):
     def description(self, description):
         """
         Sets the description of this ItemChargebackAdjustmentRequest.
-
+        Description
 
         :param description: The description of this ItemChargebackAdjustmentRequest.
         :type: str
@@ -107,7 +107,7 @@ class ItemChargebackAdjustmentRequest(object):
     def reason_code(self):
         """
         Gets the reason_code of this ItemChargebackAdjustmentRequest.
-
+        Reason code
 
         :return: The reason_code of this ItemChargebackAdjustmentRequest.
         :rtype: str
@@ -118,7 +118,7 @@ class ItemChargebackAdjustmentRequest(object):
     def reason_code(self, reason_code):
         """
         Sets the reason_code of this ItemChargebackAdjustmentRequest.
-
+        Reason code
 
         :param reason_code: The reason_code of this ItemChargebackAdjustmentRequest.
         :type: str

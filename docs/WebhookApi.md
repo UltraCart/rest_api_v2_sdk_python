@@ -1,6 +1,6 @@
 # com_ultracart_admin_v2.WebhookApi
 
-All URIs are relative to *https://secure.ultracart.com/rest/admin/v2*
+All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,12 +11,10 @@ Method | HTTP request | Description
 [**webhook_webhooks_webhook_oid_logs_request_id_get**](WebhookApi.md#webhook_webhooks_webhook_oid_logs_request_id_get) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 [**webhook_webhooks_webhook_oid_put**](WebhookApi.md#webhook_webhooks_webhook_oid_put) | **PUT** /webhook/webhooks/{webhookOid} | Update a webhook
 [**webhook_webhooks_webhook_oid_reflow_event_name_post**](WebhookApi.md#webhook_webhooks_webhook_oid_reflow_event_name_post) | **POST** /webhook/webhooks/{webhookOid}/reflow/{eventName} | Resend events to the webhook endpoint.
-[**webhook_webhooks_webhook_oid_samples_get**](WebhookApi.md#webhook_webhooks_webhook_oid_samples_get) | **GET** /webhook/webhooks/{webhookOid}/samples | Retrieve a sample notification.
-[**webhook_webhooks_webhook_oid_validate_post**](WebhookApi.md#webhook_webhooks_webhook_oid_validate_post) | **POST** /webhook/webhooks/{webhookOid}/validate | Send test message to an endpoint.
 
 
 # **webhook_webhooks_get**
-> WebhooksResponse webhook_webhooks_get()
+> WebhooksResponse webhook_webhooks_get(limit=limit, offset=offset, sort=sort, placeholders=placeholders)
 
 Retrieve webhooks
 
@@ -38,17 +36,27 @@ com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_A
 
 # create an instance of the API class
 api_instance = com_ultracart_admin_v2.WebhookApi()
+limit = 100 # int | The maximum number of records to return on this one API call. (optional) (default to 100)
+offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
+sort = 'sort_example' # str | The sort order of the webhooks.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
 try: 
     # Retrieve webhooks
-    api_response = api_instance.webhook_webhooks_get()
+    api_response = api_instance.webhook_webhooks_get(limit=limit, offset=offset, sort=sort, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling WebhookApi->webhook_webhooks_get: %s\n" % e
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| The maximum number of records to return on this one API call. | [optional] [default to 100]
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **str**| The sort order of the webhooks.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
@@ -66,11 +74,11 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_webhooks_post**
-> WebhooksResponse webhook_webhooks_post(webhook)
+> WebhookResponse webhook_webhooks_post(webhook, placeholders=placeholders)
 
 Add a webhook
 
-Adds a new webhook on the account 
+Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
 
 ### Example 
 ```python
@@ -89,10 +97,11 @@ com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_A
 # create an instance of the API class
 api_instance = com_ultracart_admin_v2.WebhookApi()
 webhook = com_ultracart_admin_v2.Webhook() # Webhook | Webhook to create
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
 try: 
     # Add a webhook
-    api_response = api_instance.webhook_webhooks_post(webhook)
+    api_response = api_instance.webhook_webhooks_post(webhook, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling WebhookApi->webhook_webhooks_post: %s\n" % e
@@ -103,10 +112,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook** | [**Webhook**](Webhook.md)| Webhook to create | 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
-[**WebhooksResponse**](WebhooksResponse.md)
+[**WebhookResponse**](WebhookResponse.md)
 
 ### Authorization
 
@@ -114,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -173,7 +183,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_webhooks_webhook_oid_logs_get**
-> WebhookLogSummariesResponse webhook_webhooks_webhook_oid_logs_get(webhook_oid)
+> WebhookLogSummariesResponse webhook_webhooks_webhook_oid_logs_get(webhook_oid, limit=limit, offset=offset, since=since)
 
 Retrieve the log summaries
 
@@ -196,10 +206,13 @@ com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_A
 # create an instance of the API class
 api_instance = com_ultracart_admin_v2.WebhookApi()
 webhook_oid = 56 # int | The webhook oid to retrieve log summaries for.
+limit = 100 # int | The maximum number of records to return on this one API call. (optional) (default to 100)
+offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
+since = 'since_example' # str | Fetch log summaries that have been delivered since this date/time. (optional)
 
 try: 
     # Retrieve the log summaries
-    api_response = api_instance.webhook_webhooks_webhook_oid_logs_get(webhook_oid)
+    api_response = api_instance.webhook_webhooks_webhook_oid_logs_get(webhook_oid, limit=limit, offset=offset, since=since)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling WebhookApi->webhook_webhooks_webhook_oid_logs_get: %s\n" % e
@@ -210,6 +223,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook_oid** | **int**| The webhook oid to retrieve log summaries for. | 
+ **limit** | **int**| The maximum number of records to return on this one API call. | [optional] [default to 100]
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **str**| Fetch log summaries that have been delivered since this date/time. | [optional] 
 
 ### Return type
 
@@ -283,7 +299,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_webhooks_webhook_oid_put**
-> WebhooksResponse webhook_webhooks_webhook_oid_put(webhook, webhook_oid)
+> WebhookResponse webhook_webhooks_webhook_oid_put(webhook, webhook_oid, placeholders=placeholders)
 
 Update a webhook
 
@@ -307,10 +323,11 @@ com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_A
 api_instance = com_ultracart_admin_v2.WebhookApi()
 webhook = com_ultracart_admin_v2.Webhook() # Webhook | Webhook to update
 webhook_oid = 56 # int | The webhook oid to update.
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
 try: 
     # Update a webhook
-    api_response = api_instance.webhook_webhooks_webhook_oid_put(webhook, webhook_oid)
+    api_response = api_instance.webhook_webhooks_webhook_oid_put(webhook, webhook_oid, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling WebhookApi->webhook_webhooks_webhook_oid_put: %s\n" % e
@@ -322,10 +339,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook** | [**Webhook**](Webhook.md)| Webhook to update | 
  **webhook_oid** | **int**| The webhook oid to update. | 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
-[**WebhooksResponse**](WebhooksResponse.md)
+[**WebhookResponse**](WebhookResponse.md)
 
 ### Authorization
 
@@ -333,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -389,117 +407,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **webhook_webhooks_webhook_oid_samples_get**
-> WebhookSampleRequestResponse webhook_webhooks_webhook_oid_samples_get(webhook_oid)
-
-Retrieve a sample notification.
-
-Retrieves a sample notification for the webhook.  This provides as example of what the notifications that can be delivered will look like. 
-
-### Example 
-```python
-import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = com_ultracart_admin_v2.WebhookApi()
-webhook_oid = 56 # int | The webhook oid to retrieve samples for.
-
-try: 
-    # Retrieve a sample notification.
-    api_response = api_instance.webhook_webhooks_webhook_oid_samples_get(webhook_oid)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling WebhookApi->webhook_webhooks_webhook_oid_samples_get: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook_oid** | **int**| The webhook oid to retrieve samples for. | 
-
-### Return type
-
-[**WebhookSampleRequestResponse**](WebhookSampleRequestResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **webhook_webhooks_webhook_oid_validate_post**
-> WebhookLogResponse webhook_webhooks_webhook_oid_validate_post(samples, webhook_oid)
-
-Send test message to an endpoint.
-
-Performs a test of the webhook endpoint given the specified sample request and returns the log associated with the response. 
-
-### Example 
-```python
-import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = com_ultracart_admin_v2.WebhookApi()
-samples = com_ultracart_admin_v2.WebhookSampleRequest() # WebhookSampleRequest | Samples to send in the test
-webhook_oid = 56 # int | The webhook oid that is being tested.
-
-try: 
-    # Send test message to an endpoint.
-    api_response = api_instance.webhook_webhooks_webhook_oid_validate_post(samples, webhook_oid)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling WebhookApi->webhook_webhooks_webhook_oid_validate_post: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **samples** | [**WebhookSampleRequest**](WebhookSampleRequest.md)| Samples to send in the test | 
- **webhook_oid** | **int**| The webhook oid that is being tested. | 
-
-### Return type
-
-[**WebhookLogResponse**](WebhookLogResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

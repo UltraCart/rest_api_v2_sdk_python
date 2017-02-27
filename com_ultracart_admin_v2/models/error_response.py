@@ -107,7 +107,7 @@ class ErrorResponse(object):
     def success(self):
         """
         Gets the success of this ErrorResponse.
-
+        Indicates if API call was successful
 
         :return: The success of this ErrorResponse.
         :rtype: bool
@@ -118,7 +118,7 @@ class ErrorResponse(object):
     def success(self, success):
         """
         Sets the success of this ErrorResponse.
-
+        Indicates if API call was successful
 
         :param success: The success of this ErrorResponse.
         :type: bool

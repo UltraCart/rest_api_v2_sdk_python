@@ -55,7 +55,7 @@ class ItemKitDefinition(object):
     def components(self):
         """
         Gets the components of this ItemKitDefinition.
-
+        Components
 
         :return: The components of this ItemKitDefinition.
         :rtype: list[ItemKitComponent]
@@ -66,7 +66,7 @@ class ItemKitDefinition(object):
     def components(self, components):
         """
         Sets the components of this ItemKitDefinition.
-
+        Components
 
         :param components: The components of this ItemKitDefinition.
         :type: list[ItemKitComponent]

@@ -50,7 +50,7 @@ class ItemKitComponent(object):
         }
 
         self.attribute_map = {
-            'component_cost': 'component_Cost',
+            'component_cost': 'component_cost',
             'component_description': 'component_description',
             'component_merchant_item_id': 'component_merchant_item_id',
             'component_merchant_item_oid': 'component_merchant_item_oid',
@@ -67,7 +67,7 @@ class ItemKitComponent(object):
     def component_cost(self):
         """
         Gets the component_cost of this ItemKitComponent.
-
+        Component item cost
 
         :return: The component_cost of this ItemKitComponent.
         :rtype: float
@@ -78,7 +78,7 @@ class ItemKitComponent(object):
     def component_cost(self, component_cost):
         """
         Sets the component_cost of this ItemKitComponent.
-
+        Component item cost
 
         :param component_cost: The component_cost of this ItemKitComponent.
         :type: float
@@ -90,7 +90,7 @@ class ItemKitComponent(object):
     def component_description(self):
         """
         Gets the component_description of this ItemKitComponent.
-
+        Component item description
 
         :return: The component_description of this ItemKitComponent.
         :rtype: str
@@ -101,7 +101,7 @@ class ItemKitComponent(object):
     def component_description(self, component_description):
         """
         Sets the component_description of this ItemKitComponent.
-
+        Component item description
 
         :param component_description: The component_description of this ItemKitComponent.
         :type: str
@@ -113,7 +113,7 @@ class ItemKitComponent(object):
     def component_merchant_item_id(self):
         """
         Gets the component_merchant_item_id of this ItemKitComponent.
-
+        Component item ID
 
         :return: The component_merchant_item_id of this ItemKitComponent.
         :rtype: str
@@ -124,7 +124,7 @@ class ItemKitComponent(object):
     def component_merchant_item_id(self, component_merchant_item_id):
         """
         Sets the component_merchant_item_id of this ItemKitComponent.
-
+        Component item ID
 
         :param component_merchant_item_id: The component_merchant_item_id of this ItemKitComponent.
         :type: str
@@ -136,7 +136,7 @@ class ItemKitComponent(object):
     def component_merchant_item_oid(self):
         """
         Gets the component_merchant_item_oid of this ItemKitComponent.
-
+        Component item object identifier
 
         :return: The component_merchant_item_oid of this ItemKitComponent.
         :rtype: int
@@ -147,7 +147,7 @@ class ItemKitComponent(object):
     def component_merchant_item_oid(self, component_merchant_item_oid):
         """
         Sets the component_merchant_item_oid of this ItemKitComponent.
-
+        Component item object identifier
 
         :param component_merchant_item_oid: The component_merchant_item_oid of this ItemKitComponent.
         :type: int
@@ -159,7 +159,7 @@ class ItemKitComponent(object):
     def quantity(self):
         """
         Gets the quantity of this ItemKitComponent.
-
+        Quantity
 
         :return: The quantity of this ItemKitComponent.
         :rtype: int
@@ -170,7 +170,7 @@ class ItemKitComponent(object):
     def quantity(self, quantity):
         """
         Sets the quantity of this ItemKitComponent.
-
+        Quantity
 
         :param quantity: The quantity of this ItemKitComponent.
         :type: int

@@ -58,7 +58,7 @@ class Distance(object):
     def uom(self):
         """
         Gets the uom of this Distance.
-
+        Unit of measure
 
         :return: The uom of this Distance.
         :rtype: str
@@ -69,11 +69,17 @@ class Distance(object):
     def uom(self, uom):
         """
         Sets the uom of this Distance.
-
+        Unit of measure
 
         :param uom: The uom of this Distance.
         :type: str
         """
+        allowed_values = ["IN", "CM"]
+        if uom not in allowed_values:
+            raise ValueError(
+                "Invalid value for `uom` ({0}), must be one of {1}"
+                .format(uom, allowed_values)
+            )
 
         self._uom = uom
 
@@ -81,7 +87,7 @@ class Distance(object):
     def value(self):
         """
         Gets the value of this Distance.
-
+        The distance measured in UOM
 
         :return: The value of this Distance.
         :rtype: float
@@ -92,7 +98,7 @@ class Distance(object):
     def value(self, value):
         """
         Sets the value of this Distance.
-
+        The distance measured in UOM
 
         :param value: The value of this Distance.
         :type: float

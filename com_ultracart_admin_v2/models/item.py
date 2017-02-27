@@ -279,7 +279,7 @@ class Item(object):
     def channel_partner_mappings(self):
         """
         Gets the channel_partner_mappings of this Item.
-
+        Channel Partner Item Mapping
 
         :return: The channel_partner_mappings of this Item.
         :rtype: list[ItemChannelPartnerMapping]
@@ -290,7 +290,7 @@ class Item(object):
     def channel_partner_mappings(self, channel_partner_mappings):
         """
         Sets the channel_partner_mappings of this Item.
-
+        Channel Partner Item Mapping
 
         :param channel_partner_mappings: The channel_partner_mappings of this Item.
         :type: list[ItemChannelPartnerMapping]
@@ -371,7 +371,7 @@ class Item(object):
     def creation_dts(self):
         """
         Gets the creation_dts of this Item.
-
+        Date/time of creation
 
         :return: The creation_dts of this Item.
         :rtype: str
@@ -382,7 +382,7 @@ class Item(object):
     def creation_dts(self, creation_dts):
         """
         Sets the creation_dts of this Item.
-
+        Date/time of creation
 
         :param creation_dts: The creation_dts of this Item.
         :type: str
@@ -394,7 +394,7 @@ class Item(object):
     def description(self):
         """
         Gets the description of this Item.
-
+        Description of the item up to 500 characters.
 
         :return: The description of this Item.
         :rtype: str
@@ -405,11 +405,16 @@ class Item(object):
     def description(self, description):
         """
         Sets the description of this Item.
-
+        Description of the item up to 500 characters.
 
         :param description: The description of this Item.
         :type: str
         """
+
+        if not description:
+            raise ValueError("Invalid value for `description`, must not be `None`")
+        if len(description) > 512:
+            raise ValueError("Invalid value for `description`, length must be less than `512`")
 
         self._description = description
 
@@ -417,7 +422,7 @@ class Item(object):
     def description_translated_text_instance_oid(self):
         """
         Gets the description_translated_text_instance_oid of this Item.
-
+        Description translated text instance id
 
         :return: The description_translated_text_instance_oid of this Item.
         :rtype: int
@@ -428,7 +433,7 @@ class Item(object):
     def description_translated_text_instance_oid(self, description_translated_text_instance_oid):
         """
         Sets the description_translated_text_instance_oid of this Item.
-
+        Description translated text instance id
 
         :param description_translated_text_instance_oid: The description_translated_text_instance_oid of this Item.
         :type: int
@@ -601,7 +606,7 @@ class Item(object):
     def inactive(self):
         """
         Gets the inactive of this Item.
-
+        True if this item is inactive and can not be purchased
 
         :return: The inactive of this Item.
         :rtype: bool
@@ -612,7 +617,7 @@ class Item(object):
     def inactive(self, inactive):
         """
         Sets the inactive of this Item.
-
+        True if this item is inactive and can not be purchased
 
         :param inactive: The inactive of this Item.
         :type: bool
@@ -670,7 +675,7 @@ class Item(object):
     def kit(self):
         """
         Gets the kit of this Item.
-
+        True if this item is a kit
 
         :return: The kit of this Item.
         :rtype: bool
@@ -681,7 +686,7 @@ class Item(object):
     def kit(self, kit):
         """
         Sets the kit of this Item.
-
+        True if this item is a kit
 
         :param kit: The kit of this Item.
         :type: bool
@@ -716,7 +721,7 @@ class Item(object):
     def last_modified_dts(self):
         """
         Gets the last_modified_dts of this Item.
-
+        Date/time of last modification
 
         :return: The last_modified_dts of this Item.
         :rtype: str
@@ -727,7 +732,7 @@ class Item(object):
     def last_modified_dts(self, last_modified_dts):
         """
         Sets the last_modified_dts of this Item.
-
+        Date/time of last modification
 
         :param last_modified_dts: The last_modified_dts of this Item.
         :type: str
@@ -739,7 +744,7 @@ class Item(object):
     def merchant_id(self):
         """
         Gets the merchant_id of this Item.
-
+        UltraCart merchant ID owning item
 
         :return: The merchant_id of this Item.
         :rtype: str
@@ -750,11 +755,16 @@ class Item(object):
     def merchant_id(self, merchant_id):
         """
         Sets the merchant_id of this Item.
-
+        UltraCart merchant ID owning item
 
         :param merchant_id: The merchant_id of this Item.
         :type: str
         """
+
+        if not merchant_id:
+            raise ValueError("Invalid value for `merchant_id`, must not be `None`")
+        if len(merchant_id) > 5:
+            raise ValueError("Invalid value for `merchant_id`, length must be less than `5`")
 
         self._merchant_id = merchant_id
 
@@ -762,7 +772,7 @@ class Item(object):
     def merchant_item_id(self):
         """
         Gets the merchant_item_id of this Item.
-
+        Unique item id assigned to this item
 
         :return: The merchant_item_id of this Item.
         :rtype: str
@@ -773,11 +783,16 @@ class Item(object):
     def merchant_item_id(self, merchant_item_id):
         """
         Sets the merchant_item_id of this Item.
-
+        Unique item id assigned to this item
 
         :param merchant_item_id: The merchant_item_id of this Item.
         :type: str
         """
+
+        if not merchant_item_id:
+            raise ValueError("Invalid value for `merchant_item_id`, must not be `None`")
+        if len(merchant_item_id) > 20:
+            raise ValueError("Invalid value for `merchant_item_id`, length must be less than `20`")
 
         self._merchant_item_id = merchant_item_id
 
@@ -785,7 +800,7 @@ class Item(object):
     def merchant_item_oid(self):
         """
         Gets the merchant_item_oid of this Item.
-
+        Unique object identifier for this item
 
         :return: The merchant_item_oid of this Item.
         :rtype: int
@@ -796,7 +811,7 @@ class Item(object):
     def merchant_item_oid(self, merchant_item_oid):
         """
         Sets the merchant_item_oid of this Item.
-
+        Unique object identifier for this item
 
         :param merchant_item_oid: The merchant_item_oid of this Item.
         :type: int
@@ -808,7 +823,7 @@ class Item(object):
     def options(self):
         """
         Gets the options of this Item.
-
+        Options
 
         :return: The options of this Item.
         :rtype: list[ItemOption]
@@ -819,7 +834,7 @@ class Item(object):
     def options(self, options):
         """
         Sets the options of this Item.
-
+        Options
 
         :param options: The options of this Item.
         :type: list[ItemOption]
@@ -831,7 +846,7 @@ class Item(object):
     def parent_category_id(self):
         """
         Gets the parent_category_id of this Item.
-
+        Parent category of the item.  Zero indicates the root folder.
 
         :return: The parent_category_id of this Item.
         :rtype: int
@@ -842,7 +857,7 @@ class Item(object):
     def parent_category_id(self, parent_category_id):
         """
         Sets the parent_category_id of this Item.
-
+        Parent category of the item.  Zero indicates the root folder.
 
         :param parent_category_id: The parent_category_id of this Item.
         :type: int
@@ -1130,7 +1145,7 @@ class Item(object):
     def third_party_email_marketing(self):
         """
         Gets the third_party_email_marketing of this Item.
-
+        3rd Party Email Marketing
 
         :return: The third_party_email_marketing of this Item.
         :rtype: list[ItemThirdPartyEmailMarketing]
@@ -1141,7 +1156,7 @@ class Item(object):
     def third_party_email_marketing(self, third_party_email_marketing):
         """
         Sets the third_party_email_marketing of this Item.
-
+        3rd Party Email Marketing
 
         :param third_party_email_marketing: The third_party_email_marketing of this Item.
         :type: list[ItemThirdPartyEmailMarketing]
@@ -1153,7 +1168,7 @@ class Item(object):
     def variant_items(self):
         """
         Gets the variant_items of this Item.
-
+        Variant Items
 
         :return: The variant_items of this Item.
         :rtype: list[ItemVariantItem]
@@ -1164,7 +1179,7 @@ class Item(object):
     def variant_items(self, variant_items):
         """
         Sets the variant_items of this Item.
-
+        Variant Items
 
         :param variant_items: The variant_items of this Item.
         :type: list[ItemVariantItem]
@@ -1176,7 +1191,7 @@ class Item(object):
     def variations(self):
         """
         Gets the variations of this Item.
-
+        Variations
 
         :return: The variations of this Item.
         :rtype: list[ItemVariation]
@@ -1187,7 +1202,7 @@ class Item(object):
     def variations(self, variations):
         """
         Sets the variations of this Item.
-
+        Variations
 
         :param variations: The variations of this Item.
         :type: list[ItemVariation]

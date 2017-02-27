@@ -67,7 +67,7 @@ class ItemContentAssignment(object):
     def group_oid(self):
         """
         Gets the group_oid of this ItemContentAssignment.
-
+        Page (group) object identifier
 
         :return: The group_oid of this ItemContentAssignment.
         :rtype: int
@@ -78,7 +78,7 @@ class ItemContentAssignment(object):
     def group_oid(self, group_oid):
         """
         Sets the group_oid of this ItemContentAssignment.
-
+        Page (group) object identifier
 
         :param group_oid: The group_oid of this ItemContentAssignment.
         :type: int
@@ -90,7 +90,7 @@ class ItemContentAssignment(object):
     def group_path(self):
         """
         Gets the group_path of this ItemContentAssignment.
-
+        Page (group) path
 
         :return: The group_path of this ItemContentAssignment.
         :rtype: str
@@ -101,7 +101,7 @@ class ItemContentAssignment(object):
     def group_path(self, group_path):
         """
         Sets the group_path of this ItemContentAssignment.
-
+        Page (group) path
 
         :param group_path: The group_path of this ItemContentAssignment.
         :type: str
@@ -113,7 +113,7 @@ class ItemContentAssignment(object):
     def host(self):
         """
         Gets the host of this ItemContentAssignment.
-
+        StoreFront host name
 
         :return: The host of this ItemContentAssignment.
         :rtype: str
@@ -124,7 +124,7 @@ class ItemContentAssignment(object):
     def host(self, host):
         """
         Sets the host of this ItemContentAssignment.
-
+        StoreFront host name
 
         :param host: The host of this ItemContentAssignment.
         :type: str
@@ -136,7 +136,7 @@ class ItemContentAssignment(object):
     def sort_order(self):
         """
         Gets the sort_order of this ItemContentAssignment.
-
+        Sort order (optional)
 
         :return: The sort_order of this ItemContentAssignment.
         :rtype: int
@@ -147,7 +147,7 @@ class ItemContentAssignment(object):
     def sort_order(self, sort_order):
         """
         Sets the sort_order of this ItemContentAssignment.
-
+        Sort order (optional)
 
         :param sort_order: The sort_order of this ItemContentAssignment.
         :type: int
@@ -159,7 +159,7 @@ class ItemContentAssignment(object):
     def url_part(self):
         """
         Gets the url_part of this ItemContentAssignment.
-
+        URL part if the item id is not used
 
         :return: The url_part of this ItemContentAssignment.
         :rtype: str
@@ -170,11 +170,16 @@ class ItemContentAssignment(object):
     def url_part(self, url_part):
         """
         Sets the url_part of this ItemContentAssignment.
-
+        URL part if the item id is not used
 
         :param url_part: The url_part of this ItemContentAssignment.
         :type: str
         """
+
+        if not url_part:
+            raise ValueError("Invalid value for `url_part`, must not be `None`")
+        if len(url_part) > 150:
+            raise ValueError("Invalid value for `url_part`, length must be less than `150`")
 
         self._url_part = url_part
 

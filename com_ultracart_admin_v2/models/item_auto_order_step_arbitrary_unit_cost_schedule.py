@@ -47,7 +47,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule(object):
         }
 
         self.attribute_map = {
-            'arbitrary_unit_cost': 'arbitrary_unit_Cost',
+            'arbitrary_unit_cost': 'arbitrary_unit_cost',
             'retry_days': 'retry_days'
         }
 
@@ -58,7 +58,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule(object):
     def arbitrary_unit_cost(self):
         """
         Gets the arbitrary_unit_cost of this ItemAutoOrderStepArbitraryUnitCostSchedule.
-
+        Arbitrary unit cost
 
         :return: The arbitrary_unit_cost of this ItemAutoOrderStepArbitraryUnitCostSchedule.
         :rtype: float
@@ -69,7 +69,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule(object):
     def arbitrary_unit_cost(self, arbitrary_unit_cost):
         """
         Sets the arbitrary_unit_cost of this ItemAutoOrderStepArbitraryUnitCostSchedule.
-
+        Arbitrary unit cost
 
         :param arbitrary_unit_cost: The arbitrary_unit_cost of this ItemAutoOrderStepArbitraryUnitCostSchedule.
         :type: float
@@ -81,7 +81,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule(object):
     def retry_days(self):
         """
         Gets the retry_days of this ItemAutoOrderStepArbitraryUnitCostSchedule.
-
+        Retry days
 
         :return: The retry_days of this ItemAutoOrderStepArbitraryUnitCostSchedule.
         :rtype: int
@@ -92,7 +92,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule(object):
     def retry_days(self, retry_days):
         """
         Sets the retry_days of this ItemAutoOrderStepArbitraryUnitCostSchedule.
-
+        Retry days
 
         :param retry_days: The retry_days of this ItemAutoOrderStepArbitraryUnitCostSchedule.
         :type: int

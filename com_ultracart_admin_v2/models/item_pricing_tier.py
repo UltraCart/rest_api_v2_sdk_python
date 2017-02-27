@@ -67,7 +67,7 @@ class ItemPricingTier(object):
     def default_tier(self):
         """
         Gets the default_tier of this ItemPricingTier.
-
+        True if this is the default tier
 
         :return: The default_tier of this ItemPricingTier.
         :rtype: bool
@@ -78,7 +78,7 @@ class ItemPricingTier(object):
     def default_tier(self, default_tier):
         """
         Sets the default_tier of this ItemPricingTier.
-
+        True if this is the default tier
 
         :param default_tier: The default_tier of this ItemPricingTier.
         :type: bool
@@ -90,7 +90,7 @@ class ItemPricingTier(object):
     def discounts(self):
         """
         Gets the discounts of this ItemPricingTier.
-
+        Discounts
 
         :return: The discounts of this ItemPricingTier.
         :rtype: list[ItemPricingTierDiscount]
@@ -101,7 +101,7 @@ class ItemPricingTier(object):
     def discounts(self, discounts):
         """
         Sets the discounts of this ItemPricingTier.
-
+        Discounts
 
         :param discounts: The discounts of this ItemPricingTier.
         :type: list[ItemPricingTierDiscount]
@@ -136,7 +136,7 @@ class ItemPricingTier(object):
     def name(self):
         """
         Gets the name of this ItemPricingTier.
-
+        Pricing tier name
 
         :return: The name of this ItemPricingTier.
         :rtype: str
@@ -147,7 +147,7 @@ class ItemPricingTier(object):
     def name(self, name):
         """
         Sets the name of this ItemPricingTier.
-
+        Pricing tier name
 
         :param name: The name of this ItemPricingTier.
         :type: str
@@ -159,7 +159,7 @@ class ItemPricingTier(object):
     def pricing_tier_oid(self):
         """
         Gets the pricing_tier_oid of this ItemPricingTier.
-
+        Pricing tier object identifier
 
         :return: The pricing_tier_oid of this ItemPricingTier.
         :rtype: int
@@ -170,7 +170,7 @@ class ItemPricingTier(object):
     def pricing_tier_oid(self, pricing_tier_oid):
         """
         Sets the pricing_tier_oid of this ItemPricingTier.
-
+        Pricing tier object identifier
 
         :param pricing_tier_oid: The pricing_tier_oid of this ItemPricingTier.
         :type: int

@@ -70,7 +70,7 @@ class ItemContentMultimediaThumbnail(object):
     def height(self):
         """
         Gets the height of this ItemContentMultimediaThumbnail.
-
+        Height of the thumbnail
 
         :return: The height of this ItemContentMultimediaThumbnail.
         :rtype: int
@@ -81,7 +81,7 @@ class ItemContentMultimediaThumbnail(object):
     def height(self, height):
         """
         Sets the height of this ItemContentMultimediaThumbnail.
-
+        Height of the thumbnail
 
         :param height: The height of this ItemContentMultimediaThumbnail.
         :type: int
@@ -93,7 +93,7 @@ class ItemContentMultimediaThumbnail(object):
     def http_url(self):
         """
         Gets the http_url of this ItemContentMultimediaThumbnail.
-
+        HTTP URL to view the thumbnail
 
         :return: The http_url of this ItemContentMultimediaThumbnail.
         :rtype: str
@@ -104,7 +104,7 @@ class ItemContentMultimediaThumbnail(object):
     def http_url(self, http_url):
         """
         Sets the http_url of this ItemContentMultimediaThumbnail.
-
+        HTTP URL to view the thumbnail
 
         :param http_url: The http_url of this ItemContentMultimediaThumbnail.
         :type: str
@@ -116,7 +116,7 @@ class ItemContentMultimediaThumbnail(object):
     def https_url(self):
         """
         Gets the https_url of this ItemContentMultimediaThumbnail.
-
+        HTTPS URL to view the thumbnail
 
         :return: The https_url of this ItemContentMultimediaThumbnail.
         :rtype: str
@@ -127,7 +127,7 @@ class ItemContentMultimediaThumbnail(object):
     def https_url(self, https_url):
         """
         Sets the https_url of this ItemContentMultimediaThumbnail.
-
+        HTTPS URL to view the thumbnail
 
         :param https_url: The https_url of this ItemContentMultimediaThumbnail.
         :type: str
@@ -139,7 +139,7 @@ class ItemContentMultimediaThumbnail(object):
     def png_format(self):
         """
         Gets the png_format of this ItemContentMultimediaThumbnail.
-
+        True if PNG, false if JPEG
 
         :return: The png_format of this ItemContentMultimediaThumbnail.
         :rtype: bool
@@ -150,7 +150,7 @@ class ItemContentMultimediaThumbnail(object):
     def png_format(self, png_format):
         """
         Sets the png_format of this ItemContentMultimediaThumbnail.
-
+        True if PNG, false if JPEG
 
         :param png_format: The png_format of this ItemContentMultimediaThumbnail.
         :type: bool
@@ -162,7 +162,7 @@ class ItemContentMultimediaThumbnail(object):
     def square(self):
         """
         Gets the square of this ItemContentMultimediaThumbnail.
-
+        True if the thumbnail is square
 
         :return: The square of this ItemContentMultimediaThumbnail.
         :rtype: bool
@@ -173,7 +173,7 @@ class ItemContentMultimediaThumbnail(object):
     def square(self, square):
         """
         Sets the square of this ItemContentMultimediaThumbnail.
-
+        True if the thumbnail is square
 
         :param square: The square of this ItemContentMultimediaThumbnail.
         :type: bool
@@ -185,7 +185,7 @@ class ItemContentMultimediaThumbnail(object):
     def width(self):
         """
         Gets the width of this ItemContentMultimediaThumbnail.
-
+        Width of the thumbnail
 
         :return: The width of this ItemContentMultimediaThumbnail.
         :rtype: int
@@ -196,7 +196,7 @@ class ItemContentMultimediaThumbnail(object):
     def width(self, width):
         """
         Sets the width of this ItemContentMultimediaThumbnail.
-
+        Width of the thumbnail
 
         :param width: The width of this ItemContentMultimediaThumbnail.
         :type: int

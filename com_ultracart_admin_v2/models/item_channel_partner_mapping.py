@@ -103,7 +103,7 @@ class ItemChannelPartnerMapping(object):
     def barcode_ua(self):
         """
         Gets the barcode_ua of this ItemChannelPartnerMapping.
-
+        Barcode UA (EDI only)
 
         :return: The barcode_ua of this ItemChannelPartnerMapping.
         :rtype: str
@@ -114,7 +114,7 @@ class ItemChannelPartnerMapping(object):
     def barcode_ua(self, barcode_ua):
         """
         Sets the barcode_ua of this ItemChannelPartnerMapping.
-
+        Barcode UA (EDI only)
 
         :param barcode_ua: The barcode_ua of this ItemChannelPartnerMapping.
         :type: str
@@ -126,7 +126,7 @@ class ItemChannelPartnerMapping(object):
     def barcode_uc(self):
         """
         Gets the barcode_uc of this ItemChannelPartnerMapping.
-
+        Barcode UC (EDI only)
 
         :return: The barcode_uc of this ItemChannelPartnerMapping.
         :rtype: str
@@ -137,7 +137,7 @@ class ItemChannelPartnerMapping(object):
     def barcode_uc(self, barcode_uc):
         """
         Sets the barcode_uc of this ItemChannelPartnerMapping.
-
+        Barcode UC (EDI only)
 
         :param barcode_uc: The barcode_uc of this ItemChannelPartnerMapping.
         :type: str
@@ -149,7 +149,7 @@ class ItemChannelPartnerMapping(object):
     def barcode_ui(self):
         """
         Gets the barcode_ui of this ItemChannelPartnerMapping.
-
+        Barcode UI (EDI only)
 
         :return: The barcode_ui of this ItemChannelPartnerMapping.
         :rtype: str
@@ -160,7 +160,7 @@ class ItemChannelPartnerMapping(object):
     def barcode_ui(self, barcode_ui):
         """
         Sets the barcode_ui of this ItemChannelPartnerMapping.
-
+        Barcode UI (EDI only)
 
         :param barcode_ui: The barcode_ui of this ItemChannelPartnerMapping.
         :type: str
@@ -172,7 +172,7 @@ class ItemChannelPartnerMapping(object):
     def barcode_uk(self):
         """
         Gets the barcode_uk of this ItemChannelPartnerMapping.
-
+        Barcode UK (EDI only)
 
         :return: The barcode_uk of this ItemChannelPartnerMapping.
         :rtype: str
@@ -183,7 +183,7 @@ class ItemChannelPartnerMapping(object):
     def barcode_uk(self, barcode_uk):
         """
         Sets the barcode_uk of this ItemChannelPartnerMapping.
-
+        Barcode UK (EDI only)
 
         :param barcode_uk: The barcode_uk of this ItemChannelPartnerMapping.
         :type: str
@@ -195,7 +195,7 @@ class ItemChannelPartnerMapping(object):
     def buyer_dpci(self):
         """
         Gets the buyer_dpci of this ItemChannelPartnerMapping.
-
+        Buyer DPCI (EDI only)
 
         :return: The buyer_dpci of this ItemChannelPartnerMapping.
         :rtype: str
@@ -206,7 +206,7 @@ class ItemChannelPartnerMapping(object):
     def buyer_dpci(self, buyer_dpci):
         """
         Sets the buyer_dpci of this ItemChannelPartnerMapping.
-
+        Buyer DPCI (EDI only)
 
         :param buyer_dpci: The buyer_dpci of this ItemChannelPartnerMapping.
         :type: str
@@ -218,7 +218,7 @@ class ItemChannelPartnerMapping(object):
     def buyer_item_number(self):
         """
         Gets the buyer_item_number of this ItemChannelPartnerMapping.
-
+        Buyer item number (EDI only)
 
         :return: The buyer_item_number of this ItemChannelPartnerMapping.
         :rtype: str
@@ -229,7 +229,7 @@ class ItemChannelPartnerMapping(object):
     def buyer_item_number(self, buyer_item_number):
         """
         Sets the buyer_item_number of this ItemChannelPartnerMapping.
-
+        Buyer item number (EDI only)
 
         :param buyer_item_number: The buyer_item_number of this ItemChannelPartnerMapping.
         :type: str
@@ -241,7 +241,7 @@ class ItemChannelPartnerMapping(object):
     def channel_partner_code(self):
         """
         Gets the channel_partner_code of this ItemChannelPartnerMapping.
-
+        Channel partner code
 
         :return: The channel_partner_code of this ItemChannelPartnerMapping.
         :rtype: str
@@ -252,7 +252,7 @@ class ItemChannelPartnerMapping(object):
     def channel_partner_code(self, channel_partner_code):
         """
         Sets the channel_partner_code of this ItemChannelPartnerMapping.
-
+        Channel partner code
 
         :param channel_partner_code: The channel_partner_code of this ItemChannelPartnerMapping.
         :type: str
@@ -264,7 +264,7 @@ class ItemChannelPartnerMapping(object):
     def channel_partner_oid(self):
         """
         Gets the channel_partner_oid of this ItemChannelPartnerMapping.
-
+        Channel partner object identifier
 
         :return: The channel_partner_oid of this ItemChannelPartnerMapping.
         :rtype: int
@@ -275,7 +275,7 @@ class ItemChannelPartnerMapping(object):
     def channel_partner_oid(self, channel_partner_oid):
         """
         Sets the channel_partner_oid of this ItemChannelPartnerMapping.
-
+        Channel partner object identifier
 
         :param channel_partner_oid: The channel_partner_oid of this ItemChannelPartnerMapping.
         :type: int
@@ -287,7 +287,7 @@ class ItemChannelPartnerMapping(object):
     def from_item_id(self):
         """
         Gets the from_item_id of this ItemChannelPartnerMapping.
-
+        From Item ID
 
         :return: The from_item_id of this ItemChannelPartnerMapping.
         :rtype: str
@@ -298,11 +298,16 @@ class ItemChannelPartnerMapping(object):
     def from_item_id(self, from_item_id):
         """
         Sets the from_item_id of this ItemChannelPartnerMapping.
-
+        From Item ID
 
         :param from_item_id: The from_item_id of this ItemChannelPartnerMapping.
         :type: str
         """
+
+        if not from_item_id:
+            raise ValueError("Invalid value for `from_item_id`, must not be `None`")
+        if len(from_item_id) > 30:
+            raise ValueError("Invalid value for `from_item_id`, length must be less than `30`")
 
         self._from_item_id = from_item_id
 
@@ -310,7 +315,7 @@ class ItemChannelPartnerMapping(object):
     def from_sku(self):
         """
         Gets the from_sku of this ItemChannelPartnerMapping.
-
+        From SKU
 
         :return: The from_sku of this ItemChannelPartnerMapping.
         :rtype: str
@@ -321,11 +326,16 @@ class ItemChannelPartnerMapping(object):
     def from_sku(self, from_sku):
         """
         Sets the from_sku of this ItemChannelPartnerMapping.
-
+        From SKU
 
         :param from_sku: The from_sku of this ItemChannelPartnerMapping.
         :type: str
         """
+
+        if not from_sku:
+            raise ValueError("Invalid value for `from_sku`, must not be `None`")
+        if len(from_sku) > 50:
+            raise ValueError("Invalid value for `from_sku`, length must be less than `50`")
 
         self._from_sku = from_sku
 
@@ -333,7 +343,7 @@ class ItemChannelPartnerMapping(object):
     def mutually_defined_number(self):
         """
         Gets the mutually_defined_number of this ItemChannelPartnerMapping.
-
+        Mutually defined number (EDI only)
 
         :return: The mutually_defined_number of this ItemChannelPartnerMapping.
         :rtype: str
@@ -344,7 +354,7 @@ class ItemChannelPartnerMapping(object):
     def mutually_defined_number(self, mutually_defined_number):
         """
         Sets the mutually_defined_number of this ItemChannelPartnerMapping.
-
+        Mutually defined number (EDI only)
 
         :param mutually_defined_number: The mutually_defined_number of this ItemChannelPartnerMapping.
         :type: str
@@ -356,7 +366,7 @@ class ItemChannelPartnerMapping(object):
     def quantity_ratio_cp(self):
         """
         Gets the quantity_ratio_cp of this ItemChannelPartnerMapping.
-
+        Ratio (Channel Partner)
 
         :return: The quantity_ratio_cp of this ItemChannelPartnerMapping.
         :rtype: int
@@ -367,7 +377,7 @@ class ItemChannelPartnerMapping(object):
     def quantity_ratio_cp(self, quantity_ratio_cp):
         """
         Sets the quantity_ratio_cp of this ItemChannelPartnerMapping.
-
+        Ratio (Channel Partner)
 
         :param quantity_ratio_cp: The quantity_ratio_cp of this ItemChannelPartnerMapping.
         :type: int
@@ -379,7 +389,7 @@ class ItemChannelPartnerMapping(object):
     def quantity_ratio_uc(self):
         """
         Gets the quantity_ratio_uc of this ItemChannelPartnerMapping.
-
+        Ratio (UltraCart)
 
         :return: The quantity_ratio_uc of this ItemChannelPartnerMapping.
         :rtype: int
@@ -390,7 +400,7 @@ class ItemChannelPartnerMapping(object):
     def quantity_ratio_uc(self, quantity_ratio_uc):
         """
         Sets the quantity_ratio_uc of this ItemChannelPartnerMapping.
-
+        Ratio (UltraCart)
 
         :param quantity_ratio_uc: The quantity_ratio_uc of this ItemChannelPartnerMapping.
         :type: int
@@ -402,7 +412,7 @@ class ItemChannelPartnerMapping(object):
     def sku(self):
         """
         Gets the sku of this ItemChannelPartnerMapping.
-
+        SKU
 
         :return: The sku of this ItemChannelPartnerMapping.
         :rtype: str
@@ -413,11 +423,16 @@ class ItemChannelPartnerMapping(object):
     def sku(self, sku):
         """
         Sets the sku of this ItemChannelPartnerMapping.
-
+        SKU
 
         :param sku: The sku of this ItemChannelPartnerMapping.
         :type: str
         """
+
+        if not sku:
+            raise ValueError("Invalid value for `sku`, must not be `None`")
+        if len(sku) > 50:
+            raise ValueError("Invalid value for `sku`, length must be less than `50`")
 
         self._sku = sku
 
@@ -425,7 +440,7 @@ class ItemChannelPartnerMapping(object):
     def unit_of_measure(self):
         """
         Gets the unit_of_measure of this ItemChannelPartnerMapping.
-
+        Unit of measure
 
         :return: The unit_of_measure of this ItemChannelPartnerMapping.
         :rtype: str
@@ -436,7 +451,7 @@ class ItemChannelPartnerMapping(object):
     def unit_of_measure(self, unit_of_measure):
         """
         Sets the unit_of_measure of this ItemChannelPartnerMapping.
-
+        Unit of measure
 
         :param unit_of_measure: The unit_of_measure of this ItemChannelPartnerMapping.
         :type: str
@@ -448,7 +463,7 @@ class ItemChannelPartnerMapping(object):
     def vendor_number(self):
         """
         Gets the vendor_number of this ItemChannelPartnerMapping.
-
+        Vendor number (EDI only)
 
         :return: The vendor_number of this ItemChannelPartnerMapping.
         :rtype: str
@@ -459,7 +474,7 @@ class ItemChannelPartnerMapping(object):
     def vendor_number(self, vendor_number):
         """
         Sets the vendor_number of this ItemChannelPartnerMapping.
-
+        Vendor number (EDI only)
 
         :param vendor_number: The vendor_number of this ItemChannelPartnerMapping.
         :type: str
@@ -471,7 +486,7 @@ class ItemChannelPartnerMapping(object):
     def vendor_style_number(self):
         """
         Gets the vendor_style_number of this ItemChannelPartnerMapping.
-
+        Vendor style number (EDI only)
 
         :return: The vendor_style_number of this ItemChannelPartnerMapping.
         :rtype: str
@@ -482,7 +497,7 @@ class ItemChannelPartnerMapping(object):
     def vendor_style_number(self, vendor_style_number):
         """
         Sets the vendor_style_number of this ItemChannelPartnerMapping.
-
+        Vendor style number (EDI only)
 
         :param vendor_style_number: The vendor_style_number of this ItemChannelPartnerMapping.
         :type: str

@@ -61,7 +61,7 @@ class ItemCheckout(object):
     def suppress_buysafe(self):
         """
         Gets the suppress_buysafe of this ItemCheckout.
-
+        True to suppress buySAFE
 
         :return: The suppress_buysafe of this ItemCheckout.
         :rtype: bool
@@ -72,7 +72,7 @@ class ItemCheckout(object):
     def suppress_buysafe(self, suppress_buysafe):
         """
         Sets the suppress_buysafe of this ItemCheckout.
-
+        True to suppress buySAFE
 
         :param suppress_buysafe: The suppress_buysafe of this ItemCheckout.
         :type: bool
@@ -84,7 +84,7 @@ class ItemCheckout(object):
     def terms(self):
         """
         Gets the terms of this ItemCheckout.
-
+        Terms for purchasing this item
 
         :return: The terms of this ItemCheckout.
         :rtype: str
@@ -95,11 +95,16 @@ class ItemCheckout(object):
     def terms(self, terms):
         """
         Sets the terms of this ItemCheckout.
-
+        Terms for purchasing this item
 
         :param terms: The terms of this ItemCheckout.
         :type: str
         """
+
+        if not terms:
+            raise ValueError("Invalid value for `terms`, must not be `None`")
+        if len(terms) > 10000:
+            raise ValueError("Invalid value for `terms`, length must be less than `10000`")
 
         self._terms = terms
 
@@ -107,7 +112,7 @@ class ItemCheckout(object):
     def terms_translated_text_instance_oid(self):
         """
         Gets the terms_translated_text_instance_oid of this ItemCheckout.
-
+        Terms translated text instance identifier
 
         :return: The terms_translated_text_instance_oid of this ItemCheckout.
         :rtype: int
@@ -118,7 +123,7 @@ class ItemCheckout(object):
     def terms_translated_text_instance_oid(self, terms_translated_text_instance_oid):
         """
         Sets the terms_translated_text_instance_oid of this ItemCheckout.
-
+        Terms translated text instance identifier
 
         :param terms_translated_text_instance_oid: The terms_translated_text_instance_oid of this ItemCheckout.
         :type: int

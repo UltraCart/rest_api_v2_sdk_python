@@ -58,7 +58,7 @@ class ItemChargeback(object):
     def addendums(self):
         """
         Gets the addendums of this ItemChargeback.
-
+        Addendums
 
         :return: The addendums of this ItemChargeback.
         :rtype: list[ItemChargebackAddendum]
@@ -69,7 +69,7 @@ class ItemChargeback(object):
     def addendums(self, addendums):
         """
         Sets the addendums of this ItemChargeback.
-
+        Addendums
 
         :param addendums: The addendums of this ItemChargeback.
         :type: list[ItemChargebackAddendum]
@@ -81,7 +81,7 @@ class ItemChargeback(object):
     def adjustment_requests(self):
         """
         Gets the adjustment_requests of this ItemChargeback.
-
+        Adjustment requests
 
         :return: The adjustment_requests of this ItemChargeback.
         :rtype: list[ItemChargebackAdjustmentRequest]
@@ -92,7 +92,7 @@ class ItemChargeback(object):
     def adjustment_requests(self, adjustment_requests):
         """
         Sets the adjustment_requests of this ItemChargeback.
-
+        Adjustment requests
 
         :param adjustment_requests: The adjustment_requests of this ItemChargeback.
         :type: list[ItemChargebackAdjustmentRequest]

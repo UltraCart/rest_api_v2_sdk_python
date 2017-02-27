@@ -55,7 +55,7 @@ class ItemInstantPaymentNotifications(object):
     def notifications(self):
         """
         Gets the notifications of this ItemInstantPaymentNotifications.
-
+        Notifications
 
         :return: The notifications of this ItemInstantPaymentNotifications.
         :rtype: list[ItemInstantPaymentNotification]
@@ -66,7 +66,7 @@ class ItemInstantPaymentNotifications(object):
     def notifications(self, notifications):
         """
         Sets the notifications of this ItemInstantPaymentNotifications.
-
+        Notifications
 
         :param notifications: The notifications of this ItemInstantPaymentNotifications.
         :type: list[ItemInstantPaymentNotification]

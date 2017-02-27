@@ -103,7 +103,7 @@ class ItemPricing(object):
     def allow_arbitrary_cost(self):
         """
         Gets the allow_arbitrary_cost of this ItemPricing.
-
+        Allow arbitrary cost
 
         :return: The allow_arbitrary_cost of this ItemPricing.
         :rtype: bool
@@ -114,7 +114,7 @@ class ItemPricing(object):
     def allow_arbitrary_cost(self, allow_arbitrary_cost):
         """
         Sets the allow_arbitrary_cost of this ItemPricing.
-
+        Allow arbitrary cost
 
         :param allow_arbitrary_cost: The allow_arbitrary_cost of this ItemPricing.
         :type: bool
@@ -126,7 +126,7 @@ class ItemPricing(object):
     def arbitrary_cost_velocity_code(self):
         """
         Gets the arbitrary_cost_velocity_code of this ItemPricing.
-
+        Arbitrary cost velocity code
 
         :return: The arbitrary_cost_velocity_code of this ItemPricing.
         :rtype: str
@@ -137,11 +137,16 @@ class ItemPricing(object):
     def arbitrary_cost_velocity_code(self, arbitrary_cost_velocity_code):
         """
         Sets the arbitrary_cost_velocity_code of this ItemPricing.
-
+        Arbitrary cost velocity code
 
         :param arbitrary_cost_velocity_code: The arbitrary_cost_velocity_code of this ItemPricing.
         :type: str
         """
+
+        if not arbitrary_cost_velocity_code:
+            raise ValueError("Invalid value for `arbitrary_cost_velocity_code`, must not be `None`")
+        if len(arbitrary_cost_velocity_code) > 10000:
+            raise ValueError("Invalid value for `arbitrary_cost_velocity_code`, length must be less than `10000`")
 
         self._arbitrary_cost_velocity_code = arbitrary_cost_velocity_code
 
@@ -149,7 +154,7 @@ class ItemPricing(object):
     def automatic_pricing_tier_name(self):
         """
         Gets the automatic_pricing_tier_name of this ItemPricing.
-
+        Automatic pricing tier name
 
         :return: The automatic_pricing_tier_name of this ItemPricing.
         :rtype: str
@@ -160,7 +165,7 @@ class ItemPricing(object):
     def automatic_pricing_tier_name(self, automatic_pricing_tier_name):
         """
         Sets the automatic_pricing_tier_name of this ItemPricing.
-
+        Automatic pricing tier name
 
         :param automatic_pricing_tier_name: The automatic_pricing_tier_name of this ItemPricing.
         :type: str
@@ -172,7 +177,7 @@ class ItemPricing(object):
     def automatic_pricing_tier_oid(self):
         """
         Gets the automatic_pricing_tier_oid of this ItemPricing.
-
+        Automatic pricing tier object identifier
 
         :return: The automatic_pricing_tier_oid of this ItemPricing.
         :rtype: int
@@ -183,7 +188,7 @@ class ItemPricing(object):
     def automatic_pricing_tier_oid(self, automatic_pricing_tier_oid):
         """
         Sets the automatic_pricing_tier_oid of this ItemPricing.
-
+        Automatic pricing tier object identifier
 
         :param automatic_pricing_tier_oid: The automatic_pricing_tier_oid of this ItemPricing.
         :type: int
@@ -195,7 +200,7 @@ class ItemPricing(object):
     def cogs(self):
         """
         Gets the cogs of this ItemPricing.
-
+        Cost of goods sold
 
         :return: The cogs of this ItemPricing.
         :rtype: float
@@ -206,7 +211,7 @@ class ItemPricing(object):
     def cogs(self, cogs):
         """
         Sets the cogs of this ItemPricing.
-
+        Cost of goods sold
 
         :param cogs: The cogs of this ItemPricing.
         :type: float
@@ -218,7 +223,7 @@ class ItemPricing(object):
     def cost(self):
         """
         Gets the cost of this ItemPricing.
-
+        Cost
 
         :return: The cost of this ItemPricing.
         :rtype: float
@@ -229,7 +234,7 @@ class ItemPricing(object):
     def cost(self, cost):
         """
         Sets the cost of this ItemPricing.
-
+        Cost
 
         :param cost: The cost of this ItemPricing.
         :type: float
@@ -241,7 +246,7 @@ class ItemPricing(object):
     def currency_code(self):
         """
         Gets the currency_code of this ItemPricing.
-
+        Currency code
 
         :return: The currency_code of this ItemPricing.
         :rtype: str
@@ -252,11 +257,16 @@ class ItemPricing(object):
     def currency_code(self, currency_code):
         """
         Sets the currency_code of this ItemPricing.
-
+        Currency code
 
         :param currency_code: The currency_code of this ItemPricing.
         :type: str
         """
+
+        if not currency_code:
+            raise ValueError("Invalid value for `currency_code`, must not be `None`")
+        if len(currency_code) > 3:
+            raise ValueError("Invalid value for `currency_code`, length must be less than `3`")
 
         self._currency_code = currency_code
 
@@ -264,7 +274,7 @@ class ItemPricing(object):
     def manufacturer_suggested_retail_price(self):
         """
         Gets the manufacturer_suggested_retail_price of this ItemPricing.
-
+        Manufacturer suggested retail price
 
         :return: The manufacturer_suggested_retail_price of this ItemPricing.
         :rtype: float
@@ -275,7 +285,7 @@ class ItemPricing(object):
     def manufacturer_suggested_retail_price(self, manufacturer_suggested_retail_price):
         """
         Sets the manufacturer_suggested_retail_price of this ItemPricing.
-
+        Manufacturer suggested retail price
 
         :param manufacturer_suggested_retail_price: The manufacturer_suggested_retail_price of this ItemPricing.
         :type: float
@@ -287,7 +297,7 @@ class ItemPricing(object):
     def maximum_arbitrary_cost(self):
         """
         Gets the maximum_arbitrary_cost of this ItemPricing.
-
+        Maximum arbitrary cost
 
         :return: The maximum_arbitrary_cost of this ItemPricing.
         :rtype: float
@@ -298,7 +308,7 @@ class ItemPricing(object):
     def maximum_arbitrary_cost(self, maximum_arbitrary_cost):
         """
         Sets the maximum_arbitrary_cost of this ItemPricing.
-
+        Maximum arbitrary cost
 
         :param maximum_arbitrary_cost: The maximum_arbitrary_cost of this ItemPricing.
         :type: float
@@ -310,7 +320,7 @@ class ItemPricing(object):
     def minimum_advertised_price(self):
         """
         Gets the minimum_advertised_price of this ItemPricing.
-
+        Minimum advertised price
 
         :return: The minimum_advertised_price of this ItemPricing.
         :rtype: float
@@ -321,7 +331,7 @@ class ItemPricing(object):
     def minimum_advertised_price(self, minimum_advertised_price):
         """
         Sets the minimum_advertised_price of this ItemPricing.
-
+        Minimum advertised price
 
         :param minimum_advertised_price: The minimum_advertised_price of this ItemPricing.
         :type: float
@@ -333,7 +343,7 @@ class ItemPricing(object):
     def minimum_arbitrary_cost(self):
         """
         Gets the minimum_arbitrary_cost of this ItemPricing.
-
+        Minimum arbitrary cost
 
         :return: The minimum_arbitrary_cost of this ItemPricing.
         :rtype: float
@@ -344,7 +354,7 @@ class ItemPricing(object):
     def minimum_arbitrary_cost(self, minimum_arbitrary_cost):
         """
         Sets the minimum_arbitrary_cost of this ItemPricing.
-
+        Minimum arbitrary cost
 
         :param minimum_arbitrary_cost: The minimum_arbitrary_cost of this ItemPricing.
         :type: float
@@ -356,7 +366,7 @@ class ItemPricing(object):
     def mix_and_match_group(self):
         """
         Gets the mix_and_match_group of this ItemPricing.
-
+        Mix and match group
 
         :return: The mix_and_match_group of this ItemPricing.
         :rtype: str
@@ -367,7 +377,7 @@ class ItemPricing(object):
     def mix_and_match_group(self, mix_and_match_group):
         """
         Sets the mix_and_match_group of this ItemPricing.
-
+        Mix and match group
 
         :param mix_and_match_group: The mix_and_match_group of this ItemPricing.
         :type: str
@@ -379,7 +389,7 @@ class ItemPricing(object):
     def mix_and_match_group_oid(self):
         """
         Gets the mix_and_match_group_oid of this ItemPricing.
-
+        Mix and match group object identifier
 
         :return: The mix_and_match_group_oid of this ItemPricing.
         :rtype: int
@@ -390,7 +400,7 @@ class ItemPricing(object):
     def mix_and_match_group_oid(self, mix_and_match_group_oid):
         """
         Sets the mix_and_match_group_oid of this ItemPricing.
-
+        Mix and match group object identifier
 
         :param mix_and_match_group_oid: The mix_and_match_group_oid of this ItemPricing.
         :type: int
@@ -402,7 +412,7 @@ class ItemPricing(object):
     def sale_cost(self):
         """
         Gets the sale_cost of this ItemPricing.
-
+        Sale cost
 
         :return: The sale_cost of this ItemPricing.
         :rtype: float
@@ -413,7 +423,7 @@ class ItemPricing(object):
     def sale_cost(self, sale_cost):
         """
         Sets the sale_cost of this ItemPricing.
-
+        Sale cost
 
         :param sale_cost: The sale_cost of this ItemPricing.
         :type: float
@@ -425,7 +435,7 @@ class ItemPricing(object):
     def sale_end(self):
         """
         Gets the sale_end of this ItemPricing.
-
+        Sale end
 
         :return: The sale_end of this ItemPricing.
         :rtype: str
@@ -436,7 +446,7 @@ class ItemPricing(object):
     def sale_end(self, sale_end):
         """
         Sets the sale_end of this ItemPricing.
-
+        Sale end
 
         :param sale_end: The sale_end of this ItemPricing.
         :type: str
@@ -448,7 +458,7 @@ class ItemPricing(object):
     def sale_start(self):
         """
         Gets the sale_start of this ItemPricing.
-
+        Sale start
 
         :return: The sale_start of this ItemPricing.
         :rtype: str
@@ -459,7 +469,7 @@ class ItemPricing(object):
     def sale_start(self, sale_start):
         """
         Sets the sale_start of this ItemPricing.
-
+        Sale start
 
         :param sale_start: The sale_start of this ItemPricing.
         :type: str
@@ -471,7 +481,7 @@ class ItemPricing(object):
     def tiers(self):
         """
         Gets the tiers of this ItemPricing.
-
+        Tiers
 
         :return: The tiers of this ItemPricing.
         :rtype: list[ItemPricingTier]
@@ -482,7 +492,7 @@ class ItemPricing(object):
     def tiers(self, tiers):
         """
         Sets the tiers of this ItemPricing.
-
+        Tiers
 
         :param tiers: The tiers of this ItemPricing.
         :type: list[ItemPricingTier]

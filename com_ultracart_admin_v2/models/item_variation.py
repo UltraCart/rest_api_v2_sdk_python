@@ -67,7 +67,7 @@ class ItemVariation(object):
     def default_text(self):
         """
         Gets the default_text of this ItemVariation.
-
+        Default text
 
         :return: The default_text of this ItemVariation.
         :rtype: str
@@ -78,11 +78,16 @@ class ItemVariation(object):
     def default_text(self, default_text):
         """
         Sets the default_text of this ItemVariation.
-
+        Default text
 
         :param default_text: The default_text of this ItemVariation.
         :type: str
         """
+
+        if not default_text:
+            raise ValueError("Invalid value for `default_text`, must not be `None`")
+        if len(default_text) > 50:
+            raise ValueError("Invalid value for `default_text`, length must be less than `50`")
 
         self._default_text = default_text
 
@@ -90,7 +95,7 @@ class ItemVariation(object):
     def default_text_translated_text_instance_oid(self):
         """
         Gets the default_text_translated_text_instance_oid of this ItemVariation.
-
+        Default text translated text instance id
 
         :return: The default_text_translated_text_instance_oid of this ItemVariation.
         :rtype: int
@@ -101,7 +106,7 @@ class ItemVariation(object):
     def default_text_translated_text_instance_oid(self, default_text_translated_text_instance_oid):
         """
         Sets the default_text_translated_text_instance_oid of this ItemVariation.
-
+        Default text translated text instance id
 
         :param default_text_translated_text_instance_oid: The default_text_translated_text_instance_oid of this ItemVariation.
         :type: int
@@ -113,7 +118,7 @@ class ItemVariation(object):
     def name(self):
         """
         Gets the name of this ItemVariation.
-
+        Name
 
         :return: The name of this ItemVariation.
         :rtype: str
@@ -124,11 +129,16 @@ class ItemVariation(object):
     def name(self, name):
         """
         Sets the name of this ItemVariation.
-
+        Name
 
         :param name: The name of this ItemVariation.
         :type: str
         """
+
+        if not name:
+            raise ValueError("Invalid value for `name`, must not be `None`")
+        if len(name) > 50:
+            raise ValueError("Invalid value for `name`, length must be less than `50`")
 
         self._name = name
 
@@ -136,7 +146,7 @@ class ItemVariation(object):
     def name_translated_text_instance_oid(self):
         """
         Gets the name_translated_text_instance_oid of this ItemVariation.
-
+        Name translated text instance id
 
         :return: The name_translated_text_instance_oid of this ItemVariation.
         :rtype: int
@@ -147,7 +157,7 @@ class ItemVariation(object):
     def name_translated_text_instance_oid(self, name_translated_text_instance_oid):
         """
         Sets the name_translated_text_instance_oid of this ItemVariation.
-
+        Name translated text instance id
 
         :param name_translated_text_instance_oid: The name_translated_text_instance_oid of this ItemVariation.
         :type: int
@@ -159,7 +169,7 @@ class ItemVariation(object):
     def options(self):
         """
         Gets the options of this ItemVariation.
-
+        Options
 
         :return: The options of this ItemVariation.
         :rtype: list[ItemVariationOption]
@@ -170,7 +180,7 @@ class ItemVariation(object):
     def options(self, options):
         """
         Sets the options of this ItemVariation.
-
+        Options
 
         :param options: The options of this ItemVariation.
         :type: list[ItemVariationOption]

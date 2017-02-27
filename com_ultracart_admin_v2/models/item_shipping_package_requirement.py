@@ -58,7 +58,7 @@ class ItemShippingPackageRequirement(object):
     def package_name(self):
         """
         Gets the package_name of this ItemShippingPackageRequirement.
-
+        Package name
 
         :return: The package_name of this ItemShippingPackageRequirement.
         :rtype: str
@@ -69,7 +69,7 @@ class ItemShippingPackageRequirement(object):
     def package_name(self, package_name):
         """
         Sets the package_name of this ItemShippingPackageRequirement.
-
+        Package name
 
         :param package_name: The package_name of this ItemShippingPackageRequirement.
         :type: str
@@ -81,7 +81,7 @@ class ItemShippingPackageRequirement(object):
     def package_oid(self):
         """
         Gets the package_oid of this ItemShippingPackageRequirement.
-
+        Package object identifier
 
         :return: The package_oid of this ItemShippingPackageRequirement.
         :rtype: int
@@ -92,7 +92,7 @@ class ItemShippingPackageRequirement(object):
     def package_oid(self, package_oid):
         """
         Sets the package_oid of this ItemShippingPackageRequirement.
-
+        Package object identifier
 
         :param package_oid: The package_oid of this ItemShippingPackageRequirement.
         :type: int

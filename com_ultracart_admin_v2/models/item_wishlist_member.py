@@ -61,7 +61,7 @@ class ItemWishlistMember(object):
     def wishlist_member_instance_description(self):
         """
         Gets the wishlist_member_instance_description of this ItemWishlistMember.
-
+        WishList Member instance description
 
         :return: The wishlist_member_instance_description of this ItemWishlistMember.
         :rtype: str
@@ -72,7 +72,7 @@ class ItemWishlistMember(object):
     def wishlist_member_instance_description(self, wishlist_member_instance_description):
         """
         Sets the wishlist_member_instance_description of this ItemWishlistMember.
-
+        WishList Member instance description
 
         :param wishlist_member_instance_description: The wishlist_member_instance_description of this ItemWishlistMember.
         :type: str
@@ -84,7 +84,7 @@ class ItemWishlistMember(object):
     def wishlist_member_instance_oid(self):
         """
         Gets the wishlist_member_instance_oid of this ItemWishlistMember.
-
+        WishList Member instance object identifier
 
         :return: The wishlist_member_instance_oid of this ItemWishlistMember.
         :rtype: int
@@ -95,7 +95,7 @@ class ItemWishlistMember(object):
     def wishlist_member_instance_oid(self, wishlist_member_instance_oid):
         """
         Sets the wishlist_member_instance_oid of this ItemWishlistMember.
-
+        WishList Member instance object identifier
 
         :param wishlist_member_instance_oid: The wishlist_member_instance_oid of this ItemWishlistMember.
         :type: int
@@ -107,7 +107,7 @@ class ItemWishlistMember(object):
     def wishlist_member_sku(self):
         """
         Gets the wishlist_member_sku of this ItemWishlistMember.
-
+        WishList Member SKU
 
         :return: The wishlist_member_sku of this ItemWishlistMember.
         :rtype: str
@@ -118,11 +118,16 @@ class ItemWishlistMember(object):
     def wishlist_member_sku(self, wishlist_member_sku):
         """
         Sets the wishlist_member_sku of this ItemWishlistMember.
-
+        WishList Member SKU
 
         :param wishlist_member_sku: The wishlist_member_sku of this ItemWishlistMember.
         :type: str
         """
+
+        if not wishlist_member_sku:
+            raise ValueError("Invalid value for `wishlist_member_sku`, must not be `None`")
+        if len(wishlist_member_sku) > 25:
+            raise ValueError("Invalid value for `wishlist_member_sku`, length must be less than `25`")
 
         self._wishlist_member_sku = wishlist_member_sku
 

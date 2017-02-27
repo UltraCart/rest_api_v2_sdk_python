@@ -193,7 +193,7 @@ class ItemGoogleProductSearch(object):
     def adwords_grouping(self):
         """
         Gets the adwords_grouping of this ItemGoogleProductSearch.
-
+        Adwords grouping
 
         :return: The adwords_grouping of this ItemGoogleProductSearch.
         :rtype: str
@@ -204,11 +204,16 @@ class ItemGoogleProductSearch(object):
     def adwords_grouping(self, adwords_grouping):
         """
         Sets the adwords_grouping of this ItemGoogleProductSearch.
-
+        Adwords grouping
 
         :param adwords_grouping: The adwords_grouping of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not adwords_grouping:
+            raise ValueError("Invalid value for `adwords_grouping`, must not be `None`")
+        if len(adwords_grouping) > 50:
+            raise ValueError("Invalid value for `adwords_grouping`, length must be less than `50`")
 
         self._adwords_grouping = adwords_grouping
 
@@ -216,7 +221,7 @@ class ItemGoogleProductSearch(object):
     def adwords_label1(self):
         """
         Gets the adwords_label1 of this ItemGoogleProductSearch.
-
+        Adwords label 1
 
         :return: The adwords_label1 of this ItemGoogleProductSearch.
         :rtype: str
@@ -227,11 +232,16 @@ class ItemGoogleProductSearch(object):
     def adwords_label1(self, adwords_label1):
         """
         Sets the adwords_label1 of this ItemGoogleProductSearch.
-
+        Adwords label 1
 
         :param adwords_label1: The adwords_label1 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not adwords_label1:
+            raise ValueError("Invalid value for `adwords_label1`, must not be `None`")
+        if len(adwords_label1) > 50:
+            raise ValueError("Invalid value for `adwords_label1`, length must be less than `50`")
 
         self._adwords_label1 = adwords_label1
 
@@ -239,7 +249,7 @@ class ItemGoogleProductSearch(object):
     def adwords_label2(self):
         """
         Gets the adwords_label2 of this ItemGoogleProductSearch.
-
+        Adwords label 2
 
         :return: The adwords_label2 of this ItemGoogleProductSearch.
         :rtype: str
@@ -250,11 +260,16 @@ class ItemGoogleProductSearch(object):
     def adwords_label2(self, adwords_label2):
         """
         Sets the adwords_label2 of this ItemGoogleProductSearch.
-
+        Adwords label 2
 
         :param adwords_label2: The adwords_label2 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not adwords_label2:
+            raise ValueError("Invalid value for `adwords_label2`, must not be `None`")
+        if len(adwords_label2) > 50:
+            raise ValueError("Invalid value for `adwords_label2`, length must be less than `50`")
 
         self._adwords_label2 = adwords_label2
 
@@ -262,7 +277,7 @@ class ItemGoogleProductSearch(object):
     def adwords_label3(self):
         """
         Gets the adwords_label3 of this ItemGoogleProductSearch.
-
+        Adwords label 3
 
         :return: The adwords_label3 of this ItemGoogleProductSearch.
         :rtype: str
@@ -273,11 +288,16 @@ class ItemGoogleProductSearch(object):
     def adwords_label3(self, adwords_label3):
         """
         Sets the adwords_label3 of this ItemGoogleProductSearch.
-
+        Adwords label 3
 
         :param adwords_label3: The adwords_label3 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not adwords_label3:
+            raise ValueError("Invalid value for `adwords_label3`, must not be `None`")
+        if len(adwords_label3) > 50:
+            raise ValueError("Invalid value for `adwords_label3`, length must be less than `50`")
 
         self._adwords_label3 = adwords_label3
 
@@ -285,7 +305,7 @@ class ItemGoogleProductSearch(object):
     def adwords_label4(self):
         """
         Gets the adwords_label4 of this ItemGoogleProductSearch.
-
+        Adwords label 4
 
         :return: The adwords_label4 of this ItemGoogleProductSearch.
         :rtype: str
@@ -296,11 +316,16 @@ class ItemGoogleProductSearch(object):
     def adwords_label4(self, adwords_label4):
         """
         Sets the adwords_label4 of this ItemGoogleProductSearch.
-
+        Adwords label 4
 
         :param adwords_label4: The adwords_label4 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not adwords_label4:
+            raise ValueError("Invalid value for `adwords_label4`, must not be `None`")
+        if len(adwords_label4) > 50:
+            raise ValueError("Invalid value for `adwords_label4`, length must be less than `50`")
 
         self._adwords_label4 = adwords_label4
 
@@ -308,7 +333,7 @@ class ItemGoogleProductSearch(object):
     def adwords_label5(self):
         """
         Gets the adwords_label5 of this ItemGoogleProductSearch.
-
+        Adwords label 5
 
         :return: The adwords_label5 of this ItemGoogleProductSearch.
         :rtype: str
@@ -319,11 +344,16 @@ class ItemGoogleProductSearch(object):
     def adwords_label5(self, adwords_label5):
         """
         Sets the adwords_label5 of this ItemGoogleProductSearch.
-
+        Adwords label 5
 
         :param adwords_label5: The adwords_label5 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not adwords_label5:
+            raise ValueError("Invalid value for `adwords_label5`, must not be `None`")
+        if len(adwords_label5) > 50:
+            raise ValueError("Invalid value for `adwords_label5`, length must be less than `50`")
 
         self._adwords_label5 = adwords_label5
 
@@ -331,7 +361,7 @@ class ItemGoogleProductSearch(object):
     def age_group(self):
         """
         Gets the age_group of this ItemGoogleProductSearch.
-
+        Age group
 
         :return: The age_group of this ItemGoogleProductSearch.
         :rtype: str
@@ -342,11 +372,16 @@ class ItemGoogleProductSearch(object):
     def age_group(self, age_group):
         """
         Sets the age_group of this ItemGoogleProductSearch.
-
+        Age group
 
         :param age_group: The age_group of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not age_group:
+            raise ValueError("Invalid value for `age_group`, must not be `None`")
+        if len(age_group) > 5:
+            raise ValueError("Invalid value for `age_group`, length must be less than `5`")
 
         self._age_group = age_group
 
@@ -354,7 +389,7 @@ class ItemGoogleProductSearch(object):
     def available_at_physical_store(self):
         """
         Gets the available_at_physical_store of this ItemGoogleProductSearch.
-
+        Available at physical store
 
         :return: The available_at_physical_store of this ItemGoogleProductSearch.
         :rtype: bool
@@ -365,7 +400,7 @@ class ItemGoogleProductSearch(object):
     def available_at_physical_store(self, available_at_physical_store):
         """
         Sets the available_at_physical_store of this ItemGoogleProductSearch.
-
+        Available at physical store
 
         :param available_at_physical_store: The available_at_physical_store of this ItemGoogleProductSearch.
         :type: bool
@@ -377,7 +412,7 @@ class ItemGoogleProductSearch(object):
     def book_author(self):
         """
         Gets the book_author of this ItemGoogleProductSearch.
-
+        Book - author
 
         :return: The book_author of this ItemGoogleProductSearch.
         :rtype: str
@@ -388,11 +423,16 @@ class ItemGoogleProductSearch(object):
     def book_author(self, book_author):
         """
         Sets the book_author of this ItemGoogleProductSearch.
-
+        Book - author
 
         :param book_author: The book_author of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not book_author:
+            raise ValueError("Invalid value for `book_author`, must not be `None`")
+        if len(book_author) > 50:
+            raise ValueError("Invalid value for `book_author`, length must be less than `50`")
 
         self._book_author = book_author
 
@@ -400,7 +440,7 @@ class ItemGoogleProductSearch(object):
     def book_format(self):
         """
         Gets the book_format of this ItemGoogleProductSearch.
-
+        Book - format
 
         :return: The book_format of this ItemGoogleProductSearch.
         :rtype: str
@@ -411,11 +451,16 @@ class ItemGoogleProductSearch(object):
     def book_format(self, book_format):
         """
         Sets the book_format of this ItemGoogleProductSearch.
-
+        Book - format
 
         :param book_format: The book_format of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not book_format:
+            raise ValueError("Invalid value for `book_format`, must not be `None`")
+        if len(book_format) > 50:
+            raise ValueError("Invalid value for `book_format`, length must be less than `50`")
 
         self._book_format = book_format
 
@@ -423,7 +468,7 @@ class ItemGoogleProductSearch(object):
     def book_isbn(self):
         """
         Gets the book_isbn of this ItemGoogleProductSearch.
-
+        Bood - ISBN
 
         :return: The book_isbn of this ItemGoogleProductSearch.
         :rtype: str
@@ -434,11 +479,16 @@ class ItemGoogleProductSearch(object):
     def book_isbn(self, book_isbn):
         """
         Sets the book_isbn of this ItemGoogleProductSearch.
-
+        Bood - ISBN
 
         :param book_isbn: The book_isbn of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not book_isbn:
+            raise ValueError("Invalid value for `book_isbn`, must not be `None`")
+        if len(book_isbn) > 20:
+            raise ValueError("Invalid value for `book_isbn`, length must be less than `20`")
 
         self._book_isbn = book_isbn
 
@@ -446,7 +496,7 @@ class ItemGoogleProductSearch(object):
     def book_publisher(self):
         """
         Gets the book_publisher of this ItemGoogleProductSearch.
-
+        Book - publisher
 
         :return: The book_publisher of this ItemGoogleProductSearch.
         :rtype: str
@@ -457,11 +507,16 @@ class ItemGoogleProductSearch(object):
     def book_publisher(self, book_publisher):
         """
         Sets the book_publisher of this ItemGoogleProductSearch.
-
+        Book - publisher
 
         :param book_publisher: The book_publisher of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not book_publisher:
+            raise ValueError("Invalid value for `book_publisher`, must not be `None`")
+        if len(book_publisher) > 50:
+            raise ValueError("Invalid value for `book_publisher`, length must be less than `50`")
 
         self._book_publisher = book_publisher
 
@@ -469,7 +524,7 @@ class ItemGoogleProductSearch(object):
     def category_description(self):
         """
         Gets the category_description of this ItemGoogleProductSearch.
-
+        Category description
 
         :return: The category_description of this ItemGoogleProductSearch.
         :rtype: str
@@ -480,11 +535,16 @@ class ItemGoogleProductSearch(object):
     def category_description(self, category_description):
         """
         Sets the category_description of this ItemGoogleProductSearch.
-
+        Category description
 
         :param category_description: The category_description of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not category_description:
+            raise ValueError("Invalid value for `category_description`, must not be `None`")
+        if len(category_description) > 1000:
+            raise ValueError("Invalid value for `category_description`, length must be less than `1000`")
 
         self._category_description = category_description
 
@@ -492,7 +552,7 @@ class ItemGoogleProductSearch(object):
     def color(self):
         """
         Gets the color of this ItemGoogleProductSearch.
-
+        Color
 
         :return: The color of this ItemGoogleProductSearch.
         :rtype: str
@@ -503,11 +563,16 @@ class ItemGoogleProductSearch(object):
     def color(self, color):
         """
         Sets the color of this ItemGoogleProductSearch.
-
+        Color
 
         :param color: The color of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not color:
+            raise ValueError("Invalid value for `color`, must not be `None`")
+        if len(color) > 20:
+            raise ValueError("Invalid value for `color`, length must be less than `20`")
 
         self._color = color
 
@@ -515,7 +580,7 @@ class ItemGoogleProductSearch(object):
     def condition(self):
         """
         Gets the condition of this ItemGoogleProductSearch.
-
+        Condition
 
         :return: The condition of this ItemGoogleProductSearch.
         :rtype: str
@@ -526,11 +591,16 @@ class ItemGoogleProductSearch(object):
     def condition(self, condition):
         """
         Sets the condition of this ItemGoogleProductSearch.
-
+        Condition
 
         :param condition: The condition of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not condition:
+            raise ValueError("Invalid value for `condition`, must not be `None`")
+        if len(condition) > 15:
+            raise ValueError("Invalid value for `condition`, length must be less than `15`")
 
         self._condition = condition
 
@@ -538,7 +608,7 @@ class ItemGoogleProductSearch(object):
     def custom_label0(self):
         """
         Gets the custom_label0 of this ItemGoogleProductSearch.
-
+        Custom label 0
 
         :return: The custom_label0 of this ItemGoogleProductSearch.
         :rtype: str
@@ -549,11 +619,16 @@ class ItemGoogleProductSearch(object):
     def custom_label0(self, custom_label0):
         """
         Sets the custom_label0 of this ItemGoogleProductSearch.
-
+        Custom label 0
 
         :param custom_label0: The custom_label0 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not custom_label0:
+            raise ValueError("Invalid value for `custom_label0`, must not be `None`")
+        if len(custom_label0) > 50:
+            raise ValueError("Invalid value for `custom_label0`, length must be less than `50`")
 
         self._custom_label0 = custom_label0
 
@@ -561,7 +636,7 @@ class ItemGoogleProductSearch(object):
     def custom_label1(self):
         """
         Gets the custom_label1 of this ItemGoogleProductSearch.
-
+        Custom label 1
 
         :return: The custom_label1 of this ItemGoogleProductSearch.
         :rtype: str
@@ -572,11 +647,16 @@ class ItemGoogleProductSearch(object):
     def custom_label1(self, custom_label1):
         """
         Sets the custom_label1 of this ItemGoogleProductSearch.
-
+        Custom label 1
 
         :param custom_label1: The custom_label1 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not custom_label1:
+            raise ValueError("Invalid value for `custom_label1`, must not be `None`")
+        if len(custom_label1) > 50:
+            raise ValueError("Invalid value for `custom_label1`, length must be less than `50`")
 
         self._custom_label1 = custom_label1
 
@@ -584,7 +664,7 @@ class ItemGoogleProductSearch(object):
     def custom_label2(self):
         """
         Gets the custom_label2 of this ItemGoogleProductSearch.
-
+        Custom label 2
 
         :return: The custom_label2 of this ItemGoogleProductSearch.
         :rtype: str
@@ -595,11 +675,16 @@ class ItemGoogleProductSearch(object):
     def custom_label2(self, custom_label2):
         """
         Sets the custom_label2 of this ItemGoogleProductSearch.
-
+        Custom label 2
 
         :param custom_label2: The custom_label2 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not custom_label2:
+            raise ValueError("Invalid value for `custom_label2`, must not be `None`")
+        if len(custom_label2) > 50:
+            raise ValueError("Invalid value for `custom_label2`, length must be less than `50`")
 
         self._custom_label2 = custom_label2
 
@@ -607,7 +692,7 @@ class ItemGoogleProductSearch(object):
     def custom_label3(self):
         """
         Gets the custom_label3 of this ItemGoogleProductSearch.
-
+        Custom label 3
 
         :return: The custom_label3 of this ItemGoogleProductSearch.
         :rtype: str
@@ -618,11 +703,16 @@ class ItemGoogleProductSearch(object):
     def custom_label3(self, custom_label3):
         """
         Sets the custom_label3 of this ItemGoogleProductSearch.
-
+        Custom label 3
 
         :param custom_label3: The custom_label3 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not custom_label3:
+            raise ValueError("Invalid value for `custom_label3`, must not be `None`")
+        if len(custom_label3) > 50:
+            raise ValueError("Invalid value for `custom_label3`, length must be less than `50`")
 
         self._custom_label3 = custom_label3
 
@@ -630,7 +720,7 @@ class ItemGoogleProductSearch(object):
     def custom_label4(self):
         """
         Gets the custom_label4 of this ItemGoogleProductSearch.
-
+        Custom label 4
 
         :return: The custom_label4 of this ItemGoogleProductSearch.
         :rtype: str
@@ -641,11 +731,16 @@ class ItemGoogleProductSearch(object):
     def custom_label4(self, custom_label4):
         """
         Sets the custom_label4 of this ItemGoogleProductSearch.
-
+        Custom label 4
 
         :param custom_label4: The custom_label4 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not custom_label4:
+            raise ValueError("Invalid value for `custom_label4`, must not be `None`")
+        if len(custom_label4) > 50:
+            raise ValueError("Invalid value for `custom_label4`, length must be less than `50`")
 
         self._custom_label4 = custom_label4
 
@@ -653,7 +748,7 @@ class ItemGoogleProductSearch(object):
     def gender(self):
         """
         Gets the gender of this ItemGoogleProductSearch.
-
+        Gender
 
         :return: The gender of this ItemGoogleProductSearch.
         :rtype: str
@@ -664,11 +759,16 @@ class ItemGoogleProductSearch(object):
     def gender(self, gender):
         """
         Sets the gender of this ItemGoogleProductSearch.
-
+        Gender
 
         :param gender: The gender of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not gender:
+            raise ValueError("Invalid value for `gender`, must not be `None`")
+        if len(gender) > 6:
+            raise ValueError("Invalid value for `gender`, length must be less than `6`")
 
         self._gender = gender
 
@@ -676,7 +776,7 @@ class ItemGoogleProductSearch(object):
     def google_product_category(self):
         """
         Gets the google_product_category of this ItemGoogleProductSearch.
-
+        Google product category
 
         :return: The google_product_category of this ItemGoogleProductSearch.
         :rtype: str
@@ -687,11 +787,16 @@ class ItemGoogleProductSearch(object):
     def google_product_category(self, google_product_category):
         """
         Sets the google_product_category of this ItemGoogleProductSearch.
-
+        Google product category
 
         :param google_product_category: The google_product_category of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not google_product_category:
+            raise ValueError("Invalid value for `google_product_category`, must not be `None`")
+        if len(google_product_category) > 250:
+            raise ValueError("Invalid value for `google_product_category`, length must be less than `250`")
 
         self._google_product_category = google_product_category
 
@@ -699,7 +804,7 @@ class ItemGoogleProductSearch(object):
     def music_artist(self):
         """
         Gets the music_artist of this ItemGoogleProductSearch.
-
+        Music - artist
 
         :return: The music_artist of this ItemGoogleProductSearch.
         :rtype: str
@@ -710,11 +815,16 @@ class ItemGoogleProductSearch(object):
     def music_artist(self, music_artist):
         """
         Sets the music_artist of this ItemGoogleProductSearch.
-
+        Music - artist
 
         :param music_artist: The music_artist of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not music_artist:
+            raise ValueError("Invalid value for `music_artist`, must not be `None`")
+        if len(music_artist) > 50:
+            raise ValueError("Invalid value for `music_artist`, length must be less than `50`")
 
         self._music_artist = music_artist
 
@@ -722,7 +832,7 @@ class ItemGoogleProductSearch(object):
     def music_format(self):
         """
         Gets the music_format of this ItemGoogleProductSearch.
-
+        Music - format
 
         :return: The music_format of this ItemGoogleProductSearch.
         :rtype: str
@@ -733,11 +843,16 @@ class ItemGoogleProductSearch(object):
     def music_format(self, music_format):
         """
         Sets the music_format of this ItemGoogleProductSearch.
-
+        Music - format
 
         :param music_format: The music_format of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not music_format:
+            raise ValueError("Invalid value for `music_format`, must not be `None`")
+        if len(music_format) > 5:
+            raise ValueError("Invalid value for `music_format`, length must be less than `5`")
 
         self._music_format = music_format
 
@@ -745,7 +860,7 @@ class ItemGoogleProductSearch(object):
     def music_release_date(self):
         """
         Gets the music_release_date of this ItemGoogleProductSearch.
-
+        Music - release date
 
         :return: The music_release_date of this ItemGoogleProductSearch.
         :rtype: str
@@ -756,7 +871,7 @@ class ItemGoogleProductSearch(object):
     def music_release_date(self, music_release_date):
         """
         Sets the music_release_date of this ItemGoogleProductSearch.
-
+        Music - release date
 
         :param music_release_date: The music_release_date of this ItemGoogleProductSearch.
         :type: str
@@ -768,7 +883,7 @@ class ItemGoogleProductSearch(object):
     def omit_from_feed(self):
         """
         Gets the omit_from_feed of this ItemGoogleProductSearch.
-
+        Omit from feed
 
         :return: The omit_from_feed of this ItemGoogleProductSearch.
         :rtype: bool
@@ -779,7 +894,7 @@ class ItemGoogleProductSearch(object):
     def omit_from_feed(self, omit_from_feed):
         """
         Sets the omit_from_feed of this ItemGoogleProductSearch.
-
+        Omit from feed
 
         :param omit_from_feed: The omit_from_feed of this ItemGoogleProductSearch.
         :type: bool
@@ -791,7 +906,7 @@ class ItemGoogleProductSearch(object):
     def product_type(self):
         """
         Gets the product_type of this ItemGoogleProductSearch.
-
+        Product type
 
         :return: The product_type of this ItemGoogleProductSearch.
         :rtype: str
@@ -802,11 +917,16 @@ class ItemGoogleProductSearch(object):
     def product_type(self, product_type):
         """
         Sets the product_type of this ItemGoogleProductSearch.
-
+        Product type
 
         :param product_type: The product_type of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not product_type:
+            raise ValueError("Invalid value for `product_type`, must not be `None`")
+        if len(product_type) > 10:
+            raise ValueError("Invalid value for `product_type`, length must be less than `10`")
 
         self._product_type = product_type
 
@@ -814,7 +934,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id1(self):
         """
         Gets the promotion_id1 of this ItemGoogleProductSearch.
-
+        Promotion ID 1
 
         :return: The promotion_id1 of this ItemGoogleProductSearch.
         :rtype: str
@@ -825,11 +945,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id1(self, promotion_id1):
         """
         Sets the promotion_id1 of this ItemGoogleProductSearch.
-
+        Promotion ID 1
 
         :param promotion_id1: The promotion_id1 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id1:
+            raise ValueError("Invalid value for `promotion_id1`, must not be `None`")
+        if len(promotion_id1) > 30:
+            raise ValueError("Invalid value for `promotion_id1`, length must be less than `30`")
 
         self._promotion_id1 = promotion_id1
 
@@ -837,7 +962,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id10(self):
         """
         Gets the promotion_id10 of this ItemGoogleProductSearch.
-
+        Promotion ID 10
 
         :return: The promotion_id10 of this ItemGoogleProductSearch.
         :rtype: str
@@ -848,11 +973,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id10(self, promotion_id10):
         """
         Sets the promotion_id10 of this ItemGoogleProductSearch.
-
+        Promotion ID 10
 
         :param promotion_id10: The promotion_id10 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id10:
+            raise ValueError("Invalid value for `promotion_id10`, must not be `None`")
+        if len(promotion_id10) > 30:
+            raise ValueError("Invalid value for `promotion_id10`, length must be less than `30`")
 
         self._promotion_id10 = promotion_id10
 
@@ -860,7 +990,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id2(self):
         """
         Gets the promotion_id2 of this ItemGoogleProductSearch.
-
+        Promotion ID 2
 
         :return: The promotion_id2 of this ItemGoogleProductSearch.
         :rtype: str
@@ -871,11 +1001,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id2(self, promotion_id2):
         """
         Sets the promotion_id2 of this ItemGoogleProductSearch.
-
+        Promotion ID 2
 
         :param promotion_id2: The promotion_id2 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id2:
+            raise ValueError("Invalid value for `promotion_id2`, must not be `None`")
+        if len(promotion_id2) > 30:
+            raise ValueError("Invalid value for `promotion_id2`, length must be less than `30`")
 
         self._promotion_id2 = promotion_id2
 
@@ -883,7 +1018,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id3(self):
         """
         Gets the promotion_id3 of this ItemGoogleProductSearch.
-
+        Promotion ID 3
 
         :return: The promotion_id3 of this ItemGoogleProductSearch.
         :rtype: str
@@ -894,11 +1029,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id3(self, promotion_id3):
         """
         Sets the promotion_id3 of this ItemGoogleProductSearch.
-
+        Promotion ID 3
 
         :param promotion_id3: The promotion_id3 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id3:
+            raise ValueError("Invalid value for `promotion_id3`, must not be `None`")
+        if len(promotion_id3) > 30:
+            raise ValueError("Invalid value for `promotion_id3`, length must be less than `30`")
 
         self._promotion_id3 = promotion_id3
 
@@ -906,7 +1046,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id4(self):
         """
         Gets the promotion_id4 of this ItemGoogleProductSearch.
-
+        Promotion ID 4
 
         :return: The promotion_id4 of this ItemGoogleProductSearch.
         :rtype: str
@@ -917,11 +1057,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id4(self, promotion_id4):
         """
         Sets the promotion_id4 of this ItemGoogleProductSearch.
-
+        Promotion ID 4
 
         :param promotion_id4: The promotion_id4 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id4:
+            raise ValueError("Invalid value for `promotion_id4`, must not be `None`")
+        if len(promotion_id4) > 30:
+            raise ValueError("Invalid value for `promotion_id4`, length must be less than `30`")
 
         self._promotion_id4 = promotion_id4
 
@@ -929,7 +1074,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id5(self):
         """
         Gets the promotion_id5 of this ItemGoogleProductSearch.
-
+        Promotion ID 5
 
         :return: The promotion_id5 of this ItemGoogleProductSearch.
         :rtype: str
@@ -940,11 +1085,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id5(self, promotion_id5):
         """
         Sets the promotion_id5 of this ItemGoogleProductSearch.
-
+        Promotion ID 5
 
         :param promotion_id5: The promotion_id5 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id5:
+            raise ValueError("Invalid value for `promotion_id5`, must not be `None`")
+        if len(promotion_id5) > 30:
+            raise ValueError("Invalid value for `promotion_id5`, length must be less than `30`")
 
         self._promotion_id5 = promotion_id5
 
@@ -952,7 +1102,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id6(self):
         """
         Gets the promotion_id6 of this ItemGoogleProductSearch.
-
+        Promotion ID 6
 
         :return: The promotion_id6 of this ItemGoogleProductSearch.
         :rtype: str
@@ -963,11 +1113,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id6(self, promotion_id6):
         """
         Sets the promotion_id6 of this ItemGoogleProductSearch.
-
+        Promotion ID 6
 
         :param promotion_id6: The promotion_id6 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id6:
+            raise ValueError("Invalid value for `promotion_id6`, must not be `None`")
+        if len(promotion_id6) > 30:
+            raise ValueError("Invalid value for `promotion_id6`, length must be less than `30`")
 
         self._promotion_id6 = promotion_id6
 
@@ -975,7 +1130,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id7(self):
         """
         Gets the promotion_id7 of this ItemGoogleProductSearch.
-
+        Promotion ID 7
 
         :return: The promotion_id7 of this ItemGoogleProductSearch.
         :rtype: str
@@ -986,11 +1141,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id7(self, promotion_id7):
         """
         Sets the promotion_id7 of this ItemGoogleProductSearch.
-
+        Promotion ID 7
 
         :param promotion_id7: The promotion_id7 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id7:
+            raise ValueError("Invalid value for `promotion_id7`, must not be `None`")
+        if len(promotion_id7) > 30:
+            raise ValueError("Invalid value for `promotion_id7`, length must be less than `30`")
 
         self._promotion_id7 = promotion_id7
 
@@ -998,7 +1158,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id8(self):
         """
         Gets the promotion_id8 of this ItemGoogleProductSearch.
-
+        Promotion ID 8
 
         :return: The promotion_id8 of this ItemGoogleProductSearch.
         :rtype: str
@@ -1009,11 +1169,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id8(self, promotion_id8):
         """
         Sets the promotion_id8 of this ItemGoogleProductSearch.
-
+        Promotion ID 8
 
         :param promotion_id8: The promotion_id8 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id8:
+            raise ValueError("Invalid value for `promotion_id8`, must not be `None`")
+        if len(promotion_id8) > 30:
+            raise ValueError("Invalid value for `promotion_id8`, length must be less than `30`")
 
         self._promotion_id8 = promotion_id8
 
@@ -1021,7 +1186,7 @@ class ItemGoogleProductSearch(object):
     def promotion_id9(self):
         """
         Gets the promotion_id9 of this ItemGoogleProductSearch.
-
+        Promotion ID 9
 
         :return: The promotion_id9 of this ItemGoogleProductSearch.
         :rtype: str
@@ -1032,11 +1197,16 @@ class ItemGoogleProductSearch(object):
     def promotion_id9(self, promotion_id9):
         """
         Sets the promotion_id9 of this ItemGoogleProductSearch.
-
+        Promotion ID 9
 
         :param promotion_id9: The promotion_id9 of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not promotion_id9:
+            raise ValueError("Invalid value for `promotion_id9`, must not be `None`")
+        if len(promotion_id9) > 30:
+            raise ValueError("Invalid value for `promotion_id9`, length must be less than `30`")
 
         self._promotion_id9 = promotion_id9
 
@@ -1044,7 +1214,7 @@ class ItemGoogleProductSearch(object):
     def search_dts(self):
         """
         Gets the search_dts of this ItemGoogleProductSearch.
-
+        Search date/time
 
         :return: The search_dts of this ItemGoogleProductSearch.
         :rtype: str
@@ -1055,7 +1225,7 @@ class ItemGoogleProductSearch(object):
     def search_dts(self, search_dts):
         """
         Sets the search_dts of this ItemGoogleProductSearch.
-
+        Search date/time
 
         :param search_dts: The search_dts of this ItemGoogleProductSearch.
         :type: str
@@ -1067,7 +1237,7 @@ class ItemGoogleProductSearch(object):
     def search_lowest_price(self):
         """
         Gets the search_lowest_price of this ItemGoogleProductSearch.
-
+        Search lowest price
 
         :return: The search_lowest_price of this ItemGoogleProductSearch.
         :rtype: float
@@ -1078,7 +1248,7 @@ class ItemGoogleProductSearch(object):
     def search_lowest_price(self, search_lowest_price):
         """
         Sets the search_lowest_price of this ItemGoogleProductSearch.
-
+        Search lowest price
 
         :param search_lowest_price: The search_lowest_price of this ItemGoogleProductSearch.
         :type: float
@@ -1090,7 +1260,7 @@ class ItemGoogleProductSearch(object):
     def search_lowest_url(self):
         """
         Gets the search_lowest_url of this ItemGoogleProductSearch.
-
+        Search lowest URL
 
         :return: The search_lowest_url of this ItemGoogleProductSearch.
         :rtype: str
@@ -1101,11 +1271,16 @@ class ItemGoogleProductSearch(object):
     def search_lowest_url(self, search_lowest_url):
         """
         Sets the search_lowest_url of this ItemGoogleProductSearch.
-
+        Search lowest URL
 
         :param search_lowest_url: The search_lowest_url of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not search_lowest_url:
+            raise ValueError("Invalid value for `search_lowest_url`, must not be `None`")
+        if len(search_lowest_url) > 250:
+            raise ValueError("Invalid value for `search_lowest_url`, length must be less than `250`")
 
         self._search_lowest_url = search_lowest_url
 
@@ -1113,7 +1288,7 @@ class ItemGoogleProductSearch(object):
     def search_position(self):
         """
         Gets the search_position of this ItemGoogleProductSearch.
-
+        Search position
 
         :return: The search_position of this ItemGoogleProductSearch.
         :rtype: int
@@ -1124,7 +1299,7 @@ class ItemGoogleProductSearch(object):
     def search_position(self, search_position):
         """
         Sets the search_position of this ItemGoogleProductSearch.
-
+        Search position
 
         :param search_position: The search_position of this ItemGoogleProductSearch.
         :type: int
@@ -1136,7 +1311,7 @@ class ItemGoogleProductSearch(object):
     def size(self):
         """
         Gets the size of this ItemGoogleProductSearch.
-
+        Size
 
         :return: The size of this ItemGoogleProductSearch.
         :rtype: str
@@ -1147,11 +1322,16 @@ class ItemGoogleProductSearch(object):
     def size(self, size):
         """
         Sets the size of this ItemGoogleProductSearch.
-
+        Size
 
         :param size: The size of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not size:
+            raise ValueError("Invalid value for `size`, must not be `None`")
+        if len(size) > 20:
+            raise ValueError("Invalid value for `size`, length must be less than `20`")
 
         self._size = size
 
@@ -1159,7 +1339,7 @@ class ItemGoogleProductSearch(object):
     def video_director(self):
         """
         Gets the video_director of this ItemGoogleProductSearch.
-
+        Video - director
 
         :return: The video_director of this ItemGoogleProductSearch.
         :rtype: str
@@ -1170,11 +1350,16 @@ class ItemGoogleProductSearch(object):
     def video_director(self, video_director):
         """
         Sets the video_director of this ItemGoogleProductSearch.
-
+        Video - director
 
         :param video_director: The video_director of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not video_director:
+            raise ValueError("Invalid value for `video_director`, must not be `None`")
+        if len(video_director) > 50:
+            raise ValueError("Invalid value for `video_director`, length must be less than `50`")
 
         self._video_director = video_director
 
@@ -1182,7 +1367,7 @@ class ItemGoogleProductSearch(object):
     def video_format(self):
         """
         Gets the video_format of this ItemGoogleProductSearch.
-
+        Video - format
 
         :return: The video_format of this ItemGoogleProductSearch.
         :rtype: str
@@ -1193,11 +1378,16 @@ class ItemGoogleProductSearch(object):
     def video_format(self, video_format):
         """
         Sets the video_format of this ItemGoogleProductSearch.
-
+        Video - format
 
         :param video_format: The video_format of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not video_format:
+            raise ValueError("Invalid value for `video_format`, must not be `None`")
+        if len(video_format) > 5:
+            raise ValueError("Invalid value for `video_format`, length must be less than `5`")
 
         self._video_format = video_format
 
@@ -1205,7 +1395,7 @@ class ItemGoogleProductSearch(object):
     def video_rating(self):
         """
         Gets the video_rating of this ItemGoogleProductSearch.
-
+        Video - rating
 
         :return: The video_rating of this ItemGoogleProductSearch.
         :rtype: str
@@ -1216,11 +1406,16 @@ class ItemGoogleProductSearch(object):
     def video_rating(self, video_rating):
         """
         Sets the video_rating of this ItemGoogleProductSearch.
-
+        Video - rating
 
         :param video_rating: The video_rating of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not video_rating:
+            raise ValueError("Invalid value for `video_rating`, must not be `None`")
+        if len(video_rating) > 5:
+            raise ValueError("Invalid value for `video_rating`, length must be less than `5`")
 
         self._video_rating = video_rating
 
@@ -1228,7 +1423,7 @@ class ItemGoogleProductSearch(object):
     def video_release_date(self):
         """
         Gets the video_release_date of this ItemGoogleProductSearch.
-
+        Video - release date
 
         :return: The video_release_date of this ItemGoogleProductSearch.
         :rtype: str
@@ -1239,7 +1434,7 @@ class ItemGoogleProductSearch(object):
     def video_release_date(self, video_release_date):
         """
         Sets the video_release_date of this ItemGoogleProductSearch.
-
+        Video - release date
 
         :param video_release_date: The video_release_date of this ItemGoogleProductSearch.
         :type: str
@@ -1251,7 +1446,7 @@ class ItemGoogleProductSearch(object):
     def video_starring(self):
         """
         Gets the video_starring of this ItemGoogleProductSearch.
-
+        Video - starring
 
         :return: The video_starring of this ItemGoogleProductSearch.
         :rtype: str
@@ -1262,11 +1457,16 @@ class ItemGoogleProductSearch(object):
     def video_starring(self, video_starring):
         """
         Sets the video_starring of this ItemGoogleProductSearch.
-
+        Video - starring
 
         :param video_starring: The video_starring of this ItemGoogleProductSearch.
         :type: str
         """
+
+        if not video_starring:
+            raise ValueError("Invalid value for `video_starring`, must not be `None`")
+        if len(video_starring) > 150:
+            raise ValueError("Invalid value for `video_starring`, length must be less than `150`")
 
         self._video_starring = video_starring
 
