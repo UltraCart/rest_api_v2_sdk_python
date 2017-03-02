@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.order_digital_order import OrderDigitalOrder
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.order_digital_order import OrderDigitalOrder
 
 
 class TestOrderDigitalOrder(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOrderDigitalOrder(unittest.TestCase):
         """
         Test OrderDigitalOrder
         """
-        model = com_ultracart_admin_v2.models.order_digital_order.OrderDigitalOrder()
+        model = ultracart.models.order_digital_order.OrderDigitalOrder()
 
 
 if __name__ == '__main__':

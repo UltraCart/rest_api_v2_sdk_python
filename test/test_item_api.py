@@ -28,18 +28,42 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.apis.item_api import ItemApi
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.apis.item_api import ItemApi
 
 
 class TestItemApi(unittest.TestCase):
     """ ItemApi unit test stubs """
 
     def setUp(self):
-        self.api = com_ultracart_admin_v2.apis.item_api.ItemApi()
+        self.api = ultracart.apis.item_api.ItemApi()
 
     def tearDown(self):
+        pass
+
+    def test_auto_order_auto_orders_auto_order_oid_get(self):
+        """
+        Test case for auto_order_auto_orders_auto_order_oid_get
+
+        Retrieve an auto order
+        """
+        pass
+
+    def test_auto_order_auto_orders_auto_order_oid_put(self):
+        """
+        Test case for auto_order_auto_orders_auto_order_oid_put
+
+        Update an auto order
+        """
+        pass
+
+    def test_auto_order_auto_orders_get(self):
+        """
+        Test case for auto_order_auto_orders_get
+
+        Retrieve auto orders
+        """
         pass
 
     def test_item_items_get(self):

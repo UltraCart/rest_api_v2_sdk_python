@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.order_channel_partner import OrderChannelPartner
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.order_channel_partner import OrderChannelPartner
 
 
 class TestOrderChannelPartner(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOrderChannelPartner(unittest.TestCase):
         """
         Test OrderChannelPartner
         """
-        model = com_ultracart_admin_v2.models.order_channel_partner.OrderChannelPartner()
+        model = ultracart.models.order_channel_partner.OrderChannelPartner()
 
 
 if __name__ == '__main__':

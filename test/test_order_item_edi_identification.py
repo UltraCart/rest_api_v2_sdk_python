@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.order_item_edi_identification import OrderItemEdiIdentification
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.order_item_edi_identification import OrderItemEdiIdentification
 
 
 class TestOrderItemEdiIdentification(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOrderItemEdiIdentification(unittest.TestCase):
         """
         Test OrderItemEdiIdentification
         """
-        model = com_ultracart_admin_v2.models.order_item_edi_identification.OrderItemEdiIdentification()
+        model = ultracart.models.order_item_edi_identification.OrderItemEdiIdentification()
 
 
 if __name__ == '__main__':

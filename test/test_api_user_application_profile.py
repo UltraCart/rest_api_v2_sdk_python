@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.api_user_application_profile import ApiUserApplicationProfile
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.api_user_application_profile import ApiUserApplicationProfile
 
 
 class TestApiUserApplicationProfile(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestApiUserApplicationProfile(unittest.TestCase):
         """
         Test ApiUserApplicationProfile
         """
-        model = com_ultracart_admin_v2.models.api_user_application_profile.ApiUserApplicationProfile()
+        model = ultracart.models.api_user_application_profile.ApiUserApplicationProfile()
 
 
 if __name__ == '__main__':

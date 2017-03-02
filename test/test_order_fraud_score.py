@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.order_fraud_score import OrderFraudScore
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.order_fraud_score import OrderFraudScore
 
 
 class TestOrderFraudScore(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOrderFraudScore(unittest.TestCase):
         """
         Test OrderFraudScore
         """
-        model = com_ultracart_admin_v2.models.order_fraud_score.OrderFraudScore()
+        model = ultracart.models.order_fraud_score.OrderFraudScore()
 
 
 if __name__ == '__main__':

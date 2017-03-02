@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_settings_payment_pay_pal import CartSettingsPaymentPayPal
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_settings_payment_pay_pal import CartSettingsPaymentPayPal
 
 
 class TestCartSettingsPaymentPayPal(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartSettingsPaymentPayPal(unittest.TestCase):
         """
         Test CartSettingsPaymentPayPal
         """
-        model = com_ultracart_admin_v2.models.cart_settings_payment_pay_pal.CartSettingsPaymentPayPal()
+        model = ultracart.models.cart_settings_payment_pay_pal.CartSettingsPaymentPayPal()
 
 
 if __name__ == '__main__':

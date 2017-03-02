@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.checkout_setup_browser_key_response import CheckoutSetupBrowserKeyResponse
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.checkout_setup_browser_key_response import CheckoutSetupBrowserKeyResponse
 
 
 class TestCheckoutSetupBrowserKeyResponse(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCheckoutSetupBrowserKeyResponse(unittest.TestCase):
         """
         Test CheckoutSetupBrowserKeyResponse
         """
-        model = com_ultracart_admin_v2.models.checkout_setup_browser_key_response.CheckoutSetupBrowserKeyResponse()
+        model = ultracart.models.checkout_setup_browser_key_response.CheckoutSetupBrowserKeyResponse()
 
 
 if __name__ == '__main__':

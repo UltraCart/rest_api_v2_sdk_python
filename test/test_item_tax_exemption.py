@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_tax_exemption import ItemTaxExemption
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_tax_exemption import ItemTaxExemption
 
 
 class TestItemTaxExemption(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemTaxExemption(unittest.TestCase):
         """
         Test ItemTaxExemption
         """
-        model = com_ultracart_admin_v2.models.item_tax_exemption.ItemTaxExemption()
+        model = ultracart.models.item_tax_exemption.ItemTaxExemption()
 
 
 if __name__ == '__main__':

@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_shipping_destination_markup import ItemShippingDestinationMarkup
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_shipping_destination_markup import ItemShippingDestinationMarkup
 
 
 class TestItemShippingDestinationMarkup(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemShippingDestinationMarkup(unittest.TestCase):
         """
         Test ItemShippingDestinationMarkup
         """
-        model = com_ultracart_admin_v2.models.item_shipping_destination_markup.ItemShippingDestinationMarkup()
+        model = ultracart.models.item_shipping_destination_markup.ItemShippingDestinationMarkup()
 
 
 if __name__ == '__main__':

@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_shipping_package_requirement import ItemShippingPackageRequirement
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_shipping_package_requirement import ItemShippingPackageRequirement
 
 
 class TestItemShippingPackageRequirement(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemShippingPackageRequirement(unittest.TestCase):
         """
         Test ItemShippingPackageRequirement
         """
-        model = com_ultracart_admin_v2.models.item_shipping_package_requirement.ItemShippingPackageRequirement()
+        model = ultracart.models.item_shipping_package_requirement.ItemShippingPackageRequirement()
 
 
 if __name__ == '__main__':

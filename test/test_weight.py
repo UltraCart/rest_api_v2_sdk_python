@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.weight import Weight
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.weight import Weight
 
 
 class TestWeight(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestWeight(unittest.TestCase):
         """
         Test Weight
         """
-        model = com_ultracart_admin_v2.models.weight.Weight()
+        model = ultracart.models.weight.Weight()
 
 
 if __name__ == '__main__':

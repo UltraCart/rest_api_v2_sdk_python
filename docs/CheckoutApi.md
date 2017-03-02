@@ -1,4 +1,4 @@
-# com_ultracart_admin_v2.CheckoutApi
+# ultracart.CheckoutApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -30,20 +30,20 @@ Setup a browser key authenticated application with checkout permissions.  This R
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-browser_key_request = com_ultracart_admin_v2.CheckoutSetupBrowserKeyRequest() # CheckoutSetupBrowserKeyRequest | Setup browser key request
+api_instance = ultracart.CheckoutApi()
+browser_key_request = ultracart.CheckoutSetupBrowserKeyRequest() # CheckoutSetupBrowserKeyRequest | Setup browser key request
 
 try: 
     # Setup Browser Application
@@ -84,23 +84,23 @@ Get a cart specified by the cart_id parameter.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
+api_instance = ultracart.CheckoutApi()
 cart_id = 'cart_id_example' # str | Cart ID to retrieve
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -144,20 +144,20 @@ Finalize the cart into an order.  This method can not be called with browser key
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-finalize_request = com_ultracart_admin_v2.CartFinalizeOrderRequest() # CartFinalizeOrderRequest | Finalize request
+api_instance = ultracart.CheckoutApi()
+finalize_request = ultracart.CartFinalizeOrderRequest() # CartFinalizeOrderRequest | Finalize request
 
 try: 
     # Finalize Order
@@ -198,23 +198,23 @@ If the cookie is set on the browser making the request then it will return their
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
+api_instance = ultracart.CheckoutApi()
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
@@ -256,24 +256,24 @@ Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-handoff_request = com_ultracart_admin_v2.CheckoutHandoffRequest() # CheckoutHandoffRequest | Handoff request
+api_instance = ultracart.CheckoutApi()
+handoff_request = ultracart.CheckoutHandoffRequest() # CheckoutHandoffRequest | Handoff request
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
@@ -316,24 +316,24 @@ Login in to the customer profile specified by cart.billing.email and password
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-login_request = com_ultracart_admin_v2.CartProfileLoginRequest() # CartProfileLoginRequest | Login request
+api_instance = ultracart.CheckoutApi()
+login_request = ultracart.CartProfileLoginRequest() # CartProfileLoginRequest | Login request
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
@@ -376,24 +376,24 @@ Log the cart out of the current profile.  No error will occur if they are not lo
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-cart = com_ultracart_admin_v2.Cart() # Cart | Cart
+api_instance = ultracart.CheckoutApi()
+cart = ultracart.Cart() # Cart | Cart
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
@@ -436,24 +436,24 @@ Register a new customer profile.  Requires the cart.billing object to be populat
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-register_request = com_ultracart_admin_v2.CartProfileRegisterRequest() # CartProfileRegisterRequest | Register request
+api_instance = ultracart.CheckoutApi()
+register_request = ultracart.CartProfileRegisterRequest() # CartProfileRegisterRequest | Register request
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
@@ -496,24 +496,24 @@ Update the cart.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-cart = com_ultracart_admin_v2.Cart() # Cart | Cart
+api_instance = ultracart.CheckoutApi()
+cart = ultracart.Cart() # Cart | Cart
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
@@ -556,24 +556,24 @@ Validate the cart for errors.  Specific checks can be passed and multiple valida
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-validation_request = com_ultracart_admin_v2.CartValidationRequest() # CartValidationRequest | Validation request
+api_instance = ultracart.CheckoutApi()
+validation_request = ultracart.CartValidationRequest() # CartValidationRequest | Validation request
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
@@ -616,24 +616,24 @@ Look up the city and state for the shipping zip code.  Useful for building an au
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-cart = com_ultracart_admin_v2.Cart() # Cart | Cart
+api_instance = ultracart.CheckoutApi()
+cart = ultracart.Cart() # Cart | Cart
 
 try: 
     # City/State for Zip
@@ -674,25 +674,25 @@ Retrieve all the related items for the cart contents.  Expansion is limited to c
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
+api_instance = ultracart.CheckoutApi()
 item_id = 'item_id_example' # str | Item ID to retrieve related items for
-cart = com_ultracart_admin_v2.Cart() # Cart | Cart
+cart = ultracart.Cart() # Cart | Cart
 expand = 'expand_example' # str | The object expansion to perform on the result.  See item resource documentation for examples (optional)
 
 try: 
@@ -736,24 +736,24 @@ Retrieve all the related items for the cart contents.  Expansion is limited to c
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
-cart = com_ultracart_admin_v2.Cart() # Cart | Cart
+api_instance = ultracart.CheckoutApi()
+cart = ultracart.Cart() # Cart | Cart
 expand = 'expand_example' # str | The object expansion to perform on the result.  See item resource documentation for examples (optional)
 
 try: 
@@ -796,23 +796,23 @@ Get a cart specified by the return code parameter.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.CheckoutApi()
+api_instance = ultracart.CheckoutApi()
 return_code = 'return_code_example' # str | Return code to lookup cart ID by
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 

@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.distance import Distance
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.distance import Distance
 
 
 class TestDistance(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestDistance(unittest.TestCase):
         """
         Test Distance
         """
-        model = com_ultracart_admin_v2.models.distance.Distance()
+        model = ultracart.models.distance.Distance()
 
 
 if __name__ == '__main__':

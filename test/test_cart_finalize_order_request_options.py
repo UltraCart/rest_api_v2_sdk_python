@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_finalize_order_request_options import CartFinalizeOrderRequestOptions
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_finalize_order_request_options import CartFinalizeOrderRequestOptions
 
 
 class TestCartFinalizeOrderRequestOptions(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartFinalizeOrderRequestOptions(unittest.TestCase):
         """
         Test CartFinalizeOrderRequestOptions
         """
-        model = com_ultracart_admin_v2.models.cart_finalize_order_request_options.CartFinalizeOrderRequestOptions()
+        model = ultracart.models.cart_finalize_order_request_options.CartFinalizeOrderRequestOptions()
 
 
 if __name__ == '__main__':

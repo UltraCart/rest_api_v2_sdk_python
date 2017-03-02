@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_customer_profile_credit_card import CartCustomerProfileCreditCard
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_customer_profile_credit_card import CartCustomerProfileCreditCard
 
 
 class TestCartCustomerProfileCreditCard(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartCustomerProfileCreditCard(unittest.TestCase):
         """
         Test CartCustomerProfileCreditCard
         """
-        model = com_ultracart_admin_v2.models.cart_customer_profile_credit_card.CartCustomerProfileCreditCard()
+        model = ultracart.models.cart_customer_profile_credit_card.CartCustomerProfileCreditCard()
 
 
 if __name__ == '__main__':

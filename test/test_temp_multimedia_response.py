@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.temp_multimedia_response import TempMultimediaResponse
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.temp_multimedia_response import TempMultimediaResponse
 
 
 class TestTempMultimediaResponse(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestTempMultimediaResponse(unittest.TestCase):
         """
         Test TempMultimediaResponse
         """
-        model = com_ultracart_admin_v2.models.temp_multimedia_response.TempMultimediaResponse()
+        model = ultracart.models.temp_multimedia_response.TempMultimediaResponse()
 
 
 if __name__ == '__main__':

@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_shipping import CartShipping
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_shipping import CartShipping
 
 
 class TestCartShipping(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartShipping(unittest.TestCase):
         """
         Test CartShipping
         """
-        model = com_ultracart_admin_v2.models.cart_shipping.CartShipping()
+        model = ultracart.models.cart_shipping.CartShipping()
 
 
 if __name__ == '__main__':

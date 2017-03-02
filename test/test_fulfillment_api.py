@@ -28,16 +28,16 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.apis.fulfillment_api import FulfillmentApi
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.apis.fulfillment_api import FulfillmentApi
 
 
 class TestFulfillmentApi(unittest.TestCase):
     """ FulfillmentApi unit test stubs """
 
     def setUp(self):
-        self.api = com_ultracart_admin_v2.apis.fulfillment_api.FulfillmentApi()
+        self.api = ultracart.apis.fulfillment_api.FulfillmentApi()
 
     def tearDown(self):
         pass

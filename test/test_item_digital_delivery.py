@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_digital_delivery import ItemDigitalDelivery
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_digital_delivery import ItemDigitalDelivery
 
 
 class TestItemDigitalDelivery(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemDigitalDelivery(unittest.TestCase):
         """
         Test ItemDigitalDelivery
         """
-        model = com_ultracart_admin_v2.models.item_digital_delivery.ItemDigitalDelivery()
+        model = ultracart.models.item_digital_delivery.ItemDigitalDelivery()
 
 
 if __name__ == '__main__':

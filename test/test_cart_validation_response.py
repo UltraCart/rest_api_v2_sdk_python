@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_validation_response import CartValidationResponse
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_validation_response import CartValidationResponse
 
 
 class TestCartValidationResponse(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartValidationResponse(unittest.TestCase):
         """
         Test CartValidationResponse
         """
-        model = com_ultracart_admin_v2.models.cart_validation_response.CartValidationResponse()
+        model = ultracart.models.cart_validation_response.CartValidationResponse()
 
 
 if __name__ == '__main__':

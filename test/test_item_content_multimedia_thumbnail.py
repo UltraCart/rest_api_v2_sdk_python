@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_content_multimedia_thumbnail import ItemContentMultimediaThumbnail
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_content_multimedia_thumbnail import ItemContentMultimediaThumbnail
 
 
 class TestItemContentMultimediaThumbnail(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemContentMultimediaThumbnail(unittest.TestCase):
         """
         Test ItemContentMultimediaThumbnail
         """
-        model = com_ultracart_admin_v2.models.item_content_multimedia_thumbnail.ItemContentMultimediaThumbnail()
+        model = ultracart.models.item_content_multimedia_thumbnail.ItemContentMultimediaThumbnail()
 
 
 if __name__ == '__main__':

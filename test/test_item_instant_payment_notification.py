@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_instant_payment_notification import ItemInstantPaymentNotification
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_instant_payment_notification import ItemInstantPaymentNotification
 
 
 class TestItemInstantPaymentNotification(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemInstantPaymentNotification(unittest.TestCase):
         """
         Test ItemInstantPaymentNotification
         """
-        model = com_ultracart_admin_v2.models.item_instant_payment_notification.ItemInstantPaymentNotification()
+        model = ultracart.models.item_instant_payment_notification.ItemInstantPaymentNotification()
 
 
 if __name__ == '__main__':

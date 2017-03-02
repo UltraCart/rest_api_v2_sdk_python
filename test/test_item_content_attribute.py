@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_content_attribute import ItemContentAttribute
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_content_attribute import ItemContentAttribute
 
 
 class TestItemContentAttribute(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemContentAttribute(unittest.TestCase):
         """
         Test ItemContentAttribute
         """
-        model = com_ultracart_admin_v2.models.item_content_attribute.ItemContentAttribute()
+        model = ultracart.models.item_content_attribute.ItemContentAttribute()
 
 
 if __name__ == '__main__':

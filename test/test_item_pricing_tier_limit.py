@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_pricing_tier_limit import ItemPricingTierLimit
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_pricing_tier_limit import ItemPricingTierLimit
 
 
 class TestItemPricingTierLimit(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemPricingTierLimit(unittest.TestCase):
         """
         Test ItemPricingTierLimit
         """
-        model = com_ultracart_admin_v2.models.item_pricing_tier_limit.ItemPricingTierLimit()
+        model = ultracart.models.item_pricing_tier_limit.ItemPricingTierLimit()
 
 
 if __name__ == '__main__':

@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_channel_partner_mapping import ItemChannelPartnerMapping
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_channel_partner_mapping import ItemChannelPartnerMapping
 
 
 class TestItemChannelPartnerMapping(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemChannelPartnerMapping(unittest.TestCase):
         """
         Test ItemChannelPartnerMapping
         """
-        model = com_ultracart_admin_v2.models.item_channel_partner_mapping.ItemChannelPartnerMapping()
+        model = ultracart.models.item_channel_partner_mapping.ItemChannelPartnerMapping()
 
 
 if __name__ == '__main__':

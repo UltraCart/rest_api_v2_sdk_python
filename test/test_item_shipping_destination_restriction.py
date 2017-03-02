@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_shipping_destination_restriction import ItemShippingDestinationRestriction
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_shipping_destination_restriction import ItemShippingDestinationRestriction
 
 
 class TestItemShippingDestinationRestriction(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemShippingDestinationRestriction(unittest.TestCase):
         """
         Test ItemShippingDestinationRestriction
         """
-        model = com_ultracart_admin_v2.models.item_shipping_destination_restriction.ItemShippingDestinationRestriction()
+        model = ultracart.models.item_shipping_destination_restriction.ItemShippingDestinationRestriction()
 
 
 if __name__ == '__main__':

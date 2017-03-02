@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.auto_order_item_option import AutoOrderItemOption
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.auto_order_item_option import AutoOrderItemOption
 
 
 class TestAutoOrderItemOption(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestAutoOrderItemOption(unittest.TestCase):
         """
         Test AutoOrderItemOption
         """
-        model = com_ultracart_admin_v2.models.auto_order_item_option.AutoOrderItemOption()
+        model = ultracart.models.auto_order_item_option.AutoOrderItemOption()
 
 
 if __name__ == '__main__':

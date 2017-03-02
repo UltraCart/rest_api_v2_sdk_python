@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_ebay import ItemEbay
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_ebay import ItemEbay
 
 
 class TestItemEbay(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemEbay(unittest.TestCase):
         """
         Test ItemEbay
         """
-        model = com_ultracart_admin_v2.models.item_ebay.ItemEbay()
+        model = ultracart.models.item_ebay.ItemEbay()
 
 
 if __name__ == '__main__':

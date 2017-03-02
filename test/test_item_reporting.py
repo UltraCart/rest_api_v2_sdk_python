@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_reporting import ItemReporting
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_reporting import ItemReporting
 
 
 class TestItemReporting(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemReporting(unittest.TestCase):
         """
         Test ItemReporting
         """
-        model = com_ultracart_admin_v2.models.item_reporting.ItemReporting()
+        model = ultracart.models.item_reporting.ItemReporting()
 
 
 if __name__ == '__main__':

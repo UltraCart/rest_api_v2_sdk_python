@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.order_linked_shipment import OrderLinkedShipment
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.order_linked_shipment import OrderLinkedShipment
 
 
 class TestOrderLinkedShipment(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOrderLinkedShipment(unittest.TestCase):
         """
         Test OrderLinkedShipment
         """
-        model = com_ultracart_admin_v2.models.order_linked_shipment.OrderLinkedShipment()
+        model = ultracart.models.order_linked_shipment.OrderLinkedShipment()
 
 
 if __name__ == '__main__':

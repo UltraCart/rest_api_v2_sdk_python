@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_chargeback import ItemChargeback
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_chargeback import ItemChargeback
 
 
 class TestItemChargeback(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemChargeback(unittest.TestCase):
         """
         Test ItemChargeback
         """
-        model = com_ultracart_admin_v2.models.item_chargeback.ItemChargeback()
+        model = ultracart.models.item_chargeback.ItemChargeback()
 
 
 if __name__ == '__main__':

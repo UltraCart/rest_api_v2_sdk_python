@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_customer_profile_address import CartCustomerProfileAddress
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_customer_profile_address import CartCustomerProfileAddress
 
 
 class TestCartCustomerProfileAddress(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartCustomerProfileAddress(unittest.TestCase):
         """
         Test CartCustomerProfileAddress
         """
-        model = com_ultracart_admin_v2.models.cart_customer_profile_address.CartCustomerProfileAddress()
+        model = ultracart.models.cart_customer_profile_address.CartCustomerProfileAddress()
 
 
 if __name__ == '__main__':

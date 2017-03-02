@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.distribution_centers_response import DistributionCentersResponse
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.distribution_centers_response import DistributionCentersResponse
 
 
 class TestDistributionCentersResponse(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestDistributionCentersResponse(unittest.TestCase):
         """
         Test DistributionCentersResponse
         """
-        model = com_ultracart_admin_v2.models.distribution_centers_response.DistributionCentersResponse()
+        model = ultracart.models.distribution_centers_response.DistributionCentersResponse()
 
 
 if __name__ == '__main__':

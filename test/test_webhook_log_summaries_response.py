@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.webhook_log_summaries_response import WebhookLogSummariesResponse
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.webhook_log_summaries_response import WebhookLogSummariesResponse
 
 
 class TestWebhookLogSummariesResponse(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestWebhookLogSummariesResponse(unittest.TestCase):
         """
         Test WebhookLogSummariesResponse
         """
-        model = com_ultracart_admin_v2.models.webhook_log_summaries_response.WebhookLogSummariesResponse()
+        model = ultracart.models.webhook_log_summaries_response.WebhookLogSummariesResponse()
 
 
 if __name__ == '__main__':

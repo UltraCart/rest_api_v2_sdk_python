@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_chargeback_addendum import ItemChargebackAddendum
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_chargeback_addendum import ItemChargebackAddendum
 
 
 class TestItemChargebackAddendum(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemChargebackAddendum(unittest.TestCase):
         """
         Test ItemChargebackAddendum
         """
-        model = com_ultracart_admin_v2.models.item_chargeback_addendum.ItemChargebackAddendum()
+        model = ultracart.models.item_chargeback_addendum.ItemChargebackAddendum()
 
 
 if __name__ == '__main__':

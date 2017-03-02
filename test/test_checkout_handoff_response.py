@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.checkout_handoff_response import CheckoutHandoffResponse
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.checkout_handoff_response import CheckoutHandoffResponse
 
 
 class TestCheckoutHandoffResponse(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCheckoutHandoffResponse(unittest.TestCase):
         """
         Test CheckoutHandoffResponse
         """
-        model = com_ultracart_admin_v2.models.checkout_handoff_response.CheckoutHandoffResponse()
+        model = ultracart.models.checkout_handoff_response.CheckoutHandoffResponse()
 
 
 if __name__ == '__main__':

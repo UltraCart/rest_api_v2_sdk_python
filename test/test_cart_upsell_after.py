@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_upsell_after import CartUpsellAfter
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_upsell_after import CartUpsellAfter
 
 
 class TestCartUpsellAfter(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartUpsellAfter(unittest.TestCase):
         """
         Test CartUpsellAfter
         """
-        model = com_ultracart_admin_v2.models.cart_upsell_after.CartUpsellAfter()
+        model = ultracart.models.cart_upsell_after.CartUpsellAfter()
 
 
 if __name__ == '__main__':

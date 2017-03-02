@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_option_value_digital_item import ItemOptionValueDigitalItem
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_option_value_digital_item import ItemOptionValueDigitalItem
 
 
 class TestItemOptionValueDigitalItem(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemOptionValueDigitalItem(unittest.TestCase):
         """
         Test ItemOptionValueDigitalItem
         """
-        model = com_ultracart_admin_v2.models.item_option_value_digital_item.ItemOptionValueDigitalItem()
+        model = ultracart.models.item_option_value_digital_item.ItemOptionValueDigitalItem()
 
 
 if __name__ == '__main__':

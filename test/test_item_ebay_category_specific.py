@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_ebay_category_specific import ItemEbayCategorySpecific
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_ebay_category_specific import ItemEbayCategorySpecific
 
 
 class TestItemEbayCategorySpecific(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemEbayCategorySpecific(unittest.TestCase):
         """
         Test ItemEbayCategorySpecific
         """
-        model = com_ultracart_admin_v2.models.item_ebay_category_specific.ItemEbayCategorySpecific()
+        model = ultracart.models.item_ebay_category_specific.ItemEbayCategorySpecific()
 
 
 if __name__ == '__main__':

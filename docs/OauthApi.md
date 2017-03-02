@@ -1,4 +1,4 @@
-# com_ultracart_admin_v2.OauthApi
+# ultracart.OauthApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -18,23 +18,23 @@ Revokes the OAuth application associated with the specified client_id and token.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.OauthApi()
+api_instance = ultracart.OauthApi()
 client_id = 'client_id_example' # str | The OAuth application client_id.
 token = 'token_example' # str | The OAuth access token that is to be revoked..
 
@@ -78,23 +78,23 @@ The final leg in the OAuth process which exchanges the specified access token fo
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.OauthApi()
+api_instance = ultracart.OauthApi()
 client_id = 'client_id_example' # str | The OAuth application client_id.
 grant_type = 'grant_type_example' # str | Type of grant
 code = 'code_example' # str | Authorization code received back from the browser redirect (optional)

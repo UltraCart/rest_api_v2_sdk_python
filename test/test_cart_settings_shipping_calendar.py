@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_settings_shipping_calendar import CartSettingsShippingCalendar
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_settings_shipping_calendar import CartSettingsShippingCalendar
 
 
 class TestCartSettingsShippingCalendar(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartSettingsShippingCalendar(unittest.TestCase):
         """
         Test CartSettingsShippingCalendar
         """
-        model = com_ultracart_admin_v2.models.cart_settings_shipping_calendar.CartSettingsShippingCalendar()
+        model = ultracart.models.cart_settings_shipping_calendar.CartSettingsShippingCalendar()
 
 
 if __name__ == '__main__':

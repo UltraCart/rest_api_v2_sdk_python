@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_payment_purchase_order import CartPaymentPurchaseOrder
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_payment_purchase_order import CartPaymentPurchaseOrder
 
 
 class TestCartPaymentPurchaseOrder(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartPaymentPurchaseOrder(unittest.TestCase):
         """
         Test CartPaymentPurchaseOrder
         """
-        model = com_ultracart_admin_v2.models.cart_payment_purchase_order.CartPaymentPurchaseOrder()
+        model = ultracart.models.cart_payment_purchase_order.CartPaymentPurchaseOrder()
 
 
 if __name__ == '__main__':

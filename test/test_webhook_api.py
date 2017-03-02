@@ -28,16 +28,16 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.apis.webhook_api import WebhookApi
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.apis.webhook_api import WebhookApi
 
 
 class TestWebhookApi(unittest.TestCase):
     """ WebhookApi unit test stubs """
 
     def setUp(self):
-        self.api = com_ultracart_admin_v2.apis.webhook_api.WebhookApi()
+        self.api = ultracart.apis.webhook_api.WebhookApi()
 
     def tearDown(self):
         pass
@@ -95,22 +95,6 @@ class TestWebhookApi(unittest.TestCase):
         Test case for webhook_webhooks_webhook_oid_reflow_event_name_post
 
         Resend events to the webhook endpoint.
-        """
-        pass
-
-    def test_webhook_webhooks_webhook_oid_samples_get(self):
-        """
-        Test case for webhook_webhooks_webhook_oid_samples_get
-
-        Retrieve a sample notification.
-        """
-        pass
-
-    def test_webhook_webhooks_webhook_oid_validate_post(self):
-        """
-        Test case for webhook_webhooks_webhook_oid_validate_post
-
-        Send test message to an endpoint.
         """
         pass
 

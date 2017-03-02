@@ -28,16 +28,16 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.apis.checkout_api import CheckoutApi
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.apis.checkout_api import CheckoutApi
 
 
 class TestCheckoutApi(unittest.TestCase):
     """ CheckoutApi unit test stubs """
 
     def setUp(self):
-        self.api = com_ultracart_admin_v2.apis.checkout_api.CheckoutApi()
+        self.api = ultracart.apis.checkout_api.CheckoutApi()
 
     def tearDown(self):
         pass

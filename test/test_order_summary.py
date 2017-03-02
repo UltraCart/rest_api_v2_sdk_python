@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.order_summary import OrderSummary
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.order_summary import OrderSummary
 
 
 class TestOrderSummary(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOrderSummary(unittest.TestCase):
         """
         Test OrderSummary
         """
-        model = com_ultracart_admin_v2.models.order_summary.OrderSummary()
+        model = ultracart.models.order_summary.OrderSummary()
 
 
 if __name__ == '__main__':

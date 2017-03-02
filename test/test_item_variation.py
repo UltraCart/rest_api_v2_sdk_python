@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_variation import ItemVariation
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_variation import ItemVariation
 
 
 class TestItemVariation(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemVariation(unittest.TestCase):
         """
         Test ItemVariation
         """
-        model = com_ultracart_admin_v2.models.item_variation.ItemVariation()
+        model = ultracart.models.item_variation.ItemVariation()
 
 
 if __name__ == '__main__':

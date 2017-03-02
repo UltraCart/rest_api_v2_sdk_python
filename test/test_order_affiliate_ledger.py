@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.order_affiliate_ledger import OrderAffiliateLedger
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.order_affiliate_ledger import OrderAffiliateLedger
 
 
 class TestOrderAffiliateLedger(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOrderAffiliateLedger(unittest.TestCase):
         """
         Test OrderAffiliateLedger
         """
-        model = com_ultracart_admin_v2.models.order_affiliate_ledger.OrderAffiliateLedger()
+        model = ultracart.models.order_affiliate_ledger.OrderAffiliateLedger()
 
 
 if __name__ == '__main__':

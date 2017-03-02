@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.currency import Currency
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.currency import Currency
 
 
 class TestCurrency(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCurrency(unittest.TestCase):
         """
         Test Currency
         """
-        model = com_ultracart_admin_v2.models.currency.Currency()
+        model = ultracart.models.currency.Currency()
 
 
 if __name__ == '__main__':

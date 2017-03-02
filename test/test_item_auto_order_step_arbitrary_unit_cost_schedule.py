@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_auto_order_step_arbitrary_unit_cost_schedule import ItemAutoOrderStepArbitraryUnitCostSchedule
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_auto_order_step_arbitrary_unit_cost_schedule import ItemAutoOrderStepArbitraryUnitCostSchedule
 
 
 class TestItemAutoOrderStepArbitraryUnitCostSchedule(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemAutoOrderStepArbitraryUnitCostSchedule(unittest.TestCase):
         """
         Test ItemAutoOrderStepArbitraryUnitCostSchedule
         """
-        model = com_ultracart_admin_v2.models.item_auto_order_step_arbitrary_unit_cost_schedule.ItemAutoOrderStepArbitraryUnitCostSchedule()
+        model = ultracart.models.item_auto_order_step_arbitrary_unit_cost_schedule.ItemAutoOrderStepArbitraryUnitCostSchedule()
 
 
 if __name__ == '__main__':

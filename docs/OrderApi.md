@@ -1,4 +1,4 @@
-# com_ultracart_admin_v2.OrderApi
+# ultracart.OrderApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -23,19 +23,19 @@ Retrieves a group of orders from the account.  If no parameters are specified, t
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.OrderApi()
+api_instance = ultracart.OrderApi()
 order_id = 'order_id_example' # str | Order Id (optional)
 payment_method = 'payment_method_example' # str | Payment Method (optional)
 company = 'company_example' # str | Company (optional)
@@ -137,19 +137,19 @@ Cancel an order on the UltraCart account.  If the success flag is false, then co
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.OrderApi()
+api_instance = ultracart.OrderApi()
 order_id = 'order_id_example' # str | The order id to cancel.
 
 try: 
@@ -191,19 +191,19 @@ Delete an order on the UltraCart account.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.OrderApi()
+api_instance = ultracart.OrderApi()
 order_id = 'order_id_example' # str | The order id to delete.
 
 try: 
@@ -244,19 +244,19 @@ Retrieves a single order using the specified order id.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.OrderApi()
+api_instance = ultracart.OrderApi()
 order_id = 'order_id_example' # str | The order id to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -300,20 +300,20 @@ Update a new order on the UltraCart account.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.OrderApi()
-order = com_ultracart_admin_v2.Order() # Order | Order to update
+api_instance = ultracart.OrderApi()
+order = ultracart.Order() # Order | Order to update
 order_id = 'order_id_example' # str | The order id to update.
 
 try: 
@@ -356,19 +356,19 @@ Resend the receipt for an order on the UltraCart account.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.OrderApi()
+api_instance = ultracart.OrderApi()
 order_id = 'order_id_example' # str | The order id to resend the receipt for.
 
 try: 
@@ -410,19 +410,19 @@ Resend shipment confirmation for an order on the UltraCart account.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.OrderApi()
+api_instance = ultracart.OrderApi()
 order_id = 'order_id_example' # str | The order id to resend the shipment notification for.
 
 try: 

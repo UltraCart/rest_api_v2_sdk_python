@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_settings_gift_wrap import CartSettingsGiftWrap
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_settings_gift_wrap import CartSettingsGiftWrap
 
 
 class TestCartSettingsGiftWrap(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartSettingsGiftWrap(unittest.TestCase):
         """
         Test CartSettingsGiftWrap
         """
-        model = com_ultracart_admin_v2.models.cart_settings_gift_wrap.CartSettingsGiftWrap()
+        model = ultracart.models.cart_settings_gift_wrap.CartSettingsGiftWrap()
 
 
 if __name__ == '__main__':

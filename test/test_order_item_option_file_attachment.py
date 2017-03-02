@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.order_item_option_file_attachment import OrderItemOptionFileAttachment
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.order_item_option_file_attachment import OrderItemOptionFileAttachment
 
 
 class TestOrderItemOptionFileAttachment(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOrderItemOptionFileAttachment(unittest.TestCase):
         """
         Test OrderItemOptionFileAttachment
         """
-        model = com_ultracart_admin_v2.models.order_item_option_file_attachment.OrderItemOptionFileAttachment()
+        model = ultracart.models.order_item_option_file_attachment.OrderItemOptionFileAttachment()
 
 
 if __name__ == '__main__':

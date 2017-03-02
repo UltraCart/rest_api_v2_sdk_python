@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.response_metadata import ResponseMetadata
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.response_metadata import ResponseMetadata
 
 
 class TestResponseMetadata(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestResponseMetadata(unittest.TestCase):
         """
         Test ResponseMetadata
         """
-        model = com_ultracart_admin_v2.models.response_metadata.ResponseMetadata()
+        model = ultracart.models.response_metadata.ResponseMetadata()
 
 
 if __name__ == '__main__':

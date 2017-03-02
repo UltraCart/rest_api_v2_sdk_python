@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.customer_pricing_tier import CustomerPricingTier
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.customer_pricing_tier import CustomerPricingTier
 
 
 class TestCustomerPricingTier(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCustomerPricingTier(unittest.TestCase):
         """
         Test CustomerPricingTier
         """
-        model = com_ultracart_admin_v2.models.customer_pricing_tier.CustomerPricingTier()
+        model = ultracart.models.customer_pricing_tier.CustomerPricingTier()
 
 
 if __name__ == '__main__':

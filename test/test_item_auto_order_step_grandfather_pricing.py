@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_auto_order_step_grandfather_pricing import ItemAutoOrderStepGrandfatherPricing
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_auto_order_step_grandfather_pricing import ItemAutoOrderStepGrandfatherPricing
 
 
 class TestItemAutoOrderStepGrandfatherPricing(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemAutoOrderStepGrandfatherPricing(unittest.TestCase):
         """
         Test ItemAutoOrderStepGrandfatherPricing
         """
-        model = com_ultracart_admin_v2.models.item_auto_order_step_grandfather_pricing.ItemAutoOrderStepGrandfatherPricing()
+        model = ultracart.models.item_auto_order_step_grandfather_pricing.ItemAutoOrderStepGrandfatherPricing()
 
 
 if __name__ == '__main__':

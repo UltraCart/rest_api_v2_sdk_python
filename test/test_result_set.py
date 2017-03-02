@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.result_set import ResultSet
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.result_set import ResultSet
 
 
 class TestResultSet(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestResultSet(unittest.TestCase):
         """
         Test ResultSet
         """
-        model = com_ultracart_admin_v2.models.result_set.ResultSet()
+        model = ultracart.models.result_set.ResultSet()
 
 
 if __name__ == '__main__':

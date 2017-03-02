@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_kit_component_option import CartKitComponentOption
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_kit_component_option import CartKitComponentOption
 
 
 class TestCartKitComponentOption(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartKitComponentOption(unittest.TestCase):
         """
         Test CartKitComponentOption
         """
-        model = com_ultracart_admin_v2.models.cart_kit_component_option.CartKitComponentOption()
+        model = ultracart.models.cart_kit_component_option.CartKitComponentOption()
 
 
 if __name__ == '__main__':

@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_auto_order_step import ItemAutoOrderStep
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_auto_order_step import ItemAutoOrderStep
 
 
 class TestItemAutoOrderStep(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemAutoOrderStep(unittest.TestCase):
         """
         Test ItemAutoOrderStep
         """
-        model = com_ultracart_admin_v2.models.item_auto_order_step.ItemAutoOrderStep()
+        model = ultracart.models.item_auto_order_step.ItemAutoOrderStep()
 
 
 if __name__ == '__main__':

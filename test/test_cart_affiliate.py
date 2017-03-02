@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_affiliate import CartAffiliate
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_affiliate import CartAffiliate
 
 
 class TestCartAffiliate(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartAffiliate(unittest.TestCase):
         """
         Test CartAffiliate
         """
-        model = com_ultracart_admin_v2.models.cart_affiliate.CartAffiliate()
+        model = ultracart.models.cart_affiliate.CartAffiliate()
 
 
 if __name__ == '__main__':

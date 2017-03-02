@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_physical import ItemPhysical
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_physical import ItemPhysical
 
 
 class TestItemPhysical(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemPhysical(unittest.TestCase):
         """
         Test ItemPhysical
         """
-        model = com_ultracart_admin_v2.models.item_physical.ItemPhysical()
+        model = ultracart.models.item_physical.ItemPhysical()
 
 
 if __name__ == '__main__':

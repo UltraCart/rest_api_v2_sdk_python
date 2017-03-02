@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_cc_bill import ItemCCBill
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_cc_bill import ItemCCBill
 
 
 class TestItemCCBill(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemCCBill(unittest.TestCase):
         """
         Test ItemCCBill
         """
-        model = com_ultracart_admin_v2.models.item_cc_bill.ItemCCBill()
+        model = ultracart.models.item_cc_bill.ItemCCBill()
 
 
 if __name__ == '__main__':

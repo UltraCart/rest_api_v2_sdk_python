@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_restriction import ItemRestriction
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_restriction import ItemRestriction
 
 
 class TestItemRestriction(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemRestriction(unittest.TestCase):
         """
         Test ItemRestriction
         """
-        model = com_ultracart_admin_v2.models.item_restriction.ItemRestriction()
+        model = ultracart.models.item_restriction.ItemRestriction()
 
 
 if __name__ == '__main__':

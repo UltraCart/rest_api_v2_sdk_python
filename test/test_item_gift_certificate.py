@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_gift_certificate import ItemGiftCertificate
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_gift_certificate import ItemGiftCertificate
 
 
 class TestItemGiftCertificate(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemGiftCertificate(unittest.TestCase):
         """
         Test ItemGiftCertificate
         """
-        model = com_ultracart_admin_v2.models.item_gift_certificate.ItemGiftCertificate()
+        model = ultracart.models.item_gift_certificate.ItemGiftCertificate()
 
 
 if __name__ == '__main__':

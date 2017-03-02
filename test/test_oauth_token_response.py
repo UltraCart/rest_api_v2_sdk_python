@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.oauth_token_response import OauthTokenResponse
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.oauth_token_response import OauthTokenResponse
 
 
 class TestOauthTokenResponse(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOauthTokenResponse(unittest.TestCase):
         """
         Test OauthTokenResponse
         """
-        model = com_ultracart_admin_v2.models.oauth_token_response.OauthTokenResponse()
+        model = ultracart.models.oauth_token_response.OauthTokenResponse()
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-# com_ultracart_admin_v2.FulfillmentApi
+# ultracart.FulfillmentApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -21,21 +21,21 @@ Acknowledge receipt of orders so that they are removed from the fulfillment queu
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi()
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
-order_ids = [com_ultracart_admin_v2.list[str]()] # list[str] | Orders to acknowledge receipt of (limit 100)
+order_ids = [ultracart.list[str]()] # list[str] | Orders to acknowledge receipt of (limit 100)
 
 try: 
     # Acknowledge receipt of orders.
@@ -76,21 +76,21 @@ Update the inventory for items associated with this distribution center
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi()
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
-inventories = [com_ultracart_admin_v2.FulfillmentInventory()] # list[FulfillmentInventory] | Inventory updates (limit 500)
+inventories = [ultracart.FulfillmentInventory()] # list[FulfillmentInventory] | Inventory updates (limit 500)
 
 try: 
     # Update inventory
@@ -131,19 +131,19 @@ Retrieves up to 100 orders that are queued up in this distribution center.  You 
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi()
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
 
 try: 
@@ -185,21 +185,21 @@ Store the tracking information and mark the order shipped for this distribution 
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi()
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
-shipments = [com_ultracart_admin_v2.FulfillmentShipment()] # list[FulfillmentShipment] | Orders to mark shipped
+shipments = [ultracart.FulfillmentShipment()] # list[FulfillmentShipment] | Orders to mark shipped
 
 try: 
     # Mark orders as shipped
@@ -240,19 +240,19 @@ Retrieves the distribution centers that this user has access to.
 ### Example 
 ```python
 import time
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
+import ultracart
+from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-com_ultracart_admin_v2.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-com_ultracart_admin_v2.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# com_ultracart_admin_v2.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = com_ultracart_admin_v2.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi()
 
 try: 
     # Retrieve distribution centers

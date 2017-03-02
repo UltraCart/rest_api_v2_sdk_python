@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.webhook_event_subscription import WebhookEventSubscription
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.webhook_event_subscription import WebhookEventSubscription
 
 
 class TestWebhookEventSubscription(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestWebhookEventSubscription(unittest.TestCase):
         """
         Test WebhookEventSubscription
         """
-        model = com_ultracart_admin_v2.models.webhook_event_subscription.WebhookEventSubscription()
+        model = ultracart.models.webhook_event_subscription.WebhookEventSubscription()
 
 
 if __name__ == '__main__':

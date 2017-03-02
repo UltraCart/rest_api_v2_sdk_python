@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_buysafe import CartBuysafe
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_buysafe import CartBuysafe
 
 
 class TestCartBuysafe(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartBuysafe(unittest.TestCase):
         """
         Test CartBuysafe
         """
-        model = com_ultracart_admin_v2.models.cart_buysafe.CartBuysafe()
+        model = ultracart.models.cart_buysafe.CartBuysafe()
 
 
 if __name__ == '__main__':

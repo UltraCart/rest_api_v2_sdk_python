@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.cart_taxes import CartTaxes
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.cart_taxes import CartTaxes
 
 
 class TestCartTaxes(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestCartTaxes(unittest.TestCase):
         """
         Test CartTaxes
         """
-        model = com_ultracart_admin_v2.models.cart_taxes.CartTaxes()
+        model = ultracart.models.cart_taxes.CartTaxes()
 
 
 if __name__ == '__main__':

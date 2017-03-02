@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.order_coupon import OrderCoupon
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.order_coupon import OrderCoupon
 
 
 class TestOrderCoupon(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestOrderCoupon(unittest.TestCase):
         """
         Test OrderCoupon
         """
-        model = com_ultracart_admin_v2.models.order_coupon.OrderCoupon()
+        model = ultracart.models.order_coupon.OrderCoupon()
 
 
 if __name__ == '__main__':

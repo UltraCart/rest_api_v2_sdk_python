@@ -28,9 +28,9 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.models.item_option_value_additional_item import ItemOptionValueAdditionalItem
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.models.item_option_value_additional_item import ItemOptionValueAdditionalItem
 
 
 class TestItemOptionValueAdditionalItem(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestItemOptionValueAdditionalItem(unittest.TestCase):
         """
         Test ItemOptionValueAdditionalItem
         """
-        model = com_ultracart_admin_v2.models.item_option_value_additional_item.ItemOptionValueAdditionalItem()
+        model = ultracart.models.item_option_value_additional_item.ItemOptionValueAdditionalItem()
 
 
 if __name__ == '__main__':

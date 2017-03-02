@@ -28,16 +28,16 @@ import os
 import sys
 import unittest
 
-import com_ultracart_admin_v2
-from com_ultracart_admin_v2.rest import ApiException
-from com_ultracart_admin_v2.apis.oauth_api import OauthApi
+import ultracart
+from ultracart.rest import ApiException
+from ultracart.apis.oauth_api import OauthApi
 
 
 class TestOauthApi(unittest.TestCase):
     """ OauthApi unit test stubs """
 
     def setUp(self):
-        self.api = com_ultracart_admin_v2.apis.oauth_api.OauthApi()
+        self.api = ultracart.apis.oauth_api.OauthApi()
 
     def tearDown(self):
         pass
