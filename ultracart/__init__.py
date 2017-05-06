@@ -86,6 +86,9 @@ from .models.cart_taxes import CartTaxes
 from .models.cart_upsell_after import CartUpsellAfter
 from .models.cart_validation_request import CartValidationRequest
 from .models.cart_validation_response import CartValidationResponse
+from .models.chargeback_dispute import ChargebackDispute
+from .models.chargeback_dispute_response import ChargebackDisputeResponse
+from .models.chargeback_disputes_response import ChargebackDisputesResponse
 from .models.checkout_handoff_request import CheckoutHandoffRequest
 from .models.checkout_handoff_response import CheckoutHandoffResponse
 from .models.checkout_setup_browser_key_request import CheckoutSetupBrowserKeyRequest
@@ -234,6 +237,7 @@ from .models.weight import Weight
 
 # import apis into sdk package
 from .apis.autoorder_api import AutoorderApi
+from .apis.chargeback_api import ChargebackApi
 from .apis.checkout_api import CheckoutApi
 from .apis.customer_api import CustomerApi
 from .apis.fulfillment_api import FulfillmentApi

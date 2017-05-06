@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **order_orders_order_id_put**
-> OrderResponse order_orders_order_id_put(order, order_id)
+> OrderResponse order_orders_order_id_put(order, order_id, expand=expand)
 
 Update an order
 
@@ -315,10 +315,11 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 api_instance = ultracart.OrderApi()
 order = ultracart.Order() # Order | Order to update
 order_id = 'order_id_example' # str | The order id to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
     # Update an order
-    api_response = api_instance.order_orders_order_id_put(order, order_id)
+    api_response = api_instance.order_orders_order_id_put(order, order_id, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling OrderApi->order_orders_order_id_put: %s\n" % e
@@ -330,6 +331,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**Order**](Order.md)| Order to update | 
  **order_id** | **str**| The order id to update. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 

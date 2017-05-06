@@ -2,6 +2,7 @@ from __future__ import absolute_import
 
 # import apis into api package
 from .autoorder_api import AutoorderApi
+from .chargeback_api import ChargebackApi
 from .checkout_api import CheckoutApi
 from .customer_api import CustomerApi
 from .fulfillment_api import FulfillmentApi

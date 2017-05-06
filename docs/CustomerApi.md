@@ -4,10 +4,66 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**customer_customers_customer_profile_oid_delete**](CustomerApi.md#customer_customers_customer_profile_oid_delete) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**customer_customers_customer_profile_oid_get**](CustomerApi.md#customer_customers_customer_profile_oid_get) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**customer_customers_customer_profile_oid_put**](CustomerApi.md#customer_customers_customer_profile_oid_put) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**customer_customers_get**](CustomerApi.md#customer_customers_get) | **GET** /customer/customers | Retrieve customers
+[**customer_customers_post**](CustomerApi.md#customer_customers_post) | **POST** /customer/customers | Insert a customer
 
+
+# **customer_customers_customer_profile_oid_delete**
+> CustomerResponse customer_customers_customer_profile_oid_delete(customer_profile_oid)
+
+Delete a customer
+
+Delete a customer on the UltraCart account. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.CustomerApi()
+customer_profile_oid = 56 # int | The customer_profile_oid to delete.
+
+try: 
+    # Delete a customer
+    api_response = api_instance.customer_customers_customer_profile_oid_delete(customer_profile_oid)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling CustomerApi->customer_customers_customer_profile_oid_delete: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer_profile_oid to delete. | 
+
+### Return type
+
+[**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_customers_customer_profile_oid_get**
 > CustomerResponse customer_customers_customer_profile_oid_get(customer_profile_oid, expand=expand)
@@ -233,6 +289,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **customer_customers_post**
+> CustomerResponse customer_customers_post(customer)
+
+Insert a customer
+
+Insert a customer on the UltraCart account. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.CustomerApi()
+customer = ultracart.Customer() # Customer | Customer to insert
+
+try: 
+    # Insert a customer
+    api_response = api_instance.customer_customers_post(customer)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling CustomerApi->customer_customers_post: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer** | [**Customer**](Customer.md)| Customer to insert | 
+
+### Return type
+
+[**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

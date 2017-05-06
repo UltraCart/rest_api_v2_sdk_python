@@ -139,7 +139,7 @@ class Webhook(object):
         :param api_version: The api_version of this Webhook.
         :type: str
         """
-        allowed_values = ["2016-10-01"]
+        allowed_values = ["2017-03-01"]
         if api_version not in allowed_values:
             raise ValueError(
                 "Invalid value for `api_version` ({0}), must be one of {1}"

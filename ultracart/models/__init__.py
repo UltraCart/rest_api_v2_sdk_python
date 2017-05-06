@@ -86,6 +86,9 @@ from .cart_taxes import CartTaxes
 from .cart_upsell_after import CartUpsellAfter
 from .cart_validation_request import CartValidationRequest
 from .cart_validation_response import CartValidationResponse
+from .chargeback_dispute import ChargebackDispute
+from .chargeback_dispute_response import ChargebackDisputeResponse
+from .chargeback_disputes_response import ChargebackDisputesResponse
 from .checkout_handoff_request import CheckoutHandoffRequest
 from .checkout_handoff_response import CheckoutHandoffResponse
 from .checkout_setup_browser_key_request import CheckoutSetupBrowserKeyRequest

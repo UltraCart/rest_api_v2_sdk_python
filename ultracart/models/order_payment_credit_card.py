@@ -305,7 +305,7 @@ class OrderPaymentCreditCard(object):
         :param card_type: The card_type of this OrderPaymentCreditCard.
         :type: str
         """
-        allowed_values = ["AMEX", "Diners Club", "Discover", "JCB", "MasterCard", "VISA"]
+        allowed_values = ["AMEX", "Diners Club", "Discover", "JCB", "MasterCard", "VISA", "Visa"]
         if card_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `card_type` ({0}), must be one of {1}"

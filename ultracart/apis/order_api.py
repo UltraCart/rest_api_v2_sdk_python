@@ -605,6 +605,7 @@ class OrderApi(object):
             for asynchronous request. (optional)
         :param Order order: Order to update (required)
         :param str order_id: The order id to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: OrderResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -633,12 +634,13 @@ class OrderApi(object):
             for asynchronous request. (optional)
         :param Order order: Order to update (required)
         :param str order_id: The order id to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: OrderResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['order', 'order_id']
+        all_params = ['order', 'order_id', 'expand']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -664,6 +666,8 @@ class OrderApi(object):
             path_params['order_id'] = params['order_id']
 
         query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
 
         header_params = {}
 
