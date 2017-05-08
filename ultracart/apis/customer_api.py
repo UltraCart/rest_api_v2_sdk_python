@@ -280,6 +280,7 @@ class CustomerApi(object):
             for asynchronous request. (optional)
         :param Customer customer: Customer to update (required)
         :param int customer_profile_oid: The customer_profile_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: CustomerResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -308,12 +309,13 @@ class CustomerApi(object):
             for asynchronous request. (optional)
         :param Customer customer: Customer to update (required)
         :param int customer_profile_oid: The customer_profile_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: CustomerResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['customer', 'customer_profile_oid']
+        all_params = ['customer', 'customer_profile_oid', 'expand']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -339,6 +341,8 @@ class CustomerApi(object):
             path_params['customer_profile_oid'] = params['customer_profile_oid']
 
         query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
 
         header_params = {}
 
@@ -615,6 +619,7 @@ class CustomerApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Customer customer: Customer to insert (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: CustomerResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -642,12 +647,13 @@ class CustomerApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Customer customer: Customer to insert (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: CustomerResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['customer']
+        all_params = ['customer', 'expand']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -668,6 +674,8 @@ class CustomerApi(object):
         path_params = {}
 
         query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
 
         header_params = {}
 

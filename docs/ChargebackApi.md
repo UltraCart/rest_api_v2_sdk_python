@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chargeback_chargebacks_chargeback_dispute_oid_put**
-> ChargebackDisputeResponse chargeback_chargebacks_chargeback_dispute_oid_put(chargeback, chargeback_dispute_oid)
+> ChargebackDisputeResponse chargeback_chargebacks_chargeback_dispute_oid_put(chargeback, chargeback_dispute_oid, expand=expand)
 
 Update a chargeback
 
@@ -146,10 +146,11 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 api_instance = ultracart.ChargebackApi()
 chargeback = ultracart.ChargebackDispute() # ChargebackDispute | Chargeback to update
 chargeback_dispute_oid = 56 # int | The chargeback_dispute_oid to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
     # Update a chargeback
-    api_response = api_instance.chargeback_chargebacks_chargeback_dispute_oid_put(chargeback, chargeback_dispute_oid)
+    api_response = api_instance.chargeback_chargebacks_chargeback_dispute_oid_put(chargeback, chargeback_dispute_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling ChargebackApi->chargeback_chargebacks_chargeback_dispute_oid_put: %s\n" % e
@@ -161,6 +162,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to update | 
  **chargeback_dispute_oid** | **int**| The chargeback_dispute_oid to update. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 
@@ -254,7 +256,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chargeback_chargebacks_post**
-> ChargebackDisputeResponse chargeback_chargebacks_post(chargeback)
+> ChargebackDisputeResponse chargeback_chargebacks_post(chargeback, expand=expand)
 
 Insert a chargeback
 
@@ -277,10 +279,11 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = ultracart.ChargebackApi()
 chargeback = ultracart.ChargebackDispute() # ChargebackDispute | Chargeback to insert
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
     # Insert a chargeback
-    api_response = api_instance.chargeback_chargebacks_post(chargeback)
+    api_response = api_instance.chargeback_chargebacks_post(chargeback, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling ChargebackApi->chargeback_chargebacks_post: %s\n" % e
@@ -291,6 +294,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to insert | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 

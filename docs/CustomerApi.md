@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_customers_customer_profile_oid_put**
-> CustomerResponse customer_customers_customer_profile_oid_put(customer, customer_profile_oid)
+> CustomerResponse customer_customers_customer_profile_oid_put(customer, customer_profile_oid, expand=expand)
 
 Update a customer
 
@@ -146,10 +146,11 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 api_instance = ultracart.CustomerApi()
 customer = ultracart.Customer() # Customer | Customer to update
 customer_profile_oid = 56 # int | The customer_profile_oid to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
     # Update a customer
-    api_response = api_instance.customer_customers_customer_profile_oid_put(customer, customer_profile_oid)
+    api_response = api_instance.customer_customers_customer_profile_oid_put(customer, customer_profile_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling CustomerApi->customer_customers_customer_profile_oid_put: %s\n" % e
@@ -161,6 +162,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**Customer**](Customer.md)| Customer to update | 
  **customer_profile_oid** | **int**| The customer_profile_oid to update. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 
@@ -294,7 +296,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customer_customers_post**
-> CustomerResponse customer_customers_post(customer)
+> CustomerResponse customer_customers_post(customer, expand=expand)
 
 Insert a customer
 
@@ -317,10 +319,11 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = ultracart.CustomerApi()
 customer = ultracart.Customer() # Customer | Customer to insert
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
     # Insert a customer
-    api_response = api_instance.customer_customers_post(customer)
+    api_response = api_instance.customer_customers_post(customer, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling CustomerApi->customer_customers_post: %s\n" % e
@@ -331,6 +334,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**Customer**](Customer.md)| Customer to insert | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 

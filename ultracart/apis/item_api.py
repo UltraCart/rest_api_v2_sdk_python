@@ -413,6 +413,8 @@ class ItemApi(object):
             for asynchronous request. (optional)
         :param Item item: Item to update (required)
         :param int merchant_item_oid: The item oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -441,12 +443,14 @@ class ItemApi(object):
             for asynchronous request. (optional)
         :param Item item: Item to update (required)
         :param int merchant_item_oid: The item oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['item', 'merchant_item_oid']
+        all_params = ['item', 'merchant_item_oid', 'expand', 'placeholders']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -472,6 +476,10 @@ class ItemApi(object):
             path_params['merchant_item_oid'] = params['merchant_item_oid']
 
         query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+        if 'placeholders' in params:
+            query_params['_placeholders'] = params['placeholders']
 
         header_params = {}
 
@@ -523,6 +531,8 @@ class ItemApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Item item: Item to create (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -550,12 +560,14 @@ class ItemApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Item item: Item to create (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['item']
+        all_params = ['item', 'expand', 'placeholders']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -576,6 +588,10 @@ class ItemApi(object):
         path_params = {}
 
         query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+        if 'placeholders' in params:
+            query_params['_placeholders'] = params['placeholders']
 
         header_params = {}
 

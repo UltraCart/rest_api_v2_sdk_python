@@ -280,6 +280,7 @@ class ChargebackApi(object):
             for asynchronous request. (optional)
         :param ChargebackDispute chargeback: Chargeback to update (required)
         :param int chargeback_dispute_oid: The chargeback_dispute_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: ChargebackDisputeResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -308,12 +309,13 @@ class ChargebackApi(object):
             for asynchronous request. (optional)
         :param ChargebackDispute chargeback: Chargeback to update (required)
         :param int chargeback_dispute_oid: The chargeback_dispute_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: ChargebackDisputeResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['chargeback', 'chargeback_dispute_oid']
+        all_params = ['chargeback', 'chargeback_dispute_oid', 'expand']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -339,6 +341,8 @@ class ChargebackApi(object):
             path_params['chargeback_dispute_oid'] = params['chargeback_dispute_oid']
 
         query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
 
         header_params = {}
 
@@ -535,6 +539,7 @@ class ChargebackApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param ChargebackDispute chargeback: Chargeback to insert (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: ChargebackDisputeResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -562,12 +567,13 @@ class ChargebackApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param ChargebackDispute chargeback: Chargeback to insert (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: ChargebackDisputeResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['chargeback']
+        all_params = ['chargeback', 'expand']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -588,6 +594,8 @@ class ChargebackApi(object):
         path_params = {}
 
         query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
 
         header_params = {}
 

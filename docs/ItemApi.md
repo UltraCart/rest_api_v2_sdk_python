@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **item_items_merchant_item_oid_put**
-> ItemResponse item_items_merchant_item_oid_put(item, merchant_item_oid)
+> ItemResponse item_items_merchant_item_oid_put(item, merchant_item_oid, expand=expand, placeholders=placeholders)
 
 Update an item
 
@@ -216,10 +216,12 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 api_instance = ultracart.ItemApi()
 item = ultracart.Item() # Item | Item to update
 merchant_item_oid = 56 # int | The item oid to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
 try: 
     # Update an item
-    api_response = api_instance.item_items_merchant_item_oid_put(item, merchant_item_oid)
+    api_response = api_instance.item_items_merchant_item_oid_put(item, merchant_item_oid, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling ItemApi->item_items_merchant_item_oid_put: %s\n" % e
@@ -231,6 +233,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item** | [**Item**](Item.md)| Item to update | 
  **merchant_item_oid** | **int**| The item oid to update. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
@@ -248,7 +252,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **item_items_post**
-> ItemResponse item_items_post(item)
+> ItemResponse item_items_post(item, expand=expand, placeholders=placeholders)
 
 Create an item
 
@@ -271,10 +275,12 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = ultracart.ItemApi()
 item = ultracart.Item() # Item | Item to create
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
 try: 
     # Create an item
-    api_response = api_instance.item_items_post(item)
+    api_response = api_instance.item_items_post(item, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling ItemApi->item_items_post: %s\n" % e
@@ -285,6 +291,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item** | [**Item**](Item.md)| Item to create | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
