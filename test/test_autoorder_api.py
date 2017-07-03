@@ -42,27 +42,27 @@ class TestAutoorderApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_auto_order_auto_orders_auto_order_oid_get(self):
+    def test_get_auto_order(self):
         """
-        Test case for auto_order_auto_orders_auto_order_oid_get
+        Test case for get_auto_order
 
         Retrieve an auto order
         """
         pass
 
-    def test_auto_order_auto_orders_auto_order_oid_put(self):
+    def test_get_auto_orders(self):
         """
-        Test case for auto_order_auto_orders_auto_order_oid_put
+        Test case for get_auto_orders
 
-        Update an auto order
+        Retrieve auto orders
         """
         pass
 
-    def test_auto_order_auto_orders_get(self):
+    def test_update_auto_order(self):
         """
-        Test case for auto_order_auto_orders_get
+        Test case for update_auto_order
 
-        Retrieve auto orders
+        Update an auto order
         """
         pass
 

@@ -51,118 +51,7 @@ class OauthApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def oauth_revoke_post(self, client_id, token, **kwargs):
-        """
-        Revoke this OAuth application.
-        Revokes the OAuth application associated with the specified client_id and token. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.oauth_revoke_post(client_id, token, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str client_id: The OAuth application client_id. (required)
-        :param str token: The OAuth access token that is to be revoked.. (required)
-        :return: OauthRevokeSuccessResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.oauth_revoke_post_with_http_info(client_id, token, **kwargs)
-        else:
-            (data) = self.oauth_revoke_post_with_http_info(client_id, token, **kwargs)
-            return data
-
-    def oauth_revoke_post_with_http_info(self, client_id, token, **kwargs):
-        """
-        Revoke this OAuth application.
-        Revokes the OAuth application associated with the specified client_id and token. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.oauth_revoke_post_with_http_info(client_id, token, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str client_id: The OAuth application client_id. (required)
-        :param str token: The OAuth access token that is to be revoked.. (required)
-        :return: OauthRevokeSuccessResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['client_id', 'token']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method oauth_revoke_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'client_id' is set
-        if ('client_id' not in params) or (params['client_id'] is None):
-            raise ValueError("Missing the required parameter `client_id` when calling `oauth_revoke_post`")
-        # verify the required parameter 'token' is set
-        if ('token' not in params) or (params['token'] is None):
-            raise ValueError("Missing the required parameter `token` when calling `oauth_revoke_post`")
-
-        resource_path = '/oauth/revoke'.replace('{format}', 'json')
-        path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-        if 'client_id' in params:
-            form_params.append(('client_id', params['client_id']))
-        if 'token' in params:
-            form_params.append(('token', params['token']))
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/x-www-form-urlencoded'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'POST',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='OauthRevokeSuccessResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def oauth_token_post(self, client_id, grant_type, **kwargs):
+    def oauth_access_token(self, client_id, grant_type, **kwargs):
         """
         Exchange authorization code for access token.
         The final leg in the OAuth process which exchanges the specified access token for the access code needed to make API calls. 
@@ -173,7 +62,7 @@ class OauthApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.oauth_token_post(client_id, grant_type, callback=callback_function)
+        >>> thread = api.oauth_access_token(client_id, grant_type, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -188,12 +77,12 @@ class OauthApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.oauth_token_post_with_http_info(client_id, grant_type, **kwargs)
+            return self.oauth_access_token_with_http_info(client_id, grant_type, **kwargs)
         else:
-            (data) = self.oauth_token_post_with_http_info(client_id, grant_type, **kwargs)
+            (data) = self.oauth_access_token_with_http_info(client_id, grant_type, **kwargs)
             return data
 
-    def oauth_token_post_with_http_info(self, client_id, grant_type, **kwargs):
+    def oauth_access_token_with_http_info(self, client_id, grant_type, **kwargs):
         """
         Exchange authorization code for access token.
         The final leg in the OAuth process which exchanges the specified access token for the access code needed to make API calls. 
@@ -204,7 +93,7 @@ class OauthApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.oauth_token_post_with_http_info(client_id, grant_type, callback=callback_function)
+        >>> thread = api.oauth_access_token_with_http_info(client_id, grant_type, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -227,16 +116,16 @@ class OauthApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method oauth_token_post" % key
+                    " to method oauth_access_token" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'client_id' is set
         if ('client_id' not in params) or (params['client_id'] is None):
-            raise ValueError("Missing the required parameter `client_id` when calling `oauth_token_post`")
+            raise ValueError("Missing the required parameter `client_id` when calling `oauth_access_token`")
         # verify the required parameter 'grant_type' is set
         if ('grant_type' not in params) or (params['grant_type'] is None):
-            raise ValueError("Missing the required parameter `grant_type` when calling `oauth_token_post`")
+            raise ValueError("Missing the required parameter `grant_type` when calling `oauth_access_token`")
 
         resource_path = '/oauth/token'.replace('{format}', 'json')
         path_params = {}
@@ -281,6 +170,117 @@ class OauthApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='OauthTokenResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def oauth_revoke(self, client_id, token, **kwargs):
+        """
+        Revoke this OAuth application.
+        Revokes the OAuth application associated with the specified client_id and token. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.oauth_revoke(client_id, token, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str client_id: The OAuth application client_id. (required)
+        :param str token: The OAuth access token that is to be revoked.. (required)
+        :return: OauthRevokeSuccessResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.oauth_revoke_with_http_info(client_id, token, **kwargs)
+        else:
+            (data) = self.oauth_revoke_with_http_info(client_id, token, **kwargs)
+            return data
+
+    def oauth_revoke_with_http_info(self, client_id, token, **kwargs):
+        """
+        Revoke this OAuth application.
+        Revokes the OAuth application associated with the specified client_id and token. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.oauth_revoke_with_http_info(client_id, token, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str client_id: The OAuth application client_id. (required)
+        :param str token: The OAuth access token that is to be revoked.. (required)
+        :return: OauthRevokeSuccessResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['client_id', 'token']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method oauth_revoke" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'client_id' is set
+        if ('client_id' not in params) or (params['client_id'] is None):
+            raise ValueError("Missing the required parameter `client_id` when calling `oauth_revoke`")
+        # verify the required parameter 'token' is set
+        if ('token' not in params) or (params['token'] is None):
+            raise ValueError("Missing the required parameter `token` when calling `oauth_revoke`")
+
+        resource_path = '/oauth/revoke'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'client_id' in params:
+            form_params.append(('client_id', params['client_id']))
+        if 'token' in params:
+            form_params.append(('token', params['token']))
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/x-www-form-urlencoded'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='OauthRevokeSuccessResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

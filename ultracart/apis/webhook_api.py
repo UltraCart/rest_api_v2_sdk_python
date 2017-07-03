@@ -51,7 +51,338 @@ class WebhookApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def webhook_webhooks_get(self, **kwargs):
+    def delete_webhook(self, webhook_oid, **kwargs):
+        """
+        Delete a webhook
+        Delete a webhook on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_webhook(webhook_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int webhook_oid: The webhook oid to delete. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.delete_webhook_with_http_info(webhook_oid, **kwargs)
+        else:
+            (data) = self.delete_webhook_with_http_info(webhook_oid, **kwargs)
+            return data
+
+    def delete_webhook_with_http_info(self, webhook_oid, **kwargs):
+        """
+        Delete a webhook
+        Delete a webhook on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_webhook_with_http_info(webhook_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int webhook_oid: The webhook oid to delete. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['webhook_oid']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_webhook" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'webhook_oid' is set
+        if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
+            raise ValueError("Missing the required parameter `webhook_oid` when calling `delete_webhook`")
+
+        resource_path = '/webhook/webhooks/{webhookOid}'.replace('{format}', 'json')
+        path_params = {}
+        if 'webhook_oid' in params:
+            path_params['webhookOid'] = params['webhook_oid']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_webhook_log(self, webhook_oid, request_id, **kwargs):
+        """
+        Retrieve an individual log
+        Retrieves an individual log for a webhook given the webhook oid the request id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_webhook_log(webhook_oid, request_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int webhook_oid: The webhook oid that owns the log. (required)
+        :param str request_id: The request id associated with the log to view. (required)
+        :return: WebhookLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_webhook_log_with_http_info(webhook_oid, request_id, **kwargs)
+        else:
+            (data) = self.get_webhook_log_with_http_info(webhook_oid, request_id, **kwargs)
+            return data
+
+    def get_webhook_log_with_http_info(self, webhook_oid, request_id, **kwargs):
+        """
+        Retrieve an individual log
+        Retrieves an individual log for a webhook given the webhook oid the request id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_webhook_log_with_http_info(webhook_oid, request_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int webhook_oid: The webhook oid that owns the log. (required)
+        :param str request_id: The request id associated with the log to view. (required)
+        :return: WebhookLogResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['webhook_oid', 'request_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_webhook_log" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'webhook_oid' is set
+        if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
+            raise ValueError("Missing the required parameter `webhook_oid` when calling `get_webhook_log`")
+        # verify the required parameter 'request_id' is set
+        if ('request_id' not in params) or (params['request_id'] is None):
+            raise ValueError("Missing the required parameter `request_id` when calling `get_webhook_log`")
+
+        resource_path = '/webhook/webhooks/{webhookOid}/logs/{requestId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'webhook_oid' in params:
+            path_params['webhookOid'] = params['webhook_oid']
+        if 'request_id' in params:
+            path_params['requestId'] = params['request_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='WebhookLogResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_webhook_log_summaries(self, webhook_oid, **kwargs):
+        """
+        Retrieve the log summaries
+        Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_webhook_log_summaries(webhook_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int webhook_oid: The webhook oid to retrieve log summaries for. (required)
+        :param int limit: The maximum number of records to return on this one API call.
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch log summaries that have been delivered since this date/time.
+        :return: WebhookLogSummariesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_webhook_log_summaries_with_http_info(webhook_oid, **kwargs)
+        else:
+            (data) = self.get_webhook_log_summaries_with_http_info(webhook_oid, **kwargs)
+            return data
+
+    def get_webhook_log_summaries_with_http_info(self, webhook_oid, **kwargs):
+        """
+        Retrieve the log summaries
+        Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_webhook_log_summaries_with_http_info(webhook_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int webhook_oid: The webhook oid to retrieve log summaries for. (required)
+        :param int limit: The maximum number of records to return on this one API call.
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch log summaries that have been delivered since this date/time.
+        :return: WebhookLogSummariesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['webhook_oid', 'limit', 'offset', 'since']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_webhook_log_summaries" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'webhook_oid' is set
+        if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
+            raise ValueError("Missing the required parameter `webhook_oid` when calling `get_webhook_log_summaries`")
+
+        resource_path = '/webhook/webhooks/{webhookOid}/logs'.replace('{format}', 'json')
+        path_params = {}
+        if 'webhook_oid' in params:
+            path_params['webhookOid'] = params['webhook_oid']
+
+        query_params = {}
+        if 'limit' in params:
+            query_params['_limit'] = params['limit']
+        if 'offset' in params:
+            query_params['_offset'] = params['offset']
+        if 'since' in params:
+            query_params['_since'] = params['since']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='WebhookLogSummariesResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_webhooks(self, **kwargs):
         """
         Retrieve webhooks
         Retrieves the webhooks associated with this application. 
@@ -62,7 +393,7 @@ class WebhookApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhook_webhooks_get(callback=callback_function)
+        >>> thread = api.get_webhooks(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -76,12 +407,12 @@ class WebhookApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.webhook_webhooks_get_with_http_info(**kwargs)
+            return self.get_webhooks_with_http_info(**kwargs)
         else:
-            (data) = self.webhook_webhooks_get_with_http_info(**kwargs)
+            (data) = self.get_webhooks_with_http_info(**kwargs)
             return data
 
-    def webhook_webhooks_get_with_http_info(self, **kwargs):
+    def get_webhooks_with_http_info(self, **kwargs):
         """
         Retrieve webhooks
         Retrieves the webhooks associated with this application. 
@@ -92,7 +423,7 @@ class WebhookApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhook_webhooks_get_with_http_info(callback=callback_function)
+        >>> thread = api.get_webhooks_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -114,7 +445,7 @@ class WebhookApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method webhook_webhooks_get" % key
+                    " to method get_webhooks" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -164,7 +495,7 @@ class WebhookApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def webhook_webhooks_post(self, webhook, **kwargs):
+    def insert_webhook(self, webhook, **kwargs):
         """
         Add a webhook
         Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
@@ -175,7 +506,7 @@ class WebhookApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhook_webhooks_post(webhook, callback=callback_function)
+        >>> thread = api.insert_webhook(webhook, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -187,12 +518,12 @@ class WebhookApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.webhook_webhooks_post_with_http_info(webhook, **kwargs)
+            return self.insert_webhook_with_http_info(webhook, **kwargs)
         else:
-            (data) = self.webhook_webhooks_post_with_http_info(webhook, **kwargs)
+            (data) = self.insert_webhook_with_http_info(webhook, **kwargs)
             return data
 
-    def webhook_webhooks_post_with_http_info(self, webhook, **kwargs):
+    def insert_webhook_with_http_info(self, webhook, **kwargs):
         """
         Add a webhook
         Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
@@ -203,7 +534,7 @@ class WebhookApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhook_webhooks_post_with_http_info(webhook, callback=callback_function)
+        >>> thread = api.insert_webhook_with_http_info(webhook, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -223,13 +554,13 @@ class WebhookApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method webhook_webhooks_post" % key
+                    " to method insert_webhook" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'webhook' is set
         if ('webhook' not in params) or (params['webhook'] is None):
-            raise ValueError("Missing the required parameter `webhook` when calling `webhook_webhooks_post`")
+            raise ValueError("Missing the required parameter `webhook` when calling `insert_webhook`")
 
         resource_path = '/webhook/webhooks'.replace('{format}', 'json')
         path_params = {}
@@ -272,10 +603,10 @@ class WebhookApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def webhook_webhooks_webhook_oid_delete(self, webhook_oid, **kwargs):
+    def resend_event(self, webhook_oid, event_name, **kwargs):
         """
-        Delete a webhook
-        Delete a webhook on the UltraCart account. 
+        Resend events to the webhook endpoint.
+        This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -283,26 +614,27 @@ class WebhookApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_delete(webhook_oid, callback=callback_function)
+        >>> thread = api.resend_event(webhook_oid, event_name, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid to delete. (required)
-        :return: None
+        :param int webhook_oid: The webhook oid that is receiving the reflowed events. (required)
+        :param str event_name: The event to reflow. (required)
+        :return: WebhookSampleRequestResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.webhook_webhooks_webhook_oid_delete_with_http_info(webhook_oid, **kwargs)
+            return self.resend_event_with_http_info(webhook_oid, event_name, **kwargs)
         else:
-            (data) = self.webhook_webhooks_webhook_oid_delete_with_http_info(webhook_oid, **kwargs)
+            (data) = self.resend_event_with_http_info(webhook_oid, event_name, **kwargs)
             return data
 
-    def webhook_webhooks_webhook_oid_delete_with_http_info(self, webhook_oid, **kwargs):
+    def resend_event_with_http_info(self, webhook_oid, event_name, **kwargs):
         """
-        Delete a webhook
-        Delete a webhook on the UltraCart account. 
+        Resend events to the webhook endpoint.
+        This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -310,17 +642,18 @@ class WebhookApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_delete_with_http_info(webhook_oid, callback=callback_function)
+        >>> thread = api.resend_event_with_http_info(webhook_oid, event_name, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid to delete. (required)
-        :return: None
+        :param int webhook_oid: The webhook oid that is receiving the reflowed events. (required)
+        :param str event_name: The event to reflow. (required)
+        :return: WebhookSampleRequestResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['webhook_oid']
+        all_params = ['webhook_oid', 'event_name']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -329,18 +662,23 @@ class WebhookApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method webhook_webhooks_webhook_oid_delete" % key
+                    " to method resend_event" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'webhook_oid' is set
         if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
-            raise ValueError("Missing the required parameter `webhook_oid` when calling `webhook_webhooks_webhook_oid_delete`")
+            raise ValueError("Missing the required parameter `webhook_oid` when calling `resend_event`")
+        # verify the required parameter 'event_name' is set
+        if ('event_name' not in params) or (params['event_name'] is None):
+            raise ValueError("Missing the required parameter `event_name` when calling `resend_event`")
 
-        resource_path = '/webhook/webhooks/{webhookOid}'.replace('{format}', 'json')
+        resource_path = '/webhook/webhooks/{webhookOid}/reflow/{eventName}'.replace('{format}', 'json')
         path_params = {}
         if 'webhook_oid' in params:
             path_params['webhookOid'] = params['webhook_oid']
+        if 'event_name' in params:
+            path_params['eventName'] = params['event_name']
 
         query_params = {}
 
@@ -359,251 +697,24 @@ class WebhookApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
+            select_header_content_type(['application/json; charset=UTF-8'])
 
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
-        return self.api_client.call_api(resource_path, 'DELETE',
+        return self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type=None,
+                                            response_type='WebhookSampleRequestResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def webhook_webhooks_webhook_oid_logs_get(self, webhook_oid, **kwargs):
-        """
-        Retrieve the log summaries
-        Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_logs_get(webhook_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid to retrieve log summaries for. (required)
-        :param int limit: The maximum number of records to return on this one API call.
-        :param int offset: Pagination of the record set.  Offset is a zero based index.
-        :param str since: Fetch log summaries that have been delivered since this date/time.
-        :return: WebhookLogSummariesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.webhook_webhooks_webhook_oid_logs_get_with_http_info(webhook_oid, **kwargs)
-        else:
-            (data) = self.webhook_webhooks_webhook_oid_logs_get_with_http_info(webhook_oid, **kwargs)
-            return data
-
-    def webhook_webhooks_webhook_oid_logs_get_with_http_info(self, webhook_oid, **kwargs):
-        """
-        Retrieve the log summaries
-        Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_logs_get_with_http_info(webhook_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid to retrieve log summaries for. (required)
-        :param int limit: The maximum number of records to return on this one API call.
-        :param int offset: Pagination of the record set.  Offset is a zero based index.
-        :param str since: Fetch log summaries that have been delivered since this date/time.
-        :return: WebhookLogSummariesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['webhook_oid', 'limit', 'offset', 'since']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method webhook_webhooks_webhook_oid_logs_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'webhook_oid' is set
-        if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
-            raise ValueError("Missing the required parameter `webhook_oid` when calling `webhook_webhooks_webhook_oid_logs_get`")
-
-        resource_path = '/webhook/webhooks/{webhookOid}/logs'.replace('{format}', 'json')
-        path_params = {}
-        if 'webhook_oid' in params:
-            path_params['webhookOid'] = params['webhook_oid']
-
-        query_params = {}
-        if 'limit' in params:
-            query_params['_limit'] = params['limit']
-        if 'offset' in params:
-            query_params['_offset'] = params['offset']
-        if 'since' in params:
-            query_params['_since'] = params['since']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='WebhookLogSummariesResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def webhook_webhooks_webhook_oid_logs_request_id_get(self, webhook_oid, request_id, **kwargs):
-        """
-        Retrieve an individual log
-        Retrieves an individual log for a webhook given the webhook oid the request id. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_logs_request_id_get(webhook_oid, request_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid that owns the log. (required)
-        :param str request_id: The request id associated with the log to view. (required)
-        :return: WebhookLogResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.webhook_webhooks_webhook_oid_logs_request_id_get_with_http_info(webhook_oid, request_id, **kwargs)
-        else:
-            (data) = self.webhook_webhooks_webhook_oid_logs_request_id_get_with_http_info(webhook_oid, request_id, **kwargs)
-            return data
-
-    def webhook_webhooks_webhook_oid_logs_request_id_get_with_http_info(self, webhook_oid, request_id, **kwargs):
-        """
-        Retrieve an individual log
-        Retrieves an individual log for a webhook given the webhook oid the request id. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_logs_request_id_get_with_http_info(webhook_oid, request_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid that owns the log. (required)
-        :param str request_id: The request id associated with the log to view. (required)
-        :return: WebhookLogResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['webhook_oid', 'request_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method webhook_webhooks_webhook_oid_logs_request_id_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'webhook_oid' is set
-        if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
-            raise ValueError("Missing the required parameter `webhook_oid` when calling `webhook_webhooks_webhook_oid_logs_request_id_get`")
-        # verify the required parameter 'request_id' is set
-        if ('request_id' not in params) or (params['request_id'] is None):
-            raise ValueError("Missing the required parameter `request_id` when calling `webhook_webhooks_webhook_oid_logs_request_id_get`")
-
-        resource_path = '/webhook/webhooks/{webhookOid}/logs/{requestId}'.replace('{format}', 'json')
-        path_params = {}
-        if 'webhook_oid' in params:
-            path_params['webhookOid'] = params['webhook_oid']
-        if 'request_id' in params:
-            path_params['requestId'] = params['request_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='WebhookLogResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def webhook_webhooks_webhook_oid_put(self, webhook, webhook_oid, **kwargs):
+    def update_webhook(self, webhook, webhook_oid, **kwargs):
         """
         Update a webhook
         Update a webhook on the account 
@@ -614,7 +725,7 @@ class WebhookApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_put(webhook, webhook_oid, callback=callback_function)
+        >>> thread = api.update_webhook(webhook, webhook_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -627,12 +738,12 @@ class WebhookApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.webhook_webhooks_webhook_oid_put_with_http_info(webhook, webhook_oid, **kwargs)
+            return self.update_webhook_with_http_info(webhook, webhook_oid, **kwargs)
         else:
-            (data) = self.webhook_webhooks_webhook_oid_put_with_http_info(webhook, webhook_oid, **kwargs)
+            (data) = self.update_webhook_with_http_info(webhook, webhook_oid, **kwargs)
             return data
 
-    def webhook_webhooks_webhook_oid_put_with_http_info(self, webhook, webhook_oid, **kwargs):
+    def update_webhook_with_http_info(self, webhook, webhook_oid, **kwargs):
         """
         Update a webhook
         Update a webhook on the account 
@@ -643,7 +754,7 @@ class WebhookApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_put_with_http_info(webhook, webhook_oid, callback=callback_function)
+        >>> thread = api.update_webhook_with_http_info(webhook, webhook_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -664,16 +775,16 @@ class WebhookApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method webhook_webhooks_webhook_oid_put" % key
+                    " to method update_webhook" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'webhook' is set
         if ('webhook' not in params) or (params['webhook'] is None):
-            raise ValueError("Missing the required parameter `webhook` when calling `webhook_webhooks_webhook_oid_put`")
+            raise ValueError("Missing the required parameter `webhook` when calling `update_webhook`")
         # verify the required parameter 'webhook_oid' is set
         if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
-            raise ValueError("Missing the required parameter `webhook_oid` when calling `webhook_webhooks_webhook_oid_put`")
+            raise ValueError("Missing the required parameter `webhook_oid` when calling `update_webhook`")
 
         resource_path = '/webhook/webhooks/{webhookOid}'.replace('{format}', 'json')
         path_params = {}
@@ -714,117 +825,6 @@ class WebhookApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='WebhookResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def webhook_webhooks_webhook_oid_reflow_event_name_post(self, webhook_oid, event_name, **kwargs):
-        """
-        Resend events to the webhook endpoint.
-        This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_reflow_event_name_post(webhook_oid, event_name, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid that is receiving the reflowed events. (required)
-        :param str event_name: The event to reflow. (required)
-        :return: WebhookSampleRequestResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.webhook_webhooks_webhook_oid_reflow_event_name_post_with_http_info(webhook_oid, event_name, **kwargs)
-        else:
-            (data) = self.webhook_webhooks_webhook_oid_reflow_event_name_post_with_http_info(webhook_oid, event_name, **kwargs)
-            return data
-
-    def webhook_webhooks_webhook_oid_reflow_event_name_post_with_http_info(self, webhook_oid, event_name, **kwargs):
-        """
-        Resend events to the webhook endpoint.
-        This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.webhook_webhooks_webhook_oid_reflow_event_name_post_with_http_info(webhook_oid, event_name, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int webhook_oid: The webhook oid that is receiving the reflowed events. (required)
-        :param str event_name: The event to reflow. (required)
-        :return: WebhookSampleRequestResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['webhook_oid', 'event_name']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method webhook_webhooks_webhook_oid_reflow_event_name_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'webhook_oid' is set
-        if ('webhook_oid' not in params) or (params['webhook_oid'] is None):
-            raise ValueError("Missing the required parameter `webhook_oid` when calling `webhook_webhooks_webhook_oid_reflow_event_name_post`")
-        # verify the required parameter 'event_name' is set
-        if ('event_name' not in params) or (params['event_name'] is None):
-            raise ValueError("Missing the required parameter `event_name` when calling `webhook_webhooks_webhook_oid_reflow_event_name_post`")
-
-        resource_path = '/webhook/webhooks/{webhookOid}/reflow/{eventName}'.replace('{format}', 'json')
-        path_params = {}
-        if 'webhook_oid' in params:
-            path_params['webhookOid'] = params['webhook_oid']
-        if 'event_name' in params:
-            path_params['eventName'] = params['event_name']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json; charset=UTF-8'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'POST',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='WebhookSampleRequestResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

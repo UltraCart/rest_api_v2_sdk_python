@@ -51,10 +51,10 @@ class CheckoutApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def checkout_browser_key_put(self, browser_key_request, **kwargs):
+    def city_state(self, cart, **kwargs):
         """
-        Setup Browser Application
-        Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        City/State for Zip
+        Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -62,26 +62,26 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_browser_key_put(browser_key_request, callback=callback_function)
+        >>> thread = api.city_state(cart, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param CheckoutSetupBrowserKeyRequest browser_key_request: Setup browser key request (required)
-        :return: CheckoutSetupBrowserKeyResponse
+        :param Cart cart: Cart (required)
+        :return: ItemsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_browser_key_put_with_http_info(browser_key_request, **kwargs)
+            return self.city_state_with_http_info(cart, **kwargs)
         else:
-            (data) = self.checkout_browser_key_put_with_http_info(browser_key_request, **kwargs)
+            (data) = self.city_state_with_http_info(cart, **kwargs)
             return data
 
-    def checkout_browser_key_put_with_http_info(self, browser_key_request, **kwargs):
+    def city_state_with_http_info(self, cart, **kwargs):
         """
-        Setup Browser Application
-        Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        City/State for Zip
+        Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -89,17 +89,17 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_browser_key_put_with_http_info(browser_key_request, callback=callback_function)
+        >>> thread = api.city_state_with_http_info(cart, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param CheckoutSetupBrowserKeyRequest browser_key_request: Setup browser key request (required)
-        :return: CheckoutSetupBrowserKeyResponse
+        :param Cart cart: Cart (required)
+        :return: ItemsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['browser_key_request']
+        all_params = ['cart']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -108,15 +108,15 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_browser_key_put" % key
+                    " to method city_state" % key
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'browser_key_request' is set
-        if ('browser_key_request' not in params) or (params['browser_key_request'] is None):
-            raise ValueError("Missing the required parameter `browser_key_request` when calling `checkout_browser_key_put`")
+        # verify the required parameter 'cart' is set
+        if ('cart' not in params) or (params['cart'] is None):
+            raise ValueError("Missing the required parameter `cart` when calling `city_state`")
 
-        resource_path = '/checkout/browser_key'.replace('{format}', 'json')
+        resource_path = '/checkout/city_state'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -127,8 +127,112 @@ class CheckoutApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'browser_key_request' in params:
-            body_params = params['browser_key_request']
+        if 'cart' in params:
+            body_params = params['cart']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ItemsResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def finalize_order(self, finalize_request, **kwargs):
+        """
+        Finalize Order
+        Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.finalize_order(finalize_request, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param CartFinalizeOrderRequest finalize_request: Finalize request (required)
+        :return: CartFinalizeOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.finalize_order_with_http_info(finalize_request, **kwargs)
+        else:
+            (data) = self.finalize_order_with_http_info(finalize_request, **kwargs)
+            return data
+
+    def finalize_order_with_http_info(self, finalize_request, **kwargs):
+        """
+        Finalize Order
+        Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.finalize_order_with_http_info(finalize_request, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param CartFinalizeOrderRequest finalize_request: Finalize request (required)
+        :return: CartFinalizeOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['finalize_request']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method finalize_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'finalize_request' is set
+        if ('finalize_request' not in params) or (params['finalize_request'] is None):
+            raise ValueError("Missing the required parameter `finalize_request` when calling `finalize_order`")
+
+        resource_path = '/checkout/cart/finalizeOrder'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'finalize_request' in params:
+            body_params = params['finalize_request']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -143,19 +247,120 @@ class CheckoutApi(object):
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
-        return self.api_client.call_api(resource_path, 'PUT',
+        return self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='CheckoutSetupBrowserKeyResponse',
+                                            response_type='CartFinalizeOrderResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_cart_cart_id_get(self, cart_id, **kwargs):
+    def get_cart(self, **kwargs):
+        """
+        Get cart
+        If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cart(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CartResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_cart_with_http_info(**kwargs)
+        else:
+            (data) = self.get_cart_with_http_info(**kwargs)
+            return data
+
+    def get_cart_with_http_info(self, **kwargs):
+        """
+        Get cart
+        If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_cart_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CartResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['expand']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_cart" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/checkout/cart'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CartResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_cart_by_cart_id(self, cart_id, **kwargs):
         """
         Get cart (by cart id)
         Get a cart specified by the cart_id parameter. 
@@ -166,7 +371,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_cart_id_get(cart_id, callback=callback_function)
+        >>> thread = api.get_cart_by_cart_id(cart_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -178,12 +383,12 @@ class CheckoutApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_cart_cart_id_get_with_http_info(cart_id, **kwargs)
+            return self.get_cart_by_cart_id_with_http_info(cart_id, **kwargs)
         else:
-            (data) = self.checkout_cart_cart_id_get_with_http_info(cart_id, **kwargs)
+            (data) = self.get_cart_by_cart_id_with_http_info(cart_id, **kwargs)
             return data
 
-    def checkout_cart_cart_id_get_with_http_info(self, cart_id, **kwargs):
+    def get_cart_by_cart_id_with_http_info(self, cart_id, **kwargs):
         """
         Get cart (by cart id)
         Get a cart specified by the cart_id parameter. 
@@ -194,7 +399,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_cart_id_get_with_http_info(cart_id, callback=callback_function)
+        >>> thread = api.get_cart_by_cart_id_with_http_info(cart_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -214,13 +419,13 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_cart_cart_id_get" % key
+                    " to method get_cart_by_cart_id" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'cart_id' is set
         if ('cart_id' not in params) or (params['cart_id'] is None):
-            raise ValueError("Missing the required parameter `cart_id` when calling `checkout_cart_cart_id_get`")
+            raise ValueError("Missing the required parameter `cart_id` when calling `get_cart_by_cart_id`")
 
         resource_path = '/checkout/cart/{cart_id}'.replace('{format}', 'json')
         path_params = {}
@@ -263,10 +468,10 @@ class CheckoutApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_cart_finalize_order_post(self, finalize_request, **kwargs):
+    def get_cart_by_return_code(self, return_code, **kwargs):
         """
-        Finalize Order
-        Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
+        Get cart (by return code)
+        Get a cart specified by the return code parameter. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -274,26 +479,27 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_finalize_order_post(finalize_request, callback=callback_function)
+        >>> thread = api.get_cart_by_return_code(return_code, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param CartFinalizeOrderRequest finalize_request: Finalize request (required)
-        :return: CartFinalizeOrderResponse
+        :param str return_code: Return code to lookup cart ID by (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CartResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_cart_finalize_order_post_with_http_info(finalize_request, **kwargs)
+            return self.get_cart_by_return_code_with_http_info(return_code, **kwargs)
         else:
-            (data) = self.checkout_cart_finalize_order_post_with_http_info(finalize_request, **kwargs)
+            (data) = self.get_cart_by_return_code_with_http_info(return_code, **kwargs)
             return data
 
-    def checkout_cart_finalize_order_post_with_http_info(self, finalize_request, **kwargs):
+    def get_cart_by_return_code_with_http_info(self, return_code, **kwargs):
         """
-        Finalize Order
-        Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
+        Get cart (by return code)
+        Get a cart specified by the return code parameter. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -301,17 +507,18 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_finalize_order_post_with_http_info(finalize_request, callback=callback_function)
+        >>> thread = api.get_cart_by_return_code_with_http_info(return_code, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param CartFinalizeOrderRequest finalize_request: Finalize request (required)
-        :return: CartFinalizeOrderResponse
+        :param str return_code: Return code to lookup cart ID by (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CartResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['finalize_request']
+        all_params = ['return_code', 'expand']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -320,117 +527,18 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_cart_finalize_order_post" % key
+                    " to method get_cart_by_return_code" % key
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'finalize_request' is set
-        if ('finalize_request' not in params) or (params['finalize_request'] is None):
-            raise ValueError("Missing the required parameter `finalize_request` when calling `checkout_cart_finalize_order_post`")
+        # verify the required parameter 'return_code' is set
+        if ('return_code' not in params) or (params['return_code'] is None):
+            raise ValueError("Missing the required parameter `return_code` when calling `get_cart_by_return_code`")
 
-        resource_path = '/checkout/cart/finalizeOrder'.replace('{format}', 'json')
+        resource_path = '/checkout/return/{return_code}'.replace('{format}', 'json')
         path_params = {}
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'finalize_request' in params:
-            body_params = params['finalize_request']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'POST',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='CartFinalizeOrderResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def checkout_cart_get(self, **kwargs):
-        """
-        Get cart
-        If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.checkout_cart_get(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CartResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.checkout_cart_get_with_http_info(**kwargs)
-        else:
-            (data) = self.checkout_cart_get_with_http_info(**kwargs)
-            return data
-
-    def checkout_cart_get_with_http_info(self, **kwargs):
-        """
-        Get cart
-        If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.checkout_cart_get_with_http_info(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CartResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['expand']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method checkout_cart_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        resource_path = '/checkout/cart'.replace('{format}', 'json')
-        path_params = {}
+        if 'return_code' in params:
+            path_params['return_code'] = params['return_code']
 
         query_params = {}
         if 'expand' in params:
@@ -468,7 +576,7 @@ class CheckoutApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_cart_handoff_post(self, handoff_request, **kwargs):
+    def handoff_cart(self, handoff_request, **kwargs):
         """
         Handoff cart
         Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
@@ -479,7 +587,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_handoff_post(handoff_request, callback=callback_function)
+        >>> thread = api.handoff_cart(handoff_request, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -491,12 +599,12 @@ class CheckoutApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_cart_handoff_post_with_http_info(handoff_request, **kwargs)
+            return self.handoff_cart_with_http_info(handoff_request, **kwargs)
         else:
-            (data) = self.checkout_cart_handoff_post_with_http_info(handoff_request, **kwargs)
+            (data) = self.handoff_cart_with_http_info(handoff_request, **kwargs)
             return data
 
-    def checkout_cart_handoff_post_with_http_info(self, handoff_request, **kwargs):
+    def handoff_cart_with_http_info(self, handoff_request, **kwargs):
         """
         Handoff cart
         Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
@@ -507,7 +615,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_handoff_post_with_http_info(handoff_request, callback=callback_function)
+        >>> thread = api.handoff_cart_with_http_info(handoff_request, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -527,13 +635,13 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_cart_handoff_post" % key
+                    " to method handoff_cart" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'handoff_request' is set
         if ('handoff_request' not in params) or (params['handoff_request'] is None):
-            raise ValueError("Missing the required parameter `handoff_request` when calling `checkout_cart_handoff_post`")
+            raise ValueError("Missing the required parameter `handoff_request` when calling `handoff_cart`")
 
         resource_path = '/checkout/cart/handoff'.replace('{format}', 'json')
         path_params = {}
@@ -576,7 +684,7 @@ class CheckoutApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_cart_profile_login_post(self, login_request, **kwargs):
+    def login(self, login_request, **kwargs):
         """
         Profile login
         Login in to the customer profile specified by cart.billing.email and password 
@@ -587,7 +695,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_profile_login_post(login_request, callback=callback_function)
+        >>> thread = api.login(login_request, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -599,12 +707,12 @@ class CheckoutApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_cart_profile_login_post_with_http_info(login_request, **kwargs)
+            return self.login_with_http_info(login_request, **kwargs)
         else:
-            (data) = self.checkout_cart_profile_login_post_with_http_info(login_request, **kwargs)
+            (data) = self.login_with_http_info(login_request, **kwargs)
             return data
 
-    def checkout_cart_profile_login_post_with_http_info(self, login_request, **kwargs):
+    def login_with_http_info(self, login_request, **kwargs):
         """
         Profile login
         Login in to the customer profile specified by cart.billing.email and password 
@@ -615,7 +723,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_profile_login_post_with_http_info(login_request, callback=callback_function)
+        >>> thread = api.login_with_http_info(login_request, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -635,13 +743,13 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_cart_profile_login_post" % key
+                    " to method login" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'login_request' is set
         if ('login_request' not in params) or (params['login_request'] is None):
-            raise ValueError("Missing the required parameter `login_request` when calling `checkout_cart_profile_login_post`")
+            raise ValueError("Missing the required parameter `login_request` when calling `login`")
 
         resource_path = '/checkout/cart/profile/login'.replace('{format}', 'json')
         path_params = {}
@@ -684,7 +792,7 @@ class CheckoutApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_cart_profile_logout_post(self, cart, **kwargs):
+    def logout(self, cart, **kwargs):
         """
         Profile logout
         Log the cart out of the current profile.  No error will occur if they are not logged in. 
@@ -695,7 +803,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_profile_logout_post(cart, callback=callback_function)
+        >>> thread = api.logout(cart, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -707,12 +815,12 @@ class CheckoutApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_cart_profile_logout_post_with_http_info(cart, **kwargs)
+            return self.logout_with_http_info(cart, **kwargs)
         else:
-            (data) = self.checkout_cart_profile_logout_post_with_http_info(cart, **kwargs)
+            (data) = self.logout_with_http_info(cart, **kwargs)
             return data
 
-    def checkout_cart_profile_logout_post_with_http_info(self, cart, **kwargs):
+    def logout_with_http_info(self, cart, **kwargs):
         """
         Profile logout
         Log the cart out of the current profile.  No error will occur if they are not logged in. 
@@ -723,7 +831,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_profile_logout_post_with_http_info(cart, callback=callback_function)
+        >>> thread = api.logout_with_http_info(cart, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -743,13 +851,13 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_cart_profile_logout_post" % key
+                    " to method logout" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'cart' is set
         if ('cart' not in params) or (params['cart'] is None):
-            raise ValueError("Missing the required parameter `cart` when calling `checkout_cart_profile_logout_post`")
+            raise ValueError("Missing the required parameter `cart` when calling `logout`")
 
         resource_path = '/checkout/cart/profile/logout'.replace('{format}', 'json')
         path_params = {}
@@ -792,7 +900,7 @@ class CheckoutApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_cart_profile_register_post(self, register_request, **kwargs):
+    def register(self, register_request, **kwargs):
         """
         Profile registration
         Register a new customer profile.  Requires the cart.billing object to be populated along with the password. 
@@ -803,7 +911,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_profile_register_post(register_request, callback=callback_function)
+        >>> thread = api.register(register_request, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -815,12 +923,12 @@ class CheckoutApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_cart_profile_register_post_with_http_info(register_request, **kwargs)
+            return self.register_with_http_info(register_request, **kwargs)
         else:
-            (data) = self.checkout_cart_profile_register_post_with_http_info(register_request, **kwargs)
+            (data) = self.register_with_http_info(register_request, **kwargs)
             return data
 
-    def checkout_cart_profile_register_post_with_http_info(self, register_request, **kwargs):
+    def register_with_http_info(self, register_request, **kwargs):
         """
         Profile registration
         Register a new customer profile.  Requires the cart.billing object to be populated along with the password. 
@@ -831,7 +939,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_profile_register_post_with_http_info(register_request, callback=callback_function)
+        >>> thread = api.register_with_http_info(register_request, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -851,13 +959,13 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_cart_profile_register_post" % key
+                    " to method register" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'register_request' is set
         if ('register_request' not in params) or (params['register_request'] is None):
-            raise ValueError("Missing the required parameter `register_request` when calling `checkout_cart_profile_register_post`")
+            raise ValueError("Missing the required parameter `register_request` when calling `register`")
 
         resource_path = '/checkout/cart/profile/register'.replace('{format}', 'json')
         path_params = {}
@@ -900,10 +1008,10 @@ class CheckoutApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_cart_put(self, cart, **kwargs):
+    def related_items_for_cart(self, cart, **kwargs):
         """
-        Update cart
-        Update the cart. 
+        Related items
+        Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -911,27 +1019,27 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_put(cart, callback=callback_function)
+        >>> thread = api.related_items_for_cart(cart, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Cart cart: Cart (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CartResponse
+        :param str expand: The object expansion to perform on the result.  See item resource documentation for examples
+        :return: ItemsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_cart_put_with_http_info(cart, **kwargs)
+            return self.related_items_for_cart_with_http_info(cart, **kwargs)
         else:
-            (data) = self.checkout_cart_put_with_http_info(cart, **kwargs)
+            (data) = self.related_items_for_cart_with_http_info(cart, **kwargs)
             return data
 
-    def checkout_cart_put_with_http_info(self, cart, **kwargs):
+    def related_items_for_cart_with_http_info(self, cart, **kwargs):
         """
-        Update cart
-        Update the cart. 
+        Related items
+        Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -939,13 +1047,13 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_cart_put_with_http_info(cart, callback=callback_function)
+        >>> thread = api.related_items_for_cart_with_http_info(cart, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Cart cart: Cart (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CartResponse
+        :param str expand: The object expansion to perform on the result.  See item resource documentation for examples
+        :return: ItemsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -959,232 +1067,20 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_cart_put" % key
+                    " to method related_items_for_cart" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'cart' is set
         if ('cart' not in params) or (params['cart'] is None):
-            raise ValueError("Missing the required parameter `cart` when calling `checkout_cart_put`")
+            raise ValueError("Missing the required parameter `cart` when calling `related_items_for_cart`")
 
-        resource_path = '/checkout/cart'.replace('{format}', 'json')
+        resource_path = '/checkout/related_items'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
         if 'expand' in params:
             query_params['_expand'] = params['expand']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'cart' in params:
-            body_params = params['cart']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'PUT',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='CartResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def checkout_cart_validate_post(self, validation_request, **kwargs):
-        """
-        Validate
-        Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.checkout_cart_validate_post(validation_request, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param CartValidationRequest validation_request: Validation request (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CartValidationResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.checkout_cart_validate_post_with_http_info(validation_request, **kwargs)
-        else:
-            (data) = self.checkout_cart_validate_post_with_http_info(validation_request, **kwargs)
-            return data
-
-    def checkout_cart_validate_post_with_http_info(self, validation_request, **kwargs):
-        """
-        Validate
-        Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.checkout_cart_validate_post_with_http_info(validation_request, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param CartValidationRequest validation_request: Validation request (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CartValidationResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['validation_request', 'expand']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method checkout_cart_validate_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'validation_request' is set
-        if ('validation_request' not in params) or (params['validation_request'] is None):
-            raise ValueError("Missing the required parameter `validation_request` when calling `checkout_cart_validate_post`")
-
-        resource_path = '/checkout/cart/validate'.replace('{format}', 'json')
-        path_params = {}
-
-        query_params = {}
-        if 'expand' in params:
-            query_params['_expand'] = params['expand']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'validation_request' in params:
-            body_params = params['validation_request']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'POST',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='CartValidationResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def checkout_city_state_post(self, cart, **kwargs):
-        """
-        City/State for Zip
-        Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.checkout_city_state_post(cart, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Cart cart: Cart (required)
-        :return: ItemsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.checkout_city_state_post_with_http_info(cart, **kwargs)
-        else:
-            (data) = self.checkout_city_state_post_with_http_info(cart, **kwargs)
-            return data
-
-    def checkout_city_state_post_with_http_info(self, cart, **kwargs):
-        """
-        City/State for Zip
-        Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.checkout_city_state_post_with_http_info(cart, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Cart cart: Cart (required)
-        :return: ItemsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['cart']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method checkout_city_state_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'cart' is set
-        if ('cart' not in params) or (params['cart'] is None):
-            raise ValueError("Missing the required parameter `cart` when calling `checkout_city_state_post`")
-
-        resource_path = '/checkout/city_state'.replace('{format}', 'json')
-        path_params = {}
-
-        query_params = {}
 
         header_params = {}
 
@@ -1220,7 +1116,7 @@ class CheckoutApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_related_items_item_id_post(self, item_id, cart, **kwargs):
+    def related_items_for_item(self, item_id, cart, **kwargs):
         """
         Related items (specific item)
         Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
@@ -1231,7 +1127,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_related_items_item_id_post(item_id, cart, callback=callback_function)
+        >>> thread = api.related_items_for_item(item_id, cart, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -1244,12 +1140,12 @@ class CheckoutApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_related_items_item_id_post_with_http_info(item_id, cart, **kwargs)
+            return self.related_items_for_item_with_http_info(item_id, cart, **kwargs)
         else:
-            (data) = self.checkout_related_items_item_id_post_with_http_info(item_id, cart, **kwargs)
+            (data) = self.related_items_for_item_with_http_info(item_id, cart, **kwargs)
             return data
 
-    def checkout_related_items_item_id_post_with_http_info(self, item_id, cart, **kwargs):
+    def related_items_for_item_with_http_info(self, item_id, cart, **kwargs):
         """
         Related items (specific item)
         Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
@@ -1260,7 +1156,7 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_related_items_item_id_post_with_http_info(item_id, cart, callback=callback_function)
+        >>> thread = api.related_items_for_item_with_http_info(item_id, cart, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -1281,16 +1177,16 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_related_items_item_id_post" % key
+                    " to method related_items_for_item" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'item_id' is set
         if ('item_id' not in params) or (params['item_id'] is None):
-            raise ValueError("Missing the required parameter `item_id` when calling `checkout_related_items_item_id_post`")
+            raise ValueError("Missing the required parameter `item_id` when calling `related_items_for_item`")
         # verify the required parameter 'cart' is set
         if ('cart' not in params) or (params['cart'] is None):
-            raise ValueError("Missing the required parameter `cart` when calling `checkout_related_items_item_id_post`")
+            raise ValueError("Missing the required parameter `cart` when calling `related_items_for_item`")
 
         resource_path = '/checkout/relatedItems/{item_id}'.replace('{format}', 'json')
         path_params = {}
@@ -1335,10 +1231,10 @@ class CheckoutApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_related_items_post(self, cart, **kwargs):
+    def setup_browser_key(self, browser_key_request, **kwargs):
         """
-        Related items
-        Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        Setup Browser Application
+        Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1346,27 +1242,26 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_related_items_post(cart, callback=callback_function)
+        >>> thread = api.setup_browser_key(browser_key_request, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param Cart cart: Cart (required)
-        :param str expand: The object expansion to perform on the result.  See item resource documentation for examples
-        :return: ItemsResponse
+        :param CheckoutSetupBrowserKeyRequest browser_key_request: Setup browser key request (required)
+        :return: CheckoutSetupBrowserKeyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_related_items_post_with_http_info(cart, **kwargs)
+            return self.setup_browser_key_with_http_info(browser_key_request, **kwargs)
         else:
-            (data) = self.checkout_related_items_post_with_http_info(cart, **kwargs)
+            (data) = self.setup_browser_key_with_http_info(browser_key_request, **kwargs)
             return data
 
-    def checkout_related_items_post_with_http_info(self, cart, **kwargs):
+    def setup_browser_key_with_http_info(self, browser_key_request, **kwargs):
         """
-        Related items
-        Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        Setup Browser Application
+        Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1374,13 +1269,118 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_related_items_post_with_http_info(cart, callback=callback_function)
+        >>> thread = api.setup_browser_key_with_http_info(browser_key_request, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param CheckoutSetupBrowserKeyRequest browser_key_request: Setup browser key request (required)
+        :return: CheckoutSetupBrowserKeyResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['browser_key_request']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method setup_browser_key" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'browser_key_request' is set
+        if ('browser_key_request' not in params) or (params['browser_key_request'] is None):
+            raise ValueError("Missing the required parameter `browser_key_request` when calling `setup_browser_key`")
+
+        resource_path = '/checkout/browser_key'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'browser_key_request' in params:
+            body_params = params['browser_key_request']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CheckoutSetupBrowserKeyResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_cart(self, cart, **kwargs):
+        """
+        Update cart
+        Update the cart. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cart(cart, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Cart cart: Cart (required)
-        :param str expand: The object expansion to perform on the result.  See item resource documentation for examples
-        :return: ItemsResponse
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CartResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_cart_with_http_info(cart, **kwargs)
+        else:
+            (data) = self.update_cart_with_http_info(cart, **kwargs)
+            return data
+
+    def update_cart_with_http_info(self, cart, **kwargs):
+        """
+        Update cart
+        Update the cart. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_cart_with_http_info(cart, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Cart cart: Cart (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CartResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1394,15 +1394,15 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_related_items_post" % key
+                    " to method update_cart" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'cart' is set
         if ('cart' not in params) or (params['cart'] is None):
-            raise ValueError("Missing the required parameter `cart` when calling `checkout_related_items_post`")
+            raise ValueError("Missing the required parameter `cart` when calling `update_cart`")
 
-        resource_path = '/checkout/related_items'.replace('{format}', 'json')
+        resource_path = '/checkout/cart'.replace('{format}', 'json')
         path_params = {}
 
         query_params = {}
@@ -1431,22 +1431,22 @@ class CheckoutApi(object):
         # Authentication setting
         auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
 
-        return self.api_client.call_api(resource_path, 'POST',
+        return self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='ItemsResponse',
+                                            response_type='CartResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def checkout_return_return_code_get(self, return_code, **kwargs):
+    def validate_cart(self, validation_request, **kwargs):
         """
-        Get cart (by return code)
-        Get a cart specified by the return code parameter. 
+        Validate
+        Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1454,27 +1454,27 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_return_return_code_get(return_code, callback=callback_function)
+        >>> thread = api.validate_cart(validation_request, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str return_code: Return code to lookup cart ID by (required)
+        :param CartValidationRequest validation_request: Validation request (required)
         :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CartResponse
+        :return: CartValidationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.checkout_return_return_code_get_with_http_info(return_code, **kwargs)
+            return self.validate_cart_with_http_info(validation_request, **kwargs)
         else:
-            (data) = self.checkout_return_return_code_get_with_http_info(return_code, **kwargs)
+            (data) = self.validate_cart_with_http_info(validation_request, **kwargs)
             return data
 
-    def checkout_return_return_code_get_with_http_info(self, return_code, **kwargs):
+    def validate_cart_with_http_info(self, validation_request, **kwargs):
         """
-        Get cart (by return code)
-        Get a cart specified by the return code parameter. 
+        Validate
+        Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1482,18 +1482,18 @@ class CheckoutApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.checkout_return_return_code_get_with_http_info(return_code, callback=callback_function)
+        >>> thread = api.validate_cart_with_http_info(validation_request, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str return_code: Return code to lookup cart ID by (required)
+        :param CartValidationRequest validation_request: Validation request (required)
         :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CartResponse
+        :return: CartValidationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['return_code', 'expand']
+        all_params = ['validation_request', 'expand']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -1502,18 +1502,16 @@ class CheckoutApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method checkout_return_return_code_get" % key
+                    " to method validate_cart" % key
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'return_code' is set
-        if ('return_code' not in params) or (params['return_code'] is None):
-            raise ValueError("Missing the required parameter `return_code` when calling `checkout_return_return_code_get`")
+        # verify the required parameter 'validation_request' is set
+        if ('validation_request' not in params) or (params['validation_request'] is None):
+            raise ValueError("Missing the required parameter `validation_request` when calling `validate_cart`")
 
-        resource_path = '/checkout/return/{return_code}'.replace('{format}', 'json')
+        resource_path = '/checkout/cart/validate'.replace('{format}', 'json')
         path_params = {}
-        if 'return_code' in params:
-            path_params['return_code'] = params['return_code']
 
         query_params = {}
         if 'expand' in params:
@@ -1525,6 +1523,8 @@ class CheckoutApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'validation_request' in params:
+            body_params = params['validation_request']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -1539,14 +1539,14 @@ class CheckoutApi(object):
         # Authentication setting
         auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='CartResponse',
+                                            response_type='CartValidationResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

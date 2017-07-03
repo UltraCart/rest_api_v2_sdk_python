@@ -4,15 +4,15 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**customer_customers_customer_profile_oid_delete**](CustomerApi.md#customer_customers_customer_profile_oid_delete) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
-[**customer_customers_customer_profile_oid_get**](CustomerApi.md#customer_customers_customer_profile_oid_get) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
-[**customer_customers_customer_profile_oid_put**](CustomerApi.md#customer_customers_customer_profile_oid_put) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
-[**customer_customers_get**](CustomerApi.md#customer_customers_get) | **GET** /customer/customers | Retrieve customers
-[**customer_customers_post**](CustomerApi.md#customer_customers_post) | **POST** /customer/customers | Insert a customer
+[**delete_customer**](CustomerApi.md#delete_customer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
+[**get_customer**](CustomerApi.md#get_customer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
+[**get_customers**](CustomerApi.md#get_customers) | **GET** /customer/customers | Retrieve customers
+[**insert_customer**](CustomerApi.md#insert_customer) | **POST** /customer/customers | Insert a customer
+[**update_customer**](CustomerApi.md#update_customer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 
 
-# **customer_customers_customer_profile_oid_delete**
-> CustomerResponse customer_customers_customer_profile_oid_delete(customer_profile_oid)
+# **delete_customer**
+> CustomerResponse delete_customer(customer_profile_oid)
 
 Delete a customer
 
@@ -38,10 +38,10 @@ customer_profile_oid = 56 # int | The customer_profile_oid to delete.
 
 try: 
     # Delete a customer
-    api_response = api_instance.customer_customers_customer_profile_oid_delete(customer_profile_oid)
+    api_response = api_instance.delete_customer(customer_profile_oid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->customer_customers_customer_profile_oid_delete: %s\n" % e
+    print "Exception when calling CustomerApi->delete_customer: %s\n" % e
 ```
 
 ### Parameters
@@ -65,8 +65,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **customer_customers_customer_profile_oid_get**
-> CustomerResponse customer_customers_customer_profile_oid_get(customer_profile_oid, expand=expand)
+# **get_customer**
+> CustomerResponse get_customer(customer_profile_oid, expand=expand)
 
 Retrieve a customer
 
@@ -93,10 +93,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Retrieve a customer
-    api_response = api_instance.customer_customers_customer_profile_oid_get(customer_profile_oid, expand=expand)
+    api_response = api_instance.get_customer(customer_profile_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->customer_customers_customer_profile_oid_get: %s\n" % e
+    print "Exception when calling CustomerApi->get_customer: %s\n" % e
 ```
 
 ### Parameters
@@ -121,66 +121,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **customer_customers_customer_profile_oid_put**
-> CustomerResponse customer_customers_customer_profile_oid_put(customer, customer_profile_oid, expand=expand)
-
-Update a customer
-
-Update a customer on the UltraCart account. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.CustomerApi()
-customer = ultracart.Customer() # Customer | Customer to update
-customer_profile_oid = 56 # int | The customer_profile_oid to update.
-expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
-
-try: 
-    # Update a customer
-    api_response = api_instance.customer_customers_customer_profile_oid_put(customer, customer_profile_oid, expand=expand)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling CustomerApi->customer_customers_customer_profile_oid_put: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customer** | [**Customer**](Customer.md)| Customer to update | 
- **customer_profile_oid** | **int**| The customer_profile_oid to update. | 
- **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
-
-### Return type
-
-[**CustomerResponse**](CustomerResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **customer_customers_get**
-> CustomersResponse customer_customers_get(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+# **get_customers**
+> CustomersResponse get_customers(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
 
 Retrieve customers
 
@@ -237,10 +179,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Retrieve customers
-    api_response = api_instance.customer_customers_get(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+    api_response = api_instance.get_customers(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->customer_customers_get: %s\n" % e
+    print "Exception when calling CustomerApi->get_customers: %s\n" % e
 ```
 
 ### Parameters
@@ -295,8 +237,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **customer_customers_post**
-> CustomerResponse customer_customers_post(customer, expand=expand)
+# **insert_customer**
+> CustomerResponse insert_customer(customer, expand=expand)
 
 Insert a customer
 
@@ -323,10 +265,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Insert a customer
-    api_response = api_instance.customer_customers_post(customer, expand=expand)
+    api_response = api_instance.insert_customer(customer, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->customer_customers_post: %s\n" % e
+    print "Exception when calling CustomerApi->insert_customer: %s\n" % e
 ```
 
 ### Parameters
@@ -334,6 +276,64 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**Customer**](Customer.md)| Customer to insert | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_customer**
+> CustomerResponse update_customer(customer, customer_profile_oid, expand=expand)
+
+Update a customer
+
+Update a customer on the UltraCart account. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.CustomerApi()
+customer = ultracart.Customer() # Customer | Customer to update
+customer_profile_oid = 56 # int | The customer_profile_oid to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Update a customer
+    api_response = api_instance.update_customer(customer, customer_profile_oid, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling CustomerApi->update_customer: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer** | [**Customer**](Customer.md)| Customer to update | 
+ **customer_profile_oid** | **int**| The customer_profile_oid to update. | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

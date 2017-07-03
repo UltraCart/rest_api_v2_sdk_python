@@ -4,17 +4,180 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**order_orders_get**](OrderApi.md#order_orders_get) | **GET** /order/orders | Retrieve orders
-[**order_orders_order_id_cancel_post**](OrderApi.md#order_orders_order_id_cancel_post) | **POST** /order/orders/{order_id}/cancel | Cancel an order
-[**order_orders_order_id_delete**](OrderApi.md#order_orders_order_id_delete) | **DELETE** /order/orders/{order_id} | Delete an order
-[**order_orders_order_id_get**](OrderApi.md#order_orders_order_id_get) | **GET** /order/orders/{order_id} | Retrieve an order
-[**order_orders_order_id_put**](OrderApi.md#order_orders_order_id_put) | **PUT** /order/orders/{order_id} | Update an order
-[**order_orders_order_id_resend_receipt_post**](OrderApi.md#order_orders_order_id_resend_receipt_post) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
-[**order_orders_order_id_resend_shipment_confirmation_post**](OrderApi.md#order_orders_order_id_resend_shipment_confirmation_post) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**cancel_order**](OrderApi.md#cancel_order) | **POST** /order/orders/{order_id}/cancel | Cancel an order
+[**delete_order**](OrderApi.md#delete_order) | **DELETE** /order/orders/{order_id} | Delete an order
+[**get_order**](OrderApi.md#get_order) | **GET** /order/orders/{order_id} | Retrieve an order
+[**get_orders**](OrderApi.md#get_orders) | **GET** /order/orders | Retrieve orders
+[**resend_receipt**](OrderApi.md#resend_receipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
+[**resend_shipment_confirmation**](OrderApi.md#resend_shipment_confirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**update_order**](OrderApi.md#update_order) | **PUT** /order/orders/{order_id} | Update an order
 
 
-# **order_orders_get**
-> OrdersResponse order_orders_get(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, limit=limit, offset=offset, sort=sort, expand=expand)
+# **cancel_order**
+> BaseResponse cancel_order(order_id)
+
+Cancel an order
+
+Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.OrderApi()
+order_id = 'order_id_example' # str | The order id to cancel.
+
+try: 
+    # Cancel an order
+    api_response = api_instance.cancel_order(order_id)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling OrderApi->cancel_order: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to cancel. | 
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_order**
+> delete_order(order_id)
+
+Delete an order
+
+Delete an order on the UltraCart account. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.OrderApi()
+order_id = 'order_id_example' # str | The order id to delete.
+
+try: 
+    # Delete an order
+    api_instance.delete_order(order_id)
+except ApiException as e:
+    print "Exception when calling OrderApi->delete_order: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to delete. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_order**
+> OrderResponse get_order(order_id, expand=expand)
+
+Retrieve an order
+
+Retrieves a single order using the specified order id. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.OrderApi()
+order_id = 'order_id_example' # str | The order id to retrieve.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Retrieve an order
+    api_response = api_instance.get_order(order_id, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling OrderApi->get_order: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to retrieve. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_orders**
+> OrdersResponse get_orders(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, limit=limit, offset=offset, sort=sort, expand=expand)
 
 Retrieve orders
 
@@ -70,10 +233,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Retrieve orders
-    api_response = api_instance.order_orders_get(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, limit=limit, offset=offset, sort=sort, expand=expand)
+    api_response = api_instance.get_orders(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling OrderApi->order_orders_get: %s\n" % e
+    print "Exception when calling OrderApi->get_orders: %s\n" % e
 ```
 
 ### Parameters
@@ -127,12 +290,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **order_orders_order_id_cancel_post**
-> BaseResponse order_orders_order_id_cancel_post(order_id)
+# **resend_receipt**
+> BaseResponse resend_receipt(order_id)
 
-Cancel an order
+Resend receipt
 
-Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+Resend the receipt for an order on the UltraCart account. 
 
 ### Example 
 ```python
@@ -150,21 +313,21 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = ultracart.OrderApi()
-order_id = 'order_id_example' # str | The order id to cancel.
+order_id = 'order_id_example' # str | The order id to resend the receipt for.
 
 try: 
-    # Cancel an order
-    api_response = api_instance.order_orders_order_id_cancel_post(order_id)
+    # Resend receipt
+    api_response = api_instance.resend_receipt(order_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling OrderApi->order_orders_order_id_cancel_post: %s\n" % e
+    print "Exception when calling OrderApi->resend_receipt: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **str**| The order id to cancel. | 
+ **order_id** | **str**| The order id to resend the receipt for. | 
 
 ### Return type
 
@@ -181,65 +344,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **order_orders_order_id_delete**
-> order_orders_order_id_delete(order_id)
+# **resend_shipment_confirmation**
+> BaseResponse resend_shipment_confirmation(order_id)
 
-Delete an order
+Resend shipment confirmation
 
-Delete an order on the UltraCart account. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.OrderApi()
-order_id = 'order_id_example' # str | The order id to delete.
-
-try: 
-    # Delete an order
-    api_instance.order_orders_order_id_delete(order_id)
-except ApiException as e:
-    print "Exception when calling OrderApi->order_orders_order_id_delete: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **str**| The order id to delete. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **order_orders_order_id_get**
-> OrderResponse order_orders_order_id_get(order_id, expand=expand)
-
-Retrieve an order
-
-Retrieves a single order using the specified order id. 
+Resend shipment confirmation for an order on the UltraCart account. 
 
 ### Example 
 ```python
@@ -257,27 +367,25 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = ultracart.OrderApi()
-order_id = 'order_id_example' # str | The order id to retrieve.
-expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+order_id = 'order_id_example' # str | The order id to resend the shipment notification for.
 
 try: 
-    # Retrieve an order
-    api_response = api_instance.order_orders_order_id_get(order_id, expand=expand)
+    # Resend shipment confirmation
+    api_response = api_instance.resend_shipment_confirmation(order_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling OrderApi->order_orders_order_id_get: %s\n" % e
+    print "Exception when calling OrderApi->resend_shipment_confirmation: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_id** | **str**| The order id to retrieve. | 
- **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **order_id** | **str**| The order id to resend the shipment notification for. | 
 
 ### Return type
 
-[**OrderResponse**](OrderResponse.md)
+[**BaseResponse**](BaseResponse.md)
 
 ### Authorization
 
@@ -290,8 +398,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **order_orders_order_id_put**
-> OrderResponse order_orders_order_id_put(order, order_id, expand=expand)
+# **update_order**
+> OrderResponse update_order(order, order_id, expand=expand)
 
 Update an order
 
@@ -319,10 +427,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Update an order
-    api_response = api_instance.order_orders_order_id_put(order, order_id, expand=expand)
+    api_response = api_instance.update_order(order, order_id, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling OrderApi->order_orders_order_id_put: %s\n" % e
+    print "Exception when calling OrderApi->update_order: %s\n" % e
 ```
 
 ### Parameters
@@ -344,114 +452,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **order_orders_order_id_resend_receipt_post**
-> BaseResponse order_orders_order_id_resend_receipt_post(order_id)
-
-Resend receipt
-
-Resend the receipt for an order on the UltraCart account. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.OrderApi()
-order_id = 'order_id_example' # str | The order id to resend the receipt for.
-
-try: 
-    # Resend receipt
-    api_response = api_instance.order_orders_order_id_resend_receipt_post(order_id)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling OrderApi->order_orders_order_id_resend_receipt_post: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **str**| The order id to resend the receipt for. | 
-
-### Return type
-
-[**BaseResponse**](BaseResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **order_orders_order_id_resend_shipment_confirmation_post**
-> BaseResponse order_orders_order_id_resend_shipment_confirmation_post(order_id)
-
-Resend shipment confirmation
-
-Resend shipment confirmation for an order on the UltraCart account. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.OrderApi()
-order_id = 'order_id_example' # str | The order id to resend the shipment notification for.
-
-try: 
-    # Resend shipment confirmation
-    api_response = api_instance.order_orders_order_id_resend_shipment_confirmation_post(order_id)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling OrderApi->order_orders_order_id_resend_shipment_confirmation_post: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **str**| The order id to resend the shipment notification for. | 
-
-### Return type
-
-[**BaseResponse**](BaseResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

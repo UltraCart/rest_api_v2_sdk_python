@@ -42,43 +42,43 @@ class TestFulfillmentApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_fulfillment_distribution_centers_distribution_center_code_acknowledgements_put(self):
+    def test_acknowledge_orders(self):
         """
-        Test case for fulfillment_distribution_centers_distribution_center_code_acknowledgements_put
+        Test case for acknowledge_orders
 
         Acknowledge receipt of orders.
         """
         pass
 
-    def test_fulfillment_distribution_centers_distribution_center_code_inventory_post(self):
+    def test_get_distribution_center_orders(self):
         """
-        Test case for fulfillment_distribution_centers_distribution_center_code_inventory_post
-
-        Update inventory
-        """
-        pass
-
-    def test_fulfillment_distribution_centers_distribution_center_code_orders_get(self):
-        """
-        Test case for fulfillment_distribution_centers_distribution_center_code_orders_get
+        Test case for get_distribution_center_orders
 
         Retrieve orders queued up for this distribution center.
         """
         pass
 
-    def test_fulfillment_distribution_centers_distribution_center_code_shipments_post(self):
+    def test_get_distribution_centers(self):
         """
-        Test case for fulfillment_distribution_centers_distribution_center_code_shipments_post
+        Test case for get_distribution_centers
+
+        Retrieve distribution centers
+        """
+        pass
+
+    def test_ship_orders(self):
+        """
+        Test case for ship_orders
 
         Mark orders as shipped
         """
         pass
 
-    def test_fulfillment_distribution_centers_get(self):
+    def test_update_inventory(self):
         """
-        Test case for fulfillment_distribution_centers_get
+        Test case for update_inventory
 
-        Retrieve distribution centers
+        Update inventory
         """
         pass
 

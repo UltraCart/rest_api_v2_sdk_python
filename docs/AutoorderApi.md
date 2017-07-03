@@ -4,13 +4,13 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auto_order_auto_orders_auto_order_oid_get**](AutoorderApi.md#auto_order_auto_orders_auto_order_oid_get) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-[**auto_order_auto_orders_auto_order_oid_put**](AutoorderApi.md#auto_order_auto_orders_auto_order_oid_put) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
-[**auto_order_auto_orders_get**](AutoorderApi.md#auto_order_auto_orders_get) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**get_auto_order**](AutoorderApi.md#get_auto_order) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+[**get_auto_orders**](AutoorderApi.md#get_auto_orders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**update_auto_order**](AutoorderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 
 
-# **auto_order_auto_orders_auto_order_oid_get**
-> AutoOrderResponse auto_order_auto_orders_auto_order_oid_get(auto_order_oid, expand=expand)
+# **get_auto_order**
+> AutoOrderResponse get_auto_order(auto_order_oid, expand=expand)
 
 Retrieve an auto order
 
@@ -37,10 +37,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Retrieve an auto order
-    api_response = api_instance.auto_order_auto_orders_auto_order_oid_get(auto_order_oid, expand=expand)
+    api_response = api_instance.get_auto_order(auto_order_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AutoorderApi->auto_order_auto_orders_auto_order_oid_get: %s\n" % e
+    print "Exception when calling AutoorderApi->get_auto_order: %s\n" % e
 ```
 
 ### Parameters
@@ -65,64 +65,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **auto_order_auto_orders_auto_order_oid_put**
-> AutoOrderResponse auto_order_auto_orders_auto_order_oid_put(auto_order, auto_order_oid)
-
-Update an auto order
-
-Update an auto order on the UltraCart account. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.AutoorderApi()
-auto_order = ultracart.AutoOrder() # AutoOrder | Auto order to update
-auto_order_oid = 56 # int | The auto order oid to update.
-
-try: 
-    # Update an auto order
-    api_response = api_instance.auto_order_auto_orders_auto_order_oid_put(auto_order, auto_order_oid)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling AutoorderApi->auto_order_auto_orders_auto_order_oid_put: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **auto_order** | [**AutoOrder**](AutoOrder.md)| Auto order to update | 
- **auto_order_oid** | **int**| The auto order oid to update. | 
-
-### Return type
-
-[**AutoOrderResponse**](AutoOrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **auto_order_auto_orders_get**
-> AutoOrdersResponse auto_order_auto_orders_get(auto_order_code=auto_order_code, original_order_id=original_order_id, first_name=first_name, last_name=last_name, company=company, city=city, state=state, postal_code=postal_code, country_code=country_code, phone=phone, email=email, original_order_date_begin=original_order_date_begin, original_order_date_end=original_order_date_end, next_shipment_date_begin=next_shipment_date_begin, next_shipment_date_end=next_shipment_date_end, card_type=card_type, item_id=item_id, status=status, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+# **get_auto_orders**
+> AutoOrdersResponse get_auto_orders(auto_order_code=auto_order_code, original_order_id=original_order_id, first_name=first_name, last_name=last_name, company=company, city=city, state=state, postal_code=postal_code, country_code=country_code, phone=phone, email=email, original_order_date_begin=original_order_date_begin, original_order_date_end=original_order_date_end, next_shipment_date_begin=next_shipment_date_begin, next_shipment_date_end=next_shipment_date_end, card_type=card_type, item_id=item_id, status=status, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
 
 Retrieve auto orders
 
@@ -170,10 +114,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Retrieve auto orders
-    api_response = api_instance.auto_order_auto_orders_get(auto_order_code=auto_order_code, original_order_id=original_order_id, first_name=first_name, last_name=last_name, company=company, city=city, state=state, postal_code=postal_code, country_code=country_code, phone=phone, email=email, original_order_date_begin=original_order_date_begin, original_order_date_end=original_order_date_end, next_shipment_date_begin=next_shipment_date_begin, next_shipment_date_end=next_shipment_date_end, card_type=card_type, item_id=item_id, status=status, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+    api_response = api_instance.get_auto_orders(auto_order_code=auto_order_code, original_order_id=original_order_id, first_name=first_name, last_name=last_name, company=company, city=city, state=state, postal_code=postal_code, country_code=country_code, phone=phone, email=email, original_order_date_begin=original_order_date_begin, original_order_date_end=original_order_date_end, next_shipment_date_begin=next_shipment_date_begin, next_shipment_date_end=next_shipment_date_end, card_type=card_type, item_id=item_id, status=status, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AutoorderApi->auto_order_auto_orders_get: %s\n" % e
+    print "Exception when calling AutoorderApi->get_auto_orders: %s\n" % e
 ```
 
 ### Parameters
@@ -215,6 +159,64 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_auto_order**
+> AutoOrderResponse update_auto_order(auto_order, auto_order_oid, expand=expand)
+
+Update an auto order
+
+Update an auto order on the UltraCart account. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.AutoorderApi()
+auto_order = ultracart.AutoOrder() # AutoOrder | Auto order to update
+auto_order_oid = 56 # int | The auto order oid to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Update an auto order
+    api_response = api_instance.update_auto_order(auto_order, auto_order_oid, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling AutoorderApi->update_auto_order: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order** | [**AutoOrder**](AutoOrder.md)| Auto order to update | 
+ **auto_order_oid** | **int**| The auto order oid to update. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

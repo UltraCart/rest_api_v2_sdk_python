@@ -51,7 +51,7 @@ class CustomerApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def customer_customers_customer_profile_oid_delete(self, customer_profile_oid, **kwargs):
+    def delete_customer(self, customer_profile_oid, **kwargs):
         """
         Delete a customer
         Delete a customer on the UltraCart account. 
@@ -62,7 +62,7 @@ class CustomerApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.customer_customers_customer_profile_oid_delete(customer_profile_oid, callback=callback_function)
+        >>> thread = api.delete_customer(customer_profile_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -73,12 +73,12 @@ class CustomerApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.customer_customers_customer_profile_oid_delete_with_http_info(customer_profile_oid, **kwargs)
+            return self.delete_customer_with_http_info(customer_profile_oid, **kwargs)
         else:
-            (data) = self.customer_customers_customer_profile_oid_delete_with_http_info(customer_profile_oid, **kwargs)
+            (data) = self.delete_customer_with_http_info(customer_profile_oid, **kwargs)
             return data
 
-    def customer_customers_customer_profile_oid_delete_with_http_info(self, customer_profile_oid, **kwargs):
+    def delete_customer_with_http_info(self, customer_profile_oid, **kwargs):
         """
         Delete a customer
         Delete a customer on the UltraCart account. 
@@ -89,7 +89,7 @@ class CustomerApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.customer_customers_customer_profile_oid_delete_with_http_info(customer_profile_oid, callback=callback_function)
+        >>> thread = api.delete_customer_with_http_info(customer_profile_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -108,13 +108,13 @@ class CustomerApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method customer_customers_customer_profile_oid_delete" % key
+                    " to method delete_customer" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'customer_profile_oid' is set
         if ('customer_profile_oid' not in params) or (params['customer_profile_oid'] is None):
-            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `customer_customers_customer_profile_oid_delete`")
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `delete_customer`")
 
         resource_path = '/customer/customers/{customer_profile_oid}'.replace('{format}', 'json')
         path_params = {}
@@ -155,7 +155,7 @@ class CustomerApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def customer_customers_customer_profile_oid_get(self, customer_profile_oid, **kwargs):
+    def get_customer(self, customer_profile_oid, **kwargs):
         """
         Retrieve a customer
         Retrieves a single customer using the specified customer profile oid. 
@@ -166,7 +166,7 @@ class CustomerApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.customer_customers_customer_profile_oid_get(customer_profile_oid, callback=callback_function)
+        >>> thread = api.get_customer(customer_profile_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -178,12 +178,12 @@ class CustomerApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.customer_customers_customer_profile_oid_get_with_http_info(customer_profile_oid, **kwargs)
+            return self.get_customer_with_http_info(customer_profile_oid, **kwargs)
         else:
-            (data) = self.customer_customers_customer_profile_oid_get_with_http_info(customer_profile_oid, **kwargs)
+            (data) = self.get_customer_with_http_info(customer_profile_oid, **kwargs)
             return data
 
-    def customer_customers_customer_profile_oid_get_with_http_info(self, customer_profile_oid, **kwargs):
+    def get_customer_with_http_info(self, customer_profile_oid, **kwargs):
         """
         Retrieve a customer
         Retrieves a single customer using the specified customer profile oid. 
@@ -194,7 +194,7 @@ class CustomerApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.customer_customers_customer_profile_oid_get_with_http_info(customer_profile_oid, callback=callback_function)
+        >>> thread = api.get_customer_with_http_info(customer_profile_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -214,13 +214,13 @@ class CustomerApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method customer_customers_customer_profile_oid_get" % key
+                    " to method get_customer" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'customer_profile_oid' is set
         if ('customer_profile_oid' not in params) or (params['customer_profile_oid'] is None):
-            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `customer_customers_customer_profile_oid_get`")
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `get_customer`")
 
         resource_path = '/customer/customers/{customer_profile_oid}'.replace('{format}', 'json')
         path_params = {}
@@ -263,122 +263,7 @@ class CustomerApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def customer_customers_customer_profile_oid_put(self, customer, customer_profile_oid, **kwargs):
-        """
-        Update a customer
-        Update a customer on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.customer_customers_customer_profile_oid_put(customer, customer_profile_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Customer customer: Customer to update (required)
-        :param int customer_profile_oid: The customer_profile_oid to update. (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CustomerResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.customer_customers_customer_profile_oid_put_with_http_info(customer, customer_profile_oid, **kwargs)
-        else:
-            (data) = self.customer_customers_customer_profile_oid_put_with_http_info(customer, customer_profile_oid, **kwargs)
-            return data
-
-    def customer_customers_customer_profile_oid_put_with_http_info(self, customer, customer_profile_oid, **kwargs):
-        """
-        Update a customer
-        Update a customer on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.customer_customers_customer_profile_oid_put_with_http_info(customer, customer_profile_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Customer customer: Customer to update (required)
-        :param int customer_profile_oid: The customer_profile_oid to update. (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: CustomerResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['customer', 'customer_profile_oid', 'expand']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method customer_customers_customer_profile_oid_put" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'customer' is set
-        if ('customer' not in params) or (params['customer'] is None):
-            raise ValueError("Missing the required parameter `customer` when calling `customer_customers_customer_profile_oid_put`")
-        # verify the required parameter 'customer_profile_oid' is set
-        if ('customer_profile_oid' not in params) or (params['customer_profile_oid'] is None):
-            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `customer_customers_customer_profile_oid_put`")
-
-        resource_path = '/customer/customers/{customer_profile_oid}'.replace('{format}', 'json')
-        path_params = {}
-        if 'customer_profile_oid' in params:
-            path_params['customer_profile_oid'] = params['customer_profile_oid']
-
-        query_params = {}
-        if 'expand' in params:
-            query_params['_expand'] = params['expand']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'customer' in params:
-            body_params = params['customer']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json; charset=UTF-8'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'PUT',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='CustomerResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def customer_customers_get(self, **kwargs):
+    def get_customers(self, **kwargs):
         """
         Retrieve customers
         Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -389,7 +274,7 @@ class CustomerApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.customer_customers_get(callback=callback_function)
+        >>> thread = api.get_customers(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -431,12 +316,12 @@ class CustomerApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.customer_customers_get_with_http_info(**kwargs)
+            return self.get_customers_with_http_info(**kwargs)
         else:
-            (data) = self.customer_customers_get_with_http_info(**kwargs)
+            (data) = self.get_customers_with_http_info(**kwargs)
             return data
 
-    def customer_customers_get_with_http_info(self, **kwargs):
+    def get_customers_with_http_info(self, **kwargs):
         """
         Retrieve customers
         Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -447,7 +332,7 @@ class CustomerApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.customer_customers_get_with_http_info(callback=callback_function)
+        >>> thread = api.get_customers_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -497,7 +382,7 @@ class CustomerApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method customer_customers_get" % key
+                    " to method get_customers" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -603,7 +488,7 @@ class CustomerApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def customer_customers_post(self, customer, **kwargs):
+    def insert_customer(self, customer, **kwargs):
         """
         Insert a customer
         Insert a customer on the UltraCart account. 
@@ -614,7 +499,7 @@ class CustomerApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.customer_customers_post(customer, callback=callback_function)
+        >>> thread = api.insert_customer(customer, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -626,12 +511,12 @@ class CustomerApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.customer_customers_post_with_http_info(customer, **kwargs)
+            return self.insert_customer_with_http_info(customer, **kwargs)
         else:
-            (data) = self.customer_customers_post_with_http_info(customer, **kwargs)
+            (data) = self.insert_customer_with_http_info(customer, **kwargs)
             return data
 
-    def customer_customers_post_with_http_info(self, customer, **kwargs):
+    def insert_customer_with_http_info(self, customer, **kwargs):
         """
         Insert a customer
         Insert a customer on the UltraCart account. 
@@ -642,7 +527,7 @@ class CustomerApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.customer_customers_post_with_http_info(customer, callback=callback_function)
+        >>> thread = api.insert_customer_with_http_info(customer, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -662,13 +547,13 @@ class CustomerApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method customer_customers_post" % key
+                    " to method insert_customer" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'customer' is set
         if ('customer' not in params) or (params['customer'] is None):
-            raise ValueError("Missing the required parameter `customer` when calling `customer_customers_post`")
+            raise ValueError("Missing the required parameter `customer` when calling `insert_customer`")
 
         resource_path = '/customer/customers'.replace('{format}', 'json')
         path_params = {}
@@ -700,6 +585,121 @@ class CustomerApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
         return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CustomerResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_customer(self, customer, customer_profile_oid, **kwargs):
+        """
+        Update a customer
+        Update a customer on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_customer(customer, customer_profile_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Customer customer: Customer to update (required)
+        :param int customer_profile_oid: The customer_profile_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CustomerResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_customer_with_http_info(customer, customer_profile_oid, **kwargs)
+        else:
+            (data) = self.update_customer_with_http_info(customer, customer_profile_oid, **kwargs)
+            return data
+
+    def update_customer_with_http_info(self, customer, customer_profile_oid, **kwargs):
+        """
+        Update a customer
+        Update a customer on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_customer_with_http_info(customer, customer_profile_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Customer customer: Customer to update (required)
+        :param int customer_profile_oid: The customer_profile_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CustomerResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['customer', 'customer_profile_oid', 'expand']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_customer" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'customer' is set
+        if ('customer' not in params) or (params['customer'] is None):
+            raise ValueError("Missing the required parameter `customer` when calling `update_customer`")
+        # verify the required parameter 'customer_profile_oid' is set
+        if ('customer_profile_oid' not in params) or (params['customer_profile_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `update_customer`")
+
+        resource_path = '/customer/customers/{customer_profile_oid}'.replace('{format}', 'json')
+        path_params = {}
+        if 'customer_profile_oid' in params:
+            path_params['customer_profile_oid'] = params['customer_profile_oid']
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'customer' in params:
+            body_params = params['customer']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json; charset=UTF-8'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,

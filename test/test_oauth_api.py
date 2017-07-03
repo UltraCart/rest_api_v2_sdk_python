@@ -42,19 +42,19 @@ class TestOauthApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_oauth_revoke_post(self):
+    def test_oauth_access_token(self):
         """
-        Test case for oauth_revoke_post
+        Test case for oauth_access_token
 
-        Revoke this OAuth application.
+        Exchange authorization code for access token.
         """
         pass
 
-    def test_oauth_token_post(self):
+    def test_oauth_revoke(self):
         """
-        Test case for oauth_token_post
+        Test case for oauth_revoke
 
-        Exchange authorization code for access token.
+        Revoke this OAuth application.
         """
         pass
 

@@ -4,28 +4,86 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checkout_browser_key_put**](CheckoutApi.md#checkout_browser_key_put) | **PUT** /checkout/browser_key | Setup Browser Application
-[**checkout_cart_cart_id_get**](CheckoutApi.md#checkout_cart_cart_id_get) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
-[**checkout_cart_finalize_order_post**](CheckoutApi.md#checkout_cart_finalize_order_post) | **POST** /checkout/cart/finalizeOrder | Finalize Order
-[**checkout_cart_get**](CheckoutApi.md#checkout_cart_get) | **GET** /checkout/cart | Get cart
-[**checkout_cart_handoff_post**](CheckoutApi.md#checkout_cart_handoff_post) | **POST** /checkout/cart/handoff | Handoff cart
-[**checkout_cart_profile_login_post**](CheckoutApi.md#checkout_cart_profile_login_post) | **POST** /checkout/cart/profile/login | Profile login
-[**checkout_cart_profile_logout_post**](CheckoutApi.md#checkout_cart_profile_logout_post) | **POST** /checkout/cart/profile/logout | Profile logout
-[**checkout_cart_profile_register_post**](CheckoutApi.md#checkout_cart_profile_register_post) | **POST** /checkout/cart/profile/register | Profile registration
-[**checkout_cart_put**](CheckoutApi.md#checkout_cart_put) | **PUT** /checkout/cart | Update cart
-[**checkout_cart_validate_post**](CheckoutApi.md#checkout_cart_validate_post) | **POST** /checkout/cart/validate | Validate
-[**checkout_city_state_post**](CheckoutApi.md#checkout_city_state_post) | **POST** /checkout/city_state | City/State for Zip
-[**checkout_related_items_item_id_post**](CheckoutApi.md#checkout_related_items_item_id_post) | **POST** /checkout/relatedItems/{item_id} | Related items (specific item)
-[**checkout_related_items_post**](CheckoutApi.md#checkout_related_items_post) | **POST** /checkout/related_items | Related items
-[**checkout_return_return_code_get**](CheckoutApi.md#checkout_return_return_code_get) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+[**city_state**](CheckoutApi.md#city_state) | **POST** /checkout/city_state | City/State for Zip
+[**finalize_order**](CheckoutApi.md#finalize_order) | **POST** /checkout/cart/finalizeOrder | Finalize Order
+[**get_cart**](CheckoutApi.md#get_cart) | **GET** /checkout/cart | Get cart
+[**get_cart_by_cart_id**](CheckoutApi.md#get_cart_by_cart_id) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
+[**get_cart_by_return_code**](CheckoutApi.md#get_cart_by_return_code) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+[**handoff_cart**](CheckoutApi.md#handoff_cart) | **POST** /checkout/cart/handoff | Handoff cart
+[**login**](CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
+[**logout**](CheckoutApi.md#logout) | **POST** /checkout/cart/profile/logout | Profile logout
+[**register**](CheckoutApi.md#register) | **POST** /checkout/cart/profile/register | Profile registration
+[**related_items_for_cart**](CheckoutApi.md#related_items_for_cart) | **POST** /checkout/related_items | Related items
+[**related_items_for_item**](CheckoutApi.md#related_items_for_item) | **POST** /checkout/relatedItems/{item_id} | Related items (specific item)
+[**setup_browser_key**](CheckoutApi.md#setup_browser_key) | **PUT** /checkout/browser_key | Setup Browser Application
+[**update_cart**](CheckoutApi.md#update_cart) | **PUT** /checkout/cart | Update cart
+[**validate_cart**](CheckoutApi.md#validate_cart) | **POST** /checkout/cart/validate | Validate
 
 
-# **checkout_browser_key_put**
-> CheckoutSetupBrowserKeyResponse checkout_browser_key_put(browser_key_request)
+# **city_state**
+> ItemsResponse city_state(cart)
 
-Setup Browser Application
+City/State for Zip
 
-Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: ultraCartBrowserApiKey
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.CheckoutApi()
+cart = ultracart.Cart() # Cart | Cart
+
+try: 
+    # City/State for Zip
+    api_response = api_instance.city_state(cart)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling CheckoutApi->city_state: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart** | [**Cart**](Cart.md)| Cart | 
+
+### Return type
+
+[**ItemsResponse**](ItemsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **finalize_order**
+> CartFinalizeOrderResponse finalize_order(finalize_request)
+
+Finalize Order
+
+Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
 
 ### Example 
 ```python
@@ -43,25 +101,25 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = ultracart.CheckoutApi()
-browser_key_request = ultracart.CheckoutSetupBrowserKeyRequest() # CheckoutSetupBrowserKeyRequest | Setup browser key request
+finalize_request = ultracart.CartFinalizeOrderRequest() # CartFinalizeOrderRequest | Finalize request
 
 try: 
-    # Setup Browser Application
-    api_response = api_instance.checkout_browser_key_put(browser_key_request)
+    # Finalize Order
+    api_response = api_instance.finalize_order(finalize_request)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_browser_key_put: %s\n" % e
+    print "Exception when calling CheckoutApi->finalize_order: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **browser_key_request** | [**CheckoutSetupBrowserKeyRequest**](CheckoutSetupBrowserKeyRequest.md)| Setup browser key request | 
+ **finalize_request** | [**CartFinalizeOrderRequest**](CartFinalizeOrderRequest.md)| Finalize request | 
 
 ### Return type
 
-[**CheckoutSetupBrowserKeyResponse**](CheckoutSetupBrowserKeyResponse.md)
+[**CartFinalizeOrderResponse**](CartFinalizeOrderResponse.md)
 
 ### Authorization
 
@@ -74,8 +132,66 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_cart_cart_id_get**
-> CartResponse checkout_cart_cart_id_get(cart_id, expand=expand)
+# **get_cart**
+> CartResponse get_cart(expand=expand)
+
+Get cart
+
+If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: ultraCartBrowserApiKey
+ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.CheckoutApi()
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Get cart
+    api_response = api_instance.get_cart(expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling CheckoutApi->get_cart: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**CartResponse**](CartResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_cart_by_cart_id**
+> CartResponse get_cart_by_cart_id(cart_id, expand=expand)
 
 Get cart (by cart id)
 
@@ -106,10 +222,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Get cart (by cart id)
-    api_response = api_instance.checkout_cart_cart_id_get(cart_id, expand=expand)
+    api_response = api_instance.get_cart_by_cart_id(cart_id, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_cart_cart_id_get: %s\n" % e
+    print "Exception when calling CheckoutApi->get_cart_by_cart_id: %s\n" % e
 ```
 
 ### Parameters
@@ -134,66 +250,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_cart_finalize_order_post**
-> CartFinalizeOrderResponse checkout_cart_finalize_order_post(finalize_request)
+# **get_cart_by_return_code**
+> CartResponse get_cart_by_return_code(return_code, expand=expand)
 
-Finalize Order
+Get cart (by return code)
 
-Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.CheckoutApi()
-finalize_request = ultracart.CartFinalizeOrderRequest() # CartFinalizeOrderRequest | Finalize request
-
-try: 
-    # Finalize Order
-    api_response = api_instance.checkout_cart_finalize_order_post(finalize_request)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_cart_finalize_order_post: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **finalize_request** | [**CartFinalizeOrderRequest**](CartFinalizeOrderRequest.md)| Finalize request | 
-
-### Return type
-
-[**CartFinalizeOrderResponse**](CartFinalizeOrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **checkout_cart_get**
-> CartResponse checkout_cart_get(expand=expand)
-
-Get cart
-
-If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+Get a cart specified by the return code parameter. 
 
 ### Example 
 ```python
@@ -215,20 +277,22 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = ultracart.CheckoutApi()
+return_code = 'return_code_example' # str | Return code to lookup cart ID by
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
-    # Get cart
-    api_response = api_instance.checkout_cart_get(expand=expand)
+    # Get cart (by return code)
+    api_response = api_instance.get_cart_by_return_code(return_code, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_cart_get: %s\n" % e
+    print "Exception when calling CheckoutApi->get_cart_by_return_code: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **return_code** | **str**| Return code to lookup cart ID by | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
@@ -246,8 +310,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_cart_handoff_post**
-> CheckoutHandoffResponse checkout_cart_handoff_post(handoff_request, expand=expand)
+# **handoff_cart**
+> CheckoutHandoffResponse handoff_cart(handoff_request, expand=expand)
 
 Handoff cart
 
@@ -278,10 +342,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Handoff cart
-    api_response = api_instance.checkout_cart_handoff_post(handoff_request, expand=expand)
+    api_response = api_instance.handoff_cart(handoff_request, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_cart_handoff_post: %s\n" % e
+    print "Exception when calling CheckoutApi->handoff_cart: %s\n" % e
 ```
 
 ### Parameters
@@ -306,8 +370,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_cart_profile_login_post**
-> CartProfileLoginResponse checkout_cart_profile_login_post(login_request, expand=expand)
+# **login**
+> CartProfileLoginResponse login(login_request, expand=expand)
 
 Profile login
 
@@ -338,10 +402,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Profile login
-    api_response = api_instance.checkout_cart_profile_login_post(login_request, expand=expand)
+    api_response = api_instance.login(login_request, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_cart_profile_login_post: %s\n" % e
+    print "Exception when calling CheckoutApi->login: %s\n" % e
 ```
 
 ### Parameters
@@ -366,8 +430,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_cart_profile_logout_post**
-> CartResponse checkout_cart_profile_logout_post(cart, expand=expand)
+# **logout**
+> CartResponse logout(cart, expand=expand)
 
 Profile logout
 
@@ -398,10 +462,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Profile logout
-    api_response = api_instance.checkout_cart_profile_logout_post(cart, expand=expand)
+    api_response = api_instance.logout(cart, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_cart_profile_logout_post: %s\n" % e
+    print "Exception when calling CheckoutApi->logout: %s\n" % e
 ```
 
 ### Parameters
@@ -426,8 +490,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_cart_profile_register_post**
-> CartProfileRegisterResponse checkout_cart_profile_register_post(register_request, expand=expand)
+# **register**
+> CartProfileRegisterResponse register(register_request, expand=expand)
 
 Profile registration
 
@@ -458,10 +522,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Profile registration
-    api_response = api_instance.checkout_cart_profile_register_post(register_request, expand=expand)
+    api_response = api_instance.register(register_request, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_cart_profile_register_post: %s\n" % e
+    print "Exception when calling CheckoutApi->register: %s\n" % e
 ```
 
 ### Parameters
@@ -486,132 +550,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_cart_put**
-> CartResponse checkout_cart_put(cart, expand=expand)
+# **related_items_for_cart**
+> ItemsResponse related_items_for_cart(cart, expand=expand)
 
-Update cart
+Related items
 
-Update the cart. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: ultraCartBrowserApiKey
-ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.CheckoutApi()
-cart = ultracart.Cart() # Cart | Cart
-expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
-
-try: 
-    # Update cart
-    api_response = api_instance.checkout_cart_put(cart, expand=expand)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_cart_put: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cart** | [**Cart**](Cart.md)| Cart | 
- **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
-
-### Return type
-
-[**CartResponse**](CartResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **checkout_cart_validate_post**
-> CartValidationResponse checkout_cart_validate_post(validation_request, expand=expand)
-
-Validate
-
-Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: ultraCartBrowserApiKey
-ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.CheckoutApi()
-validation_request = ultracart.CartValidationRequest() # CartValidationRequest | Validation request
-expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
-
-try: 
-    # Validate
-    api_response = api_instance.checkout_cart_validate_post(validation_request, expand=expand)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_cart_validate_post: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **validation_request** | [**CartValidationRequest**](CartValidationRequest.md)| Validation request | 
- **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
-
-### Return type
-
-[**CartValidationResponse**](CartValidationResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **checkout_city_state_post**
-> ItemsResponse checkout_city_state_post(cart)
-
-City/State for Zip
-
-Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
+Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
 
 ### Example 
 ```python
@@ -634,13 +578,14 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = ultracart.CheckoutApi()
 cart = ultracart.Cart() # Cart | Cart
+expand = 'expand_example' # str | The object expansion to perform on the result.  See item resource documentation for examples (optional)
 
 try: 
-    # City/State for Zip
-    api_response = api_instance.checkout_city_state_post(cart)
+    # Related items
+    api_response = api_instance.related_items_for_cart(cart, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_city_state_post: %s\n" % e
+    print "Exception when calling CheckoutApi->related_items_for_cart: %s\n" % e
 ```
 
 ### Parameters
@@ -648,6 +593,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart** | [**Cart**](Cart.md)| Cart | 
+ **expand** | **str**| The object expansion to perform on the result.  See item resource documentation for examples | [optional] 
 
 ### Return type
 
@@ -664,8 +610,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_related_items_item_id_post**
-> ItemsResponse checkout_related_items_item_id_post(item_id, cart, expand=expand)
+# **related_items_for_item**
+> ItemsResponse related_items_for_item(item_id, cart, expand=expand)
 
 Related items (specific item)
 
@@ -697,10 +643,10 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Related items (specific item)
-    api_response = api_instance.checkout_related_items_item_id_post(item_id, cart, expand=expand)
+    api_response = api_instance.related_items_for_item(item_id, cart, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_related_items_item_id_post: %s\n" % e
+    print "Exception when calling CheckoutApi->related_items_for_item: %s\n" % e
 ```
 
 ### Parameters
@@ -726,12 +672,66 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_related_items_post**
-> ItemsResponse checkout_related_items_post(cart, expand=expand)
+# **setup_browser_key**
+> CheckoutSetupBrowserKeyResponse setup_browser_key(browser_key_request)
 
-Related items
+Setup Browser Application
 
-Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.CheckoutApi()
+browser_key_request = ultracart.CheckoutSetupBrowserKeyRequest() # CheckoutSetupBrowserKeyRequest | Setup browser key request
+
+try: 
+    # Setup Browser Application
+    api_response = api_instance.setup_browser_key(browser_key_request)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling CheckoutApi->setup_browser_key: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **browser_key_request** | [**CheckoutSetupBrowserKeyRequest**](CheckoutSetupBrowserKeyRequest.md)| Setup browser key request | 
+
+### Return type
+
+[**CheckoutSetupBrowserKeyResponse**](CheckoutSetupBrowserKeyResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_cart**
+> CartResponse update_cart(cart, expand=expand)
+
+Update cart
+
+Update the cart. 
 
 ### Example 
 ```python
@@ -754,14 +754,14 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = ultracart.CheckoutApi()
 cart = ultracart.Cart() # Cart | Cart
-expand = 'expand_example' # str | The object expansion to perform on the result.  See item resource documentation for examples (optional)
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
-    # Related items
-    api_response = api_instance.checkout_related_items_post(cart, expand=expand)
+    # Update cart
+    api_response = api_instance.update_cart(cart, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_related_items_post: %s\n" % e
+    print "Exception when calling CheckoutApi->update_cart: %s\n" % e
 ```
 
 ### Parameters
@@ -769,11 +769,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart** | [**Cart**](Cart.md)| Cart | 
- **expand** | **str**| The object expansion to perform on the result.  See item resource documentation for examples | [optional] 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**CartResponse**](CartResponse.md)
 
 ### Authorization
 
@@ -786,12 +786,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **checkout_return_return_code_get**
-> CartResponse checkout_return_return_code_get(return_code, expand=expand)
+# **validate_cart**
+> CartValidationResponse validate_cart(validation_request, expand=expand)
 
-Get cart (by return code)
+Validate
 
-Get a cart specified by the return code parameter. 
+Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
 
 ### Example 
 ```python
@@ -813,27 +813,27 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = ultracart.CheckoutApi()
-return_code = 'return_code_example' # str | Return code to lookup cart ID by
+validation_request = ultracart.CartValidationRequest() # CartValidationRequest | Validation request
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
-    # Get cart (by return code)
-    api_response = api_instance.checkout_return_return_code_get(return_code, expand=expand)
+    # Validate
+    api_response = api_instance.validate_cart(validation_request, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CheckoutApi->checkout_return_return_code_get: %s\n" % e
+    print "Exception when calling CheckoutApi->validate_cart: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **return_code** | **str**| Return code to lookup cart ID by | 
+ **validation_request** | [**CartValidationRequest**](CartValidationRequest.md)| Validation request | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 
-[**CartResponse**](CartResponse.md)
+[**CartValidationResponse**](CartValidationResponse.md)
 
 ### Authorization
 

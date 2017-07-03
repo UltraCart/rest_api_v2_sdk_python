@@ -51,7 +51,323 @@ class OrderApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def order_orders_get(self, **kwargs):
+    def cancel_order(self, order_id, **kwargs):
+        """
+        Cancel an order
+        Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.cancel_order(order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str order_id: The order id to cancel. (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.cancel_order_with_http_info(order_id, **kwargs)
+        else:
+            (data) = self.cancel_order_with_http_info(order_id, **kwargs)
+            return data
+
+    def cancel_order_with_http_info(self, order_id, **kwargs):
+        """
+        Cancel an order
+        Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.cancel_order_with_http_info(order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str order_id: The order id to cancel. (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cancel_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params) or (params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `cancel_order`")
+
+        resource_path = '/order/orders/{order_id}/cancel'.replace('{format}', 'json')
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='BaseResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def delete_order(self, order_id, **kwargs):
+        """
+        Delete an order
+        Delete an order on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_order(order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str order_id: The order id to delete. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.delete_order_with_http_info(order_id, **kwargs)
+        else:
+            (data) = self.delete_order_with_http_info(order_id, **kwargs)
+            return data
+
+    def delete_order_with_http_info(self, order_id, **kwargs):
+        """
+        Delete an order
+        Delete an order on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.delete_order_with_http_info(order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str order_id: The order id to delete. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params) or (params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `delete_order`")
+
+        resource_path = '/order/orders/{order_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'DELETE',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_order(self, order_id, **kwargs):
+        """
+        Retrieve an order
+        Retrieves a single order using the specified order id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_order(order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str order_id: The order id to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_order_with_http_info(order_id, **kwargs)
+        else:
+            (data) = self.get_order_with_http_info(order_id, **kwargs)
+            return data
+
+    def get_order_with_http_info(self, order_id, **kwargs):
+        """
+        Retrieve an order
+        Retrieves a single order using the specified order id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_order_with_http_info(order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str order_id: The order id to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'expand']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params) or (params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `get_order`")
+
+        resource_path = '/order/orders/{order_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='OrderResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_orders(self, **kwargs):
         """
         Retrieve orders
         Retrieves a group of orders from the account.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -62,7 +378,7 @@ class OrderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.order_orders_get(callback=callback_function)
+        >>> thread = api.get_orders(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -103,12 +419,12 @@ class OrderApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.order_orders_get_with_http_info(**kwargs)
+            return self.get_orders_with_http_info(**kwargs)
         else:
-            (data) = self.order_orders_get_with_http_info(**kwargs)
+            (data) = self.get_orders_with_http_info(**kwargs)
             return data
 
-    def order_orders_get_with_http_info(self, **kwargs):
+    def get_orders_with_http_info(self, **kwargs):
         """
         Retrieve orders
         Retrieves a group of orders from the account.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -119,7 +435,7 @@ class OrderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.order_orders_get_with_http_info(callback=callback_function)
+        >>> thread = api.get_orders_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -168,7 +484,7 @@ class OrderApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method order_orders_get" % key
+                    " to method get_orders" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -272,438 +588,7 @@ class OrderApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def order_orders_order_id_cancel_post(self, order_id, **kwargs):
-        """
-        Cancel an order
-        Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.order_orders_order_id_cancel_post(order_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str order_id: The order id to cancel. (required)
-        :return: BaseResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.order_orders_order_id_cancel_post_with_http_info(order_id, **kwargs)
-        else:
-            (data) = self.order_orders_order_id_cancel_post_with_http_info(order_id, **kwargs)
-            return data
-
-    def order_orders_order_id_cancel_post_with_http_info(self, order_id, **kwargs):
-        """
-        Cancel an order
-        Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.order_orders_order_id_cancel_post_with_http_info(order_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str order_id: The order id to cancel. (required)
-        :return: BaseResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['order_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method order_orders_order_id_cancel_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'order_id' is set
-        if ('order_id' not in params) or (params['order_id'] is None):
-            raise ValueError("Missing the required parameter `order_id` when calling `order_orders_order_id_cancel_post`")
-
-        resource_path = '/order/orders/{order_id}/cancel'.replace('{format}', 'json')
-        path_params = {}
-        if 'order_id' in params:
-            path_params['order_id'] = params['order_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'POST',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='BaseResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def order_orders_order_id_delete(self, order_id, **kwargs):
-        """
-        Delete an order
-        Delete an order on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.order_orders_order_id_delete(order_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str order_id: The order id to delete. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.order_orders_order_id_delete_with_http_info(order_id, **kwargs)
-        else:
-            (data) = self.order_orders_order_id_delete_with_http_info(order_id, **kwargs)
-            return data
-
-    def order_orders_order_id_delete_with_http_info(self, order_id, **kwargs):
-        """
-        Delete an order
-        Delete an order on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.order_orders_order_id_delete_with_http_info(order_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str order_id: The order id to delete. (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['order_id']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method order_orders_order_id_delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'order_id' is set
-        if ('order_id' not in params) or (params['order_id'] is None):
-            raise ValueError("Missing the required parameter `order_id` when calling `order_orders_order_id_delete`")
-
-        resource_path = '/order/orders/{order_id}'.replace('{format}', 'json')
-        path_params = {}
-        if 'order_id' in params:
-            path_params['order_id'] = params['order_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'DELETE',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def order_orders_order_id_get(self, order_id, **kwargs):
-        """
-        Retrieve an order
-        Retrieves a single order using the specified order id. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.order_orders_order_id_get(order_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str order_id: The order id to retrieve. (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: OrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.order_orders_order_id_get_with_http_info(order_id, **kwargs)
-        else:
-            (data) = self.order_orders_order_id_get_with_http_info(order_id, **kwargs)
-            return data
-
-    def order_orders_order_id_get_with_http_info(self, order_id, **kwargs):
-        """
-        Retrieve an order
-        Retrieves a single order using the specified order id. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.order_orders_order_id_get_with_http_info(order_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str order_id: The order id to retrieve. (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: OrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['order_id', 'expand']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method order_orders_order_id_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'order_id' is set
-        if ('order_id' not in params) or (params['order_id'] is None):
-            raise ValueError("Missing the required parameter `order_id` when calling `order_orders_order_id_get`")
-
-        resource_path = '/order/orders/{order_id}'.replace('{format}', 'json')
-        path_params = {}
-        if 'order_id' in params:
-            path_params['order_id'] = params['order_id']
-
-        query_params = {}
-        if 'expand' in params:
-            query_params['_expand'] = params['expand']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='OrderResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def order_orders_order_id_put(self, order, order_id, **kwargs):
-        """
-        Update an order
-        Update a new order on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.order_orders_order_id_put(order, order_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Order order: Order to update (required)
-        :param str order_id: The order id to update. (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: OrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.order_orders_order_id_put_with_http_info(order, order_id, **kwargs)
-        else:
-            (data) = self.order_orders_order_id_put_with_http_info(order, order_id, **kwargs)
-            return data
-
-    def order_orders_order_id_put_with_http_info(self, order, order_id, **kwargs):
-        """
-        Update an order
-        Update a new order on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.order_orders_order_id_put_with_http_info(order, order_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param Order order: Order to update (required)
-        :param str order_id: The order id to update. (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: OrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['order', 'order_id', 'expand']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method order_orders_order_id_put" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'order' is set
-        if ('order' not in params) or (params['order'] is None):
-            raise ValueError("Missing the required parameter `order` when calling `order_orders_order_id_put`")
-        # verify the required parameter 'order_id' is set
-        if ('order_id' not in params) or (params['order_id'] is None):
-            raise ValueError("Missing the required parameter `order_id` when calling `order_orders_order_id_put`")
-
-        resource_path = '/order/orders/{order_id}'.replace('{format}', 'json')
-        path_params = {}
-        if 'order_id' in params:
-            path_params['order_id'] = params['order_id']
-
-        query_params = {}
-        if 'expand' in params:
-            query_params['_expand'] = params['expand']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'order' in params:
-            body_params = params['order']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json; charset=UTF-8'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'PUT',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='OrderResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def order_orders_order_id_resend_receipt_post(self, order_id, **kwargs):
+    def resend_receipt(self, order_id, **kwargs):
         """
         Resend receipt
         Resend the receipt for an order on the UltraCart account. 
@@ -714,7 +599,7 @@ class OrderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.order_orders_order_id_resend_receipt_post(order_id, callback=callback_function)
+        >>> thread = api.resend_receipt(order_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -725,12 +610,12 @@ class OrderApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.order_orders_order_id_resend_receipt_post_with_http_info(order_id, **kwargs)
+            return self.resend_receipt_with_http_info(order_id, **kwargs)
         else:
-            (data) = self.order_orders_order_id_resend_receipt_post_with_http_info(order_id, **kwargs)
+            (data) = self.resend_receipt_with_http_info(order_id, **kwargs)
             return data
 
-    def order_orders_order_id_resend_receipt_post_with_http_info(self, order_id, **kwargs):
+    def resend_receipt_with_http_info(self, order_id, **kwargs):
         """
         Resend receipt
         Resend the receipt for an order on the UltraCart account. 
@@ -741,7 +626,7 @@ class OrderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.order_orders_order_id_resend_receipt_post_with_http_info(order_id, callback=callback_function)
+        >>> thread = api.resend_receipt_with_http_info(order_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -760,13 +645,13 @@ class OrderApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method order_orders_order_id_resend_receipt_post" % key
+                    " to method resend_receipt" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'order_id' is set
         if ('order_id' not in params) or (params['order_id'] is None):
-            raise ValueError("Missing the required parameter `order_id` when calling `order_orders_order_id_resend_receipt_post`")
+            raise ValueError("Missing the required parameter `order_id` when calling `resend_receipt`")
 
         resource_path = '/order/orders/{order_id}/resend_receipt'.replace('{format}', 'json')
         path_params = {}
@@ -807,7 +692,7 @@ class OrderApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def order_orders_order_id_resend_shipment_confirmation_post(self, order_id, **kwargs):
+    def resend_shipment_confirmation(self, order_id, **kwargs):
         """
         Resend shipment confirmation
         Resend shipment confirmation for an order on the UltraCart account. 
@@ -818,7 +703,7 @@ class OrderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.order_orders_order_id_resend_shipment_confirmation_post(order_id, callback=callback_function)
+        >>> thread = api.resend_shipment_confirmation(order_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -829,12 +714,12 @@ class OrderApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.order_orders_order_id_resend_shipment_confirmation_post_with_http_info(order_id, **kwargs)
+            return self.resend_shipment_confirmation_with_http_info(order_id, **kwargs)
         else:
-            (data) = self.order_orders_order_id_resend_shipment_confirmation_post_with_http_info(order_id, **kwargs)
+            (data) = self.resend_shipment_confirmation_with_http_info(order_id, **kwargs)
             return data
 
-    def order_orders_order_id_resend_shipment_confirmation_post_with_http_info(self, order_id, **kwargs):
+    def resend_shipment_confirmation_with_http_info(self, order_id, **kwargs):
         """
         Resend shipment confirmation
         Resend shipment confirmation for an order on the UltraCart account. 
@@ -845,7 +730,7 @@ class OrderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.order_orders_order_id_resend_shipment_confirmation_post_with_http_info(order_id, callback=callback_function)
+        >>> thread = api.resend_shipment_confirmation_with_http_info(order_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -864,13 +749,13 @@ class OrderApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method order_orders_order_id_resend_shipment_confirmation_post" % key
+                    " to method resend_shipment_confirmation" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'order_id' is set
         if ('order_id' not in params) or (params['order_id'] is None):
-            raise ValueError("Missing the required parameter `order_id` when calling `order_orders_order_id_resend_shipment_confirmation_post`")
+            raise ValueError("Missing the required parameter `order_id` when calling `resend_shipment_confirmation`")
 
         resource_path = '/order/orders/{order_id}/resend_shipment_confirmation'.replace('{format}', 'json')
         path_params = {}
@@ -907,6 +792,121 @@ class OrderApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='BaseResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_order(self, order, order_id, **kwargs):
+        """
+        Update an order
+        Update a new order on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_order(order, order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Order order: Order to update (required)
+        :param str order_id: The order id to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_order_with_http_info(order, order_id, **kwargs)
+        else:
+            (data) = self.update_order_with_http_info(order, order_id, **kwargs)
+            return data
+
+    def update_order_with_http_info(self, order, order_id, **kwargs):
+        """
+        Update an order
+        Update a new order on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_order_with_http_info(order, order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Order order: Order to update (required)
+        :param str order_id: The order id to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order', 'order_id', 'expand']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order' is set
+        if ('order' not in params) or (params['order'] is None):
+            raise ValueError("Missing the required parameter `order` when calling `update_order`")
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params) or (params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `update_order`")
+
+        resource_path = '/order/orders/{order_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'order' in params:
+            body_params = params['order']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json; charset=UTF-8'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='OrderResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

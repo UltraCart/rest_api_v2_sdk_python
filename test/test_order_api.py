@@ -42,59 +42,59 @@ class TestOrderApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_order_orders_get(self):
+    def test_cancel_order(self):
         """
-        Test case for order_orders_get
-
-        Retrieve orders
-        """
-        pass
-
-    def test_order_orders_order_id_cancel_post(self):
-        """
-        Test case for order_orders_order_id_cancel_post
+        Test case for cancel_order
 
         Cancel an order
         """
         pass
 
-    def test_order_orders_order_id_delete(self):
+    def test_delete_order(self):
         """
-        Test case for order_orders_order_id_delete
+        Test case for delete_order
 
         Delete an order
         """
         pass
 
-    def test_order_orders_order_id_get(self):
+    def test_get_order(self):
         """
-        Test case for order_orders_order_id_get
+        Test case for get_order
 
         Retrieve an order
         """
         pass
 
-    def test_order_orders_order_id_put(self):
+    def test_get_orders(self):
         """
-        Test case for order_orders_order_id_put
+        Test case for get_orders
 
-        Update an order
+        Retrieve orders
         """
         pass
 
-    def test_order_orders_order_id_resend_receipt_post(self):
+    def test_resend_receipt(self):
         """
-        Test case for order_orders_order_id_resend_receipt_post
+        Test case for resend_receipt
 
         Resend receipt
         """
         pass
 
-    def test_order_orders_order_id_resend_shipment_confirmation_post(self):
+    def test_resend_shipment_confirmation(self):
         """
-        Test case for order_orders_order_id_resend_shipment_confirmation_post
+        Test case for resend_shipment_confirmation
 
         Resend shipment confirmation
+        """
+        pass
+
+    def test_update_order(self):
+        """
+        Test case for update_order
+
+        Update an order
         """
         pass
 

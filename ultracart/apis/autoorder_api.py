@@ -51,7 +51,7 @@ class AutoorderApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def auto_order_auto_orders_auto_order_oid_get(self, auto_order_oid, **kwargs):
+    def get_auto_order(self, auto_order_oid, **kwargs):
         """
         Retrieve an auto order
         Retrieves a single auto order using the specified auto order oid. 
@@ -62,7 +62,7 @@ class AutoorderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.auto_order_auto_orders_auto_order_oid_get(auto_order_oid, callback=callback_function)
+        >>> thread = api.get_auto_order(auto_order_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -74,12 +74,12 @@ class AutoorderApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.auto_order_auto_orders_auto_order_oid_get_with_http_info(auto_order_oid, **kwargs)
+            return self.get_auto_order_with_http_info(auto_order_oid, **kwargs)
         else:
-            (data) = self.auto_order_auto_orders_auto_order_oid_get_with_http_info(auto_order_oid, **kwargs)
+            (data) = self.get_auto_order_with_http_info(auto_order_oid, **kwargs)
             return data
 
-    def auto_order_auto_orders_auto_order_oid_get_with_http_info(self, auto_order_oid, **kwargs):
+    def get_auto_order_with_http_info(self, auto_order_oid, **kwargs):
         """
         Retrieve an auto order
         Retrieves a single auto order using the specified auto order oid. 
@@ -90,7 +90,7 @@ class AutoorderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.auto_order_auto_orders_auto_order_oid_get_with_http_info(auto_order_oid, callback=callback_function)
+        >>> thread = api.get_auto_order_with_http_info(auto_order_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -110,13 +110,13 @@ class AutoorderApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method auto_order_auto_orders_auto_order_oid_get" % key
+                    " to method get_auto_order" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'auto_order_oid' is set
         if ('auto_order_oid' not in params) or (params['auto_order_oid'] is None):
-            raise ValueError("Missing the required parameter `auto_order_oid` when calling `auto_order_auto_orders_auto_order_oid_get`")
+            raise ValueError("Missing the required parameter `auto_order_oid` when calling `get_auto_order`")
 
         resource_path = '/auto_order/auto_orders/{auto_order_oid}'.replace('{format}', 'json')
         path_params = {}
@@ -159,118 +159,7 @@ class AutoorderApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def auto_order_auto_orders_auto_order_oid_put(self, auto_order, auto_order_oid, **kwargs):
-        """
-        Update an auto order
-        Update an auto order on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.auto_order_auto_orders_auto_order_oid_put(auto_order, auto_order_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param AutoOrder auto_order: Auto order to update (required)
-        :param int auto_order_oid: The auto order oid to update. (required)
-        :return: AutoOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.auto_order_auto_orders_auto_order_oid_put_with_http_info(auto_order, auto_order_oid, **kwargs)
-        else:
-            (data) = self.auto_order_auto_orders_auto_order_oid_put_with_http_info(auto_order, auto_order_oid, **kwargs)
-            return data
-
-    def auto_order_auto_orders_auto_order_oid_put_with_http_info(self, auto_order, auto_order_oid, **kwargs):
-        """
-        Update an auto order
-        Update an auto order on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.auto_order_auto_orders_auto_order_oid_put_with_http_info(auto_order, auto_order_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param AutoOrder auto_order: Auto order to update (required)
-        :param int auto_order_oid: The auto order oid to update. (required)
-        :return: AutoOrderResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['auto_order', 'auto_order_oid']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method auto_order_auto_orders_auto_order_oid_put" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'auto_order' is set
-        if ('auto_order' not in params) or (params['auto_order'] is None):
-            raise ValueError("Missing the required parameter `auto_order` when calling `auto_order_auto_orders_auto_order_oid_put`")
-        # verify the required parameter 'auto_order_oid' is set
-        if ('auto_order_oid' not in params) or (params['auto_order_oid'] is None):
-            raise ValueError("Missing the required parameter `auto_order_oid` when calling `auto_order_auto_orders_auto_order_oid_put`")
-
-        resource_path = '/auto_order/auto_orders/{auto_order_oid}'.replace('{format}', 'json')
-        path_params = {}
-        if 'auto_order_oid' in params:
-            path_params['auto_order_oid'] = params['auto_order_oid']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'auto_order' in params:
-            body_params = params['auto_order']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json; charset=UTF-8'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'PUT',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='AutoOrderResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def auto_order_auto_orders_get(self, **kwargs):
+    def get_auto_orders(self, **kwargs):
         """
         Retrieve auto orders
         Retrieves auto orders from the account.  If no parameters are specified, all auto orders will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -281,7 +170,7 @@ class AutoorderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.auto_order_auto_orders_get(callback=callback_function)
+        >>> thread = api.get_auto_orders(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -314,12 +203,12 @@ class AutoorderApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.auto_order_auto_orders_get_with_http_info(**kwargs)
+            return self.get_auto_orders_with_http_info(**kwargs)
         else:
-            (data) = self.auto_order_auto_orders_get_with_http_info(**kwargs)
+            (data) = self.get_auto_orders_with_http_info(**kwargs)
             return data
 
-    def auto_order_auto_orders_get_with_http_info(self, **kwargs):
+    def get_auto_orders_with_http_info(self, **kwargs):
         """
         Retrieve auto orders
         Retrieves auto orders from the account.  If no parameters are specified, all auto orders will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -330,7 +219,7 @@ class AutoorderApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.auto_order_auto_orders_get_with_http_info(callback=callback_function)
+        >>> thread = api.get_auto_orders_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -371,7 +260,7 @@ class AutoorderApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method auto_order_auto_orders_get" % key
+                    " to method get_auto_orders" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -455,6 +344,121 @@ class AutoorderApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='AutoOrdersResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_auto_order(self, auto_order, auto_order_oid, **kwargs):
+        """
+        Update an auto order
+        Update an auto order on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_auto_order(auto_order, auto_order_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param AutoOrder auto_order: Auto order to update (required)
+        :param int auto_order_oid: The auto order oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_auto_order_with_http_info(auto_order, auto_order_oid, **kwargs)
+        else:
+            (data) = self.update_auto_order_with_http_info(auto_order, auto_order_oid, **kwargs)
+            return data
+
+    def update_auto_order_with_http_info(self, auto_order, auto_order_oid, **kwargs):
+        """
+        Update an auto order
+        Update an auto order on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_auto_order_with_http_info(auto_order, auto_order_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param AutoOrder auto_order: Auto order to update (required)
+        :param int auto_order_oid: The auto order oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['auto_order', 'auto_order_oid', 'expand']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_auto_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'auto_order' is set
+        if ('auto_order' not in params) or (params['auto_order'] is None):
+            raise ValueError("Missing the required parameter `auto_order` when calling `update_auto_order`")
+        # verify the required parameter 'auto_order_oid' is set
+        if ('auto_order_oid' not in params) or (params['auto_order_oid'] is None):
+            raise ValueError("Missing the required parameter `auto_order_oid` when calling `update_auto_order`")
+
+        resource_path = '/auto_order/auto_orders/{auto_order_oid}'.replace('{format}', 'json')
+        path_params = {}
+        if 'auto_order_oid' in params:
+            path_params['auto_order_oid'] = params['auto_order_oid']
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'auto_order' in params:
+            body_params = params['auto_order']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json; charset=UTF-8'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='AutoOrderResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

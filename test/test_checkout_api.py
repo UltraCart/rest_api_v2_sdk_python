@@ -42,115 +42,115 @@ class TestCheckoutApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_checkout_browser_key_put(self):
+    def test_city_state(self):
         """
-        Test case for checkout_browser_key_put
-
-        Setup Browser Application
-        """
-        pass
-
-    def test_checkout_cart_cart_id_get(self):
-        """
-        Test case for checkout_cart_cart_id_get
-
-        Get cart (by cart id)
-        """
-        pass
-
-    def test_checkout_cart_finalize_order_post(self):
-        """
-        Test case for checkout_cart_finalize_order_post
-
-        Finalize Order
-        """
-        pass
-
-    def test_checkout_cart_get(self):
-        """
-        Test case for checkout_cart_get
-
-        Get cart
-        """
-        pass
-
-    def test_checkout_cart_handoff_post(self):
-        """
-        Test case for checkout_cart_handoff_post
-
-        Handoff cart
-        """
-        pass
-
-    def test_checkout_cart_profile_login_post(self):
-        """
-        Test case for checkout_cart_profile_login_post
-
-        Profile login
-        """
-        pass
-
-    def test_checkout_cart_profile_logout_post(self):
-        """
-        Test case for checkout_cart_profile_logout_post
-
-        Profile logout
-        """
-        pass
-
-    def test_checkout_cart_profile_register_post(self):
-        """
-        Test case for checkout_cart_profile_register_post
-
-        Profile registration
-        """
-        pass
-
-    def test_checkout_cart_put(self):
-        """
-        Test case for checkout_cart_put
-
-        Update cart
-        """
-        pass
-
-    def test_checkout_cart_validate_post(self):
-        """
-        Test case for checkout_cart_validate_post
-
-        Validate
-        """
-        pass
-
-    def test_checkout_city_state_post(self):
-        """
-        Test case for checkout_city_state_post
+        Test case for city_state
 
         City/State for Zip
         """
         pass
 
-    def test_checkout_related_items_item_id_post(self):
+    def test_finalize_order(self):
         """
-        Test case for checkout_related_items_item_id_post
+        Test case for finalize_order
 
-        Related items (specific item)
+        Finalize Order
         """
         pass
 
-    def test_checkout_related_items_post(self):
+    def test_get_cart(self):
         """
-        Test case for checkout_related_items_post
+        Test case for get_cart
+
+        Get cart
+        """
+        pass
+
+    def test_get_cart_by_cart_id(self):
+        """
+        Test case for get_cart_by_cart_id
+
+        Get cart (by cart id)
+        """
+        pass
+
+    def test_get_cart_by_return_code(self):
+        """
+        Test case for get_cart_by_return_code
+
+        Get cart (by return code)
+        """
+        pass
+
+    def test_handoff_cart(self):
+        """
+        Test case for handoff_cart
+
+        Handoff cart
+        """
+        pass
+
+    def test_login(self):
+        """
+        Test case for login
+
+        Profile login
+        """
+        pass
+
+    def test_logout(self):
+        """
+        Test case for logout
+
+        Profile logout
+        """
+        pass
+
+    def test_register(self):
+        """
+        Test case for register
+
+        Profile registration
+        """
+        pass
+
+    def test_related_items_for_cart(self):
+        """
+        Test case for related_items_for_cart
 
         Related items
         """
         pass
 
-    def test_checkout_return_return_code_get(self):
+    def test_related_items_for_item(self):
         """
-        Test case for checkout_return_return_code_get
+        Test case for related_items_for_item
 
-        Get cart (by return code)
+        Related items (specific item)
+        """
+        pass
+
+    def test_setup_browser_key(self):
+        """
+        Test case for setup_browser_key
+
+        Setup Browser Application
+        """
+        pass
+
+    def test_update_cart(self):
+        """
+        Test case for update_cart
+
+        Update cart
+        """
+        pass
+
+    def test_validate_cart(self):
+        """
+        Test case for validate_cart
+
+        Validate
         """
         pass
 

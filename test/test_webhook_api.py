@@ -42,59 +42,59 @@ class TestWebhookApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_webhook_webhooks_get(self):
+    def test_delete_webhook(self):
         """
-        Test case for webhook_webhooks_get
-
-        Retrieve webhooks
-        """
-        pass
-
-    def test_webhook_webhooks_post(self):
-        """
-        Test case for webhook_webhooks_post
-
-        Add a webhook
-        """
-        pass
-
-    def test_webhook_webhooks_webhook_oid_delete(self):
-        """
-        Test case for webhook_webhooks_webhook_oid_delete
+        Test case for delete_webhook
 
         Delete a webhook
         """
         pass
 
-    def test_webhook_webhooks_webhook_oid_logs_get(self):
+    def test_get_webhook_log(self):
         """
-        Test case for webhook_webhooks_webhook_oid_logs_get
-
-        Retrieve the log summaries
-        """
-        pass
-
-    def test_webhook_webhooks_webhook_oid_logs_request_id_get(self):
-        """
-        Test case for webhook_webhooks_webhook_oid_logs_request_id_get
+        Test case for get_webhook_log
 
         Retrieve an individual log
         """
         pass
 
-    def test_webhook_webhooks_webhook_oid_put(self):
+    def test_get_webhook_log_summaries(self):
         """
-        Test case for webhook_webhooks_webhook_oid_put
+        Test case for get_webhook_log_summaries
 
-        Update a webhook
+        Retrieve the log summaries
         """
         pass
 
-    def test_webhook_webhooks_webhook_oid_reflow_event_name_post(self):
+    def test_get_webhooks(self):
         """
-        Test case for webhook_webhooks_webhook_oid_reflow_event_name_post
+        Test case for get_webhooks
+
+        Retrieve webhooks
+        """
+        pass
+
+    def test_insert_webhook(self):
+        """
+        Test case for insert_webhook
+
+        Add a webhook
+        """
+        pass
+
+    def test_resend_event(self):
+        """
+        Test case for resend_event
 
         Resend events to the webhook endpoint.
+        """
+        pass
+
+    def test_update_webhook(self):
+        """
+        Test case for update_webhook
+
+        Update a webhook
         """
         pass
 

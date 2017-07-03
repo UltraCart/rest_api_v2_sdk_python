@@ -4,16 +4,127 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**item_items_get**](ItemApi.md#item_items_get) | **GET** /item/items | Retrieve items
-[**item_items_merchant_item_oid_delete**](ItemApi.md#item_items_merchant_item_oid_delete) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
-[**item_items_merchant_item_oid_get**](ItemApi.md#item_items_merchant_item_oid_get) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
-[**item_items_merchant_item_oid_put**](ItemApi.md#item_items_merchant_item_oid_put) | **PUT** /item/items/{merchant_item_oid} | Update an item
-[**item_items_post**](ItemApi.md#item_items_post) | **POST** /item/items | Create an item
-[**item_temp_multimedia_post**](ItemApi.md#item_temp_multimedia_post) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
+[**delete_item**](ItemApi.md#delete_item) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**get_item**](ItemApi.md#get_item) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
+[**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
+[**insert_item**](ItemApi.md#insert_item) | **POST** /item/items | Create an item
+[**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**upload_temporary_multimedia**](ItemApi.md#upload_temporary_multimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
-# **item_items_get**
-> ItemsResponse item_items_get(parent_category_id=parent_category_id, parent_category_path=parent_category_path, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+# **delete_item**
+> delete_item(merchant_item_oid)
+
+Delete an item
+
+Delete an item on the UltraCart account. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.ItemApi()
+merchant_item_oid = 56 # int | The item oid to delete.
+
+try: 
+    # Delete an item
+    api_instance.delete_item(merchant_item_oid)
+except ApiException as e:
+    print "Exception when calling ItemApi->delete_item: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid to delete. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_item**
+> ItemResponse get_item(merchant_item_oid, expand=expand, placeholders=placeholders)
+
+Retrieve an item
+
+Retrieves a single item using the specified item oid. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.ItemApi()
+merchant_item_oid = 56 # int | The item oid to retrieve.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+
+try: 
+    # Retrieve an item
+    api_response = api_instance.get_item(merchant_item_oid, expand=expand, placeholders=placeholders)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling ItemApi->get_item: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid to retrieve. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+
+### Return type
+
+[**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_items**
+> ItemsResponse get_items(parent_category_id=parent_category_id, parent_category_path=parent_category_path, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
 
 Retrieve items
 
@@ -46,10 +157,10 @@ placeholders = true # bool | Whether or not placeholder values should be returne
 
 try: 
     # Retrieve items
-    api_response = api_instance.item_items_get(parent_category_id=parent_category_id, parent_category_path=parent_category_path, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+    api_response = api_instance.get_items(parent_category_id=parent_category_id, parent_category_path=parent_category_path, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->item_items_get: %s\n" % e
+    print "Exception when calling ItemApi->get_items: %s\n" % e
 ```
 
 ### Parameters
@@ -80,65 +191,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **item_items_merchant_item_oid_delete**
-> item_items_merchant_item_oid_delete(merchant_item_oid)
+# **insert_item**
+> ItemResponse insert_item(item, expand=expand, placeholders=placeholders)
 
-Delete an item
+Create an item
 
-Delete an item on the UltraCart account. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.ItemApi()
-merchant_item_oid = 56 # int | The item oid to delete.
-
-try: 
-    # Delete an item
-    api_instance.item_items_merchant_item_oid_delete(merchant_item_oid)
-except ApiException as e:
-    print "Exception when calling ItemApi->item_items_merchant_item_oid_delete: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **merchant_item_oid** | **int**| The item oid to delete. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **item_items_merchant_item_oid_get**
-> ItemResponse item_items_merchant_item_oid_get(merchant_item_oid, expand=expand, placeholders=placeholders)
-
-Retrieve an item
-
-Retrieves a single item using the specified item oid. 
+Create a new item on the UltraCart account. 
 
 ### Example 
 ```python
@@ -156,23 +214,23 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = ultracart.ItemApi()
-merchant_item_oid = 56 # int | The item oid to retrieve.
+item = ultracart.Item() # Item | Item to create
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
 try: 
-    # Retrieve an item
-    api_response = api_instance.item_items_merchant_item_oid_get(merchant_item_oid, expand=expand, placeholders=placeholders)
+    # Create an item
+    api_response = api_instance.insert_item(item, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->item_items_merchant_item_oid_get: %s\n" % e
+    print "Exception when calling ItemApi->insert_item: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **merchant_item_oid** | **int**| The item oid to retrieve. | 
+ **item** | [**Item**](Item.md)| Item to create | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
  **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
@@ -186,13 +244,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **item_items_merchant_item_oid_put**
-> ItemResponse item_items_merchant_item_oid_put(item, merchant_item_oid, expand=expand, placeholders=placeholders)
+# **update_item**
+> ItemResponse update_item(item, merchant_item_oid, expand=expand, placeholders=placeholders)
 
 Update an item
 
@@ -221,10 +279,10 @@ placeholders = true # bool | Whether or not placeholder values should be returne
 
 try: 
     # Update an item
-    api_response = api_instance.item_items_merchant_item_oid_put(item, merchant_item_oid, expand=expand, placeholders=placeholders)
+    api_response = api_instance.update_item(item, merchant_item_oid, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->item_items_merchant_item_oid_put: %s\n" % e
+    print "Exception when calling ItemApi->update_item: %s\n" % e
 ```
 
 ### Parameters
@@ -251,66 +309,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **item_items_post**
-> ItemResponse item_items_post(item, expand=expand, placeholders=placeholders)
-
-Create an item
-
-Create a new item on the UltraCart account. 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.ItemApi()
-item = ultracart.Item() # Item | Item to create
-expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
-placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-
-try: 
-    # Create an item
-    api_response = api_instance.item_items_post(item, expand=expand, placeholders=placeholders)
-    pprint(api_response)
-except ApiException as e:
-    print "Exception when calling ItemApi->item_items_post: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item** | [**Item**](Item.md)| Item to create | 
- **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
- **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
-
-### Return type
-
-[**ItemResponse**](ItemResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **item_temp_multimedia_post**
-> TempMultimediaResponse item_temp_multimedia_post(file)
+# **upload_temporary_multimedia**
+> TempMultimediaResponse upload_temporary_multimedia(file)
 
 Upload an image to the temporary multimedia.
 
@@ -336,10 +336,10 @@ file = '/path/to/file.txt' # file | File to upload
 
 try: 
     # Upload an image to the temporary multimedia.
-    api_response = api_instance.item_temp_multimedia_post(file)
+    api_response = api_instance.upload_temporary_multimedia(file)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->item_temp_multimedia_post: %s\n" % e
+    print "Exception when calling ItemApi->upload_temporary_multimedia: %s\n" % e
 ```
 
 ### Parameters

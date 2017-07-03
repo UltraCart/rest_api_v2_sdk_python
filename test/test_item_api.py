@@ -42,73 +42,49 @@ class TestItemApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_auto_order_auto_orders_auto_order_oid_get(self):
+    def test_delete_item(self):
         """
-        Test case for auto_order_auto_orders_auto_order_oid_get
-
-        Retrieve an auto order
-        """
-        pass
-
-    def test_auto_order_auto_orders_auto_order_oid_put(self):
-        """
-        Test case for auto_order_auto_orders_auto_order_oid_put
-
-        Update an auto order
-        """
-        pass
-
-    def test_auto_order_auto_orders_get(self):
-        """
-        Test case for auto_order_auto_orders_get
-
-        Retrieve auto orders
-        """
-        pass
-
-    def test_item_items_get(self):
-        """
-        Test case for item_items_get
-
-        Retrieve items
-        """
-        pass
-
-    def test_item_items_merchant_item_oid_delete(self):
-        """
-        Test case for item_items_merchant_item_oid_delete
+        Test case for delete_item
 
         Delete an item
         """
         pass
 
-    def test_item_items_merchant_item_oid_get(self):
+    def test_get_item(self):
         """
-        Test case for item_items_merchant_item_oid_get
+        Test case for get_item
 
         Retrieve an item
         """
         pass
 
-    def test_item_items_merchant_item_oid_put(self):
+    def test_get_items(self):
         """
-        Test case for item_items_merchant_item_oid_put
+        Test case for get_items
 
-        Update an item
+        Retrieve items
         """
         pass
 
-    def test_item_items_post(self):
+    def test_insert_item(self):
         """
-        Test case for item_items_post
+        Test case for insert_item
 
         Create an item
         """
         pass
 
-    def test_item_temp_multimedia_post(self):
+    def test_update_item(self):
         """
-        Test case for item_temp_multimedia_post
+        Test case for update_item
+
+        Update an item
+        """
+        pass
+
+    def test_upload_temporary_multimedia(self):
+        """
+        Test case for upload_temporary_multimedia
 
         Upload an image to the temporary multimedia.
         """

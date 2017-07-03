@@ -51,7 +51,7 @@ class ChargebackApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def chargeback_chargebacks_chargeback_dispute_oid_delete(self, chargeback_dispute_oid, **kwargs):
+    def delete_chargeback(self, chargeback_dispute_oid, **kwargs):
         """
         Delete a chargeback
         Delete a chargeback on the UltraCart account. 
@@ -62,7 +62,7 @@ class ChargebackApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.chargeback_chargebacks_chargeback_dispute_oid_delete(chargeback_dispute_oid, callback=callback_function)
+        >>> thread = api.delete_chargeback(chargeback_dispute_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -73,12 +73,12 @@ class ChargebackApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.chargeback_chargebacks_chargeback_dispute_oid_delete_with_http_info(chargeback_dispute_oid, **kwargs)
+            return self.delete_chargeback_with_http_info(chargeback_dispute_oid, **kwargs)
         else:
-            (data) = self.chargeback_chargebacks_chargeback_dispute_oid_delete_with_http_info(chargeback_dispute_oid, **kwargs)
+            (data) = self.delete_chargeback_with_http_info(chargeback_dispute_oid, **kwargs)
             return data
 
-    def chargeback_chargebacks_chargeback_dispute_oid_delete_with_http_info(self, chargeback_dispute_oid, **kwargs):
+    def delete_chargeback_with_http_info(self, chargeback_dispute_oid, **kwargs):
         """
         Delete a chargeback
         Delete a chargeback on the UltraCart account. 
@@ -89,7 +89,7 @@ class ChargebackApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.chargeback_chargebacks_chargeback_dispute_oid_delete_with_http_info(chargeback_dispute_oid, callback=callback_function)
+        >>> thread = api.delete_chargeback_with_http_info(chargeback_dispute_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -108,13 +108,13 @@ class ChargebackApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method chargeback_chargebacks_chargeback_dispute_oid_delete" % key
+                    " to method delete_chargeback" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'chargeback_dispute_oid' is set
         if ('chargeback_dispute_oid' not in params) or (params['chargeback_dispute_oid'] is None):
-            raise ValueError("Missing the required parameter `chargeback_dispute_oid` when calling `chargeback_chargebacks_chargeback_dispute_oid_delete`")
+            raise ValueError("Missing the required parameter `chargeback_dispute_oid` when calling `delete_chargeback`")
 
         resource_path = '/chargeback/chargebacks/{chargeback_dispute_oid}'.replace('{format}', 'json')
         path_params = {}
@@ -155,7 +155,7 @@ class ChargebackApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def chargeback_chargebacks_chargeback_dispute_oid_get(self, chargeback_dispute_oid, **kwargs):
+    def get_chargeback_dispute(self, chargeback_dispute_oid, **kwargs):
         """
         Retrieve a chargeback
         Retrieves a single chargeback using the specified chargeback dispute oid. 
@@ -166,7 +166,7 @@ class ChargebackApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.chargeback_chargebacks_chargeback_dispute_oid_get(chargeback_dispute_oid, callback=callback_function)
+        >>> thread = api.get_chargeback_dispute(chargeback_dispute_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -178,12 +178,12 @@ class ChargebackApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.chargeback_chargebacks_chargeback_dispute_oid_get_with_http_info(chargeback_dispute_oid, **kwargs)
+            return self.get_chargeback_dispute_with_http_info(chargeback_dispute_oid, **kwargs)
         else:
-            (data) = self.chargeback_chargebacks_chargeback_dispute_oid_get_with_http_info(chargeback_dispute_oid, **kwargs)
+            (data) = self.get_chargeback_dispute_with_http_info(chargeback_dispute_oid, **kwargs)
             return data
 
-    def chargeback_chargebacks_chargeback_dispute_oid_get_with_http_info(self, chargeback_dispute_oid, **kwargs):
+    def get_chargeback_dispute_with_http_info(self, chargeback_dispute_oid, **kwargs):
         """
         Retrieve a chargeback
         Retrieves a single chargeback using the specified chargeback dispute oid. 
@@ -194,7 +194,7 @@ class ChargebackApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.chargeback_chargebacks_chargeback_dispute_oid_get_with_http_info(chargeback_dispute_oid, callback=callback_function)
+        >>> thread = api.get_chargeback_dispute_with_http_info(chargeback_dispute_oid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -214,13 +214,13 @@ class ChargebackApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method chargeback_chargebacks_chargeback_dispute_oid_get" % key
+                    " to method get_chargeback_dispute" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'chargeback_dispute_oid' is set
         if ('chargeback_dispute_oid' not in params) or (params['chargeback_dispute_oid'] is None):
-            raise ValueError("Missing the required parameter `chargeback_dispute_oid` when calling `chargeback_chargebacks_chargeback_dispute_oid_get`")
+            raise ValueError("Missing the required parameter `chargeback_dispute_oid` when calling `get_chargeback_dispute`")
 
         resource_path = '/chargeback/chargebacks/{chargeback_dispute_oid}'.replace('{format}', 'json')
         path_params = {}
@@ -263,122 +263,7 @@ class ChargebackApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def chargeback_chargebacks_chargeback_dispute_oid_put(self, chargeback, chargeback_dispute_oid, **kwargs):
-        """
-        Update a chargeback
-        Update a chargeback on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.chargeback_chargebacks_chargeback_dispute_oid_put(chargeback, chargeback_dispute_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param ChargebackDispute chargeback: Chargeback to update (required)
-        :param int chargeback_dispute_oid: The chargeback_dispute_oid to update. (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: ChargebackDisputeResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.chargeback_chargebacks_chargeback_dispute_oid_put_with_http_info(chargeback, chargeback_dispute_oid, **kwargs)
-        else:
-            (data) = self.chargeback_chargebacks_chargeback_dispute_oid_put_with_http_info(chargeback, chargeback_dispute_oid, **kwargs)
-            return data
-
-    def chargeback_chargebacks_chargeback_dispute_oid_put_with_http_info(self, chargeback, chargeback_dispute_oid, **kwargs):
-        """
-        Update a chargeback
-        Update a chargeback on the UltraCart account. 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.chargeback_chargebacks_chargeback_dispute_oid_put_with_http_info(chargeback, chargeback_dispute_oid, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param ChargebackDispute chargeback: Chargeback to update (required)
-        :param int chargeback_dispute_oid: The chargeback_dispute_oid to update. (required)
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :return: ChargebackDisputeResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['chargeback', 'chargeback_dispute_oid', 'expand']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method chargeback_chargebacks_chargeback_dispute_oid_put" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'chargeback' is set
-        if ('chargeback' not in params) or (params['chargeback'] is None):
-            raise ValueError("Missing the required parameter `chargeback` when calling `chargeback_chargebacks_chargeback_dispute_oid_put`")
-        # verify the required parameter 'chargeback_dispute_oid' is set
-        if ('chargeback_dispute_oid' not in params) or (params['chargeback_dispute_oid'] is None):
-            raise ValueError("Missing the required parameter `chargeback_dispute_oid` when calling `chargeback_chargebacks_chargeback_dispute_oid_put`")
-
-        resource_path = '/chargeback/chargebacks/{chargeback_dispute_oid}'.replace('{format}', 'json')
-        path_params = {}
-        if 'chargeback_dispute_oid' in params:
-            path_params['chargeback_dispute_oid'] = params['chargeback_dispute_oid']
-
-        query_params = {}
-        if 'expand' in params:
-            query_params['_expand'] = params['expand']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'chargeback' in params:
-            body_params = params['chargeback']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json; charset=UTF-8'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'PUT',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='ChargebackDisputeResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def chargeback_chargebacks_get(self, **kwargs):
+    def get_chargeback_disputes(self, **kwargs):
         """
         Retrieve chargebacks
         Retrieves chargebacks from the account.  If no parameters are specified, all chargebacks will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -389,7 +274,7 @@ class ChargebackApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.chargeback_chargebacks_get(callback=callback_function)
+        >>> thread = api.get_chargeback_disputes(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -411,12 +296,12 @@ class ChargebackApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.chargeback_chargebacks_get_with_http_info(**kwargs)
+            return self.get_chargeback_disputes_with_http_info(**kwargs)
         else:
-            (data) = self.chargeback_chargebacks_get_with_http_info(**kwargs)
+            (data) = self.get_chargeback_disputes_with_http_info(**kwargs)
             return data
 
-    def chargeback_chargebacks_get_with_http_info(self, **kwargs):
+    def get_chargeback_disputes_with_http_info(self, **kwargs):
         """
         Retrieve chargebacks
         Retrieves chargebacks from the account.  If no parameters are specified, all chargebacks will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -427,7 +312,7 @@ class ChargebackApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.chargeback_chargebacks_get_with_http_info(callback=callback_function)
+        >>> thread = api.get_chargeback_disputes_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -457,7 +342,7 @@ class ChargebackApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method chargeback_chargebacks_get" % key
+                    " to method get_chargeback_disputes" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -523,7 +408,7 @@ class ChargebackApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def chargeback_chargebacks_post(self, chargeback, **kwargs):
+    def insert_chargeback(self, chargeback, **kwargs):
         """
         Insert a chargeback
         Insert a chargeback on the UltraCart account. 
@@ -534,7 +419,7 @@ class ChargebackApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.chargeback_chargebacks_post(chargeback, callback=callback_function)
+        >>> thread = api.insert_chargeback(chargeback, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -546,12 +431,12 @@ class ChargebackApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.chargeback_chargebacks_post_with_http_info(chargeback, **kwargs)
+            return self.insert_chargeback_with_http_info(chargeback, **kwargs)
         else:
-            (data) = self.chargeback_chargebacks_post_with_http_info(chargeback, **kwargs)
+            (data) = self.insert_chargeback_with_http_info(chargeback, **kwargs)
             return data
 
-    def chargeback_chargebacks_post_with_http_info(self, chargeback, **kwargs):
+    def insert_chargeback_with_http_info(self, chargeback, **kwargs):
         """
         Insert a chargeback
         Insert a chargeback on the UltraCart account. 
@@ -562,7 +447,7 @@ class ChargebackApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.chargeback_chargebacks_post_with_http_info(chargeback, callback=callback_function)
+        >>> thread = api.insert_chargeback_with_http_info(chargeback, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -582,13 +467,13 @@ class ChargebackApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method chargeback_chargebacks_post" % key
+                    " to method insert_chargeback" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'chargeback' is set
         if ('chargeback' not in params) or (params['chargeback'] is None):
-            raise ValueError("Missing the required parameter `chargeback` when calling `chargeback_chargebacks_post`")
+            raise ValueError("Missing the required parameter `chargeback` when calling `insert_chargeback`")
 
         resource_path = '/chargeback/chargebacks'.replace('{format}', 'json')
         path_params = {}
@@ -620,6 +505,121 @@ class ChargebackApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
         return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ChargebackDisputeResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_chargeback(self, chargeback, chargeback_dispute_oid, **kwargs):
+        """
+        Update a chargeback
+        Update a chargeback on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_chargeback(chargeback, chargeback_dispute_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ChargebackDispute chargeback: Chargeback to update (required)
+        :param int chargeback_dispute_oid: The chargeback_dispute_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: ChargebackDisputeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_chargeback_with_http_info(chargeback, chargeback_dispute_oid, **kwargs)
+        else:
+            (data) = self.update_chargeback_with_http_info(chargeback, chargeback_dispute_oid, **kwargs)
+            return data
+
+    def update_chargeback_with_http_info(self, chargeback, chargeback_dispute_oid, **kwargs):
+        """
+        Update a chargeback
+        Update a chargeback on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_chargeback_with_http_info(chargeback, chargeback_dispute_oid, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ChargebackDispute chargeback: Chargeback to update (required)
+        :param int chargeback_dispute_oid: The chargeback_dispute_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: ChargebackDisputeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['chargeback', 'chargeback_dispute_oid', 'expand']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_chargeback" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'chargeback' is set
+        if ('chargeback' not in params) or (params['chargeback'] is None):
+            raise ValueError("Missing the required parameter `chargeback` when calling `update_chargeback`")
+        # verify the required parameter 'chargeback_dispute_oid' is set
+        if ('chargeback_dispute_oid' not in params) or (params['chargeback_dispute_oid'] is None):
+            raise ValueError("Missing the required parameter `chargeback_dispute_oid` when calling `update_chargeback`")
+
+        resource_path = '/chargeback/chargebacks/{chargeback_dispute_oid}'.replace('{format}', 'json')
+        path_params = {}
+        if 'chargeback_dispute_oid' in params:
+            path_params['chargeback_dispute_oid'] = params['chargeback_dispute_oid']
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'chargeback' in params:
+            body_params = params['chargeback']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json; charset=UTF-8'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'PUT',
                                             path_params,
                                             query_params,
                                             header_params,

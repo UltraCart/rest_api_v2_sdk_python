@@ -42,27 +42,43 @@ class TestCustomerApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_customer_customers_customer_profile_oid_get(self):
+    def test_delete_customer(self):
         """
-        Test case for customer_customers_customer_profile_oid_get
+        Test case for delete_customer
+
+        Delete a customer
+        """
+        pass
+
+    def test_get_customer(self):
+        """
+        Test case for get_customer
 
         Retrieve a customer
         """
         pass
 
-    def test_customer_customers_customer_profile_oid_put(self):
+    def test_get_customers(self):
         """
-        Test case for customer_customers_customer_profile_oid_put
+        Test case for get_customers
 
-        Update a customer
+        Retrieve customers
         """
         pass
 
-    def test_customer_customers_get(self):
+    def test_insert_customer(self):
         """
-        Test case for customer_customers_get
+        Test case for insert_customer
 
-        Retrieve customers
+        Insert a customer
+        """
+        pass
+
+    def test_update_customer(self):
+        """
+        Test case for update_customer
+
+        Update a customer
         """
         pass
 

@@ -42,43 +42,43 @@ class TestChargebackApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_chargeback_chargebacks_chargeback_dispute_oid_delete(self):
+    def test_delete_chargeback(self):
         """
-        Test case for chargeback_chargebacks_chargeback_dispute_oid_delete
+        Test case for delete_chargeback
 
         Delete a chargeback
         """
         pass
 
-    def test_chargeback_chargebacks_chargeback_dispute_oid_get(self):
+    def test_get_chargeback_dispute(self):
         """
-        Test case for chargeback_chargebacks_chargeback_dispute_oid_get
+        Test case for get_chargeback_dispute
 
         Retrieve a chargeback
         """
         pass
 
-    def test_chargeback_chargebacks_chargeback_dispute_oid_put(self):
+    def test_get_chargeback_disputes(self):
         """
-        Test case for chargeback_chargebacks_chargeback_dispute_oid_put
-
-        Update a chargeback
-        """
-        pass
-
-    def test_chargeback_chargebacks_get(self):
-        """
-        Test case for chargeback_chargebacks_get
+        Test case for get_chargeback_disputes
 
         Retrieve chargebacks
         """
         pass
 
-    def test_chargeback_chargebacks_post(self):
+    def test_insert_chargeback(self):
         """
-        Test case for chargeback_chargebacks_post
+        Test case for insert_chargeback
 
         Insert a chargeback
+        """
+        pass
+
+    def test_update_chargeback(self):
+        """
+        Test case for update_chargeback
+
+        Update a chargeback
         """
         pass
 

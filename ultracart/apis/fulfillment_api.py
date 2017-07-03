@@ -51,7 +51,7 @@ class FulfillmentApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def fulfillment_distribution_centers_distribution_center_code_acknowledgements_put(self, distribution_center_code, order_ids, **kwargs):
+    def acknowledge_orders(self, distribution_center_code, order_ids, **kwargs):
         """
         Acknowledge receipt of orders.
         Acknowledge receipt of orders so that they are removed from the fulfillment queue.  This method must be called after receiving and order (via webhook) or retrieving (via retrieve orders method). 
@@ -62,7 +62,7 @@ class FulfillmentApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.fulfillment_distribution_centers_distribution_center_code_acknowledgements_put(distribution_center_code, order_ids, callback=callback_function)
+        >>> thread = api.acknowledge_orders(distribution_center_code, order_ids, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -74,12 +74,12 @@ class FulfillmentApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.fulfillment_distribution_centers_distribution_center_code_acknowledgements_put_with_http_info(distribution_center_code, order_ids, **kwargs)
+            return self.acknowledge_orders_with_http_info(distribution_center_code, order_ids, **kwargs)
         else:
-            (data) = self.fulfillment_distribution_centers_distribution_center_code_acknowledgements_put_with_http_info(distribution_center_code, order_ids, **kwargs)
+            (data) = self.acknowledge_orders_with_http_info(distribution_center_code, order_ids, **kwargs)
             return data
 
-    def fulfillment_distribution_centers_distribution_center_code_acknowledgements_put_with_http_info(self, distribution_center_code, order_ids, **kwargs):
+    def acknowledge_orders_with_http_info(self, distribution_center_code, order_ids, **kwargs):
         """
         Acknowledge receipt of orders.
         Acknowledge receipt of orders so that they are removed from the fulfillment queue.  This method must be called after receiving and order (via webhook) or retrieving (via retrieve orders method). 
@@ -90,7 +90,7 @@ class FulfillmentApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.fulfillment_distribution_centers_distribution_center_code_acknowledgements_put_with_http_info(distribution_center_code, order_ids, callback=callback_function)
+        >>> thread = api.acknowledge_orders_with_http_info(distribution_center_code, order_ids, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -110,16 +110,16 @@ class FulfillmentApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method fulfillment_distribution_centers_distribution_center_code_acknowledgements_put" % key
+                    " to method acknowledge_orders" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'distribution_center_code' is set
         if ('distribution_center_code' not in params) or (params['distribution_center_code'] is None):
-            raise ValueError("Missing the required parameter `distribution_center_code` when calling `fulfillment_distribution_centers_distribution_center_code_acknowledgements_put`")
+            raise ValueError("Missing the required parameter `distribution_center_code` when calling `acknowledge_orders`")
         # verify the required parameter 'order_ids' is set
         if ('order_ids' not in params) or (params['order_ids'] is None):
-            raise ValueError("Missing the required parameter `order_ids` when calling `fulfillment_distribution_centers_distribution_center_code_acknowledgements_put`")
+            raise ValueError("Missing the required parameter `order_ids` when calling `acknowledge_orders`")
 
         resource_path = '/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements'.replace('{format}', 'json')
         path_params = {}
@@ -162,118 +162,7 @@ class FulfillmentApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def fulfillment_distribution_centers_distribution_center_code_inventory_post(self, distribution_center_code, inventories, **kwargs):
-        """
-        Update inventory
-        Update the inventory for items associated with this distribution center 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.fulfillment_distribution_centers_distribution_center_code_inventory_post(distribution_center_code, inventories, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str distribution_center_code: Distribution center code (required)
-        :param list[FulfillmentInventory] inventories: Inventory updates (limit 500) (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.fulfillment_distribution_centers_distribution_center_code_inventory_post_with_http_info(distribution_center_code, inventories, **kwargs)
-        else:
-            (data) = self.fulfillment_distribution_centers_distribution_center_code_inventory_post_with_http_info(distribution_center_code, inventories, **kwargs)
-            return data
-
-    def fulfillment_distribution_centers_distribution_center_code_inventory_post_with_http_info(self, distribution_center_code, inventories, **kwargs):
-        """
-        Update inventory
-        Update the inventory for items associated with this distribution center 
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.fulfillment_distribution_centers_distribution_center_code_inventory_post_with_http_info(distribution_center_code, inventories, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str distribution_center_code: Distribution center code (required)
-        :param list[FulfillmentInventory] inventories: Inventory updates (limit 500) (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['distribution_center_code', 'inventories']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method fulfillment_distribution_centers_distribution_center_code_inventory_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'distribution_center_code' is set
-        if ('distribution_center_code' not in params) or (params['distribution_center_code'] is None):
-            raise ValueError("Missing the required parameter `distribution_center_code` when calling `fulfillment_distribution_centers_distribution_center_code_inventory_post`")
-        # verify the required parameter 'inventories' is set
-        if ('inventories' not in params) or (params['inventories'] is None):
-            raise ValueError("Missing the required parameter `inventories` when calling `fulfillment_distribution_centers_distribution_center_code_inventory_post`")
-
-        resource_path = '/fulfillment/distribution_centers/{distribution_center_code}/inventory'.replace('{format}', 'json')
-        path_params = {}
-        if 'distribution_center_code' in params:
-            path_params['distribution_center_code'] = params['distribution_center_code']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'inventories' in params:
-            body_params = params['inventories']
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
-
-        return self.api_client.call_api(resource_path, 'POST',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type=None,
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'),
-                                            _return_http_data_only=params.get('_return_http_data_only'))
-
-    def fulfillment_distribution_centers_distribution_center_code_orders_get(self, distribution_center_code, **kwargs):
+    def get_distribution_center_orders(self, distribution_center_code, **kwargs):
         """
         Retrieve orders queued up for this distribution center.
         Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  The orders that are returned contain only items for this distribution center and are expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
@@ -284,7 +173,7 @@ class FulfillmentApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.fulfillment_distribution_centers_distribution_center_code_orders_get(distribution_center_code, callback=callback_function)
+        >>> thread = api.get_distribution_center_orders(distribution_center_code, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -295,12 +184,12 @@ class FulfillmentApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.fulfillment_distribution_centers_distribution_center_code_orders_get_with_http_info(distribution_center_code, **kwargs)
+            return self.get_distribution_center_orders_with_http_info(distribution_center_code, **kwargs)
         else:
-            (data) = self.fulfillment_distribution_centers_distribution_center_code_orders_get_with_http_info(distribution_center_code, **kwargs)
+            (data) = self.get_distribution_center_orders_with_http_info(distribution_center_code, **kwargs)
             return data
 
-    def fulfillment_distribution_centers_distribution_center_code_orders_get_with_http_info(self, distribution_center_code, **kwargs):
+    def get_distribution_center_orders_with_http_info(self, distribution_center_code, **kwargs):
         """
         Retrieve orders queued up for this distribution center.
         Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  The orders that are returned contain only items for this distribution center and are expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
@@ -311,7 +200,7 @@ class FulfillmentApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.fulfillment_distribution_centers_distribution_center_code_orders_get_with_http_info(distribution_center_code, callback=callback_function)
+        >>> thread = api.get_distribution_center_orders_with_http_info(distribution_center_code, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -330,13 +219,13 @@ class FulfillmentApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method fulfillment_distribution_centers_distribution_center_code_orders_get" % key
+                    " to method get_distribution_center_orders" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'distribution_center_code' is set
         if ('distribution_center_code' not in params) or (params['distribution_center_code'] is None):
-            raise ValueError("Missing the required parameter `distribution_center_code` when calling `fulfillment_distribution_centers_distribution_center_code_orders_get`")
+            raise ValueError("Missing the required parameter `distribution_center_code` when calling `get_distribution_center_orders`")
 
         resource_path = '/fulfillment/distribution_centers/{distribution_center_code}/orders'.replace('{format}', 'json')
         path_params = {}
@@ -377,7 +266,104 @@ class FulfillmentApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def fulfillment_distribution_centers_distribution_center_code_shipments_post(self, distribution_center_code, shipments, **kwargs):
+    def get_distribution_centers(self, **kwargs):
+        """
+        Retrieve distribution centers
+        Retrieves the distribution centers that this user has access to. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_distribution_centers(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: DistributionCentersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_distribution_centers_with_http_info(**kwargs)
+        else:
+            (data) = self.get_distribution_centers_with_http_info(**kwargs)
+            return data
+
+    def get_distribution_centers_with_http_info(self, **kwargs):
+        """
+        Retrieve distribution centers
+        Retrieves the distribution centers that this user has access to. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_distribution_centers_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: DistributionCentersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_distribution_centers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/fulfillment/distribution_centers'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DistributionCentersResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def ship_orders(self, distribution_center_code, shipments, **kwargs):
         """
         Mark orders as shipped
         Store the tracking information and mark the order shipped for this distribution center. 
@@ -388,7 +374,7 @@ class FulfillmentApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.fulfillment_distribution_centers_distribution_center_code_shipments_post(distribution_center_code, shipments, callback=callback_function)
+        >>> thread = api.ship_orders(distribution_center_code, shipments, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -400,12 +386,12 @@ class FulfillmentApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.fulfillment_distribution_centers_distribution_center_code_shipments_post_with_http_info(distribution_center_code, shipments, **kwargs)
+            return self.ship_orders_with_http_info(distribution_center_code, shipments, **kwargs)
         else:
-            (data) = self.fulfillment_distribution_centers_distribution_center_code_shipments_post_with_http_info(distribution_center_code, shipments, **kwargs)
+            (data) = self.ship_orders_with_http_info(distribution_center_code, shipments, **kwargs)
             return data
 
-    def fulfillment_distribution_centers_distribution_center_code_shipments_post_with_http_info(self, distribution_center_code, shipments, **kwargs):
+    def ship_orders_with_http_info(self, distribution_center_code, shipments, **kwargs):
         """
         Mark orders as shipped
         Store the tracking information and mark the order shipped for this distribution center. 
@@ -416,7 +402,7 @@ class FulfillmentApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.fulfillment_distribution_centers_distribution_center_code_shipments_post_with_http_info(distribution_center_code, shipments, callback=callback_function)
+        >>> thread = api.ship_orders_with_http_info(distribution_center_code, shipments, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -436,16 +422,16 @@ class FulfillmentApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method fulfillment_distribution_centers_distribution_center_code_shipments_post" % key
+                    " to method ship_orders" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'distribution_center_code' is set
         if ('distribution_center_code' not in params) or (params['distribution_center_code'] is None):
-            raise ValueError("Missing the required parameter `distribution_center_code` when calling `fulfillment_distribution_centers_distribution_center_code_shipments_post`")
+            raise ValueError("Missing the required parameter `distribution_center_code` when calling `ship_orders`")
         # verify the required parameter 'shipments' is set
         if ('shipments' not in params) or (params['shipments'] is None):
-            raise ValueError("Missing the required parameter `shipments` when calling `fulfillment_distribution_centers_distribution_center_code_shipments_post`")
+            raise ValueError("Missing the required parameter `shipments` when calling `ship_orders`")
 
         resource_path = '/fulfillment/distribution_centers/{distribution_center_code}/shipments'.replace('{format}', 'json')
         path_params = {}
@@ -488,10 +474,10 @@ class FulfillmentApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def fulfillment_distribution_centers_get(self, **kwargs):
+    def update_inventory(self, distribution_center_code, inventories, **kwargs):
         """
-        Retrieve distribution centers
-        Retrieves the distribution centers that this user has access to. 
+        Update inventory
+        Update the inventory for items associated with this distribution center 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -499,25 +485,27 @@ class FulfillmentApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.fulfillment_distribution_centers_get(callback=callback_function)
+        >>> thread = api.update_inventory(distribution_center_code, inventories, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: DistributionCentersResponse
+        :param str distribution_center_code: Distribution center code (required)
+        :param list[FulfillmentInventory] inventories: Inventory updates (limit 500) (required)
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.fulfillment_distribution_centers_get_with_http_info(**kwargs)
+            return self.update_inventory_with_http_info(distribution_center_code, inventories, **kwargs)
         else:
-            (data) = self.fulfillment_distribution_centers_get_with_http_info(**kwargs)
+            (data) = self.update_inventory_with_http_info(distribution_center_code, inventories, **kwargs)
             return data
 
-    def fulfillment_distribution_centers_get_with_http_info(self, **kwargs):
+    def update_inventory_with_http_info(self, distribution_center_code, inventories, **kwargs):
         """
-        Retrieve distribution centers
-        Retrieves the distribution centers that this user has access to. 
+        Update inventory
+        Update the inventory for items associated with this distribution center 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -525,16 +513,18 @@ class FulfillmentApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.fulfillment_distribution_centers_get_with_http_info(callback=callback_function)
+        >>> thread = api.update_inventory_with_http_info(distribution_center_code, inventories, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :return: DistributionCentersResponse
+        :param str distribution_center_code: Distribution center code (required)
+        :param list[FulfillmentInventory] inventories: Inventory updates (limit 500) (required)
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['distribution_center_code', 'inventories']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -543,13 +533,21 @@ class FulfillmentApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method fulfillment_distribution_centers_get" % key
+                    " to method update_inventory" % key
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'distribution_center_code' is set
+        if ('distribution_center_code' not in params) or (params['distribution_center_code'] is None):
+            raise ValueError("Missing the required parameter `distribution_center_code` when calling `update_inventory`")
+        # verify the required parameter 'inventories' is set
+        if ('inventories' not in params) or (params['inventories'] is None):
+            raise ValueError("Missing the required parameter `inventories` when calling `update_inventory`")
 
-        resource_path = '/fulfillment/distribution_centers'.replace('{format}', 'json')
+        resource_path = '/fulfillment/distribution_centers/{distribution_center_code}/inventory'.replace('{format}', 'json')
         path_params = {}
+        if 'distribution_center_code' in params:
+            path_params['distribution_center_code'] = params['distribution_center_code']
 
         query_params = {}
 
@@ -559,6 +557,8 @@ class FulfillmentApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'inventories' in params:
+            body_params = params['inventories']
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
@@ -573,14 +573,14 @@ class FulfillmentApi(object):
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
-        return self.api_client.call_api(resource_path, 'GET',
+        return self.api_client.call_api(resource_path, 'POST',
                                             path_params,
                                             query_params,
                                             header_params,
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='DistributionCentersResponse',
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

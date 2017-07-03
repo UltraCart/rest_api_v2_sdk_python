@@ -4,15 +4,15 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fulfillment_distribution_centers_distribution_center_code_acknowledgements_put**](FulfillmentApi.md#fulfillment_distribution_centers_distribution_center_code_acknowledgements_put) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
-[**fulfillment_distribution_centers_distribution_center_code_inventory_post**](FulfillmentApi.md#fulfillment_distribution_centers_distribution_center_code_inventory_post) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
-[**fulfillment_distribution_centers_distribution_center_code_orders_get**](FulfillmentApi.md#fulfillment_distribution_centers_distribution_center_code_orders_get) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
-[**fulfillment_distribution_centers_distribution_center_code_shipments_post**](FulfillmentApi.md#fulfillment_distribution_centers_distribution_center_code_shipments_post) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
-[**fulfillment_distribution_centers_get**](FulfillmentApi.md#fulfillment_distribution_centers_get) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
+[**acknowledge_orders**](FulfillmentApi.md#acknowledge_orders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
+[**get_distribution_center_orders**](FulfillmentApi.md#get_distribution_center_orders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
+[**get_distribution_centers**](FulfillmentApi.md#get_distribution_centers) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
+[**ship_orders**](FulfillmentApi.md#ship_orders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
+[**update_inventory**](FulfillmentApi.md#update_inventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
 
 
-# **fulfillment_distribution_centers_distribution_center_code_acknowledgements_put**
-> fulfillment_distribution_centers_distribution_center_code_acknowledgements_put(distribution_center_code, order_ids)
+# **acknowledge_orders**
+> acknowledge_orders(distribution_center_code, order_ids)
 
 Acknowledge receipt of orders.
 
@@ -39,9 +39,9 @@ order_ids = [ultracart.list[str]()] # list[str] | Orders to acknowledge receipt 
 
 try: 
     # Acknowledge receipt of orders.
-    api_instance.fulfillment_distribution_centers_distribution_center_code_acknowledgements_put(distribution_center_code, order_ids)
+    api_instance.acknowledge_orders(distribution_center_code, order_ids)
 except ApiException as e:
-    print "Exception when calling FulfillmentApi->fulfillment_distribution_centers_distribution_center_code_acknowledgements_put: %s\n" % e
+    print "Exception when calling FulfillmentApi->acknowledge_orders: %s\n" % e
 ```
 
 ### Parameters
@@ -66,63 +66,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **fulfillment_distribution_centers_distribution_center_code_inventory_post**
-> fulfillment_distribution_centers_distribution_center_code_inventory_post(distribution_center_code, inventories)
-
-Update inventory
-
-Update the inventory for items associated with this distribution center 
-
-### Example 
-```python
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = ultracart.FulfillmentApi()
-distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
-inventories = [ultracart.FulfillmentInventory()] # list[FulfillmentInventory] | Inventory updates (limit 500)
-
-try: 
-    # Update inventory
-    api_instance.fulfillment_distribution_centers_distribution_center_code_inventory_post(distribution_center_code, inventories)
-except ApiException as e:
-    print "Exception when calling FulfillmentApi->fulfillment_distribution_centers_distribution_center_code_inventory_post: %s\n" % e
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **distribution_center_code** | **str**| Distribution center code | 
- **inventories** | [**list[FulfillmentInventory]**](FulfillmentInventory.md)| Inventory updates (limit 500) | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **fulfillment_distribution_centers_distribution_center_code_orders_get**
-> OrdersResponse fulfillment_distribution_centers_distribution_center_code_orders_get(distribution_center_code)
+# **get_distribution_center_orders**
+> OrdersResponse get_distribution_center_orders(distribution_center_code)
 
 Retrieve orders queued up for this distribution center.
 
@@ -148,10 +93,10 @@ distribution_center_code = 'distribution_center_code_example' # str | Distributi
 
 try: 
     # Retrieve orders queued up for this distribution center.
-    api_response = api_instance.fulfillment_distribution_centers_distribution_center_code_orders_get(distribution_center_code)
+    api_response = api_instance.get_distribution_center_orders(distribution_center_code)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FulfillmentApi->fulfillment_distribution_centers_distribution_center_code_orders_get: %s\n" % e
+    print "Exception when calling FulfillmentApi->get_distribution_center_orders: %s\n" % e
 ```
 
 ### Parameters
@@ -175,8 +120,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **fulfillment_distribution_centers_distribution_center_code_shipments_post**
-> fulfillment_distribution_centers_distribution_center_code_shipments_post(distribution_center_code, shipments)
+# **get_distribution_centers**
+> DistributionCentersResponse get_distribution_centers()
+
+Retrieve distribution centers
+
+Retrieves the distribution centers that this user has access to. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.FulfillmentApi()
+
+try: 
+    # Retrieve distribution centers
+    api_response = api_instance.get_distribution_centers()
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling FulfillmentApi->get_distribution_centers: %s\n" % e
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DistributionCentersResponse**](DistributionCentersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ship_orders**
+> ship_orders(distribution_center_code, shipments)
 
 Mark orders as shipped
 
@@ -203,9 +198,9 @@ shipments = [ultracart.FulfillmentShipment()] # list[FulfillmentShipment] | Orde
 
 try: 
     # Mark orders as shipped
-    api_instance.fulfillment_distribution_centers_distribution_center_code_shipments_post(distribution_center_code, shipments)
+    api_instance.ship_orders(distribution_center_code, shipments)
 except ApiException as e:
-    print "Exception when calling FulfillmentApi->fulfillment_distribution_centers_distribution_center_code_shipments_post: %s\n" % e
+    print "Exception when calling FulfillmentApi->ship_orders: %s\n" % e
 ```
 
 ### Parameters
@@ -230,12 +225,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **fulfillment_distribution_centers_get**
-> DistributionCentersResponse fulfillment_distribution_centers_get()
+# **update_inventory**
+> update_inventory(distribution_center_code, inventories)
 
-Retrieve distribution centers
+Update inventory
 
-Retrieves the distribution centers that this user has access to. 
+Update the inventory for items associated with this distribution center 
 
 ### Example 
 ```python
@@ -253,21 +248,26 @@ ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = ultracart.FulfillmentApi()
+distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
+inventories = [ultracart.FulfillmentInventory()] # list[FulfillmentInventory] | Inventory updates (limit 500)
 
 try: 
-    # Retrieve distribution centers
-    api_response = api_instance.fulfillment_distribution_centers_get()
-    pprint(api_response)
+    # Update inventory
+    api_instance.update_inventory(distribution_center_code, inventories)
 except ApiException as e:
-    print "Exception when calling FulfillmentApi->fulfillment_distribution_centers_get: %s\n" % e
+    print "Exception when calling FulfillmentApi->update_inventory: %s\n" % e
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **distribution_center_code** | **str**| Distribution center code | 
+ **inventories** | [**list[FulfillmentInventory]**](FulfillmentInventory.md)| Inventory updates (limit 500) | 
 
 ### Return type
 
-[**DistributionCentersResponse**](DistributionCentersResponse.md)
+void (empty response body)
 
 ### Authorization
 
