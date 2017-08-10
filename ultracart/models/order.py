@@ -376,7 +376,7 @@ class Order(object):
         :param current_stage: The current_stage of this Order.
         :type: str
         """
-        allowed_values = ["Accounts Receivable", "Pending Clearance", "Fraud Review", "Rejected", "Shipping Department", "Completed Order", "Quote Request", "Quote Sent", "Least Cost Routing"]
+        allowed_values = ["Accounts Receivable", "Pending Clearance", "Fraud Review", "Rejected", "Shipping Department", "Completed Order", "Quote Request", "Quote Sent", "Least Cost Routing", "Unknown"]
         if current_stage not in allowed_values:
             raise ValueError(
                 "Invalid value for `current_stage` ({0}), must be one of {1}"

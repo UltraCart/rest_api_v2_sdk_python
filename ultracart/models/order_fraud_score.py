@@ -249,12 +249,6 @@ class OrderFraudScore(object):
         :param customer_phone_in_billing_location: The customer_phone_in_billing_location of this OrderFraudScore.
         :type: str
         """
-        allowed_values = ["", "No", "NotFound", "Yes"]
-        if customer_phone_in_billing_location not in allowed_values:
-            raise ValueError(
-                "Invalid value for `customer_phone_in_billing_location` ({0}), must be one of {1}"
-                .format(customer_phone_in_billing_location, allowed_values)
-            )
 
         self._customer_phone_in_billing_location = customer_phone_in_billing_location
 

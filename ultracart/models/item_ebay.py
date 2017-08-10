@@ -1172,12 +1172,6 @@ class ItemEbay(object):
         :param listing_type: The listing_type of this ItemEbay.
         :type: str
         """
-        allowed_values = ["", "Auction", "Fixed", "Store"]
-        if listing_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `listing_type` ({0}), must be one of {1}"
-                .format(listing_type, allowed_values)
-            )
 
         self._listing_type = listing_type
 
