@@ -417,7 +417,7 @@ class ItemContentMultimedia(object):
     def url(self):
         """
         Gets the url of this ItemContentMultimedia.
-        URL to download file
+        URL to download file (on new multimedia record this can be a URL for UltraCart to fetch)
 
         :return: The url of this ItemContentMultimedia.
         :rtype: str
@@ -428,7 +428,7 @@ class ItemContentMultimedia(object):
     def url(self, url):
         """
         Sets the url of this ItemContentMultimedia.
-        URL to download file
+        URL to download file (on new multimedia record this can be a URL for UltraCart to fetch)
 
         :param url: The url of this ItemContentMultimedia.
         :type: str

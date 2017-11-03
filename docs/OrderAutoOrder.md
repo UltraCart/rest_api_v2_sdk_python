@@ -3,7 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**auto_order_code** | **str** | Unique identifier assigned to the auto order | [optional] 
+**auto_order_code** | **str** | Unique code assigned to the auto order | [optional] 
+**auto_order_oid** | **int** | Unique identifier assigned to the auto order | [optional] 
 **original_order_id** | **str** | Orignal order id that started this auto order sequence | [optional] 
 **status** | **str** | The status of the auto order | [optional] 
 

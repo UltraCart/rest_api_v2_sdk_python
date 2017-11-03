@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**delete_customer**](CustomerApi.md#delete_customer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**get_customer**](CustomerApi.md#get_customer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**get_customers**](CustomerApi.md#get_customers) | **GET** /customer/customers | Retrieve customers
+[**get_customers_by_query**](CustomerApi.md#get_customers_by_query) | **GET** /customer/customers/query | Retrieve customers by query
+[**get_editor_values**](CustomerApi.md#get_editor_values) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**insert_customer**](CustomerApi.md#insert_customer) | **POST** /customer/customers | Insert a customer
 [**update_customer**](CustomerApi.md#update_customer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 
@@ -225,6 +227,120 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomersResponse**](CustomersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_customers_by_query**
+> CustomersResponse get_customers_by_query(customer_query, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+
+Retrieve customers by query
+
+Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.CustomerApi()
+customer_query = ultracart.CustomerQuery() # CustomerQuery | Customer query
+limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) (default to 100)
+offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
+since = 'since_example' # str | Fetch customers that have been created/modified since this date/time. (optional)
+sort = 'sort_example' # str | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Retrieve customers by query
+    api_response = api_instance.get_customers_by_query(customer_query, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling CustomerApi->get_customers_by_query: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_query** | [**CustomerQuery**](CustomerQuery.md)| Customer query | 
+ **limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **str**| Fetch customers that have been created/modified since this date/time. | [optional] 
+ **sort** | **str**| The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**CustomersResponse**](CustomersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_editor_values**
+> CustomerEditorValues get_editor_values()
+
+Retrieve values needed for a customer profile editor
+
+Retrieve values needed for a customer profile editor. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.CustomerApi()
+
+try: 
+    # Retrieve values needed for a customer profile editor
+    api_response = api_instance.get_editor_values()
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling CustomerApi->get_editor_values: %s\n" % e
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CustomerEditorValues**](CustomerEditorValues.md)
 
 ### Authorization
 

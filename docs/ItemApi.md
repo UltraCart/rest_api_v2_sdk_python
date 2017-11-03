@@ -6,9 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_item**](ItemApi.md#delete_item) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 [**get_item**](ItemApi.md#get_item) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
+[**get_item_by_merchant_item_id**](ItemApi.md#get_item_by_merchant_item_id) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
 [**insert_item**](ItemApi.md#insert_item) | **POST** /item/items | Create an item
 [**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**update_items**](ItemApi.md#update_items) | **PUT** /item/items/batch | Update multiple items
 [**upload_temporary_multimedia**](ItemApi.md#upload_temporary_multimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
@@ -105,6 +107,64 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchant_item_oid** | **int**| The item oid to retrieve. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+
+### Return type
+
+[**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_item_by_merchant_item_id**
+> ItemResponse get_item_by_merchant_item_id(merchant_item_id, expand=expand, placeholders=placeholders)
+
+Retrieve an item by item id
+
+Retrieves a single item using the specified item id. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.ItemApi()
+merchant_item_id = 'merchant_item_id_example' # str | The item id to retrieve.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+
+try: 
+    # Retrieve an item by item id
+    api_response = api_instance.get_item_by_merchant_item_id(merchant_item_id, expand=expand, placeholders=placeholders)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling ItemApi->get_item_by_merchant_item_id: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_id** | **str**| The item id to retrieve. | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
  **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
@@ -297,6 +357,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_items**
+> ItemsResponse update_items(items_request, expand=expand, placeholders=placeholders, async=async)
+
+Update multiple items
+
+Update multiple item on the UltraCart account. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.ItemApi()
+items_request = ultracart.ItemsRequest() # ItemsRequest | Items to update (synchronous maximum 20 / asynchronous maximum 100)
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+async = true # bool | True if the operation should be run async.  No result returned (optional)
+
+try: 
+    # Update multiple items
+    api_response = api_instance.update_items(items_request, expand=expand, placeholders=placeholders, async=async)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling ItemApi->update_items: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **items_request** | [**ItemsRequest**](ItemsRequest.md)| Items to update (synchronous maximum 20 / asynchronous maximum 100) | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+ **async** | **bool**| True if the operation should be run async.  No result returned | [optional] 
+
+### Return type
+
+[**ItemsResponse**](ItemsResponse.md)
 
 ### Authorization
 

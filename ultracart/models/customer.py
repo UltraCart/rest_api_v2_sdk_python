@@ -681,11 +681,6 @@ class Customer(object):
         :type: str
         """
 
-        if not last_modified_dts:
-            raise ValueError("Invalid value for `last_modified_dts`, must not be `None`")
-        if len(last_modified_dts) > 25:
-            raise ValueError("Invalid value for `last_modified_dts`, length must be less than `25`")
-
         self._last_modified_dts = last_modified_dts
 
     @property

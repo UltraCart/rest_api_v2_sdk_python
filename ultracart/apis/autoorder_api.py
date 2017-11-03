@@ -159,6 +159,222 @@ class AutoorderApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
+    def get_auto_order_by_code(self, auto_order_code, **kwargs):
+        """
+        Retrieve an auto order
+        Retrieves a single auto order using the specified reference (original) order id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_auto_order_by_code(auto_order_code, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str auto_order_code: The auto order oid to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_auto_order_by_code_with_http_info(auto_order_code, **kwargs)
+        else:
+            (data) = self.get_auto_order_by_code_with_http_info(auto_order_code, **kwargs)
+            return data
+
+    def get_auto_order_by_code_with_http_info(self, auto_order_code, **kwargs):
+        """
+        Retrieve an auto order
+        Retrieves a single auto order using the specified reference (original) order id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_auto_order_by_code_with_http_info(auto_order_code, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str auto_order_code: The auto order oid to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['auto_order_code', 'expand']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_auto_order_by_code" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'auto_order_code' is set
+        if ('auto_order_code' not in params) or (params['auto_order_code'] is None):
+            raise ValueError("Missing the required parameter `auto_order_code` when calling `get_auto_order_by_code`")
+
+        resource_path = '/auto_order/auto_orders/code/{auto_order_code}'.replace('{format}', 'json')
+        path_params = {}
+        if 'auto_order_code' in params:
+            path_params['auto_order_code'] = params['auto_order_code']
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='AutoOrderResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_auto_order_by_reference_order_id(self, reference_order_id, **kwargs):
+        """
+        Retrieve an auto order
+        Retrieves a single auto order using the specified reference (original) order id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_auto_order_by_reference_order_id(reference_order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str reference_order_id: The auto order oid to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_auto_order_by_reference_order_id_with_http_info(reference_order_id, **kwargs)
+        else:
+            (data) = self.get_auto_order_by_reference_order_id_with_http_info(reference_order_id, **kwargs)
+            return data
+
+    def get_auto_order_by_reference_order_id_with_http_info(self, reference_order_id, **kwargs):
+        """
+        Retrieve an auto order
+        Retrieves a single auto order using the specified reference (original) order id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_auto_order_by_reference_order_id_with_http_info(reference_order_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str reference_order_id: The auto order oid to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['reference_order_id', 'expand']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_auto_order_by_reference_order_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'reference_order_id' is set
+        if ('reference_order_id' not in params) or (params['reference_order_id'] is None):
+            raise ValueError("Missing the required parameter `reference_order_id` when calling `get_auto_order_by_reference_order_id`")
+
+        resource_path = '/auto_order/auto_orders/reference_order_id/{reference_order_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'reference_order_id' in params:
+            path_params['reference_order_id'] = params['reference_order_id']
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='AutoOrderResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def get_auto_orders(self, **kwargs):
         """
         Retrieve auto orders

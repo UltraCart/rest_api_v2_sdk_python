@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**delete_order**](OrderApi.md#delete_order) | **DELETE** /order/orders/{order_id} | Delete an order
 [**get_order**](OrderApi.md#get_order) | **GET** /order/orders/{order_id} | Retrieve an order
 [**get_orders**](OrderApi.md#get_orders) | **GET** /order/orders | Retrieve orders
+[**get_orders_by_query**](OrderApi.md#get_orders_by_query) | **POST** /order/orders/query | Retrieve orders
+[**refund_order**](OrderApi.md#refund_order) | **PUT** /order/orders/{order_id}/refund | Refund an order
 [**resend_receipt**](OrderApi.md#resend_receipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**resend_shipment_confirmation**](OrderApi.md#resend_shipment_confirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 [**update_order**](OrderApi.md#update_order) | **PUT** /order/orders/{order_id} | Update an order
@@ -286,6 +288,136 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_orders_by_query**
+> OrdersResponse get_orders_by_query(order_query, limit=limit, offset=offset, sort=sort, expand=expand)
+
+Retrieve orders
+
+Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.OrderApi()
+order_query = ultracart.OrderQuery() # OrderQuery | Order query
+limit = 100 # int | The maximum number of records to return on this one API call. (Maximum 200) (optional) (default to 100)
+offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
+sort = 'sort_example' # str | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
+
+try: 
+    # Retrieve orders
+    api_response = api_instance.get_orders_by_query(order_query, limit=limit, offset=offset, sort=sort, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling OrderApi->get_orders_by_query: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_query** | [**OrderQuery**](OrderQuery.md)| Order query | 
+ **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **str**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **expand** | **str**| The object expansion to perform on the result. | [optional] 
+
+### Return type
+
+[**OrdersResponse**](OrdersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **refund_order**
+> OrderResponse refund_order(order, order_id, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, expand=expand)
+
+Refund an order
+
+Perform a refund operation on an order and then update the order if successful 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.OrderApi()
+order = ultracart.Order() # Order | Order to refund
+order_id = 'order_id_example' # str | The order id to refund.
+reject_after_refund = false # bool | Reject order after refund (optional) (default to false)
+skip_customer_notification = false # bool | Skip customer email notification (optional) (default to false)
+auto_order_cancel = false # bool | Cancel associated auto orders (optional) (default to false)
+manual_refund = false # bool | Consider a manual refund done externally (optional) (default to false)
+reverse_affiliate_transactions = true # bool | Reverse affiliate transactions (optional) (default to true)
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Refund an order
+    api_response = api_instance.refund_order(order, order_id, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling OrderApi->refund_order: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order** | [**Order**](Order.md)| Order to refund | 
+ **order_id** | **str**| The order id to refund. | 
+ **reject_after_refund** | **bool**| Reject order after refund | [optional] [default to false]
+ **skip_customer_notification** | **bool**| Skip customer email notification | [optional] [default to false]
+ **auto_order_cancel** | **bool**| Cancel associated auto orders | [optional] [default to false]
+ **manual_refund** | **bool**| Consider a manual refund done externally | [optional] [default to false]
+ **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional] [default to true]
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

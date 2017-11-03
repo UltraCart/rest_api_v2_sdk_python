@@ -1006,7 +1006,7 @@ class OrderItem(object):
     def quantity_refunded(self):
         """
         Gets the quantity_refunded of this OrderItem.
-        Quantity refunded on this item
+        Quantity refunded on this item (read only except refund operation)
 
         :return: The quantity_refunded of this OrderItem.
         :rtype: float
@@ -1017,7 +1017,7 @@ class OrderItem(object):
     def quantity_refunded(self, quantity_refunded):
         """
         Sets the quantity_refunded of this OrderItem.
-        Quantity refunded on this item
+        Quantity refunded on this item (read only except refund operation)
 
         :param quantity_refunded: The quantity_refunded of this OrderItem.
         :type: float

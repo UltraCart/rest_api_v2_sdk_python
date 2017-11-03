@@ -25,6 +25,13 @@
 from __future__ import absolute_import
 
 # import models into sdk package
+from .models.affiliate_click import AffiliateClick
+from .models.affiliate_click_query import AffiliateClickQuery
+from .models.affiliate_clicks_response import AffiliateClicksResponse
+from .models.affiliate_ledger import AffiliateLedger
+from .models.affiliate_ledger_query import AffiliateLedgerQuery
+from .models.affiliate_ledgers_response import AffiliateLedgersResponse
+from .models.affiliate_link import AffiliateLink
 from .models.api_user_application_profile import ApiUserApplicationProfile
 from .models.auto_order import AutoOrder
 from .models.auto_order_item import AutoOrderItem
@@ -93,11 +100,15 @@ from .models.checkout_handoff_request import CheckoutHandoffRequest
 from .models.checkout_handoff_response import CheckoutHandoffResponse
 from .models.checkout_setup_browser_key_request import CheckoutSetupBrowserKeyRequest
 from .models.checkout_setup_browser_key_response import CheckoutSetupBrowserKeyResponse
+from .models.city_state_zip import CityStateZip
 from .models.currency import Currency
 from .models.customer import Customer
+from .models.customer_affiliate import CustomerAffiliate
 from .models.customer_billing import CustomerBilling
 from .models.customer_card import CustomerCard
+from .models.customer_editor_values import CustomerEditorValues
 from .models.customer_pricing_tier import CustomerPricingTier
+from .models.customer_query import CustomerQuery
 from .models.customer_response import CustomerResponse
 from .models.customer_shipping import CustomerShipping
 from .models.customers_response import CustomersResponse
@@ -177,6 +188,7 @@ from .models.item_variant_item import ItemVariantItem
 from .models.item_variation import ItemVariation
 from .models.item_variation_option import ItemVariationOption
 from .models.item_wishlist_member import ItemWishlistMember
+from .models.items_request import ItemsRequest
 from .models.items_response import ItemsResponse
 from .models.oauth_revoke_success_response import OauthRevokeSuccessResponse
 from .models.oauth_token_response import OauthTokenResponse
@@ -211,6 +223,7 @@ from .models.order_payment_e_check import OrderPaymentECheck
 from .models.order_payment_purchase_order import OrderPaymentPurchaseOrder
 from .models.order_payment_transaction import OrderPaymentTransaction
 from .models.order_payment_transaction_detail import OrderPaymentTransactionDetail
+from .models.order_query import OrderQuery
 from .models.order_quote import OrderQuote
 from .models.order_response import OrderResponse
 from .models.order_salesforce import OrderSalesforce
@@ -236,6 +249,7 @@ from .models.webhooks_response import WebhooksResponse
 from .models.weight import Weight
 
 # import apis into sdk package
+from .apis.affiliate_api import AffiliateApi
 from .apis.autoorder_api import AutoorderApi
 from .apis.chargeback_api import ChargebackApi
 from .apis.checkout_api import CheckoutApi

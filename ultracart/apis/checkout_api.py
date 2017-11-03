@@ -67,7 +67,7 @@ class CheckoutApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Cart cart: Cart (required)
-        :return: ItemsResponse
+        :return: CityStateZip
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -94,7 +94,7 @@ class CheckoutApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param Cart cart: Cart (required)
-        :return: ItemsResponse
+        :return: CityStateZip
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -150,7 +150,7 @@ class CheckoutApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='ItemsResponse',
+                                            response_type='CityStateZip',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -579,7 +579,7 @@ class CheckoutApi(object):
     def handoff_cart(self, handoff_request, **kwargs):
         """
         Handoff cart
-        Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -607,7 +607,7 @@ class CheckoutApi(object):
     def handoff_cart_with_http_info(self, handoff_request, **kwargs):
         """
         Handoff cart
-        Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function

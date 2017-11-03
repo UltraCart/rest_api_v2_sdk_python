@@ -488,6 +488,227 @@ class CustomerApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
+    def get_customers_by_query(self, customer_query, **kwargs):
+        """
+        Retrieve customers by query
+        Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_customers_by_query(customer_query, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param CustomerQuery customer_query: Customer query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Max 200)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch customers that have been created/modified since this date/time.
+        :param str sort: The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CustomersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_customers_by_query_with_http_info(customer_query, **kwargs)
+        else:
+            (data) = self.get_customers_by_query_with_http_info(customer_query, **kwargs)
+            return data
+
+    def get_customers_by_query_with_http_info(self, customer_query, **kwargs):
+        """
+        Retrieve customers by query
+        Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_customers_by_query_with_http_info(customer_query, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param CustomerQuery customer_query: Customer query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Max 200)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch customers that have been created/modified since this date/time.
+        :param str sort: The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CustomersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['customer_query', 'limit', 'offset', 'since', 'sort', 'expand']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_customers_by_query" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'customer_query' is set
+        if ('customer_query' not in params) or (params['customer_query'] is None):
+            raise ValueError("Missing the required parameter `customer_query` when calling `get_customers_by_query`")
+
+        resource_path = '/customer/customers/query'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'limit' in params:
+            query_params['_limit'] = params['limit']
+        if 'offset' in params:
+            query_params['_offset'] = params['offset']
+        if 'since' in params:
+            query_params['_since'] = params['since']
+        if 'sort' in params:
+            query_params['_sort'] = params['sort']
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'customer_query' in params:
+            body_params = params['customer_query']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CustomersResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_editor_values(self, **kwargs):
+        """
+        Retrieve values needed for a customer profile editor
+        Retrieve values needed for a customer profile editor. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_editor_values(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: CustomerEditorValues
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_editor_values_with_http_info(**kwargs)
+        else:
+            (data) = self.get_editor_values_with_http_info(**kwargs)
+            return data
+
+    def get_editor_values_with_http_info(self, **kwargs):
+        """
+        Retrieve values needed for a customer profile editor
+        Retrieve values needed for a customer profile editor. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_editor_values_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :return: CustomerEditorValues
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_editor_values" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/customer/editor_values'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='CustomerEditorValues',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def insert_customer(self, customer, **kwargs):
         """
         Insert a customer

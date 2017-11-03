@@ -441,11 +441,6 @@ class CustomerShipping(object):
         :type: str
         """
 
-        if not last_used_dts:
-            raise ValueError("Invalid value for `last_used_dts`, must not be `None`")
-        if len(last_used_dts) > 25:
-            raise ValueError("Invalid value for `last_used_dts`, length must be less than `25`")
-
         self._last_used_dts = last_used_dts
 
     @property

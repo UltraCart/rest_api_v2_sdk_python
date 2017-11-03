@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **temp_multimedia_oid** | **int** | Temporary multimedia object identifier assigned if uploading new multimedia | [optional] 
 **thumbnails** | [**list[ItemContentMultimediaThumbnail]**](ItemContentMultimediaThumbnail.md) | Thumbnails of this image | [optional] 
 **type** | **str** | Type of file | [optional] 
-**url** | **str** | URL to download file | [optional] 
+**url** | **str** | URL to download file (on new multimedia record this can be a URL for UltraCart to fetch) | [optional] 
 **width** | **int** | Width of the image | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

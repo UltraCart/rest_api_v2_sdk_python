@@ -5,6 +5,8 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_auto_order**](AutoorderApi.md#get_auto_order) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+[**get_auto_order_by_code**](AutoorderApi.md#get_auto_order_by_code) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
+[**get_auto_order_by_reference_order_id**](AutoorderApi.md#get_auto_order_by_reference_order_id) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
 [**get_auto_orders**](AutoorderApi.md#get_auto_orders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 [**update_auto_order**](AutoorderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 
@@ -48,6 +50,118 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_order_oid** | **int**| The auto order oid to retrieve. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_auto_order_by_code**
+> AutoOrderResponse get_auto_order_by_code(auto_order_code, expand=expand)
+
+Retrieve an auto order
+
+Retrieves a single auto order using the specified reference (original) order id. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.AutoorderApi()
+auto_order_code = 'auto_order_code_example' # str | The auto order oid to retrieve.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Retrieve an auto order
+    api_response = api_instance.get_auto_order_by_code(auto_order_code, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling AutoorderApi->get_auto_order_by_code: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_code** | **str**| The auto order oid to retrieve. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_auto_order_by_reference_order_id**
+> AutoOrderResponse get_auto_order_by_reference_order_id(reference_order_id, expand=expand)
+
+Retrieve an auto order
+
+Retrieves a single auto order using the specified reference (original) order id. 
+
+### Example 
+```python
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ultraCartSimpleApiKey
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = ultracart.AutoorderApi()
+reference_order_id = 'reference_order_id_example' # str | The auto order oid to retrieve.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Retrieve an auto order
+    api_response = api_instance.get_auto_order_by_reference_order_id(reference_order_id, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling AutoorderApi->get_auto_order_by_reference_order_id: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reference_order_id** | **str**| The auto order oid to retrieve. | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

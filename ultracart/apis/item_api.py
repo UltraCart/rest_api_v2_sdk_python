@@ -267,6 +267,118 @@ class ItemApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
+    def get_item_by_merchant_item_id(self, merchant_item_id, **kwargs):
+        """
+        Retrieve an item by item id
+        Retrieves a single item using the specified item id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_item_by_merchant_item_id(merchant_item_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str merchant_item_id: The item id to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: ItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_item_by_merchant_item_id_with_http_info(merchant_item_id, **kwargs)
+        else:
+            (data) = self.get_item_by_merchant_item_id_with_http_info(merchant_item_id, **kwargs)
+            return data
+
+    def get_item_by_merchant_item_id_with_http_info(self, merchant_item_id, **kwargs):
+        """
+        Retrieve an item by item id
+        Retrieves a single item using the specified item id. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_item_by_merchant_item_id_with_http_info(merchant_item_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str merchant_item_id: The item id to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: ItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['merchant_item_id', 'expand', 'placeholders']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_item_by_merchant_item_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'merchant_item_id' is set
+        if ('merchant_item_id' not in params) or (params['merchant_item_id'] is None):
+            raise ValueError("Missing the required parameter `merchant_item_id` when calling `get_item_by_merchant_item_id`")
+
+        resource_path = '/item/items/merchant_item_id/{merchant_item_id}'.replace('{format}', 'json')
+        path_params = {}
+        if 'merchant_item_id' in params:
+            path_params['merchant_item_id'] = params['merchant_item_id']
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+        if 'placeholders' in params:
+            query_params['_placeholders'] = params['placeholders']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ItemResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def get_items(self, **kwargs):
         """
         Retrieve items
@@ -623,6 +735,122 @@ class ItemApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='ItemResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_items(self, items_request, **kwargs):
+        """
+        Update multiple items
+        Update multiple item on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_items(items_request, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ItemsRequest items_request: Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :param bool async: True if the operation should be run async.  No result returned
+        :return: ItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_items_with_http_info(items_request, **kwargs)
+        else:
+            (data) = self.update_items_with_http_info(items_request, **kwargs)
+            return data
+
+    def update_items_with_http_info(self, items_request, **kwargs):
+        """
+        Update multiple items
+        Update multiple item on the UltraCart account. 
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_items_with_http_info(items_request, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param ItemsRequest items_request: Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :param bool async: True if the operation should be run async.  No result returned
+        :return: ItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['items_request', 'expand', 'placeholders', 'async']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_items" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'items_request' is set
+        if ('items_request' not in params) or (params['items_request'] is None):
+            raise ValueError("Missing the required parameter `items_request` when calling `update_items`")
+
+        resource_path = '/item/items/batch'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'expand' in params:
+            query_params['_expand'] = params['expand']
+        if 'placeholders' in params:
+            query_params['_placeholders'] = params['placeholders']
+        if 'async' in params:
+            query_params['_async'] = params['async']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'items_request' in params:
+            body_params = params['items_request']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json; charset=UTF-8'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api(resource_path, 'PUT',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ItemsResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))

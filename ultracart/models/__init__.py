@@ -25,6 +25,13 @@
 from __future__ import absolute_import
 
 # import models into model package
+from .affiliate_click import AffiliateClick
+from .affiliate_click_query import AffiliateClickQuery
+from .affiliate_clicks_response import AffiliateClicksResponse
+from .affiliate_ledger import AffiliateLedger
+from .affiliate_ledger_query import AffiliateLedgerQuery
+from .affiliate_ledgers_response import AffiliateLedgersResponse
+from .affiliate_link import AffiliateLink
 from .api_user_application_profile import ApiUserApplicationProfile
 from .auto_order import AutoOrder
 from .auto_order_item import AutoOrderItem
@@ -93,11 +100,15 @@ from .checkout_handoff_request import CheckoutHandoffRequest
 from .checkout_handoff_response import CheckoutHandoffResponse
 from .checkout_setup_browser_key_request import CheckoutSetupBrowserKeyRequest
 from .checkout_setup_browser_key_response import CheckoutSetupBrowserKeyResponse
+from .city_state_zip import CityStateZip
 from .currency import Currency
 from .customer import Customer
+from .customer_affiliate import CustomerAffiliate
 from .customer_billing import CustomerBilling
 from .customer_card import CustomerCard
+from .customer_editor_values import CustomerEditorValues
 from .customer_pricing_tier import CustomerPricingTier
+from .customer_query import CustomerQuery
 from .customer_response import CustomerResponse
 from .customer_shipping import CustomerShipping
 from .customers_response import CustomersResponse
@@ -177,6 +188,7 @@ from .item_variant_item import ItemVariantItem
 from .item_variation import ItemVariation
 from .item_variation_option import ItemVariationOption
 from .item_wishlist_member import ItemWishlistMember
+from .items_request import ItemsRequest
 from .items_response import ItemsResponse
 from .oauth_revoke_success_response import OauthRevokeSuccessResponse
 from .oauth_token_response import OauthTokenResponse
@@ -211,6 +223,7 @@ from .order_payment_e_check import OrderPaymentECheck
 from .order_payment_purchase_order import OrderPaymentPurchaseOrder
 from .order_payment_transaction import OrderPaymentTransaction
 from .order_payment_transaction_detail import OrderPaymentTransactionDetail
+from .order_query import OrderQuery
 from .order_quote import OrderQuote
 from .order_response import OrderResponse
 from .order_salesforce import OrderSalesforce

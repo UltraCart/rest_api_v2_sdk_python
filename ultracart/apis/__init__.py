@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 
 # import apis into api package
+from .affiliate_api import AffiliateApi
 from .autoorder_api import AutoorderApi
 from .chargeback_api import ChargebackApi
 from .checkout_api import CheckoutApi

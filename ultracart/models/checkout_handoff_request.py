@@ -158,7 +158,7 @@ class CheckoutHandoffRequest(object):
         :param operation: The operation of this CheckoutHandoffRequest.
         :type: str
         """
-        allowed_values = ["checkout", "payPal", "payPalCredit", "view"]
+        allowed_values = ["checkout", "payPal", "payPalCredit", "view", "affirm"]
         if operation not in allowed_values:
             raise ValueError(
                 "Invalid value for `operation` ({0}), must be one of {1}"
