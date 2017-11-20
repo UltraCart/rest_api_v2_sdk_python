@@ -1,14 +1,14 @@
-# ultracart.AutoorderApi
+# ultracart.AutoOrderApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_auto_order**](AutoorderApi.md#get_auto_order) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-[**get_auto_order_by_code**](AutoorderApi.md#get_auto_order_by_code) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
-[**get_auto_order_by_reference_order_id**](AutoorderApi.md#get_auto_order_by_reference_order_id) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
-[**get_auto_orders**](AutoorderApi.md#get_auto_orders) | **GET** /auto_order/auto_orders | Retrieve auto orders
-[**update_auto_order**](AutoorderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+[**get_auto_order**](AutoOrderApi.md#get_auto_order) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+[**get_auto_order_by_code**](AutoOrderApi.md#get_auto_order_by_code) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
+[**get_auto_order_by_reference_order_id**](AutoOrderApi.md#get_auto_order_by_reference_order_id) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
+[**get_auto_orders**](AutoOrderApi.md#get_auto_orders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**update_auto_order**](AutoOrderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 
 
 # **get_auto_order**
@@ -20,20 +20,23 @@ Retrieves a single auto order using the specified auto order oid.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.AutoorderApi()
+api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order_oid = 56 # int | The auto order oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -42,7 +45,7 @@ try:
     api_response = api_instance.get_auto_order(auto_order_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AutoorderApi->get_auto_order: %s\n" % e
+    print("Exception when calling AutoOrderApi->get_auto_order: %s\n" % e)
 ```
 
 ### Parameters
@@ -76,20 +79,23 @@ Retrieves a single auto order using the specified reference (original) order id.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.AutoorderApi()
+api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order_code = 'auto_order_code_example' # str | The auto order oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -98,7 +104,7 @@ try:
     api_response = api_instance.get_auto_order_by_code(auto_order_code, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AutoorderApi->get_auto_order_by_code: %s\n" % e
+    print("Exception when calling AutoOrderApi->get_auto_order_by_code: %s\n" % e)
 ```
 
 ### Parameters
@@ -132,20 +138,23 @@ Retrieves a single auto order using the specified reference (original) order id.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.AutoorderApi()
+api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 reference_order_id = 'reference_order_id_example' # str | The auto order oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -154,7 +163,7 @@ try:
     api_response = api_instance.get_auto_order_by_reference_order_id(reference_order_id, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AutoorderApi->get_auto_order_by_reference_order_id: %s\n" % e
+    print("Exception when calling AutoOrderApi->get_auto_order_by_reference_order_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -188,20 +197,23 @@ Retrieves auto orders from the account.  If no parameters are specified, all aut
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.AutoorderApi()
+api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order_code = 'auto_order_code_example' # str | Auto order code (optional)
 original_order_id = 'original_order_id_example' # str | Original order id (optional)
 first_name = 'first_name_example' # str | First name (optional)
@@ -231,7 +243,7 @@ try:
     api_response = api_instance.get_auto_orders(auto_order_code=auto_order_code, original_order_id=original_order_id, first_name=first_name, last_name=last_name, company=company, city=city, state=state, postal_code=postal_code, country_code=country_code, phone=phone, email=email, original_order_date_begin=original_order_date_begin, original_order_date_end=original_order_date_end, next_shipment_date_begin=next_shipment_date_begin, next_shipment_date_end=next_shipment_date_end, card_type=card_type, item_id=item_id, status=status, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AutoorderApi->get_auto_orders: %s\n" % e
+    print("Exception when calling AutoOrderApi->get_auto_orders: %s\n" % e)
 ```
 
 ### Parameters
@@ -286,20 +298,23 @@ Update an auto order on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.AutoorderApi()
+api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order = ultracart.AutoOrder() # AutoOrder | Auto order to update
 auto_order_oid = 56 # int | The auto order oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -309,7 +324,7 @@ try:
     api_response = api_instance.update_auto_order(auto_order, auto_order_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AutoorderApi->update_auto_order: %s\n" % e
+    print("Exception when calling AutoOrderApi->update_auto_order: %s\n" % e)
 ```
 
 ### Parameters

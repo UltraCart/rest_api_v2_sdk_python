@@ -23,20 +23,23 @@ Delete a coupon on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CouponApi()
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon_oid = 56 # int | The coupon_oid to delete.
 
 try: 
@@ -44,7 +47,7 @@ try:
     api_response = api_instance.delete_coupon(coupon_oid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CouponApi->delete_coupon: %s\n" % e
+    print("Exception when calling CouponApi->delete_coupon: %s\n" % e)
 ```
 
 ### Parameters
@@ -77,20 +80,23 @@ Generate one time codes for a coupon
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CouponApi()
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon_oid = 56 # int | The coupon oid to generate codes.
 quantity = 56 # int | The quantity of codes to generate.
 
@@ -99,7 +105,7 @@ try:
     api_response = api_instance.generate_coupon_codes(coupon_oid, quantity)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CouponApi->generate_coupon_codes: %s\n" % e
+    print("Exception when calling CouponApi->generate_coupon_codes: %s\n" % e)
 ```
 
 ### Parameters
@@ -133,20 +139,23 @@ Retrieves a single coupon using the specified coupon profile oid.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CouponApi()
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon_oid = 56 # int | The coupon oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -155,7 +164,7 @@ try:
     api_response = api_instance.get_coupon(coupon_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CouponApi->get_coupon: %s\n" % e
+    print("Exception when calling CouponApi->get_coupon: %s\n" % e)
 ```
 
 ### Parameters
@@ -189,20 +198,23 @@ Retrieves coupons for this account.  If no parameters are specified, all coupons
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CouponApi()
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 merchant_code = 'merchant_code_example' # str | Merchant code (optional)
 description = 'description_example' # str | Description (optional)
 coupon_type = 'coupon_type_example' # str | Coupon type (optional)
@@ -222,7 +234,7 @@ try:
     api_response = api_instance.get_coupons(merchant_code=merchant_code, description=description, coupon_type=coupon_type, start_date_begin=start_date_begin, start_date_end=start_date_end, expiration_date_begin=expiration_date_begin, expiration_date_end=expiration_date_end, affiliate_oid=affiliate_oid, exclude_expired=exclude_expired, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CouponApi->get_coupons: %s\n" % e
+    print("Exception when calling CouponApi->get_coupons: %s\n" % e)
 ```
 
 ### Parameters
@@ -267,20 +279,23 @@ Retrieves coupons from the account.  If no parameters are specified, all coupons
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CouponApi()
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon_query = ultracart.CouponQuery() # CouponQuery | Coupon query
 limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
@@ -292,7 +307,7 @@ try:
     api_response = api_instance.get_coupons_by_query(coupon_query, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CouponApi->get_coupons_by_query: %s\n" % e
+    print("Exception when calling CouponApi->get_coupons_by_query: %s\n" % e)
 ```
 
 ### Parameters
@@ -329,27 +344,30 @@ Retrieve values needed for a coupon editor
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CouponApi()
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 
 try: 
     # Retrieve values needed for a coupon editor
     api_response = api_instance.get_editor_values()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CouponApi->get_editor_values: %s\n" % e
+    print("Exception when calling CouponApi->get_editor_values: %s\n" % e)
 ```
 
 ### Parameters
@@ -379,20 +397,23 @@ Insert a coupon on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CouponApi()
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon = ultracart.Coupon() # Coupon | Coupon to insert
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -401,7 +422,7 @@ try:
     api_response = api_instance.insert_coupon(coupon, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CouponApi->insert_coupon: %s\n" % e
+    print("Exception when calling CouponApi->insert_coupon: %s\n" % e)
 ```
 
 ### Parameters
@@ -435,20 +456,23 @@ Update a coupon on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CouponApi()
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon = ultracart.Coupon() # Coupon | Coupon to update
 coupon_oid = 56 # int | The coupon_oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -458,7 +482,7 @@ try:
     api_response = api_instance.update_coupon(coupon, coupon_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CouponApi->update_coupon: %s\n" % e
+    print("Exception when calling CouponApi->update_coupon: %s\n" % e)
 ```
 
 ### Parameters

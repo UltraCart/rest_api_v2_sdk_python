@@ -20,20 +20,23 @@ Acknowledge receipt of orders so that they are removed from the fulfillment queu
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
 order_ids = [ultracart.list[str]()] # list[str] | Orders to acknowledge receipt of (limit 100)
 
@@ -41,7 +44,7 @@ try:
     # Acknowledge receipt of orders.
     api_instance.acknowledge_orders(distribution_center_code, order_ids)
 except ApiException as e:
-    print "Exception when calling FulfillmentApi->acknowledge_orders: %s\n" % e
+    print("Exception when calling FulfillmentApi->acknowledge_orders: %s\n" % e)
 ```
 
 ### Parameters
@@ -75,20 +78,23 @@ Retrieves up to 100 orders that are queued up in this distribution center.  You 
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
 
 try: 
@@ -96,7 +102,7 @@ try:
     api_response = api_instance.get_distribution_center_orders(distribution_center_code)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FulfillmentApi->get_distribution_center_orders: %s\n" % e
+    print("Exception when calling FulfillmentApi->get_distribution_center_orders: %s\n" % e)
 ```
 
 ### Parameters
@@ -129,27 +135,30 @@ Retrieves the distribution centers that this user has access to.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 
 try: 
     # Retrieve distribution centers
     api_response = api_instance.get_distribution_centers()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling FulfillmentApi->get_distribution_centers: %s\n" % e
+    print("Exception when calling FulfillmentApi->get_distribution_centers: %s\n" % e)
 ```
 
 ### Parameters
@@ -179,20 +188,23 @@ Store the tracking information and mark the order shipped for this distribution 
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
 shipments = [ultracart.FulfillmentShipment()] # list[FulfillmentShipment] | Orders to mark shipped
 
@@ -200,7 +212,7 @@ try:
     # Mark orders as shipped
     api_instance.ship_orders(distribution_center_code, shipments)
 except ApiException as e:
-    print "Exception when calling FulfillmentApi->ship_orders: %s\n" % e
+    print("Exception when calling FulfillmentApi->ship_orders: %s\n" % e)
 ```
 
 ### Parameters
@@ -234,20 +246,23 @@ Update the inventory for items associated with this distribution center
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.FulfillmentApi()
+api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
 inventories = [ultracart.FulfillmentInventory()] # list[FulfillmentInventory] | Inventory updates (limit 500)
 
@@ -255,7 +270,7 @@ try:
     # Update inventory
     api_instance.update_inventory(distribution_center_code, inventories)
 except ApiException as e:
-    print "Exception when calling FulfillmentApi->update_inventory: %s\n" % e
+    print("Exception when calling FulfillmentApi->update_inventory: %s\n" % e)
 ```
 
 ### Parameters

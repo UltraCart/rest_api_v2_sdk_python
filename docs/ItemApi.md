@@ -23,27 +23,30 @@ Delete an item on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ItemApi()
+api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 merchant_item_oid = 56 # int | The item oid to delete.
 
 try: 
     # Delete an item
     api_instance.delete_item(merchant_item_oid)
 except ApiException as e:
-    print "Exception when calling ItemApi->delete_item: %s\n" % e
+    print("Exception when calling ItemApi->delete_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -76,20 +79,23 @@ Retrieves a single item using the specified item oid.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ItemApi()
+api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 merchant_item_oid = 56 # int | The item oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -99,7 +105,7 @@ try:
     api_response = api_instance.get_item(merchant_item_oid, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->get_item: %s\n" % e
+    print("Exception when calling ItemApi->get_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -134,20 +140,23 @@ Retrieves a single item using the specified item id.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ItemApi()
+api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 merchant_item_id = 'merchant_item_id_example' # str | The item id to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -157,7 +166,7 @@ try:
     api_response = api_instance.get_item_by_merchant_item_id(merchant_item_id, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->get_item_by_merchant_item_id: %s\n" % e
+    print("Exception when calling ItemApi->get_item_by_merchant_item_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -192,20 +201,23 @@ Retrieves a group of items from the account.  If no parameters are specified, al
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ItemApi()
+api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 parent_category_id = 56 # int | The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 = root (optional)
 parent_category_path = 'parent_category_path_example' # str | The parent category path to retrieve items for.  Unspecified means all items on the account.  / = root (optional)
 limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) (default to 100)
@@ -220,7 +232,7 @@ try:
     api_response = api_instance.get_items(parent_category_id=parent_category_id, parent_category_path=parent_category_path, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->get_items: %s\n" % e
+    print("Exception when calling ItemApi->get_items: %s\n" % e)
 ```
 
 ### Parameters
@@ -260,20 +272,23 @@ Create a new item on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ItemApi()
+api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 item = ultracart.Item() # Item | Item to create
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -283,7 +298,7 @@ try:
     api_response = api_instance.insert_item(item, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->insert_item: %s\n" % e
+    print("Exception when calling ItemApi->insert_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -318,20 +333,23 @@ Update a new item on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ItemApi()
+api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 item = ultracart.Item() # Item | Item to update
 merchant_item_oid = 56 # int | The item oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -342,7 +360,7 @@ try:
     api_response = api_instance.update_item(item, merchant_item_oid, expand=expand, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->update_item: %s\n" % e
+    print("Exception when calling ItemApi->update_item: %s\n" % e)
 ```
 
 ### Parameters
@@ -378,20 +396,23 @@ Update multiple item on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ItemApi()
+api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 items_request = ultracart.ItemsRequest() # ItemsRequest | Items to update (synchronous maximum 20 / asynchronous maximum 100)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -402,7 +423,7 @@ try:
     api_response = api_instance.update_items(items_request, expand=expand, placeholders=placeholders, async=async)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->update_items: %s\n" % e
+    print("Exception when calling ItemApi->update_items: %s\n" % e)
 ```
 
 ### Parameters
@@ -438,20 +459,23 @@ Uploads an image and returns back meta information about the image as well as th
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ItemApi()
+api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 file = '/path/to/file.txt' # file | File to upload
 
 try: 
@@ -459,7 +483,7 @@ try:
     api_response = api_instance.upload_temporary_multimedia(file)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ItemApi->upload_temporary_multimedia: %s\n" % e
+    print("Exception when calling ItemApi->upload_temporary_multimedia: %s\n" % e)
 ```
 
 ### Parameters

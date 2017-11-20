@@ -17,24 +17,28 @@ The final leg in the OAuth process which exchanges the specified access token fo
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.OauthApi()
+api_instance = ultracart.OauthApi(ultracart.ApiClient(configuration))
 client_id = 'client_id_example' # str | The OAuth application client_id.
 grant_type = 'grant_type_example' # str | Type of grant
 code = 'code_example' # str | Authorization code received back from the browser redirect (optional)
@@ -46,7 +50,7 @@ try:
     api_response = api_instance.oauth_access_token(client_id, grant_type, code=code, redirect_uri=redirect_uri, refresh_token=refresh_token)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling OauthApi->oauth_access_token: %s\n" % e
+    print("Exception when calling OauthApi->oauth_access_token: %s\n" % e)
 ```
 
 ### Parameters
@@ -83,24 +87,28 @@ Revokes the OAuth application associated with the specified client_id and token.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: ultraCartBrowserApiKey
-ultracart.configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-browser-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-browser-key'] = 'Bearer'
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.OauthApi()
+api_instance = ultracart.OauthApi(ultracart.ApiClient(configuration))
 client_id = 'client_id_example' # str | The OAuth application client_id.
 token = 'token_example' # str | The OAuth access token that is to be revoked..
 
@@ -109,7 +117,7 @@ try:
     api_response = api_instance.oauth_revoke(client_id, token)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling OauthApi->oauth_revoke: %s\n" % e
+    print("Exception when calling OauthApi->oauth_revoke: %s\n" % e)
 ```
 
 ### Parameters

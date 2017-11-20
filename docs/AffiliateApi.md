@@ -17,20 +17,23 @@ Retrieves a group of clicks from the account based on a query object.  If no par
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.AffiliateApi()
+api_instance = ultracart.AffiliateApi(ultracart.ApiClient(configuration))
 click_query = ultracart.AffiliateClickQuery() # AffiliateClickQuery | Click query
 limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) (default to 10000)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
@@ -41,7 +44,7 @@ try:
     api_response = api_instance.get_clicks_by_query(click_query, limit=limit, offset=offset, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AffiliateApi->get_clicks_by_query: %s\n" % e
+    print("Exception when calling AffiliateApi->get_clicks_by_query: %s\n" % e)
 ```
 
 ### Parameters
@@ -77,20 +80,23 @@ Retrieves a group of ledger entries from the account based on a query object.  I
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.AffiliateApi()
+api_instance = ultracart.AffiliateApi(ultracart.ApiClient(configuration))
 ledger_query = ultracart.AffiliateLedgerQuery() # AffiliateLedgerQuery | Ledger query
 limit = 100 # int | The maximum number of records to return on this one API call. (Maximum 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
@@ -101,7 +107,7 @@ try:
     api_response = api_instance.get_ledgers_by_query(ledger_query, limit=limit, offset=offset, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling AffiliateApi->get_ledgers_by_query: %s\n" % e
+    print("Exception when calling AffiliateApi->get_ledgers_by_query: %s\n" % e)
 ```
 
 ### Parameters

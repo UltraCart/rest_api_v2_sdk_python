@@ -22,27 +22,30 @@ Delete a webhook on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.WebhookApi()
+api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid to delete.
 
 try: 
     # Delete a webhook
     api_instance.delete_webhook(webhook_oid)
 except ApiException as e:
-    print "Exception when calling WebhookApi->delete_webhook: %s\n" % e
+    print("Exception when calling WebhookApi->delete_webhook: %s\n" % e)
 ```
 
 ### Parameters
@@ -75,20 +78,23 @@ Retrieves an individual log for a webhook given the webhook oid the request id.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.WebhookApi()
+api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid that owns the log.
 request_id = 'request_id_example' # str | The request id associated with the log to view.
 
@@ -97,7 +103,7 @@ try:
     api_response = api_instance.get_webhook_log(webhook_oid, request_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WebhookApi->get_webhook_log: %s\n" % e
+    print("Exception when calling WebhookApi->get_webhook_log: %s\n" % e)
 ```
 
 ### Parameters
@@ -131,20 +137,23 @@ Retrieves the log summary information for a given webhook.  This is useful for d
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.WebhookApi()
+api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid to retrieve log summaries for.
 limit = 100 # int | The maximum number of records to return on this one API call. (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
@@ -155,7 +164,7 @@ try:
     api_response = api_instance.get_webhook_log_summaries(webhook_oid, limit=limit, offset=offset, since=since)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WebhookApi->get_webhook_log_summaries: %s\n" % e
+    print("Exception when calling WebhookApi->get_webhook_log_summaries: %s\n" % e)
 ```
 
 ### Parameters
@@ -191,20 +200,23 @@ Retrieves the webhooks associated with this application.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.WebhookApi()
+api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 limit = 100 # int | The maximum number of records to return on this one API call. (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 sort = 'sort_example' # str | The sort order of the webhooks.  See documentation for examples (optional)
@@ -215,7 +227,7 @@ try:
     api_response = api_instance.get_webhooks(limit=limit, offset=offset, sort=sort, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WebhookApi->get_webhooks: %s\n" % e
+    print("Exception when calling WebhookApi->get_webhooks: %s\n" % e)
 ```
 
 ### Parameters
@@ -251,20 +263,23 @@ Adds a new webhook on the account.  If you add a new webhook with the authentica
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.WebhookApi()
+api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook = ultracart.Webhook() # Webhook | Webhook to create
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
@@ -273,7 +288,7 @@ try:
     api_response = api_instance.insert_webhook(webhook, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WebhookApi->insert_webhook: %s\n" % e
+    print("Exception when calling WebhookApi->insert_webhook: %s\n" % e)
 ```
 
 ### Parameters
@@ -307,20 +322,23 @@ This method will resend events to the webhook endpoint.  This method can be used
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.WebhookApi()
+api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid that is receiving the reflowed events.
 event_name = 'event_name_example' # str | The event to reflow.
 
@@ -329,7 +347,7 @@ try:
     api_response = api_instance.resend_event(webhook_oid, event_name)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WebhookApi->resend_event: %s\n" % e
+    print("Exception when calling WebhookApi->resend_event: %s\n" % e)
 ```
 
 ### Parameters
@@ -363,20 +381,23 @@ Update a webhook on the account
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.WebhookApi()
+api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook = ultracart.Webhook() # Webhook | Webhook to update
 webhook_oid = 56 # int | The webhook oid to update.
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -386,7 +407,7 @@ try:
     api_response = api_instance.update_webhook(webhook, webhook_oid, placeholders=placeholders)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling WebhookApi->update_webhook: %s\n" % e
+    print("Exception when calling WebhookApi->update_webhook: %s\n" % e)
 ```
 
 ### Parameters

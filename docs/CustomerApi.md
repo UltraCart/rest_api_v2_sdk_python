@@ -22,20 +22,23 @@ Delete a customer on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CustomerApi()
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 customer_profile_oid = 56 # int | The customer_profile_oid to delete.
 
 try: 
@@ -43,7 +46,7 @@ try:
     api_response = api_instance.delete_customer(customer_profile_oid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->delete_customer: %s\n" % e
+    print("Exception when calling CustomerApi->delete_customer: %s\n" % e)
 ```
 
 ### Parameters
@@ -76,20 +79,23 @@ Retrieves a single customer using the specified customer profile oid.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CustomerApi()
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 customer_profile_oid = 56 # int | The customer oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -98,7 +104,7 @@ try:
     api_response = api_instance.get_customer(customer_profile_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->get_customer: %s\n" % e
+    print("Exception when calling CustomerApi->get_customer: %s\n" % e)
 ```
 
 ### Parameters
@@ -132,20 +138,23 @@ Retrieves customers from the account.  If no parameters are specified, all custo
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CustomerApi()
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 email = 'email_example' # str | Email (optional)
 qb_class = 'qb_class_example' # str | Quickbooks class (optional)
 quickbooks_code = 'quickbooks_code_example' # str | Quickbooks code (optional)
@@ -184,7 +193,7 @@ try:
     api_response = api_instance.get_customers(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->get_customers: %s\n" % e
+    print("Exception when calling CustomerApi->get_customers: %s\n" % e)
 ```
 
 ### Parameters
@@ -248,20 +257,23 @@ Retrieves customers from the account.  If no parameters are specified, all custo
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CustomerApi()
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 customer_query = ultracart.CustomerQuery() # CustomerQuery | Customer query
 limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
@@ -274,7 +286,7 @@ try:
     api_response = api_instance.get_customers_by_query(customer_query, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->get_customers_by_query: %s\n" % e
+    print("Exception when calling CustomerApi->get_customers_by_query: %s\n" % e)
 ```
 
 ### Parameters
@@ -312,27 +324,30 @@ Retrieve values needed for a customer profile editor.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CustomerApi()
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 
 try: 
     # Retrieve values needed for a customer profile editor
     api_response = api_instance.get_editor_values()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->get_editor_values: %s\n" % e
+    print("Exception when calling CustomerApi->get_editor_values: %s\n" % e)
 ```
 
 ### Parameters
@@ -362,20 +377,23 @@ Insert a customer on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CustomerApi()
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 customer = ultracart.Customer() # Customer | Customer to insert
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -384,7 +402,7 @@ try:
     api_response = api_instance.insert_customer(customer, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->insert_customer: %s\n" % e
+    print("Exception when calling CustomerApi->insert_customer: %s\n" % e)
 ```
 
 ### Parameters
@@ -418,20 +436,23 @@ Update a customer on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.CustomerApi()
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 customer = ultracart.Customer() # Customer | Customer to update
 customer_profile_oid = 56 # int | The customer_profile_oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -441,7 +462,7 @@ try:
     api_response = api_instance.update_customer(customer, customer_profile_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling CustomerApi->update_customer: %s\n" % e
+    print("Exception when calling CustomerApi->update_customer: %s\n" % e)
 ```
 
 ### Parameters

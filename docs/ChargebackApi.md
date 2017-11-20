@@ -20,20 +20,23 @@ Delete a chargeback on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ChargebackApi()
+api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback_dispute_oid = 56 # int | The chargeback_dispute_oid to delete.
 
 try: 
@@ -41,7 +44,7 @@ try:
     api_response = api_instance.delete_chargeback(chargeback_dispute_oid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ChargebackApi->delete_chargeback: %s\n" % e
+    print("Exception when calling ChargebackApi->delete_chargeback: %s\n" % e)
 ```
 
 ### Parameters
@@ -74,20 +77,23 @@ Retrieves a single chargeback using the specified chargeback dispute oid.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ChargebackApi()
+api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback_dispute_oid = 56 # int | The chargeback dispute oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -96,7 +102,7 @@ try:
     api_response = api_instance.get_chargeback_dispute(chargeback_dispute_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ChargebackApi->get_chargeback_dispute: %s\n" % e
+    print("Exception when calling ChargebackApi->get_chargeback_dispute: %s\n" % e)
 ```
 
 ### Parameters
@@ -130,20 +136,23 @@ Retrieves chargebacks from the account.  If no parameters are specified, all cha
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ChargebackApi()
+api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | Order Id (optional)
 case_number = 'case_number_example' # str | Case number (optional)
 status = 'status_example' # str | Status (optional)
@@ -162,7 +171,7 @@ try:
     api_response = api_instance.get_chargeback_disputes(order_id=order_id, case_number=case_number, status=status, expiration_dts_start=expiration_dts_start, expiration_dts_end=expiration_dts_end, chargeback_dts_start=chargeback_dts_start, chargeback_dts_end=chargeback_dts_end, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ChargebackApi->get_chargeback_disputes: %s\n" % e
+    print("Exception when calling ChargebackApi->get_chargeback_disputes: %s\n" % e)
 ```
 
 ### Parameters
@@ -206,20 +215,23 @@ Insert a chargeback on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ChargebackApi()
+api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback = ultracart.ChargebackDispute() # ChargebackDispute | Chargeback to insert
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -228,7 +240,7 @@ try:
     api_response = api_instance.insert_chargeback(chargeback, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ChargebackApi->insert_chargeback: %s\n" % e
+    print("Exception when calling ChargebackApi->insert_chargeback: %s\n" % e)
 ```
 
 ### Parameters
@@ -262,20 +274,23 @@ Update a chargeback on the UltraCart account.
 
 ### Example 
 ```python
+from __future__ import print_function
 import time
 import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = ultracart.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Configure API key authorization: ultraCartSimpleApiKey
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+configuration = ultracart.Configuration()
+configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# ultracart.configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
+# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = ultracart.ChargebackApi()
+api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback = ultracart.ChargebackDispute() # ChargebackDispute | Chargeback to update
 chargeback_dispute_oid = 56 # int | The chargeback_dispute_oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -285,7 +300,7 @@ try:
     api_response = api_instance.update_chargeback(chargeback, chargeback_dispute_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ChargebackApi->update_chargeback: %s\n" % e
+    print("Exception when calling ChargebackApi->update_chargeback: %s\n" % e)
 ```
 
 ### Parameters
