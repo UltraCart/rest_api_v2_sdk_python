@@ -130,7 +130,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**update_cart**](docs/CheckoutApi.md#update_cart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validate_cart**](docs/CheckoutApi.md#validate_cart) | **POST** /checkout/cart/validate | Validate
 *CouponApi* | [**delete_coupon**](docs/CouponApi.md#delete_coupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
-*CouponApi* | [**generate_coupon_codes**](docs/CouponApi.md#generate_coupon_codes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes/{quantity} | Generates one time codes for a coupon
+*CouponApi* | [**generate_coupon_codes**](docs/CouponApi.md#generate_coupon_codes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
 *CouponApi* | [**get_coupon**](docs/CouponApi.md#get_coupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
 *CouponApi* | [**get_coupons**](docs/CouponApi.md#get_coupons) | **GET** /coupon/coupons | Retrieve coupons
 *CouponApi* | [**get_coupons_by_query**](docs/CouponApi.md#get_coupons_by_query) | **GET** /coupon/coupons/query | Retrieve coupons by query
@@ -264,6 +264,7 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalFreeShippingWithPurchase](docs/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [CouponCodesRequest](docs/CouponCodesRequest.md)
  - [CouponCodesResponse](docs/CouponCodesResponse.md)
  - [CouponDiscountItemWithItemPurchase](docs/CouponDiscountItemWithItemPurchase.md)
  - [CouponDiscountItems](docs/CouponDiscountItems.md)

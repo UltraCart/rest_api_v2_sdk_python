@@ -133,47 +133,47 @@ class CouponApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def generate_coupon_codes(self, coupon_oid, quantity, **kwargs):
+    def generate_coupon_codes(self, coupon_oid, coupon_codes_request, **kwargs):
         """
         Generates one time codes for a coupon
         Generate one time codes for a coupon 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.generate_coupon_codes(coupon_oid, quantity, async=True)
+        >>> thread = api.generate_coupon_codes(coupon_oid, coupon_codes_request, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param int coupon_oid: The coupon oid to generate codes. (required)
-        :param int quantity: The quantity of codes to generate. (required)
+        :param CouponCodesRequest coupon_codes_request: Coupon code generation parameters (required)
         :return: CouponCodesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.generate_coupon_codes_with_http_info(coupon_oid, quantity, **kwargs)
+            return self.generate_coupon_codes_with_http_info(coupon_oid, coupon_codes_request, **kwargs)
         else:
-            (data) = self.generate_coupon_codes_with_http_info(coupon_oid, quantity, **kwargs)
+            (data) = self.generate_coupon_codes_with_http_info(coupon_oid, coupon_codes_request, **kwargs)
             return data
 
-    def generate_coupon_codes_with_http_info(self, coupon_oid, quantity, **kwargs):
+    def generate_coupon_codes_with_http_info(self, coupon_oid, coupon_codes_request, **kwargs):
         """
         Generates one time codes for a coupon
         Generate one time codes for a coupon 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.generate_coupon_codes_with_http_info(coupon_oid, quantity, async=True)
+        >>> thread = api.generate_coupon_codes_with_http_info(coupon_oid, coupon_codes_request, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param int coupon_oid: The coupon oid to generate codes. (required)
-        :param int quantity: The quantity of codes to generate. (required)
+        :param CouponCodesRequest coupon_codes_request: Coupon code generation parameters (required)
         :return: CouponCodesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['coupon_oid', 'quantity']
+        all_params = ['coupon_oid', 'coupon_codes_request']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -191,9 +191,9 @@ class CouponApi(object):
         # verify the required parameter 'coupon_oid' is set
         if ('coupon_oid' not in params) or (params['coupon_oid'] is None):
             raise ValueError("Missing the required parameter `coupon_oid` when calling `generate_coupon_codes`")
-        # verify the required parameter 'quantity' is set
-        if ('quantity' not in params) or (params['quantity'] is None):
-            raise ValueError("Missing the required parameter `quantity` when calling `generate_coupon_codes`")
+        # verify the required parameter 'coupon_codes_request' is set
+        if ('coupon_codes_request' not in params) or (params['coupon_codes_request'] is None):
+            raise ValueError("Missing the required parameter `coupon_codes_request` when calling `generate_coupon_codes`")
 
 
         collection_formats = {}
@@ -201,8 +201,6 @@ class CouponApi(object):
         path_params = {}
         if 'coupon_oid' in params:
             path_params['coupon_oid'] = params['coupon_oid']
-        if 'quantity' in params:
-            path_params['quantity'] = params['quantity']
 
         query_params = []
 
@@ -212,18 +210,20 @@ class CouponApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'coupon_codes_request' in params:
+            body_params = params['coupon_codes_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json; charset=UTF-8'])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
-        return self.api_client.call_api('/coupon/coupons/{coupon_oid}/generate_codes/{quantity}', 'POST',
+        return self.api_client.call_api('/coupon/coupons/{coupon_oid}/generate_codes', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,

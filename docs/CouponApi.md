@@ -5,7 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_coupon**](CouponApi.md#delete_coupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
-[**generate_coupon_codes**](CouponApi.md#generate_coupon_codes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes/{quantity} | Generates one time codes for a coupon
+[**generate_coupon_codes**](CouponApi.md#generate_coupon_codes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
 [**get_coupon**](CouponApi.md#get_coupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
 [**get_coupons**](CouponApi.md#get_coupons) | **GET** /coupon/coupons | Retrieve coupons
 [**get_coupons_by_query**](CouponApi.md#get_coupons_by_query) | **GET** /coupon/coupons/query | Retrieve coupons by query
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_coupon_codes**
-> CouponCodesResponse generate_coupon_codes(coupon_oid, quantity)
+> CouponCodesResponse generate_coupon_codes(coupon_oid, coupon_codes_request)
 
 Generates one time codes for a coupon
 
@@ -90,11 +90,11 @@ api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017
 
 api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon_oid = 56 # int | The coupon oid to generate codes.
-quantity = 56 # int | The quantity of codes to generate.
+coupon_codes_request = ultracart.CouponCodesRequest() # CouponCodesRequest | Coupon code generation parameters
 
 try: 
     # Generates one time codes for a coupon
-    api_response = api_instance.generate_coupon_codes(coupon_oid, quantity)
+    api_response = api_instance.generate_coupon_codes(coupon_oid, coupon_codes_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CouponApi->generate_coupon_codes: %s\n" % e)
@@ -105,7 +105,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coupon_oid** | **int**| The coupon oid to generate codes. | 
- **quantity** | **int**| The quantity of codes to generate. | 
+ **coupon_codes_request** | [**CouponCodesRequest**](CouponCodesRequest.md)| Coupon code generation parameters | 
 
 ### Return type
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
