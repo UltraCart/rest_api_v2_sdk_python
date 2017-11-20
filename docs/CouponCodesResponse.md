@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **coupon_codes** | **list[str]** | Coupon codes | [optional] 
 **error** | [**Error**](Error.md) |  | [optional] 
+**expiration_dts** | **str** | Expiration date | [optional] 
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 

@@ -33,6 +33,7 @@ class CouponCodesResponse(object):
     swagger_types = {
         'coupon_codes': 'list[str]',
         'error': 'Error',
+        'expiration_dts': 'str',
         'metadata': 'ResponseMetadata',
         'success': 'bool'
     }
@@ -40,17 +41,19 @@ class CouponCodesResponse(object):
     attribute_map = {
         'coupon_codes': 'coupon_codes',
         'error': 'error',
+        'expiration_dts': 'expiration_dts',
         'metadata': 'metadata',
         'success': 'success'
     }
 
-    def __init__(self, coupon_codes=None, error=None, metadata=None, success=None):
+    def __init__(self, coupon_codes=None, error=None, expiration_dts=None, metadata=None, success=None):
         """
         CouponCodesResponse - a model defined in Swagger
         """
 
         self._coupon_codes = None
         self._error = None
+        self._expiration_dts = None
         self._metadata = None
         self._success = None
         self.discriminator = None
@@ -59,6 +62,8 @@ class CouponCodesResponse(object):
           self.coupon_codes = coupon_codes
         if error is not None:
           self.error = error
+        if expiration_dts is not None:
+          self.expiration_dts = expiration_dts
         if metadata is not None:
           self.metadata = metadata
         if success is not None:
@@ -107,6 +112,29 @@ class CouponCodesResponse(object):
         """
 
         self._error = error
+
+    @property
+    def expiration_dts(self):
+        """
+        Gets the expiration_dts of this CouponCodesResponse.
+        Expiration date
+
+        :return: The expiration_dts of this CouponCodesResponse.
+        :rtype: str
+        """
+        return self._expiration_dts
+
+    @expiration_dts.setter
+    def expiration_dts(self, expiration_dts):
+        """
+        Sets the expiration_dts of this CouponCodesResponse.
+        Expiration date
+
+        :param expiration_dts: The expiration_dts of this CouponCodesResponse.
+        :type: str
+        """
+
+        self._expiration_dts = expiration_dts
 
     @property
     def metadata(self):
