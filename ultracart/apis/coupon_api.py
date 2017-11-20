@@ -238,6 +238,111 @@ class CouponApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def generate_one_time_codes_by_merchant_code(self, merchant_code, coupon_codes_request, **kwargs):
+        """
+        Generates one time codes for a coupon
+        Generate one time codes for a coupon 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.generate_one_time_codes_by_merchant_code(merchant_code, coupon_codes_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str merchant_code: The merchant code to generate one time codes. (required)
+        :param CouponCodesRequest coupon_codes_request: Coupon code generation parameters (required)
+        :return: CouponCodesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.generate_one_time_codes_by_merchant_code_with_http_info(merchant_code, coupon_codes_request, **kwargs)
+        else:
+            (data) = self.generate_one_time_codes_by_merchant_code_with_http_info(merchant_code, coupon_codes_request, **kwargs)
+            return data
+
+    def generate_one_time_codes_by_merchant_code_with_http_info(self, merchant_code, coupon_codes_request, **kwargs):
+        """
+        Generates one time codes for a coupon
+        Generate one time codes for a coupon 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.generate_one_time_codes_by_merchant_code_with_http_info(merchant_code, coupon_codes_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str merchant_code: The merchant code to generate one time codes. (required)
+        :param CouponCodesRequest coupon_codes_request: Coupon code generation parameters (required)
+        :return: CouponCodesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['merchant_code', 'coupon_codes_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method generate_one_time_codes_by_merchant_code" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'merchant_code' is set
+        if ('merchant_code' not in params) or (params['merchant_code'] is None):
+            raise ValueError("Missing the required parameter `merchant_code` when calling `generate_one_time_codes_by_merchant_code`")
+        # verify the required parameter 'coupon_codes_request' is set
+        if ('coupon_codes_request' not in params) or (params['coupon_codes_request'] is None):
+            raise ValueError("Missing the required parameter `coupon_codes_request` when calling `generate_one_time_codes_by_merchant_code`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'merchant_code' in params:
+            path_params['merchant_code'] = params['merchant_code']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'coupon_codes_request' in params:
+            body_params = params['coupon_codes_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/coupon/coupons/merchant_code/{merchant_code}/generate_codes', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='CouponCodesResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_coupon(self, coupon_oid, **kwargs):
         """
         Retrieve a coupon
@@ -326,6 +431,108 @@ class CouponApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
         return self.api_client.call_api('/coupon/coupons/{coupon_oid}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='CouponResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_coupon_by_merchant_code(self, merchant_code, **kwargs):
+        """
+        Retrieve a coupon by merchant code
+        Retrieves a single coupon using the specified merchant code. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_coupon_by_merchant_code(merchant_code, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str merchant_code: The coupon merchant code to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CouponResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_coupon_by_merchant_code_with_http_info(merchant_code, **kwargs)
+        else:
+            (data) = self.get_coupon_by_merchant_code_with_http_info(merchant_code, **kwargs)
+            return data
+
+    def get_coupon_by_merchant_code_with_http_info(self, merchant_code, **kwargs):
+        """
+        Retrieve a coupon by merchant code
+        Retrieves a single coupon using the specified merchant code. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_coupon_by_merchant_code_with_http_info(merchant_code, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str merchant_code: The coupon merchant code to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CouponResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['merchant_code', 'expand']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_coupon_by_merchant_code" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'merchant_code' is set
+        if ('merchant_code' not in params) or (params['merchant_code'] is None):
+            raise ValueError("Missing the required parameter `merchant_code` when calling `get_coupon_by_merchant_code`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'merchant_code' in params:
+            path_params['merchant_code'] = params['merchant_code']
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/coupon/coupons/merchant_code/{merchant_code}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,

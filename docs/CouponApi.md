@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_coupon**](CouponApi.md#delete_coupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 [**generate_coupon_codes**](CouponApi.md#generate_coupon_codes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
+[**generate_one_time_codes_by_merchant_code**](CouponApi.md#generate_one_time_codes_by_merchant_code) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes for a coupon
 [**get_coupon**](CouponApi.md#get_coupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
+[**get_coupon_by_merchant_code**](CouponApi.md#get_coupon_by_merchant_code) | **GET** /coupon/coupons/merchant_code/{merchant_code} | Retrieve a coupon by merchant code
 [**get_coupons**](CouponApi.md#get_coupons) | **GET** /coupon/coupons | Retrieve coupons
 [**get_coupons_by_query**](CouponApi.md#get_coupons_by_query) | **GET** /coupon/coupons/query | Retrieve coupons by query
 [**get_editor_values**](CouponApi.md#get_editor_values) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
@@ -122,6 +124,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **generate_one_time_codes_by_merchant_code**
+> CouponCodesResponse generate_one_time_codes_by_merchant_code(merchant_code, coupon_codes_request)
+
+Generates one time codes for a coupon
+
+Generate one time codes for a coupon 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
+merchant_code = 'merchant_code_example' # str | The merchant code to generate one time codes.
+coupon_codes_request = ultracart.CouponCodesRequest() # CouponCodesRequest | Coupon code generation parameters
+
+try: 
+    # Generates one time codes for a coupon
+    api_response = api_instance.generate_one_time_codes_by_merchant_code(merchant_code, coupon_codes_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CouponApi->generate_one_time_codes_by_merchant_code: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_code** | **str**| The merchant code to generate one time codes. | 
+ **coupon_codes_request** | [**CouponCodesRequest**](CouponCodesRequest.md)| Coupon code generation parameters | 
+
+### Return type
+
+[**CouponCodesResponse**](CouponCodesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_coupon**
 > CouponResponse get_coupon(coupon_oid, expand=expand)
 
@@ -160,6 +217,61 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coupon_oid** | **int**| The coupon oid to retrieve. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**CouponResponse**](CouponResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_coupon_by_merchant_code**
+> CouponResponse get_coupon_by_merchant_code(merchant_code, expand=expand)
+
+Retrieve a coupon by merchant code
+
+Retrieves a single coupon using the specified merchant code. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
+merchant_code = 'merchant_code_example' # str | The coupon merchant code to retrieve.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Retrieve a coupon by merchant code
+    api_response = api_instance.get_coupon_by_merchant_code(merchant_code, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CouponApi->get_coupon_by_merchant_code: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_code** | **str**| The coupon merchant code to retrieve. | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
