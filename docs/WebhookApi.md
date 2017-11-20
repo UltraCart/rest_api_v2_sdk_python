@@ -28,16 +28,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid to delete.
 
@@ -84,16 +80,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid that owns the log.
 request_id = 'request_id_example' # str | The request id associated with the log to view.
@@ -143,16 +135,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid to retrieve log summaries for.
 limit = 100 # int | The maximum number of records to return on this one API call. (optional) (default to 100)
@@ -206,16 +194,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 limit = 100 # int | The maximum number of records to return on this one API call. (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
@@ -269,16 +253,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook = ultracart.Webhook() # Webhook | Webhook to create
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -328,16 +308,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid that is receiving the reflowed events.
 event_name = 'event_name_example' # str | The event to reflow.
@@ -387,16 +363,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook = ultracart.Webhook() # Webhook | Webhook to update
 webhook_oid = 56 # int | The webhook oid to update.

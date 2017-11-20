@@ -29,16 +29,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 merchant_item_oid = 56 # int | The item oid to delete.
 
@@ -85,16 +81,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 merchant_item_oid = 56 # int | The item oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -146,16 +138,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 merchant_item_id = 'merchant_item_id_example' # str | The item id to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -207,16 +195,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 parent_category_id = 56 # int | The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 = root (optional)
 parent_category_path = 'parent_category_path_example' # str | The parent category path to retrieve items for.  Unspecified means all items on the account.  / = root (optional)
@@ -278,16 +262,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 item = ultracart.Item() # Item | Item to create
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -339,16 +319,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 item = ultracart.Item() # Item | Item to update
 merchant_item_oid = 56 # int | The item oid to update.
@@ -402,16 +378,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 items_request = ultracart.ItemsRequest() # ItemsRequest | Items to update (synchronous maximum 20 / asynchronous maximum 100)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -465,16 +437,12 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration = ultracart.Configuration()
-configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['x-ultracart-simple-key'] = 'Bearer'
 
-# create an instance of the API class
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 file = '/path/to/file.txt' # file | File to upload
 
