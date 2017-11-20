@@ -409,6 +409,7 @@ class OrderApi(object):
         :param str current_stage: Current Stage
         :param str channel_partner_code: Channel Partner Code
         :param str channel_partner_order_id: Channel Partner Order ID
+        :param int customer_profile_oid: null
         :param int limit: The maximum number of records to return on this one API call. (Maximum 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str sort: The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -466,6 +467,7 @@ class OrderApi(object):
         :param str current_stage: Current Stage
         :param str channel_partner_code: Channel Partner Code
         :param str channel_partner_order_id: Channel Partner Order ID
+        :param int customer_profile_oid: null
         :param int limit: The maximum number of records to return on this one API call. (Maximum 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str sort: The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -475,7 +477,7 @@ class OrderApi(object):
                  returns the request thread.
         """
 
-        all_params = ['order_id', 'payment_method', 'company', 'first_name', 'last_name', 'city', 'state_region', 'postal_code', 'country_code', 'phone', 'email', 'cc_email', 'total', 'screen_branding_theme_code', 'storefront_host_name', 'creation_date_begin', 'creation_date_end', 'payment_date_begin', 'payment_date_end', 'shipment_date_begin', 'shipment_date_end', 'rma', 'purchase_order_number', 'item_id', 'current_stage', 'channel_partner_code', 'channel_partner_order_id', 'limit', 'offset', 'sort', 'expand']
+        all_params = ['order_id', 'payment_method', 'company', 'first_name', 'last_name', 'city', 'state_region', 'postal_code', 'country_code', 'phone', 'email', 'cc_email', 'total', 'screen_branding_theme_code', 'storefront_host_name', 'creation_date_begin', 'creation_date_end', 'payment_date_begin', 'payment_date_end', 'shipment_date_begin', 'shipment_date_end', 'rma', 'purchase_order_number', 'item_id', 'current_stage', 'channel_partner_code', 'channel_partner_order_id', 'customer_profile_oid', 'limit', 'offset', 'sort', 'expand']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
 
@@ -547,6 +549,8 @@ class OrderApi(object):
             query_params['channel_partner_code'] = params['channel_partner_code']
         if 'channel_partner_order_id' in params:
             query_params['channel_partner_order_id'] = params['channel_partner_order_id']
+        if 'customer_profile_oid' in params:
+            query_params['customer_profile_oid'] = params['customer_profile_oid']
         if 'limit' in params:
             query_params['_limit'] = params['limit']
         if 'offset' in params:

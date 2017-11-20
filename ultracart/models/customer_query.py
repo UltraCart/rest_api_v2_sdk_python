@@ -826,7 +826,7 @@ class CustomerQuery(object):
     def signup_dts_start(self):
         """
         Gets the signup_dts_start of this CustomerQuery.
-        Signup date star
+        Signup date start
 
         :return: The signup_dts_start of this CustomerQuery.
         :rtype: str
@@ -837,7 +837,7 @@ class CustomerQuery(object):
     def signup_dts_start(self, signup_dts_start):
         """
         Sets the signup_dts_start of this CustomerQuery.
-        Signup date star
+        Signup date start
 
         :param signup_dts_start: The signup_dts_start of this CustomerQuery.
         :type: str
