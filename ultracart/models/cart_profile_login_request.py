@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -32,25 +32,30 @@ class CartProfileLoginRequest(object):
     """
     swagger_types = {
         'cart': 'Cart',
+        'customer_profile_oid': 'int',
         'password': 'str'
     }
 
     attribute_map = {
         'cart': 'cart',
+        'customer_profile_oid': 'customer_profile_oid',
         'password': 'password'
     }
 
-    def __init__(self, cart=None, password=None):
+    def __init__(self, cart=None, customer_profile_oid=None, password=None):
         """
         CartProfileLoginRequest - a model defined in Swagger
         """
 
         self._cart = None
+        self._customer_profile_oid = None
         self._password = None
         self.discriminator = None
 
         if cart is not None:
           self.cart = cart
+        if customer_profile_oid is not None:
+          self.customer_profile_oid = customer_profile_oid
         if password is not None:
           self.password = password
 
@@ -74,6 +79,29 @@ class CartProfileLoginRequest(object):
         """
 
         self._cart = cart
+
+    @property
+    def customer_profile_oid(self):
+        """
+        Gets the customer_profile_oid of this CartProfileLoginRequest.
+        Unique identifier for customer profile.  Can not be used with browser key authentication type.
+
+        :return: The customer_profile_oid of this CartProfileLoginRequest.
+        :rtype: int
+        """
+        return self._customer_profile_oid
+
+    @customer_profile_oid.setter
+    def customer_profile_oid(self, customer_profile_oid):
+        """
+        Sets the customer_profile_oid of this CartProfileLoginRequest.
+        Unique identifier for customer profile.  Can not be used with browser key authentication type.
+
+        :param customer_profile_oid: The customer_profile_oid of this CartProfileLoginRequest.
+        :type: int
+        """
+
+        self._customer_profile_oid = customer_profile_oid
 
     @property
     def password(self):

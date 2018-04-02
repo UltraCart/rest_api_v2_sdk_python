@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel_order**](OrderApi.md#cancel_order) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**delete_order**](OrderApi.md#delete_order) | **DELETE** /order/orders/{order_id} | Delete an order
+[**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 [**get_order**](OrderApi.md#get_order) | **GET** /order/orders/{order_id} | Retrieve an order
 [**get_orders**](OrderApi.md#get_orders) | **GET** /order/orders | Retrieve orders
 [**get_orders_by_query**](OrderApi.md#get_orders_by_query) | **POST** /order/orders/query | Retrieve orders
@@ -108,6 +109,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **format**
+> OrderFormatResponse format(order_id, format_options)
+
+Format order
+
+Format the order for display at text or html 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
+order_id = 'order_id_example' # str | The order id to format
+format_options = ultracart.OrderFormat() # OrderFormat | Format options
+
+try: 
+    # Format order
+    api_response = api_instance.format(order_id, format_options)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->format: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to format | 
+ **format_options** | [**OrderFormat**](OrderFormat.md)| Format options | 
+
+### Return type
+
+[**OrderFormatResponse**](OrderFormatResponse.md)
 
 ### Authorization
 

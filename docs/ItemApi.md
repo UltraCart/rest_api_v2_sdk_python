@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_item**](ItemApi.md#get_item) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**get_item_by_merchant_item_id**](ItemApi.md#get_item_by_merchant_item_id) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
+[**get_pricing_tiers**](ItemApi.md#get_pricing_tiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 [**insert_item**](ItemApi.md#insert_item) | **POST** /item/items | Create an item
 [**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**update_items**](ItemApi.md#update_items) | **PUT** /item/items/batch | Update multiple items
@@ -235,6 +236,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemsResponse**](ItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_pricing_tiers**
+> PricingTiersResponse get_pricing_tiers(expand=expand)
+
+Retrieve pricing tiers
+
+Retrieves the pricing tiers 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Retrieve pricing tiers
+    api_response = api_instance.get_pricing_tiers(expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->get_pricing_tiers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**PricingTiersResponse**](PricingTiersResponse.md)
 
 ### Authorization
 

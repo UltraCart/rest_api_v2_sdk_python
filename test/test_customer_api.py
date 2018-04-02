@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -60,6 +60,14 @@ class TestCustomerApi(unittest.TestCase):
         Test case for get_customers_by_query
 
         Retrieve customers by query
+        """
+        pass
+
+    def test_get_customers_for_data_tables(self):
+        """
+        Test case for get_customers_for_data_tables
+
+        Retrieve customers for DataTables plugin
         """
         pass
 

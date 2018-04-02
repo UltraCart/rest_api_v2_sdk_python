@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -44,6 +44,14 @@ class TestOrderApi(unittest.TestCase):
         Test case for delete_order
 
         Delete an order
+        """
+        pass
+
+    def test_format(self):
+        """
+        Test case for format
+
+        Format order
         """
         pass
 

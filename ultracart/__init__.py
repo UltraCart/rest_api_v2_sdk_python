@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -90,6 +90,7 @@ from .models.checkout_handoff_response import CheckoutHandoffResponse
 from .models.checkout_setup_browser_key_request import CheckoutSetupBrowserKeyRequest
 from .models.checkout_setup_browser_key_response import CheckoutSetupBrowserKeyResponse
 from .models.city_state_zip import CityStateZip
+from .models.country import Country
 from .models.coupon import Coupon
 from .models.coupon_amount_off_items import CouponAmountOffItems
 from .models.coupon_amount_off_shipping import CouponAmountOffShipping
@@ -145,11 +146,15 @@ from .models.customer_affiliate import CustomerAffiliate
 from .models.customer_billing import CustomerBilling
 from .models.customer_card import CustomerCard
 from .models.customer_editor_values import CustomerEditorValues
+from .models.customer_email import CustomerEmail
+from .models.customer_orders_summary import CustomerOrdersSummary
 from .models.customer_pricing_tier import CustomerPricingTier
 from .models.customer_query import CustomerQuery
+from .models.customer_quotes_summary import CustomerQuotesSummary
 from .models.customer_response import CustomerResponse
 from .models.customer_shipping import CustomerShipping
 from .models.customers_response import CustomersResponse
+from .models.data_tables_server_side_response import DataTablesServerSideResponse
 from .models.distance import Distance
 from .models.distribution_center import DistributionCenter
 from .models.distribution_centers_response import DistributionCentersResponse
@@ -242,6 +247,8 @@ from .models.order_coupon import OrderCoupon
 from .models.order_digital_item import OrderDigitalItem
 from .models.order_digital_order import OrderDigitalOrder
 from .models.order_edi import OrderEdi
+from .models.order_format import OrderFormat
+from .models.order_format_response import OrderFormatResponse
 from .models.order_fraud_score import OrderFraudScore
 from .models.order_gift import OrderGift
 from .models.order_gift_certificate import OrderGiftCertificate
@@ -269,6 +276,9 @@ from .models.order_shipping import OrderShipping
 from .models.order_summary import OrderSummary
 from .models.order_taxes import OrderTaxes
 from .models.orders_response import OrdersResponse
+from .models.pricing_tier import PricingTier
+from .models.pricing_tier_notification import PricingTierNotification
+from .models.pricing_tiers_response import PricingTiersResponse
 from .models.response_metadata import ResponseMetadata
 from .models.result_set import ResultSet
 from .models.temp_multimedia import TempMultimedia

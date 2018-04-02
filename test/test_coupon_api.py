@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -47,11 +47,27 @@ class TestCouponApi(unittest.TestCase):
         """
         pass
 
+    def test_generate_one_time_codes_by_merchant_code(self):
+        """
+        Test case for generate_one_time_codes_by_merchant_code
+
+        Generates one time codes by merchant code
+        """
+        pass
+
     def test_get_coupon(self):
         """
         Test case for get_coupon
 
         Retrieve a coupon
+        """
+        pass
+
+    def test_get_coupon_by_merchant_code(self):
+        """
+        Test case for get_coupon_by_merchant_code
+
+        Retrieve a coupon by merchant code
         """
         pass
 

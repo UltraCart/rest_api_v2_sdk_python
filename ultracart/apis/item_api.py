@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -461,6 +461,101 @@ class ItemApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='ItemsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_pricing_tiers(self, **kwargs):
+        """
+        Retrieve pricing tiers
+        Retrieves the pricing tiers 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_pricing_tiers(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: PricingTiersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_pricing_tiers_with_http_info(**kwargs)
+        else:
+            (data) = self.get_pricing_tiers_with_http_info(**kwargs)
+            return data
+
+    def get_pricing_tiers_with_http_info(self, **kwargs):
+        """
+        Retrieve pricing tiers
+        Retrieves the pricing tiers 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_pricing_tiers_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: PricingTiersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['expand']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_pricing_tiers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/item/pricing_tiers', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PricingTiersResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

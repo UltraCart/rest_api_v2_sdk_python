@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -90,6 +90,7 @@ from .checkout_handoff_response import CheckoutHandoffResponse
 from .checkout_setup_browser_key_request import CheckoutSetupBrowserKeyRequest
 from .checkout_setup_browser_key_response import CheckoutSetupBrowserKeyResponse
 from .city_state_zip import CityStateZip
+from .country import Country
 from .coupon import Coupon
 from .coupon_amount_off_items import CouponAmountOffItems
 from .coupon_amount_off_shipping import CouponAmountOffShipping
@@ -145,11 +146,15 @@ from .customer_affiliate import CustomerAffiliate
 from .customer_billing import CustomerBilling
 from .customer_card import CustomerCard
 from .customer_editor_values import CustomerEditorValues
+from .customer_email import CustomerEmail
+from .customer_orders_summary import CustomerOrdersSummary
 from .customer_pricing_tier import CustomerPricingTier
 from .customer_query import CustomerQuery
+from .customer_quotes_summary import CustomerQuotesSummary
 from .customer_response import CustomerResponse
 from .customer_shipping import CustomerShipping
 from .customers_response import CustomersResponse
+from .data_tables_server_side_response import DataTablesServerSideResponse
 from .distance import Distance
 from .distribution_center import DistributionCenter
 from .distribution_centers_response import DistributionCentersResponse
@@ -242,6 +247,8 @@ from .order_coupon import OrderCoupon
 from .order_digital_item import OrderDigitalItem
 from .order_digital_order import OrderDigitalOrder
 from .order_edi import OrderEdi
+from .order_format import OrderFormat
+from .order_format_response import OrderFormatResponse
 from .order_fraud_score import OrderFraudScore
 from .order_gift import OrderGift
 from .order_gift_certificate import OrderGiftCertificate
@@ -269,6 +276,9 @@ from .order_shipping import OrderShipping
 from .order_summary import OrderSummary
 from .order_taxes import OrderTaxes
 from .orders_response import OrdersResponse
+from .pricing_tier import PricingTier
+from .pricing_tier_notification import PricingTierNotification
+from .pricing_tiers_response import PricingTiersResponse
 from .response_metadata import ResponseMetadata
 from .result_set import ResultSet
 from .temp_multimedia import TempMultimedia

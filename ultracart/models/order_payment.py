@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -258,7 +258,7 @@ class OrderPayment(object):
         :param payment_method: The payment_method of this OrderPayment.
         :type: str
         """
-        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Coinbase", "Credit Card", "eBay", "eCheck", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer"]
+        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Coinbase", "Credit Card", "eBay", "eCheck", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer"]
         if payment_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `payment_method` ({0}), must be one of {1}"

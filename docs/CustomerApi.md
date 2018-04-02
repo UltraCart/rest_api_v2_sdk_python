@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_customer**](CustomerApi.md#get_customer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**get_customers**](CustomerApi.md#get_customers) | **GET** /customer/customers | Retrieve customers
 [**get_customers_by_query**](CustomerApi.md#get_customers_by_query) | **GET** /customer/customers/query | Retrieve customers by query
+[**get_customers_for_data_tables**](CustomerApi.md#get_customers_for_data_tables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**get_editor_values**](CustomerApi.md#get_editor_values) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**insert_customer**](CustomerApi.md#insert_customer) | **POST** /customer/customers | Insert a customer
 [**update_customer**](CustomerApi.md#update_customer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
@@ -287,6 +288,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomersResponse**](CustomersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_customers_for_data_tables**
+> DataTablesServerSideResponse get_customers_for_data_tables(expand=expand)
+
+Retrieve customers for DataTables plugin
+
+Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
+ultracart.configuration.debug = True # Development only.  Set to False for production
+api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Retrieve customers for DataTables plugin
+    api_response = api_instance.get_customers_for_data_tables(expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->get_customers_for_data_tables: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**DataTablesServerSideResponse**](DataTablesServerSideResponse.md)
 
 ### Authorization
 

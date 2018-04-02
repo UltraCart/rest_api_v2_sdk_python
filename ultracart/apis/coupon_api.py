@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -240,8 +240,8 @@ class CouponApi(object):
 
     def generate_one_time_codes_by_merchant_code(self, merchant_code, coupon_codes_request, **kwargs):
         """
-        Generates one time codes for a coupon
-        Generate one time codes for a coupon 
+        Generates one time codes by merchant code
+        Generate one time codes by merchant code 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.generate_one_time_codes_by_merchant_code(merchant_code, coupon_codes_request, async=True)
@@ -263,8 +263,8 @@ class CouponApi(object):
 
     def generate_one_time_codes_by_merchant_code_with_http_info(self, merchant_code, coupon_codes_request, **kwargs):
         """
-        Generates one time codes for a coupon
-        Generate one time codes for a coupon 
+        Generates one time codes by merchant code
+        Generate one time codes by merchant code 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.generate_one_time_codes_by_merchant_code_with_http_info(merchant_code, coupon_codes_request, async=True)

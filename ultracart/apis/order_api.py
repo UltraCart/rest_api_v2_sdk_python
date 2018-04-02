@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -224,6 +224,111 @@ class OrderApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def format(self, order_id, format_options, **kwargs):
+        """
+        Format order
+        Format the order for display at text or html 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.format(order_id, format_options, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str order_id: The order id to format (required)
+        :param OrderFormat format_options: Format options (required)
+        :return: OrderFormatResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.format_with_http_info(order_id, format_options, **kwargs)
+        else:
+            (data) = self.format_with_http_info(order_id, format_options, **kwargs)
+            return data
+
+    def format_with_http_info(self, order_id, format_options, **kwargs):
+        """
+        Format order
+        Format the order for display at text or html 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.format_with_http_info(order_id, format_options, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str order_id: The order id to format (required)
+        :param OrderFormat format_options: Format options (required)
+        :return: OrderFormatResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'format_options']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method format" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params) or (params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `format`")
+        # verify the required parameter 'format_options' is set
+        if ('format_options' not in params) or (params['format_options'] is None):
+            raise ValueError("Missing the required parameter `format_options` when calling `format`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'format_options' in params:
+            body_params = params['format_options']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/order/orders/{order_id}/format', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='OrderFormatResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

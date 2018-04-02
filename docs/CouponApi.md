@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_coupon**](CouponApi.md#delete_coupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 [**generate_coupon_codes**](CouponApi.md#generate_coupon_codes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
-[**generate_one_time_codes_by_merchant_code**](CouponApi.md#generate_one_time_codes_by_merchant_code) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes for a coupon
+[**generate_one_time_codes_by_merchant_code**](CouponApi.md#generate_one_time_codes_by_merchant_code) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes by merchant code
 [**get_coupon**](CouponApi.md#get_coupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
 [**get_coupon_by_merchant_code**](CouponApi.md#get_coupon_by_merchant_code) | **GET** /coupon/coupons/merchant_code/{merchant_code} | Retrieve a coupon by merchant code
 [**get_coupons**](CouponApi.md#get_coupons) | **GET** /coupon/coupons | Retrieve coupons
@@ -127,9 +127,9 @@ Name | Type | Description  | Notes
 # **generate_one_time_codes_by_merchant_code**
 > CouponCodesResponse generate_one_time_codes_by_merchant_code(merchant_code, coupon_codes_request)
 
-Generates one time codes for a coupon
+Generates one time codes by merchant code
 
-Generate one time codes for a coupon 
+Generate one time codes by merchant code 
 
 ### Example 
 ```python
@@ -150,7 +150,7 @@ merchant_code = 'merchant_code_example' # str | The merchant code to generate on
 coupon_codes_request = ultracart.CouponCodesRequest() # CouponCodesRequest | Coupon code generation parameters
 
 try: 
-    # Generates one time codes for a coupon
+    # Generates one time codes by merchant code
     api_response = api_instance.generate_one_time_codes_by_merchant_code(merchant_code, coupon_codes_request)
     pprint(api_response)
 except ApiException as e:

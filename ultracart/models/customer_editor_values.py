@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -35,7 +35,7 @@ class CustomerEditorValues(object):
         'card_exp_months': 'list[str]',
         'card_exp_years': 'list[str]',
         'card_types': 'list[str]',
-        'countries': 'list[str]',
+        'countries': 'list[Country]',
         'qb_classes': 'list[str]',
         'sales_rep_codes': 'list[str]',
         'terms': 'list[str]'
@@ -183,7 +183,7 @@ class CustomerEditorValues(object):
         countries
 
         :return: The countries of this CustomerEditorValues.
-        :rtype: list[str]
+        :rtype: list[Country]
         """
         return self._countries
 
@@ -194,7 +194,7 @@ class CustomerEditorValues(object):
         countries
 
         :param countries: The countries of this CustomerEditorValues.
-        :type: list[str]
+        :type: list[Country]
         """
 
         self._countries = countries

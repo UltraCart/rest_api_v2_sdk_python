@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    This is the next generation UltraCart REST API...
+    UltraCart REST API Version 2
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -43,6 +43,7 @@ class Customer(object):
         'billing': 'list[CustomerBilling]',
         'business_notes': 'str',
         'cards': 'list[CustomerCard]',
+        'cc_emails': 'list[CustomerEmail]',
         'customer_profile_oid': 'int',
         'dhl_account_number': 'str',
         'email': 'str',
@@ -58,10 +59,14 @@ class Customer(object):
         'no_coupons': 'bool',
         'no_free_shipping': 'bool',
         'no_realtime_charge': 'bool',
+        'orders': 'list[Order]',
+        'orders_summary': 'CustomerOrdersSummary',
         'password': 'str',
         'pricing_tiers': 'list[CustomerPricingTier]',
         'qb_class': 'str',
         'qb_code': 'str',
+        'quotes': 'list[Order]',
+        'quotes_summary': 'CustomerQuotesSummary',
         'referral_source': 'str',
         'sales_rep_code': 'str',
         'send_signup_notification': 'bool',
@@ -90,6 +95,7 @@ class Customer(object):
         'billing': 'billing',
         'business_notes': 'business_notes',
         'cards': 'cards',
+        'cc_emails': 'cc_emails',
         'customer_profile_oid': 'customer_profile_oid',
         'dhl_account_number': 'dhl_account_number',
         'email': 'email',
@@ -105,10 +111,14 @@ class Customer(object):
         'no_coupons': 'no_coupons',
         'no_free_shipping': 'no_free_shipping',
         'no_realtime_charge': 'no_realtime_charge',
+        'orders': 'orders',
+        'orders_summary': 'orders_summary',
         'password': 'password',
         'pricing_tiers': 'pricing_tiers',
         'qb_class': 'qb_class',
         'qb_code': 'qb_code',
+        'quotes': 'quotes',
+        'quotes_summary': 'quotes_summary',
         'referral_source': 'referral_source',
         'sales_rep_code': 'sales_rep_code',
         'send_signup_notification': 'send_signup_notification',
@@ -124,7 +134,7 @@ class Customer(object):
         'website_url': 'website_url'
     }
 
-    def __init__(self, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, customer_profile_oid=None, dhl_account_number=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, password=None, pricing_tiers=None, qb_class=None, qb_code=None, referral_source=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, suppress_buysafe=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):
+    def __init__(self, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, suppress_buysafe=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):
         """
         Customer - a model defined in Swagger
         """
@@ -141,6 +151,7 @@ class Customer(object):
         self._billing = None
         self._business_notes = None
         self._cards = None
+        self._cc_emails = None
         self._customer_profile_oid = None
         self._dhl_account_number = None
         self._email = None
@@ -156,10 +167,14 @@ class Customer(object):
         self._no_coupons = None
         self._no_free_shipping = None
         self._no_realtime_charge = None
+        self._orders = None
+        self._orders_summary = None
         self._password = None
         self._pricing_tiers = None
         self._qb_class = None
         self._qb_code = None
+        self._quotes = None
+        self._quotes_summary = None
         self._referral_source = None
         self._sales_rep_code = None
         self._send_signup_notification = None
@@ -199,6 +214,8 @@ class Customer(object):
           self.business_notes = business_notes
         if cards is not None:
           self.cards = cards
+        if cc_emails is not None:
+          self.cc_emails = cc_emails
         if customer_profile_oid is not None:
           self.customer_profile_oid = customer_profile_oid
         if dhl_account_number is not None:
@@ -229,6 +246,10 @@ class Customer(object):
           self.no_free_shipping = no_free_shipping
         if no_realtime_charge is not None:
           self.no_realtime_charge = no_realtime_charge
+        if orders is not None:
+          self.orders = orders
+        if orders_summary is not None:
+          self.orders_summary = orders_summary
         if password is not None:
           self.password = password
         if pricing_tiers is not None:
@@ -237,6 +258,10 @@ class Customer(object):
           self.qb_class = qb_class
         if qb_code is not None:
           self.qb_code = qb_code
+        if quotes is not None:
+          self.quotes = quotes
+        if quotes_summary is not None:
+          self.quotes_summary = quotes_summary
         if referral_source is not None:
           self.referral_source = referral_source
         if sales_rep_code is not None:
@@ -541,6 +566,29 @@ class Customer(object):
         """
 
         self._cards = cards
+
+    @property
+    def cc_emails(self):
+        """
+        Gets the cc_emails of this Customer.
+        Additional emails to CC notification
+
+        :return: The cc_emails of this Customer.
+        :rtype: list[CustomerEmail]
+        """
+        return self._cc_emails
+
+    @cc_emails.setter
+    def cc_emails(self, cc_emails):
+        """
+        Sets the cc_emails of this Customer.
+        Additional emails to CC notification
+
+        :param cc_emails: The cc_emails of this Customer.
+        :type: list[CustomerEmail]
+        """
+
+        self._cc_emails = cc_emails
 
     @property
     def customer_profile_oid(self):
@@ -894,6 +942,50 @@ class Customer(object):
         self._no_realtime_charge = no_realtime_charge
 
     @property
+    def orders(self):
+        """
+        Gets the orders of this Customer.
+        Orders associated with this customer profile
+
+        :return: The orders of this Customer.
+        :rtype: list[Order]
+        """
+        return self._orders
+
+    @orders.setter
+    def orders(self, orders):
+        """
+        Sets the orders of this Customer.
+        Orders associated with this customer profile
+
+        :param orders: The orders of this Customer.
+        :type: list[Order]
+        """
+
+        self._orders = orders
+
+    @property
+    def orders_summary(self):
+        """
+        Gets the orders_summary of this Customer.
+
+        :return: The orders_summary of this Customer.
+        :rtype: CustomerOrdersSummary
+        """
+        return self._orders_summary
+
+    @orders_summary.setter
+    def orders_summary(self, orders_summary):
+        """
+        Sets the orders_summary of this Customer.
+
+        :param orders_summary: The orders_summary of this Customer.
+        :type: CustomerOrdersSummary
+        """
+
+        self._orders_summary = orders_summary
+
+    @property
     def password(self):
         """
         Gets the password of this Customer.
@@ -986,6 +1078,50 @@ class Customer(object):
         """
 
         self._qb_code = qb_code
+
+    @property
+    def quotes(self):
+        """
+        Gets the quotes of this Customer.
+        Quotes associated with this customer profile
+
+        :return: The quotes of this Customer.
+        :rtype: list[Order]
+        """
+        return self._quotes
+
+    @quotes.setter
+    def quotes(self, quotes):
+        """
+        Sets the quotes of this Customer.
+        Quotes associated with this customer profile
+
+        :param quotes: The quotes of this Customer.
+        :type: list[Order]
+        """
+
+        self._quotes = quotes
+
+    @property
+    def quotes_summary(self):
+        """
+        Gets the quotes_summary of this Customer.
+
+        :return: The quotes_summary of this Customer.
+        :rtype: CustomerQuotesSummary
+        """
+        return self._quotes_summary
+
+    @quotes_summary.setter
+    def quotes_summary(self, quotes_summary):
+        """
+        Sets the quotes_summary of this Customer.
+
+        :param quotes_summary: The quotes_summary of this Customer.
+        :type: CustomerQuotesSummary
+        """
+
+        self._quotes_summary = quotes_summary
 
     @property
     def referral_source(self):
