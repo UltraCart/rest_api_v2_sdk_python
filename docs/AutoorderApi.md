@@ -27,10 +27,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order_oid = 56 # int | The auto order oid to retrieve.
@@ -82,10 +90,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order_code = 'auto_order_code_example' # str | The auto order oid to retrieve.
@@ -137,10 +153,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 reference_order_id = 'reference_order_id_example' # str | The auto order oid to retrieve.
@@ -192,10 +216,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order_code = 'auto_order_code_example' # str | Auto order code (optional)
@@ -289,10 +321,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order = ultracart.AutoOrder() # AutoOrder | Auto order to update

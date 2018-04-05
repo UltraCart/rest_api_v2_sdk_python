@@ -29,10 +29,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid to delete.
@@ -81,10 +89,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid that owns the log.
@@ -136,10 +152,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid to retrieve log summaries for.
@@ -195,10 +219,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 limit = 100 # int | The maximum number of records to return on this one API call. (optional) (default to 100)
@@ -254,10 +286,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook = ultracart.Webhook() # Webhook | Webhook to create
@@ -309,10 +349,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid that is receiving the reflowed events.
@@ -364,10 +412,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook = ultracart.Webhook() # Webhook | Webhook to update

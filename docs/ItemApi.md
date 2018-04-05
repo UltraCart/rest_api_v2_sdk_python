@@ -31,10 +31,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 merchant_item_oid = 56 # int | The item oid to delete.
@@ -83,10 +91,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 merchant_item_oid = 56 # int | The item oid to retrieve.
@@ -140,10 +156,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 merchant_item_id = 'merchant_item_id_example' # str | The item id to retrieve.
@@ -197,10 +221,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 parent_category_id = 56 # int | The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 = root (optional)
@@ -264,10 +296,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -317,10 +357,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 item = ultracart.Item() # Item | Item to create
@@ -374,10 +422,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 item = ultracart.Item() # Item | Item to update
@@ -433,10 +489,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 items_request = ultracart.ItemsRequest() # ItemsRequest | Items to update (synchronous maximum 20 / asynchronous maximum 100)
@@ -492,10 +556,18 @@ from ultracart.rest import ApiException
 from pprint import pprint
 
 
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
 # See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-ultracart.configuration.api_key['x-ultracart-simple-key'] = 'YOUR_API_KEY'
-ultracart.configuration.debug = True # Development only.  Set to False for production
-api_client = ApiClient(header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.ItemApi(ultracart.ApiClient(configuration))
 file = '/path/to/file.txt' # file | File to upload
