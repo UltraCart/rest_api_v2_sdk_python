@@ -32,25 +32,30 @@ class FulfillmentShipment(object):
     """
     swagger_types = {
         'order_id': 'str',
+        'shipping_cost': 'float',
         'tracking_numbers': 'list[str]'
     }
 
     attribute_map = {
         'order_id': 'order_id',
+        'shipping_cost': 'shipping_cost',
         'tracking_numbers': 'tracking_numbers'
     }
 
-    def __init__(self, order_id=None, tracking_numbers=None):
+    def __init__(self, order_id=None, shipping_cost=None, tracking_numbers=None):
         """
         FulfillmentShipment - a model defined in Swagger
         """
 
         self._order_id = None
+        self._shipping_cost = None
         self._tracking_numbers = None
         self.discriminator = None
 
         if order_id is not None:
           self.order_id = order_id
+        if shipping_cost is not None:
+          self.shipping_cost = shipping_cost
         if tracking_numbers is not None:
           self.tracking_numbers = tracking_numbers
 
@@ -76,6 +81,29 @@ class FulfillmentShipment(object):
         """
 
         self._order_id = order_id
+
+    @property
+    def shipping_cost(self):
+        """
+        Gets the shipping_cost of this FulfillmentShipment.
+        The actual total cost of shipping this order
+
+        :return: The shipping_cost of this FulfillmentShipment.
+        :rtype: float
+        """
+        return self._shipping_cost
+
+    @shipping_cost.setter
+    def shipping_cost(self, shipping_cost):
+        """
+        Sets the shipping_cost of this FulfillmentShipment.
+        The actual total cost of shipping this order
+
+        :param shipping_cost: The shipping_cost of this FulfillmentShipment.
+        :type: float
+        """
+
+        self._shipping_cost = shipping_cost
 
     @property
     def tracking_numbers(self):
