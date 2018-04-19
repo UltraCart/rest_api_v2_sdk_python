@@ -31,33 +31,66 @@ class FulfillmentShipment(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'fulfillment_fee': 'float',
         'order_id': 'str',
+        'package_cost': 'float',
         'shipping_cost': 'float',
         'tracking_numbers': 'list[str]'
     }
 
     attribute_map = {
+        'fulfillment_fee': 'fulfillment_fee',
         'order_id': 'order_id',
+        'package_cost': 'package_cost',
         'shipping_cost': 'shipping_cost',
         'tracking_numbers': 'tracking_numbers'
     }
 
-    def __init__(self, order_id=None, shipping_cost=None, tracking_numbers=None):
+    def __init__(self, fulfillment_fee=None, order_id=None, package_cost=None, shipping_cost=None, tracking_numbers=None):
         """
         FulfillmentShipment - a model defined in Swagger
         """
 
+        self._fulfillment_fee = None
         self._order_id = None
+        self._package_cost = None
         self._shipping_cost = None
         self._tracking_numbers = None
         self.discriminator = None
 
+        if fulfillment_fee is not None:
+          self.fulfillment_fee = fulfillment_fee
         if order_id is not None:
           self.order_id = order_id
+        if package_cost is not None:
+          self.package_cost = package_cost
         if shipping_cost is not None:
           self.shipping_cost = shipping_cost
         if tracking_numbers is not None:
           self.tracking_numbers = tracking_numbers
+
+    @property
+    def fulfillment_fee(self):
+        """
+        Gets the fulfillment_fee of this FulfillmentShipment.
+        Fees charged by the fulfillment company other than the shipping cost to process the order.
+
+        :return: The fulfillment_fee of this FulfillmentShipment.
+        :rtype: float
+        """
+        return self._fulfillment_fee
+
+    @fulfillment_fee.setter
+    def fulfillment_fee(self, fulfillment_fee):
+        """
+        Sets the fulfillment_fee of this FulfillmentShipment.
+        Fees charged by the fulfillment company other than the shipping cost to process the order.
+
+        :param fulfillment_fee: The fulfillment_fee of this FulfillmentShipment.
+        :type: float
+        """
+
+        self._fulfillment_fee = fulfillment_fee
 
     @property
     def order_id(self):
@@ -81,6 +114,29 @@ class FulfillmentShipment(object):
         """
 
         self._order_id = order_id
+
+    @property
+    def package_cost(self):
+        """
+        Gets the package_cost of this FulfillmentShipment.
+        The cost of the packaging used to sent this shipment
+
+        :return: The package_cost of this FulfillmentShipment.
+        :rtype: float
+        """
+        return self._package_cost
+
+    @package_cost.setter
+    def package_cost(self, package_cost):
+        """
+        Sets the package_cost of this FulfillmentShipment.
+        The cost of the packaging used to sent this shipment
+
+        :param package_cost: The package_cost of this FulfillmentShipment.
+        :type: float
+        """
+
+        self._package_cost = package_cost
 
     @property
     def shipping_cost(self):
