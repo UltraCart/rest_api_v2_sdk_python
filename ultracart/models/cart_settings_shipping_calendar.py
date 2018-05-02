@@ -31,7 +31,7 @@ class CartSettingsShippingCalendar(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'blackouts': 'str',
+        'blackouts': 'list[str]',
         'days_of_week': 'list[bool]',
         'earliest': 'str',
         'require': 'bool',
@@ -73,10 +73,10 @@ class CartSettingsShippingCalendar(object):
     def blackouts(self):
         """
         Gets the blackouts of this CartSettingsShippingCalendar.
-        Specified dates that are blacked out on the calendar
+        Specified dates that are blacked out on the calendar in ISO8601 format
 
         :return: The blackouts of this CartSettingsShippingCalendar.
-        :rtype: str
+        :rtype: list[str]
         """
         return self._blackouts
 
@@ -84,10 +84,10 @@ class CartSettingsShippingCalendar(object):
     def blackouts(self, blackouts):
         """
         Sets the blackouts of this CartSettingsShippingCalendar.
-        Specified dates that are blacked out on the calendar
+        Specified dates that are blacked out on the calendar in ISO8601 format
 
         :param blackouts: The blackouts of this CartSettingsShippingCalendar.
-        :type: str
+        :type: list[str]
         """
 
         self._blackouts = blackouts

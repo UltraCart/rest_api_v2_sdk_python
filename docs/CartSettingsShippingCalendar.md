@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**blackouts** | **str** | Specified dates that are blacked out on the calendar | [optional] 
+**blackouts** | **list[str]** | Specified dates that are blacked out on the calendar in ISO8601 format | [optional] 
 **days_of_week** | **list[bool]** | Days of week that should be enabled on the calendar (0 - Sunday through 6 - Saturday) | [optional] 
 **earliest** | **str** | The earliest date that can be selected on the calendar | [optional] 
 **require** | **bool** | True if the customer is required to select a date | [optional] 
