@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **company** | **str** | Company | [optional] 
 **country_code** | **str** | ISO-3166 two letter country code | [optional] 
 **day_phone** | **str** | Day time phone | [optional] 
+**day_phone_e164** | **str** | Day time phone (E164 format) | [optional] 
 **email** | **str** | Email | [optional] 
 **evening_phone** | **str** | Evening phone | [optional] 
 **first_name** | **str** | First name | [optional] 

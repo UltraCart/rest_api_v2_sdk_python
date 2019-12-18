@@ -37,10 +37,13 @@ class OrderShipping(object):
         'company': 'str',
         'country_code': 'str',
         'day_phone': 'str',
+        'day_phone_e164': 'str',
         'delivery_date': 'str',
         'evening_phone': 'str',
         'first_name': 'str',
         'last_name': 'str',
+        'least_cost_route': 'bool',
+        'least_cost_route_shipping_methods': 'list[str]',
         'lift_gate': 'bool',
         'postal_code': 'str',
         'rma': 'str',
@@ -65,10 +68,13 @@ class OrderShipping(object):
         'company': 'company',
         'country_code': 'country_code',
         'day_phone': 'day_phone',
+        'day_phone_e164': 'day_phone_e164',
         'delivery_date': 'delivery_date',
         'evening_phone': 'evening_phone',
         'first_name': 'first_name',
         'last_name': 'last_name',
+        'least_cost_route': 'least_cost_route',
+        'least_cost_route_shipping_methods': 'least_cost_route_shipping_methods',
         'lift_gate': 'lift_gate',
         'postal_code': 'postal_code',
         'rma': 'rma',
@@ -86,7 +92,7 @@ class OrderShipping(object):
         'weight': 'weight'
     }
 
-    def __init__(self, address1=None, address2=None, city=None, company=None, country_code=None, day_phone=None, delivery_date=None, evening_phone=None, first_name=None, last_name=None, lift_gate=None, postal_code=None, rma=None, ship_on_date=None, ship_to_residential=None, shipping_3rd_party_account_number=None, shipping_date=None, shipping_department_status=None, shipping_method=None, shipping_method_accounting_code=None, special_instructions=None, state_region=None, title=None, tracking_numbers=None, weight=None):
+    def __init__(self, address1=None, address2=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, delivery_date=None, evening_phone=None, first_name=None, last_name=None, least_cost_route=None, least_cost_route_shipping_methods=None, lift_gate=None, postal_code=None, rma=None, ship_on_date=None, ship_to_residential=None, shipping_3rd_party_account_number=None, shipping_date=None, shipping_department_status=None, shipping_method=None, shipping_method_accounting_code=None, special_instructions=None, state_region=None, title=None, tracking_numbers=None, weight=None):
         """
         OrderShipping - a model defined in Swagger
         """
@@ -97,10 +103,13 @@ class OrderShipping(object):
         self._company = None
         self._country_code = None
         self._day_phone = None
+        self._day_phone_e164 = None
         self._delivery_date = None
         self._evening_phone = None
         self._first_name = None
         self._last_name = None
+        self._least_cost_route = None
+        self._least_cost_route_shipping_methods = None
         self._lift_gate = None
         self._postal_code = None
         self._rma = None
@@ -130,6 +139,8 @@ class OrderShipping(object):
           self.country_code = country_code
         if day_phone is not None:
           self.day_phone = day_phone
+        if day_phone_e164 is not None:
+          self.day_phone_e164 = day_phone_e164
         if delivery_date is not None:
           self.delivery_date = delivery_date
         if evening_phone is not None:
@@ -138,6 +149,10 @@ class OrderShipping(object):
           self.first_name = first_name
         if last_name is not None:
           self.last_name = last_name
+        if least_cost_route is not None:
+          self.least_cost_route = least_cost_route
+        if least_cost_route_shipping_methods is not None:
+          self.least_cost_route_shipping_methods = least_cost_route_shipping_methods
         if lift_gate is not None:
           self.lift_gate = lift_gate
         if postal_code is not None:
@@ -320,6 +335,31 @@ class OrderShipping(object):
         self._day_phone = day_phone
 
     @property
+    def day_phone_e164(self):
+        """
+        Gets the day_phone_e164 of this OrderShipping.
+        Day time phone (E164 format)
+
+        :return: The day_phone_e164 of this OrderShipping.
+        :rtype: str
+        """
+        return self._day_phone_e164
+
+    @day_phone_e164.setter
+    def day_phone_e164(self, day_phone_e164):
+        """
+        Sets the day_phone_e164 of this OrderShipping.
+        Day time phone (E164 format)
+
+        :param day_phone_e164: The day_phone_e164 of this OrderShipping.
+        :type: str
+        """
+        if day_phone_e164 is not None and len(day_phone_e164) > 25:
+            raise ValueError("Invalid value for `day_phone_e164`, length must be less than or equal to `25`")
+
+        self._day_phone_e164 = day_phone_e164
+
+    @property
     def delivery_date(self):
         """
         Gets the delivery_date of this OrderShipping.
@@ -416,6 +456,52 @@ class OrderShipping(object):
             raise ValueError("Invalid value for `last_name`, length must be less than or equal to `30`")
 
         self._last_name = last_name
+
+    @property
+    def least_cost_route(self):
+        """
+        Gets the least_cost_route of this OrderShipping.
+        If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts.
+
+        :return: The least_cost_route of this OrderShipping.
+        :rtype: bool
+        """
+        return self._least_cost_route
+
+    @least_cost_route.setter
+    def least_cost_route(self, least_cost_route):
+        """
+        Sets the least_cost_route of this OrderShipping.
+        If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts.
+
+        :param least_cost_route: The least_cost_route of this OrderShipping.
+        :type: bool
+        """
+
+        self._least_cost_route = least_cost_route
+
+    @property
+    def least_cost_route_shipping_methods(self):
+        """
+        Gets the least_cost_route_shipping_methods of this OrderShipping.
+        List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts.
+
+        :return: The least_cost_route_shipping_methods of this OrderShipping.
+        :rtype: list[str]
+        """
+        return self._least_cost_route_shipping_methods
+
+    @least_cost_route_shipping_methods.setter
+    def least_cost_route_shipping_methods(self, least_cost_route_shipping_methods):
+        """
+        Sets the least_cost_route_shipping_methods of this OrderShipping.
+        List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts.
+
+        :param least_cost_route_shipping_methods: The least_cost_route_shipping_methods of this OrderShipping.
+        :type: list[str]
+        """
+
+        self._least_cost_route_shipping_methods = least_cost_route_shipping_methods
 
     @property
     def lift_gate(self):

@@ -7,12 +7,18 @@ Method | HTTP request | Description
 [**cancel_order**](OrderApi.md#cancel_order) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**delete_order**](OrderApi.md#delete_order) | **DELETE** /order/orders/{order_id} | Delete an order
 [**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
+[**get_accounts_receivable_retry_config**](OrderApi.md#get_accounts_receivable_retry_config) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
+[**get_accounts_receivable_retry_stats**](OrderApi.md#get_accounts_receivable_retry_stats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 [**get_order**](OrderApi.md#get_order) | **GET** /order/orders/{order_id} | Retrieve an order
 [**get_orders**](OrderApi.md#get_orders) | **GET** /order/orders | Retrieve orders
+[**get_orders_batch**](OrderApi.md#get_orders_batch) | **POST** /order/orders/batch | Retrieve order batch
 [**get_orders_by_query**](OrderApi.md#get_orders_by_query) | **POST** /order/orders/query | Retrieve orders
+[**insert_order**](OrderApi.md#insert_order) | **POST** /order/orders | Insert an order
 [**refund_order**](OrderApi.md#refund_order) | **PUT** /order/orders/{order_id}/refund | Refund an order
+[**replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 [**resend_receipt**](OrderApi.md#resend_receipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**resend_shipment_confirmation**](OrderApi.md#resend_shipment_confirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**update_accounts_receivable_retry_config**](OrderApi.md#update_accounts_receivable_retry_config) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 [**update_order**](OrderApi.md#update_order) | **PUT** /order/orders/{order_id} | Update an order
 
 
@@ -200,6 +206,126 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_accounts_receivable_retry_config**
+> AccountsReceivableRetryConfigResponse get_accounts_receivable_retry_config()
+
+Retrieve A/R Retry Configuration
+
+Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
+
+try: 
+    # Retrieve A/R Retry Configuration
+    api_response = api_instance.get_accounts_receivable_retry_config()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->get_accounts_receivable_retry_config: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AccountsReceivableRetryConfigResponse**](AccountsReceivableRetryConfigResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_accounts_receivable_retry_stats**
+> AccountsReceivableRetryStatsResponse get_accounts_receivable_retry_stats(_from=_from, to=to)
+
+Retrieve A/R Retry Statistics
+
+Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
+_from = '_from_example' # str | null (optional)
+to = 'to_example' # str | null (optional)
+
+try: 
+    # Retrieve A/R Retry Statistics
+    api_response = api_instance.get_accounts_receivable_retry_stats(_from=_from, to=to)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->get_accounts_receivable_retry_stats: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_from** | **str**| null | [optional] 
+ **to** | **str**| null | [optional] 
+
+### Return type
+
+[**AccountsReceivableRetryStatsResponse**](AccountsReceivableRetryStatsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_order**
 > OrderResponse get_order(order_id, expand=expand)
 
@@ -264,7 +390,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_orders**
-> OrdersResponse get_orders(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, customer_profile_oid=customer_profile_oid, limit=limit, offset=offset, sort=sort, expand=expand)
+> OrdersResponse get_orders(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, customer_profile_oid=customer_profile_oid, refund_date_begin=refund_date_begin, refund_date_end=refund_date_end, limit=limit, offset=offset, sort=sort, expand=expand)
 
 Retrieve orders
 
@@ -321,6 +447,8 @@ current_stage = 'current_stage_example' # str | Current Stage (optional)
 channel_partner_code = 'channel_partner_code_example' # str | Channel Partner Code (optional)
 channel_partner_order_id = 'channel_partner_order_id_example' # str | Channel Partner Order ID (optional)
 customer_profile_oid = 56 # int | null (optional)
+refund_date_begin = 'refund_date_begin_example' # str | null (optional)
+refund_date_end = 'refund_date_end_example' # str | null (optional)
 limit = 100 # int | The maximum number of records to return on this one API call. (Maximum 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 sort = 'sort_example' # str | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -328,7 +456,7 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try: 
     # Retrieve orders
-    api_response = api_instance.get_orders(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, customer_profile_oid=customer_profile_oid, limit=limit, offset=offset, sort=sort, expand=expand)
+    api_response = api_instance.get_orders(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, customer_profile_oid=customer_profile_oid, refund_date_begin=refund_date_begin, refund_date_end=refund_date_end, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrderApi->get_orders: %s\n" % e)
@@ -366,9 +494,74 @@ Name | Type | Description  | Notes
  **channel_partner_code** | **str**| Channel Partner Code | [optional] 
  **channel_partner_order_id** | **str**| Channel Partner Order ID | [optional] 
  **customer_profile_oid** | **int**| null | [optional] 
+ **refund_date_begin** | **str**| null | [optional] 
+ **refund_date_end** | **str**| null | [optional] 
  **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **sort** | **str**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **expand** | **str**| The object expansion to perform on the result. | [optional] 
+
+### Return type
+
+[**OrdersResponse**](OrdersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_orders_batch**
+> OrdersResponse get_orders_batch(order_batch, expand=expand)
+
+Retrieve order batch
+
+Retrieves a group of orders from the account based on an array of order ids.  If more than 500 order ids are specified, the API call will fail with a bad request error. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
+order_batch = ultracart.OrderQueryBatch() # OrderQueryBatch | Order batch
+expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
+
+try: 
+    # Retrieve order batch
+    api_response = api_instance.get_orders_batch(order_batch, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->get_orders_batch: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_batch** | [**OrderQueryBatch**](OrderQueryBatch.md)| Order batch | 
  **expand** | **str**| The object expansion to perform on the result. | [optional] 
 
 ### Return type
@@ -455,6 +648,69 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **insert_order**
+> OrderResponse insert_order(order, expand=expand)
+
+Insert an order
+
+Inserts a new order on the UltraCart account.  This is probably NOT the method you want.  This is for channel orders.  For regular orders the customer is entering, use the CheckoutApi.  It has many, many more features, checks, and validations. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
+order = ultracart.Order() # Order | Order to insert
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try: 
+    # Insert an order
+    api_response = api_instance.insert_order(order, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->insert_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order** | [**Order**](Order.md)| Order to insert | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **refund_order**
 > OrderResponse refund_order(order, order_id, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, expand=expand)
 
@@ -526,6 +782,69 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **replacement**
+> OrderReplacementResponse replacement(order_id, replacement)
+
+Replacement order
+
+Create a replacement order based upon a previous order 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
+order_id = 'order_id_example' # str | The order id to generate a replacement for.
+replacement = ultracart.OrderReplacement() # OrderReplacement | Replacement order details
+
+try: 
+    # Replacement order
+    api_response = api_instance.replacement(order_id, replacement)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->replacement: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to generate a replacement for. | 
+ **replacement** | [**OrderReplacement**](OrderReplacement.md)| Replacement order details | 
+
+### Return type
+
+[**OrderReplacementResponse**](OrderReplacementResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -652,12 +971,73 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_accounts_receivable_retry_config**
+> BaseResponse update_accounts_receivable_retry_config(retry_config)
+
+Update A/R Retry Configuration
+
+Update A/R Retry Configuration.  This is primarily an internal API call.  It is doubtful you would ever need to use it. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
+retry_config = ultracart.AccountsReceivableRetryConfig() # AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
+
+try: 
+    # Update A/R Retry Configuration
+    api_response = api_instance.update_accounts_receivable_retry_config(retry_config)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->update_accounts_receivable_retry_config: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **retry_config** | [**AccountsReceivableRetryConfig**](AccountsReceivableRetryConfig.md)| AccountsReceivableRetryConfig object | 
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_order**
 > OrderResponse update_order(order, order_id, expand=expand)
 
 Update an order
 
-Update a new order on the UltraCart account. 
+Update a new order on the UltraCart account.  This is probably NOT the method you want.  It is rare to update a completed order.  This will not trigger charges, emails, or any other automation. 
 
 ### Example 
 ```python

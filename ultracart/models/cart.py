@@ -39,6 +39,7 @@ class Cart(object):
         'checkout': 'CartCheckout',
         'coupons': 'list[CartCoupon]',
         'currency_code': 'str',
+        'currency_conversion': 'CartCurrencyConversion',
         'customer_profile': 'CartCustomerProfile',
         'exchange_rate': 'float',
         'gift': 'CartGift',
@@ -65,6 +66,7 @@ class Cart(object):
         'checkout': 'checkout',
         'coupons': 'coupons',
         'currency_code': 'currency_code',
+        'currency_conversion': 'currency_conversion',
         'customer_profile': 'customer_profile',
         'exchange_rate': 'exchange_rate',
         'gift': 'gift',
@@ -82,7 +84,7 @@ class Cart(object):
         'upsell_after': 'upsell_after'
     }
 
-    def __init__(self, affiliate=None, base_currency_code=None, billing=None, buysafe=None, cart_id=None, checkout=None, coupons=None, currency_code=None, customer_profile=None, exchange_rate=None, gift=None, gift_certificate=None, items=None, language_iso_code=None, logged_in=None, marketing=None, merchant_id=None, payment=None, settings=None, shipping=None, summary=None, taxes=None, upsell_after=None):
+    def __init__(self, affiliate=None, base_currency_code=None, billing=None, buysafe=None, cart_id=None, checkout=None, coupons=None, currency_code=None, currency_conversion=None, customer_profile=None, exchange_rate=None, gift=None, gift_certificate=None, items=None, language_iso_code=None, logged_in=None, marketing=None, merchant_id=None, payment=None, settings=None, shipping=None, summary=None, taxes=None, upsell_after=None):
         """
         Cart - a model defined in Swagger
         """
@@ -95,6 +97,7 @@ class Cart(object):
         self._checkout = None
         self._coupons = None
         self._currency_code = None
+        self._currency_conversion = None
         self._customer_profile = None
         self._exchange_rate = None
         self._gift = None
@@ -128,6 +131,8 @@ class Cart(object):
           self.coupons = coupons
         if currency_code is not None:
           self.currency_code = currency_code
+        if currency_conversion is not None:
+          self.currency_conversion = currency_conversion
         if customer_profile is not None:
           self.customer_profile = customer_profile
         if exchange_rate is not None:
@@ -338,6 +343,27 @@ class Cart(object):
             raise ValueError("Invalid value for `currency_code`, length must be less than or equal to `3`")
 
         self._currency_code = currency_code
+
+    @property
+    def currency_conversion(self):
+        """
+        Gets the currency_conversion of this Cart.
+
+        :return: The currency_conversion of this Cart.
+        :rtype: CartCurrencyConversion
+        """
+        return self._currency_conversion
+
+    @currency_conversion.setter
+    def currency_conversion(self, currency_conversion):
+        """
+        Sets the currency_conversion of this Cart.
+
+        :param currency_conversion: The currency_conversion of this Cart.
+        :type: CartCurrencyConversion
+        """
+
+        self._currency_conversion = currency_conversion
 
     @property
     def customer_profile(self):

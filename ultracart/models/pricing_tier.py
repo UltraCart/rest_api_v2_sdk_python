@@ -59,6 +59,7 @@ class PricingTier(object):
         'realtime_percentage_discount': 'float',
         'signup_notification': 'PricingTierNotification',
         'suppress_buysafe': 'bool',
+        'suppress_mailing_list': 'bool',
         'tax_exempt': 'bool',
         'track_separately': 'bool'
     }
@@ -92,11 +93,12 @@ class PricingTier(object):
         'realtime_percentage_discount': 'realtime_percentage_discount',
         'signup_notification': 'signup_notification',
         'suppress_buysafe': 'suppress_buysafe',
+        'suppress_mailing_list': 'suppress_mailing_list',
         'tax_exempt': 'tax_exempt',
         'track_separately': 'track_separately'
     }
 
-    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, approval_notification=None, auto_approve_cod=None, auto_approve_purchase_order=None, default_on_wholesale_signup=None, default_percentage_discount=None, default_shipping_method_oid=None, default_tier=None, display_on_wholesale_signup=None, exclude_from_free_promotion=None, exempt_shipping_handling_charge=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, name=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, not_valid_when_coupon_present=None, pricing_tier_oid=None, realtime_percentage_discount=None, signup_notification=None, suppress_buysafe=None, tax_exempt=None, track_separately=None):
+    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, approval_notification=None, auto_approve_cod=None, auto_approve_purchase_order=None, default_on_wholesale_signup=None, default_percentage_discount=None, default_shipping_method_oid=None, default_tier=None, display_on_wholesale_signup=None, exclude_from_free_promotion=None, exempt_shipping_handling_charge=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, name=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, not_valid_when_coupon_present=None, pricing_tier_oid=None, realtime_percentage_discount=None, signup_notification=None, suppress_buysafe=None, suppress_mailing_list=None, tax_exempt=None, track_separately=None):
         """
         PricingTier - a model defined in Swagger
         """
@@ -129,6 +131,7 @@ class PricingTier(object):
         self._realtime_percentage_discount = None
         self._signup_notification = None
         self._suppress_buysafe = None
+        self._suppress_mailing_list = None
         self._tax_exempt = None
         self._track_separately = None
         self.discriminator = None
@@ -189,6 +192,8 @@ class PricingTier(object):
           self.signup_notification = signup_notification
         if suppress_buysafe is not None:
           self.suppress_buysafe = suppress_buysafe
+        if suppress_mailing_list is not None:
+          self.suppress_mailing_list = suppress_mailing_list
         if tax_exempt is not None:
           self.tax_exempt = tax_exempt
         if track_separately is not None:
@@ -835,6 +840,29 @@ class PricingTier(object):
         """
 
         self._suppress_buysafe = suppress_buysafe
+
+    @property
+    def suppress_mailing_list(self):
+        """
+        Gets the suppress_mailing_list of this PricingTier.
+        Suppress mailing list
+
+        :return: The suppress_mailing_list of this PricingTier.
+        :rtype: bool
+        """
+        return self._suppress_mailing_list
+
+    @suppress_mailing_list.setter
+    def suppress_mailing_list(self, suppress_mailing_list):
+        """
+        Sets the suppress_mailing_list of this PricingTier.
+        Suppress mailing list
+
+        :param suppress_mailing_list: The suppress_mailing_list of this PricingTier.
+        :type: bool
+        """
+
+        self._suppress_mailing_list = suppress_mailing_list
 
     @property
     def tax_exempt(self):

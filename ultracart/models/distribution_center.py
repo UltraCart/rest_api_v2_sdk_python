@@ -44,6 +44,7 @@ class DistributionCenter(object):
         'ftp_password': 'str',
         'hold_before_shipment_minutes': 'int',
         'hold_before_transmission': 'bool',
+        'hold_auto_order_before_shipment_minutes': 'int',
         'latitude': 'float',
         'longitude': 'float',
         'name': 'str',
@@ -80,6 +81,7 @@ class DistributionCenter(object):
         'ftp_password': 'ftp_password',
         'hold_before_shipment_minutes': 'hold_before_shipment_minutes',
         'hold_before_transmission': 'hold_before_transmission',
+        'hold_auto_order_before_shipment_minutes': 'holdAutoOrderBeforeShipmentMinutes',
         'latitude': 'latitude',
         'longitude': 'longitude',
         'name': 'name',
@@ -102,7 +104,7 @@ class DistributionCenter(object):
         'transport': 'transport'
     }
 
-    def __init__(self, address1=None, address2=None, city=None, code=None, country_code=None, default_center=None, default_handles_all_items=None, distribution_center_oid=None, duns=None, estimate_from_distribution_center_oid=None, ftp_password=None, hold_before_shipment_minutes=None, hold_before_transmission=None, latitude=None, longitude=None, name=None, no_customer_direct_shipments=None, no_split_shipment=None, postal_code=None, process_days=None, process_inventory_start_time=None, process_inventory_stop_time=None, require_asn=None, send_kit_instead_of_components=None, shipment_cutoff_time_friday=None, shipment_cutoff_time_monday=None, shipment_cutoff_time_saturday=None, shipment_cutoff_time_sunday=None, shipment_cutoff_time_thursday=None, shipment_cutoff_time_tuesday=None, shipment_cutoff_time_wednesday=None, state=None, transport=None):
+    def __init__(self, address1=None, address2=None, city=None, code=None, country_code=None, default_center=None, default_handles_all_items=None, distribution_center_oid=None, duns=None, estimate_from_distribution_center_oid=None, ftp_password=None, hold_before_shipment_minutes=None, hold_before_transmission=None, hold_auto_order_before_shipment_minutes=None, latitude=None, longitude=None, name=None, no_customer_direct_shipments=None, no_split_shipment=None, postal_code=None, process_days=None, process_inventory_start_time=None, process_inventory_stop_time=None, require_asn=None, send_kit_instead_of_components=None, shipment_cutoff_time_friday=None, shipment_cutoff_time_monday=None, shipment_cutoff_time_saturday=None, shipment_cutoff_time_sunday=None, shipment_cutoff_time_thursday=None, shipment_cutoff_time_tuesday=None, shipment_cutoff_time_wednesday=None, state=None, transport=None):
         """
         DistributionCenter - a model defined in Swagger
         """
@@ -120,6 +122,7 @@ class DistributionCenter(object):
         self._ftp_password = None
         self._hold_before_shipment_minutes = None
         self._hold_before_transmission = None
+        self._hold_auto_order_before_shipment_minutes = None
         self._latitude = None
         self._longitude = None
         self._name = None
@@ -168,6 +171,8 @@ class DistributionCenter(object):
           self.hold_before_shipment_minutes = hold_before_shipment_minutes
         if hold_before_transmission is not None:
           self.hold_before_transmission = hold_before_transmission
+        if hold_auto_order_before_shipment_minutes is not None:
+          self.hold_auto_order_before_shipment_minutes = hold_auto_order_before_shipment_minutes
         if latitude is not None:
           self.latitude = latitude
         if longitude is not None:
@@ -507,6 +512,27 @@ class DistributionCenter(object):
         """
 
         self._hold_before_transmission = hold_before_transmission
+
+    @property
+    def hold_auto_order_before_shipment_minutes(self):
+        """
+        Gets the hold_auto_order_before_shipment_minutes of this DistributionCenter.
+
+        :return: The hold_auto_order_before_shipment_minutes of this DistributionCenter.
+        :rtype: int
+        """
+        return self._hold_auto_order_before_shipment_minutes
+
+    @hold_auto_order_before_shipment_minutes.setter
+    def hold_auto_order_before_shipment_minutes(self, hold_auto_order_before_shipment_minutes):
+        """
+        Sets the hold_auto_order_before_shipment_minutes of this DistributionCenter.
+
+        :param hold_auto_order_before_shipment_minutes: The hold_auto_order_before_shipment_minutes of this DistributionCenter.
+        :type: int
+        """
+
+        self._hold_auto_order_before_shipment_minutes = hold_auto_order_before_shipment_minutes
 
     @property
     def latitude(self):

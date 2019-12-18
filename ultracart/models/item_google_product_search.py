@@ -72,6 +72,7 @@ class ItemGoogleProductSearch(object):
         'search_lowest_price': 'float',
         'search_lowest_url': 'str',
         'search_position': 'int',
+        'shipping_label': 'str',
         'size': 'str',
         'video_director': 'str',
         'video_format': 'str',
@@ -122,6 +123,7 @@ class ItemGoogleProductSearch(object):
         'search_lowest_price': 'search_lowest_price',
         'search_lowest_url': 'search_lowest_url',
         'search_position': 'search_position',
+        'shipping_label': 'shippingLabel',
         'size': 'size',
         'video_director': 'video_director',
         'video_format': 'video_format',
@@ -130,7 +132,7 @@ class ItemGoogleProductSearch(object):
         'video_starring': 'video_starring'
     }
 
-    def __init__(self, adwords_grouping=None, adwords_label1=None, adwords_label2=None, adwords_label3=None, adwords_label4=None, adwords_label5=None, age_group=None, available_at_physical_store=None, book_author=None, book_format=None, book_isbn=None, book_publisher=None, category_description=None, color=None, condition=None, custom_label0=None, custom_label1=None, custom_label2=None, custom_label3=None, custom_label4=None, gender=None, google_product_category=None, music_artist=None, music_format=None, music_release_date=None, omit_from_feed=None, product_type=None, promotion_id1=None, promotion_id10=None, promotion_id2=None, promotion_id3=None, promotion_id4=None, promotion_id5=None, promotion_id6=None, promotion_id7=None, promotion_id8=None, promotion_id9=None, search_dts=None, search_lowest_price=None, search_lowest_url=None, search_position=None, size=None, video_director=None, video_format=None, video_rating=None, video_release_date=None, video_starring=None):
+    def __init__(self, adwords_grouping=None, adwords_label1=None, adwords_label2=None, adwords_label3=None, adwords_label4=None, adwords_label5=None, age_group=None, available_at_physical_store=None, book_author=None, book_format=None, book_isbn=None, book_publisher=None, category_description=None, color=None, condition=None, custom_label0=None, custom_label1=None, custom_label2=None, custom_label3=None, custom_label4=None, gender=None, google_product_category=None, music_artist=None, music_format=None, music_release_date=None, omit_from_feed=None, product_type=None, promotion_id1=None, promotion_id10=None, promotion_id2=None, promotion_id3=None, promotion_id4=None, promotion_id5=None, promotion_id6=None, promotion_id7=None, promotion_id8=None, promotion_id9=None, search_dts=None, search_lowest_price=None, search_lowest_url=None, search_position=None, shipping_label=None, size=None, video_director=None, video_format=None, video_rating=None, video_release_date=None, video_starring=None):
         """
         ItemGoogleProductSearch - a model defined in Swagger
         """
@@ -176,6 +178,7 @@ class ItemGoogleProductSearch(object):
         self._search_lowest_price = None
         self._search_lowest_url = None
         self._search_position = None
+        self._shipping_label = None
         self._size = None
         self._video_director = None
         self._video_format = None
@@ -266,6 +269,8 @@ class ItemGoogleProductSearch(object):
           self.search_lowest_url = search_lowest_url
         if search_position is not None:
           self.search_position = search_position
+        if shipping_label is not None:
+          self.shipping_label = shipping_label
         if size is not None:
           self.size = size
         if video_director is not None:
@@ -1291,6 +1296,27 @@ class ItemGoogleProductSearch(object):
         """
 
         self._search_position = search_position
+
+    @property
+    def shipping_label(self):
+        """
+        Gets the shipping_label of this ItemGoogleProductSearch.
+
+        :return: The shipping_label of this ItemGoogleProductSearch.
+        :rtype: str
+        """
+        return self._shipping_label
+
+    @shipping_label.setter
+    def shipping_label(self, shipping_label):
+        """
+        Sets the shipping_label of this ItemGoogleProductSearch.
+
+        :param shipping_label: The shipping_label of this ItemGoogleProductSearch.
+        :type: str
+        """
+
+        self._shipping_label = shipping_label
 
     @property
     def size(self):

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accounting_code** | **str** | QuickBooks accounting code for this coupon | [optional] 
+**automatically_applied** | **bool** | Whether or not the coupon was automatically applied to the order | [optional] 
 **base_coupon_code** | **str** | Coupon code configured by the merchant.  Will differ if the customer used a one time coupon code generated off this base coupon | [optional] 
 **coupon_code** | **str** | Coupon code entered by the customer | [optional] 
 

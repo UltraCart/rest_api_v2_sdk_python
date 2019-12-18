@@ -56,12 +56,14 @@ class Order(object):
         'merchant_id': 'str',
         'order_id': 'str',
         'payment': 'OrderPayment',
+        'properties': 'list[OrderProperty]',
         'quote': 'OrderQuote',
         'refund_dts': 'str',
         'reject_dts': 'str',
         'salesforce': 'OrderSalesforce',
         'shipping': 'OrderShipping',
         'summary': 'OrderSummary',
+        'tags': 'list[OrderTag]',
         'taxes': 'OrderTaxes'
     }
 
@@ -91,16 +93,18 @@ class Order(object):
         'merchant_id': 'merchant_id',
         'order_id': 'order_id',
         'payment': 'payment',
+        'properties': 'properties',
         'quote': 'quote',
         'refund_dts': 'refund_dts',
         'reject_dts': 'reject_dts',
         'salesforce': 'salesforce',
         'shipping': 'shipping',
         'summary': 'summary',
+        'tags': 'Tags',
         'taxes': 'taxes'
     }
 
-    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, quote=None, refund_dts=None, reject_dts=None, salesforce=None, shipping=None, summary=None, taxes=None):
+    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, properties=None, quote=None, refund_dts=None, reject_dts=None, salesforce=None, shipping=None, summary=None, tags=None, taxes=None):
         """
         Order - a model defined in Swagger
         """
@@ -130,12 +134,14 @@ class Order(object):
         self._merchant_id = None
         self._order_id = None
         self._payment = None
+        self._properties = None
         self._quote = None
         self._refund_dts = None
         self._reject_dts = None
         self._salesforce = None
         self._shipping = None
         self._summary = None
+        self._tags = None
         self._taxes = None
         self.discriminator = None
 
@@ -189,6 +195,8 @@ class Order(object):
           self.order_id = order_id
         if payment is not None:
           self.payment = payment
+        if properties is not None:
+          self.properties = properties
         if quote is not None:
           self.quote = quote
         if refund_dts is not None:
@@ -201,6 +209,8 @@ class Order(object):
           self.shipping = shipping
         if summary is not None:
           self.summary = summary
+        if tags is not None:
+          self.tags = tags
         if taxes is not None:
           self.taxes = taxes
 
@@ -760,6 +770,29 @@ class Order(object):
         self._payment = payment
 
     @property
+    def properties(self):
+        """
+        Gets the properties of this Order.
+        Properties, available only through update, not through insert due to the nature of how properties are handled internally
+
+        :return: The properties of this Order.
+        :rtype: list[OrderProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """
+        Sets the properties of this Order.
+        Properties, available only through update, not through insert due to the nature of how properties are handled internally
+
+        :param properties: The properties of this Order.
+        :type: list[OrderProperty]
+        """
+
+        self._properties = properties
+
+    @property
     def quote(self):
         """
         Gets the quote of this Order.
@@ -888,6 +921,29 @@ class Order(object):
         """
 
         self._summary = summary
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this Order.
+        tags, available only through update, not through insert due to the nature of how tags are handled internally
+
+        :return: The tags of this Order.
+        :rtype: list[OrderTag]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this Order.
+        tags, available only through update, not through insert due to the nature of how tags are handled internally
+
+        :param tags: The tags of this Order.
+        :type: list[OrderTag]
+        """
+
+        self._tags = tags
 
     @property
     def taxes(self):

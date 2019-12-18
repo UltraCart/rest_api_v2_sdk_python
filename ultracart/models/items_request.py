@@ -31,59 +31,23 @@ class ItemsRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'error': 'Error',
-        'items': 'list[Item]',
-        'metadata': 'ResponseMetadata',
-        'success': 'bool'
+        'items': 'list[Item]'
     }
 
     attribute_map = {
-        'error': 'error',
-        'items': 'items',
-        'metadata': 'metadata',
-        'success': 'success'
+        'items': 'items'
     }
 
-    def __init__(self, error=None, items=None, metadata=None, success=None):
+    def __init__(self, items=None):
         """
         ItemsRequest - a model defined in Swagger
         """
 
-        self._error = None
         self._items = None
-        self._metadata = None
-        self._success = None
         self.discriminator = None
 
-        if error is not None:
-          self.error = error
         if items is not None:
           self.items = items
-        if metadata is not None:
-          self.metadata = metadata
-        if success is not None:
-          self.success = success
-
-    @property
-    def error(self):
-        """
-        Gets the error of this ItemsRequest.
-
-        :return: The error of this ItemsRequest.
-        :rtype: Error
-        """
-        return self._error
-
-    @error.setter
-    def error(self, error):
-        """
-        Sets the error of this ItemsRequest.
-
-        :param error: The error of this ItemsRequest.
-        :type: Error
-        """
-
-        self._error = error
 
     @property
     def items(self):
@@ -107,50 +71,6 @@ class ItemsRequest(object):
         """
 
         self._items = items
-
-    @property
-    def metadata(self):
-        """
-        Gets the metadata of this ItemsRequest.
-
-        :return: The metadata of this ItemsRequest.
-        :rtype: ResponseMetadata
-        """
-        return self._metadata
-
-    @metadata.setter
-    def metadata(self, metadata):
-        """
-        Sets the metadata of this ItemsRequest.
-
-        :param metadata: The metadata of this ItemsRequest.
-        :type: ResponseMetadata
-        """
-
-        self._metadata = metadata
-
-    @property
-    def success(self):
-        """
-        Gets the success of this ItemsRequest.
-        Indicates if API call was successful
-
-        :return: The success of this ItemsRequest.
-        :rtype: bool
-        """
-        return self._success
-
-    @success.setter
-    def success(self, success):
-        """
-        Sets the success of this ItemsRequest.
-        Indicates if API call was successful
-
-        :param success: The success of this ItemsRequest.
-        :type: bool
-        """
-
-        self._success = success
 
     def to_dict(self):
         """

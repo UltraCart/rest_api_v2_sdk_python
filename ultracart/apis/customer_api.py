@@ -757,6 +757,96 @@ class CustomerApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_email_lists(self, **kwargs):
+        """
+        Retrieve all email lists across all storefronts
+        Retrieve all email lists across all storefronts 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_lists(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: EmailListsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_lists_with_http_info(**kwargs)
+        else:
+            (data) = self.get_email_lists_with_http_info(**kwargs)
+            return data
+
+    def get_email_lists_with_http_info(self, **kwargs):
+        """
+        Retrieve all email lists across all storefronts
+        Retrieve all email lists across all storefronts 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_lists_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: EmailListsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_lists" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/customer/email_lists', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailListsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def insert_customer(self, customer, **kwargs):
         """
         Insert a customer
@@ -961,6 +1051,111 @@ class CustomerApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='CustomerResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_customer_email_lists(self, customer_profile_oid, list_changes, **kwargs):
+        """
+        Update email list subscriptions for a customer
+        Update email list subscriptions for a customer 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_customer_email_lists(customer_profile_oid, list_changes, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int customer_profile_oid: The customer profile oid (required)
+        :param CustomerEmailListChanges list_changes: List changes (required)
+        :return: CustomerEmailListChanges
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_customer_email_lists_with_http_info(customer_profile_oid, list_changes, **kwargs)
+        else:
+            (data) = self.update_customer_email_lists_with_http_info(customer_profile_oid, list_changes, **kwargs)
+            return data
+
+    def update_customer_email_lists_with_http_info(self, customer_profile_oid, list_changes, **kwargs):
+        """
+        Update email list subscriptions for a customer
+        Update email list subscriptions for a customer 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_customer_email_lists_with_http_info(customer_profile_oid, list_changes, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int customer_profile_oid: The customer profile oid (required)
+        :param CustomerEmailListChanges list_changes: List changes (required)
+        :return: CustomerEmailListChanges
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['customer_profile_oid', 'list_changes']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_customer_email_lists" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'customer_profile_oid' is set
+        if ('customer_profile_oid' not in params) or (params['customer_profile_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `update_customer_email_lists`")
+        # verify the required parameter 'list_changes' is set
+        if ('list_changes' not in params) or (params['list_changes'] is None):
+            raise ValueError("Missing the required parameter `list_changes` when calling `update_customer_email_lists`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'customer_profile_oid' in params:
+            path_params['customer_profile_oid'] = params['customer_profile_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'list_changes' in params:
+            body_params = params['list_changes']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json; charset=UTF-8'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/customer/customers/{customer_profile_oid}/email_lists', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='CustomerEmailListChanges',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

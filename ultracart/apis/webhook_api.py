@@ -133,6 +133,104 @@ class WebhookApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def delete_webhook_by_url(self, webhook, **kwargs):
+        """
+        Delete a webhook by URL
+        Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_webhook_by_url(webhook, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param Webhook webhook: Webhook to delete (required)
+        :return: WebhookResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.delete_webhook_by_url_with_http_info(webhook, **kwargs)
+        else:
+            (data) = self.delete_webhook_by_url_with_http_info(webhook, **kwargs)
+            return data
+
+    def delete_webhook_by_url_with_http_info(self, webhook, **kwargs):
+        """
+        Delete a webhook by URL
+        Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_webhook_by_url_with_http_info(webhook, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param Webhook webhook: Webhook to delete (required)
+        :return: WebhookResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['webhook']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_webhook_by_url" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'webhook' is set
+        if ('webhook' not in params) or (params['webhook'] is None):
+            raise ValueError("Missing the required parameter `webhook` when calling `delete_webhook_by_url`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'webhook' in params:
+            body_params = params['webhook']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json; charset=UTF-8'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/webhook/webhooks', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='WebhookResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_webhook_log(self, webhook_oid, request_id, **kwargs):
         """
         Retrieve an individual log

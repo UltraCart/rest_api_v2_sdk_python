@@ -38,6 +38,7 @@ class OrderBilling(object):
         'company': 'str',
         'country_code': 'str',
         'day_phone': 'str',
+        'day_phone_e164': 'str',
         'email': 'str',
         'evening_phone': 'str',
         'first_name': 'str',
@@ -55,6 +56,7 @@ class OrderBilling(object):
         'company': 'company',
         'country_code': 'country_code',
         'day_phone': 'day_phone',
+        'day_phone_e164': 'day_phone_e164',
         'email': 'email',
         'evening_phone': 'evening_phone',
         'first_name': 'first_name',
@@ -64,7 +66,7 @@ class OrderBilling(object):
         'title': 'title'
     }
 
-    def __init__(self, address1=None, address2=None, cc_emails=None, city=None, company=None, country_code=None, day_phone=None, email=None, evening_phone=None, first_name=None, last_name=None, postal_code=None, state_region=None, title=None):
+    def __init__(self, address1=None, address2=None, cc_emails=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, email=None, evening_phone=None, first_name=None, last_name=None, postal_code=None, state_region=None, title=None):
         """
         OrderBilling - a model defined in Swagger
         """
@@ -76,6 +78,7 @@ class OrderBilling(object):
         self._company = None
         self._country_code = None
         self._day_phone = None
+        self._day_phone_e164 = None
         self._email = None
         self._evening_phone = None
         self._first_name = None
@@ -99,6 +102,8 @@ class OrderBilling(object):
           self.country_code = country_code
         if day_phone is not None:
           self.day_phone = day_phone
+        if day_phone_e164 is not None:
+          self.day_phone_e164 = day_phone_e164
         if email is not None:
           self.email = email
         if evening_phone is not None:
@@ -286,6 +291,31 @@ class OrderBilling(object):
             raise ValueError("Invalid value for `day_phone`, length must be less than or equal to `25`")
 
         self._day_phone = day_phone
+
+    @property
+    def day_phone_e164(self):
+        """
+        Gets the day_phone_e164 of this OrderBilling.
+        Day time phone (E164 format)
+
+        :return: The day_phone_e164 of this OrderBilling.
+        :rtype: str
+        """
+        return self._day_phone_e164
+
+    @day_phone_e164.setter
+    def day_phone_e164(self, day_phone_e164):
+        """
+        Sets the day_phone_e164 of this OrderBilling.
+        Day time phone (E164 format)
+
+        :param day_phone_e164: The day_phone_e164 of this OrderBilling.
+        :type: str
+        """
+        if day_phone_e164 is not None and len(day_phone_e164) > 25:
+            raise ValueError("Invalid value for `day_phone_e164`, length must be less than or equal to `25`")
+
+        self._day_phone_e164 = day_phone_e164
 
     @property
     def email(self):

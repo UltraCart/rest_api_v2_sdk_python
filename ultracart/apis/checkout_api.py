@@ -231,6 +231,194 @@ class CheckoutApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_affirm_checkout(self, cart_id, **kwargs):
+        """
+        Get affirm checkout (by cart id)
+        Get a Affirm checkout object for the specified cart_id parameter. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_affirm_checkout(cart_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str cart_id: Cart ID to retrieve (required)
+        :return: CartAffirmCheckoutResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_affirm_checkout_with_http_info(cart_id, **kwargs)
+        else:
+            (data) = self.get_affirm_checkout_with_http_info(cart_id, **kwargs)
+            return data
+
+    def get_affirm_checkout_with_http_info(self, cart_id, **kwargs):
+        """
+        Get affirm checkout (by cart id)
+        Get a Affirm checkout object for the specified cart_id parameter. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_affirm_checkout_with_http_info(cart_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str cart_id: Cart ID to retrieve (required)
+        :return: CartAffirmCheckoutResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['cart_id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_affirm_checkout" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'cart_id' is set
+        if ('cart_id' not in params) or (params['cart_id'] is None):
+            raise ValueError("Missing the required parameter `cart_id` when calling `get_affirm_checkout`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'cart_id' in params:
+            path_params['cart_id'] = params['cart_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/checkout/cart/{cart_id}/affirmCheckout', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='CartAffirmCheckoutResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_allowed_countries(self, **kwargs):
+        """
+        Allowed countries
+        Lookup the allowed countries for this merchant id 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_allowed_countries(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: CheckoutAllowedCountriesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_allowed_countries_with_http_info(**kwargs)
+        else:
+            (data) = self.get_allowed_countries_with_http_info(**kwargs)
+            return data
+
+    def get_allowed_countries_with_http_info(self, **kwargs):
+        """
+        Allowed countries
+        Lookup the allowed countries for this merchant id 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_allowed_countries_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: CheckoutAllowedCountriesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_allowed_countries" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/checkout/allowedCountries', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='CheckoutAllowedCountriesResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_cart(self, **kwargs):
         """
         Get cart
@@ -523,6 +711,104 @@ class CheckoutApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='CartResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_state_provinces_for_country(self, country_code, **kwargs):
+        """
+        Get state/province list for a country code
+        Lookup a state/province list for a given country code 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_state_provinces_for_country(country_code, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str country_code: Two letter ISO country code (required)
+        :return: CheckoutStateProvinceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_state_provinces_for_country_with_http_info(country_code, **kwargs)
+        else:
+            (data) = self.get_state_provinces_for_country_with_http_info(country_code, **kwargs)
+            return data
+
+    def get_state_provinces_for_country_with_http_info(self, country_code, **kwargs):
+        """
+        Get state/province list for a country code
+        Lookup a state/province list for a given country code 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_state_provinces_for_country_with_http_info(country_code, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str country_code: Two letter ISO country code (required)
+        :return: CheckoutStateProvinceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['country_code']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_state_provinces_for_country" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'country_code' is set
+        if ('country_code' not in params) or (params['country_code'] is None):
+            raise ValueError("Missing the required parameter `country_code` when calling `get_state_provinces_for_country`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'country_code' in params:
+            path_params['country_code'] = params['country_code']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/checkout/stateProvincesForCountry/{country_code}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='CheckoutStateProvinceResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

@@ -336,6 +336,195 @@ class OrderApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_accounts_receivable_retry_config(self, **kwargs):
+        """
+        Retrieve A/R Retry Configuration
+        Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_accounts_receivable_retry_config(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: AccountsReceivableRetryConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_accounts_receivable_retry_config_with_http_info(**kwargs)
+        else:
+            (data) = self.get_accounts_receivable_retry_config_with_http_info(**kwargs)
+            return data
+
+    def get_accounts_receivable_retry_config_with_http_info(self, **kwargs):
+        """
+        Retrieve A/R Retry Configuration
+        Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_accounts_receivable_retry_config_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: AccountsReceivableRetryConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_accounts_receivable_retry_config" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/order/accountsReceivableRetryConfig', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='AccountsReceivableRetryConfigResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_accounts_receivable_retry_stats(self, **kwargs):
+        """
+        Retrieve A/R Retry Statistics
+        Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_accounts_receivable_retry_stats(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str _from: null
+        :param str to: null
+        :return: AccountsReceivableRetryStatsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_accounts_receivable_retry_stats_with_http_info(**kwargs)
+        else:
+            (data) = self.get_accounts_receivable_retry_stats_with_http_info(**kwargs)
+            return data
+
+    def get_accounts_receivable_retry_stats_with_http_info(self, **kwargs):
+        """
+        Retrieve A/R Retry Statistics
+        Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_accounts_receivable_retry_stats_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str _from: null
+        :param str to: null
+        :return: AccountsReceivableRetryStatsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['_from', 'to']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_accounts_receivable_retry_stats" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if '_from' in params:
+            query_params.append(('from', params['_from']))
+        if 'to' in params:
+            query_params.append(('to', params['to']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/order/accountsReceivableRetryConfig/stats', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='AccountsReceivableRetryStatsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_order(self, order_id, **kwargs):
         """
         Retrieve an order
@@ -476,6 +665,8 @@ class OrderApi(object):
         :param str channel_partner_code: Channel Partner Code
         :param str channel_partner_order_id: Channel Partner Order ID
         :param int customer_profile_oid: null
+        :param str refund_date_begin: null
+        :param str refund_date_end: null
         :param int limit: The maximum number of records to return on this one API call. (Maximum 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str sort: The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -529,6 +720,8 @@ class OrderApi(object):
         :param str channel_partner_code: Channel Partner Code
         :param str channel_partner_order_id: Channel Partner Order ID
         :param int customer_profile_oid: null
+        :param str refund_date_begin: null
+        :param str refund_date_end: null
         :param int limit: The maximum number of records to return on this one API call. (Maximum 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str sort: The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -538,7 +731,7 @@ class OrderApi(object):
                  returns the request thread.
         """
 
-        all_params = ['order_id', 'payment_method', 'company', 'first_name', 'last_name', 'city', 'state_region', 'postal_code', 'country_code', 'phone', 'email', 'cc_email', 'total', 'screen_branding_theme_code', 'storefront_host_name', 'creation_date_begin', 'creation_date_end', 'payment_date_begin', 'payment_date_end', 'shipment_date_begin', 'shipment_date_end', 'rma', 'purchase_order_number', 'item_id', 'current_stage', 'channel_partner_code', 'channel_partner_order_id', 'customer_profile_oid', 'limit', 'offset', 'sort', 'expand']
+        all_params = ['order_id', 'payment_method', 'company', 'first_name', 'last_name', 'city', 'state_region', 'postal_code', 'country_code', 'phone', 'email', 'cc_email', 'total', 'screen_branding_theme_code', 'storefront_host_name', 'creation_date_begin', 'creation_date_end', 'payment_date_begin', 'payment_date_end', 'shipment_date_begin', 'shipment_date_end', 'rma', 'purchase_order_number', 'item_id', 'current_stage', 'channel_partner_code', 'channel_partner_order_id', 'customer_profile_oid', 'refund_date_begin', 'refund_date_end', 'limit', 'offset', 'sort', 'expand']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -616,6 +809,10 @@ class OrderApi(object):
             query_params.append(('channel_partner_order_id', params['channel_partner_order_id']))
         if 'customer_profile_oid' in params:
             query_params.append(('customer_profile_oid', params['customer_profile_oid']))
+        if 'refund_date_begin' in params:
+            query_params.append(('Refund Date Begin', params['refund_date_begin']))
+        if 'refund_date_end' in params:
+            query_params.append(('Refund Date End', params['refund_date_end']))
         if 'limit' in params:
             query_params.append(('_limit', params['limit']))
         if 'offset' in params:
@@ -643,6 +840,108 @@ class OrderApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
         return self.api_client.call_api('/order/orders', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='OrdersResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_orders_batch(self, order_batch, **kwargs):
+        """
+        Retrieve order batch
+        Retrieves a group of orders from the account based on an array of order ids.  If more than 500 order ids are specified, the API call will fail with a bad request error. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_orders_batch(order_batch, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param OrderQueryBatch order_batch: Order batch (required)
+        :param str expand: The object expansion to perform on the result.
+        :return: OrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_orders_batch_with_http_info(order_batch, **kwargs)
+        else:
+            (data) = self.get_orders_batch_with_http_info(order_batch, **kwargs)
+            return data
+
+    def get_orders_batch_with_http_info(self, order_batch, **kwargs):
+        """
+        Retrieve order batch
+        Retrieves a group of orders from the account based on an array of order ids.  If more than 500 order ids are specified, the API call will fail with a bad request error. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_orders_batch_with_http_info(order_batch, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param OrderQueryBatch order_batch: Order batch (required)
+        :param str expand: The object expansion to perform on the result.
+        :return: OrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_batch', 'expand']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_orders_batch" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_batch' is set
+        if ('order_batch' not in params) or (params['order_batch'] is None):
+            raise ValueError("Missing the required parameter `order_batch` when calling `get_orders_batch`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'order_batch' in params:
+            body_params = params['order_batch']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/order/orders/batch', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -764,6 +1063,108 @@ class OrderApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='OrdersResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def insert_order(self, order, **kwargs):
+        """
+        Insert an order
+        Inserts a new order on the UltraCart account.  This is probably NOT the method you want.  This is for channel orders.  For regular orders the customer is entering, use the CheckoutApi.  It has many, many more features, checks, and validations. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.insert_order(order, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param Order order: Order to insert (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.insert_order_with_http_info(order, **kwargs)
+        else:
+            (data) = self.insert_order_with_http_info(order, **kwargs)
+            return data
+
+    def insert_order_with_http_info(self, order, **kwargs):
+        """
+        Insert an order
+        Inserts a new order on the UltraCart account.  This is probably NOT the method you want.  This is for channel orders.  For regular orders the customer is entering, use the CheckoutApi.  It has many, many more features, checks, and validations. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.insert_order_with_http_info(order, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param Order order: Order to insert (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order', 'expand']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order' is set
+        if ('order' not in params) or (params['order'] is None):
+            raise ValueError("Missing the required parameter `order` when calling `insert_order`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'order' in params:
+            body_params = params['order']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json; charset=UTF-8'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/order/orders', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='OrderResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -893,6 +1294,111 @@ class OrderApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='OrderResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def replacement(self, order_id, replacement, **kwargs):
+        """
+        Replacement order
+        Create a replacement order based upon a previous order 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.replacement(order_id, replacement, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str order_id: The order id to generate a replacement for. (required)
+        :param OrderReplacement replacement: Replacement order details (required)
+        :return: OrderReplacementResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.replacement_with_http_info(order_id, replacement, **kwargs)
+        else:
+            (data) = self.replacement_with_http_info(order_id, replacement, **kwargs)
+            return data
+
+    def replacement_with_http_info(self, order_id, replacement, **kwargs):
+        """
+        Replacement order
+        Create a replacement order based upon a previous order 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.replacement_with_http_info(order_id, replacement, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str order_id: The order id to generate a replacement for. (required)
+        :param OrderReplacement replacement: Replacement order details (required)
+        :return: OrderReplacementResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'replacement']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method replacement" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params) or (params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `replacement`")
+        # verify the required parameter 'replacement' is set
+        if ('replacement' not in params) or (params['replacement'] is None):
+            raise ValueError("Missing the required parameter `replacement` when calling `replacement`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'replacement' in params:
+            body_params = params['replacement']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/order/orders/{order_id}/replacement', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='OrderReplacementResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -1096,10 +1602,108 @@ class OrderApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def update_accounts_receivable_retry_config(self, retry_config, **kwargs):
+        """
+        Update A/R Retry Configuration
+        Update A/R Retry Configuration.  This is primarily an internal API call.  It is doubtful you would ever need to use it. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_accounts_receivable_retry_config(retry_config, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param AccountsReceivableRetryConfig retry_config: AccountsReceivableRetryConfig object (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_accounts_receivable_retry_config_with_http_info(retry_config, **kwargs)
+        else:
+            (data) = self.update_accounts_receivable_retry_config_with_http_info(retry_config, **kwargs)
+            return data
+
+    def update_accounts_receivable_retry_config_with_http_info(self, retry_config, **kwargs):
+        """
+        Update A/R Retry Configuration
+        Update A/R Retry Configuration.  This is primarily an internal API call.  It is doubtful you would ever need to use it. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_accounts_receivable_retry_config_with_http_info(retry_config, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param AccountsReceivableRetryConfig retry_config: AccountsReceivableRetryConfig object (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['retry_config']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_accounts_receivable_retry_config" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'retry_config' is set
+        if ('retry_config' not in params) or (params['retry_config'] is None):
+            raise ValueError("Missing the required parameter `retry_config` when calling `update_accounts_receivable_retry_config`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'retry_config' in params:
+            body_params = params['retry_config']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/order/accountsReceivableRetryConfig', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='BaseResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def update_order(self, order, order_id, **kwargs):
         """
         Update an order
-        Update a new order on the UltraCart account. 
+        Update a new order on the UltraCart account.  This is probably NOT the method you want.  It is rare to update a completed order.  This will not trigger charges, emails, or any other automation. 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_order(order, order_id, async=True)
@@ -1123,7 +1727,7 @@ class OrderApi(object):
     def update_order_with_http_info(self, order, order_id, **kwargs):
         """
         Update an order
-        Update a new order on the UltraCart account. 
+        Update a new order on the UltraCart account.  This is probably NOT the method you want.  It is rare to update a completed order.  This will not trigger charges, emails, or any other automation. 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_order_with_http_info(order, order_id, async=True)

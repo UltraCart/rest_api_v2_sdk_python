@@ -31,12 +31,14 @@ class Customer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'activity': 'CustomerActivity',
         'affiliate_oid': 'int',
         'allow_3rd_party_billing': 'bool',
         'allow_cod': 'bool',
         'allow_purchase_order': 'bool',
         'allow_quote_request': 'bool',
         'allow_selection_of_address_type': 'bool',
+        'attachments': 'list[CustomerAttachment]',
         'auto_approve_cod': 'bool',
         'auto_approve_purchase_order': 'bool',
         'automatic_merchant_notes': 'str',
@@ -46,6 +48,7 @@ class Customer(object):
         'cc_emails': 'list[CustomerEmail]',
         'customer_profile_oid': 'int',
         'dhl_account_number': 'str',
+        'dhl_duty_account_number': 'str',
         'email': 'str',
         'exempt_shipping_handling_charge': 'bool',
         'fedex_account_number': 'str',
@@ -53,6 +56,7 @@ class Customer(object):
         'free_shipping_minimum': 'float',
         'last_modified_by': 'str',
         'last_modified_dts': 'str',
+        'loyalty': 'CustomerLoyalty',
         'maximum_item_count': 'int',
         'minimum_item_count': 'int',
         'minimum_subtotal': 'float',
@@ -63,16 +67,21 @@ class Customer(object):
         'orders_summary': 'CustomerOrdersSummary',
         'password': 'str',
         'pricing_tiers': 'list[CustomerPricingTier]',
+        'privacy': 'CustomerPrivacy',
         'qb_class': 'str',
         'qb_code': 'str',
         'quotes': 'list[Order]',
         'quotes_summary': 'CustomerQuotesSummary',
         'referral_source': 'str',
+        'reviewer': 'CustomerReviewer',
         'sales_rep_code': 'str',
         'send_signup_notification': 'bool',
         'shipping': 'list[CustomerShipping]',
         'signup_dts': 'str',
+        'software_entitlements': 'list[CustomerSoftwareEntitlement]',
         'suppress_buysafe': 'bool',
+        'tags': 'list[CustomerTag]',
+        'tax_codes': 'CustomerTaxCodes',
         'tax_exempt': 'bool',
         'tax_id': 'str',
         'terms': 'str',
@@ -83,12 +92,14 @@ class Customer(object):
     }
 
     attribute_map = {
+        'activity': 'activity',
         'affiliate_oid': 'affiliate_oid',
         'allow_3rd_party_billing': 'allow_3rd_party_billing',
         'allow_cod': 'allow_cod',
         'allow_purchase_order': 'allow_purchase_order',
         'allow_quote_request': 'allow_quote_request',
         'allow_selection_of_address_type': 'allow_selection_of_address_type',
+        'attachments': 'attachments',
         'auto_approve_cod': 'auto_approve_cod',
         'auto_approve_purchase_order': 'auto_approve_purchase_order',
         'automatic_merchant_notes': 'automatic_merchant_notes',
@@ -98,6 +109,7 @@ class Customer(object):
         'cc_emails': 'cc_emails',
         'customer_profile_oid': 'customer_profile_oid',
         'dhl_account_number': 'dhl_account_number',
+        'dhl_duty_account_number': 'dhl_duty_account_number',
         'email': 'email',
         'exempt_shipping_handling_charge': 'exempt_shipping_handling_charge',
         'fedex_account_number': 'fedex_account_number',
@@ -105,6 +117,7 @@ class Customer(object):
         'free_shipping_minimum': 'free_shipping_minimum',
         'last_modified_by': 'last_modified_by',
         'last_modified_dts': 'last_modified_dts',
+        'loyalty': 'loyalty',
         'maximum_item_count': 'maximum_item_count',
         'minimum_item_count': 'minimum_item_count',
         'minimum_subtotal': 'minimum_subtotal',
@@ -115,16 +128,21 @@ class Customer(object):
         'orders_summary': 'orders_summary',
         'password': 'password',
         'pricing_tiers': 'pricing_tiers',
+        'privacy': 'privacy',
         'qb_class': 'qb_class',
         'qb_code': 'qb_code',
         'quotes': 'quotes',
         'quotes_summary': 'quotes_summary',
         'referral_source': 'referral_source',
+        'reviewer': 'reviewer',
         'sales_rep_code': 'sales_rep_code',
         'send_signup_notification': 'send_signup_notification',
         'shipping': 'shipping',
         'signup_dts': 'signup_dts',
+        'software_entitlements': 'software_entitlements',
         'suppress_buysafe': 'suppress_buysafe',
+        'tags': 'tags',
+        'tax_codes': 'tax_codes',
         'tax_exempt': 'tax_exempt',
         'tax_id': 'tax_id',
         'terms': 'terms',
@@ -134,17 +152,19 @@ class Customer(object):
         'website_url': 'website_url'
     }
 
-    def __init__(self, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, suppress_buysafe=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):
+    def __init__(self, activity=None, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, attachments=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, loyalty=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, privacy=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, reviewer=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, software_entitlements=None, suppress_buysafe=None, tags=None, tax_codes=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):
         """
         Customer - a model defined in Swagger
         """
 
+        self._activity = None
         self._affiliate_oid = None
         self._allow_3rd_party_billing = None
         self._allow_cod = None
         self._allow_purchase_order = None
         self._allow_quote_request = None
         self._allow_selection_of_address_type = None
+        self._attachments = None
         self._auto_approve_cod = None
         self._auto_approve_purchase_order = None
         self._automatic_merchant_notes = None
@@ -154,6 +174,7 @@ class Customer(object):
         self._cc_emails = None
         self._customer_profile_oid = None
         self._dhl_account_number = None
+        self._dhl_duty_account_number = None
         self._email = None
         self._exempt_shipping_handling_charge = None
         self._fedex_account_number = None
@@ -161,6 +182,7 @@ class Customer(object):
         self._free_shipping_minimum = None
         self._last_modified_by = None
         self._last_modified_dts = None
+        self._loyalty = None
         self._maximum_item_count = None
         self._minimum_item_count = None
         self._minimum_subtotal = None
@@ -171,16 +193,21 @@ class Customer(object):
         self._orders_summary = None
         self._password = None
         self._pricing_tiers = None
+        self._privacy = None
         self._qb_class = None
         self._qb_code = None
         self._quotes = None
         self._quotes_summary = None
         self._referral_source = None
+        self._reviewer = None
         self._sales_rep_code = None
         self._send_signup_notification = None
         self._shipping = None
         self._signup_dts = None
+        self._software_entitlements = None
         self._suppress_buysafe = None
+        self._tags = None
+        self._tax_codes = None
         self._tax_exempt = None
         self._tax_id = None
         self._terms = None
@@ -190,6 +217,8 @@ class Customer(object):
         self._website_url = None
         self.discriminator = None
 
+        if activity is not None:
+          self.activity = activity
         if affiliate_oid is not None:
           self.affiliate_oid = affiliate_oid
         if allow_3rd_party_billing is not None:
@@ -202,6 +231,8 @@ class Customer(object):
           self.allow_quote_request = allow_quote_request
         if allow_selection_of_address_type is not None:
           self.allow_selection_of_address_type = allow_selection_of_address_type
+        if attachments is not None:
+          self.attachments = attachments
         if auto_approve_cod is not None:
           self.auto_approve_cod = auto_approve_cod
         if auto_approve_purchase_order is not None:
@@ -220,6 +251,8 @@ class Customer(object):
           self.customer_profile_oid = customer_profile_oid
         if dhl_account_number is not None:
           self.dhl_account_number = dhl_account_number
+        if dhl_duty_account_number is not None:
+          self.dhl_duty_account_number = dhl_duty_account_number
         if email is not None:
           self.email = email
         if exempt_shipping_handling_charge is not None:
@@ -234,6 +267,8 @@ class Customer(object):
           self.last_modified_by = last_modified_by
         if last_modified_dts is not None:
           self.last_modified_dts = last_modified_dts
+        if loyalty is not None:
+          self.loyalty = loyalty
         if maximum_item_count is not None:
           self.maximum_item_count = maximum_item_count
         if minimum_item_count is not None:
@@ -254,6 +289,8 @@ class Customer(object):
           self.password = password
         if pricing_tiers is not None:
           self.pricing_tiers = pricing_tiers
+        if privacy is not None:
+          self.privacy = privacy
         if qb_class is not None:
           self.qb_class = qb_class
         if qb_code is not None:
@@ -264,6 +301,8 @@ class Customer(object):
           self.quotes_summary = quotes_summary
         if referral_source is not None:
           self.referral_source = referral_source
+        if reviewer is not None:
+          self.reviewer = reviewer
         if sales_rep_code is not None:
           self.sales_rep_code = sales_rep_code
         if send_signup_notification is not None:
@@ -272,8 +311,14 @@ class Customer(object):
           self.shipping = shipping
         if signup_dts is not None:
           self.signup_dts = signup_dts
+        if software_entitlements is not None:
+          self.software_entitlements = software_entitlements
         if suppress_buysafe is not None:
           self.suppress_buysafe = suppress_buysafe
+        if tags is not None:
+          self.tags = tags
+        if tax_codes is not None:
+          self.tax_codes = tax_codes
         if tax_exempt is not None:
           self.tax_exempt = tax_exempt
         if tax_id is not None:
@@ -288,6 +333,27 @@ class Customer(object):
           self.ups_account_number = ups_account_number
         if website_url is not None:
           self.website_url = website_url
+
+    @property
+    def activity(self):
+        """
+        Gets the activity of this Customer.
+
+        :return: The activity of this Customer.
+        :rtype: CustomerActivity
+        """
+        return self._activity
+
+    @activity.setter
+    def activity(self, activity):
+        """
+        Sets the activity of this Customer.
+
+        :param activity: The activity of this Customer.
+        :type: CustomerActivity
+        """
+
+        self._activity = activity
 
     @property
     def affiliate_oid(self):
@@ -426,6 +492,29 @@ class Customer(object):
         """
 
         self._allow_selection_of_address_type = allow_selection_of_address_type
+
+    @property
+    def attachments(self):
+        """
+        Gets the attachments of this Customer.
+        Attachments
+
+        :return: The attachments of this Customer.
+        :rtype: list[CustomerAttachment]
+        """
+        return self._attachments
+
+    @attachments.setter
+    def attachments(self, attachments):
+        """
+        Sets the attachments of this Customer.
+        Attachments
+
+        :param attachments: The attachments of this Customer.
+        :type: list[CustomerAttachment]
+        """
+
+        self._attachments = attachments
 
     @property
     def auto_approve_cod(self):
@@ -639,6 +728,31 @@ class Customer(object):
         self._dhl_account_number = dhl_account_number
 
     @property
+    def dhl_duty_account_number(self):
+        """
+        Gets the dhl_duty_account_number of this Customer.
+        DHL duty account number
+
+        :return: The dhl_duty_account_number of this Customer.
+        :rtype: str
+        """
+        return self._dhl_duty_account_number
+
+    @dhl_duty_account_number.setter
+    def dhl_duty_account_number(self, dhl_duty_account_number):
+        """
+        Sets the dhl_duty_account_number of this Customer.
+        DHL duty account number
+
+        :param dhl_duty_account_number: The dhl_duty_account_number of this Customer.
+        :type: str
+        """
+        if dhl_duty_account_number is not None and len(dhl_duty_account_number) > 20:
+            raise ValueError("Invalid value for `dhl_duty_account_number`, length must be less than or equal to `20`")
+
+        self._dhl_duty_account_number = dhl_duty_account_number
+
+    @property
     def email(self):
         """
         Gets the email of this Customer.
@@ -802,6 +916,27 @@ class Customer(object):
         """
 
         self._last_modified_dts = last_modified_dts
+
+    @property
+    def loyalty(self):
+        """
+        Gets the loyalty of this Customer.
+
+        :return: The loyalty of this Customer.
+        :rtype: CustomerLoyalty
+        """
+        return self._loyalty
+
+    @loyalty.setter
+    def loyalty(self, loyalty):
+        """
+        Sets the loyalty of this Customer.
+
+        :param loyalty: The loyalty of this Customer.
+        :type: CustomerLoyalty
+        """
+
+        self._loyalty = loyalty
 
     @property
     def maximum_item_count(self):
@@ -1034,6 +1169,27 @@ class Customer(object):
         self._pricing_tiers = pricing_tiers
 
     @property
+    def privacy(self):
+        """
+        Gets the privacy of this Customer.
+
+        :return: The privacy of this Customer.
+        :rtype: CustomerPrivacy
+        """
+        return self._privacy
+
+    @privacy.setter
+    def privacy(self, privacy):
+        """
+        Sets the privacy of this Customer.
+
+        :param privacy: The privacy of this Customer.
+        :type: CustomerPrivacy
+        """
+
+        self._privacy = privacy
+
+    @property
     def qb_class(self):
         """
         Gets the qb_class of this Customer.
@@ -1149,6 +1305,27 @@ class Customer(object):
         self._referral_source = referral_source
 
     @property
+    def reviewer(self):
+        """
+        Gets the reviewer of this Customer.
+
+        :return: The reviewer of this Customer.
+        :rtype: CustomerReviewer
+        """
+        return self._reviewer
+
+    @reviewer.setter
+    def reviewer(self, reviewer):
+        """
+        Sets the reviewer of this Customer.
+
+        :param reviewer: The reviewer of this Customer.
+        :type: CustomerReviewer
+        """
+
+        self._reviewer = reviewer
+
+    @property
     def sales_rep_code(self):
         """
         Gets the sales_rep_code of this Customer.
@@ -1243,6 +1420,29 @@ class Customer(object):
         self._signup_dts = signup_dts
 
     @property
+    def software_entitlements(self):
+        """
+        Gets the software_entitlements of this Customer.
+        Software entitlements owned by this customer
+
+        :return: The software_entitlements of this Customer.
+        :rtype: list[CustomerSoftwareEntitlement]
+        """
+        return self._software_entitlements
+
+    @software_entitlements.setter
+    def software_entitlements(self, software_entitlements):
+        """
+        Sets the software_entitlements of this Customer.
+        Software entitlements owned by this customer
+
+        :param software_entitlements: The software_entitlements of this Customer.
+        :type: list[CustomerSoftwareEntitlement]
+        """
+
+        self._software_entitlements = software_entitlements
+
+    @property
     def suppress_buysafe(self):
         """
         Gets the suppress_buysafe of this Customer.
@@ -1264,6 +1464,50 @@ class Customer(object):
         """
 
         self._suppress_buysafe = suppress_buysafe
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this Customer.
+        Tags for this customer
+
+        :return: The tags of this Customer.
+        :rtype: list[CustomerTag]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this Customer.
+        Tags for this customer
+
+        :param tags: The tags of this Customer.
+        :type: list[CustomerTag]
+        """
+
+        self._tags = tags
+
+    @property
+    def tax_codes(self):
+        """
+        Gets the tax_codes of this Customer.
+
+        :return: The tax_codes of this Customer.
+        :rtype: CustomerTaxCodes
+        """
+        return self._tax_codes
+
+    @tax_codes.setter
+    def tax_codes(self, tax_codes):
+        """
+        Sets the tax_codes of this Customer.
+
+        :param tax_codes: The tax_codes of this Customer.
+        :type: CustomerTaxCodes
+        """
+
+        self._tax_codes = tax_codes
 
     @property
     def tax_exempt(self):

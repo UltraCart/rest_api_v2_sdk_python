@@ -109,6 +109,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**get_auto_order_by_code**](docs/AutoOrderApi.md#get_auto_order_by_code) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
 *AutoOrderApi* | [**get_auto_order_by_reference_order_id**](docs/AutoOrderApi.md#get_auto_order_by_reference_order_id) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
 *AutoOrderApi* | [**get_auto_orders**](docs/AutoOrderApi.md#get_auto_orders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+*AutoOrderApi* | [**get_auto_orders_by_query**](docs/AutoOrderApi.md#get_auto_orders_by_query) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
 *AutoOrderApi* | [**update_auto_order**](docs/AutoOrderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *ChargebackApi* | [**delete_chargeback**](docs/ChargebackApi.md#delete_chargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**get_chargeback_dispute**](docs/ChargebackApi.md#get_chargeback_dispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
@@ -117,9 +118,12 @@ Class | Method | HTTP request | Description
 *ChargebackApi* | [**update_chargeback**](docs/ChargebackApi.md#update_chargeback) | **PUT** /chargeback/chargebacks/{chargeback_dispute_oid} | Update a chargeback
 *CheckoutApi* | [**city_state**](docs/CheckoutApi.md#city_state) | **POST** /checkout/city_state | City/State for Zip
 *CheckoutApi* | [**finalize_order**](docs/CheckoutApi.md#finalize_order) | **POST** /checkout/cart/finalizeOrder | Finalize Order
+*CheckoutApi* | [**get_affirm_checkout**](docs/CheckoutApi.md#get_affirm_checkout) | **GET** /checkout/cart/{cart_id}/affirmCheckout | Get affirm checkout (by cart id)
+*CheckoutApi* | [**get_allowed_countries**](docs/CheckoutApi.md#get_allowed_countries) | **POST** /checkout/allowedCountries | Allowed countries
 *CheckoutApi* | [**get_cart**](docs/CheckoutApi.md#get_cart) | **GET** /checkout/cart | Get cart
 *CheckoutApi* | [**get_cart_by_cart_id**](docs/CheckoutApi.md#get_cart_by_cart_id) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
 *CheckoutApi* | [**get_cart_by_return_code**](docs/CheckoutApi.md#get_cart_by_return_code) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+*CheckoutApi* | [**get_state_provinces_for_country**](docs/CheckoutApi.md#get_state_provinces_for_country) | **POST** /checkout/stateProvincesForCountry/{country_code} | Get state/province list for a country code
 *CheckoutApi* | [**handoff_cart**](docs/CheckoutApi.md#handoff_cart) | **POST** /checkout/cart/handoff | Handoff cart
 *CheckoutApi* | [**login**](docs/CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
 *CheckoutApi* | [**logout**](docs/CheckoutApi.md#logout) | **POST** /checkout/cart/profile/logout | Profile logout
@@ -145,8 +149,10 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**get_customers_by_query**](docs/CustomerApi.md#get_customers_by_query) | **GET** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**get_customers_for_data_tables**](docs/CustomerApi.md#get_customers_for_data_tables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**get_editor_values**](docs/CustomerApi.md#get_editor_values) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
+*CustomerApi* | [**get_email_lists**](docs/CustomerApi.md#get_email_lists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 *CustomerApi* | [**insert_customer**](docs/CustomerApi.md#insert_customer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**update_customer**](docs/CustomerApi.md#update_customer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
+*CustomerApi* | [**update_customer_email_lists**](docs/CustomerApi.md#update_customer_email_lists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *FulfillmentApi* | [**acknowledge_orders**](docs/FulfillmentApi.md#acknowledge_orders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
 *FulfillmentApi* | [**get_distribution_center_orders**](docs/FulfillmentApi.md#get_distribution_center_orders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
 *FulfillmentApi* | [**get_distribution_centers**](docs/FulfillmentApi.md#get_distribution_centers) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
@@ -166,14 +172,111 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**cancel_order**](docs/OrderApi.md#cancel_order) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**delete_order**](docs/OrderApi.md#delete_order) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**format**](docs/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
+*OrderApi* | [**get_accounts_receivable_retry_config**](docs/OrderApi.md#get_accounts_receivable_retry_config) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
+*OrderApi* | [**get_accounts_receivable_retry_stats**](docs/OrderApi.md#get_accounts_receivable_retry_stats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**get_order**](docs/OrderApi.md#get_order) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**get_orders**](docs/OrderApi.md#get_orders) | **GET** /order/orders | Retrieve orders
+*OrderApi* | [**get_orders_batch**](docs/OrderApi.md#get_orders_batch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**get_orders_by_query**](docs/OrderApi.md#get_orders_by_query) | **POST** /order/orders/query | Retrieve orders
+*OrderApi* | [**insert_order**](docs/OrderApi.md#insert_order) | **POST** /order/orders | Insert an order
 *OrderApi* | [**refund_order**](docs/OrderApi.md#refund_order) | **PUT** /order/orders/{order_id}/refund | Refund an order
+*OrderApi* | [**replacement**](docs/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resend_receipt**](docs/OrderApi.md#resend_receipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resend_shipment_confirmation**](docs/OrderApi.md#resend_shipment_confirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+*OrderApi* | [**update_accounts_receivable_retry_config**](docs/OrderApi.md#update_accounts_receivable_retry_config) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**update_order**](docs/OrderApi.md#update_order) | **PUT** /order/orders/{order_id} | Update an order
+*StorefrontApi* | [**archive_email_list**](docs/StorefrontApi.md#archive_email_list) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
+*StorefrontApi* | [**archive_email_segment**](docs/StorefrontApi.md#archive_email_segment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
+*StorefrontApi* | [**check_download_email_segment**](docs/StorefrontApi.md#check_download_email_segment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
+*StorefrontApi* | [**clone_email_campaign**](docs/StorefrontApi.md#clone_email_campaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
+*StorefrontApi* | [**clone_email_flow**](docs/StorefrontApi.md#clone_email_flow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
+*StorefrontApi* | [**create_email_sending_domain**](docs/StorefrontApi.md#create_email_sending_domain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
+*StorefrontApi* | [**delete_email_email**](docs/StorefrontApi.md#delete_email_email) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
+*StorefrontApi* | [**delete_email_list_customer**](docs/StorefrontApi.md#delete_email_list_customer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
+*StorefrontApi* | [**delete_email_sending_domain**](docs/StorefrontApi.md#delete_email_sending_domain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
+*StorefrontApi* | [**delete_experiment**](docs/StorefrontApi.md#delete_experiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+*StorefrontApi* | [**geocode_address**](docs/StorefrontApi.md#geocode_address) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
+*StorefrontApi* | [**get_countries**](docs/StorefrontApi.md#get_countries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
+*StorefrontApi* | [**get_email_base_templates**](docs/StorefrontApi.md#get_email_base_templates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
+*StorefrontApi* | [**get_email_campaign**](docs/StorefrontApi.md#get_email_campaign) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Get email campaign
+*StorefrontApi* | [**get_email_campaigns**](docs/StorefrontApi.md#get_email_campaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
+*StorefrontApi* | [**get_email_campaigns_with_stats**](docs/StorefrontApi.md#get_email_campaigns_with_stats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
+*StorefrontApi* | [**get_email_commseq**](docs/StorefrontApi.md#get_email_commseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
+*StorefrontApi* | [**get_email_commseq_email_stats**](docs/StorefrontApi.md#get_email_commseq_email_stats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
+*StorefrontApi* | [**get_email_commseq_stat_overall**](docs/StorefrontApi.md#get_email_commseq_stat_overall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
+*StorefrontApi* | [**get_email_commseq_step_waiting**](docs/StorefrontApi.md#get_email_commseq_step_waiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
+*StorefrontApi* | [**get_email_commseqs**](docs/StorefrontApi.md#get_email_commseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
+*StorefrontApi* | [**get_email_dashboard_activity**](docs/StorefrontApi.md#get_email_dashboard_activity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
+*StorefrontApi* | [**get_email_dashboard_stats**](docs/StorefrontApi.md#get_email_dashboard_stats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
+*StorefrontApi* | [**get_email_email**](docs/StorefrontApi.md#get_email_email) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
+*StorefrontApi* | [**get_email_emails**](docs/StorefrontApi.md#get_email_emails) | **GET** /storefront/{storefront_oid}/email/emails | Get email emails
+*StorefrontApi* | [**get_email_emails_multiple**](docs/StorefrontApi.md#get_email_emails_multiple) | **POST** /storefront/{storefront_oid}/email/emails/multiple | Get email emails multiple
+*StorefrontApi* | [**get_email_flow**](docs/StorefrontApi.md#get_email_flow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
+*StorefrontApi* | [**get_email_flows**](docs/StorefrontApi.md#get_email_flows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
+*StorefrontApi* | [**get_email_list**](docs/StorefrontApi.md#get_email_list) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
+*StorefrontApi* | [**get_email_list_customer_editor_url**](docs/StorefrontApi.md#get_email_list_customer_editor_url) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customers
+*StorefrontApi* | [**get_email_list_customers**](docs/StorefrontApi.md#get_email_list_customers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
+*StorefrontApi* | [**get_email_lists**](docs/StorefrontApi.md#get_email_lists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
+*StorefrontApi* | [**get_email_segment**](docs/StorefrontApi.md#get_email_segment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
+*StorefrontApi* | [**get_email_segment_customer_editor_url**](docs/StorefrontApi.md#get_email_segment_customer_editor_url) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers/{email_customer_uuid}/editor_url | Get email segment customers editor URL
+*StorefrontApi* | [**get_email_segment_customers**](docs/StorefrontApi.md#get_email_segment_customers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers | Get email segment customers
+*StorefrontApi* | [**get_email_segments**](docs/StorefrontApi.md#get_email_segments) | **GET** /storefront/{storefront_oid}/email/segments | Get email segments
+*StorefrontApi* | [**get_email_sending_domain**](docs/StorefrontApi.md#get_email_sending_domain) | **GET** /storefront/email/sending_domain/{domain} | Get email sending domain
+*StorefrontApi* | [**get_email_sending_domain_status**](docs/StorefrontApi.md#get_email_sending_domain_status) | **POST** /storefront/email/sending_domains/{domain}/status | Get email sending domain status
+*StorefrontApi* | [**get_email_sending_domains**](docs/StorefrontApi.md#get_email_sending_domains) | **GET** /storefront/email/sending_domains | Get email sending domains
+*StorefrontApi* | [**get_email_template**](docs/StorefrontApi.md#get_email_template) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
+*StorefrontApi* | [**get_email_templates**](docs/StorefrontApi.md#get_email_templates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
+*StorefrontApi* | [**get_email_third_party_providers**](docs/StorefrontApi.md#get_email_third_party_providers) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
+*StorefrontApi* | [**get_experiments**](docs/StorefrontApi.md#get_experiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+*StorefrontApi* | [**get_histogram_property_names**](docs/StorefrontApi.md#get_histogram_property_names) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
+*StorefrontApi* | [**get_histogram_property_values**](docs/StorefrontApi.md#get_histogram_property_values) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
+*StorefrontApi* | [**import_email_third_party_provider_list**](docs/StorefrontApi.md#import_email_third_party_provider_list) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
+*StorefrontApi* | [**insert_email_campaign**](docs/StorefrontApi.md#insert_email_campaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
+*StorefrontApi* | [**insert_email_commseq**](docs/StorefrontApi.md#insert_email_commseq) | **POST** /storefront/{storefront_oid}/email/commseqs | Insert email commseq
+*StorefrontApi* | [**insert_email_email**](docs/StorefrontApi.md#insert_email_email) | **POST** /storefront/{storefront_oid}/email/emails | Insert email email
+*StorefrontApi* | [**insert_email_flow**](docs/StorefrontApi.md#insert_email_flow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
+*StorefrontApi* | [**insert_email_list**](docs/StorefrontApi.md#insert_email_list) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
+*StorefrontApi* | [**insert_email_segment**](docs/StorefrontApi.md#insert_email_segment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
+*StorefrontApi* | [**prepare_download_email_segment**](docs/StorefrontApi.md#prepare_download_email_segment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
+*StorefrontApi* | [**search**](docs/StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
+*StorefrontApi* | [**search_email_list_customers**](docs/StorefrontApi.md#search_email_list_customers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
+*StorefrontApi* | [**search_email_segment_customers**](docs/StorefrontApi.md#search_email_segment_customers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
+*StorefrontApi* | [**start_email_campaign**](docs/StorefrontApi.md#start_email_campaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
+*StorefrontApi* | [**subscribe_to_email_list**](docs/StorefrontApi.md#subscribe_to_email_list) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
+*StorefrontApi* | [**update_email_campaign**](docs/StorefrontApi.md#update_email_campaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
+*StorefrontApi* | [**update_email_commseq**](docs/StorefrontApi.md#update_email_commseq) | **PUT** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Update email commseq
+*StorefrontApi* | [**update_email_email**](docs/StorefrontApi.md#update_email_email) | **PUT** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Update email email
+*StorefrontApi* | [**update_email_flow**](docs/StorefrontApi.md#update_email_flow) | **PUT** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Update email flow
+*StorefrontApi* | [**update_email_list**](docs/StorefrontApi.md#update_email_list) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
+*StorefrontApi* | [**update_email_segment**](docs/StorefrontApi.md#update_email_segment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
+*StorefrontApi* | [**update_experiment**](docs/StorefrontApi.md#update_experiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
+*TaxApi* | [**delete_tax_provider_self_city**](docs/TaxApi.md#delete_tax_provider_self_city) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
+*TaxApi* | [**delete_tax_provider_self_country**](docs/TaxApi.md#delete_tax_provider_self_country) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
+*TaxApi* | [**delete_tax_provider_self_county**](docs/TaxApi.md#delete_tax_provider_self_county) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
+*TaxApi* | [**delete_tax_provider_self_postal_code**](docs/TaxApi.md#delete_tax_provider_self_postal_code) | **DELETE** /tax/providers/self/postalCode/{postal_code} | Deletes a Self tax provider postalCode
+*TaxApi* | [**delete_tax_provider_self_state**](docs/TaxApi.md#delete_tax_provider_self_state) | **DELETE** /tax/providers/self/state/{stateCode} | Deletes a Self tax provider state
+*TaxApi* | [**get_tax_provider_avalara**](docs/TaxApi.md#get_tax_provider_avalara) | **GET** /tax/providers/avalara | Retrieve the Avalara tax provider
+*TaxApi* | [**get_tax_provider_avalara_companies**](docs/TaxApi.md#get_tax_provider_avalara_companies) | **POST** /tax/providers/avalara/companies | Returns Avalara Tax companies configured by the merchant
+*TaxApi* | [**get_tax_provider_avalara_test**](docs/TaxApi.md#get_tax_provider_avalara_test) | **GET** /tax/providers/avalara/test | Attempts to connect to Avalara and returns back the response
+*TaxApi* | [**get_tax_provider_self**](docs/TaxApi.md#get_tax_provider_self) | **GET** /tax/providers/self | Retrieve the Self tax provider
+*TaxApi* | [**get_tax_provider_self_countries**](docs/TaxApi.md#get_tax_provider_self_countries) | **GET** /tax/providers/self/countries | Retrieve the Self tax provider countries
+*TaxApi* | [**get_tax_provider_self_regions_by_country_code**](docs/TaxApi.md#get_tax_provider_self_regions_by_country_code) | **GET** /tax/providers/self/regions/{countryCode} | Retrieve the Self tax provider regions for a given country code
+*TaxApi* | [**get_tax_provider_tax_jar**](docs/TaxApi.md#get_tax_provider_tax_jar) | **GET** /tax/providers/taxjar | Retrieve the TaxJar tax provider
+*TaxApi* | [**get_tax_provider_tax_jar_test**](docs/TaxApi.md#get_tax_provider_tax_jar_test) | **GET** /tax/providers/taxjar/test | Attempts to connect to TaxJar and returns back the response
+*TaxApi* | [**get_tax_provider_ultra_cart**](docs/TaxApi.md#get_tax_provider_ultra_cart) | **GET** /tax/providers/ultracart | Retrieve the UltraCart tax provider
+*TaxApi* | [**get_tax_providers**](docs/TaxApi.md#get_tax_providers) | **GET** /tax/providers | Retrieve tax methods
+*TaxApi* | [**set_active_tax_provider**](docs/TaxApi.md#set_active_tax_provider) | **POST** /tax/providers/setActive/{providerName} | Toggle a tax provider to active
+*TaxApi* | [**update_tax_provider_avalara**](docs/TaxApi.md#update_tax_provider_avalara) | **POST** /tax/providers/avalara | Update the Avalara tax provider
+*TaxApi* | [**update_tax_provider_self**](docs/TaxApi.md#update_tax_provider_self) | **POST** /tax/providers/self | Update the Self tax provider
+*TaxApi* | [**update_tax_provider_self_city**](docs/TaxApi.md#update_tax_provider_self_city) | **POST** /tax/providers/self/city/{city} | Updates a Self tax provider city
+*TaxApi* | [**update_tax_provider_self_country**](docs/TaxApi.md#update_tax_provider_self_country) | **POST** /tax/providers/self/country/{countryCode} | Updates a Self tax provider country
+*TaxApi* | [**update_tax_provider_self_county**](docs/TaxApi.md#update_tax_provider_self_county) | **POST** /tax/providers/self/county/{county} | Updates a Self tax provider county
+*TaxApi* | [**update_tax_provider_self_postal_code**](docs/TaxApi.md#update_tax_provider_self_postal_code) | **POST** /tax/providers/self/postalCode/{postal_code} | Updates a Self tax provider postalCode
+*TaxApi* | [**update_tax_provider_self_state**](docs/TaxApi.md#update_tax_provider_self_state) | **POST** /tax/providers/self/state/{stateCode} | Updates a Self tax provider state
+*TaxApi* | [**update_tax_provider_tax_jar**](docs/TaxApi.md#update_tax_provider_tax_jar) | **POST** /tax/providers/taxjar | Update the TaxJar tax provider
+*TaxApi* | [**update_tax_provider_ultra_cart**](docs/TaxApi.md#update_tax_provider_ultra_cart) | **POST** /tax/providers/ultracart | Update the UltraCart tax provider
 *WebhookApi* | [**delete_webhook**](docs/WebhookApi.md#delete_webhook) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
+*WebhookApi* | [**delete_webhook_by_url**](docs/WebhookApi.md#delete_webhook_by_url) | **DELETE** /webhook/webhooks | Delete a webhook by URL
 *WebhookApi* | [**get_webhook_log**](docs/WebhookApi.md#get_webhook_log) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 *WebhookApi* | [**get_webhook_log_summaries**](docs/WebhookApi.md#get_webhook_log_summaries) | **GET** /webhook/webhooks/{webhookOid}/logs | Retrieve the log summaries
 *WebhookApi* | [**get_webhooks**](docs/WebhookApi.md#get_webhooks) | **GET** /webhook/webhooks | Retrieve webhooks
@@ -184,6 +287,14 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AccountsReceivableRetryConfig](docs/AccountsReceivableRetryConfig.md)
+ - [AccountsReceivableRetryConfigResponse](docs/AccountsReceivableRetryConfigResponse.md)
+ - [AccountsReceivableRetryDayActivity](docs/AccountsReceivableRetryDayActivity.md)
+ - [AccountsReceivableRetryStatAccount](docs/AccountsReceivableRetryStatAccount.md)
+ - [AccountsReceivableRetryStatMetrics](docs/AccountsReceivableRetryStatMetrics.md)
+ - [AccountsReceivableRetryStatRevenue](docs/AccountsReceivableRetryStatRevenue.md)
+ - [AccountsReceivableRetryStatsResponse](docs/AccountsReceivableRetryStatsResponse.md)
+ - [Activity](docs/Activity.md)
  - [AffiliateClick](docs/AffiliateClick.md)
  - [AffiliateClickQuery](docs/AffiliateClickQuery.md)
  - [AffiliateClicksResponse](docs/AffiliateClicksResponse.md)
@@ -194,16 +305,21 @@ Class | Method | HTTP request | Description
  - [ApiUserApplicationProfile](docs/ApiUserApplicationProfile.md)
  - [AutoOrder](docs/AutoOrder.md)
  - [AutoOrderItem](docs/AutoOrderItem.md)
+ - [AutoOrderItemFutureSchedule](docs/AutoOrderItemFutureSchedule.md)
  - [AutoOrderItemOption](docs/AutoOrderItemOption.md)
+ - [AutoOrderQuery](docs/AutoOrderQuery.md)
  - [AutoOrderResponse](docs/AutoOrderResponse.md)
  - [AutoOrdersResponse](docs/AutoOrdersResponse.md)
+ - [AvalaraConfig](docs/AvalaraConfig.md)
  - [BaseResponse](docs/BaseResponse.md)
  - [Cart](docs/Cart.md)
  - [CartAffiliate](docs/CartAffiliate.md)
+ - [CartAffirmCheckoutResponse](docs/CartAffirmCheckoutResponse.md)
  - [CartBilling](docs/CartBilling.md)
  - [CartBuysafe](docs/CartBuysafe.md)
  - [CartCheckout](docs/CartCheckout.md)
  - [CartCoupon](docs/CartCoupon.md)
+ - [CartCurrencyConversion](docs/CartCurrencyConversion.md)
  - [CartCustomerProfile](docs/CartCustomerProfile.md)
  - [CartCustomerProfileAddress](docs/CartCustomerProfileAddress.md)
  - [CartCustomerProfileCreditCard](docs/CartCustomerProfileCreditCard.md)
@@ -223,6 +339,7 @@ Class | Method | HTTP request | Description
  - [CartKitComponentOption](docs/CartKitComponentOption.md)
  - [CartMarketing](docs/CartMarketing.md)
  - [CartPayment](docs/CartPayment.md)
+ - [CartPaymentAffirm](docs/CartPaymentAffirm.md)
  - [CartPaymentAmazon](docs/CartPaymentAmazon.md)
  - [CartPaymentCheck](docs/CartPaymentCheck.md)
  - [CartPaymentCreditCard](docs/CartPaymentCreditCard.md)
@@ -255,11 +372,14 @@ Class | Method | HTTP request | Description
  - [ChargebackDispute](docs/ChargebackDispute.md)
  - [ChargebackDisputeResponse](docs/ChargebackDisputeResponse.md)
  - [ChargebackDisputesResponse](docs/ChargebackDisputesResponse.md)
+ - [CheckoutAllowedCountriesResponse](docs/CheckoutAllowedCountriesResponse.md)
  - [CheckoutHandoffRequest](docs/CheckoutHandoffRequest.md)
  - [CheckoutHandoffResponse](docs/CheckoutHandoffResponse.md)
  - [CheckoutSetupBrowserKeyRequest](docs/CheckoutSetupBrowserKeyRequest.md)
  - [CheckoutSetupBrowserKeyResponse](docs/CheckoutSetupBrowserKeyResponse.md)
+ - [CheckoutStateProvinceResponse](docs/CheckoutStateProvinceResponse.md)
  - [CityStateZip](docs/CityStateZip.md)
+ - [CountriesResponse](docs/CountriesResponse.md)
  - [Country](docs/Country.md)
  - [Coupon](docs/Coupon.md)
  - [CouponAmountOffItems](docs/CouponAmountOffItems.md)
@@ -270,6 +390,7 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalFreeShippingWithPurchase](docs/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [CouponAutomaticallyApplyCouponCodes](docs/CouponAutomaticallyApplyCouponCodes.md)
  - [CouponCodesRequest](docs/CouponCodesRequest.md)
  - [CouponCodesResponse](docs/CouponCodesResponse.md)
  - [CouponDiscountItemWithItemPurchase](docs/CouponDiscountItemWithItemPurchase.md)
@@ -312,26 +433,96 @@ Class | Method | HTTP request | Description
  - [CouponsResponse](docs/CouponsResponse.md)
  - [Currency](docs/Currency.md)
  - [Customer](docs/Customer.md)
+ - [CustomerActivity](docs/CustomerActivity.md)
  - [CustomerAffiliate](docs/CustomerAffiliate.md)
+ - [CustomerAttachment](docs/CustomerAttachment.md)
  - [CustomerBilling](docs/CustomerBilling.md)
  - [CustomerCard](docs/CustomerCard.md)
  - [CustomerEditorValues](docs/CustomerEditorValues.md)
  - [CustomerEmail](docs/CustomerEmail.md)
+ - [CustomerEmailListChanges](docs/CustomerEmailListChanges.md)
+ - [CustomerLoyalty](docs/CustomerLoyalty.md)
+ - [CustomerLoyaltyLedger](docs/CustomerLoyaltyLedger.md)
+ - [CustomerLoyaltyRedemption](docs/CustomerLoyaltyRedemption.md)
  - [CustomerOrdersSummary](docs/CustomerOrdersSummary.md)
  - [CustomerPricingTier](docs/CustomerPricingTier.md)
+ - [CustomerPrivacy](docs/CustomerPrivacy.md)
  - [CustomerQuery](docs/CustomerQuery.md)
  - [CustomerQuotesSummary](docs/CustomerQuotesSummary.md)
  - [CustomerResponse](docs/CustomerResponse.md)
+ - [CustomerReviewer](docs/CustomerReviewer.md)
  - [CustomerShipping](docs/CustomerShipping.md)
+ - [CustomerSoftwareEntitlement](docs/CustomerSoftwareEntitlement.md)
+ - [CustomerTag](docs/CustomerTag.md)
+ - [CustomerTaxCodes](docs/CustomerTaxCodes.md)
  - [CustomersResponse](docs/CustomersResponse.md)
  - [DataTablesServerSideResponse](docs/DataTablesServerSideResponse.md)
  - [Distance](docs/Distance.md)
  - [DistributionCenter](docs/DistributionCenter.md)
  - [DistributionCentersResponse](docs/DistributionCentersResponse.md)
+ - [EmailBaseTemplateListResponse](docs/EmailBaseTemplateListResponse.md)
+ - [EmailCampaign](docs/EmailCampaign.md)
+ - [EmailCampaignResponse](docs/EmailCampaignResponse.md)
+ - [EmailCampaignsResponse](docs/EmailCampaignsResponse.md)
+ - [EmailCommseq](docs/EmailCommseq.md)
+ - [EmailCommseqEmail](docs/EmailCommseqEmail.md)
+ - [EmailCommseqEmailResponse](docs/EmailCommseqEmailResponse.md)
+ - [EmailCommseqEmailsRequest](docs/EmailCommseqEmailsRequest.md)
+ - [EmailCommseqEmailsResponse](docs/EmailCommseqEmailsResponse.md)
+ - [EmailCommseqResponse](docs/EmailCommseqResponse.md)
+ - [EmailCommseqStat](docs/EmailCommseqStat.md)
+ - [EmailCommseqStatResponse](docs/EmailCommseqStatResponse.md)
+ - [EmailCommseqStep](docs/EmailCommseqStep.md)
+ - [EmailCommseqsResponse](docs/EmailCommseqsResponse.md)
+ - [EmailCustomer](docs/EmailCustomer.md)
+ - [EmailCustomerEditorUrlResponse](docs/EmailCustomerEditorUrlResponse.md)
+ - [EmailDashboardActivity](docs/EmailDashboardActivity.md)
+ - [EmailDashboardActivityResponse](docs/EmailDashboardActivityResponse.md)
+ - [EmailDashboardStatsResponse](docs/EmailDashboardStatsResponse.md)
+ - [EmailDomain](docs/EmailDomain.md)
+ - [EmailFlow](docs/EmailFlow.md)
+ - [EmailFlowResponse](docs/EmailFlowResponse.md)
+ - [EmailFlowsResponse](docs/EmailFlowsResponse.md)
+ - [EmailHistogramPropertyNamesResponse](docs/EmailHistogramPropertyNamesResponse.md)
+ - [EmailHistogramPropertyValuesResponse](docs/EmailHistogramPropertyValuesResponse.md)
+ - [EmailList](docs/EmailList.md)
+ - [EmailListArchiveResponse](docs/EmailListArchiveResponse.md)
+ - [EmailListCustomer](docs/EmailListCustomer.md)
+ - [EmailListCustomersResponse](docs/EmailListCustomersResponse.md)
+ - [EmailListResponse](docs/EmailListResponse.md)
+ - [EmailListSegmentMembership](docs/EmailListSegmentMembership.md)
+ - [EmailListSubscribeResponse](docs/EmailListSubscribeResponse.md)
+ - [EmailListsResponse](docs/EmailListsResponse.md)
+ - [EmailSegment](docs/EmailSegment.md)
+ - [EmailSegmentArchiveResponse](docs/EmailSegmentArchiveResponse.md)
+ - [EmailSegmentCustomer](docs/EmailSegmentCustomer.md)
+ - [EmailSegmentCustomersResponse](docs/EmailSegmentCustomersResponse.md)
+ - [EmailSegmentDownloadPrepareResponse](docs/EmailSegmentDownloadPrepareResponse.md)
+ - [EmailSegmentResponse](docs/EmailSegmentResponse.md)
+ - [EmailSegmentsResponse](docs/EmailSegmentsResponse.md)
+ - [EmailSendingDomainResponse](docs/EmailSendingDomainResponse.md)
+ - [EmailSendingDomainsResponse](docs/EmailSendingDomainsResponse.md)
+ - [EmailStat](docs/EmailStat.md)
+ - [EmailStatSummaryRequest](docs/EmailStatSummaryRequest.md)
+ - [EmailStatSummaryResponse](docs/EmailStatSummaryResponse.md)
+ - [EmailStepWaitingRequest](docs/EmailStepWaitingRequest.md)
+ - [EmailStepWaitingResponse](docs/EmailStepWaitingResponse.md)
+ - [EmailTemplate](docs/EmailTemplate.md)
+ - [EmailTemplatesResponse](docs/EmailTemplatesResponse.md)
+ - [EmailThirdPartyList](docs/EmailThirdPartyList.md)
+ - [EmailThirdPartyListImportRequest](docs/EmailThirdPartyListImportRequest.md)
+ - [EmailThirdPartyProvider](docs/EmailThirdPartyProvider.md)
+ - [EmailThirdPartyProvidersResponse](docs/EmailThirdPartyProvidersResponse.md)
  - [Error](docs/Error.md)
  - [ErrorResponse](docs/ErrorResponse.md)
+ - [Experiment](docs/Experiment.md)
+ - [ExperimentResponse](docs/ExperimentResponse.md)
+ - [ExperimentVariation](docs/ExperimentVariation.md)
+ - [ExperimentsResponse](docs/ExperimentsResponse.md)
  - [FulfillmentInventory](docs/FulfillmentInventory.md)
  - [FulfillmentShipment](docs/FulfillmentShipment.md)
+ - [GeocodeRequest](docs/GeocodeRequest.md)
+ - [GeocodeResponse](docs/GeocodeResponse.md)
  - [HTTPHeader](docs/HTTPHeader.md)
  - [Item](docs/Item.md)
  - [ItemAccounting](docs/ItemAccounting.md)
@@ -394,6 +585,8 @@ Class | Method | HTTP request | Description
  - [ItemShippingDistributionCenter](docs/ItemShippingDistributionCenter.md)
  - [ItemShippingMethod](docs/ItemShippingMethod.md)
  - [ItemShippingPackageRequirement](docs/ItemShippingPackageRequirement.md)
+ - [ItemTag](docs/ItemTag.md)
+ - [ItemTags](docs/ItemTags.md)
  - [ItemTax](docs/ItemTax.md)
  - [ItemTaxExemption](docs/ItemTaxExemption.md)
  - [ItemThirdPartyEmailMarketing](docs/ItemThirdPartyEmailMarketing.md)
@@ -403,6 +596,11 @@ Class | Method | HTTP request | Description
  - [ItemWishlistMember](docs/ItemWishlistMember.md)
  - [ItemsRequest](docs/ItemsRequest.md)
  - [ItemsResponse](docs/ItemsResponse.md)
+ - [KeyValue](docs/KeyValue.md)
+ - [ListSegmentMembership](docs/ListSegmentMembership.md)
+ - [LookupResponse](docs/LookupResponse.md)
+ - [Metric](docs/Metric.md)
+ - [ModelProperty](docs/ModelProperty.md)
  - [OauthRevokeSuccessResponse](docs/OauthRevokeSuccessResponse.md)
  - [OauthTokenResponse](docs/OauthTokenResponse.md)
  - [Order](docs/Order.md)
@@ -429,6 +627,8 @@ Class | Method | HTTP request | Description
  - [OrderItemEdiLot](docs/OrderItemEdiLot.md)
  - [OrderItemOption](docs/OrderItemOption.md)
  - [OrderItemOptionFileAttachment](docs/OrderItemOptionFileAttachment.md)
+ - [OrderItemProperty](docs/OrderItemProperty.md)
+ - [OrderItemTag](docs/OrderItemTag.md)
  - [OrderLinkedShipment](docs/OrderLinkedShipment.md)
  - [OrderMarketing](docs/OrderMarketing.md)
  - [OrderPayment](docs/OrderPayment.md)
@@ -438,12 +638,18 @@ Class | Method | HTTP request | Description
  - [OrderPaymentPurchaseOrder](docs/OrderPaymentPurchaseOrder.md)
  - [OrderPaymentTransaction](docs/OrderPaymentTransaction.md)
  - [OrderPaymentTransactionDetail](docs/OrderPaymentTransactionDetail.md)
+ - [OrderProperty](docs/OrderProperty.md)
  - [OrderQuery](docs/OrderQuery.md)
+ - [OrderQueryBatch](docs/OrderQueryBatch.md)
  - [OrderQuote](docs/OrderQuote.md)
+ - [OrderReplacement](docs/OrderReplacement.md)
+ - [OrderReplacementItem](docs/OrderReplacementItem.md)
+ - [OrderReplacementResponse](docs/OrderReplacementResponse.md)
  - [OrderResponse](docs/OrderResponse.md)
  - [OrderSalesforce](docs/OrderSalesforce.md)
  - [OrderShipping](docs/OrderShipping.md)
  - [OrderSummary](docs/OrderSummary.md)
+ - [OrderTag](docs/OrderTag.md)
  - [OrderTaxes](docs/OrderTaxes.md)
  - [OrdersResponse](docs/OrdersResponse.md)
  - [PricingTier](docs/PricingTier.md)
@@ -451,8 +657,33 @@ Class | Method | HTTP request | Description
  - [PricingTiersResponse](docs/PricingTiersResponse.md)
  - [ResponseMetadata](docs/ResponseMetadata.md)
  - [ResultSet](docs/ResultSet.md)
+ - [SelfConfig](docs/SelfConfig.md)
+ - [StateProvince](docs/StateProvince.md)
+ - [StepWaiting](docs/StepWaiting.md)
+ - [TaxCity](docs/TaxCity.md)
+ - [TaxCountry](docs/TaxCountry.md)
+ - [TaxCountryCode](docs/TaxCountryCode.md)
+ - [TaxCounty](docs/TaxCounty.md)
+ - [TaxJarConfig](docs/TaxJarConfig.md)
+ - [TaxPostalCode](docs/TaxPostalCode.md)
+ - [TaxProviderActivateResult](docs/TaxProviderActivateResult.md)
+ - [TaxProviderAvalara](docs/TaxProviderAvalara.md)
+ - [TaxProviderAvalaraCompaniesResult](docs/TaxProviderAvalaraCompaniesResult.md)
+ - [TaxProviderAvalaraCompany](docs/TaxProviderAvalaraCompany.md)
+ - [TaxProviderSelf](docs/TaxProviderSelf.md)
+ - [TaxProviderSelfCountriesResponse](docs/TaxProviderSelfCountriesResponse.md)
+ - [TaxProviderSelfRegionsResponse](docs/TaxProviderSelfRegionsResponse.md)
+ - [TaxProviderTaxJar](docs/TaxProviderTaxJar.md)
+ - [TaxProviderTestResult](docs/TaxProviderTestResult.md)
+ - [TaxProviderUltraCart](docs/TaxProviderUltraCart.md)
+ - [TaxProviderUltraCartState](docs/TaxProviderUltraCartState.md)
+ - [TaxProvidersResponse](docs/TaxProvidersResponse.md)
+ - [TaxState](docs/TaxState.md)
+ - [TaxStateCode](docs/TaxStateCode.md)
  - [TempMultimedia](docs/TempMultimedia.md)
  - [TempMultimediaResponse](docs/TempMultimediaResponse.md)
+ - [UltraCartConfig](docs/UltraCartConfig.md)
+ - [VerificationRecord](docs/VerificationRecord.md)
  - [Webhook](docs/Webhook.md)
  - [WebhookEventCategory](docs/WebhookEventCategory.md)
  - [WebhookEventSubscription](docs/WebhookEventSubscription.md)
@@ -500,6 +731,10 @@ Class | Method | HTTP request | Description
  - **order_write**: Allows you to write order information.
  - **item_read**: Allows you to read item information.
  - **item_write**: Allows you to write item information.
+ - **storefront_read**: Allows you to read storefront information.
+ - **storefront_write**: Allows you to write storefront information.
+ - **tax_read**: Allows you to read tax configuration information.
+ - **tax_write**: Allows you to write tax configuration information.
  - **webhook_read**: Allows you to read webhook information.
  - **webhook_write**: Allows you to write webhook information.
  - **ultrabooks_read**: 1 of 2 required to use UltraBooks

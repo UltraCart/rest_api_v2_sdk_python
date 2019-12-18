@@ -52,6 +52,8 @@ class OrderQuery(object):
         'phone': 'str',
         'postal_code': 'str',
         'purchase_order_number': 'str',
+        'refund_date_begin': 'str',
+        'refund_date_end': 'str',
         'rma': 'str',
         'screen_branding_theme_code': 'str',
         'shipment_date_begin': 'str',
@@ -83,6 +85,8 @@ class OrderQuery(object):
         'phone': 'phone',
         'postal_code': 'postal_code',
         'purchase_order_number': 'purchase_order_number',
+        'refund_date_begin': 'refund_date_begin',
+        'refund_date_end': 'refund_date_end',
         'rma': 'rma',
         'screen_branding_theme_code': 'screen_branding_theme_code',
         'shipment_date_begin': 'shipment_date_begin',
@@ -92,7 +96,7 @@ class OrderQuery(object):
         'total': 'total'
     }
 
-    def __init__(self, cc_email=None, channel_partner_code=None, channel_partner_order_id=None, city=None, company=None, country_code=None, creation_date_begin=None, creation_date_end=None, current_stage=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, order_id=None, payment_date_begin=None, payment_date_end=None, payment_method=None, phone=None, postal_code=None, purchase_order_number=None, rma=None, screen_branding_theme_code=None, shipment_date_begin=None, shipment_date_end=None, state_region=None, storefront_host_name=None, total=None):
+    def __init__(self, cc_email=None, channel_partner_code=None, channel_partner_order_id=None, city=None, company=None, country_code=None, creation_date_begin=None, creation_date_end=None, current_stage=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, order_id=None, payment_date_begin=None, payment_date_end=None, payment_method=None, phone=None, postal_code=None, purchase_order_number=None, refund_date_begin=None, refund_date_end=None, rma=None, screen_branding_theme_code=None, shipment_date_begin=None, shipment_date_end=None, state_region=None, storefront_host_name=None, total=None):
         """
         OrderQuery - a model defined in Swagger
         """
@@ -118,6 +122,8 @@ class OrderQuery(object):
         self._phone = None
         self._postal_code = None
         self._purchase_order_number = None
+        self._refund_date_begin = None
+        self._refund_date_end = None
         self._rma = None
         self._screen_branding_theme_code = None
         self._shipment_date_begin = None
@@ -169,6 +175,10 @@ class OrderQuery(object):
           self.postal_code = postal_code
         if purchase_order_number is not None:
           self.purchase_order_number = purchase_order_number
+        if refund_date_begin is not None:
+          self.refund_date_begin = refund_date_begin
+        if refund_date_end is not None:
+          self.refund_date_end = refund_date_end
         if rma is not None:
           self.rma = rma
         if screen_branding_theme_code is not None:
@@ -615,7 +625,7 @@ class OrderQuery(object):
         :param payment_method: The payment_method of this OrderQuery.
         :type: str
         """
-        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Coinbase", "Credit Card", "eCheck", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer"]
+        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Credit Card", "eCheck", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer"]
         if payment_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `payment_method` ({0}), must be one of {1}"
@@ -696,6 +706,52 @@ class OrderQuery(object):
         """
 
         self._purchase_order_number = purchase_order_number
+
+    @property
+    def refund_date_begin(self):
+        """
+        Gets the refund_date_begin of this OrderQuery.
+        Date/time that the order was refunded
+
+        :return: The refund_date_begin of this OrderQuery.
+        :rtype: str
+        """
+        return self._refund_date_begin
+
+    @refund_date_begin.setter
+    def refund_date_begin(self, refund_date_begin):
+        """
+        Sets the refund_date_begin of this OrderQuery.
+        Date/time that the order was refunded
+
+        :param refund_date_begin: The refund_date_begin of this OrderQuery.
+        :type: str
+        """
+
+        self._refund_date_begin = refund_date_begin
+
+    @property
+    def refund_date_end(self):
+        """
+        Gets the refund_date_end of this OrderQuery.
+        Date/time that the order was refunded
+
+        :return: The refund_date_end of this OrderQuery.
+        :rtype: str
+        """
+        return self._refund_date_end
+
+    @refund_date_end.setter
+    def refund_date_end(self, refund_date_end):
+        """
+        Sets the refund_date_end of this OrderQuery.
+        Date/time that the order was refunded
+
+        :param refund_date_end: The refund_date_end of this OrderQuery.
+        :type: str
+        """
+
+        self._refund_date_end = refund_date_end
 
     @property
     def rma(self):

@@ -40,6 +40,8 @@ class Webhook(object):
         'consecutive_failures': 'int',
         'disabled': 'bool',
         'event_categories': 'list[WebhookEventCategory]',
+        'iam_access_key': 'str',
+        'iam_secret_key': 'str',
         'maximum_events': 'int',
         'maximum_size': 'int',
         'merchant_id': 'str',
@@ -59,6 +61,8 @@ class Webhook(object):
         'consecutive_failures': 'consecutive_failures',
         'disabled': 'disabled',
         'event_categories': 'event_categories',
+        'iam_access_key': 'iam_access_key',
+        'iam_secret_key': 'iam_secret_key',
         'maximum_events': 'maximum_events',
         'maximum_size': 'maximum_size',
         'merchant_id': 'merchant_id',
@@ -68,7 +72,7 @@ class Webhook(object):
         'webhook_url': 'webhook_url'
     }
 
-    def __init__(self, api_user_oid=None, api_version=None, application_profile=None, authentication_type=None, basic_password=None, basic_username=None, consecutive_failures=None, disabled=None, event_categories=None, maximum_events=None, maximum_size=None, merchant_id=None, next_retry_after=None, pending=None, webhook_oid=None, webhook_url=None):
+    def __init__(self, api_user_oid=None, api_version=None, application_profile=None, authentication_type=None, basic_password=None, basic_username=None, consecutive_failures=None, disabled=None, event_categories=None, iam_access_key=None, iam_secret_key=None, maximum_events=None, maximum_size=None, merchant_id=None, next_retry_after=None, pending=None, webhook_oid=None, webhook_url=None):
         """
         Webhook - a model defined in Swagger
         """
@@ -82,6 +86,8 @@ class Webhook(object):
         self._consecutive_failures = None
         self._disabled = None
         self._event_categories = None
+        self._iam_access_key = None
+        self._iam_secret_key = None
         self._maximum_events = None
         self._maximum_size = None
         self._merchant_id = None
@@ -109,6 +115,10 @@ class Webhook(object):
           self.disabled = disabled
         if event_categories is not None:
           self.event_categories = event_categories
+        if iam_access_key is not None:
+          self.iam_access_key = iam_access_key
+        if iam_secret_key is not None:
+          self.iam_secret_key = iam_secret_key
         if maximum_events is not None:
           self.maximum_events = maximum_events
         if maximum_size is not None:
@@ -340,6 +350,52 @@ class Webhook(object):
         """
 
         self._event_categories = event_categories
+
+    @property
+    def iam_access_key(self):
+        """
+        Gets the iam_access_key of this Webhook.
+        IAM Access Key for AWS SQS Delivery
+
+        :return: The iam_access_key of this Webhook.
+        :rtype: str
+        """
+        return self._iam_access_key
+
+    @iam_access_key.setter
+    def iam_access_key(self, iam_access_key):
+        """
+        Sets the iam_access_key of this Webhook.
+        IAM Access Key for AWS SQS Delivery
+
+        :param iam_access_key: The iam_access_key of this Webhook.
+        :type: str
+        """
+
+        self._iam_access_key = iam_access_key
+
+    @property
+    def iam_secret_key(self):
+        """
+        Gets the iam_secret_key of this Webhook.
+        IAM Secret Key for AWS SQS Delivery
+
+        :return: The iam_secret_key of this Webhook.
+        :rtype: str
+        """
+        return self._iam_secret_key
+
+    @iam_secret_key.setter
+    def iam_secret_key(self, iam_secret_key):
+        """
+        Sets the iam_secret_key of this Webhook.
+        IAM Secret Key for AWS SQS Delivery
+
+        :param iam_secret_key: The iam_secret_key of this Webhook.
+        :type: str
+        """
+
+        self._iam_secret_key = iam_secret_key
 
     @property
     def maximum_events(self):

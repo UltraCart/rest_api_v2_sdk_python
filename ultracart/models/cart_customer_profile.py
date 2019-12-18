@@ -38,6 +38,7 @@ class CartCustomerProfile(object):
         'credit_cards': 'list[CartCustomerProfileCreditCard]',
         'customer_profile_oid': 'int',
         'dhl_account_number': 'str',
+        'dhl_duty_account_number': 'str',
         'email': 'str',
         'fedex_account_number': 'str',
         'free_shipping': 'bool',
@@ -62,6 +63,7 @@ class CartCustomerProfile(object):
         'credit_cards': 'credit_cards',
         'customer_profile_oid': 'customer_profile_oid',
         'dhl_account_number': 'dhl_account_number',
+        'dhl_duty_account_number': 'dhl_duty_account_number',
         'email': 'email',
         'fedex_account_number': 'fedex_account_number',
         'free_shipping': 'free_shipping',
@@ -78,7 +80,7 @@ class CartCustomerProfile(object):
         'ups_account_number': 'ups_account_number'
     }
 
-    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, billing_addresses=None, credit_cards=None, customer_profile_oid=None, dhl_account_number=None, email=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, pricing_tiers=None, shipping_addresses=None, tax_exempt=None, ups_account_number=None):
+    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, billing_addresses=None, credit_cards=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, email=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, pricing_tiers=None, shipping_addresses=None, tax_exempt=None, ups_account_number=None):
         """
         CartCustomerProfile - a model defined in Swagger
         """
@@ -90,6 +92,7 @@ class CartCustomerProfile(object):
         self._credit_cards = None
         self._customer_profile_oid = None
         self._dhl_account_number = None
+        self._dhl_duty_account_number = None
         self._email = None
         self._fedex_account_number = None
         self._free_shipping = None
@@ -120,6 +123,8 @@ class CartCustomerProfile(object):
           self.customer_profile_oid = customer_profile_oid
         if dhl_account_number is not None:
           self.dhl_account_number = dhl_account_number
+        if dhl_duty_account_number is not None:
+          self.dhl_duty_account_number = dhl_duty_account_number
         if email is not None:
           self.email = email
         if fedex_account_number is not None:
@@ -309,6 +314,29 @@ class CartCustomerProfile(object):
         """
 
         self._dhl_account_number = dhl_account_number
+
+    @property
+    def dhl_duty_account_number(self):
+        """
+        Gets the dhl_duty_account_number of this CartCustomerProfile.
+        DHL duty account number on file
+
+        :return: The dhl_duty_account_number of this CartCustomerProfile.
+        :rtype: str
+        """
+        return self._dhl_duty_account_number
+
+    @dhl_duty_account_number.setter
+    def dhl_duty_account_number(self, dhl_duty_account_number):
+        """
+        Sets the dhl_duty_account_number of this CartCustomerProfile.
+        DHL duty account number on file
+
+        :param dhl_duty_account_number: The dhl_duty_account_number of this CartCustomerProfile.
+        :type: str
+        """
+
+        self._dhl_duty_account_number = dhl_duty_account_number
 
     @property
     def email(self):

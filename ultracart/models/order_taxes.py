@@ -31,10 +31,14 @@ class OrderTaxes(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'arbitrary_tax': 'float',
+        'arbitrary_tax_rate': 'float',
+        'arbitrary_taxable_subtotal': 'float',
         'tax_city_accounting_code': 'str',
         'tax_country_accounting_code': 'str',
         'tax_county': 'str',
         'tax_county_accounting_code': 'str',
+        'tax_gift_charge': 'bool',
         'tax_postal_code_accounting_code': 'str',
         'tax_rate': 'float',
         'tax_rate_city': 'float',
@@ -42,14 +46,19 @@ class OrderTaxes(object):
         'tax_rate_county': 'float',
         'tax_rate_postal_code': 'float',
         'tax_rate_state': 'float',
+        'tax_shipping': 'bool',
         'tax_state_accounting_code': 'str'
     }
 
     attribute_map = {
+        'arbitrary_tax': 'arbitrary_tax',
+        'arbitrary_tax_rate': 'arbitrary_tax_rate',
+        'arbitrary_taxable_subtotal': 'arbitrary_taxable_subtotal',
         'tax_city_accounting_code': 'tax_city_accounting_code',
         'tax_country_accounting_code': 'tax_country_accounting_code',
         'tax_county': 'tax_county',
         'tax_county_accounting_code': 'tax_county_accounting_code',
+        'tax_gift_charge': 'tax_gift_charge',
         'tax_postal_code_accounting_code': 'tax_postal_code_accounting_code',
         'tax_rate': 'tax_rate',
         'tax_rate_city': 'tax_rate_city',
@@ -57,18 +66,23 @@ class OrderTaxes(object):
         'tax_rate_county': 'tax_rate_county',
         'tax_rate_postal_code': 'tax_rate_postal_code',
         'tax_rate_state': 'tax_rate_state',
+        'tax_shipping': 'tax_shipping',
         'tax_state_accounting_code': 'tax_state_accounting_code'
     }
 
-    def __init__(self, tax_city_accounting_code=None, tax_country_accounting_code=None, tax_county=None, tax_county_accounting_code=None, tax_postal_code_accounting_code=None, tax_rate=None, tax_rate_city=None, tax_rate_country=None, tax_rate_county=None, tax_rate_postal_code=None, tax_rate_state=None, tax_state_accounting_code=None):
+    def __init__(self, arbitrary_tax=None, arbitrary_tax_rate=None, arbitrary_taxable_subtotal=None, tax_city_accounting_code=None, tax_country_accounting_code=None, tax_county=None, tax_county_accounting_code=None, tax_gift_charge=None, tax_postal_code_accounting_code=None, tax_rate=None, tax_rate_city=None, tax_rate_country=None, tax_rate_county=None, tax_rate_postal_code=None, tax_rate_state=None, tax_shipping=None, tax_state_accounting_code=None):
         """
         OrderTaxes - a model defined in Swagger
         """
 
+        self._arbitrary_tax = None
+        self._arbitrary_tax_rate = None
+        self._arbitrary_taxable_subtotal = None
         self._tax_city_accounting_code = None
         self._tax_country_accounting_code = None
         self._tax_county = None
         self._tax_county_accounting_code = None
+        self._tax_gift_charge = None
         self._tax_postal_code_accounting_code = None
         self._tax_rate = None
         self._tax_rate_city = None
@@ -76,9 +90,16 @@ class OrderTaxes(object):
         self._tax_rate_county = None
         self._tax_rate_postal_code = None
         self._tax_rate_state = None
+        self._tax_shipping = None
         self._tax_state_accounting_code = None
         self.discriminator = None
 
+        if arbitrary_tax is not None:
+          self.arbitrary_tax = arbitrary_tax
+        if arbitrary_tax_rate is not None:
+          self.arbitrary_tax_rate = arbitrary_tax_rate
+        if arbitrary_taxable_subtotal is not None:
+          self.arbitrary_taxable_subtotal = arbitrary_taxable_subtotal
         if tax_city_accounting_code is not None:
           self.tax_city_accounting_code = tax_city_accounting_code
         if tax_country_accounting_code is not None:
@@ -87,6 +108,8 @@ class OrderTaxes(object):
           self.tax_county = tax_county
         if tax_county_accounting_code is not None:
           self.tax_county_accounting_code = tax_county_accounting_code
+        if tax_gift_charge is not None:
+          self.tax_gift_charge = tax_gift_charge
         if tax_postal_code_accounting_code is not None:
           self.tax_postal_code_accounting_code = tax_postal_code_accounting_code
         if tax_rate is not None:
@@ -101,8 +124,79 @@ class OrderTaxes(object):
           self.tax_rate_postal_code = tax_rate_postal_code
         if tax_rate_state is not None:
           self.tax_rate_state = tax_rate_state
+        if tax_shipping is not None:
+          self.tax_shipping = tax_shipping
         if tax_state_accounting_code is not None:
           self.tax_state_accounting_code = tax_state_accounting_code
+
+    @property
+    def arbitrary_tax(self):
+        """
+        Gets the arbitrary_tax of this OrderTaxes.
+        Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+
+        :return: The arbitrary_tax of this OrderTaxes.
+        :rtype: float
+        """
+        return self._arbitrary_tax
+
+    @arbitrary_tax.setter
+    def arbitrary_tax(self, arbitrary_tax):
+        """
+        Sets the arbitrary_tax of this OrderTaxes.
+        Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+
+        :param arbitrary_tax: The arbitrary_tax of this OrderTaxes.
+        :type: float
+        """
+
+        self._arbitrary_tax = arbitrary_tax
+
+    @property
+    def arbitrary_tax_rate(self):
+        """
+        Gets the arbitrary_tax_rate of this OrderTaxes.
+        Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+
+        :return: The arbitrary_tax_rate of this OrderTaxes.
+        :rtype: float
+        """
+        return self._arbitrary_tax_rate
+
+    @arbitrary_tax_rate.setter
+    def arbitrary_tax_rate(self, arbitrary_tax_rate):
+        """
+        Sets the arbitrary_tax_rate of this OrderTaxes.
+        Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+
+        :param arbitrary_tax_rate: The arbitrary_tax_rate of this OrderTaxes.
+        :type: float
+        """
+
+        self._arbitrary_tax_rate = arbitrary_tax_rate
+
+    @property
+    def arbitrary_taxable_subtotal(self):
+        """
+        Gets the arbitrary_taxable_subtotal of this OrderTaxes.
+        Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+
+        :return: The arbitrary_taxable_subtotal of this OrderTaxes.
+        :rtype: float
+        """
+        return self._arbitrary_taxable_subtotal
+
+    @arbitrary_taxable_subtotal.setter
+    def arbitrary_taxable_subtotal(self, arbitrary_taxable_subtotal):
+        """
+        Sets the arbitrary_taxable_subtotal of this OrderTaxes.
+        Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+
+        :param arbitrary_taxable_subtotal: The arbitrary_taxable_subtotal of this OrderTaxes.
+        :type: float
+        """
+
+        self._arbitrary_taxable_subtotal = arbitrary_taxable_subtotal
 
     @property
     def tax_city_accounting_code(self):
@@ -199,6 +293,29 @@ class OrderTaxes(object):
         self._tax_county_accounting_code = tax_county_accounting_code
 
     @property
+    def tax_gift_charge(self):
+        """
+        Gets the tax_gift_charge of this OrderTaxes.
+        True if gift charge is taxed
+
+        :return: The tax_gift_charge of this OrderTaxes.
+        :rtype: bool
+        """
+        return self._tax_gift_charge
+
+    @tax_gift_charge.setter
+    def tax_gift_charge(self, tax_gift_charge):
+        """
+        Sets the tax_gift_charge of this OrderTaxes.
+        True if gift charge is taxed
+
+        :param tax_gift_charge: The tax_gift_charge of this OrderTaxes.
+        :type: bool
+        """
+
+        self._tax_gift_charge = tax_gift_charge
+
+    @property
     def tax_postal_code_accounting_code(self):
         """
         Gets the tax_postal_code_accounting_code of this OrderTaxes.
@@ -225,7 +342,7 @@ class OrderTaxes(object):
     def tax_rate(self):
         """
         Gets the tax_rate of this OrderTaxes.
-        Tax rate
+        Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields.
 
         :return: The tax_rate of this OrderTaxes.
         :rtype: float
@@ -236,7 +353,7 @@ class OrderTaxes(object):
     def tax_rate(self, tax_rate):
         """
         Sets the tax_rate of this OrderTaxes.
-        Tax rate
+        Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields.
 
         :param tax_rate: The tax_rate of this OrderTaxes.
         :type: float
@@ -360,10 +477,33 @@ class OrderTaxes(object):
         self._tax_rate_state = tax_rate_state
 
     @property
+    def tax_shipping(self):
+        """
+        Gets the tax_shipping of this OrderTaxes.
+        True if shipping is taxed
+
+        :return: The tax_shipping of this OrderTaxes.
+        :rtype: bool
+        """
+        return self._tax_shipping
+
+    @tax_shipping.setter
+    def tax_shipping(self, tax_shipping):
+        """
+        Sets the tax_shipping of this OrderTaxes.
+        True if shipping is taxed
+
+        :param tax_shipping: The tax_shipping of this OrderTaxes.
+        :type: bool
+        """
+
+        self._tax_shipping = tax_shipping
+
+    @property
     def tax_state_accounting_code(self):
         """
         Gets the tax_state_accounting_code of this OrderTaxes.
-        QuickBOoks tax state code
+        QuickBooks tax state code
 
         :return: The tax_state_accounting_code of this OrderTaxes.
         :rtype: str
@@ -374,7 +514,7 @@ class OrderTaxes(object):
     def tax_state_accounting_code(self, tax_state_accounting_code):
         """
         Sets the tax_state_accounting_code of this OrderTaxes.
-        QuickBOoks tax state code
+        QuickBooks tax state code
 
         :param tax_state_accounting_code: The tax_state_accounting_code of this OrderTaxes.
         :type: str

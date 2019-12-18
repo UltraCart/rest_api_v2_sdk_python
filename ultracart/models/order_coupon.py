@@ -32,28 +32,33 @@ class OrderCoupon(object):
     """
     swagger_types = {
         'accounting_code': 'str',
+        'automatically_applied': 'bool',
         'base_coupon_code': 'str',
         'coupon_code': 'str'
     }
 
     attribute_map = {
         'accounting_code': 'accounting_code',
+        'automatically_applied': 'automatically_applied',
         'base_coupon_code': 'base_coupon_code',
         'coupon_code': 'coupon_code'
     }
 
-    def __init__(self, accounting_code=None, base_coupon_code=None, coupon_code=None):
+    def __init__(self, accounting_code=None, automatically_applied=None, base_coupon_code=None, coupon_code=None):
         """
         OrderCoupon - a model defined in Swagger
         """
 
         self._accounting_code = None
+        self._automatically_applied = None
         self._base_coupon_code = None
         self._coupon_code = None
         self.discriminator = None
 
         if accounting_code is not None:
           self.accounting_code = accounting_code
+        if automatically_applied is not None:
+          self.automatically_applied = automatically_applied
         if base_coupon_code is not None:
           self.base_coupon_code = base_coupon_code
         if coupon_code is not None:
@@ -81,6 +86,29 @@ class OrderCoupon(object):
         """
 
         self._accounting_code = accounting_code
+
+    @property
+    def automatically_applied(self):
+        """
+        Gets the automatically_applied of this OrderCoupon.
+        Whether or not the coupon was automatically applied to the order
+
+        :return: The automatically_applied of this OrderCoupon.
+        :rtype: bool
+        """
+        return self._automatically_applied
+
+    @automatically_applied.setter
+    def automatically_applied(self, automatically_applied):
+        """
+        Sets the automatically_applied of this OrderCoupon.
+        Whether or not the coupon was automatically applied to the order
+
+        :param automatically_applied: The automatically_applied of this OrderCoupon.
+        :type: bool
+        """
+
+        self._automatically_applied = automatically_applied
 
     @property
     def base_coupon_code(self):

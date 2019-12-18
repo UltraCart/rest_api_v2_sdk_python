@@ -40,6 +40,7 @@ class CartCheckout(object):
         'custom_field6': 'str',
         'custom_field7': 'str',
         'ip_address': 'str',
+        'return_code': 'str',
         'screen_branding_theme_code': 'str'
     }
 
@@ -53,10 +54,11 @@ class CartCheckout(object):
         'custom_field6': 'custom_field6',
         'custom_field7': 'custom_field7',
         'ip_address': 'ip_address',
+        'return_code': 'return_code',
         'screen_branding_theme_code': 'screen_branding_theme_code'
     }
 
-    def __init__(self, comments=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, ip_address=None, screen_branding_theme_code=None):
+    def __init__(self, comments=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, ip_address=None, return_code=None, screen_branding_theme_code=None):
         """
         CartCheckout - a model defined in Swagger
         """
@@ -70,6 +72,7 @@ class CartCheckout(object):
         self._custom_field6 = None
         self._custom_field7 = None
         self._ip_address = None
+        self._return_code = None
         self._screen_branding_theme_code = None
         self.discriminator = None
 
@@ -91,6 +94,8 @@ class CartCheckout(object):
           self.custom_field7 = custom_field7
         if ip_address is not None:
           self.ip_address = ip_address
+        if return_code is not None:
+          self.return_code = return_code
         if screen_branding_theme_code is not None:
           self.screen_branding_theme_code = screen_branding_theme_code
 
@@ -298,7 +303,7 @@ class CartCheckout(object):
     def ip_address(self):
         """
         Gets the ip_address of this CartCheckout.
-        IP Address
+        IP Address (read only unless non-browser key authenticated)
 
         :return: The ip_address of this CartCheckout.
         :rtype: str
@@ -309,13 +314,36 @@ class CartCheckout(object):
     def ip_address(self, ip_address):
         """
         Sets the ip_address of this CartCheckout.
-        IP Address
+        IP Address (read only unless non-browser key authenticated)
 
         :param ip_address: The ip_address of this CartCheckout.
         :type: str
         """
 
         self._ip_address = ip_address
+
+    @property
+    def return_code(self):
+        """
+        Gets the return_code of this CartCheckout.
+        Return code assigned for send return email operation
+
+        :return: The return_code of this CartCheckout.
+        :rtype: str
+        """
+        return self._return_code
+
+    @return_code.setter
+    def return_code(self, return_code):
+        """
+        Sets the return_code of this CartCheckout.
+        Return code assigned for send return email operation
+
+        :param return_code: The return_code of this CartCheckout.
+        :type: str
+        """
+
+        self._return_code = return_code
 
     @property
     def screen_branding_theme_code(self):

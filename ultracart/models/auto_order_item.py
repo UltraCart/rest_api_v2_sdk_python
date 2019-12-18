@@ -39,6 +39,7 @@ class AutoOrderItem(object):
         'arbitrary_unit_cost_remaining_orders': 'int',
         'auto_order_item_oid': 'int',
         'frequency': 'str',
+        'future_schedules': 'list[AutoOrderItemFutureSchedule]',
         'last_order_dts': 'str',
         'life_time_value': 'float',
         'next_preshipment_notice_dts': 'str',
@@ -64,6 +65,7 @@ class AutoOrderItem(object):
         'arbitrary_unit_cost_remaining_orders': 'arbitrary_unit_cost_remaining_orders',
         'auto_order_item_oid': 'auto_order_item_oid',
         'frequency': 'frequency',
+        'future_schedules': 'future_schedules',
         'last_order_dts': 'last_order_dts',
         'life_time_value': 'life_time_value',
         'next_preshipment_notice_dts': 'next_preshipment_notice_dts',
@@ -80,7 +82,7 @@ class AutoOrderItem(object):
         'remaining_repeat_count': 'remaining_repeat_count'
     }
 
-    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, frequency=None, last_order_dts=None, life_time_value=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None):
+    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None):
         """
         AutoOrderItem - a model defined in Swagger
         """
@@ -93,6 +95,7 @@ class AutoOrderItem(object):
         self._arbitrary_unit_cost_remaining_orders = None
         self._auto_order_item_oid = None
         self._frequency = None
+        self._future_schedules = None
         self._last_order_dts = None
         self._life_time_value = None
         self._next_preshipment_notice_dts = None
@@ -125,6 +128,8 @@ class AutoOrderItem(object):
           self.auto_order_item_oid = auto_order_item_oid
         if frequency is not None:
           self.frequency = frequency
+        if future_schedules is not None:
+          self.future_schedules = future_schedules
         if last_order_dts is not None:
           self.last_order_dts = last_order_dts
         if life_time_value is not None:
@@ -345,6 +350,29 @@ class AutoOrderItem(object):
         self._frequency = frequency
 
     @property
+    def future_schedules(self):
+        """
+        Gets the future_schedules of this AutoOrderItem.
+        The future rebill schedule for this item up to the next ten rebills
+
+        :return: The future_schedules of this AutoOrderItem.
+        :rtype: list[AutoOrderItemFutureSchedule]
+        """
+        return self._future_schedules
+
+    @future_schedules.setter
+    def future_schedules(self, future_schedules):
+        """
+        Sets the future_schedules of this AutoOrderItem.
+        The future rebill schedule for this item up to the next ten rebills
+
+        :param future_schedules: The future_schedules of this AutoOrderItem.
+        :type: list[AutoOrderItemFutureSchedule]
+        """
+
+        self._future_schedules = future_schedules
+
+    @property
     def last_order_dts(self):
         """
         Gets the last_order_dts of this AutoOrderItem.
@@ -509,7 +537,7 @@ class AutoOrderItem(object):
     def original_item_id(self):
         """
         Gets the original_item_id of this AutoOrderItem.
-        The original item id purchased
+        The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.
 
         :return: The original_item_id of this AutoOrderItem.
         :rtype: str
@@ -520,7 +548,7 @@ class AutoOrderItem(object):
     def original_item_id(self, original_item_id):
         """
         Sets the original_item_id of this AutoOrderItem.
-        The original item id purchased
+        The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.
 
         :param original_item_id: The original_item_id of this AutoOrderItem.
         :type: str

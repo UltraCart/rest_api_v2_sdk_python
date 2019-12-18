@@ -60,6 +60,7 @@ class Item(object):
         'merchant_item_oid': 'int',
         'options': 'list[ItemOption]',
         'parent_category_id': 'int',
+        'parent_category_path': 'str',
         'payment_processing': 'ItemPaymentProcessing',
         'physical': 'ItemPhysical',
         'pricing': 'ItemPricing',
@@ -71,6 +72,7 @@ class Item(object):
         'reviews': 'ItemReviews',
         'salesforce': 'ItemSalesforce',
         'shipping': 'ItemShipping',
+        'tags': 'ItemTags',
         'tax': 'ItemTax',
         'third_party_email_marketing': 'list[ItemThirdPartyEmailMarketing]',
         'variant_items': 'list[ItemVariantItem]',
@@ -108,6 +110,7 @@ class Item(object):
         'merchant_item_oid': 'merchant_item_oid',
         'options': 'options',
         'parent_category_id': 'parent_category_id',
+        'parent_category_path': 'parent_category_path',
         'payment_processing': 'payment_processing',
         'physical': 'physical',
         'pricing': 'pricing',
@@ -119,6 +122,7 @@ class Item(object):
         'reviews': 'reviews',
         'salesforce': 'salesforce',
         'shipping': 'shipping',
+        'tags': 'tags',
         'tax': 'tax',
         'third_party_email_marketing': 'third_party_email_marketing',
         'variant_items': 'variant_items',
@@ -126,7 +130,7 @@ class Item(object):
         'wishlist_member': 'wishlist_member'
     }
 
-    def __init__(self, accounting=None, amember=None, auto_order=None, ccbill=None, channel_partner_mappings=None, chargeback=None, checkout=None, content=None, creation_dts=None, description=None, description_translated_text_instance_oid=None, digital_delivery=None, ebay=None, email_notifications=None, enrollment123=None, gift_certificate=None, google_product_search=None, identifiers=None, inactive=None, instant_payment_notifications=None, internal=None, kit=None, kit_definition=None, last_modified_dts=None, merchant_id=None, merchant_item_id=None, merchant_item_oid=None, options=None, parent_category_id=None, payment_processing=None, physical=None, pricing=None, realtime_pricing=None, related=None, reporting=None, restriction=None, revguard=None, reviews=None, salesforce=None, shipping=None, tax=None, third_party_email_marketing=None, variant_items=None, variations=None, wishlist_member=None):
+    def __init__(self, accounting=None, amember=None, auto_order=None, ccbill=None, channel_partner_mappings=None, chargeback=None, checkout=None, content=None, creation_dts=None, description=None, description_translated_text_instance_oid=None, digital_delivery=None, ebay=None, email_notifications=None, enrollment123=None, gift_certificate=None, google_product_search=None, identifiers=None, inactive=None, instant_payment_notifications=None, internal=None, kit=None, kit_definition=None, last_modified_dts=None, merchant_id=None, merchant_item_id=None, merchant_item_oid=None, options=None, parent_category_id=None, parent_category_path=None, payment_processing=None, physical=None, pricing=None, realtime_pricing=None, related=None, reporting=None, restriction=None, revguard=None, reviews=None, salesforce=None, shipping=None, tags=None, tax=None, third_party_email_marketing=None, variant_items=None, variations=None, wishlist_member=None):
         """
         Item - a model defined in Swagger
         """
@@ -160,6 +164,7 @@ class Item(object):
         self._merchant_item_oid = None
         self._options = None
         self._parent_category_id = None
+        self._parent_category_path = None
         self._payment_processing = None
         self._physical = None
         self._pricing = None
@@ -171,6 +176,7 @@ class Item(object):
         self._reviews = None
         self._salesforce = None
         self._shipping = None
+        self._tags = None
         self._tax = None
         self._third_party_email_marketing = None
         self._variant_items = None
@@ -236,6 +242,8 @@ class Item(object):
           self.options = options
         if parent_category_id is not None:
           self.parent_category_id = parent_category_id
+        if parent_category_path is not None:
+          self.parent_category_path = parent_category_path
         if payment_processing is not None:
           self.payment_processing = payment_processing
         if physical is not None:
@@ -258,6 +266,8 @@ class Item(object):
           self.salesforce = salesforce
         if shipping is not None:
           self.shipping = shipping
+        if tags is not None:
+          self.tags = tags
         if tax is not None:
           self.tax = tax
         if third_party_email_marketing is not None:
@@ -909,6 +919,29 @@ class Item(object):
         self._parent_category_id = parent_category_id
 
     @property
+    def parent_category_path(self):
+        """
+        Gets the parent_category_path of this Item.
+        Parent category path.  / indicates the root folder.
+
+        :return: The parent_category_path of this Item.
+        :rtype: str
+        """
+        return self._parent_category_path
+
+    @parent_category_path.setter
+    def parent_category_path(self, parent_category_path):
+        """
+        Sets the parent_category_path of this Item.
+        Parent category path.  / indicates the root folder.
+
+        :param parent_category_path: The parent_category_path of this Item.
+        :type: str
+        """
+
+        self._parent_category_path = parent_category_path
+
+    @property
     def payment_processing(self):
         """
         Gets the payment_processing of this Item.
@@ -1138,6 +1171,27 @@ class Item(object):
         """
 
         self._shipping = shipping
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this Item.
+
+        :return: The tags of this Item.
+        :rtype: ItemTags
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this Item.
+
+        :param tags: The tags of this Item.
+        :type: ItemTags
+        """
+
+        self._tags = tags
 
     @property
     def tax(self):

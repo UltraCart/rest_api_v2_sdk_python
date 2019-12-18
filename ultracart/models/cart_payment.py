@@ -31,6 +31,7 @@ class CartPayment(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'affirm': 'CartPaymentAffirm',
         'amazon': 'CartPaymentAmazon',
         'check': 'CartPaymentCheck',
         'credit_card': 'CartPaymentCreditCard',
@@ -40,6 +41,7 @@ class CartPayment(object):
     }
 
     attribute_map = {
+        'affirm': 'affirm',
         'amazon': 'amazon',
         'check': 'check',
         'credit_card': 'credit_card',
@@ -48,11 +50,12 @@ class CartPayment(object):
         'rtg_code': 'rtg_code'
     }
 
-    def __init__(self, amazon=None, check=None, credit_card=None, payment_method=None, purchase_order=None, rtg_code=None):
+    def __init__(self, affirm=None, amazon=None, check=None, credit_card=None, payment_method=None, purchase_order=None, rtg_code=None):
         """
         CartPayment - a model defined in Swagger
         """
 
+        self._affirm = None
         self._amazon = None
         self._check = None
         self._credit_card = None
@@ -61,6 +64,8 @@ class CartPayment(object):
         self._rtg_code = None
         self.discriminator = None
 
+        if affirm is not None:
+          self.affirm = affirm
         if amazon is not None:
           self.amazon = amazon
         if check is not None:
@@ -73,6 +78,27 @@ class CartPayment(object):
           self.purchase_order = purchase_order
         if rtg_code is not None:
           self.rtg_code = rtg_code
+
+    @property
+    def affirm(self):
+        """
+        Gets the affirm of this CartPayment.
+
+        :return: The affirm of this CartPayment.
+        :rtype: CartPaymentAffirm
+        """
+        return self._affirm
+
+    @affirm.setter
+    def affirm(self, affirm):
+        """
+        Sets the affirm of this CartPayment.
+
+        :param affirm: The affirm of this CartPayment.
+        :type: CartPaymentAffirm
+        """
+
+        self._affirm = affirm
 
     @property
     def amazon(self):

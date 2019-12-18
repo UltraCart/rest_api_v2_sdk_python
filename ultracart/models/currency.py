@@ -31,33 +31,89 @@ class Currency(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'currency_code': 'str',
+        'exchange_rate': 'float',
         'localized': 'float',
         'localized_formatted': 'str',
         'value': 'float'
     }
 
     attribute_map = {
+        'currency_code': 'currency_code',
+        'exchange_rate': 'exchange_rate',
         'localized': 'localized',
         'localized_formatted': 'localized_formatted',
         'value': 'value'
     }
 
-    def __init__(self, localized=None, localized_formatted=None, value=None):
+    def __init__(self, currency_code=None, exchange_rate=None, localized=None, localized_formatted=None, value=None):
         """
         Currency - a model defined in Swagger
         """
 
+        self._currency_code = None
+        self._exchange_rate = None
         self._localized = None
         self._localized_formatted = None
         self._value = None
         self.discriminator = None
 
+        if currency_code is not None:
+          self.currency_code = currency_code
+        if exchange_rate is not None:
+          self.exchange_rate = exchange_rate
         if localized is not None:
           self.localized = localized
         if localized_formatted is not None:
           self.localized_formatted = localized_formatted
         if value is not None:
           self.value = value
+
+    @property
+    def currency_code(self):
+        """
+        Gets the currency_code of this Currency.
+        Currency code of the localized value
+
+        :return: The currency_code of this Currency.
+        :rtype: str
+        """
+        return self._currency_code
+
+    @currency_code.setter
+    def currency_code(self, currency_code):
+        """
+        Sets the currency_code of this Currency.
+        Currency code of the localized value
+
+        :param currency_code: The currency_code of this Currency.
+        :type: str
+        """
+
+        self._currency_code = currency_code
+
+    @property
+    def exchange_rate(self):
+        """
+        Gets the exchange_rate of this Currency.
+        Exchange rate used to localize
+
+        :return: The exchange_rate of this Currency.
+        :rtype: float
+        """
+        return self._exchange_rate
+
+    @exchange_rate.setter
+    def exchange_rate(self, exchange_rate):
+        """
+        Sets the exchange_rate of this Currency.
+        Exchange rate used to localize
+
+        :param exchange_rate: The exchange_rate of this Currency.
+        :type: float
+        """
+
+        self._exchange_rate = exchange_rate
 
     @property
     def localized(self):

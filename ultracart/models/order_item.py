@@ -33,6 +33,9 @@ class OrderItem(object):
     swagger_types = {
         'accounting_code': 'str',
         'activation_codes': 'list[str]',
+        'arbitrary_unit_cost': 'Currency',
+        'auto_order_last_rebill_dts': 'str',
+        'auto_order_schedule': 'str',
         'barcode': 'str',
         'channel_partner_item_id': 'str',
         'cogs': 'float',
@@ -64,6 +67,7 @@ class OrderItem(object):
         'packed_by_user': 'str',
         'perishable_class': 'str',
         'pricing_tier_name': 'str',
+        'properties': 'list[OrderItemProperty]',
         'quantity': 'float',
         'quantity_refunded': 'float',
         'quickbooks_class': 'str',
@@ -71,6 +75,7 @@ class OrderItem(object):
         'shipped_by_user': 'str',
         'shipped_dts': 'str',
         'special_product_type': 'str',
+        'tags': 'list[OrderItemTag]',
         'tax_free': 'bool',
         'taxable_cost': 'Currency',
         'total_cost_with_discount': 'Currency',
@@ -85,6 +90,9 @@ class OrderItem(object):
     attribute_map = {
         'accounting_code': 'accounting_code',
         'activation_codes': 'activation_codes',
+        'arbitrary_unit_cost': 'arbitrary_unit_cost',
+        'auto_order_last_rebill_dts': 'auto_order_last_rebill_dts',
+        'auto_order_schedule': 'auto_order_schedule',
         'barcode': 'barcode',
         'channel_partner_item_id': 'channel_partner_item_id',
         'cogs': 'cogs',
@@ -116,6 +124,7 @@ class OrderItem(object):
         'packed_by_user': 'packed_by_user',
         'perishable_class': 'perishable_class',
         'pricing_tier_name': 'pricing_tier_name',
+        'properties': 'properties',
         'quantity': 'quantity',
         'quantity_refunded': 'quantity_refunded',
         'quickbooks_class': 'quickbooks_class',
@@ -123,6 +132,7 @@ class OrderItem(object):
         'shipped_by_user': 'shipped_by_user',
         'shipped_dts': 'shipped_dts',
         'special_product_type': 'special_product_type',
+        'tags': 'tags',
         'tax_free': 'tax_free',
         'taxable_cost': 'taxable_cost',
         'total_cost_with_discount': 'total_cost_with_discount',
@@ -134,13 +144,16 @@ class OrderItem(object):
         'width': 'width'
     }
 
-    def __init__(self, accounting_code=None, activation_codes=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, perishable_class=None, pricing_tier_name=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, special_product_type=None, tax_free=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):
+    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, special_product_type=None, tags=None, tax_free=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):
         """
         OrderItem - a model defined in Swagger
         """
 
         self._accounting_code = None
         self._activation_codes = None
+        self._arbitrary_unit_cost = None
+        self._auto_order_last_rebill_dts = None
+        self._auto_order_schedule = None
         self._barcode = None
         self._channel_partner_item_id = None
         self._cogs = None
@@ -172,6 +185,7 @@ class OrderItem(object):
         self._packed_by_user = None
         self._perishable_class = None
         self._pricing_tier_name = None
+        self._properties = None
         self._quantity = None
         self._quantity_refunded = None
         self._quickbooks_class = None
@@ -179,6 +193,7 @@ class OrderItem(object):
         self._shipped_by_user = None
         self._shipped_dts = None
         self._special_product_type = None
+        self._tags = None
         self._tax_free = None
         self._taxable_cost = None
         self._total_cost_with_discount = None
@@ -194,6 +209,12 @@ class OrderItem(object):
           self.accounting_code = accounting_code
         if activation_codes is not None:
           self.activation_codes = activation_codes
+        if arbitrary_unit_cost is not None:
+          self.arbitrary_unit_cost = arbitrary_unit_cost
+        if auto_order_last_rebill_dts is not None:
+          self.auto_order_last_rebill_dts = auto_order_last_rebill_dts
+        if auto_order_schedule is not None:
+          self.auto_order_schedule = auto_order_schedule
         if barcode is not None:
           self.barcode = barcode
         if channel_partner_item_id is not None:
@@ -256,6 +277,8 @@ class OrderItem(object):
           self.perishable_class = perishable_class
         if pricing_tier_name is not None:
           self.pricing_tier_name = pricing_tier_name
+        if properties is not None:
+          self.properties = properties
         if quantity is not None:
           self.quantity = quantity
         if quantity_refunded is not None:
@@ -270,6 +293,8 @@ class OrderItem(object):
           self.shipped_dts = shipped_dts
         if special_product_type is not None:
           self.special_product_type = special_product_type
+        if tags is not None:
+          self.tags = tags
         if tax_free is not None:
           self.tax_free = tax_free
         if taxable_cost is not None:
@@ -334,6 +359,73 @@ class OrderItem(object):
         """
 
         self._activation_codes = activation_codes
+
+    @property
+    def arbitrary_unit_cost(self):
+        """
+        Gets the arbitrary_unit_cost of this OrderItem.
+
+        :return: The arbitrary_unit_cost of this OrderItem.
+        :rtype: Currency
+        """
+        return self._arbitrary_unit_cost
+
+    @arbitrary_unit_cost.setter
+    def arbitrary_unit_cost(self, arbitrary_unit_cost):
+        """
+        Sets the arbitrary_unit_cost of this OrderItem.
+
+        :param arbitrary_unit_cost: The arbitrary_unit_cost of this OrderItem.
+        :type: Currency
+        """
+
+        self._arbitrary_unit_cost = arbitrary_unit_cost
+
+    @property
+    def auto_order_last_rebill_dts(self):
+        """
+        Gets the auto_order_last_rebill_dts of this OrderItem.
+        Date/time of the last rebill, used only during order insert to help project future rebills
+
+        :return: The auto_order_last_rebill_dts of this OrderItem.
+        :rtype: str
+        """
+        return self._auto_order_last_rebill_dts
+
+    @auto_order_last_rebill_dts.setter
+    def auto_order_last_rebill_dts(self, auto_order_last_rebill_dts):
+        """
+        Sets the auto_order_last_rebill_dts of this OrderItem.
+        Date/time of the last rebill, used only during order insert to help project future rebills
+
+        :param auto_order_last_rebill_dts: The auto_order_last_rebill_dts of this OrderItem.
+        :type: str
+        """
+
+        self._auto_order_last_rebill_dts = auto_order_last_rebill_dts
+
+    @property
+    def auto_order_schedule(self):
+        """
+        Gets the auto_order_schedule of this OrderItem.
+        Auto order schedule, used only during inserts supplying the recurring schedule
+
+        :return: The auto_order_schedule of this OrderItem.
+        :rtype: str
+        """
+        return self._auto_order_schedule
+
+    @auto_order_schedule.setter
+    def auto_order_schedule(self, auto_order_schedule):
+        """
+        Sets the auto_order_schedule of this OrderItem.
+        Auto order schedule, used only during inserts supplying the recurring schedule
+
+        :param auto_order_schedule: The auto_order_schedule of this OrderItem.
+        :type: str
+        """
+
+        self._auto_order_schedule = auto_order_schedule
 
     @property
     def barcode(self):
@@ -1047,6 +1139,29 @@ class OrderItem(object):
         self._pricing_tier_name = pricing_tier_name
 
     @property
+    def properties(self):
+        """
+        Gets the properties of this OrderItem.
+        Properties
+
+        :return: The properties of this OrderItem.
+        :rtype: list[OrderItemProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """
+        Sets the properties of this OrderItem.
+        Properties
+
+        :param properties: The properties of this OrderItem.
+        :type: list[OrderItemProperty]
+        """
+
+        self._properties = properties
+
+    @property
     def quantity(self):
         """
         Gets the quantity of this OrderItem.
@@ -1208,6 +1323,29 @@ class OrderItem(object):
         """
 
         self._special_product_type = special_product_type
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this OrderItem.
+        Tags
+
+        :return: The tags of this OrderItem.
+        :rtype: list[OrderItemTag]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this OrderItem.
+        Tags
+
+        :param tags: The tags of this OrderItem.
+        :type: list[OrderItemTag]
+        """
+
+        self._tags = tags
 
     @property
     def tax_free(self):

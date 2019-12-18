@@ -6,9 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**city_state**](CheckoutApi.md#city_state) | **POST** /checkout/city_state | City/State for Zip
 [**finalize_order**](CheckoutApi.md#finalize_order) | **POST** /checkout/cart/finalizeOrder | Finalize Order
+[**get_affirm_checkout**](CheckoutApi.md#get_affirm_checkout) | **GET** /checkout/cart/{cart_id}/affirmCheckout | Get affirm checkout (by cart id)
+[**get_allowed_countries**](CheckoutApi.md#get_allowed_countries) | **POST** /checkout/allowedCountries | Allowed countries
 [**get_cart**](CheckoutApi.md#get_cart) | **GET** /checkout/cart | Get cart
 [**get_cart_by_cart_id**](CheckoutApi.md#get_cart_by_cart_id) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
 [**get_cart_by_return_code**](CheckoutApi.md#get_cart_by_return_code) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+[**get_state_provinces_for_country**](CheckoutApi.md#get_state_provinces_for_country) | **POST** /checkout/stateProvincesForCountry/{country_code} | Get state/province list for a country code
 [**handoff_cart**](CheckoutApi.md#handoff_cart) | **POST** /checkout/cart/handoff | Handoff cart
 [**login**](CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
 [**logout**](CheckoutApi.md#logout) | **POST** /checkout/cart/profile/logout | Profile logout
@@ -134,6 +137,124 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_affirm_checkout**
+> CartAffirmCheckoutResponse get_affirm_checkout(cart_id)
+
+Get affirm checkout (by cart id)
+
+Get a Affirm checkout object for the specified cart_id parameter. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
+cart_id = 'cart_id_example' # str | Cart ID to retrieve
+
+try: 
+    # Get affirm checkout (by cart id)
+    api_response = api_instance.get_affirm_checkout(cart_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CheckoutApi->get_affirm_checkout: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart_id** | **str**| Cart ID to retrieve | 
+
+### Return type
+
+[**CartAffirmCheckoutResponse**](CartAffirmCheckoutResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_allowed_countries**
+> CheckoutAllowedCountriesResponse get_allowed_countries()
+
+Allowed countries
+
+Lookup the allowed countries for this merchant id 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
+
+try: 
+    # Allowed countries
+    api_response = api_instance.get_allowed_countries()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CheckoutApi->get_allowed_countries: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CheckoutAllowedCountriesResponse**](CheckoutAllowedCountriesResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
@@ -317,6 +438,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CartResponse**](CartResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_state_provinces_for_country**
+> CheckoutStateProvinceResponse get_state_provinces_for_country(country_code)
+
+Get state/province list for a country code
+
+Lookup a state/province list for a given country code 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
+country_code = 'country_code_example' # str | Two letter ISO country code
+
+try: 
+    # Get state/province list for a country code
+    api_response = api_instance.get_state_provinces_for_country(country_code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CheckoutApi->get_state_provinces_for_country: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **country_code** | **str**| Two letter ISO country code | 
+
+### Return type
+
+[**CheckoutStateProvinceResponse**](CheckoutStateProvinceResponse.md)
 
 ### Authorization
 

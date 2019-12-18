@@ -219,7 +219,7 @@ class OrderPayment(object):
     def payment_dts(self):
         """
         Gets the payment_dts of this OrderPayment.
-        Date/time that the payment was successfully processed
+        Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true
 
         :return: The payment_dts of this OrderPayment.
         :rtype: str
@@ -230,7 +230,7 @@ class OrderPayment(object):
     def payment_dts(self, payment_dts):
         """
         Sets the payment_dts of this OrderPayment.
-        Date/time that the payment was successfully processed
+        Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true
 
         :param payment_dts: The payment_dts of this OrderPayment.
         :type: str
@@ -258,7 +258,7 @@ class OrderPayment(object):
         :param payment_method: The payment_method of this OrderPayment.
         :type: str
         """
-        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Coinbase", "Credit Card", "eBay", "eCheck", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer"]
+        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Credit Card", "eBay", "eCheck", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer", "Walmart"]
         if payment_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `payment_method` ({0}), must be one of {1}"

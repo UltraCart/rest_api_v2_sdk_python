@@ -31,30 +31,50 @@ class OrderChannelPartner(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_approve_purchase_order': 'bool',
         'channel_partner_code': 'str',
         'channel_partner_data': 'str',
         'channel_partner_oid': 'int',
-        'channel_partner_order_id': 'str'
+        'channel_partner_order_id': 'str',
+        'no_realtime_payment_processing': 'bool',
+        'skip_payment_processing': 'bool',
+        'store_completed': 'bool',
+        'store_if_payment_declines': 'bool',
+        'treat_warnings_as_errors': 'bool'
     }
 
     attribute_map = {
+        'auto_approve_purchase_order': 'auto_approve_purchase_order',
         'channel_partner_code': 'channel_partner_code',
         'channel_partner_data': 'channel_partner_data',
         'channel_partner_oid': 'channel_partner_oid',
-        'channel_partner_order_id': 'channel_partner_order_id'
+        'channel_partner_order_id': 'channel_partner_order_id',
+        'no_realtime_payment_processing': 'no_realtime_payment_processing',
+        'skip_payment_processing': 'skip_payment_processing',
+        'store_completed': 'store_completed',
+        'store_if_payment_declines': 'store_if_payment_declines',
+        'treat_warnings_as_errors': 'treat_warnings_as_errors'
     }
 
-    def __init__(self, channel_partner_code=None, channel_partner_data=None, channel_partner_oid=None, channel_partner_order_id=None):
+    def __init__(self, auto_approve_purchase_order=None, channel_partner_code=None, channel_partner_data=None, channel_partner_oid=None, channel_partner_order_id=None, no_realtime_payment_processing=None, skip_payment_processing=None, store_completed=None, store_if_payment_declines=None, treat_warnings_as_errors=None):
         """
         OrderChannelPartner - a model defined in Swagger
         """
 
+        self._auto_approve_purchase_order = None
         self._channel_partner_code = None
         self._channel_partner_data = None
         self._channel_partner_oid = None
         self._channel_partner_order_id = None
+        self._no_realtime_payment_processing = None
+        self._skip_payment_processing = None
+        self._store_completed = None
+        self._store_if_payment_declines = None
+        self._treat_warnings_as_errors = None
         self.discriminator = None
 
+        if auto_approve_purchase_order is not None:
+          self.auto_approve_purchase_order = auto_approve_purchase_order
         if channel_partner_code is not None:
           self.channel_partner_code = channel_partner_code
         if channel_partner_data is not None:
@@ -63,6 +83,39 @@ class OrderChannelPartner(object):
           self.channel_partner_oid = channel_partner_oid
         if channel_partner_order_id is not None:
           self.channel_partner_order_id = channel_partner_order_id
+        if no_realtime_payment_processing is not None:
+          self.no_realtime_payment_processing = no_realtime_payment_processing
+        if skip_payment_processing is not None:
+          self.skip_payment_processing = skip_payment_processing
+        if store_completed is not None:
+          self.store_completed = store_completed
+        if store_if_payment_declines is not None:
+          self.store_if_payment_declines = store_if_payment_declines
+        if treat_warnings_as_errors is not None:
+          self.treat_warnings_as_errors = treat_warnings_as_errors
+
+    @property
+    def auto_approve_purchase_order(self):
+        """
+        Gets the auto_approve_purchase_order of this OrderChannelPartner.
+        If true, any purchase order submitted is automatically approved
+
+        :return: The auto_approve_purchase_order of this OrderChannelPartner.
+        :rtype: bool
+        """
+        return self._auto_approve_purchase_order
+
+    @auto_approve_purchase_order.setter
+    def auto_approve_purchase_order(self, auto_approve_purchase_order):
+        """
+        Sets the auto_approve_purchase_order of this OrderChannelPartner.
+        If true, any purchase order submitted is automatically approved
+
+        :param auto_approve_purchase_order: The auto_approve_purchase_order of this OrderChannelPartner.
+        :type: bool
+        """
+
+        self._auto_approve_purchase_order = auto_approve_purchase_order
 
     @property
     def channel_partner_code(self):
@@ -91,7 +144,7 @@ class OrderChannelPartner(object):
     def channel_partner_data(self):
         """
         Gets the channel_partner_data of this OrderChannelPartner.
-        Additional data provided by the channel partner
+        Additional data provided by the channel partner, read-only
 
         :return: The channel_partner_data of this OrderChannelPartner.
         :rtype: str
@@ -102,7 +155,7 @@ class OrderChannelPartner(object):
     def channel_partner_data(self, channel_partner_data):
         """
         Sets the channel_partner_data of this OrderChannelPartner.
-        Additional data provided by the channel partner
+        Additional data provided by the channel partner, read-only
 
         :param channel_partner_data: The channel_partner_data of this OrderChannelPartner.
         :type: str
@@ -114,7 +167,7 @@ class OrderChannelPartner(object):
     def channel_partner_oid(self):
         """
         Gets the channel_partner_oid of this OrderChannelPartner.
-        Channel partner object identifier
+        Channel partner object identifier, read-only and available on existing channel orders only.
 
         :return: The channel_partner_oid of this OrderChannelPartner.
         :rtype: int
@@ -125,7 +178,7 @@ class OrderChannelPartner(object):
     def channel_partner_oid(self, channel_partner_oid):
         """
         Sets the channel_partner_oid of this OrderChannelPartner.
-        Channel partner object identifier
+        Channel partner object identifier, read-only and available on existing channel orders only.
 
         :param channel_partner_oid: The channel_partner_oid of this OrderChannelPartner.
         :type: int
@@ -155,6 +208,121 @@ class OrderChannelPartner(object):
         """
 
         self._channel_partner_order_id = channel_partner_order_id
+
+    @property
+    def no_realtime_payment_processing(self):
+        """
+        Gets the no_realtime_payment_processing of this OrderChannelPartner.
+        Indicates this order should be placed in Account Receivable for later payment processing
+
+        :return: The no_realtime_payment_processing of this OrderChannelPartner.
+        :rtype: bool
+        """
+        return self._no_realtime_payment_processing
+
+    @no_realtime_payment_processing.setter
+    def no_realtime_payment_processing(self, no_realtime_payment_processing):
+        """
+        Sets the no_realtime_payment_processing of this OrderChannelPartner.
+        Indicates this order should be placed in Account Receivable for later payment processing
+
+        :param no_realtime_payment_processing: The no_realtime_payment_processing of this OrderChannelPartner.
+        :type: bool
+        """
+
+        self._no_realtime_payment_processing = no_realtime_payment_processing
+
+    @property
+    def skip_payment_processing(self):
+        """
+        Gets the skip_payment_processing of this OrderChannelPartner.
+        Indicates this order was already paid for via a channel purchase and no payment collection should be attempted
+
+        :return: The skip_payment_processing of this OrderChannelPartner.
+        :rtype: bool
+        """
+        return self._skip_payment_processing
+
+    @skip_payment_processing.setter
+    def skip_payment_processing(self, skip_payment_processing):
+        """
+        Sets the skip_payment_processing of this OrderChannelPartner.
+        Indicates this order was already paid for via a channel purchase and no payment collection should be attempted
+
+        :param skip_payment_processing: The skip_payment_processing of this OrderChannelPartner.
+        :type: bool
+        """
+
+        self._skip_payment_processing = skip_payment_processing
+
+    @property
+    def store_completed(self):
+        """
+        Gets the store_completed of this OrderChannelPartner.
+        Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.
+
+        :return: The store_completed of this OrderChannelPartner.
+        :rtype: bool
+        """
+        return self._store_completed
+
+    @store_completed.setter
+    def store_completed(self, store_completed):
+        """
+        Sets the store_completed of this OrderChannelPartner.
+        Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.
+
+        :param store_completed: The store_completed of this OrderChannelPartner.
+        :type: bool
+        """
+
+        self._store_completed = store_completed
+
+    @property
+    def store_if_payment_declines(self):
+        """
+        Gets the store_if_payment_declines of this OrderChannelPartner.
+        If true, any failed payment will place the order in Accounts Receivable rather than rejecting it.
+
+        :return: The store_if_payment_declines of this OrderChannelPartner.
+        :rtype: bool
+        """
+        return self._store_if_payment_declines
+
+    @store_if_payment_declines.setter
+    def store_if_payment_declines(self, store_if_payment_declines):
+        """
+        Sets the store_if_payment_declines of this OrderChannelPartner.
+        If true, any failed payment will place the order in Accounts Receivable rather than rejecting it.
+
+        :param store_if_payment_declines: The store_if_payment_declines of this OrderChannelPartner.
+        :type: bool
+        """
+
+        self._store_if_payment_declines = store_if_payment_declines
+
+    @property
+    def treat_warnings_as_errors(self):
+        """
+        Gets the treat_warnings_as_errors of this OrderChannelPartner.
+        Any warnings are raised as errors and halt the import of the order
+
+        :return: The treat_warnings_as_errors of this OrderChannelPartner.
+        :rtype: bool
+        """
+        return self._treat_warnings_as_errors
+
+    @treat_warnings_as_errors.setter
+    def treat_warnings_as_errors(self, treat_warnings_as_errors):
+        """
+        Sets the treat_warnings_as_errors of this OrderChannelPartner.
+        Any warnings are raised as errors and halt the import of the order
+
+        :param treat_warnings_as_errors: The treat_warnings_as_errors of this OrderChannelPartner.
+        :type: bool
+        """
+
+        self._treat_warnings_as_errors = treat_warnings_as_errors
 
     def to_dict(self):
         """

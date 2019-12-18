@@ -218,7 +218,7 @@ class CouponApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
+            select_header_content_type(['application/json; charset=UTF-8'])
 
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
@@ -323,7 +323,7 @@ class CouponApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
+            select_header_content_type(['application/json; charset=UTF-8'])
 
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']

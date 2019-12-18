@@ -40,6 +40,8 @@ class Coupon(object):
         'amount_off_subtotal_and_shipping': 'CouponAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase': 'CouponAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase': 'CouponAmountOffSubtotalWithItemsPurchase',
+        'automatically_apply_coupon_codes': 'CouponAutomaticallyApplyCouponCodes',
+        'calculated_description': 'str',
         'can_be_used_with_other_coupons': 'bool',
         'coupon_oid': 'int',
         'coupon_type': 'str',
@@ -90,6 +92,8 @@ class Coupon(object):
         'amount_off_subtotal_and_shipping': 'amount_off_subtotal_and_shipping',
         'amount_off_subtotal_with_block_purchase': 'amount_off_subtotal_with_block_purchase',
         'amount_off_subtotal_with_items_purchase': 'amount_off_subtotal_with_items_purchase',
+        'automatically_apply_coupon_codes': 'automatically_apply_coupon_codes',
+        'calculated_description': 'calculated_)description',
         'can_be_used_with_other_coupons': 'can_be_used_with_other_coupons',
         'coupon_oid': 'coupon_oid',
         'coupon_type': 'coupon_type',
@@ -130,7 +134,7 @@ class Coupon(object):
         'usable_by': 'usable_by'
     }
 
-    def __init__(self, affiliate_oid=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, merchant_code=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, start_dts=None, tiered_amount_off_item=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):
+    def __init__(self, affiliate_oid=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, automatically_apply_coupon_codes=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, merchant_code=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, start_dts=None, tiered_amount_off_item=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):
         """
         Coupon - a model defined in Swagger
         """
@@ -144,6 +148,8 @@ class Coupon(object):
         self._amount_off_subtotal_and_shipping = None
         self._amount_off_subtotal_with_block_purchase = None
         self._amount_off_subtotal_with_items_purchase = None
+        self._automatically_apply_coupon_codes = None
+        self._calculated_description = None
         self._can_be_used_with_other_coupons = None
         self._coupon_oid = None
         self._coupon_type = None
@@ -202,6 +208,10 @@ class Coupon(object):
           self.amount_off_subtotal_with_block_purchase = amount_off_subtotal_with_block_purchase
         if amount_off_subtotal_with_items_purchase is not None:
           self.amount_off_subtotal_with_items_purchase = amount_off_subtotal_with_items_purchase
+        if automatically_apply_coupon_codes is not None:
+          self.automatically_apply_coupon_codes = automatically_apply_coupon_codes
+        if calculated_description is not None:
+          self.calculated_description = calculated_description
         if can_be_used_with_other_coupons is not None:
           self.can_be_used_with_other_coupons = can_be_used_with_other_coupons
         if coupon_oid is not None:
@@ -469,6 +479,50 @@ class Coupon(object):
         """
 
         self._amount_off_subtotal_with_items_purchase = amount_off_subtotal_with_items_purchase
+
+    @property
+    def automatically_apply_coupon_codes(self):
+        """
+        Gets the automatically_apply_coupon_codes of this Coupon.
+
+        :return: The automatically_apply_coupon_codes of this Coupon.
+        :rtype: CouponAutomaticallyApplyCouponCodes
+        """
+        return self._automatically_apply_coupon_codes
+
+    @automatically_apply_coupon_codes.setter
+    def automatically_apply_coupon_codes(self, automatically_apply_coupon_codes):
+        """
+        Sets the automatically_apply_coupon_codes of this Coupon.
+
+        :param automatically_apply_coupon_codes: The automatically_apply_coupon_codes of this Coupon.
+        :type: CouponAutomaticallyApplyCouponCodes
+        """
+
+        self._automatically_apply_coupon_codes = automatically_apply_coupon_codes
+
+    @property
+    def calculated_description(self):
+        """
+        Gets the calculated_description of this Coupon.
+        Calculated description displayed to the customer if no description is specified.
+
+        :return: The calculated_description of this Coupon.
+        :rtype: str
+        """
+        return self._calculated_description
+
+    @calculated_description.setter
+    def calculated_description(self, calculated_description):
+        """
+        Sets the calculated_description of this Coupon.
+        Calculated description displayed to the customer if no description is specified.
+
+        :param calculated_description: The calculated_description of this Coupon.
+        :type: str
+        """
+
+        self._calculated_description = calculated_description
 
     @property
     def can_be_used_with_other_coupons(self):

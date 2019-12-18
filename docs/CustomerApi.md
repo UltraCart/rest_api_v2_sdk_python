@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**get_customers_by_query**](CustomerApi.md#get_customers_by_query) | **GET** /customer/customers/query | Retrieve customers by query
 [**get_customers_for_data_tables**](CustomerApi.md#get_customers_for_data_tables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**get_editor_values**](CustomerApi.md#get_editor_values) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
+[**get_email_lists**](CustomerApi.md#get_email_lists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 [**insert_customer**](CustomerApi.md#insert_customer) | **POST** /customer/customers | Insert a customer
 [**update_customer**](CustomerApi.md#update_customer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
+[**update_customer_email_lists**](CustomerApi.md#update_customer_email_lists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 
 
 # **delete_customer**
@@ -450,6 +452,63 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_email_lists**
+> EmailListsResponse get_email_lists()
+
+Retrieve all email lists across all storefronts
+
+Retrieve all email lists across all storefronts 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
+
+try: 
+    # Retrieve all email lists across all storefronts
+    api_response = api_instance.get_email_lists()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->get_email_lists: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EmailListsResponse**](EmailListsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **insert_customer**
 > CustomerResponse insert_customer(customer, expand=expand)
 
@@ -566,6 +625,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_customer_email_lists**
+> CustomerEmailListChanges update_customer_email_lists(customer_profile_oid, list_changes)
+
+Update email list subscriptions for a customer
+
+Update email list subscriptions for a customer 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
+customer_profile_oid = 56 # int | The customer profile oid
+list_changes = ultracart.CustomerEmailListChanges() # CustomerEmailListChanges | List changes
+
+try: 
+    # Update email list subscriptions for a customer
+    api_response = api_instance.update_customer_email_lists(customer_profile_oid, list_changes)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->update_customer_email_lists: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer profile oid | 
+ **list_changes** | [**CustomerEmailListChanges**](CustomerEmailListChanges.md)| List changes | 
+
+### Return type
+
+[**CustomerEmailListChanges**](CustomerEmailListChanges.md)
 
 ### Authorization
 

@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_webhook**](WebhookApi.md#delete_webhook) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
+[**delete_webhook_by_url**](WebhookApi.md#delete_webhook_by_url) | **DELETE** /webhook/webhooks | Delete a webhook by URL
 [**get_webhook_log**](WebhookApi.md#get_webhook_log) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 [**get_webhook_log_summaries**](WebhookApi.md#get_webhook_log_summaries) | **GET** /webhook/webhooks/{webhookOid}/logs | Retrieve the log summaries
 [**get_webhooks**](WebhookApi.md#get_webhooks) | **GET** /webhook/webhooks | Retrieve webhooks
@@ -69,6 +70,67 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_webhook_by_url**
+> WebhookResponse delete_webhook_by_url(webhook)
+
+Delete a webhook by URL
+
+Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
+webhook = ultracart.Webhook() # Webhook | Webhook to delete
+
+try: 
+    # Delete a webhook by URL
+    api_response = api_instance.delete_webhook_by_url(webhook)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling WebhookApi->delete_webhook_by_url: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhook** | [**Webhook**](Webhook.md)| Webhook to delete | 
+
+### Return type
+
+[**WebhookResponse**](WebhookResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

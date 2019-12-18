@@ -38,6 +38,7 @@ class AutoOrder(object):
         'cancel_upgrade': 'bool',
         'canceled_by_user': 'str',
         'canceled_dts': 'str',
+        'completed': 'bool',
         'credit_card_attempt': 'int',
         'disabled_dts': 'str',
         'enabled': 'bool',
@@ -59,6 +60,7 @@ class AutoOrder(object):
         'cancel_upgrade': 'cancel_upgrade',
         'canceled_by_user': 'canceled_by_user',
         'canceled_dts': 'canceled_dts',
+        'completed': 'completed',
         'credit_card_attempt': 'credit_card_attempt',
         'disabled_dts': 'disabled_dts',
         'enabled': 'enabled',
@@ -72,7 +74,7 @@ class AutoOrder(object):
         'rotating_transaction_gateway_code': 'rotating_transaction_gateway_code'
     }
 
-    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None):
+    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None):
         """
         AutoOrder - a model defined in Swagger
         """
@@ -84,6 +86,7 @@ class AutoOrder(object):
         self._cancel_upgrade = None
         self._canceled_by_user = None
         self._canceled_dts = None
+        self._completed = None
         self._credit_card_attempt = None
         self._disabled_dts = None
         self._enabled = None
@@ -111,6 +114,8 @@ class AutoOrder(object):
           self.canceled_by_user = canceled_by_user
         if canceled_dts is not None:
           self.canceled_dts = canceled_dts
+        if completed is not None:
+          self.completed = completed
         if credit_card_attempt is not None:
           self.credit_card_attempt = credit_card_attempt
         if disabled_dts is not None:
@@ -294,6 +299,29 @@ class AutoOrder(object):
         """
 
         self._canceled_dts = canceled_dts
+
+    @property
+    def completed(self):
+        """
+        Gets the completed of this AutoOrder.
+        True if the auto order ran successfully to completion
+
+        :return: The completed of this AutoOrder.
+        :rtype: bool
+        """
+        return self._completed
+
+    @completed.setter
+    def completed(self, completed):
+        """
+        Sets the completed of this AutoOrder.
+        True if the auto order ran successfully to completion
+
+        :param completed: The completed of this AutoOrder.
+        :type: bool
+        """
+
+        self._completed = completed
 
     @property
     def credit_card_attempt(self):

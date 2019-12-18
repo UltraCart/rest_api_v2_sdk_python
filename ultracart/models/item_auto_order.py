@@ -45,6 +45,7 @@ class ItemAutoOrder(object):
         'auto_orderable': 'bool',
         'cancel_other_auto_orders': 'bool',
         'free_shipping_auto_order': 'bool',
+        'refund_other_auto_orders': 'bool',
         'steps': 'list[ItemAutoOrderStep]'
     }
 
@@ -63,10 +64,11 @@ class ItemAutoOrder(object):
         'auto_orderable': 'auto_orderable',
         'cancel_other_auto_orders': 'cancel_other_auto_orders',
         'free_shipping_auto_order': 'free_shipping_auto_order',
+        'refund_other_auto_orders': 'refund_other_auto_orders',
         'steps': 'steps'
     }
 
-    def __init__(self, auth_future_amount=None, auth_test_amount=None, auto_order_cancel_item_id=None, auto_order_cancel_item_oid=None, auto_order_downgrade_items=None, auto_order_paused=None, auto_order_schedules=None, auto_order_upgrade_items=None, auto_order_upsell=None, auto_order_upsell_no_easy_cancel=None, auto_order_upsell_one_per_customer=None, auto_orderable=None, cancel_other_auto_orders=None, free_shipping_auto_order=None, steps=None):
+    def __init__(self, auth_future_amount=None, auth_test_amount=None, auto_order_cancel_item_id=None, auto_order_cancel_item_oid=None, auto_order_downgrade_items=None, auto_order_paused=None, auto_order_schedules=None, auto_order_upgrade_items=None, auto_order_upsell=None, auto_order_upsell_no_easy_cancel=None, auto_order_upsell_one_per_customer=None, auto_orderable=None, cancel_other_auto_orders=None, free_shipping_auto_order=None, refund_other_auto_orders=None, steps=None):
         """
         ItemAutoOrder - a model defined in Swagger
         """
@@ -85,6 +87,7 @@ class ItemAutoOrder(object):
         self._auto_orderable = None
         self._cancel_other_auto_orders = None
         self._free_shipping_auto_order = None
+        self._refund_other_auto_orders = None
         self._steps = None
         self.discriminator = None
 
@@ -116,6 +119,8 @@ class ItemAutoOrder(object):
           self.cancel_other_auto_orders = cancel_other_auto_orders
         if free_shipping_auto_order is not None:
           self.free_shipping_auto_order = free_shipping_auto_order
+        if refund_other_auto_orders is not None:
+          self.refund_other_auto_orders = refund_other_auto_orders
         if steps is not None:
           self.steps = steps
 
@@ -442,6 +447,29 @@ class ItemAutoOrder(object):
         """
 
         self._free_shipping_auto_order = free_shipping_auto_order
+
+    @property
+    def refund_other_auto_orders(self):
+        """
+        Gets the refund_other_auto_orders of this ItemAutoOrder.
+        True if other auto orders for this customer should refunded if this item is refunded.
+
+        :return: The refund_other_auto_orders of this ItemAutoOrder.
+        :rtype: bool
+        """
+        return self._refund_other_auto_orders
+
+    @refund_other_auto_orders.setter
+    def refund_other_auto_orders(self, refund_other_auto_orders):
+        """
+        Sets the refund_other_auto_orders of this ItemAutoOrder.
+        True if other auto orders for this customer should refunded if this item is refunded.
+
+        :param refund_other_auto_orders: The refund_other_auto_orders of this ItemAutoOrder.
+        :type: bool
+        """
+
+        self._refund_other_auto_orders = refund_other_auto_orders
 
     @property
     def steps(self):

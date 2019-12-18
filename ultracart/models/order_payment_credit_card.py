@@ -40,7 +40,8 @@ class OrderPaymentCreditCard(object):
         'card_number': 'str',
         'card_number_token': 'str',
         'card_number_truncated': 'bool',
-        'card_type': 'str'
+        'card_type': 'str',
+        'card_verification_number_token': 'str'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class OrderPaymentCreditCard(object):
         'card_number': 'card_number',
         'card_number_token': 'card_number_token',
         'card_number_truncated': 'card_number_truncated',
-        'card_type': 'card_type'
+        'card_type': 'card_type',
+        'card_verification_number_token': 'card_verification_number_token'
     }
 
-    def __init__(self, card_auth_ticket=None, card_authorization_amount=None, card_authorization_dts=None, card_authorization_reference_number=None, card_expiration_month=None, card_expiration_year=None, card_number=None, card_number_token=None, card_number_truncated=None, card_type=None):
+    def __init__(self, card_auth_ticket=None, card_authorization_amount=None, card_authorization_dts=None, card_authorization_reference_number=None, card_expiration_month=None, card_expiration_year=None, card_number=None, card_number_token=None, card_number_truncated=None, card_type=None, card_verification_number_token=None):
         """
         OrderPaymentCreditCard - a model defined in Swagger
         """
@@ -71,6 +73,7 @@ class OrderPaymentCreditCard(object):
         self._card_number_token = None
         self._card_number_truncated = None
         self._card_type = None
+        self._card_verification_number_token = None
         self.discriminator = None
 
         if card_auth_ticket is not None:
@@ -93,6 +96,8 @@ class OrderPaymentCreditCard(object):
           self.card_number_truncated = card_number_truncated
         if card_type is not None:
           self.card_type = card_type
+        if card_verification_number_token is not None:
+          self.card_verification_number_token = card_verification_number_token
 
     @property
     def card_auth_ticket(self):
@@ -329,6 +334,29 @@ class OrderPaymentCreditCard(object):
             )
 
         self._card_type = card_type
+
+    @property
+    def card_verification_number_token(self):
+        """
+        Gets the card_verification_number_token of this OrderPaymentCreditCard.
+        Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries
+
+        :return: The card_verification_number_token of this OrderPaymentCreditCard.
+        :rtype: str
+        """
+        return self._card_verification_number_token
+
+    @card_verification_number_token.setter
+    def card_verification_number_token(self, card_verification_number_token):
+        """
+        Sets the card_verification_number_token of this OrderPaymentCreditCard.
+        Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries
+
+        :param card_verification_number_token: The card_verification_number_token of this OrderPaymentCreditCard.
+        :type: str
+        """
+
+        self._card_verification_number_token = card_verification_number_token
 
     def to_dict(self):
         """

@@ -31,6 +31,7 @@ class OrderSummary(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'arbitrary_shipping_handling_total': 'Currency',
         'other_refunded': 'Currency',
         'shipping_handling_refunded': 'Currency',
         'shipping_handling_total': 'Currency',
@@ -48,6 +49,7 @@ class OrderSummary(object):
     }
 
     attribute_map = {
+        'arbitrary_shipping_handling_total': 'arbitrary_shipping_handling_total',
         'other_refunded': 'other_refunded',
         'shipping_handling_refunded': 'shipping_handling_refunded',
         'shipping_handling_total': 'shipping_handling_total',
@@ -64,11 +66,12 @@ class OrderSummary(object):
         'total_refunded': 'total_refunded'
     }
 
-    def __init__(self, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):
+    def __init__(self, arbitrary_shipping_handling_total=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):
         """
         OrderSummary - a model defined in Swagger
         """
 
+        self._arbitrary_shipping_handling_total = None
         self._other_refunded = None
         self._shipping_handling_refunded = None
         self._shipping_handling_total = None
@@ -85,6 +88,8 @@ class OrderSummary(object):
         self._total_refunded = None
         self.discriminator = None
 
+        if arbitrary_shipping_handling_total is not None:
+          self.arbitrary_shipping_handling_total = arbitrary_shipping_handling_total
         if other_refunded is not None:
           self.other_refunded = other_refunded
         if shipping_handling_refunded is not None:
@@ -113,6 +118,27 @@ class OrderSummary(object):
           self.total = total
         if total_refunded is not None:
           self.total_refunded = total_refunded
+
+    @property
+    def arbitrary_shipping_handling_total(self):
+        """
+        Gets the arbitrary_shipping_handling_total of this OrderSummary.
+
+        :return: The arbitrary_shipping_handling_total of this OrderSummary.
+        :rtype: Currency
+        """
+        return self._arbitrary_shipping_handling_total
+
+    @arbitrary_shipping_handling_total.setter
+    def arbitrary_shipping_handling_total(self, arbitrary_shipping_handling_total):
+        """
+        Sets the arbitrary_shipping_handling_total of this OrderSummary.
+
+        :param arbitrary_shipping_handling_total: The arbitrary_shipping_handling_total of this OrderSummary.
+        :type: Currency
+        """
+
+        self._arbitrary_shipping_handling_total = arbitrary_shipping_handling_total
 
     @property
     def other_refunded(self):

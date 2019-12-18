@@ -28,12 +28,14 @@ Name | Type | Description | Notes
 **merchant_id** | **str** | UltraCart merchant ID owning this order | [optional] 
 **order_id** | **str** | Order ID | [optional] 
 **payment** | [**OrderPayment**](OrderPayment.md) |  | [optional] 
+**properties** | [**list[OrderProperty]**](OrderProperty.md) | Properties, available only through update, not through insert due to the nature of how properties are handled internally | [optional] 
 **quote** | [**OrderQuote**](OrderQuote.md) |  | [optional] 
 **refund_dts** | **str** | If the order was refunded, the date/time that the last refund occurred | [optional] 
 **reject_dts** | **str** | If the order was rejected, the date/time that the rejection occurred | [optional] 
 **salesforce** | [**OrderSalesforce**](OrderSalesforce.md) |  | [optional] 
 **shipping** | [**OrderShipping**](OrderShipping.md) |  | [optional] 
 **summary** | [**OrderSummary**](OrderSummary.md) |  | [optional] 
+**tags** | [**list[OrderTag]**](OrderTag.md) | tags, available only through update, not through insert due to the nature of how tags are handled internally | [optional] 
 **taxes** | [**OrderTaxes**](OrderTaxes.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
