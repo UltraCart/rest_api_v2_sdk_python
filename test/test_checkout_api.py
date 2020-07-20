@@ -47,6 +47,22 @@ class TestCheckoutApi(unittest.TestCase):
         """
         pass
 
+    def test_get_affirm_checkout(self):
+        """
+        Test case for get_affirm_checkout
+
+        Get affirm checkout (by cart id)
+        """
+        pass
+
+    def test_get_allowed_countries(self):
+        """
+        Test case for get_allowed_countries
+
+        Allowed countries
+        """
+        pass
+
     def test_get_cart(self):
         """
         Test case for get_cart
@@ -68,6 +84,14 @@ class TestCheckoutApi(unittest.TestCase):
         Test case for get_cart_by_return_code
 
         Get cart (by return code)
+        """
+        pass
+
+    def test_get_state_provinces_for_country(self):
+        """
+        Test case for get_state_provinces_for_country
+
+        Get state/province list for a country code
         """
         pass
 

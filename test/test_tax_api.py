@@ -119,6 +119,22 @@ class TestTaxApi(unittest.TestCase):
         """
         pass
 
+    def test_get_tax_provider_sovos(self):
+        """
+        Test case for get_tax_provider_sovos
+
+        Retrieve the Sovos tax provider
+        """
+        pass
+
+    def test_get_tax_provider_sovos_test(self):
+        """
+        Test case for get_tax_provider_sovos_test
+
+        Attempts to connect to Sovos and returns back the response
+        """
+        pass
+
     def test_get_tax_provider_tax_jar(self):
         """
         Test case for get_tax_provider_tax_jar
@@ -212,6 +228,14 @@ class TestTaxApi(unittest.TestCase):
         Test case for update_tax_provider_self_state
 
         Updates a Self tax provider state
+        """
+        pass
+
+    def test_update_tax_provider_sovos(self):
+        """
+        Test case for update_tax_provider_sovos
+
+        Update the Sovos tax provider
         """
         pass
 

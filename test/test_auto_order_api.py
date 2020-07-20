@@ -63,11 +63,35 @@ class TestAutoOrderApi(unittest.TestCase):
         """
         pass
 
+    def test_get_auto_orders_batch(self):
+        """
+        Test case for get_auto_orders_batch
+
+        Retrieve auto order batch
+        """
+        pass
+
+    def test_get_auto_orders_by_query(self):
+        """
+        Test case for get_auto_orders_by_query
+
+        Retrieve auto orders
+        """
+        pass
+
     def test_update_auto_order(self):
         """
         Test case for update_auto_order
 
         Update an auto order
+        """
+        pass
+
+    def test_update_auto_orders_batch(self):
+        """
+        Test case for update_auto_orders_batch
+
+        Update multiple auto orders
         """
         pass
 

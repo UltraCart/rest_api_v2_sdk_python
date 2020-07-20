@@ -79,6 +79,14 @@ class TestCustomerApi(unittest.TestCase):
         """
         pass
 
+    def test_get_email_lists(self):
+        """
+        Test case for get_email_lists
+
+        Retrieve all email lists across all storefronts
+        """
+        pass
+
     def test_insert_customer(self):
         """
         Test case for insert_customer
@@ -92,6 +100,14 @@ class TestCustomerApi(unittest.TestCase):
         Test case for update_customer
 
         Update a customer
+        """
+        pass
+
+    def test_update_customer_email_lists(self):
+        """
+        Test case for update_customer_email_lists
+
+        Update email list subscriptions for a customer
         """
         pass
 

@@ -39,6 +39,14 @@ class TestWebhookApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_webhook_by_url(self):
+        """
+        Test case for delete_webhook_by_url
+
+        Delete a webhook by URL
+        """
+        pass
+
     def test_get_webhook_log(self):
         """
         Test case for get_webhook_log

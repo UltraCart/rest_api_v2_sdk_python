@@ -8,8 +8,10 @@ Method | HTTP request | Description
 [**get_auto_order_by_code**](AutoOrderApi.md#get_auto_order_by_code) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
 [**get_auto_order_by_reference_order_id**](AutoOrderApi.md#get_auto_order_by_reference_order_id) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
 [**get_auto_orders**](AutoOrderApi.md#get_auto_orders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**get_auto_orders_batch**](AutoOrderApi.md#get_auto_orders_batch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 [**get_auto_orders_by_query**](AutoOrderApi.md#get_auto_orders_by_query) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
 [**update_auto_order**](AutoOrderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+[**update_auto_orders_batch**](AutoOrderApi.md#update_auto_orders_batch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
 
 # **get_auto_order**
@@ -252,7 +254,7 @@ status = 'status_example' # str | Status (optional)
 limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 since = 'since_example' # str | Fetch auto orders that have been created/modified since this date/time. (optional)
-sort = 'sort_example' # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+sort = 'sort_example' # str | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try: 
@@ -288,8 +290,71 @@ Name | Type | Description  | Notes
  **limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **since** | **str**| Fetch auto orders that have been created/modified since this date/time. | [optional] 
- **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **sort** | **str**| The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrdersResponse**](AutoOrdersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_auto_orders_batch**
+> AutoOrdersResponse get_auto_orders_batch(auto_order_batch, expand=expand)
+
+Retrieve auto order batch
+
+Retrieves a group of auto orders from the account based on an array of auto order oids.  If more than 200 auto order ids are specified, the API call will fail with a bad request error. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
+auto_order_batch = ultracart.AutoOrderQueryBatch() # AutoOrderQueryBatch | Auto order batch
+expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
+
+try: 
+    # Retrieve auto order batch
+    api_response = api_instance.get_auto_orders_batch(auto_order_batch, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AutoOrderApi->get_auto_orders_batch: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_batch** | [**AutoOrderQueryBatch**](AutoOrderQueryBatch.md)| Auto order batch | 
+ **expand** | **str**| The object expansion to perform on the result. | [optional] 
 
 ### Return type
 
@@ -428,6 +493,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_auto_orders_batch**
+> AutoOrdersResponse update_auto_orders_batch(auto_orders_request, expand=expand, placeholders=placeholders, async=async)
+
+Update multiple auto orders
+
+Update multiple auto orders on the UltraCart account. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
+auto_orders_request = ultracart.AutoOrdersRequest() # AutoOrdersRequest | Auto orders to update (synchronous maximum 20 / asynchronous maximum 100)
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+async = true # bool | True if the operation should be run async.  No result returned (optional)
+
+try: 
+    # Update multiple auto orders
+    api_response = api_instance.update_auto_orders_batch(auto_orders_request, expand=expand, placeholders=placeholders, async=async)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AutoOrderApi->update_auto_orders_batch: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_orders_request** | [**AutoOrdersRequest**](AutoOrdersRequest.md)| Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+ **async** | **bool**| True if the operation should be run async.  No result returned | [optional] 
+
+### Return type
+
+[**AutoOrdersResponse**](AutoOrdersResponse.md)
 
 ### Authorization
 
