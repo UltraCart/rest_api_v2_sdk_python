@@ -33,6 +33,7 @@ class ItemPricing(object):
     swagger_types = {
         'allow_arbitrary_cost': 'bool',
         'arbitrary_cost_velocity_code': 'str',
+        'auto_order_cost': 'float',
         'automatic_pricing_tier_name': 'str',
         'automatic_pricing_tier_oid': 'int',
         'cogs': 'float',
@@ -53,6 +54,7 @@ class ItemPricing(object):
     attribute_map = {
         'allow_arbitrary_cost': 'allow_arbitrary_cost',
         'arbitrary_cost_velocity_code': 'arbitrary_cost_velocity_code',
+        'auto_order_cost': 'auto_order_cost',
         'automatic_pricing_tier_name': 'automatic_pricing_tier_name',
         'automatic_pricing_tier_oid': 'automatic_pricing_tier_oid',
         'cogs': 'cogs',
@@ -70,13 +72,14 @@ class ItemPricing(object):
         'tiers': 'tiers'
     }
 
-    def __init__(self, allow_arbitrary_cost=None, arbitrary_cost_velocity_code=None, automatic_pricing_tier_name=None, automatic_pricing_tier_oid=None, cogs=None, cost=None, currency_code=None, manufacturer_suggested_retail_price=None, maximum_arbitrary_cost=None, minimum_advertised_price=None, minimum_arbitrary_cost=None, mix_and_match_group=None, mix_and_match_group_oid=None, sale_cost=None, sale_end=None, sale_start=None, tiers=None):
+    def __init__(self, allow_arbitrary_cost=None, arbitrary_cost_velocity_code=None, auto_order_cost=None, automatic_pricing_tier_name=None, automatic_pricing_tier_oid=None, cogs=None, cost=None, currency_code=None, manufacturer_suggested_retail_price=None, maximum_arbitrary_cost=None, minimum_advertised_price=None, minimum_arbitrary_cost=None, mix_and_match_group=None, mix_and_match_group_oid=None, sale_cost=None, sale_end=None, sale_start=None, tiers=None):
         """
         ItemPricing - a model defined in Swagger
         """
 
         self._allow_arbitrary_cost = None
         self._arbitrary_cost_velocity_code = None
+        self._auto_order_cost = None
         self._automatic_pricing_tier_name = None
         self._automatic_pricing_tier_oid = None
         self._cogs = None
@@ -98,6 +101,8 @@ class ItemPricing(object):
           self.allow_arbitrary_cost = allow_arbitrary_cost
         if arbitrary_cost_velocity_code is not None:
           self.arbitrary_cost_velocity_code = arbitrary_cost_velocity_code
+        if auto_order_cost is not None:
+          self.auto_order_cost = auto_order_cost
         if automatic_pricing_tier_name is not None:
           self.automatic_pricing_tier_name = automatic_pricing_tier_name
         if automatic_pricing_tier_oid is not None:
@@ -176,6 +181,29 @@ class ItemPricing(object):
             raise ValueError("Invalid value for `arbitrary_cost_velocity_code`, length must be less than or equal to `10000`")
 
         self._arbitrary_cost_velocity_code = arbitrary_cost_velocity_code
+
+    @property
+    def auto_order_cost(self):
+        """
+        Gets the auto_order_cost of this ItemPricing.
+        Cost if customer selects to receive item on auto order.  Set to zero to delete.
+
+        :return: The auto_order_cost of this ItemPricing.
+        :rtype: float
+        """
+        return self._auto_order_cost
+
+    @auto_order_cost.setter
+    def auto_order_cost(self, auto_order_cost):
+        """
+        Sets the auto_order_cost of this ItemPricing.
+        Cost if customer selects to receive item on auto order.  Set to zero to delete.
+
+        :param auto_order_cost: The auto_order_cost of this ItemPricing.
+        :type: float
+        """
+
+        self._auto_order_cost = auto_order_cost
 
     @property
     def automatic_pricing_tier_name(self):

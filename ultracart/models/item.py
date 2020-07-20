@@ -53,6 +53,7 @@ class Item(object):
         'instant_payment_notifications': 'ItemInstantPaymentNotifications',
         'internal': 'ItemInternal',
         'kit': 'bool',
+        'kit_component_only': 'bool',
         'kit_definition': 'ItemKitDefinition',
         'last_modified_dts': 'str',
         'merchant_id': 'str',
@@ -64,7 +65,9 @@ class Item(object):
         'payment_processing': 'ItemPaymentProcessing',
         'physical': 'ItemPhysical',
         'pricing': 'ItemPricing',
+        'properties': 'list[ItemProperty]',
         'realtime_pricing': 'ItemRealtimePricing',
+        'recommend_replenishment_days': 'int',
         'related': 'ItemRelated',
         'reporting': 'ItemReporting',
         'restriction': 'ItemRestriction',
@@ -103,6 +106,7 @@ class Item(object):
         'instant_payment_notifications': 'instant_payment_notifications',
         'internal': 'internal',
         'kit': 'kit',
+        'kit_component_only': 'kit_component_only',
         'kit_definition': 'kit_definition',
         'last_modified_dts': 'last_modified_dts',
         'merchant_id': 'merchant_id',
@@ -114,7 +118,9 @@ class Item(object):
         'payment_processing': 'payment_processing',
         'physical': 'physical',
         'pricing': 'pricing',
+        'properties': 'properties',
         'realtime_pricing': 'realtime_pricing',
+        'recommend_replenishment_days': 'recommend_replenishment_days',
         'related': 'related',
         'reporting': 'reporting',
         'restriction': 'restriction',
@@ -130,7 +136,7 @@ class Item(object):
         'wishlist_member': 'wishlist_member'
     }
 
-    def __init__(self, accounting=None, amember=None, auto_order=None, ccbill=None, channel_partner_mappings=None, chargeback=None, checkout=None, content=None, creation_dts=None, description=None, description_translated_text_instance_oid=None, digital_delivery=None, ebay=None, email_notifications=None, enrollment123=None, gift_certificate=None, google_product_search=None, identifiers=None, inactive=None, instant_payment_notifications=None, internal=None, kit=None, kit_definition=None, last_modified_dts=None, merchant_id=None, merchant_item_id=None, merchant_item_oid=None, options=None, parent_category_id=None, parent_category_path=None, payment_processing=None, physical=None, pricing=None, realtime_pricing=None, related=None, reporting=None, restriction=None, revguard=None, reviews=None, salesforce=None, shipping=None, tags=None, tax=None, third_party_email_marketing=None, variant_items=None, variations=None, wishlist_member=None):
+    def __init__(self, accounting=None, amember=None, auto_order=None, ccbill=None, channel_partner_mappings=None, chargeback=None, checkout=None, content=None, creation_dts=None, description=None, description_translated_text_instance_oid=None, digital_delivery=None, ebay=None, email_notifications=None, enrollment123=None, gift_certificate=None, google_product_search=None, identifiers=None, inactive=None, instant_payment_notifications=None, internal=None, kit=None, kit_component_only=None, kit_definition=None, last_modified_dts=None, merchant_id=None, merchant_item_id=None, merchant_item_oid=None, options=None, parent_category_id=None, parent_category_path=None, payment_processing=None, physical=None, pricing=None, properties=None, realtime_pricing=None, recommend_replenishment_days=None, related=None, reporting=None, restriction=None, revguard=None, reviews=None, salesforce=None, shipping=None, tags=None, tax=None, third_party_email_marketing=None, variant_items=None, variations=None, wishlist_member=None):
         """
         Item - a model defined in Swagger
         """
@@ -157,6 +163,7 @@ class Item(object):
         self._instant_payment_notifications = None
         self._internal = None
         self._kit = None
+        self._kit_component_only = None
         self._kit_definition = None
         self._last_modified_dts = None
         self._merchant_id = None
@@ -168,7 +175,9 @@ class Item(object):
         self._payment_processing = None
         self._physical = None
         self._pricing = None
+        self._properties = None
         self._realtime_pricing = None
+        self._recommend_replenishment_days = None
         self._related = None
         self._reporting = None
         self._restriction = None
@@ -228,6 +237,8 @@ class Item(object):
           self.internal = internal
         if kit is not None:
           self.kit = kit
+        if kit_component_only is not None:
+          self.kit_component_only = kit_component_only
         if kit_definition is not None:
           self.kit_definition = kit_definition
         if last_modified_dts is not None:
@@ -250,8 +261,12 @@ class Item(object):
           self.physical = physical
         if pricing is not None:
           self.pricing = pricing
+        if properties is not None:
+          self.properties = properties
         if realtime_pricing is not None:
           self.realtime_pricing = realtime_pricing
+        if recommend_replenishment_days is not None:
+          self.recommend_replenishment_days = recommend_replenishment_days
         if related is not None:
           self.related = related
         if reporting is not None:
@@ -756,6 +771,29 @@ class Item(object):
         self._kit = kit
 
     @property
+    def kit_component_only(self):
+        """
+        Gets the kit_component_only of this Item.
+        True if this item can only be usd as a kit component
+
+        :return: The kit_component_only of this Item.
+        :rtype: bool
+        """
+        return self._kit_component_only
+
+    @kit_component_only.setter
+    def kit_component_only(self, kit_component_only):
+        """
+        Sets the kit_component_only of this Item.
+        True if this item can only be usd as a kit component
+
+        :param kit_component_only: The kit_component_only of this Item.
+        :type: bool
+        """
+
+        self._kit_component_only = kit_component_only
+
+    @property
     def kit_definition(self):
         """
         Gets the kit_definition of this Item.
@@ -1005,6 +1043,29 @@ class Item(object):
         self._pricing = pricing
 
     @property
+    def properties(self):
+        """
+        Gets the properties of this Item.
+        Properties
+
+        :return: The properties of this Item.
+        :rtype: list[ItemProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """
+        Sets the properties of this Item.
+        Properties
+
+        :param properties: The properties of this Item.
+        :type: list[ItemProperty]
+        """
+
+        self._properties = properties
+
+    @property
     def realtime_pricing(self):
         """
         Gets the realtime_pricing of this Item.
@@ -1024,6 +1085,29 @@ class Item(object):
         """
 
         self._realtime_pricing = realtime_pricing
+
+    @property
+    def recommend_replenishment_days(self):
+        """
+        Gets the recommend_replenishment_days of this Item.
+        Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable.
+
+        :return: The recommend_replenishment_days of this Item.
+        :rtype: int
+        """
+        return self._recommend_replenishment_days
+
+    @recommend_replenishment_days.setter
+    def recommend_replenishment_days(self, recommend_replenishment_days):
+        """
+        Sets the recommend_replenishment_days of this Item.
+        Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable.
+
+        :param recommend_replenishment_days: The recommend_replenishment_days of this Item.
+        :type: int
+        """
+
+        self._recommend_replenishment_days = recommend_replenishment_days
 
     @property
     def related(self):

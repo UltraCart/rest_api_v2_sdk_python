@@ -35,6 +35,205 @@ class StorefrontApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def add_to_library(self, add_library_request, **kwargs):
+        """
+        Add to library
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_to_library(add_library_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param AddLibraryItemRequest add_library_request: New library item (required)
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.add_to_library_with_http_info(add_library_request, **kwargs)
+        else:
+            (data) = self.add_to_library_with_http_info(add_library_request, **kwargs)
+            return data
+
+    def add_to_library_with_http_info(self, add_library_request, **kwargs):
+        """
+        Add to library
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_to_library_with_http_info(add_library_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param AddLibraryItemRequest add_library_request: New library item (required)
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['add_library_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_to_library" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'add_library_request' is set
+        if ('add_library_request' not in params) or (params['add_library_request'] is None):
+            raise ValueError("Missing the required parameter `add_library_request` when calling `add_to_library`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'add_library_request' in params:
+            body_params = params['add_library_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/code_library', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='LibraryItemResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def apply_to_store_front(self, library_item_oid, storefront_oid, **kwargs):
+        """
+        Apply library item to storefront.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.apply_to_store_front(library_item_oid, storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :param int storefront_oid: null (required)
+        :return: ApplyLibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.apply_to_store_front_with_http_info(library_item_oid, storefront_oid, **kwargs)
+        else:
+            (data) = self.apply_to_store_front_with_http_info(library_item_oid, storefront_oid, **kwargs)
+            return data
+
+    def apply_to_store_front_with_http_info(self, library_item_oid, storefront_oid, **kwargs):
+        """
+        Apply library item to storefront.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.apply_to_store_front_with_http_info(library_item_oid, storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :param int storefront_oid: null (required)
+        :return: ApplyLibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['library_item_oid', 'storefront_oid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method apply_to_store_front" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'library_item_oid' is set
+        if ('library_item_oid' not in params) or (params['library_item_oid'] is None):
+            raise ValueError("Missing the required parameter `library_item_oid` when calling `apply_to_store_front`")
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `apply_to_store_front`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'library_item_oid' in params:
+            path_params['library_item_oid'] = params['library_item_oid']
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ApplyLibraryItemResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def archive_email_list(self, storefront_oid, email_list_uuid, **kwargs):
         """
         Archive email list
@@ -241,6 +440,116 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def back_populate_email_flow(self, storefront_oid, email_flow_uuid, back_populate_request, **kwargs):
+        """
+        Back populate email flow
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.back_populate_email_flow(storefront_oid, email_flow_uuid, back_populate_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str email_flow_uuid: null (required)
+        :param EmailFlowBackPopulateRequest back_populate_request: The request to back populate (required)
+        :return: EmailFlowBackPopulateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.back_populate_email_flow_with_http_info(storefront_oid, email_flow_uuid, back_populate_request, **kwargs)
+        else:
+            (data) = self.back_populate_email_flow_with_http_info(storefront_oid, email_flow_uuid, back_populate_request, **kwargs)
+            return data
+
+    def back_populate_email_flow_with_http_info(self, storefront_oid, email_flow_uuid, back_populate_request, **kwargs):
+        """
+        Back populate email flow
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.back_populate_email_flow_with_http_info(storefront_oid, email_flow_uuid, back_populate_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str email_flow_uuid: null (required)
+        :param EmailFlowBackPopulateRequest back_populate_request: The request to back populate (required)
+        :return: EmailFlowBackPopulateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_flow_uuid', 'back_populate_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method back_populate_email_flow" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `back_populate_email_flow`")
+        # verify the required parameter 'email_flow_uuid' is set
+        if ('email_flow_uuid' not in params) or (params['email_flow_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_flow_uuid` when calling `back_populate_email_flow`")
+        # verify the required parameter 'back_populate_request' is set
+        if ('back_populate_request' not in params) or (params['back_populate_request'] is None):
+            raise ValueError("Missing the required parameter `back_populate_request` when calling `back_populate_email_flow`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'email_flow_uuid' in params:
+            path_params['email_flow_uuid'] = params['email_flow_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'back_populate_request' in params:
+            body_params = params['back_populate_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/flows/{email_flow_uuid}/backfill', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailFlowBackPopulateResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def check_download_email_segment(self, storefront_oid, email_segment_uuid, email_segment_rebuild_uuid, **kwargs):
         """
         Check download of email segment
@@ -362,6 +671,7 @@ class StorefrontApi(object):
         :param async bool
         :param str storefront_oid: null (required)
         :param str email_campaign_uuid: null (required)
+        :param str target_storefront_oid: null
         :return: EmailCampaignResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -384,12 +694,13 @@ class StorefrontApi(object):
         :param async bool
         :param str storefront_oid: null (required)
         :param str email_campaign_uuid: null (required)
+        :param str target_storefront_oid: null
         :return: EmailCampaignResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['storefront_oid', 'email_campaign_uuid']
+        all_params = ['storefront_oid', 'email_campaign_uuid', 'target_storefront_oid']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -421,6 +732,8 @@ class StorefrontApi(object):
             path_params['email_campaign_uuid'] = params['email_campaign_uuid']
 
         query_params = []
+        if 'target_storefront_oid' in params:
+            query_params.append(('target_storefront_oid', params['target_storefront_oid']))
 
         header_params = {}
 
@@ -465,6 +778,7 @@ class StorefrontApi(object):
         :param async bool
         :param str storefront_oid: null (required)
         :param str email_flow_uuid: null (required)
+        :param str target_storefront_oid: null
         :return: EmailFlowResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -487,12 +801,13 @@ class StorefrontApi(object):
         :param async bool
         :param str storefront_oid: null (required)
         :param str email_flow_uuid: null (required)
+        :param str target_storefront_oid: null
         :return: EmailFlowResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['storefront_oid', 'email_flow_uuid']
+        all_params = ['storefront_oid', 'email_flow_uuid', 'target_storefront_oid']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -524,6 +839,8 @@ class StorefrontApi(object):
             path_params['email_flow_uuid'] = params['email_flow_uuid']
 
         query_params = []
+        if 'target_storefront_oid' in params:
+            query_params.append(('target_storefront_oid', params['target_storefront_oid']))
 
         header_params = {}
 
@@ -550,6 +867,106 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='EmailFlowResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def clone_library_item(self, library_item_oid, **kwargs):
+        """
+        Clone public library item.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.clone_library_item(library_item_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :param int storefront_oid: null
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.clone_library_item_with_http_info(library_item_oid, **kwargs)
+        else:
+            (data) = self.clone_library_item_with_http_info(library_item_oid, **kwargs)
+            return data
+
+    def clone_library_item_with_http_info(self, library_item_oid, **kwargs):
+        """
+        Clone public library item.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.clone_library_item_with_http_info(library_item_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :param int storefront_oid: null
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['library_item_oid', 'storefront_oid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method clone_library_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'library_item_oid' is set
+        if ('library_item_oid' not in params) or (params['library_item_oid'] is None):
+            raise ValueError("Missing the required parameter `library_item_oid` when calling `clone_library_item`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'library_item_oid' in params:
+            path_params['library_item_oid'] = params['library_item_oid']
+
+        query_params = []
+        if 'storefront_oid' in params:
+            query_params.append(('storefront_oid', params['storefront_oid']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/code_library/{library_item_oid}/clone', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='LibraryItemResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -646,6 +1063,109 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='EmailSendingDomainResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def delete_email_commseq_stat(self, storefront_oid, commseq_uuid, **kwargs):
+        """
+        Delete communication sequence stats
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_email_commseq_stat(storefront_oid, commseq_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.delete_email_commseq_stat_with_http_info(storefront_oid, commseq_uuid, **kwargs)
+        else:
+            (data) = self.delete_email_commseq_stat_with_http_info(storefront_oid, commseq_uuid, **kwargs)
+            return data
+
+    def delete_email_commseq_stat_with_http_info(self, storefront_oid, commseq_uuid, **kwargs):
+        """
+        Delete communication sequence stats
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_email_commseq_stat_with_http_info(storefront_oid, commseq_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_uuid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_email_commseq_stat" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `delete_email_commseq_stat`")
+        # verify the required parameter 'commseq_uuid' is set
+        if ('commseq_uuid' not in params) or (params['commseq_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_uuid` when calling `delete_email_commseq_stat`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_uuid' in params:
+            path_params['commseq_uuid'] = params['commseq_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -866,6 +1386,109 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def delete_email_postcard(self, storefront_oid, commseq_postcard_uuid, **kwargs):
+        """
+        Delete email postcard
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_email_postcard(storefront_oid, commseq_postcard_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_postcard_uuid: null (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.delete_email_postcard_with_http_info(storefront_oid, commseq_postcard_uuid, **kwargs)
+        else:
+            (data) = self.delete_email_postcard_with_http_info(storefront_oid, commseq_postcard_uuid, **kwargs)
+            return data
+
+    def delete_email_postcard_with_http_info(self, storefront_oid, commseq_postcard_uuid, **kwargs):
+        """
+        Delete email postcard
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_email_postcard_with_http_info(storefront_oid, commseq_postcard_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_postcard_uuid: null (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_postcard_uuid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_email_postcard" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `delete_email_postcard`")
+        # verify the required parameter 'commseq_postcard_uuid' is set
+        if ('commseq_postcard_uuid' not in params) or (params['commseq_postcard_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_postcard_uuid` when calling `delete_email_postcard`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_postcard_uuid' in params:
+            path_params['commseq_postcard_uuid'] = params['commseq_postcard_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='BaseResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def delete_email_sending_domain(self, domain, **kwargs):
         """
         delete email campaign
@@ -1058,6 +1681,198 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def delete_library_item(self, library_item_oid, **kwargs):
+        """
+        Delete library item
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_library_item(library_item_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.delete_library_item_with_http_info(library_item_oid, **kwargs)
+        else:
+            (data) = self.delete_library_item_with_http_info(library_item_oid, **kwargs)
+            return data
+
+    def delete_library_item_with_http_info(self, library_item_oid, **kwargs):
+        """
+        Delete library item
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_library_item_with_http_info(library_item_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['library_item_oid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_library_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'library_item_oid' is set
+        if ('library_item_oid' not in params) or (params['library_item_oid'] is None):
+            raise ValueError("Missing the required parameter `library_item_oid` when calling `delete_library_item`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'library_item_oid' in params:
+            path_params['library_item_oid'] = params['library_item_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/code_library/{library_item_oid}', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def duplicate_library_item(self, library_item_oid, **kwargs):
+        """
+        Duplicate library item.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.duplicate_library_item(library_item_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.duplicate_library_item_with_http_info(library_item_oid, **kwargs)
+        else:
+            (data) = self.duplicate_library_item_with_http_info(library_item_oid, **kwargs)
+            return data
+
+    def duplicate_library_item_with_http_info(self, library_item_oid, **kwargs):
+        """
+        Duplicate library item.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.duplicate_library_item_with_http_info(library_item_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['library_item_oid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method duplicate_library_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'library_item_oid' is set
+        if ('library_item_oid' not in params) or (params['library_item_oid'] is None):
+            raise ValueError("Missing the required parameter `library_item_oid` when calling `duplicate_library_item`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'library_item_oid' in params:
+            path_params['library_item_oid'] = params['library_item_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/code_library/{library_item_oid}/duplicate', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='LibraryItemResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -1259,6 +2074,104 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='CountriesResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_editor_token(self, id, **kwargs):
+        """
+        Gets editor token
+        Fetches a temporary authentication token for the editor 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_editor_token(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int id: null (required)
+        :return: EmailEditorTokenResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_editor_token_with_http_info(id, **kwargs)
+        else:
+            (data) = self.get_editor_token_with_http_info(id, **kwargs)
+            return data
+
+    def get_editor_token_with_http_info(self, id, **kwargs):
+        """
+        Gets editor token
+        Fetches a temporary authentication token for the editor 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_editor_token_with_http_info(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int id: null (required)
+        :return: EmailEditorTokenResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_editor_token" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_editor_token`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{id}/editor_token', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailEditorTokenResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -1877,6 +2790,116 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_email_commseq_postcard_stats(self, storefront_oid, commseq_uuid, stats_request, **kwargs):
+        """
+        Get email communication sequence postcard stats
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_commseq_postcard_stats(storefront_oid, commseq_uuid, stats_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param EmailStatPostcardSummaryRequest stats_request: StatsRequest (required)
+        :return: EmailStatPostcardSummaryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_commseq_postcard_stats_with_http_info(storefront_oid, commseq_uuid, stats_request, **kwargs)
+        else:
+            (data) = self.get_email_commseq_postcard_stats_with_http_info(storefront_oid, commseq_uuid, stats_request, **kwargs)
+            return data
+
+    def get_email_commseq_postcard_stats_with_http_info(self, storefront_oid, commseq_uuid, stats_request, **kwargs):
+        """
+        Get email communication sequence postcard stats
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_commseq_postcard_stats_with_http_info(storefront_oid, commseq_uuid, stats_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param EmailStatPostcardSummaryRequest stats_request: StatsRequest (required)
+        :return: EmailStatPostcardSummaryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_uuid', 'stats_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_commseq_postcard_stats" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_commseq_postcard_stats`")
+        # verify the required parameter 'commseq_uuid' is set
+        if ('commseq_uuid' not in params) or (params['commseq_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_uuid` when calling `get_email_commseq_postcard_stats`")
+        # verify the required parameter 'stats_request' is set
+        if ('stats_request' not in params) or (params['stats_request'] is None):
+            raise ValueError("Missing the required parameter `stats_request` when calling `get_email_commseq_postcard_stats`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_uuid' in params:
+            path_params['commseq_uuid'] = params['commseq_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'stats_request' in params:
+            body_params = params['stats_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailStatPostcardSummaryResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_email_commseq_stat_overall(self, storefront_oid, commseq_uuid, **kwargs):
         """
         Get communication sequence stats overall
@@ -1973,6 +2996,116 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='EmailCommseqStatResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_commseq_step_stats(self, storefront_oid, commseq_uuid, stats_request, **kwargs):
+        """
+        Get email communication sequence step stats
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_commseq_step_stats(storefront_oid, commseq_uuid, stats_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param EmailStepStatRequest stats_request: StatsRequest (required)
+        :return: EmailStepStatResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_commseq_step_stats_with_http_info(storefront_oid, commseq_uuid, stats_request, **kwargs)
+        else:
+            (data) = self.get_email_commseq_step_stats_with_http_info(storefront_oid, commseq_uuid, stats_request, **kwargs)
+            return data
+
+    def get_email_commseq_step_stats_with_http_info(self, storefront_oid, commseq_uuid, stats_request, **kwargs):
+        """
+        Get email communication sequence step stats
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_commseq_step_stats_with_http_info(storefront_oid, commseq_uuid, stats_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param EmailStepStatRequest stats_request: StatsRequest (required)
+        :return: EmailStepStatResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_uuid', 'stats_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_commseq_step_stats" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_commseq_step_stats`")
+        # verify the required parameter 'commseq_uuid' is set
+        if ('commseq_uuid' not in params) or (params['commseq_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_uuid` when calling `get_email_commseq_step_stats`")
+        # verify the required parameter 'stats_request' is set
+        if ('stats_request' not in params) or (params['stats_request'] is None):
+            raise ValueError("Missing the required parameter `stats_request` when calling `get_email_commseq_step_stats`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_uuid' in params:
+            path_params['commseq_uuid'] = params['commseq_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'stats_request' in params:
+            body_params = params['stats_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailStepStatResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -2179,6 +3312,217 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='EmailCommseqsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_customer_editor_url(self, storefront_oid, email_customer_uuid, **kwargs):
+        """
+        Get customers editor URL
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_customer_editor_url(storefront_oid, email_customer_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str email_customer_uuid: null (required)
+        :return: EmailCustomerEditorUrlResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_customer_editor_url_with_http_info(storefront_oid, email_customer_uuid, **kwargs)
+        else:
+            (data) = self.get_email_customer_editor_url_with_http_info(storefront_oid, email_customer_uuid, **kwargs)
+            return data
+
+    def get_email_customer_editor_url_with_http_info(self, storefront_oid, email_customer_uuid, **kwargs):
+        """
+        Get customers editor URL
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_customer_editor_url_with_http_info(storefront_oid, email_customer_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str email_customer_uuid: null (required)
+        :return: EmailCustomerEditorUrlResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_customer_uuid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_customer_editor_url" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_customer_editor_url`")
+        # verify the required parameter 'email_customer_uuid' is set
+        if ('email_customer_uuid' not in params) or (params['email_customer_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_customer_uuid` when calling `get_email_customer_editor_url`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'email_customer_uuid' in params:
+            path_params['email_customer_uuid'] = params['email_customer_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCustomerEditorUrlResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_customers(self, storefront_oid, **kwargs):
+        """
+        Get email customers
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_customers(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param int page_number: null
+        :param int page_size: null
+        :param str search_email_prefix: null
+        :return: EmailCustomersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_customers_with_http_info(storefront_oid, **kwargs)
+        else:
+            (data) = self.get_email_customers_with_http_info(storefront_oid, **kwargs)
+            return data
+
+    def get_email_customers_with_http_info(self, storefront_oid, **kwargs):
+        """
+        Get email customers
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_customers_with_http_info(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param int page_number: null
+        :param int page_size: null
+        :param str search_email_prefix: null
+        :return: EmailCustomersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'page_number', 'page_size', 'search_email_prefix']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_customers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_customers`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+        if 'page_number' in params:
+            query_params.append(('pageNumber', params['page_number']))
+        if 'page_size' in params:
+            query_params.append(('pageSize', params['page_size']))
+        if 'search_email_prefix' in params:
+            query_params.append(('searchEmailPrefix', params['search_email_prefix']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/customers', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCustomersResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -2482,6 +3826,358 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='EmailCommseqEmailResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_email_clicks(self, storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, **kwargs):
+        """
+        Get email email clicks
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param str commseq_step_uuid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param int days: null
+        :return: EmailClicksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_email_clicks_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, **kwargs)
+        else:
+            (data) = self.get_email_email_clicks_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, **kwargs)
+            return data
+
+    def get_email_email_clicks_with_http_info(self, storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, **kwargs):
+        """
+        Get email email clicks
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_email_clicks_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param str commseq_step_uuid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param int days: null
+        :return: EmailClicksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_uuid', 'commseq_step_uuid', 'commseq_email_uuid', 'days']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_email_clicks" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_email_clicks`")
+        # verify the required parameter 'commseq_uuid' is set
+        if ('commseq_uuid' not in params) or (params['commseq_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_uuid` when calling `get_email_email_clicks`")
+        # verify the required parameter 'commseq_step_uuid' is set
+        if ('commseq_step_uuid' not in params) or (params['commseq_step_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_step_uuid` when calling `get_email_email_clicks`")
+        # verify the required parameter 'commseq_email_uuid' is set
+        if ('commseq_email_uuid' not in params) or (params['commseq_email_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_email_uuid` when calling `get_email_email_clicks`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_uuid' in params:
+            path_params['commseq_uuid'] = params['commseq_uuid']
+        if 'commseq_step_uuid' in params:
+            path_params['commseq_step_uuid'] = params['commseq_step_uuid']
+        if 'commseq_email_uuid' in params:
+            path_params['commseq_email_uuid'] = params['commseq_email_uuid']
+
+        query_params = []
+        if 'days' in params:
+            query_params.append(('days', params['days']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailClicksResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_email_customer_editor_url(self, storefront_oid, commseq_email_uuid, order_id, **kwargs):
+        """
+        Get email order customer editor url
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_email_customer_editor_url(storefront_oid, commseq_email_uuid, order_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param str order_id: null (required)
+        :return: EmailCustomerEditorUrlResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_email_customer_editor_url_with_http_info(storefront_oid, commseq_email_uuid, order_id, **kwargs)
+        else:
+            (data) = self.get_email_email_customer_editor_url_with_http_info(storefront_oid, commseq_email_uuid, order_id, **kwargs)
+            return data
+
+    def get_email_email_customer_editor_url_with_http_info(self, storefront_oid, commseq_email_uuid, order_id, **kwargs):
+        """
+        Get email order customer editor url
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_email_customer_editor_url_with_http_info(storefront_oid, commseq_email_uuid, order_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param str order_id: null (required)
+        :return: EmailCustomerEditorUrlResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_email_uuid', 'order_id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_email_customer_editor_url" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_email_customer_editor_url`")
+        # verify the required parameter 'commseq_email_uuid' is set
+        if ('commseq_email_uuid' not in params) or (params['commseq_email_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_email_uuid` when calling `get_email_email_customer_editor_url`")
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params) or (params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `get_email_email_customer_editor_url`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_email_uuid' in params:
+            path_params['commseq_email_uuid'] = params['commseq_email_uuid']
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/orders/{order_id}/editor_url', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCustomerEditorUrlResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_email_orders(self, storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, **kwargs):
+        """
+        Get email email orders
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param str commseq_step_uuid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param int days: null
+        :return: EmailOrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_email_orders_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, **kwargs)
+        else:
+            (data) = self.get_email_email_orders_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, **kwargs)
+            return data
+
+    def get_email_email_orders_with_http_info(self, storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, **kwargs):
+        """
+        Get email email orders
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_email_orders_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param str commseq_step_uuid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param int days: null
+        :return: EmailOrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_uuid', 'commseq_step_uuid', 'commseq_email_uuid', 'days']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_email_orders" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_email_orders`")
+        # verify the required parameter 'commseq_uuid' is set
+        if ('commseq_uuid' not in params) or (params['commseq_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_uuid` when calling `get_email_email_orders`")
+        # verify the required parameter 'commseq_step_uuid' is set
+        if ('commseq_step_uuid' not in params) or (params['commseq_step_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_step_uuid` when calling `get_email_email_orders`")
+        # verify the required parameter 'commseq_email_uuid' is set
+        if ('commseq_email_uuid' not in params) or (params['commseq_email_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_email_uuid` when calling `get_email_email_orders`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_uuid' in params:
+            path_params['commseq_uuid'] = params['commseq_uuid']
+        if 'commseq_step_uuid' in params:
+            path_params['commseq_step_uuid'] = params['commseq_step_uuid']
+        if 'commseq_email_uuid' in params:
+            path_params['commseq_email_uuid'] = params['commseq_email_uuid']
+
+        query_params = []
+        if 'days' in params:
+            query_params.append(('days', params['days']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/orders', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailOrdersResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -2887,6 +4583,94 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_email_global_settings(self, **kwargs):
+        """
+        Get email globalsettings
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_global_settings(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: EmailGlobalSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_global_settings_with_http_info(**kwargs)
+        else:
+            (data) = self.get_email_global_settings_with_http_info(**kwargs)
+            return data
+
+    def get_email_global_settings_with_http_info(self, **kwargs):
+        """
+        Get email globalsettings
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_global_settings_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: EmailGlobalSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_global_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/email/global_settings', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailGlobalSettingsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_email_list(self, storefront_oid, email_list_uuid, **kwargs):
         """
         Get email list
@@ -2992,7 +4776,7 @@ class StorefrontApi(object):
 
     def get_email_list_customer_editor_url(self, storefront_oid, email_list_uuid, email_customer_uuid, **kwargs):
         """
-        Get email list customers
+        Get email list customer editor url
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_email_list_customer_editor_url(storefront_oid, email_list_uuid, email_customer_uuid, async=True)
@@ -3015,7 +4799,7 @@ class StorefrontApi(object):
 
     def get_email_list_customer_editor_url_with_http_info(self, storefront_oid, email_list_uuid, email_customer_uuid, **kwargs):
         """
-        Get email list customers
+        Get email list customer editor url
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_email_list_customer_editor_url_with_http_info(storefront_oid, email_list_uuid, email_customer_uuid, async=True)
@@ -3300,6 +5084,500 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='EmailListsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_performance(self, storefront_oid, **kwargs):
+        """
+        Get email performance
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_performance(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :return: EmailPerformanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_performance_with_http_info(storefront_oid, **kwargs)
+        else:
+            (data) = self.get_email_performance_with_http_info(storefront_oid, **kwargs)
+            return data
+
+    def get_email_performance_with_http_info(self, storefront_oid, **kwargs):
+        """
+        Get email performance
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_performance_with_http_info(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :return: EmailPerformanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_performance" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_performance`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/performance', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailPerformanceResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_plan(self, storefront_oid, **kwargs):
+        """
+        Get email plan
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_plan(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :return: EmailPlanResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_plan_with_http_info(storefront_oid, **kwargs)
+        else:
+            (data) = self.get_email_plan_with_http_info(storefront_oid, **kwargs)
+            return data
+
+    def get_email_plan_with_http_info(self, storefront_oid, **kwargs):
+        """
+        Get email plan
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_plan_with_http_info(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :return: EmailPlanResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_plan" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_plan`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/plan', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailPlanResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_postcard(self, storefront_oid, commseq_postcard_uuid, **kwargs):
+        """
+        Get email postcard
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_postcard(storefront_oid, commseq_postcard_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_postcard_uuid: null (required)
+        :return: EmailCommseqPostcardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_postcard_with_http_info(storefront_oid, commseq_postcard_uuid, **kwargs)
+        else:
+            (data) = self.get_email_postcard_with_http_info(storefront_oid, commseq_postcard_uuid, **kwargs)
+            return data
+
+    def get_email_postcard_with_http_info(self, storefront_oid, commseq_postcard_uuid, **kwargs):
+        """
+        Get email postcard
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_postcard_with_http_info(storefront_oid, commseq_postcard_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_postcard_uuid: null (required)
+        :return: EmailCommseqPostcardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_postcard_uuid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_postcard" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_postcard`")
+        # verify the required parameter 'commseq_postcard_uuid' is set
+        if ('commseq_postcard_uuid' not in params) or (params['commseq_postcard_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_postcard_uuid` when calling `get_email_postcard`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_postcard_uuid' in params:
+            path_params['commseq_postcard_uuid'] = params['commseq_postcard_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCommseqPostcardResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_postcards(self, storefront_oid, **kwargs):
+        """
+        Get email postcards
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_postcards(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :return: EmailCommseqPostcardsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_postcards_with_http_info(storefront_oid, **kwargs)
+        else:
+            (data) = self.get_email_postcards_with_http_info(storefront_oid, **kwargs)
+            return data
+
+    def get_email_postcards_with_http_info(self, storefront_oid, **kwargs):
+        """
+        Get email postcards
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_postcards_with_http_info(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :return: EmailCommseqPostcardsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_postcards" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_postcards`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/postcards', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCommseqPostcardsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_email_postcards_multiple(self, storefront_oid, email_commseq_postcards_request, **kwargs):
+        """
+        Get email postcards multiple
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_postcards_multiple(storefront_oid, email_commseq_postcards_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailCommseqPostcardsRequest email_commseq_postcards_request: Request of postcard uuids (required)
+        :return: EmailCommseqPostcardsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_postcards_multiple_with_http_info(storefront_oid, email_commseq_postcards_request, **kwargs)
+        else:
+            (data) = self.get_email_postcards_multiple_with_http_info(storefront_oid, email_commseq_postcards_request, **kwargs)
+            return data
+
+    def get_email_postcards_multiple_with_http_info(self, storefront_oid, email_commseq_postcards_request, **kwargs):
+        """
+        Get email postcards multiple
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_postcards_multiple_with_http_info(storefront_oid, email_commseq_postcards_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailCommseqPostcardsRequest email_commseq_postcards_request: Request of postcard uuids (required)
+        :return: EmailCommseqPostcardsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_commseq_postcards_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_postcards_multiple" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_postcards_multiple`")
+        # verify the required parameter 'email_commseq_postcards_request' is set
+        if ('email_commseq_postcards_request' not in params) or (params['email_commseq_postcards_request'] is None):
+            raise ValueError("Missing the required parameter `email_commseq_postcards_request` when calling `get_email_postcards_multiple`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_commseq_postcards_request' in params:
+            body_params = params['email_commseq_postcards_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/postcards/multiple', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCommseqPostcardsResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -4007,6 +6285,102 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_email_settings(self, storefront_oid, **kwargs):
+        """
+        Get email settings
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_settings(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :return: EmailSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_email_settings_with_http_info(storefront_oid, **kwargs)
+        else:
+            (data) = self.get_email_settings_with_http_info(storefront_oid, **kwargs)
+            return data
+
+    def get_email_settings_with_http_info(self, storefront_oid, **kwargs):
+        """
+        Get email settings
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_email_settings_with_http_info(storefront_oid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :return: EmailSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_settings`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/settings', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailSettingsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_email_template(self, storefront_oid, email_template_oid, **kwargs):
         """
         Get email template
@@ -4607,6 +6981,422 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='EmailHistogramPropertyValuesResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_library_items_by_query(self, item_query, **kwargs):
+        """
+        Retrieve library items
+        Retrieves a lbirary items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_library_items_by_query(item_query, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_library_items_by_query_with_http_info(item_query, **kwargs)
+        else:
+            (data) = self.get_library_items_by_query_with_http_info(item_query, **kwargs)
+            return data
+
+    def get_library_items_by_query_with_http_info(self, item_query, **kwargs):
+        """
+        Retrieve library items
+        Retrieves a lbirary items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_library_items_by_query_with_http_info(item_query, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['item_query', 'limit', 'offset', 'sort']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_library_items_by_query" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'item_query' is set
+        if ('item_query' not in params) or (params['item_query'] is None):
+            raise ValueError("Missing the required parameter `item_query` when calling `get_library_items_by_query`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'limit' in params:
+            query_params.append(('_limit', params['limit']))
+        if 'offset' in params:
+            query_params.append(('_offset', params['offset']))
+        if 'sort' in params:
+            query_params.append(('_sort', params['sort']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'item_query' in params:
+            body_params = params['item_query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/code_library/query', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='LibraryItemsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_transaction_email(self, id, email_id, **kwargs):
+        """
+        Gets a transaction email object
+        Fetch a transactional email 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_transaction_email(id, email_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int id: null (required)
+        :param str email_id: null (required)
+        :return: TransactionEmailResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_transaction_email_with_http_info(id, email_id, **kwargs)
+        else:
+            (data) = self.get_transaction_email_with_http_info(id, email_id, **kwargs)
+            return data
+
+    def get_transaction_email_with_http_info(self, id, email_id, **kwargs):
+        """
+        Gets a transaction email object
+        Fetch a transactional email 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_transaction_email_with_http_info(id, email_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int id: null (required)
+        :param str email_id: null (required)
+        :return: TransactionEmailResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'email_id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_transaction_email" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_transaction_email`")
+        # verify the required parameter 'email_id' is set
+        if ('email_id' not in params) or (params['email_id'] is None):
+            raise ValueError("Missing the required parameter `email_id` when calling `get_transaction_email`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+        if 'email_id' in params:
+            path_params['email_id'] = params['email_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{id}/transaction_email/list/{email_id}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TransactionEmailResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_transaction_email_list(self, id, **kwargs):
+        """
+        Gets a list of transaction email names
+        Obtain a list of all transactional emails and return back just their names 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_transaction_email_list(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int id: null (required)
+        :return: TransactionEmailListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_transaction_email_list_with_http_info(id, **kwargs)
+        else:
+            (data) = self.get_transaction_email_list_with_http_info(id, **kwargs)
+            return data
+
+    def get_transaction_email_list_with_http_info(self, id, **kwargs):
+        """
+        Gets a list of transaction email names
+        Obtain a list of all transactional emails and return back just their names 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_transaction_email_list_with_http_info(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int id: null (required)
+        :return: TransactionEmailListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_transaction_email_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_transaction_email_list`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{id}/transaction_email/list', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TransactionEmailListResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def global_unsubscribe(self, storefront_oid, unsubscribe, **kwargs):
+        """
+        Globally unsubscribe a customer
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.global_unsubscribe(storefront_oid, unsubscribe, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailGlobalUnsubscribeRequest unsubscribe: Unsubscribe (required)
+        :return: EmailGlobalUnsubscribeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.global_unsubscribe_with_http_info(storefront_oid, unsubscribe, **kwargs)
+        else:
+            (data) = self.global_unsubscribe_with_http_info(storefront_oid, unsubscribe, **kwargs)
+            return data
+
+    def global_unsubscribe_with_http_info(self, storefront_oid, unsubscribe, **kwargs):
+        """
+        Globally unsubscribe a customer
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.global_unsubscribe_with_http_info(storefront_oid, unsubscribe, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailGlobalUnsubscribeRequest unsubscribe: Unsubscribe (required)
+        :return: EmailGlobalUnsubscribeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'unsubscribe']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method global_unsubscribe" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `global_unsubscribe`")
+        # verify the required parameter 'unsubscribe' is set
+        if ('unsubscribe' not in params) or (params['unsubscribe'] is None):
+            raise ValueError("Missing the required parameter `unsubscribe` when calling `global_unsubscribe`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'unsubscribe' in params:
+            body_params = params['unsubscribe']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/globalUnsubscribe', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailGlobalUnsubscribeResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -5232,6 +8022,109 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def insert_email_postcard(self, storefront_oid, email_commseq_postcard, **kwargs):
+        """
+        Insert email postcard
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.insert_email_postcard(storefront_oid, email_commseq_postcard, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailCommseqPostcard email_commseq_postcard: Email postcard (required)
+        :return: EmailCommseqPostcardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.insert_email_postcard_with_http_info(storefront_oid, email_commseq_postcard, **kwargs)
+        else:
+            (data) = self.insert_email_postcard_with_http_info(storefront_oid, email_commseq_postcard, **kwargs)
+            return data
+
+    def insert_email_postcard_with_http_info(self, storefront_oid, email_commseq_postcard, **kwargs):
+        """
+        Insert email postcard
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.insert_email_postcard_with_http_info(storefront_oid, email_commseq_postcard, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailCommseqPostcard email_commseq_postcard: Email postcard (required)
+        :return: EmailCommseqPostcardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_commseq_postcard']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_email_postcard" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `insert_email_postcard`")
+        # verify the required parameter 'email_commseq_postcard' is set
+        if ('email_commseq_postcard' not in params) or (params['email_commseq_postcard'] is None):
+            raise ValueError("Missing the required parameter `email_commseq_postcard` when calling `insert_email_postcard`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_commseq_postcard' in params:
+            body_params = params['email_commseq_postcard']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/postcards', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCommseqPostcardResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def insert_email_segment(self, storefront_oid, email_segment, **kwargs):
         """
         Insert email segment
@@ -5438,6 +8331,226 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def release_email_commseq_step_waiting(self, storefront_oid, commseq_uuid, commseq_step_uuid, **kwargs):
+        """
+        Release email communication sequence customers waiting at the specified step
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.release_email_commseq_step_waiting(storefront_oid, commseq_uuid, commseq_step_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param str commseq_step_uuid: null (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.release_email_commseq_step_waiting_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, **kwargs)
+        else:
+            (data) = self.release_email_commseq_step_waiting_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, **kwargs)
+            return data
+
+    def release_email_commseq_step_waiting_with_http_info(self, storefront_oid, commseq_uuid, commseq_step_uuid, **kwargs):
+        """
+        Release email communication sequence customers waiting at the specified step
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.release_email_commseq_step_waiting_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_uuid: null (required)
+        :param str commseq_step_uuid: null (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_uuid', 'commseq_step_uuid']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method release_email_commseq_step_waiting" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `release_email_commseq_step_waiting`")
+        # verify the required parameter 'commseq_uuid' is set
+        if ('commseq_uuid' not in params) or (params['commseq_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_uuid` when calling `release_email_commseq_step_waiting`")
+        # verify the required parameter 'commseq_step_uuid' is set
+        if ('commseq_step_uuid' not in params) or (params['commseq_step_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_step_uuid` when calling `release_email_commseq_step_waiting`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_uuid' in params:
+            path_params['commseq_uuid'] = params['commseq_uuid']
+        if 'commseq_step_uuid' in params:
+            path_params['commseq_step_uuid'] = params['commseq_step_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def review(self, storefront_oid, commseq_email_uuid, email_commseq_email_review_request, **kwargs):
+        """
+        Request a review of an email
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.review(storefront_oid, commseq_email_uuid, email_commseq_email_review_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param EmailCommseqEmailSendTestRequest email_commseq_email_review_request: Email commseq email review request (required)
+        :return: EmailCommseqEmailSendTestResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.review_with_http_info(storefront_oid, commseq_email_uuid, email_commseq_email_review_request, **kwargs)
+        else:
+            (data) = self.review_with_http_info(storefront_oid, commseq_email_uuid, email_commseq_email_review_request, **kwargs)
+            return data
+
+    def review_with_http_info(self, storefront_oid, commseq_email_uuid, email_commseq_email_review_request, **kwargs):
+        """
+        Request a review of an email
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.review_with_http_info(storefront_oid, commseq_email_uuid, email_commseq_email_review_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param EmailCommseqEmailSendTestRequest email_commseq_email_review_request: Email commseq email review request (required)
+        :return: EmailCommseqEmailSendTestResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_email_uuid', 'email_commseq_email_review_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method review" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `review`")
+        # verify the required parameter 'commseq_email_uuid' is set
+        if ('commseq_email_uuid' not in params) or (params['commseq_email_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_email_uuid` when calling `review`")
+        # verify the required parameter 'email_commseq_email_review_request' is set
+        if ('email_commseq_email_review_request' not in params) or (params['email_commseq_email_review_request'] is None):
+            raise ValueError("Missing the required parameter `email_commseq_email_review_request` when calling `review`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_email_uuid' in params:
+            path_params['commseq_email_uuid'] = params['commseq_email_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_commseq_email_review_request' in params:
+            body_params = params['email_commseq_email_review_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCommseqEmailSendTestResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def search(self, **kwargs):
         """
         Searches for all matching values
@@ -5449,7 +8562,9 @@ class StorefrontApi(object):
         :param async bool
         :param str category: null
         :param str matches: null
+        :param str storefront_oid: null
         :param int max_hits: null
+        :param str subcategory: null
         :return: LookupResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5472,13 +8587,15 @@ class StorefrontApi(object):
         :param async bool
         :param str category: null
         :param str matches: null
+        :param str storefront_oid: null
         :param int max_hits: null
+        :param str subcategory: null
         :return: LookupResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['category', 'matches', 'max_hits']
+        all_params = ['category', 'matches', 'storefront_oid', 'max_hits', 'subcategory']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5504,8 +8621,12 @@ class StorefrontApi(object):
             query_params.append(('category', params['category']))
         if 'matches' in params:
             query_params.append(('matches', params['matches']))
+        if 'storefront_oid' in params:
+            query_params.append(('storefront_oid', params['storefront_oid']))
         if 'max_hits' in params:
             query_params.append(('max_hits', params['max_hits']))
+        if 'subcategory' in params:
+            query_params.append(('subcategory', params['subcategory']))
 
         header_params = {}
 
@@ -5746,6 +8867,226 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='EmailSegmentCustomersResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def send_email_test(self, storefront_oid, commseq_email_uuid, email_commseq_email_test_request, **kwargs):
+        """
+        Send email test
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_email_test(storefront_oid, commseq_email_uuid, email_commseq_email_test_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param EmailCommseqEmailSendTestRequest email_commseq_email_test_request: Email commseq email test request (required)
+        :return: EmailCommseqEmailSendTestResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.send_email_test_with_http_info(storefront_oid, commseq_email_uuid, email_commseq_email_test_request, **kwargs)
+        else:
+            (data) = self.send_email_test_with_http_info(storefront_oid, commseq_email_uuid, email_commseq_email_test_request, **kwargs)
+            return data
+
+    def send_email_test_with_http_info(self, storefront_oid, commseq_email_uuid, email_commseq_email_test_request, **kwargs):
+        """
+        Send email test
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_email_test_with_http_info(storefront_oid, commseq_email_uuid, email_commseq_email_test_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_email_uuid: null (required)
+        :param EmailCommseqEmailSendTestRequest email_commseq_email_test_request: Email commseq email test request (required)
+        :return: EmailCommseqEmailSendTestResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_email_uuid', 'email_commseq_email_test_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method send_email_test" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `send_email_test`")
+        # verify the required parameter 'commseq_email_uuid' is set
+        if ('commseq_email_uuid' not in params) or (params['commseq_email_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_email_uuid` when calling `send_email_test`")
+        # verify the required parameter 'email_commseq_email_test_request' is set
+        if ('email_commseq_email_test_request' not in params) or (params['email_commseq_email_test_request'] is None):
+            raise ValueError("Missing the required parameter `email_commseq_email_test_request` when calling `send_email_test`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_email_uuid' in params:
+            path_params['commseq_email_uuid'] = params['commseq_email_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_commseq_email_test_request' in params:
+            body_params = params['email_commseq_email_test_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCommseqEmailSendTestResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def send_postcard_test(self, storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request, **kwargs):
+        """
+        Send postcard test
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_postcard_test(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_postcard_uuid: null (required)
+        :param EmailCommseqPostcardSendTestRequest email_commseq_postcard_test_request: Email commseq email test request (required)
+        :return: EmailCommseqPostcardSendTestResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.send_postcard_test_with_http_info(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request, **kwargs)
+        else:
+            (data) = self.send_postcard_test_with_http_info(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request, **kwargs)
+            return data
+
+    def send_postcard_test_with_http_info(self, storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request, **kwargs):
+        """
+        Send postcard test
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_postcard_test_with_http_info(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_postcard_uuid: null (required)
+        :param EmailCommseqPostcardSendTestRequest email_commseq_postcard_test_request: Email commseq email test request (required)
+        :return: EmailCommseqPostcardSendTestResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_postcard_uuid', 'email_commseq_postcard_test_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method send_postcard_test" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `send_postcard_test`")
+        # verify the required parameter 'commseq_postcard_uuid' is set
+        if ('commseq_postcard_uuid' not in params) or (params['commseq_postcard_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_postcard_uuid` when calling `send_postcard_test`")
+        # verify the required parameter 'email_commseq_postcard_test_request' is set
+        if ('email_commseq_postcard_test_request' not in params) or (params['email_commseq_postcard_test_request'] is None):
+            raise ValueError("Missing the required parameter `email_commseq_postcard_test_request` when calling `send_postcard_test`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_postcard_uuid' in params:
+            path_params['commseq_postcard_uuid'] = params['commseq_postcard_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_commseq_postcard_test_request' in params:
+            body_params = params['email_commseq_postcard_test_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCommseqPostcardSendTestResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -6186,6 +9527,116 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def update_email_customer(self, storefront_oid, email_customer_uuid, email_customer, **kwargs):
+        """
+        Update email customer
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_customer(storefront_oid, email_customer_uuid, email_customer, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str email_customer_uuid: null (required)
+        :param EmailCustomer email_customer: Email customer (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_email_customer_with_http_info(storefront_oid, email_customer_uuid, email_customer, **kwargs)
+        else:
+            (data) = self.update_email_customer_with_http_info(storefront_oid, email_customer_uuid, email_customer, **kwargs)
+            return data
+
+    def update_email_customer_with_http_info(self, storefront_oid, email_customer_uuid, email_customer, **kwargs):
+        """
+        Update email customer
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_customer_with_http_info(storefront_oid, email_customer_uuid, email_customer, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str email_customer_uuid: null (required)
+        :param EmailCustomer email_customer: Email customer (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_customer_uuid', 'email_customer']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_email_customer" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_email_customer`")
+        # verify the required parameter 'email_customer_uuid' is set
+        if ('email_customer_uuid' not in params) or (params['email_customer_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_customer_uuid` when calling `update_email_customer`")
+        # verify the required parameter 'email_customer' is set
+        if ('email_customer' not in params) or (params['email_customer'] is None):
+            raise ValueError("Missing the required parameter `email_customer` when calling `update_email_customer`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'email_customer_uuid' in params:
+            path_params['email_customer_uuid'] = params['email_customer_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_customer' in params:
+            body_params = params['email_customer']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/customers/{email_customer_uuid}', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def update_email_email(self, storefront_oid, commseq_email_uuid, email_commseq_email, **kwargs):
         """
         Update email email
@@ -6406,6 +9857,102 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def update_email_global_settings(self, global_settings, **kwargs):
+        """
+        Update email global settings
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_global_settings(global_settings, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param EmailGlobalSettings global_settings: global settings request (required)
+        :return: EmailGlobalSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_email_global_settings_with_http_info(global_settings, **kwargs)
+        else:
+            (data) = self.update_email_global_settings_with_http_info(global_settings, **kwargs)
+            return data
+
+    def update_email_global_settings_with_http_info(self, global_settings, **kwargs):
+        """
+        Update email global settings
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_global_settings_with_http_info(global_settings, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param EmailGlobalSettings global_settings: global settings request (required)
+        :return: EmailGlobalSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['global_settings']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_email_global_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'global_settings' is set
+        if ('global_settings' not in params) or (params['global_settings'] is None):
+            raise ValueError("Missing the required parameter `global_settings` when calling `update_email_global_settings`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'global_settings' in params:
+            body_params = params['global_settings']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/email/global_settings', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailGlobalSettingsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def update_email_list(self, storefront_oid, email_list_uuid, email_list, **kwargs):
         """
         Update email list
@@ -6509,6 +10056,219 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='EmailListResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_email_plan(self, storefront_oid, settings, **kwargs):
+        """
+        Update email plan
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_plan(storefront_oid, settings, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailPlan settings: plan request (required)
+        :return: EmailPlanResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_email_plan_with_http_info(storefront_oid, settings, **kwargs)
+        else:
+            (data) = self.update_email_plan_with_http_info(storefront_oid, settings, **kwargs)
+            return data
+
+    def update_email_plan_with_http_info(self, storefront_oid, settings, **kwargs):
+        """
+        Update email plan
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_plan_with_http_info(storefront_oid, settings, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailPlan settings: plan request (required)
+        :return: EmailPlanResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'settings']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_email_plan" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_email_plan`")
+        # verify the required parameter 'settings' is set
+        if ('settings' not in params) or (params['settings'] is None):
+            raise ValueError("Missing the required parameter `settings` when calling `update_email_plan`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'settings' in params:
+            body_params = params['settings']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/plan', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailPlanResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_email_postcard(self, storefront_oid, commseq_postcard_uuid, email_commseq_postcard, **kwargs):
+        """
+        Update email postcard
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_postcard(storefront_oid, commseq_postcard_uuid, email_commseq_postcard, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_postcard_uuid: null (required)
+        :param EmailCommseqPostcard email_commseq_postcard: Email commseq postcard (required)
+        :return: EmailCommseqPostcardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_email_postcard_with_http_info(storefront_oid, commseq_postcard_uuid, email_commseq_postcard, **kwargs)
+        else:
+            (data) = self.update_email_postcard_with_http_info(storefront_oid, commseq_postcard_uuid, email_commseq_postcard, **kwargs)
+            return data
+
+    def update_email_postcard_with_http_info(self, storefront_oid, commseq_postcard_uuid, email_commseq_postcard, **kwargs):
+        """
+        Update email postcard
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_postcard_with_http_info(storefront_oid, commseq_postcard_uuid, email_commseq_postcard, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param str commseq_postcard_uuid: null (required)
+        :param EmailCommseqPostcard email_commseq_postcard: Email commseq postcard (required)
+        :return: EmailCommseqPostcardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_postcard_uuid', 'email_commseq_postcard']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_email_postcard" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_email_postcard`")
+        # verify the required parameter 'commseq_postcard_uuid' is set
+        if ('commseq_postcard_uuid' not in params) or (params['commseq_postcard_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_postcard_uuid` when calling `update_email_postcard`")
+        # verify the required parameter 'email_commseq_postcard' is set
+        if ('email_commseq_postcard' not in params) or (params['email_commseq_postcard'] is None):
+            raise ValueError("Missing the required parameter `email_commseq_postcard` when calling `update_email_postcard`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+        if 'commseq_postcard_uuid' in params:
+            path_params['commseq_postcard_uuid'] = params['commseq_postcard_uuid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_commseq_postcard' in params:
+            body_params = params['email_commseq_postcard']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailCommseqPostcardResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -6626,6 +10386,109 @@ class StorefrontApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def update_email_settings(self, storefront_oid, settings, **kwargs):
+        """
+        Update email settings
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_settings(storefront_oid, settings, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailSettings settings: settings request (required)
+        :return: EmailSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_email_settings_with_http_info(storefront_oid, settings, **kwargs)
+        else:
+            (data) = self.update_email_settings_with_http_info(storefront_oid, settings, **kwargs)
+            return data
+
+    def update_email_settings_with_http_info(self, storefront_oid, settings, **kwargs):
+        """
+        Update email settings
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_email_settings_with_http_info(storefront_oid, settings, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str storefront_oid: null (required)
+        :param EmailSettings settings: settings request (required)
+        :return: EmailSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'settings']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_email_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params) or (params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_email_settings`")
+        # verify the required parameter 'settings' is set
+        if ('settings' not in params) or (params['settings'] is None):
+            raise ValueError("Missing the required parameter `settings` when calling `update_email_settings`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'settings' in params:
+            body_params = params['settings']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{storefront_oid}/email/settings', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='EmailSettingsResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def update_experiment(self, storefront_oid, storefront_experiment_oid, experiment, **kwargs):
         """
         Update experiment
@@ -6729,6 +10592,221 @@ class StorefrontApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='ExperimentResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_library_item(self, library_item_oid, library_item, **kwargs):
+        """
+        Update library item. Note that only certain fields may be updated via this method.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_library_item(library_item_oid, library_item, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :param LibraryItem library_item: Library item (required)
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_library_item_with_http_info(library_item_oid, library_item, **kwargs)
+        else:
+            (data) = self.update_library_item_with_http_info(library_item_oid, library_item, **kwargs)
+            return data
+
+    def update_library_item_with_http_info(self, library_item_oid, library_item, **kwargs):
+        """
+        Update library item. Note that only certain fields may be updated via this method.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_library_item_with_http_info(library_item_oid, library_item, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int library_item_oid: null (required)
+        :param LibraryItem library_item: Library item (required)
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['library_item_oid', 'library_item']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_library_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'library_item_oid' is set
+        if ('library_item_oid' not in params) or (params['library_item_oid'] is None):
+            raise ValueError("Missing the required parameter `library_item_oid` when calling `update_library_item`")
+        # verify the required parameter 'library_item' is set
+        if ('library_item' not in params) or (params['library_item'] is None):
+            raise ValueError("Missing the required parameter `library_item` when calling `update_library_item`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'library_item_oid' in params:
+            path_params['library_item_oid'] = params['library_item_oid']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'library_item' in params:
+            body_params = params['library_item']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/code_library/{library_item_oid}', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='LibraryItemResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_transaction_email(self, id, email_id, transaction_email, **kwargs):
+        """
+        Updates a transaction email object
+        Updates a transactional email 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_transaction_email(id, email_id, transaction_email, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int id: null (required)
+        :param str email_id: null (required)
+        :param TransactionEmail transaction_email: TransactionEmail (required)
+        :return: TransactionEmailResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_transaction_email_with_http_info(id, email_id, transaction_email, **kwargs)
+        else:
+            (data) = self.update_transaction_email_with_http_info(id, email_id, transaction_email, **kwargs)
+            return data
+
+    def update_transaction_email_with_http_info(self, id, email_id, transaction_email, **kwargs):
+        """
+        Updates a transaction email object
+        Updates a transactional email 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_transaction_email_with_http_info(id, email_id, transaction_email, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int id: null (required)
+        :param str email_id: null (required)
+        :param TransactionEmail transaction_email: TransactionEmail (required)
+        :return: TransactionEmailResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'email_id', 'transaction_email']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_transaction_email" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `update_transaction_email`")
+        # verify the required parameter 'email_id' is set
+        if ('email_id' not in params) or (params['email_id'] is None):
+            raise ValueError("Missing the required parameter `email_id` when calling `update_transaction_email`")
+        # verify the required parameter 'transaction_email' is set
+        if ('transaction_email' not in params) or (params['transaction_email'] is None):
+            raise ValueError("Missing the required parameter `transaction_email` when calling `update_transaction_email`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+        if 'email_id' in params:
+            path_params['email_id'] = params['email_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'transaction_email' in params:
+            body_params = params['transaction_email']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/storefront/{id}/transaction_email/list/{email_id}', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TransactionEmailResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

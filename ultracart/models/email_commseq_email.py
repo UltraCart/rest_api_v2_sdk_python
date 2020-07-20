@@ -34,12 +34,17 @@ class EmailCommseqEmail(object):
         'deleted': 'bool',
         'edited_by_user': 'str',
         'email_communication_sequence_email_uuid': 'str',
+        'email_communication_sequence_uuid': 'str',
         'email_container_cjson': 'str',
+        'email_container_cjson_last_modified_dts': 'str',
         'email_template_vm_path': 'str',
         'filter_profile_equation_json': 'str',
         'individually_render': 'bool',
         'merchant_id': 'str',
+        'pending_review': 'bool',
         'preview_text': 'str',
+        'rejected': 'bool',
+        'requires_review': 'bool',
         'smart_sending': 'bool',
         'storefront_oid': 'int',
         'subject': 'str',
@@ -51,12 +56,17 @@ class EmailCommseqEmail(object):
         'deleted': 'deleted',
         'edited_by_user': 'edited_by_user',
         'email_communication_sequence_email_uuid': 'email_communication_sequence_email_uuid',
+        'email_communication_sequence_uuid': 'email_communication_sequence_uuid',
         'email_container_cjson': 'email_container_cjson',
+        'email_container_cjson_last_modified_dts': 'email_container_cjson_last_modified_dts',
         'email_template_vm_path': 'email_template_vm_path',
         'filter_profile_equation_json': 'filter_profile_equation_json',
         'individually_render': 'individually_render',
         'merchant_id': 'merchant_id',
+        'pending_review': 'pending_review',
         'preview_text': 'preview_text',
+        'rejected': 'rejected',
+        'requires_review': 'requires_review',
         'smart_sending': 'smart_sending',
         'storefront_oid': 'storefront_oid',
         'subject': 'subject',
@@ -64,7 +74,7 @@ class EmailCommseqEmail(object):
         'version': 'version'
     }
 
-    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_container_cjson=None, email_template_vm_path=None, filter_profile_equation_json=None, individually_render=None, merchant_id=None, preview_text=None, smart_sending=None, storefront_oid=None, subject=None, transactional_email=None, version=None):
+    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, filter_profile_equation_json=None, individually_render=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, smart_sending=None, storefront_oid=None, subject=None, transactional_email=None, version=None):
         """
         EmailCommseqEmail - a model defined in Swagger
         """
@@ -72,12 +82,17 @@ class EmailCommseqEmail(object):
         self._deleted = None
         self._edited_by_user = None
         self._email_communication_sequence_email_uuid = None
+        self._email_communication_sequence_uuid = None
         self._email_container_cjson = None
+        self._email_container_cjson_last_modified_dts = None
         self._email_template_vm_path = None
         self._filter_profile_equation_json = None
         self._individually_render = None
         self._merchant_id = None
+        self._pending_review = None
         self._preview_text = None
+        self._rejected = None
+        self._requires_review = None
         self._smart_sending = None
         self._storefront_oid = None
         self._subject = None
@@ -91,8 +106,12 @@ class EmailCommseqEmail(object):
           self.edited_by_user = edited_by_user
         if email_communication_sequence_email_uuid is not None:
           self.email_communication_sequence_email_uuid = email_communication_sequence_email_uuid
+        if email_communication_sequence_uuid is not None:
+          self.email_communication_sequence_uuid = email_communication_sequence_uuid
         if email_container_cjson is not None:
           self.email_container_cjson = email_container_cjson
+        if email_container_cjson_last_modified_dts is not None:
+          self.email_container_cjson_last_modified_dts = email_container_cjson_last_modified_dts
         if email_template_vm_path is not None:
           self.email_template_vm_path = email_template_vm_path
         if filter_profile_equation_json is not None:
@@ -101,8 +120,14 @@ class EmailCommseqEmail(object):
           self.individually_render = individually_render
         if merchant_id is not None:
           self.merchant_id = merchant_id
+        if pending_review is not None:
+          self.pending_review = pending_review
         if preview_text is not None:
           self.preview_text = preview_text
+        if rejected is not None:
+          self.rejected = rejected
+        if requires_review is not None:
+          self.requires_review = requires_review
         if smart_sending is not None:
           self.smart_sending = smart_sending
         if storefront_oid is not None:
@@ -184,6 +209,29 @@ class EmailCommseqEmail(object):
         self._email_communication_sequence_email_uuid = email_communication_sequence_email_uuid
 
     @property
+    def email_communication_sequence_uuid(self):
+        """
+        Gets the email_communication_sequence_uuid of this EmailCommseqEmail.
+        Email commseq UUID
+
+        :return: The email_communication_sequence_uuid of this EmailCommseqEmail.
+        :rtype: str
+        """
+        return self._email_communication_sequence_uuid
+
+    @email_communication_sequence_uuid.setter
+    def email_communication_sequence_uuid(self, email_communication_sequence_uuid):
+        """
+        Sets the email_communication_sequence_uuid of this EmailCommseqEmail.
+        Email commseq UUID
+
+        :param email_communication_sequence_uuid: The email_communication_sequence_uuid of this EmailCommseqEmail.
+        :type: str
+        """
+
+        self._email_communication_sequence_uuid = email_communication_sequence_uuid
+
+    @property
     def email_container_cjson(self):
         """
         Gets the email_container_cjson of this EmailCommseqEmail.
@@ -205,6 +253,29 @@ class EmailCommseqEmail(object):
         """
 
         self._email_container_cjson = email_container_cjson
+
+    @property
+    def email_container_cjson_last_modified_dts(self):
+        """
+        Gets the email_container_cjson_last_modified_dts of this EmailCommseqEmail.
+        Timestamp the last time the container was modified.
+
+        :return: The email_container_cjson_last_modified_dts of this EmailCommseqEmail.
+        :rtype: str
+        """
+        return self._email_container_cjson_last_modified_dts
+
+    @email_container_cjson_last_modified_dts.setter
+    def email_container_cjson_last_modified_dts(self, email_container_cjson_last_modified_dts):
+        """
+        Sets the email_container_cjson_last_modified_dts of this EmailCommseqEmail.
+        Timestamp the last time the container was modified.
+
+        :param email_container_cjson_last_modified_dts: The email_container_cjson_last_modified_dts of this EmailCommseqEmail.
+        :type: str
+        """
+
+        self._email_container_cjson_last_modified_dts = email_container_cjson_last_modified_dts
 
     @property
     def email_template_vm_path(self):
@@ -299,6 +370,29 @@ class EmailCommseqEmail(object):
         self._merchant_id = merchant_id
 
     @property
+    def pending_review(self):
+        """
+        Gets the pending_review of this EmailCommseqEmail.
+        True if the content of this email is pending review by UltraCart
+
+        :return: The pending_review of this EmailCommseqEmail.
+        :rtype: bool
+        """
+        return self._pending_review
+
+    @pending_review.setter
+    def pending_review(self, pending_review):
+        """
+        Sets the pending_review of this EmailCommseqEmail.
+        True if the content of this email is pending review by UltraCart
+
+        :param pending_review: The pending_review of this EmailCommseqEmail.
+        :type: bool
+        """
+
+        self._pending_review = pending_review
+
+    @property
     def preview_text(self):
         """
         Gets the preview_text of this EmailCommseqEmail.
@@ -320,6 +414,52 @@ class EmailCommseqEmail(object):
         """
 
         self._preview_text = preview_text
+
+    @property
+    def rejected(self):
+        """
+        Gets the rejected of this EmailCommseqEmail.
+        True if the content of this email was rejected during review by UltraCart
+
+        :return: The rejected of this EmailCommseqEmail.
+        :rtype: bool
+        """
+        return self._rejected
+
+    @rejected.setter
+    def rejected(self, rejected):
+        """
+        Sets the rejected of this EmailCommseqEmail.
+        True if the content of this email was rejected during review by UltraCart
+
+        :param rejected: The rejected of this EmailCommseqEmail.
+        :type: bool
+        """
+
+        self._rejected = rejected
+
+    @property
+    def requires_review(self):
+        """
+        Gets the requires_review of this EmailCommseqEmail.
+        True if the content of this email is requires review by UltraCart
+
+        :return: The requires_review of this EmailCommseqEmail.
+        :rtype: bool
+        """
+        return self._requires_review
+
+    @requires_review.setter
+    def requires_review(self, requires_review):
+        """
+        Sets the requires_review of this EmailCommseqEmail.
+        True if the content of this email is requires review by UltraCart
+
+        :param requires_review: The requires_review of this EmailCommseqEmail.
+        :type: bool
+        """
+
+        self._requires_review = requires_review
 
     @property
     def smart_sending(self):

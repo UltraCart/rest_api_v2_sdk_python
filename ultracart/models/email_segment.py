@@ -31,51 +31,72 @@ class EmailSegment(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_csv_download': 'bool',
+        'allow_facebook_audiences': 'bool',
         'created_dts': 'str',
         'deleted': 'bool',
         'email_segment_uuid': 'str',
+        'facebook_custom_audience': 'bool',
         'filter_profile_equation_json': 'str',
         'member_count': 'int',
         'merchant_id': 'str',
         'name': 'str',
+        'rank_json': 'str',
         'rebuild_required': 'bool',
-        'storefront_oid': 'int'
+        'storefront_oid': 'int',
+        'used_by': 'list[EmailListSegmentUsedBy]'
     }
 
     attribute_map = {
+        'allow_csv_download': 'allow_csv_download',
+        'allow_facebook_audiences': 'allow_facebook_audiences',
         'created_dts': 'created_dts',
         'deleted': 'deleted',
         'email_segment_uuid': 'email_segment_uuid',
+        'facebook_custom_audience': 'facebook_custom_audience',
         'filter_profile_equation_json': 'filter_profile_equation_json',
         'member_count': 'member_count',
         'merchant_id': 'merchant_id',
         'name': 'name',
+        'rank_json': 'rank_json',
         'rebuild_required': 'rebuild_required',
-        'storefront_oid': 'storefront_oid'
+        'storefront_oid': 'storefront_oid',
+        'used_by': 'used_by'
     }
 
-    def __init__(self, created_dts=None, deleted=None, email_segment_uuid=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rebuild_required=None, storefront_oid=None):
+    def __init__(self, allow_csv_download=None, allow_facebook_audiences=None, created_dts=None, deleted=None, email_segment_uuid=None, facebook_custom_audience=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rank_json=None, rebuild_required=None, storefront_oid=None, used_by=None):
         """
         EmailSegment - a model defined in Swagger
         """
 
+        self._allow_csv_download = None
+        self._allow_facebook_audiences = None
         self._created_dts = None
         self._deleted = None
         self._email_segment_uuid = None
+        self._facebook_custom_audience = None
         self._filter_profile_equation_json = None
         self._member_count = None
         self._merchant_id = None
         self._name = None
+        self._rank_json = None
         self._rebuild_required = None
         self._storefront_oid = None
+        self._used_by = None
         self.discriminator = None
 
+        if allow_csv_download is not None:
+          self.allow_csv_download = allow_csv_download
+        if allow_facebook_audiences is not None:
+          self.allow_facebook_audiences = allow_facebook_audiences
         if created_dts is not None:
           self.created_dts = created_dts
         if deleted is not None:
           self.deleted = deleted
         if email_segment_uuid is not None:
           self.email_segment_uuid = email_segment_uuid
+        if facebook_custom_audience is not None:
+          self.facebook_custom_audience = facebook_custom_audience
         if filter_profile_equation_json is not None:
           self.filter_profile_equation_json = filter_profile_equation_json
         if member_count is not None:
@@ -84,10 +105,60 @@ class EmailSegment(object):
           self.merchant_id = merchant_id
         if name is not None:
           self.name = name
+        if rank_json is not None:
+          self.rank_json = rank_json
         if rebuild_required is not None:
           self.rebuild_required = rebuild_required
         if storefront_oid is not None:
           self.storefront_oid = storefront_oid
+        if used_by is not None:
+          self.used_by = used_by
+
+    @property
+    def allow_csv_download(self):
+        """
+        Gets the allow_csv_download of this EmailSegment.
+        True if the current user has the rights to download this segment.
+
+        :return: The allow_csv_download of this EmailSegment.
+        :rtype: bool
+        """
+        return self._allow_csv_download
+
+    @allow_csv_download.setter
+    def allow_csv_download(self, allow_csv_download):
+        """
+        Sets the allow_csv_download of this EmailSegment.
+        True if the current user has the rights to download this segment.
+
+        :param allow_csv_download: The allow_csv_download of this EmailSegment.
+        :type: bool
+        """
+
+        self._allow_csv_download = allow_csv_download
+
+    @property
+    def allow_facebook_audiences(self):
+        """
+        Gets the allow_facebook_audiences of this EmailSegment.
+        True if this StoreFront has the Facebook Analytics app connected and supports them
+
+        :return: The allow_facebook_audiences of this EmailSegment.
+        :rtype: bool
+        """
+        return self._allow_facebook_audiences
+
+    @allow_facebook_audiences.setter
+    def allow_facebook_audiences(self, allow_facebook_audiences):
+        """
+        Sets the allow_facebook_audiences of this EmailSegment.
+        True if this StoreFront has the Facebook Analytics app connected and supports them
+
+        :param allow_facebook_audiences: The allow_facebook_audiences of this EmailSegment.
+        :type: bool
+        """
+
+        self._allow_facebook_audiences = allow_facebook_audiences
 
     @property
     def created_dts(self):
@@ -157,6 +228,29 @@ class EmailSegment(object):
         """
 
         self._email_segment_uuid = email_segment_uuid
+
+    @property
+    def facebook_custom_audience(self):
+        """
+        Gets the facebook_custom_audience of this EmailSegment.
+        True if you want to sync to a facebook custom audience
+
+        :return: The facebook_custom_audience of this EmailSegment.
+        :rtype: bool
+        """
+        return self._facebook_custom_audience
+
+    @facebook_custom_audience.setter
+    def facebook_custom_audience(self, facebook_custom_audience):
+        """
+        Sets the facebook_custom_audience of this EmailSegment.
+        True if you want to sync to a facebook custom audience
+
+        :param facebook_custom_audience: The facebook_custom_audience of this EmailSegment.
+        :type: bool
+        """
+
+        self._facebook_custom_audience = facebook_custom_audience
 
     @property
     def filter_profile_equation_json(self):
@@ -253,6 +347,29 @@ class EmailSegment(object):
         self._name = name
 
     @property
+    def rank_json(self):
+        """
+        Gets the rank_json of this EmailSegment.
+        Rank settings json
+
+        :return: The rank_json of this EmailSegment.
+        :rtype: str
+        """
+        return self._rank_json
+
+    @rank_json.setter
+    def rank_json(self, rank_json):
+        """
+        Sets the rank_json of this EmailSegment.
+        Rank settings json
+
+        :param rank_json: The rank_json of this EmailSegment.
+        :type: str
+        """
+
+        self._rank_json = rank_json
+
+    @property
     def rebuild_required(self):
         """
         Gets the rebuild_required of this EmailSegment.
@@ -297,6 +414,29 @@ class EmailSegment(object):
         """
 
         self._storefront_oid = storefront_oid
+
+    @property
+    def used_by(self):
+        """
+        Gets the used_by of this EmailSegment.
+        Details on the flows or campaigns that use this list.
+
+        :return: The used_by of this EmailSegment.
+        :rtype: list[EmailListSegmentUsedBy]
+        """
+        return self._used_by
+
+    @used_by.setter
+    def used_by(self, used_by):
+        """
+        Sets the used_by of this EmailSegment.
+        Details on the flows or campaigns that use this list.
+
+        :param used_by: The used_by of this EmailSegment.
+        :type: list[EmailListSegmentUsedBy]
+        """
+
+        self._used_by = used_by
 
     def to_dict(self):
         """

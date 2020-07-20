@@ -32,25 +32,30 @@ class EmailStatSummaryRequest(object):
     """
     swagger_types = {
         'commseq_email_uuids': 'list[str]',
+        'commseq_step_uuids': 'list[str]',
         'days': 'int'
     }
 
     attribute_map = {
         'commseq_email_uuids': 'commseq_email_uuids',
+        'commseq_step_uuids': 'commseq_step_uuids',
         'days': 'days'
     }
 
-    def __init__(self, commseq_email_uuids=None, days=None):
+    def __init__(self, commseq_email_uuids=None, commseq_step_uuids=None, days=None):
         """
         EmailStatSummaryRequest - a model defined in Swagger
         """
 
         self._commseq_email_uuids = None
+        self._commseq_step_uuids = None
         self._days = None
         self.discriminator = None
 
         if commseq_email_uuids is not None:
           self.commseq_email_uuids = commseq_email_uuids
+        if commseq_step_uuids is not None:
+          self.commseq_step_uuids = commseq_step_uuids
         if days is not None:
           self.days = days
 
@@ -74,6 +79,27 @@ class EmailStatSummaryRequest(object):
         """
 
         self._commseq_email_uuids = commseq_email_uuids
+
+    @property
+    def commseq_step_uuids(self):
+        """
+        Gets the commseq_step_uuids of this EmailStatSummaryRequest.
+
+        :return: The commseq_step_uuids of this EmailStatSummaryRequest.
+        :rtype: list[str]
+        """
+        return self._commseq_step_uuids
+
+    @commseq_step_uuids.setter
+    def commseq_step_uuids(self, commseq_step_uuids):
+        """
+        Sets the commseq_step_uuids of this EmailStatSummaryRequest.
+
+        :param commseq_step_uuids: The commseq_step_uuids of this EmailStatSummaryRequest.
+        :type: list[str]
+        """
+
+        self._commseq_step_uuids = commseq_step_uuids
 
     @property
     def days(self):

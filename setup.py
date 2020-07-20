@@ -14,8 +14,8 @@
 import sys
 from setuptools import setup, find_packages
 
-NAME = "ultracart"
-VERSION = "1.0.0"
+NAME = "UltraCart REST SDK"
+VERSION = "2.4.123"
 # To install the library, run the following
 #
 # python setup.py install

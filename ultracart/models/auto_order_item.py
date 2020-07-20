@@ -53,7 +53,8 @@ class AutoOrderItem(object):
         'paypal_recurring_payment_profile_id': 'str',
         'preshipment_notice_sent': 'bool',
         'rebill_value': 'float',
-        'remaining_repeat_count': 'int'
+        'remaining_repeat_count': 'int',
+        'simple_schedule': 'AutoOrderItemSimpleSchedule'
     }
 
     attribute_map = {
@@ -79,10 +80,11 @@ class AutoOrderItem(object):
         'paypal_recurring_payment_profile_id': 'paypal_recurring_payment_profile_id',
         'preshipment_notice_sent': 'preshipment_notice_sent',
         'rebill_value': 'rebill_value',
-        'remaining_repeat_count': 'remaining_repeat_count'
+        'remaining_repeat_count': 'remaining_repeat_count',
+        'simple_schedule': 'simple_schedule'
     }
 
-    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None):
+    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None, simple_schedule=None):
         """
         AutoOrderItem - a model defined in Swagger
         """
@@ -110,6 +112,7 @@ class AutoOrderItem(object):
         self._preshipment_notice_sent = None
         self._rebill_value = None
         self._remaining_repeat_count = None
+        self._simple_schedule = None
         self.discriminator = None
 
         if arbitrary_item_id is not None:
@@ -158,6 +161,8 @@ class AutoOrderItem(object):
           self.rebill_value = rebill_value
         if remaining_repeat_count is not None:
           self.remaining_repeat_count = remaining_repeat_count
+        if simple_schedule is not None:
+          self.simple_schedule = simple_schedule
 
     @property
     def arbitrary_item_id(self):
@@ -693,6 +698,27 @@ class AutoOrderItem(object):
         """
 
         self._remaining_repeat_count = remaining_repeat_count
+
+    @property
+    def simple_schedule(self):
+        """
+        Gets the simple_schedule of this AutoOrderItem.
+
+        :return: The simple_schedule of this AutoOrderItem.
+        :rtype: AutoOrderItemSimpleSchedule
+        """
+        return self._simple_schedule
+
+    @simple_schedule.setter
+    def simple_schedule(self, simple_schedule):
+        """
+        Sets the simple_schedule of this AutoOrderItem.
+
+        :param simple_schedule: The simple_schedule of this AutoOrderItem.
+        :type: AutoOrderItemSimpleSchedule
+        """
+
+        self._simple_schedule = simple_schedule
 
     def to_dict(self):
         """

@@ -35,6 +35,7 @@ class Experiment(object):
         'duration_days': 'int',
         'end_dts': 'str',
         'equal_weighting': 'bool',
+        'experiment_type': 'str',
         'id': 'str',
         'name': 'str',
         'notes': 'str',
@@ -54,6 +55,7 @@ class Experiment(object):
         'duration_days': 'duration_days',
         'end_dts': 'end_dts',
         'equal_weighting': 'equal_weighting',
+        'experiment_type': 'experiment_type',
         'id': 'id',
         'name': 'name',
         'notes': 'notes',
@@ -68,7 +70,7 @@ class Experiment(object):
         'variations': 'variations'
     }
 
-    def __init__(self, container_id=None, duration_days=None, end_dts=None, equal_weighting=None, id=None, name=None, notes=None, objective=None, optimization_type=None, session_count=None, start_dts=None, status=None, storefront_experiment_oid=None, storefront_oid=None, uri=None, variations=None):
+    def __init__(self, container_id=None, duration_days=None, end_dts=None, equal_weighting=None, experiment_type=None, id=None, name=None, notes=None, objective=None, optimization_type=None, session_count=None, start_dts=None, status=None, storefront_experiment_oid=None, storefront_oid=None, uri=None, variations=None):
         """
         Experiment - a model defined in Swagger
         """
@@ -77,6 +79,7 @@ class Experiment(object):
         self._duration_days = None
         self._end_dts = None
         self._equal_weighting = None
+        self._experiment_type = None
         self._id = None
         self._name = None
         self._notes = None
@@ -99,6 +102,8 @@ class Experiment(object):
           self.end_dts = end_dts
         if equal_weighting is not None:
           self.equal_weighting = equal_weighting
+        if experiment_type is not None:
+          self.experiment_type = experiment_type
         if id is not None:
           self.id = id
         if name is not None:
@@ -215,6 +220,29 @@ class Experiment(object):
         """
 
         self._equal_weighting = equal_weighting
+
+    @property
+    def experiment_type(self):
+        """
+        Gets the experiment_type of this Experiment.
+        The type of experiment
+
+        :return: The experiment_type of this Experiment.
+        :rtype: str
+        """
+        return self._experiment_type
+
+    @experiment_type.setter
+    def experiment_type(self, experiment_type):
+        """
+        Sets the experiment_type of this Experiment.
+        The type of experiment
+
+        :param experiment_type: The experiment_type of this Experiment.
+        :type: str
+        """
+
+        self._experiment_type = experiment_type
 
     @property
     def id(self):

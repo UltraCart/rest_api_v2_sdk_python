@@ -33,22 +33,25 @@ class CustomerTaxCodes(object):
     swagger_types = {
         'avalara_customer_code': 'str',
         'avalara_entity_use_code': 'str',
+        'sovos_customer_code': 'str',
         'taxjar_customer_id': 'str'
     }
 
     attribute_map = {
         'avalara_customer_code': 'avalara_customer_code',
         'avalara_entity_use_code': 'avalara_entity_use_code',
+        'sovos_customer_code': 'sovos_customer_code',
         'taxjar_customer_id': 'taxjar_customer_id'
     }
 
-    def __init__(self, avalara_customer_code=None, avalara_entity_use_code=None, taxjar_customer_id=None):
+    def __init__(self, avalara_customer_code=None, avalara_entity_use_code=None, sovos_customer_code=None, taxjar_customer_id=None):
         """
         CustomerTaxCodes - a model defined in Swagger
         """
 
         self._avalara_customer_code = None
         self._avalara_entity_use_code = None
+        self._sovos_customer_code = None
         self._taxjar_customer_id = None
         self.discriminator = None
 
@@ -56,6 +59,8 @@ class CustomerTaxCodes(object):
           self.avalara_customer_code = avalara_customer_code
         if avalara_entity_use_code is not None:
           self.avalara_entity_use_code = avalara_entity_use_code
+        if sovos_customer_code is not None:
+          self.sovos_customer_code = sovos_customer_code
         if taxjar_customer_id is not None:
           self.taxjar_customer_id = taxjar_customer_id
 
@@ -104,6 +109,29 @@ class CustomerTaxCodes(object):
         """
 
         self._avalara_entity_use_code = avalara_entity_use_code
+
+    @property
+    def sovos_customer_code(self):
+        """
+        Gets the sovos_customer_code of this CustomerTaxCodes.
+        Sovos customer code
+
+        :return: The sovos_customer_code of this CustomerTaxCodes.
+        :rtype: str
+        """
+        return self._sovos_customer_code
+
+    @sovos_customer_code.setter
+    def sovos_customer_code(self, sovos_customer_code):
+        """
+        Sets the sovos_customer_code of this CustomerTaxCodes.
+        Sovos customer code
+
+        :param sovos_customer_code: The sovos_customer_code of this CustomerTaxCodes.
+        :type: str
+        """
+
+        self._sovos_customer_code = sovos_customer_code
 
     @property
     def taxjar_customer_id(self):

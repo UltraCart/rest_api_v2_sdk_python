@@ -36,10 +36,14 @@ class EmailCampaign(object):
         'deleted': 'bool',
         'email_campaign_uuid': 'str',
         'email_communication_sequence_uuid': 'str',
+        'esp_domain_user': 'str',
+        'esp_domain_uuid': 'str',
+        'esp_friendly_name': 'str',
         'memberships': 'list[EmailListSegmentMembership]',
         'merchant_id': 'str',
         'name': 'str',
         'open_rate_formatted': 'str',
+        'prevent_sending_due_to_spam': 'bool',
         'revenue_formatted': 'str',
         'scheduled_dts': 'str',
         'status': 'str',
@@ -53,10 +57,14 @@ class EmailCampaign(object):
         'deleted': 'deleted',
         'email_campaign_uuid': 'email_campaign_uuid',
         'email_communication_sequence_uuid': 'email_communication_sequence_uuid',
+        'esp_domain_user': 'esp_domain_user',
+        'esp_domain_uuid': 'esp_domain_uuid',
+        'esp_friendly_name': 'esp_friendly_name',
         'memberships': 'memberships',
         'merchant_id': 'merchant_id',
         'name': 'name',
         'open_rate_formatted': 'open_rate_formatted',
+        'prevent_sending_due_to_spam': 'prevent_sending_due_to_spam',
         'revenue_formatted': 'revenue_formatted',
         'scheduled_dts': 'scheduled_dts',
         'status': 'status',
@@ -64,7 +72,7 @@ class EmailCampaign(object):
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, scheduled_dts=None, status=None, status_dts=None, storefront_oid=None):
+    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, scheduled_dts=None, status=None, status_dts=None, storefront_oid=None):
         """
         EmailCampaign - a model defined in Swagger
         """
@@ -74,10 +82,14 @@ class EmailCampaign(object):
         self._deleted = None
         self._email_campaign_uuid = None
         self._email_communication_sequence_uuid = None
+        self._esp_domain_user = None
+        self._esp_domain_uuid = None
+        self._esp_friendly_name = None
         self._memberships = None
         self._merchant_id = None
         self._name = None
         self._open_rate_formatted = None
+        self._prevent_sending_due_to_spam = None
         self._revenue_formatted = None
         self._scheduled_dts = None
         self._status = None
@@ -95,6 +107,12 @@ class EmailCampaign(object):
           self.email_campaign_uuid = email_campaign_uuid
         if email_communication_sequence_uuid is not None:
           self.email_communication_sequence_uuid = email_communication_sequence_uuid
+        if esp_domain_user is not None:
+          self.esp_domain_user = esp_domain_user
+        if esp_domain_uuid is not None:
+          self.esp_domain_uuid = esp_domain_uuid
+        if esp_friendly_name is not None:
+          self.esp_friendly_name = esp_friendly_name
         if memberships is not None:
           self.memberships = memberships
         if merchant_id is not None:
@@ -103,6 +121,8 @@ class EmailCampaign(object):
           self.name = name
         if open_rate_formatted is not None:
           self.open_rate_formatted = open_rate_formatted
+        if prevent_sending_due_to_spam is not None:
+          self.prevent_sending_due_to_spam = prevent_sending_due_to_spam
         if revenue_formatted is not None:
           self.revenue_formatted = revenue_formatted
         if scheduled_dts is not None:
@@ -230,6 +250,75 @@ class EmailCampaign(object):
         self._email_communication_sequence_uuid = email_communication_sequence_uuid
 
     @property
+    def esp_domain_user(self):
+        """
+        Gets the esp_domain_user of this EmailCampaign.
+        User of the sending address
+
+        :return: The esp_domain_user of this EmailCampaign.
+        :rtype: str
+        """
+        return self._esp_domain_user
+
+    @esp_domain_user.setter
+    def esp_domain_user(self, esp_domain_user):
+        """
+        Sets the esp_domain_user of this EmailCampaign.
+        User of the sending address
+
+        :param esp_domain_user: The esp_domain_user of this EmailCampaign.
+        :type: str
+        """
+
+        self._esp_domain_user = esp_domain_user
+
+    @property
+    def esp_domain_uuid(self):
+        """
+        Gets the esp_domain_uuid of this EmailCampaign.
+        UUID of the sending domain
+
+        :return: The esp_domain_uuid of this EmailCampaign.
+        :rtype: str
+        """
+        return self._esp_domain_uuid
+
+    @esp_domain_uuid.setter
+    def esp_domain_uuid(self, esp_domain_uuid):
+        """
+        Sets the esp_domain_uuid of this EmailCampaign.
+        UUID of the sending domain
+
+        :param esp_domain_uuid: The esp_domain_uuid of this EmailCampaign.
+        :type: str
+        """
+
+        self._esp_domain_uuid = esp_domain_uuid
+
+    @property
+    def esp_friendly_name(self):
+        """
+        Gets the esp_friendly_name of this EmailCampaign.
+        Friendly name of the sending email
+
+        :return: The esp_friendly_name of this EmailCampaign.
+        :rtype: str
+        """
+        return self._esp_friendly_name
+
+    @esp_friendly_name.setter
+    def esp_friendly_name(self, esp_friendly_name):
+        """
+        Sets the esp_friendly_name of this EmailCampaign.
+        Friendly name of the sending email
+
+        :param esp_friendly_name: The esp_friendly_name of this EmailCampaign.
+        :type: str
+        """
+
+        self._esp_friendly_name = esp_friendly_name
+
+    @property
     def memberships(self):
         """
         Gets the memberships of this EmailCampaign.
@@ -322,6 +411,29 @@ class EmailCampaign(object):
         """
 
         self._open_rate_formatted = open_rate_formatted
+
+    @property
+    def prevent_sending_due_to_spam(self):
+        """
+        Gets the prevent_sending_due_to_spam of this EmailCampaign.
+        True if this campaign is prevented from sending at this time due to spam complaints.
+
+        :return: The prevent_sending_due_to_spam of this EmailCampaign.
+        :rtype: bool
+        """
+        return self._prevent_sending_due_to_spam
+
+    @prevent_sending_due_to_spam.setter
+    def prevent_sending_due_to_spam(self, prevent_sending_due_to_spam):
+        """
+        Sets the prevent_sending_due_to_spam of this EmailCampaign.
+        True if this campaign is prevented from sending at this time due to spam complaints.
+
+        :param prevent_sending_due_to_spam: The prevent_sending_due_to_spam of this EmailCampaign.
+        :type: bool
+        """
+
+        self._prevent_sending_due_to_spam = prevent_sending_due_to_spam
 
     @property
     def revenue_formatted(self):

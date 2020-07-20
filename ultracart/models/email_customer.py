@@ -31,43 +31,87 @@ class EmailCustomer(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'active': 'bool',
         'email': 'str',
-        'esp_customer_uuid': 'str',
+        'email_customer_uuid': 'str',
         'first_name': 'str',
-        'last_name': 'str'
+        'global_unsubscribe': 'bool',
+        'last_interaction_dts': 'str',
+        'last_name': 'str',
+        'list_uuids': 'list[str]'
     }
 
     attribute_map = {
+        'active': 'active',
         'email': 'email',
-        'esp_customer_uuid': 'espCustomerUuid',
-        'first_name': 'firstName',
-        'last_name': 'lastName'
+        'email_customer_uuid': 'email_customer_uuid',
+        'first_name': 'first_name',
+        'global_unsubscribe': 'global_unsubscribe',
+        'last_interaction_dts': 'last_interaction_dts',
+        'last_name': 'last_name',
+        'list_uuids': 'list_uuids'
     }
 
-    def __init__(self, email=None, esp_customer_uuid=None, first_name=None, last_name=None):
+    def __init__(self, active=None, email=None, email_customer_uuid=None, first_name=None, global_unsubscribe=None, last_interaction_dts=None, last_name=None, list_uuids=None):
         """
         EmailCustomer - a model defined in Swagger
         """
 
+        self._active = None
         self._email = None
-        self._esp_customer_uuid = None
+        self._email_customer_uuid = None
         self._first_name = None
+        self._global_unsubscribe = None
+        self._last_interaction_dts = None
         self._last_name = None
+        self._list_uuids = None
         self.discriminator = None
 
+        if active is not None:
+          self.active = active
         if email is not None:
           self.email = email
-        if esp_customer_uuid is not None:
-          self.esp_customer_uuid = esp_customer_uuid
+        if email_customer_uuid is not None:
+          self.email_customer_uuid = email_customer_uuid
         if first_name is not None:
           self.first_name = first_name
+        if global_unsubscribe is not None:
+          self.global_unsubscribe = global_unsubscribe
+        if last_interaction_dts is not None:
+          self.last_interaction_dts = last_interaction_dts
         if last_name is not None:
           self.last_name = last_name
+        if list_uuids is not None:
+          self.list_uuids = list_uuids
+
+    @property
+    def active(self):
+        """
+        Gets the active of this EmailCustomer.
+        True if the customer is flagged as active within StoreFront Communications
+
+        :return: The active of this EmailCustomer.
+        :rtype: bool
+        """
+        return self._active
+
+    @active.setter
+    def active(self, active):
+        """
+        Sets the active of this EmailCustomer.
+        True if the customer is flagged as active within StoreFront Communications
+
+        :param active: The active of this EmailCustomer.
+        :type: bool
+        """
+
+        self._active = active
 
     @property
     def email(self):
         """
         Gets the email of this EmailCustomer.
+        Email
 
         :return: The email of this EmailCustomer.
         :rtype: str
@@ -78,6 +122,7 @@ class EmailCustomer(object):
     def email(self, email):
         """
         Sets the email of this EmailCustomer.
+        Email
 
         :param email: The email of this EmailCustomer.
         :type: str
@@ -86,30 +131,33 @@ class EmailCustomer(object):
         self._email = email
 
     @property
-    def esp_customer_uuid(self):
+    def email_customer_uuid(self):
         """
-        Gets the esp_customer_uuid of this EmailCustomer.
+        Gets the email_customer_uuid of this EmailCustomer.
+        Email customer UUID
 
-        :return: The esp_customer_uuid of this EmailCustomer.
+        :return: The email_customer_uuid of this EmailCustomer.
         :rtype: str
         """
-        return self._esp_customer_uuid
+        return self._email_customer_uuid
 
-    @esp_customer_uuid.setter
-    def esp_customer_uuid(self, esp_customer_uuid):
+    @email_customer_uuid.setter
+    def email_customer_uuid(self, email_customer_uuid):
         """
-        Sets the esp_customer_uuid of this EmailCustomer.
+        Sets the email_customer_uuid of this EmailCustomer.
+        Email customer UUID
 
-        :param esp_customer_uuid: The esp_customer_uuid of this EmailCustomer.
+        :param email_customer_uuid: The email_customer_uuid of this EmailCustomer.
         :type: str
         """
 
-        self._esp_customer_uuid = esp_customer_uuid
+        self._email_customer_uuid = email_customer_uuid
 
     @property
     def first_name(self):
         """
         Gets the first_name of this EmailCustomer.
+        First name
 
         :return: The first_name of this EmailCustomer.
         :rtype: str
@@ -120,6 +168,7 @@ class EmailCustomer(object):
     def first_name(self, first_name):
         """
         Sets the first_name of this EmailCustomer.
+        First name
 
         :param first_name: The first_name of this EmailCustomer.
         :type: str
@@ -128,9 +177,56 @@ class EmailCustomer(object):
         self._first_name = first_name
 
     @property
+    def global_unsubscribe(self):
+        """
+        Gets the global_unsubscribe of this EmailCustomer.
+        True if the customer has globally unsubscribed from all communication.
+
+        :return: The global_unsubscribe of this EmailCustomer.
+        :rtype: bool
+        """
+        return self._global_unsubscribe
+
+    @global_unsubscribe.setter
+    def global_unsubscribe(self, global_unsubscribe):
+        """
+        Sets the global_unsubscribe of this EmailCustomer.
+        True if the customer has globally unsubscribed from all communication.
+
+        :param global_unsubscribe: The global_unsubscribe of this EmailCustomer.
+        :type: bool
+        """
+
+        self._global_unsubscribe = global_unsubscribe
+
+    @property
+    def last_interaction_dts(self):
+        """
+        Gets the last_interaction_dts of this EmailCustomer.
+        Last interaction
+
+        :return: The last_interaction_dts of this EmailCustomer.
+        :rtype: str
+        """
+        return self._last_interaction_dts
+
+    @last_interaction_dts.setter
+    def last_interaction_dts(self, last_interaction_dts):
+        """
+        Sets the last_interaction_dts of this EmailCustomer.
+        Last interaction
+
+        :param last_interaction_dts: The last_interaction_dts of this EmailCustomer.
+        :type: str
+        """
+
+        self._last_interaction_dts = last_interaction_dts
+
+    @property
     def last_name(self):
         """
         Gets the last_name of this EmailCustomer.
+        Last name
 
         :return: The last_name of this EmailCustomer.
         :rtype: str
@@ -141,12 +237,36 @@ class EmailCustomer(object):
     def last_name(self, last_name):
         """
         Sets the last_name of this EmailCustomer.
+        Last name
 
         :param last_name: The last_name of this EmailCustomer.
         :type: str
         """
 
         self._last_name = last_name
+
+    @property
+    def list_uuids(self):
+        """
+        Gets the list_uuids of this EmailCustomer.
+        UUIDs of the lists they are subscribed to
+
+        :return: The list_uuids of this EmailCustomer.
+        :rtype: list[str]
+        """
+        return self._list_uuids
+
+    @list_uuids.setter
+    def list_uuids(self, list_uuids):
+        """
+        Sets the list_uuids of this EmailCustomer.
+        UUIDs of the lists they are subscribed to
+
+        :param list_uuids: The list_uuids of this EmailCustomer.
+        :type: list[str]
+        """
+
+        self._list_uuids = list_uuids
 
     def to_dict(self):
         """

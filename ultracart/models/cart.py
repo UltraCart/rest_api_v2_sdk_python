@@ -50,6 +50,7 @@ class Cart(object):
         'marketing': 'CartMarketing',
         'merchant_id': 'str',
         'payment': 'CartPayment',
+        'properties': 'list[CartProperty]',
         'settings': 'CartSettings',
         'shipping': 'CartShipping',
         'summary': 'CartSummary',
@@ -77,6 +78,7 @@ class Cart(object):
         'marketing': 'marketing',
         'merchant_id': 'merchant_id',
         'payment': 'payment',
+        'properties': 'properties',
         'settings': 'settings',
         'shipping': 'shipping',
         'summary': 'summary',
@@ -84,7 +86,7 @@ class Cart(object):
         'upsell_after': 'upsell_after'
     }
 
-    def __init__(self, affiliate=None, base_currency_code=None, billing=None, buysafe=None, cart_id=None, checkout=None, coupons=None, currency_code=None, currency_conversion=None, customer_profile=None, exchange_rate=None, gift=None, gift_certificate=None, items=None, language_iso_code=None, logged_in=None, marketing=None, merchant_id=None, payment=None, settings=None, shipping=None, summary=None, taxes=None, upsell_after=None):
+    def __init__(self, affiliate=None, base_currency_code=None, billing=None, buysafe=None, cart_id=None, checkout=None, coupons=None, currency_code=None, currency_conversion=None, customer_profile=None, exchange_rate=None, gift=None, gift_certificate=None, items=None, language_iso_code=None, logged_in=None, marketing=None, merchant_id=None, payment=None, properties=None, settings=None, shipping=None, summary=None, taxes=None, upsell_after=None):
         """
         Cart - a model defined in Swagger
         """
@@ -108,6 +110,7 @@ class Cart(object):
         self._marketing = None
         self._merchant_id = None
         self._payment = None
+        self._properties = None
         self._settings = None
         self._shipping = None
         self._summary = None
@@ -153,6 +156,8 @@ class Cart(object):
           self.merchant_id = merchant_id
         if payment is not None:
           self.payment = payment
+        if properties is not None:
+          self.properties = properties
         if settings is not None:
           self.settings = settings
         if shipping is not None:
@@ -586,6 +591,29 @@ class Cart(object):
         """
 
         self._payment = payment
+
+    @property
+    def properties(self):
+        """
+        Gets the properties of this Cart.
+        Properties associated with the cart
+
+        :return: The properties of this Cart.
+        :rtype: list[CartProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """
+        Sets the properties of this Cart.
+        Properties associated with the cart
+
+        :param properties: The properties of this Cart.
+        :type: list[CartProperty]
+        """
+
+        self._properties = properties
 
     @property
     def settings(self):

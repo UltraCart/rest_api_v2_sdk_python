@@ -34,7 +34,11 @@ class EmailCommseqStep(object):
         'alt_child_email_communication_sequence_steps': 'list[EmailCommseqStep]',
         'child_email_communication_sequence_steps': 'list[EmailCommseqStep]',
         'email_communication_sequence_step_uuid': 'str',
+        'email_pending_review': 'bool',
+        'email_rejected': 'bool',
+        'email_requires_review': 'bool',
         'filter_profile_equation_json': 'str',
+        'merchant_notes': 'str',
         'step_config_json': 'str',
         'type': 'str'
     }
@@ -43,12 +47,16 @@ class EmailCommseqStep(object):
         'alt_child_email_communication_sequence_steps': 'alt_child_email_communication_sequence_steps',
         'child_email_communication_sequence_steps': 'child_email_communication_sequence_steps',
         'email_communication_sequence_step_uuid': 'email_communication_sequence_step_uuid',
+        'email_pending_review': 'email_pending_review',
+        'email_rejected': 'email_rejected',
+        'email_requires_review': 'email_requires_review',
         'filter_profile_equation_json': 'filter_profile_equation_json',
+        'merchant_notes': 'merchant_notes',
         'step_config_json': 'step_config_json',
         'type': 'type'
     }
 
-    def __init__(self, alt_child_email_communication_sequence_steps=None, child_email_communication_sequence_steps=None, email_communication_sequence_step_uuid=None, filter_profile_equation_json=None, step_config_json=None, type=None):
+    def __init__(self, alt_child_email_communication_sequence_steps=None, child_email_communication_sequence_steps=None, email_communication_sequence_step_uuid=None, email_pending_review=None, email_rejected=None, email_requires_review=None, filter_profile_equation_json=None, merchant_notes=None, step_config_json=None, type=None):
         """
         EmailCommseqStep - a model defined in Swagger
         """
@@ -56,7 +64,11 @@ class EmailCommseqStep(object):
         self._alt_child_email_communication_sequence_steps = None
         self._child_email_communication_sequence_steps = None
         self._email_communication_sequence_step_uuid = None
+        self._email_pending_review = None
+        self._email_rejected = None
+        self._email_requires_review = None
         self._filter_profile_equation_json = None
+        self._merchant_notes = None
         self._step_config_json = None
         self._type = None
         self.discriminator = None
@@ -67,8 +79,16 @@ class EmailCommseqStep(object):
           self.child_email_communication_sequence_steps = child_email_communication_sequence_steps
         if email_communication_sequence_step_uuid is not None:
           self.email_communication_sequence_step_uuid = email_communication_sequence_step_uuid
+        if email_pending_review is not None:
+          self.email_pending_review = email_pending_review
+        if email_rejected is not None:
+          self.email_rejected = email_rejected
+        if email_requires_review is not None:
+          self.email_requires_review = email_requires_review
         if filter_profile_equation_json is not None:
           self.filter_profile_equation_json = filter_profile_equation_json
+        if merchant_notes is not None:
+          self.merchant_notes = merchant_notes
         if step_config_json is not None:
           self.step_config_json = step_config_json
         if type is not None:
@@ -144,6 +164,75 @@ class EmailCommseqStep(object):
         self._email_communication_sequence_step_uuid = email_communication_sequence_step_uuid
 
     @property
+    def email_pending_review(self):
+        """
+        Gets the email_pending_review of this EmailCommseqStep.
+        True if the content of the email associated with this step is pending review by UltraCart
+
+        :return: The email_pending_review of this EmailCommseqStep.
+        :rtype: bool
+        """
+        return self._email_pending_review
+
+    @email_pending_review.setter
+    def email_pending_review(self, email_pending_review):
+        """
+        Sets the email_pending_review of this EmailCommseqStep.
+        True if the content of the email associated with this step is pending review by UltraCart
+
+        :param email_pending_review: The email_pending_review of this EmailCommseqStep.
+        :type: bool
+        """
+
+        self._email_pending_review = email_pending_review
+
+    @property
+    def email_rejected(self):
+        """
+        Gets the email_rejected of this EmailCommseqStep.
+        True if the content of the email associated with this step was rejected during review by UltraCart
+
+        :return: The email_rejected of this EmailCommseqStep.
+        :rtype: bool
+        """
+        return self._email_rejected
+
+    @email_rejected.setter
+    def email_rejected(self, email_rejected):
+        """
+        Sets the email_rejected of this EmailCommseqStep.
+        True if the content of the email associated with this step was rejected during review by UltraCart
+
+        :param email_rejected: The email_rejected of this EmailCommseqStep.
+        :type: bool
+        """
+
+        self._email_rejected = email_rejected
+
+    @property
+    def email_requires_review(self):
+        """
+        Gets the email_requires_review of this EmailCommseqStep.
+        True if the content of the email associated with this step requires review by UltraCart
+
+        :return: The email_requires_review of this EmailCommseqStep.
+        :rtype: bool
+        """
+        return self._email_requires_review
+
+    @email_requires_review.setter
+    def email_requires_review(self, email_requires_review):
+        """
+        Sets the email_requires_review of this EmailCommseqStep.
+        True if the content of the email associated with this step requires review by UltraCart
+
+        :param email_requires_review: The email_requires_review of this EmailCommseqStep.
+        :type: bool
+        """
+
+        self._email_requires_review = email_requires_review
+
+    @property
     def filter_profile_equation_json(self):
         """
         Gets the filter_profile_equation_json of this EmailCommseqStep.
@@ -165,6 +254,29 @@ class EmailCommseqStep(object):
         """
 
         self._filter_profile_equation_json = filter_profile_equation_json
+
+    @property
+    def merchant_notes(self):
+        """
+        Gets the merchant_notes of this EmailCommseqStep.
+        Internal merchant notes
+
+        :return: The merchant_notes of this EmailCommseqStep.
+        :rtype: str
+        """
+        return self._merchant_notes
+
+    @merchant_notes.setter
+    def merchant_notes(self, merchant_notes):
+        """
+        Sets the merchant_notes of this EmailCommseqStep.
+        Internal merchant notes
+
+        :param merchant_notes: The merchant_notes of this EmailCommseqStep.
+        :type: str
+        """
+
+        self._merchant_notes = merchant_notes
 
     @property
     def step_config_json(self):

@@ -4,38 +4,60 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_to_library**](StorefrontApi.md#add_to_library) | **POST** /storefront/code_library | Add to library
+[**apply_to_store_front**](StorefrontApi.md#apply_to_store_front) | **POST** /storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid} | Apply library item to storefront.
 [**archive_email_list**](StorefrontApi.md#archive_email_list) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
 [**archive_email_segment**](StorefrontApi.md#archive_email_segment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
+[**back_populate_email_flow**](StorefrontApi.md#back_populate_email_flow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/backfill | Back populate email flow
 [**check_download_email_segment**](StorefrontApi.md#check_download_email_segment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 [**clone_email_campaign**](StorefrontApi.md#clone_email_campaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**clone_email_flow**](StorefrontApi.md#clone_email_flow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
+[**clone_library_item**](StorefrontApi.md#clone_library_item) | **POST** /storefront/code_library/{library_item_oid}/clone | Clone public library item.
 [**create_email_sending_domain**](StorefrontApi.md#create_email_sending_domain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
+[**delete_email_commseq_stat**](StorefrontApi.md#delete_email_commseq_stat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 [**delete_email_email**](StorefrontApi.md#delete_email_email) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
 [**delete_email_list_customer**](StorefrontApi.md#delete_email_list_customer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
+[**delete_email_postcard**](StorefrontApi.md#delete_email_postcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 [**delete_email_sending_domain**](StorefrontApi.md#delete_email_sending_domain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 [**delete_experiment**](StorefrontApi.md#delete_experiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+[**delete_library_item**](StorefrontApi.md#delete_library_item) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
+[**duplicate_library_item**](StorefrontApi.md#duplicate_library_item) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 [**geocode_address**](StorefrontApi.md#geocode_address) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
 [**get_countries**](StorefrontApi.md#get_countries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
+[**get_editor_token**](StorefrontApi.md#get_editor_token) | **GET** /storefront/{id}/editor_token | Gets editor token
 [**get_email_base_templates**](StorefrontApi.md#get_email_base_templates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
 [**get_email_campaign**](StorefrontApi.md#get_email_campaign) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Get email campaign
 [**get_email_campaigns**](StorefrontApi.md#get_email_campaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
 [**get_email_campaigns_with_stats**](StorefrontApi.md#get_email_campaigns_with_stats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
 [**get_email_commseq**](StorefrontApi.md#get_email_commseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
 [**get_email_commseq_email_stats**](StorefrontApi.md#get_email_commseq_email_stats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
+[**get_email_commseq_postcard_stats**](StorefrontApi.md#get_email_commseq_postcard_stats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
 [**get_email_commseq_stat_overall**](StorefrontApi.md#get_email_commseq_stat_overall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
+[**get_email_commseq_step_stats**](StorefrontApi.md#get_email_commseq_step_stats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 [**get_email_commseq_step_waiting**](StorefrontApi.md#get_email_commseq_step_waiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
 [**get_email_commseqs**](StorefrontApi.md#get_email_commseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
+[**get_email_customer_editor_url**](StorefrontApi.md#get_email_customer_editor_url) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url | Get customers editor URL
+[**get_email_customers**](StorefrontApi.md#get_email_customers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
 [**get_email_dashboard_activity**](StorefrontApi.md#get_email_dashboard_activity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
 [**get_email_dashboard_stats**](StorefrontApi.md#get_email_dashboard_stats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
 [**get_email_email**](StorefrontApi.md#get_email_email) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
+[**get_email_email_clicks**](StorefrontApi.md#get_email_email_clicks) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks | Get email email clicks
+[**get_email_email_customer_editor_url**](StorefrontApi.md#get_email_email_customer_editor_url) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/orders/{order_id}/editor_url | Get email order customer editor url
+[**get_email_email_orders**](StorefrontApi.md#get_email_email_orders) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/orders | Get email email orders
 [**get_email_emails**](StorefrontApi.md#get_email_emails) | **GET** /storefront/{storefront_oid}/email/emails | Get email emails
 [**get_email_emails_multiple**](StorefrontApi.md#get_email_emails_multiple) | **POST** /storefront/{storefront_oid}/email/emails/multiple | Get email emails multiple
 [**get_email_flow**](StorefrontApi.md#get_email_flow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
 [**get_email_flows**](StorefrontApi.md#get_email_flows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
+[**get_email_global_settings**](StorefrontApi.md#get_email_global_settings) | **GET** /storefront/email/global_settings | Get email globalsettings
 [**get_email_list**](StorefrontApi.md#get_email_list) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
-[**get_email_list_customer_editor_url**](StorefrontApi.md#get_email_list_customer_editor_url) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customers
+[**get_email_list_customer_editor_url**](StorefrontApi.md#get_email_list_customer_editor_url) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customer editor url
 [**get_email_list_customers**](StorefrontApi.md#get_email_list_customers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
 [**get_email_lists**](StorefrontApi.md#get_email_lists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
+[**get_email_performance**](StorefrontApi.md#get_email_performance) | **GET** /storefront/{storefront_oid}/email/performance | Get email performance
+[**get_email_plan**](StorefrontApi.md#get_email_plan) | **GET** /storefront/{storefront_oid}/email/plan | Get email plan
+[**get_email_postcard**](StorefrontApi.md#get_email_postcard) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Get email postcard
+[**get_email_postcards**](StorefrontApi.md#get_email_postcards) | **GET** /storefront/{storefront_oid}/email/postcards | Get email postcards
+[**get_email_postcards_multiple**](StorefrontApi.md#get_email_postcards_multiple) | **POST** /storefront/{storefront_oid}/email/postcards/multiple | Get email postcards multiple
 [**get_email_segment**](StorefrontApi.md#get_email_segment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
 [**get_email_segment_customer_editor_url**](StorefrontApi.md#get_email_segment_customer_editor_url) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers/{email_customer_uuid}/editor_url | Get email segment customers editor URL
 [**get_email_segment_customers**](StorefrontApi.md#get_email_segment_customers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers | Get email segment customers
@@ -43,33 +65,170 @@ Method | HTTP request | Description
 [**get_email_sending_domain**](StorefrontApi.md#get_email_sending_domain) | **GET** /storefront/email/sending_domain/{domain} | Get email sending domain
 [**get_email_sending_domain_status**](StorefrontApi.md#get_email_sending_domain_status) | **POST** /storefront/email/sending_domains/{domain}/status | Get email sending domain status
 [**get_email_sending_domains**](StorefrontApi.md#get_email_sending_domains) | **GET** /storefront/email/sending_domains | Get email sending domains
+[**get_email_settings**](StorefrontApi.md#get_email_settings) | **GET** /storefront/{storefront_oid}/email/settings | Get email settings
 [**get_email_template**](StorefrontApi.md#get_email_template) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 [**get_email_templates**](StorefrontApi.md#get_email_templates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 [**get_email_third_party_providers**](StorefrontApi.md#get_email_third_party_providers) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 [**get_experiments**](StorefrontApi.md#get_experiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
 [**get_histogram_property_names**](StorefrontApi.md#get_histogram_property_names) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
 [**get_histogram_property_values**](StorefrontApi.md#get_histogram_property_values) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
+[**get_library_items_by_query**](StorefrontApi.md#get_library_items_by_query) | **POST** /storefront/code_library/query | Retrieve library items
+[**get_transaction_email**](StorefrontApi.md#get_transaction_email) | **GET** /storefront/{id}/transaction_email/list/{email_id} | Gets a transaction email object
+[**get_transaction_email_list**](StorefrontApi.md#get_transaction_email_list) | **GET** /storefront/{id}/transaction_email/list | Gets a list of transaction email names
+[**global_unsubscribe**](StorefrontApi.md#global_unsubscribe) | **POST** /storefront/{storefront_oid}/email/globalUnsubscribe | Globally unsubscribe a customer
 [**import_email_third_party_provider_list**](StorefrontApi.md#import_email_third_party_provider_list) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 [**insert_email_campaign**](StorefrontApi.md#insert_email_campaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
 [**insert_email_commseq**](StorefrontApi.md#insert_email_commseq) | **POST** /storefront/{storefront_oid}/email/commseqs | Insert email commseq
 [**insert_email_email**](StorefrontApi.md#insert_email_email) | **POST** /storefront/{storefront_oid}/email/emails | Insert email email
 [**insert_email_flow**](StorefrontApi.md#insert_email_flow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
 [**insert_email_list**](StorefrontApi.md#insert_email_list) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
+[**insert_email_postcard**](StorefrontApi.md#insert_email_postcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard
 [**insert_email_segment**](StorefrontApi.md#insert_email_segment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
 [**prepare_download_email_segment**](StorefrontApi.md#prepare_download_email_segment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
+[**release_email_commseq_step_waiting**](StorefrontApi.md#release_email_commseq_step_waiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid} | Release email communication sequence customers waiting at the specified step
+[**review**](StorefrontApi.md#review) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review | Request a review of an email
 [**search**](StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
 [**search_email_list_customers**](StorefrontApi.md#search_email_list_customers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
 [**search_email_segment_customers**](StorefrontApi.md#search_email_segment_customers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
+[**send_email_test**](StorefrontApi.md#send_email_test) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
+[**send_postcard_test**](StorefrontApi.md#send_postcard_test) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
 [**start_email_campaign**](StorefrontApi.md#start_email_campaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 [**subscribe_to_email_list**](StorefrontApi.md#subscribe_to_email_list) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 [**update_email_campaign**](StorefrontApi.md#update_email_campaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
 [**update_email_commseq**](StorefrontApi.md#update_email_commseq) | **PUT** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Update email commseq
+[**update_email_customer**](StorefrontApi.md#update_email_customer) | **PUT** /storefront/{storefront_oid}/email/customers/{email_customer_uuid} | Update email customer
 [**update_email_email**](StorefrontApi.md#update_email_email) | **PUT** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Update email email
 [**update_email_flow**](StorefrontApi.md#update_email_flow) | **PUT** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Update email flow
+[**update_email_global_settings**](StorefrontApi.md#update_email_global_settings) | **POST** /storefront/email/global_settings | Update email global settings
 [**update_email_list**](StorefrontApi.md#update_email_list) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
+[**update_email_plan**](StorefrontApi.md#update_email_plan) | **POST** /storefront/{storefront_oid}/email/plan | Update email plan
+[**update_email_postcard**](StorefrontApi.md#update_email_postcard) | **PUT** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Update email postcard
 [**update_email_segment**](StorefrontApi.md#update_email_segment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
+[**update_email_settings**](StorefrontApi.md#update_email_settings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
 [**update_experiment**](StorefrontApi.md#update_experiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
+[**update_library_item**](StorefrontApi.md#update_library_item) | **PUT** /storefront/code_library/{library_item_oid} | Update library item. Note that only certain fields may be updated via this method.
+[**update_transaction_email**](StorefrontApi.md#update_transaction_email) | **PUT** /storefront/{id}/transaction_email/list/{email_id} | Updates a transaction email object
 
+
+# **add_to_library**
+> LibraryItemResponse add_to_library(add_library_request)
+
+Add to library
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+add_library_request = ultracart.AddLibraryItemRequest() # AddLibraryItemRequest | New library item
+
+try: 
+    # Add to library
+    api_response = api_instance.add_to_library(add_library_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->add_to_library: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **add_library_request** | [**AddLibraryItemRequest**](AddLibraryItemRequest.md)| New library item | 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **apply_to_store_front**
+> ApplyLibraryItemResponse apply_to_store_front(library_item_oid, storefront_oid)
+
+Apply library item to storefront.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+library_item_oid = 56 # int | null
+storefront_oid = 56 # int | null
+
+try: 
+    # Apply library item to storefront.
+    api_response = api_instance.apply_to_store_front(library_item_oid, storefront_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->apply_to_store_front: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **library_item_oid** | **int**| null | 
+ **storefront_oid** | **int**| null | 
+
+### Return type
+
+[**ApplyLibraryItemResponse**](ApplyLibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **archive_email_list**
 > EmailListArchiveResponse archive_email_list(storefront_oid, email_list_uuid)
@@ -193,6 +352,69 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **back_populate_email_flow**
+> EmailFlowBackPopulateResponse back_populate_email_flow(storefront_oid, email_flow_uuid, back_populate_request)
+
+Back populate email flow
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+email_flow_uuid = 'email_flow_uuid_example' # str | null
+back_populate_request = ultracart.EmailFlowBackPopulateRequest() # EmailFlowBackPopulateRequest | The request to back populate
+
+try: 
+    # Back populate email flow
+    api_response = api_instance.back_populate_email_flow(storefront_oid, email_flow_uuid, back_populate_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->back_populate_email_flow: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **email_flow_uuid** | **str**| null | 
+ **back_populate_request** | [**EmailFlowBackPopulateRequest**](EmailFlowBackPopulateRequest.md)| The request to back populate | 
+
+### Return type
+
+[**EmailFlowBackPopulateResponse**](EmailFlowBackPopulateResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **check_download_email_segment**
 > EmailSegmentDownloadPrepareResponse check_download_email_segment(storefront_oid, email_segment_uuid, email_segment_rebuild_uuid)
 
@@ -257,7 +479,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clone_email_campaign**
-> EmailCampaignResponse clone_email_campaign(storefront_oid, email_campaign_uuid)
+> EmailCampaignResponse clone_email_campaign(storefront_oid, email_campaign_uuid, target_storefront_oid=target_storefront_oid)
 
 Clone email campaign
 
@@ -286,10 +508,11 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
 storefront_oid = 'storefront_oid_example' # str | null
 email_campaign_uuid = 'email_campaign_uuid_example' # str | null
+target_storefront_oid = 'target_storefront_oid_example' # str | null (optional)
 
 try: 
     # Clone email campaign
-    api_response = api_instance.clone_email_campaign(storefront_oid, email_campaign_uuid)
+    api_response = api_instance.clone_email_campaign(storefront_oid, email_campaign_uuid, target_storefront_oid=target_storefront_oid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StorefrontApi->clone_email_campaign: %s\n" % e)
@@ -301,6 +524,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **str**| null | 
  **email_campaign_uuid** | **str**| null | 
+ **target_storefront_oid** | **str**| null | [optional] 
 
 ### Return type
 
@@ -318,7 +542,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clone_email_flow**
-> EmailFlowResponse clone_email_flow(storefront_oid, email_flow_uuid)
+> EmailFlowResponse clone_email_flow(storefront_oid, email_flow_uuid, target_storefront_oid=target_storefront_oid)
 
 Clone email flow
 
@@ -347,10 +571,11 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
 storefront_oid = 'storefront_oid_example' # str | null
 email_flow_uuid = 'email_flow_uuid_example' # str | null
+target_storefront_oid = 'target_storefront_oid_example' # str | null (optional)
 
 try: 
     # Clone email flow
-    api_response = api_instance.clone_email_flow(storefront_oid, email_flow_uuid)
+    api_response = api_instance.clone_email_flow(storefront_oid, email_flow_uuid, target_storefront_oid=target_storefront_oid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StorefrontApi->clone_email_flow: %s\n" % e)
@@ -362,10 +587,72 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **str**| null | 
  **email_flow_uuid** | **str**| null | 
+ **target_storefront_oid** | **str**| null | [optional] 
 
 ### Return type
 
 [**EmailFlowResponse**](EmailFlowResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **clone_library_item**
+> LibraryItemResponse clone_library_item(library_item_oid, storefront_oid=storefront_oid)
+
+Clone public library item.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+library_item_oid = 56 # int | null
+storefront_oid = 56 # int | null (optional)
+
+try: 
+    # Clone public library item.
+    api_response = api_instance.clone_library_item(library_item_oid, storefront_oid=storefront_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->clone_library_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **library_item_oid** | **int**| null | 
+ **storefront_oid** | **int**| null | [optional] 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
 
 ### Authorization
 
@@ -425,6 +712,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailSendingDomainResponse**](EmailSendingDomainResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_email_commseq_stat**
+> delete_email_commseq_stat(storefront_oid, commseq_uuid)
+
+Delete communication sequence stats
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_uuid = 'commseq_uuid_example' # str | null
+
+try: 
+    # Delete communication sequence stats
+    api_instance.delete_email_commseq_stat(storefront_oid, commseq_uuid)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->delete_email_commseq_stat: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_uuid** | **str**| null | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -561,6 +908,67 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_email_postcard**
+> BaseResponse delete_email_postcard(storefront_oid, commseq_postcard_uuid)
+
+Delete email postcard
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | null
+
+try: 
+    # Delete email postcard
+    api_response = api_instance.delete_email_postcard(storefront_oid, commseq_postcard_uuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->delete_email_postcard: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_postcard_uuid** | **str**| null | 
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_email_sending_domain**
 > BaseResponse delete_email_sending_domain(domain)
 
@@ -668,6 +1076,123 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_library_item**
+> delete_library_item(library_item_oid)
+
+Delete library item
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+library_item_oid = 56 # int | null
+
+try: 
+    # Delete library item
+    api_instance.delete_library_item(library_item_oid)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->delete_library_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **library_item_oid** | **int**| null | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **duplicate_library_item**
+> LibraryItemResponse duplicate_library_item(library_item_oid)
+
+Duplicate library item.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+library_item_oid = 56 # int | null
+
+try: 
+    # Duplicate library item.
+    api_response = api_instance.duplicate_library_item(library_item_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->duplicate_library_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **library_item_oid** | **int**| null | 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
 
 ### Authorization
 
@@ -790,6 +1315,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CountriesResponse**](CountriesResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_editor_token**
+> EmailEditorTokenResponse get_editor_token(id)
+
+Gets editor token
+
+Fetches a temporary authentication token for the editor 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+id = 56 # int | null
+
+try: 
+    # Gets editor token
+    api_response = api_instance.get_editor_token(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_editor_token: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| null | 
+
+### Return type
+
+[**EmailEditorTokenResponse**](EmailEditorTokenResponse.md)
 
 ### Authorization
 
@@ -1166,6 +1752,69 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_email_commseq_postcard_stats**
+> EmailStatPostcardSummaryResponse get_email_commseq_postcard_stats(storefront_oid, commseq_uuid, stats_request)
+
+Get email communication sequence postcard stats
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_uuid = 'commseq_uuid_example' # str | null
+stats_request = ultracart.EmailStatPostcardSummaryRequest() # EmailStatPostcardSummaryRequest | StatsRequest
+
+try: 
+    # Get email communication sequence postcard stats
+    api_response = api_instance.get_email_commseq_postcard_stats(storefront_oid, commseq_uuid, stats_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_commseq_postcard_stats: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_uuid** | **str**| null | 
+ **stats_request** | [**EmailStatPostcardSummaryRequest**](EmailStatPostcardSummaryRequest.md)| StatsRequest | 
+
+### Return type
+
+[**EmailStatPostcardSummaryResponse**](EmailStatPostcardSummaryResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_email_commseq_stat_overall**
 > EmailCommseqStatResponse get_email_commseq_stat_overall(storefront_oid, commseq_uuid)
 
@@ -1215,6 +1864,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailCommseqStatResponse**](EmailCommseqStatResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_commseq_step_stats**
+> EmailStepStatResponse get_email_commseq_step_stats(storefront_oid, commseq_uuid, stats_request)
+
+Get email communication sequence step stats
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_uuid = 'commseq_uuid_example' # str | null
+stats_request = ultracart.EmailStepStatRequest() # EmailStepStatRequest | StatsRequest
+
+try: 
+    # Get email communication sequence step stats
+    api_response = api_instance.get_email_commseq_step_stats(storefront_oid, commseq_uuid, stats_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_commseq_step_stats: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_uuid** | **str**| null | 
+ **stats_request** | [**EmailStepStatRequest**](EmailStepStatRequest.md)| StatsRequest | 
+
+### Return type
+
+[**EmailStepStatResponse**](EmailStepStatResponse.md)
 
 ### Authorization
 
@@ -1337,6 +2049,132 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailCommseqsResponse**](EmailCommseqsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_customer_editor_url**
+> EmailCustomerEditorUrlResponse get_email_customer_editor_url(storefront_oid, email_customer_uuid)
+
+Get customers editor URL
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+email_customer_uuid = 'email_customer_uuid_example' # str | null
+
+try: 
+    # Get customers editor URL
+    api_response = api_instance.get_email_customer_editor_url(storefront_oid, email_customer_uuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_customer_editor_url: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **email_customer_uuid** | **str**| null | 
+
+### Return type
+
+[**EmailCustomerEditorUrlResponse**](EmailCustomerEditorUrlResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_customers**
+> EmailCustomersResponse get_email_customers(storefront_oid, page_number=page_number, page_size=page_size, search_email_prefix=search_email_prefix)
+
+Get email customers
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+page_number = 56 # int | null (optional)
+page_size = 56 # int | null (optional)
+search_email_prefix = 'search_email_prefix_example' # str | null (optional)
+
+try: 
+    # Get email customers
+    api_response = api_instance.get_email_customers(storefront_oid, page_number=page_number, page_size=page_size, search_email_prefix=search_email_prefix)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_customers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **page_number** | **int**| null | [optional] 
+ **page_size** | **int**| null | [optional] 
+ **search_email_prefix** | **str**| null | [optional] 
+
+### Return type
+
+[**EmailCustomersResponse**](EmailCustomersResponse.md)
 
 ### Authorization
 
@@ -1520,6 +2358,203 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailCommseqEmailResponse**](EmailCommseqEmailResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_email_clicks**
+> EmailClicksResponse get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
+
+Get email email clicks
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_uuid = 'commseq_uuid_example' # str | null
+commseq_step_uuid = 'commseq_step_uuid_example' # str | null
+commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+days = 56 # int | null (optional)
+
+try: 
+    # Get email email clicks
+    api_response = api_instance.get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_email_clicks: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_uuid** | **str**| null | 
+ **commseq_step_uuid** | **str**| null | 
+ **commseq_email_uuid** | **str**| null | 
+ **days** | **int**| null | [optional] 
+
+### Return type
+
+[**EmailClicksResponse**](EmailClicksResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_email_customer_editor_url**
+> EmailCustomerEditorUrlResponse get_email_email_customer_editor_url(storefront_oid, commseq_email_uuid, order_id)
+
+Get email order customer editor url
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+order_id = 'order_id_example' # str | null
+
+try: 
+    # Get email order customer editor url
+    api_response = api_instance.get_email_email_customer_editor_url(storefront_oid, commseq_email_uuid, order_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_email_customer_editor_url: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_email_uuid** | **str**| null | 
+ **order_id** | **str**| null | 
+
+### Return type
+
+[**EmailCustomerEditorUrlResponse**](EmailCustomerEditorUrlResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_email_orders**
+> EmailOrdersResponse get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
+
+Get email email orders
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_uuid = 'commseq_uuid_example' # str | null
+commseq_step_uuid = 'commseq_step_uuid_example' # str | null
+commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+days = 56 # int | null (optional)
+
+try: 
+    # Get email email orders
+    api_response = api_instance.get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_email_orders: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_uuid** | **str**| null | 
+ **commseq_step_uuid** | **str**| null | 
+ **commseq_email_uuid** | **str**| null | 
+ **days** | **int**| null | [optional] 
+
+### Return type
+
+[**EmailOrdersResponse**](EmailOrdersResponse.md)
 
 ### Authorization
 
@@ -1772,6 +2807,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_email_global_settings**
+> EmailGlobalSettingsResponse get_email_global_settings()
+
+Get email globalsettings
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+
+try: 
+    # Get email globalsettings
+    api_response = api_instance.get_email_global_settings()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_global_settings: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EmailGlobalSettingsResponse**](EmailGlobalSettingsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_email_list**
 > EmailListResponse get_email_list(storefront_oid, email_list_uuid)
 
@@ -1836,7 +2926,7 @@ Name | Type | Description  | Notes
 # **get_email_list_customer_editor_url**
 > EmailCustomerEditorUrlResponse get_email_list_customer_editor_url(storefront_oid, email_list_uuid, email_customer_uuid)
 
-Get email list customers
+Get email list customer editor url
 
 ### Example 
 ```python
@@ -1866,7 +2956,7 @@ email_list_uuid = 'email_list_uuid_example' # str | null
 email_customer_uuid = 'email_customer_uuid_example' # str | null
 
 try: 
-    # Get email list customers
+    # Get email list customer editor url
     api_response = api_instance.get_email_list_customer_editor_url(storefront_oid, email_list_uuid, email_customer_uuid)
     pprint(api_response)
 except ApiException as e:
@@ -2008,6 +3098,305 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailListsResponse**](EmailListsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_performance**
+> EmailPerformanceResponse get_email_performance(storefront_oid)
+
+Get email performance
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+
+try: 
+    # Get email performance
+    api_response = api_instance.get_email_performance(storefront_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_performance: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+
+### Return type
+
+[**EmailPerformanceResponse**](EmailPerformanceResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_plan**
+> EmailPlanResponse get_email_plan(storefront_oid)
+
+Get email plan
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+
+try: 
+    # Get email plan
+    api_response = api_instance.get_email_plan(storefront_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_plan: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+
+### Return type
+
+[**EmailPlanResponse**](EmailPlanResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_postcard**
+> EmailCommseqPostcardResponse get_email_postcard(storefront_oid, commseq_postcard_uuid)
+
+Get email postcard
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | null
+
+try: 
+    # Get email postcard
+    api_response = api_instance.get_email_postcard(storefront_oid, commseq_postcard_uuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_postcard: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_postcard_uuid** | **str**| null | 
+
+### Return type
+
+[**EmailCommseqPostcardResponse**](EmailCommseqPostcardResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_postcards**
+> EmailCommseqPostcardsResponse get_email_postcards(storefront_oid)
+
+Get email postcards
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+
+try: 
+    # Get email postcards
+    api_response = api_instance.get_email_postcards(storefront_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_postcards: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+
+### Return type
+
+[**EmailCommseqPostcardsResponse**](EmailCommseqPostcardsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_postcards_multiple**
+> EmailCommseqPostcardsResponse get_email_postcards_multiple(storefront_oid, email_commseq_postcards_request)
+
+Get email postcards multiple
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+email_commseq_postcards_request = ultracart.EmailCommseqPostcardsRequest() # EmailCommseqPostcardsRequest | Request of postcard uuids
+
+try: 
+    # Get email postcards multiple
+    api_response = api_instance.get_email_postcards_multiple(storefront_oid, email_commseq_postcards_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_postcards_multiple: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **email_commseq_postcards_request** | [**EmailCommseqPostcardsRequest**](EmailCommseqPostcardsRequest.md)| Request of postcard uuids | 
+
+### Return type
+
+[**EmailCommseqPostcardsResponse**](EmailCommseqPostcardsResponse.md)
 
 ### Authorization
 
@@ -2441,6 +3830,65 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_email_settings**
+> EmailSettingsResponse get_email_settings(storefront_oid)
+
+Get email settings
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+
+try: 
+    # Get email settings
+    api_response = api_instance.get_email_settings(storefront_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+
+### Return type
+
+[**EmailSettingsResponse**](EmailSettingsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_email_template**
 > EmailTemplate get_email_template(storefront_oid, email_template_oid)
 
@@ -2799,6 +4247,258 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailHistogramPropertyValuesResponse**](EmailHistogramPropertyValuesResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_library_items_by_query**
+> LibraryItemsResponse get_library_items_by_query(item_query, limit=limit, offset=offset, sort=sort)
+
+Retrieve library items
+
+Retrieves a lbirary items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+item_query = ultracart.LibraryItemQuery() # LibraryItemQuery | Item query
+limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) (default to 10000)
+offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
+sort = 'sort_example' # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+
+try: 
+    # Retrieve library items
+    api_response = api_instance.get_library_items_by_query(item_query, limit=limit, offset=offset, sort=sort)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_library_items_by_query: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **item_query** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
+ **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **str**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+
+### Return type
+
+[**LibraryItemsResponse**](LibraryItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_transaction_email**
+> TransactionEmailResponse get_transaction_email(id, email_id)
+
+Gets a transaction email object
+
+Fetch a transactional email 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+id = 56 # int | null
+email_id = 'email_id_example' # str | null
+
+try: 
+    # Gets a transaction email object
+    api_response = api_instance.get_transaction_email(id, email_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_transaction_email: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| null | 
+ **email_id** | **str**| null | 
+
+### Return type
+
+[**TransactionEmailResponse**](TransactionEmailResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_transaction_email_list**
+> TransactionEmailListResponse get_transaction_email_list(id)
+
+Gets a list of transaction email names
+
+Obtain a list of all transactional emails and return back just their names 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+id = 56 # int | null
+
+try: 
+    # Gets a list of transaction email names
+    api_response = api_instance.get_transaction_email_list(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_transaction_email_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| null | 
+
+### Return type
+
+[**TransactionEmailListResponse**](TransactionEmailListResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **global_unsubscribe**
+> EmailGlobalUnsubscribeResponse global_unsubscribe(storefront_oid, unsubscribe)
+
+Globally unsubscribe a customer
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+unsubscribe = ultracart.EmailGlobalUnsubscribeRequest() # EmailGlobalUnsubscribeRequest | Unsubscribe
+
+try: 
+    # Globally unsubscribe a customer
+    api_response = api_instance.global_unsubscribe(storefront_oid, unsubscribe)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->global_unsubscribe: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **unsubscribe** | [**EmailGlobalUnsubscribeRequest**](EmailGlobalUnsubscribeRequest.md)| Unsubscribe | 
+
+### Return type
+
+[**EmailGlobalUnsubscribeResponse**](EmailGlobalUnsubscribeResponse.md)
 
 ### Authorization
 
@@ -3176,6 +4876,67 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **insert_email_postcard**
+> EmailCommseqPostcardResponse insert_email_postcard(storefront_oid, email_commseq_postcard)
+
+Insert email postcard
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+email_commseq_postcard = ultracart.EmailCommseqPostcard() # EmailCommseqPostcard | Email postcard
+
+try: 
+    # Insert email postcard
+    api_response = api_instance.insert_email_postcard(storefront_oid, email_commseq_postcard)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->insert_email_postcard: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **email_commseq_postcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email postcard | 
+
+### Return type
+
+[**EmailCommseqPostcardResponse**](EmailCommseqPostcardResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **insert_email_segment**
 > EmailSegmentResponse insert_email_segment(storefront_oid, email_segment)
 
@@ -3298,8 +5059,133 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **release_email_commseq_step_waiting**
+> release_email_commseq_step_waiting(storefront_oid, commseq_uuid, commseq_step_uuid)
+
+Release email communication sequence customers waiting at the specified step
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_uuid = 'commseq_uuid_example' # str | null
+commseq_step_uuid = 'commseq_step_uuid_example' # str | null
+
+try: 
+    # Release email communication sequence customers waiting at the specified step
+    api_instance.release_email_commseq_step_waiting(storefront_oid, commseq_uuid, commseq_step_uuid)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->release_email_commseq_step_waiting: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_uuid** | **str**| null | 
+ **commseq_step_uuid** | **str**| null | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **review**
+> EmailCommseqEmailSendTestResponse review(storefront_oid, commseq_email_uuid, email_commseq_email_review_request)
+
+Request a review of an email
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+email_commseq_email_review_request = ultracart.EmailCommseqEmailSendTestRequest() # EmailCommseqEmailSendTestRequest | Email commseq email review request
+
+try: 
+    # Request a review of an email
+    api_response = api_instance.review(storefront_oid, commseq_email_uuid, email_commseq_email_review_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->review: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_email_uuid** | **str**| null | 
+ **email_commseq_email_review_request** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email review request | 
+
+### Return type
+
+[**EmailCommseqEmailSendTestResponse**](EmailCommseqEmailSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **search**
-> LookupResponse search(category=category, matches=matches, max_hits=max_hits)
+> LookupResponse search(category=category, matches=matches, storefront_oid=storefront_oid, max_hits=max_hits, subcategory=subcategory)
 
 Searches for all matching values
 
@@ -3328,11 +5214,13 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
 category = 'category_example' # str | null (optional)
 matches = 'matches_example' # str | null (optional)
+storefront_oid = 'storefront_oid_example' # str | null (optional)
 max_hits = 56 # int | null (optional)
+subcategory = 'subcategory_example' # str | null (optional)
 
 try: 
     # Searches for all matching values
-    api_response = api_instance.search(category=category, matches=matches, max_hits=max_hits)
+    api_response = api_instance.search(category=category, matches=matches, storefront_oid=storefront_oid, max_hits=max_hits, subcategory=subcategory)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StorefrontApi->search: %s\n" % e)
@@ -3344,7 +5232,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **category** | **str**| null | [optional] 
  **matches** | **str**| null | [optional] 
+ **storefront_oid** | **str**| null | [optional] 
  **max_hits** | **int**| null | [optional] 
+ **subcategory** | **str**| null | [optional] 
 
 ### Return type
 
@@ -3475,6 +5365,132 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailSegmentCustomersResponse**](EmailSegmentCustomersResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **send_email_test**
+> EmailCommseqEmailSendTestResponse send_email_test(storefront_oid, commseq_email_uuid, email_commseq_email_test_request)
+
+Send email test
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+email_commseq_email_test_request = ultracart.EmailCommseqEmailSendTestRequest() # EmailCommseqEmailSendTestRequest | Email commseq email test request
+
+try: 
+    # Send email test
+    api_response = api_instance.send_email_test(storefront_oid, commseq_email_uuid, email_commseq_email_test_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->send_email_test: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_email_uuid** | **str**| null | 
+ **email_commseq_email_test_request** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email test request | 
+
+### Return type
+
+[**EmailCommseqEmailSendTestResponse**](EmailCommseqEmailSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **send_postcard_test**
+> EmailCommseqPostcardSendTestResponse send_postcard_test(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request)
+
+Send postcard test
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | null
+email_commseq_postcard_test_request = ultracart.EmailCommseqPostcardSendTestRequest() # EmailCommseqPostcardSendTestRequest | Email commseq email test request
+
+try: 
+    # Send postcard test
+    api_response = api_instance.send_postcard_test(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->send_postcard_test: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_postcard_uuid** | **str**| null | 
+ **email_commseq_postcard_test_request** | [**EmailCommseqPostcardSendTestRequest**](EmailCommseqPostcardSendTestRequest.md)| Email commseq email test request | 
+
+### Return type
+
+[**EmailCommseqPostcardSendTestResponse**](EmailCommseqPostcardSendTestResponse.md)
 
 ### Authorization
 
@@ -3737,6 +5753,68 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_email_customer**
+> update_email_customer(storefront_oid, email_customer_uuid, email_customer)
+
+Update email customer
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+email_customer_uuid = 'email_customer_uuid_example' # str | null
+email_customer = ultracart.EmailCustomer() # EmailCustomer | Email customer
+
+try: 
+    # Update email customer
+    api_instance.update_email_customer(storefront_oid, email_customer_uuid, email_customer)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->update_email_customer: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **email_customer_uuid** | **str**| null | 
+ **email_customer** | [**EmailCustomer**](EmailCustomer.md)| Email customer | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_email_email**
 > EmailCommseqEmailResponse update_email_email(storefront_oid, commseq_email_uuid, email_commseq_email)
 
@@ -3863,6 +5941,65 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_email_global_settings**
+> EmailGlobalSettingsResponse update_email_global_settings(global_settings)
+
+Update email global settings
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+global_settings = ultracart.EmailGlobalSettings() # EmailGlobalSettings | global settings request
+
+try: 
+    # Update email global settings
+    api_response = api_instance.update_email_global_settings(global_settings)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->update_email_global_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **global_settings** | [**EmailGlobalSettings**](EmailGlobalSettings.md)| global settings request | 
+
+### Return type
+
+[**EmailGlobalSettingsResponse**](EmailGlobalSettingsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_email_list**
 > EmailListResponse update_email_list(storefront_oid, email_list_uuid, email_list)
 
@@ -3914,6 +6051,130 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailListResponse**](EmailListResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_email_plan**
+> EmailPlanResponse update_email_plan(storefront_oid, settings)
+
+Update email plan
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+settings = ultracart.EmailPlan() # EmailPlan | plan request
+
+try: 
+    # Update email plan
+    api_response = api_instance.update_email_plan(storefront_oid, settings)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->update_email_plan: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **settings** | [**EmailPlan**](EmailPlan.md)| plan request | 
+
+### Return type
+
+[**EmailPlanResponse**](EmailPlanResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_email_postcard**
+> EmailCommseqPostcardResponse update_email_postcard(storefront_oid, commseq_postcard_uuid, email_commseq_postcard)
+
+Update email postcard
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | null
+email_commseq_postcard = ultracart.EmailCommseqPostcard() # EmailCommseqPostcard | Email commseq postcard
+
+try: 
+    # Update email postcard
+    api_response = api_instance.update_email_postcard(storefront_oid, commseq_postcard_uuid, email_commseq_postcard)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->update_email_postcard: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **commseq_postcard_uuid** | **str**| null | 
+ **email_commseq_postcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email commseq postcard | 
+
+### Return type
+
+[**EmailCommseqPostcardResponse**](EmailCommseqPostcardResponse.md)
 
 ### Authorization
 
@@ -3989,6 +6250,67 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_email_settings**
+> EmailSettingsResponse update_email_settings(storefront_oid, settings)
+
+Update email settings
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+storefront_oid = 'storefront_oid_example' # str | null
+settings = ultracart.EmailSettings() # EmailSettings | settings request
+
+try: 
+    # Update email settings
+    api_response = api_instance.update_email_settings(storefront_oid, settings)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->update_email_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **str**| null | 
+ **settings** | [**EmailSettings**](EmailSettings.md)| settings request | 
+
+### Return type
+
+[**EmailSettingsResponse**](EmailSettingsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_experiment**
 > ExperimentResponse update_experiment(storefront_oid, storefront_experiment_oid, experiment)
 
@@ -4040,6 +6362,132 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ExperimentResponse**](ExperimentResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_library_item**
+> LibraryItemResponse update_library_item(library_item_oid, library_item)
+
+Update library item. Note that only certain fields may be updated via this method.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+library_item_oid = 56 # int | null
+library_item = ultracart.LibraryItem() # LibraryItem | Library item
+
+try: 
+    # Update library item. Note that only certain fields may be updated via this method.
+    api_response = api_instance.update_library_item(library_item_oid, library_item)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->update_library_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **library_item_oid** | **int**| null | 
+ **library_item** | [**LibraryItem**](LibraryItem.md)| Library item | 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_transaction_email**
+> TransactionEmailResponse update_transaction_email(id, email_id, transaction_email)
+
+Updates a transaction email object
+
+Updates a transactional email 
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+id = 56 # int | null
+email_id = 'email_id_example' # str | null
+transaction_email = ultracart.TransactionEmail() # TransactionEmail | TransactionEmail
+
+try: 
+    # Updates a transaction email object
+    api_response = api_instance.update_transaction_email(id, email_id, transaction_email)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->update_transaction_email: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| null | 
+ **email_id** | **str**| null | 
+ **transaction_email** | [**TransactionEmail**](TransactionEmail.md)| TransactionEmail | 
+
+### Return type
+
+[**TransactionEmailResponse**](TransactionEmailResponse.md)
 
 ### Authorization
 

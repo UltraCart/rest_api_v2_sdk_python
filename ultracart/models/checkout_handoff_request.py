@@ -37,7 +37,8 @@ class CheckoutHandoffRequest(object):
         'operation': 'str',
         'paypal_maximum_upsell_revenue': 'float',
         'paypal_return_url': 'str',
-        'secure_host_name': 'str'
+        'secure_host_name': 'str',
+        'ucacid': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class CheckoutHandoffRequest(object):
         'operation': 'operation',
         'paypal_maximum_upsell_revenue': 'paypal_maximum_upsell_revenue',
         'paypal_return_url': 'paypal_return_url',
-        'secure_host_name': 'secure_host_name'
+        'secure_host_name': 'secure_host_name',
+        'ucacid': 'ucacid'
     }
 
-    def __init__(self, cart=None, error_parameter_name=None, error_return_url=None, operation=None, paypal_maximum_upsell_revenue=None, paypal_return_url=None, secure_host_name=None):
+    def __init__(self, cart=None, error_parameter_name=None, error_return_url=None, operation=None, paypal_maximum_upsell_revenue=None, paypal_return_url=None, secure_host_name=None, ucacid=None):
         """
         CheckoutHandoffRequest - a model defined in Swagger
         """
@@ -62,6 +64,7 @@ class CheckoutHandoffRequest(object):
         self._paypal_maximum_upsell_revenue = None
         self._paypal_return_url = None
         self._secure_host_name = None
+        self._ucacid = None
         self.discriminator = None
 
         if cart is not None:
@@ -78,6 +81,8 @@ class CheckoutHandoffRequest(object):
           self.paypal_return_url = paypal_return_url
         if secure_host_name is not None:
           self.secure_host_name = secure_host_name
+        if ucacid is not None:
+          self.ucacid = ucacid
 
     @property
     def cart(self):
@@ -243,6 +248,29 @@ class CheckoutHandoffRequest(object):
         """
 
         self._secure_host_name = secure_host_name
+
+    @property
+    def ucacid(self):
+        """
+        Gets the ucacid of this CheckoutHandoffRequest.
+        The UltraCart Analytics cookie value.  Populate this if you're handing off from a different domain than the checkout.
+
+        :return: The ucacid of this CheckoutHandoffRequest.
+        :rtype: str
+        """
+        return self._ucacid
+
+    @ucacid.setter
+    def ucacid(self, ucacid):
+        """
+        Sets the ucacid of this CheckoutHandoffRequest.
+        The UltraCart Analytics cookie value.  Populate this if you're handing off from a different domain than the checkout.
+
+        :param ucacid: The ucacid of this CheckoutHandoffRequest.
+        :type: str
+        """
+
+        self._ucacid = ucacid
 
     def to_dict(self):
         """

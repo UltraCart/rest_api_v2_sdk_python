@@ -33,6 +33,7 @@ class ItemContent(object):
     swagger_types = {
         'assignments': 'list[ItemContentAssignment]',
         'attributes': 'list[ItemContentAttribute]',
+        'custom_thank_you_url': 'str',
         'exclude_from_search': 'bool',
         'exclude_from_top_sellers': 'bool',
         'extended_description': 'str',
@@ -47,6 +48,7 @@ class ItemContent(object):
     attribute_map = {
         'assignments': 'assignments',
         'attributes': 'attributes',
+        'custom_thank_you_url': 'custom_thank_you_url',
         'exclude_from_search': 'exclude_from_search',
         'exclude_from_top_sellers': 'exclude_from_top_sellers',
         'extended_description': 'extended_description',
@@ -58,13 +60,14 @@ class ItemContent(object):
         'view_url': 'view_url'
     }
 
-    def __init__(self, assignments=None, attributes=None, exclude_from_search=None, exclude_from_top_sellers=None, extended_description=None, extended_description_translated_text_instance_oid=None, multimedia=None, new_item=None, new_item_end=None, new_item_start=None, view_url=None):
+    def __init__(self, assignments=None, attributes=None, custom_thank_you_url=None, exclude_from_search=None, exclude_from_top_sellers=None, extended_description=None, extended_description_translated_text_instance_oid=None, multimedia=None, new_item=None, new_item_end=None, new_item_start=None, view_url=None):
         """
         ItemContent - a model defined in Swagger
         """
 
         self._assignments = None
         self._attributes = None
+        self._custom_thank_you_url = None
         self._exclude_from_search = None
         self._exclude_from_top_sellers = None
         self._extended_description = None
@@ -80,6 +83,8 @@ class ItemContent(object):
           self.assignments = assignments
         if attributes is not None:
           self.attributes = attributes
+        if custom_thank_you_url is not None:
+          self.custom_thank_you_url = custom_thank_you_url
         if exclude_from_search is not None:
           self.exclude_from_search = exclude_from_search
         if exclude_from_top_sellers is not None:
@@ -144,6 +149,29 @@ class ItemContent(object):
         """
 
         self._attributes = attributes
+
+    @property
+    def custom_thank_you_url(self):
+        """
+        Gets the custom_thank_you_url of this ItemContent.
+        Custom Thank You URL
+
+        :return: The custom_thank_you_url of this ItemContent.
+        :rtype: str
+        """
+        return self._custom_thank_you_url
+
+    @custom_thank_you_url.setter
+    def custom_thank_you_url(self, custom_thank_you_url):
+        """
+        Sets the custom_thank_you_url of this ItemContent.
+        Custom Thank You URL
+
+        :param custom_thank_you_url: The custom_thank_you_url of this ItemContent.
+        :type: str
+        """
+
+        self._custom_thank_you_url = custom_thank_you_url
 
     @property
     def exclude_from_search(self):

@@ -34,6 +34,7 @@ class ExperimentVariation(object):
         'add_to_cart_count': 'int',
         'average_duration_seconds': 'int',
         'average_objective_per_session': 'float',
+        'average_order_value': 'float',
         'bounce_count': 'int',
         'conversion_rate': 'float',
         'duration_seconds_sum': 'int',
@@ -44,6 +45,7 @@ class ExperimentVariation(object):
         'revenue': 'float',
         'session_count': 'int',
         'traffic_percentage': 'float',
+        'url': 'str',
         'variation_name': 'str',
         'variation_number': 'int',
         'winner': 'bool'
@@ -53,6 +55,7 @@ class ExperimentVariation(object):
         'add_to_cart_count': 'add_to_cart_count',
         'average_duration_seconds': 'average_duration_seconds',
         'average_objective_per_session': 'average_objective_per_session',
+        'average_order_value': 'average_order_value',
         'bounce_count': 'bounce_count',
         'conversion_rate': 'conversion_rate',
         'duration_seconds_sum': 'duration_seconds_sum',
@@ -63,12 +66,13 @@ class ExperimentVariation(object):
         'revenue': 'revenue',
         'session_count': 'session_count',
         'traffic_percentage': 'traffic_percentage',
+        'url': 'url',
         'variation_name': 'variation_name',
         'variation_number': 'variation_number',
         'winner': 'winner'
     }
 
-    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, bounce_count=None, conversion_rate=None, duration_seconds_sum=None, initiate_checkout_count=None, order_count=None, original_traffic_percentage=None, page_view_count=None, revenue=None, session_count=None, traffic_percentage=None, variation_name=None, variation_number=None, winner=None):
+    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, average_order_value=None, bounce_count=None, conversion_rate=None, duration_seconds_sum=None, initiate_checkout_count=None, order_count=None, original_traffic_percentage=None, page_view_count=None, revenue=None, session_count=None, traffic_percentage=None, url=None, variation_name=None, variation_number=None, winner=None):
         """
         ExperimentVariation - a model defined in Swagger
         """
@@ -76,6 +80,7 @@ class ExperimentVariation(object):
         self._add_to_cart_count = None
         self._average_duration_seconds = None
         self._average_objective_per_session = None
+        self._average_order_value = None
         self._bounce_count = None
         self._conversion_rate = None
         self._duration_seconds_sum = None
@@ -86,6 +91,7 @@ class ExperimentVariation(object):
         self._revenue = None
         self._session_count = None
         self._traffic_percentage = None
+        self._url = None
         self._variation_name = None
         self._variation_number = None
         self._winner = None
@@ -97,6 +103,8 @@ class ExperimentVariation(object):
           self.average_duration_seconds = average_duration_seconds
         if average_objective_per_session is not None:
           self.average_objective_per_session = average_objective_per_session
+        if average_order_value is not None:
+          self.average_order_value = average_order_value
         if bounce_count is not None:
           self.bounce_count = bounce_count
         if conversion_rate is not None:
@@ -117,6 +125,8 @@ class ExperimentVariation(object):
           self.session_count = session_count
         if traffic_percentage is not None:
           self.traffic_percentage = traffic_percentage
+        if url is not None:
+          self.url = url
         if variation_name is not None:
           self.variation_name = variation_name
         if variation_number is not None:
@@ -192,6 +202,29 @@ class ExperimentVariation(object):
         """
 
         self._average_objective_per_session = average_objective_per_session
+
+    @property
+    def average_order_value(self):
+        """
+        Gets the average_order_value of this ExperimentVariation.
+        Average order value for this variation
+
+        :return: The average_order_value of this ExperimentVariation.
+        :rtype: float
+        """
+        return self._average_order_value
+
+    @average_order_value.setter
+    def average_order_value(self, average_order_value):
+        """
+        Sets the average_order_value of this ExperimentVariation.
+        Average order value for this variation
+
+        :param average_order_value: The average_order_value of this ExperimentVariation.
+        :type: float
+        """
+
+        self._average_order_value = average_order_value
 
     @property
     def bounce_count(self):
@@ -422,6 +455,29 @@ class ExperimentVariation(object):
         """
 
         self._traffic_percentage = traffic_percentage
+
+    @property
+    def url(self):
+        """
+        Gets the url of this ExperimentVariation.
+        Url of the variation if this experiment is a url experiment.
+
+        :return: The url of this ExperimentVariation.
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """
+        Sets the url of this ExperimentVariation.
+        Url of the variation if this experiment is a url experiment.
+
+        :param url: The url of this ExperimentVariation.
+        :type: str
+        """
+
+        self._url = url
 
     @property
     def variation_name(self):

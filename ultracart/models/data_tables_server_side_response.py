@@ -31,33 +31,59 @@ class DataTablesServerSideResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'data': 'list[Customer]',
         'draw': 'int',
         'records_filtered': 'int',
         'records_total': 'int'
     }
 
     attribute_map = {
+        'data': 'data',
         'draw': 'draw',
         'records_filtered': 'recordsFiltered',
         'records_total': 'recordsTotal'
     }
 
-    def __init__(self, draw=None, records_filtered=None, records_total=None):
+    def __init__(self, data=None, draw=None, records_filtered=None, records_total=None):
         """
         DataTablesServerSideResponse - a model defined in Swagger
         """
 
+        self._data = None
         self._draw = None
         self._records_filtered = None
         self._records_total = None
         self.discriminator = None
 
+        if data is not None:
+          self.data = data
         if draw is not None:
           self.draw = draw
         if records_filtered is not None:
           self.records_filtered = records_filtered
         if records_total is not None:
           self.records_total = records_total
+
+    @property
+    def data(self):
+        """
+        Gets the data of this DataTablesServerSideResponse.
+
+        :return: The data of this DataTablesServerSideResponse.
+        :rtype: list[Customer]
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """
+        Sets the data of this DataTablesServerSideResponse.
+
+        :param data: The data of this DataTablesServerSideResponse.
+        :type: list[Customer]
+        """
+
+        self._data = data
 
     @property
     def draw(self):

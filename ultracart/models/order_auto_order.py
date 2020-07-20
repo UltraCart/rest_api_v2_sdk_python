@@ -33,25 +33,70 @@ class OrderAutoOrder(object):
     swagger_types = {
         'auto_order_code': 'str',
         'auto_order_oid': 'int',
+        'cancel_after_next_x_orders': 'int',
+        'cancel_downgrade': 'bool',
+        'cancel_upgrade': 'bool',
+        'canceled_by_user': 'str',
+        'canceled_dts': 'str',
+        'completed': 'bool',
+        'credit_card_attempt': 'int',
+        'disabled_dts': 'str',
+        'enabled': 'bool',
+        'failure_reason': 'str',
+        'items': 'list[AutoOrderItem]',
+        'next_attempt': 'str',
         'original_order_id': 'str',
+        'override_affiliate_id': 'int',
+        'rebill_orders': 'list[Order]',
+        'rotating_transaction_gateway_code': 'str',
         'status': 'str'
     }
 
     attribute_map = {
         'auto_order_code': 'auto_order_code',
         'auto_order_oid': 'auto_order_oid',
+        'cancel_after_next_x_orders': 'cancel_after_next_x_orders',
+        'cancel_downgrade': 'cancel_downgrade',
+        'cancel_upgrade': 'cancel_upgrade',
+        'canceled_by_user': 'canceled_by_user',
+        'canceled_dts': 'canceled_dts',
+        'completed': 'completed',
+        'credit_card_attempt': 'credit_card_attempt',
+        'disabled_dts': 'disabled_dts',
+        'enabled': 'enabled',
+        'failure_reason': 'failure_reason',
+        'items': 'items',
+        'next_attempt': 'next_attempt',
         'original_order_id': 'original_order_id',
+        'override_affiliate_id': 'override_affiliate_id',
+        'rebill_orders': 'rebill_orders',
+        'rotating_transaction_gateway_code': 'rotating_transaction_gateway_code',
         'status': 'status'
     }
 
-    def __init__(self, auto_order_code=None, auto_order_oid=None, original_order_id=None, status=None):
+    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, next_attempt=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):
         """
         OrderAutoOrder - a model defined in Swagger
         """
 
         self._auto_order_code = None
         self._auto_order_oid = None
+        self._cancel_after_next_x_orders = None
+        self._cancel_downgrade = None
+        self._cancel_upgrade = None
+        self._canceled_by_user = None
+        self._canceled_dts = None
+        self._completed = None
+        self._credit_card_attempt = None
+        self._disabled_dts = None
+        self._enabled = None
+        self._failure_reason = None
+        self._items = None
+        self._next_attempt = None
         self._original_order_id = None
+        self._override_affiliate_id = None
+        self._rebill_orders = None
+        self._rotating_transaction_gateway_code = None
         self._status = None
         self.discriminator = None
 
@@ -59,8 +104,38 @@ class OrderAutoOrder(object):
           self.auto_order_code = auto_order_code
         if auto_order_oid is not None:
           self.auto_order_oid = auto_order_oid
+        if cancel_after_next_x_orders is not None:
+          self.cancel_after_next_x_orders = cancel_after_next_x_orders
+        if cancel_downgrade is not None:
+          self.cancel_downgrade = cancel_downgrade
+        if cancel_upgrade is not None:
+          self.cancel_upgrade = cancel_upgrade
+        if canceled_by_user is not None:
+          self.canceled_by_user = canceled_by_user
+        if canceled_dts is not None:
+          self.canceled_dts = canceled_dts
+        if completed is not None:
+          self.completed = completed
+        if credit_card_attempt is not None:
+          self.credit_card_attempt = credit_card_attempt
+        if disabled_dts is not None:
+          self.disabled_dts = disabled_dts
+        if enabled is not None:
+          self.enabled = enabled
+        if failure_reason is not None:
+          self.failure_reason = failure_reason
+        if items is not None:
+          self.items = items
+        if next_attempt is not None:
+          self.next_attempt = next_attempt
         if original_order_id is not None:
           self.original_order_id = original_order_id
+        if override_affiliate_id is not None:
+          self.override_affiliate_id = override_affiliate_id
+        if rebill_orders is not None:
+          self.rebill_orders = rebill_orders
+        if rotating_transaction_gateway_code is not None:
+          self.rotating_transaction_gateway_code = rotating_transaction_gateway_code
         if status is not None:
           self.status = status
 
@@ -68,7 +143,7 @@ class OrderAutoOrder(object):
     def auto_order_code(self):
         """
         Gets the auto_order_code of this OrderAutoOrder.
-        Unique code assigned to the auto order
+        Unique code assigned to this auto order
 
         :return: The auto_order_code of this OrderAutoOrder.
         :rtype: str
@@ -79,7 +154,7 @@ class OrderAutoOrder(object):
     def auto_order_code(self, auto_order_code):
         """
         Sets the auto_order_code of this OrderAutoOrder.
-        Unique code assigned to the auto order
+        Unique code assigned to this auto order
 
         :param auto_order_code: The auto_order_code of this OrderAutoOrder.
         :type: str
@@ -91,7 +166,7 @@ class OrderAutoOrder(object):
     def auto_order_oid(self):
         """
         Gets the auto_order_oid of this OrderAutoOrder.
-        Unique identifier assigned to the auto order
+        Auto order object identifier
 
         :return: The auto_order_oid of this OrderAutoOrder.
         :rtype: int
@@ -102,7 +177,7 @@ class OrderAutoOrder(object):
     def auto_order_oid(self, auto_order_oid):
         """
         Sets the auto_order_oid of this OrderAutoOrder.
-        Unique identifier assigned to the auto order
+        Auto order object identifier
 
         :param auto_order_oid: The auto_order_oid of this OrderAutoOrder.
         :type: int
@@ -111,10 +186,286 @@ class OrderAutoOrder(object):
         self._auto_order_oid = auto_order_oid
 
     @property
+    def cancel_after_next_x_orders(self):
+        """
+        Gets the cancel_after_next_x_orders of this OrderAutoOrder.
+        Cancel this auto order after X additional rebills
+
+        :return: The cancel_after_next_x_orders of this OrderAutoOrder.
+        :rtype: int
+        """
+        return self._cancel_after_next_x_orders
+
+    @cancel_after_next_x_orders.setter
+    def cancel_after_next_x_orders(self, cancel_after_next_x_orders):
+        """
+        Sets the cancel_after_next_x_orders of this OrderAutoOrder.
+        Cancel this auto order after X additional rebills
+
+        :param cancel_after_next_x_orders: The cancel_after_next_x_orders of this OrderAutoOrder.
+        :type: int
+        """
+
+        self._cancel_after_next_x_orders = cancel_after_next_x_orders
+
+    @property
+    def cancel_downgrade(self):
+        """
+        Gets the cancel_downgrade of this OrderAutoOrder.
+        True if the auto order was canceled because the customer purchased a downgrade item
+
+        :return: The cancel_downgrade of this OrderAutoOrder.
+        :rtype: bool
+        """
+        return self._cancel_downgrade
+
+    @cancel_downgrade.setter
+    def cancel_downgrade(self, cancel_downgrade):
+        """
+        Sets the cancel_downgrade of this OrderAutoOrder.
+        True if the auto order was canceled because the customer purchased a downgrade item
+
+        :param cancel_downgrade: The cancel_downgrade of this OrderAutoOrder.
+        :type: bool
+        """
+
+        self._cancel_downgrade = cancel_downgrade
+
+    @property
+    def cancel_upgrade(self):
+        """
+        Gets the cancel_upgrade of this OrderAutoOrder.
+        True if the auto order was canceled because the customer purchased an upgrade item
+
+        :return: The cancel_upgrade of this OrderAutoOrder.
+        :rtype: bool
+        """
+        return self._cancel_upgrade
+
+    @cancel_upgrade.setter
+    def cancel_upgrade(self, cancel_upgrade):
+        """
+        Sets the cancel_upgrade of this OrderAutoOrder.
+        True if the auto order was canceled because the customer purchased an upgrade item
+
+        :param cancel_upgrade: The cancel_upgrade of this OrderAutoOrder.
+        :type: bool
+        """
+
+        self._cancel_upgrade = cancel_upgrade
+
+    @property
+    def canceled_by_user(self):
+        """
+        Gets the canceled_by_user of this OrderAutoOrder.
+        The user that canceled the auto order
+
+        :return: The canceled_by_user of this OrderAutoOrder.
+        :rtype: str
+        """
+        return self._canceled_by_user
+
+    @canceled_by_user.setter
+    def canceled_by_user(self, canceled_by_user):
+        """
+        Sets the canceled_by_user of this OrderAutoOrder.
+        The user that canceled the auto order
+
+        :param canceled_by_user: The canceled_by_user of this OrderAutoOrder.
+        :type: str
+        """
+
+        self._canceled_by_user = canceled_by_user
+
+    @property
+    def canceled_dts(self):
+        """
+        Gets the canceled_dts of this OrderAutoOrder.
+        The date/time that the auto order was canceled
+
+        :return: The canceled_dts of this OrderAutoOrder.
+        :rtype: str
+        """
+        return self._canceled_dts
+
+    @canceled_dts.setter
+    def canceled_dts(self, canceled_dts):
+        """
+        Sets the canceled_dts of this OrderAutoOrder.
+        The date/time that the auto order was canceled
+
+        :param canceled_dts: The canceled_dts of this OrderAutoOrder.
+        :type: str
+        """
+
+        self._canceled_dts = canceled_dts
+
+    @property
+    def completed(self):
+        """
+        Gets the completed of this OrderAutoOrder.
+        True if the auto order ran successfully to completion
+
+        :return: The completed of this OrderAutoOrder.
+        :rtype: bool
+        """
+        return self._completed
+
+    @completed.setter
+    def completed(self, completed):
+        """
+        Sets the completed of this OrderAutoOrder.
+        True if the auto order ran successfully to completion
+
+        :param completed: The completed of this OrderAutoOrder.
+        :type: bool
+        """
+
+        self._completed = completed
+
+    @property
+    def credit_card_attempt(self):
+        """
+        Gets the credit_card_attempt of this OrderAutoOrder.
+        The number of credit card attempts that have taken place
+
+        :return: The credit_card_attempt of this OrderAutoOrder.
+        :rtype: int
+        """
+        return self._credit_card_attempt
+
+    @credit_card_attempt.setter
+    def credit_card_attempt(self, credit_card_attempt):
+        """
+        Sets the credit_card_attempt of this OrderAutoOrder.
+        The number of credit card attempts that have taken place
+
+        :param credit_card_attempt: The credit_card_attempt of this OrderAutoOrder.
+        :type: int
+        """
+
+        self._credit_card_attempt = credit_card_attempt
+
+    @property
+    def disabled_dts(self):
+        """
+        Gets the disabled_dts of this OrderAutoOrder.
+        The date/time the auto order was disabled due to failed rebills
+
+        :return: The disabled_dts of this OrderAutoOrder.
+        :rtype: str
+        """
+        return self._disabled_dts
+
+    @disabled_dts.setter
+    def disabled_dts(self, disabled_dts):
+        """
+        Sets the disabled_dts of this OrderAutoOrder.
+        The date/time the auto order was disabled due to failed rebills
+
+        :param disabled_dts: The disabled_dts of this OrderAutoOrder.
+        :type: str
+        """
+
+        self._disabled_dts = disabled_dts
+
+    @property
+    def enabled(self):
+        """
+        Gets the enabled of this OrderAutoOrder.
+        True if this auto order is enabled
+
+        :return: The enabled of this OrderAutoOrder.
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """
+        Sets the enabled of this OrderAutoOrder.
+        True if this auto order is enabled
+
+        :param enabled: The enabled of this OrderAutoOrder.
+        :type: bool
+        """
+
+        self._enabled = enabled
+
+    @property
+    def failure_reason(self):
+        """
+        Gets the failure_reason of this OrderAutoOrder.
+        The reason this auto order failed during the last rebill attempt
+
+        :return: The failure_reason of this OrderAutoOrder.
+        :rtype: str
+        """
+        return self._failure_reason
+
+    @failure_reason.setter
+    def failure_reason(self, failure_reason):
+        """
+        Sets the failure_reason of this OrderAutoOrder.
+        The reason this auto order failed during the last rebill attempt
+
+        :param failure_reason: The failure_reason of this OrderAutoOrder.
+        :type: str
+        """
+
+        self._failure_reason = failure_reason
+
+    @property
+    def items(self):
+        """
+        Gets the items of this OrderAutoOrder.
+        The items that are setup to rebill
+
+        :return: The items of this OrderAutoOrder.
+        :rtype: list[AutoOrderItem]
+        """
+        return self._items
+
+    @items.setter
+    def items(self, items):
+        """
+        Sets the items of this OrderAutoOrder.
+        The items that are setup to rebill
+
+        :param items: The items of this OrderAutoOrder.
+        :type: list[AutoOrderItem]
+        """
+
+        self._items = items
+
+    @property
+    def next_attempt(self):
+        """
+        Gets the next_attempt of this OrderAutoOrder.
+        The next time that the auto order will be attempted for processing
+
+        :return: The next_attempt of this OrderAutoOrder.
+        :rtype: str
+        """
+        return self._next_attempt
+
+    @next_attempt.setter
+    def next_attempt(self, next_attempt):
+        """
+        Sets the next_attempt of this OrderAutoOrder.
+        The next time that the auto order will be attempted for processing
+
+        :param next_attempt: The next_attempt of this OrderAutoOrder.
+        :type: str
+        """
+
+        self._next_attempt = next_attempt
+
+    @property
     def original_order_id(self):
         """
         Gets the original_order_id of this OrderAutoOrder.
-        Orignal order id that started this auto order sequence
+        The original order id that this auto order is associated with.
 
         :return: The original_order_id of this OrderAutoOrder.
         :rtype: str
@@ -125,13 +476,82 @@ class OrderAutoOrder(object):
     def original_order_id(self, original_order_id):
         """
         Sets the original_order_id of this OrderAutoOrder.
-        Orignal order id that started this auto order sequence
+        The original order id that this auto order is associated with.
 
         :param original_order_id: The original_order_id of this OrderAutoOrder.
         :type: str
         """
 
         self._original_order_id = original_order_id
+
+    @property
+    def override_affiliate_id(self):
+        """
+        Gets the override_affiliate_id of this OrderAutoOrder.
+        Override the affiliate id given credit for rebills of this auto order
+
+        :return: The override_affiliate_id of this OrderAutoOrder.
+        :rtype: int
+        """
+        return self._override_affiliate_id
+
+    @override_affiliate_id.setter
+    def override_affiliate_id(self, override_affiliate_id):
+        """
+        Sets the override_affiliate_id of this OrderAutoOrder.
+        Override the affiliate id given credit for rebills of this auto order
+
+        :param override_affiliate_id: The override_affiliate_id of this OrderAutoOrder.
+        :type: int
+        """
+
+        self._override_affiliate_id = override_affiliate_id
+
+    @property
+    def rebill_orders(self):
+        """
+        Gets the rebill_orders of this OrderAutoOrder.
+        Rebill orders that have taken place on this auto order
+
+        :return: The rebill_orders of this OrderAutoOrder.
+        :rtype: list[Order]
+        """
+        return self._rebill_orders
+
+    @rebill_orders.setter
+    def rebill_orders(self, rebill_orders):
+        """
+        Sets the rebill_orders of this OrderAutoOrder.
+        Rebill orders that have taken place on this auto order
+
+        :param rebill_orders: The rebill_orders of this OrderAutoOrder.
+        :type: list[Order]
+        """
+
+        self._rebill_orders = rebill_orders
+
+    @property
+    def rotating_transaction_gateway_code(self):
+        """
+        Gets the rotating_transaction_gateway_code of this OrderAutoOrder.
+        The RTG code associated with this order for future rebills
+
+        :return: The rotating_transaction_gateway_code of this OrderAutoOrder.
+        :rtype: str
+        """
+        return self._rotating_transaction_gateway_code
+
+    @rotating_transaction_gateway_code.setter
+    def rotating_transaction_gateway_code(self, rotating_transaction_gateway_code):
+        """
+        Sets the rotating_transaction_gateway_code of this OrderAutoOrder.
+        The RTG code associated with this order for future rebills
+
+        :param rotating_transaction_gateway_code: The rotating_transaction_gateway_code of this OrderAutoOrder.
+        :type: str
+        """
+
+        self._rotating_transaction_gateway_code = rotating_transaction_gateway_code
 
     @property
     def status(self):

@@ -32,13 +32,21 @@ class EmailFlow(object):
     """
     swagger_types = {
         'allow_multiple_concurrent_enrollments': 'bool',
+        'back_populating': 'bool',
+        'click_rate_formatted': 'str',
         'created_dts': 'str',
         'deleted': 'bool',
         'email_communication_sequence_uuid': 'str',
         'email_flow_uuid': 'str',
+        'enrolled_customers': 'int',
+        'esp_domain_user': 'str',
+        'esp_domain_uuid': 'str',
+        'esp_friendly_name': 'str',
         'filter_profile_equation_json': 'str',
         'merchant_id': 'str',
         'name': 'str',
+        'open_rate_formatted': 'str',
+        'revenue_formatted': 'str',
         'status': 'str',
         'status_dts': 'str',
         'storefront_oid': 'int',
@@ -49,13 +57,21 @@ class EmailFlow(object):
 
     attribute_map = {
         'allow_multiple_concurrent_enrollments': 'allow_multiple_concurrent_enrollments',
+        'back_populating': 'back_populating',
+        'click_rate_formatted': 'click_rate_formatted',
         'created_dts': 'created_dts',
         'deleted': 'deleted',
         'email_communication_sequence_uuid': 'email_communication_sequence_uuid',
         'email_flow_uuid': 'email_flow_uuid',
+        'enrolled_customers': 'enrolled_customers',
+        'esp_domain_user': 'esp_domain_user',
+        'esp_domain_uuid': 'esp_domain_uuid',
+        'esp_friendly_name': 'esp_friendly_name',
         'filter_profile_equation_json': 'filter_profile_equation_json',
         'merchant_id': 'merchant_id',
         'name': 'name',
+        'open_rate_formatted': 'open_rate_formatted',
+        'revenue_formatted': 'revenue_formatted',
         'status': 'status',
         'status_dts': 'status_dts',
         'storefront_oid': 'storefront_oid',
@@ -64,19 +80,27 @@ class EmailFlow(object):
         'trigger_type': 'trigger_type'
     }
 
-    def __init__(self, allow_multiple_concurrent_enrollments=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, filter_profile_equation_json=None, merchant_id=None, name=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):
+    def __init__(self, allow_multiple_concurrent_enrollments=None, back_populating=None, click_rate_formatted=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, enrolled_customers=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, filter_profile_equation_json=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):
         """
         EmailFlow - a model defined in Swagger
         """
 
         self._allow_multiple_concurrent_enrollments = None
+        self._back_populating = None
+        self._click_rate_formatted = None
         self._created_dts = None
         self._deleted = None
         self._email_communication_sequence_uuid = None
         self._email_flow_uuid = None
+        self._enrolled_customers = None
+        self._esp_domain_user = None
+        self._esp_domain_uuid = None
+        self._esp_friendly_name = None
         self._filter_profile_equation_json = None
         self._merchant_id = None
         self._name = None
+        self._open_rate_formatted = None
+        self._revenue_formatted = None
         self._status = None
         self._status_dts = None
         self._storefront_oid = None
@@ -87,6 +111,10 @@ class EmailFlow(object):
 
         if allow_multiple_concurrent_enrollments is not None:
           self.allow_multiple_concurrent_enrollments = allow_multiple_concurrent_enrollments
+        if back_populating is not None:
+          self.back_populating = back_populating
+        if click_rate_formatted is not None:
+          self.click_rate_formatted = click_rate_formatted
         if created_dts is not None:
           self.created_dts = created_dts
         if deleted is not None:
@@ -95,12 +123,24 @@ class EmailFlow(object):
           self.email_communication_sequence_uuid = email_communication_sequence_uuid
         if email_flow_uuid is not None:
           self.email_flow_uuid = email_flow_uuid
+        if enrolled_customers is not None:
+          self.enrolled_customers = enrolled_customers
+        if esp_domain_user is not None:
+          self.esp_domain_user = esp_domain_user
+        if esp_domain_uuid is not None:
+          self.esp_domain_uuid = esp_domain_uuid
+        if esp_friendly_name is not None:
+          self.esp_friendly_name = esp_friendly_name
         if filter_profile_equation_json is not None:
           self.filter_profile_equation_json = filter_profile_equation_json
         if merchant_id is not None:
           self.merchant_id = merchant_id
         if name is not None:
           self.name = name
+        if open_rate_formatted is not None:
+          self.open_rate_formatted = open_rate_formatted
+        if revenue_formatted is not None:
+          self.revenue_formatted = revenue_formatted
         if status is not None:
           self.status = status
         if status_dts is not None:
@@ -136,6 +176,52 @@ class EmailFlow(object):
         """
 
         self._allow_multiple_concurrent_enrollments = allow_multiple_concurrent_enrollments
+
+    @property
+    def back_populating(self):
+        """
+        Gets the back_populating of this EmailFlow.
+        True if the flow is currently performing a back population.
+
+        :return: The back_populating of this EmailFlow.
+        :rtype: bool
+        """
+        return self._back_populating
+
+    @back_populating.setter
+    def back_populating(self, back_populating):
+        """
+        Sets the back_populating of this EmailFlow.
+        True if the flow is currently performing a back population.
+
+        :param back_populating: The back_populating of this EmailFlow.
+        :type: bool
+        """
+
+        self._back_populating = back_populating
+
+    @property
+    def click_rate_formatted(self):
+        """
+        Gets the click_rate_formatted of this EmailFlow.
+        Click rate of emails, formatted
+
+        :return: The click_rate_formatted of this EmailFlow.
+        :rtype: str
+        """
+        return self._click_rate_formatted
+
+    @click_rate_formatted.setter
+    def click_rate_formatted(self, click_rate_formatted):
+        """
+        Sets the click_rate_formatted of this EmailFlow.
+        Click rate of emails, formatted
+
+        :param click_rate_formatted: The click_rate_formatted of this EmailFlow.
+        :type: str
+        """
+
+        self._click_rate_formatted = click_rate_formatted
 
     @property
     def created_dts(self):
@@ -230,6 +316,98 @@ class EmailFlow(object):
         self._email_flow_uuid = email_flow_uuid
 
     @property
+    def enrolled_customers(self):
+        """
+        Gets the enrolled_customers of this EmailFlow.
+        Number of enrolled customers.
+
+        :return: The enrolled_customers of this EmailFlow.
+        :rtype: int
+        """
+        return self._enrolled_customers
+
+    @enrolled_customers.setter
+    def enrolled_customers(self, enrolled_customers):
+        """
+        Sets the enrolled_customers of this EmailFlow.
+        Number of enrolled customers.
+
+        :param enrolled_customers: The enrolled_customers of this EmailFlow.
+        :type: int
+        """
+
+        self._enrolled_customers = enrolled_customers
+
+    @property
+    def esp_domain_user(self):
+        """
+        Gets the esp_domain_user of this EmailFlow.
+        Username of sending email
+
+        :return: The esp_domain_user of this EmailFlow.
+        :rtype: str
+        """
+        return self._esp_domain_user
+
+    @esp_domain_user.setter
+    def esp_domain_user(self, esp_domain_user):
+        """
+        Sets the esp_domain_user of this EmailFlow.
+        Username of sending email
+
+        :param esp_domain_user: The esp_domain_user of this EmailFlow.
+        :type: str
+        """
+
+        self._esp_domain_user = esp_domain_user
+
+    @property
+    def esp_domain_uuid(self):
+        """
+        Gets the esp_domain_uuid of this EmailFlow.
+        UUID of sending domain
+
+        :return: The esp_domain_uuid of this EmailFlow.
+        :rtype: str
+        """
+        return self._esp_domain_uuid
+
+    @esp_domain_uuid.setter
+    def esp_domain_uuid(self, esp_domain_uuid):
+        """
+        Sets the esp_domain_uuid of this EmailFlow.
+        UUID of sending domain
+
+        :param esp_domain_uuid: The esp_domain_uuid of this EmailFlow.
+        :type: str
+        """
+
+        self._esp_domain_uuid = esp_domain_uuid
+
+    @property
+    def esp_friendly_name(self):
+        """
+        Gets the esp_friendly_name of this EmailFlow.
+        Friendly name of the sending email
+
+        :return: The esp_friendly_name of this EmailFlow.
+        :rtype: str
+        """
+        return self._esp_friendly_name
+
+    @esp_friendly_name.setter
+    def esp_friendly_name(self, esp_friendly_name):
+        """
+        Sets the esp_friendly_name of this EmailFlow.
+        Friendly name of the sending email
+
+        :param esp_friendly_name: The esp_friendly_name of this EmailFlow.
+        :type: str
+        """
+
+        self._esp_friendly_name = esp_friendly_name
+
+    @property
     def filter_profile_equation_json(self):
         """
         Gets the filter_profile_equation_json of this EmailFlow.
@@ -299,6 +477,52 @@ class EmailFlow(object):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `250`")
 
         self._name = name
+
+    @property
+    def open_rate_formatted(self):
+        """
+        Gets the open_rate_formatted of this EmailFlow.
+        Open rate of emails, formatted
+
+        :return: The open_rate_formatted of this EmailFlow.
+        :rtype: str
+        """
+        return self._open_rate_formatted
+
+    @open_rate_formatted.setter
+    def open_rate_formatted(self, open_rate_formatted):
+        """
+        Sets the open_rate_formatted of this EmailFlow.
+        Open rate of emails, formatted
+
+        :param open_rate_formatted: The open_rate_formatted of this EmailFlow.
+        :type: str
+        """
+
+        self._open_rate_formatted = open_rate_formatted
+
+    @property
+    def revenue_formatted(self):
+        """
+        Gets the revenue_formatted of this EmailFlow.
+        Revenue, formatted
+
+        :return: The revenue_formatted of this EmailFlow.
+        :rtype: str
+        """
+        return self._revenue_formatted
+
+    @revenue_formatted.setter
+    def revenue_formatted(self, revenue_formatted):
+        """
+        Sets the revenue_formatted of this EmailFlow.
+        Revenue, formatted
+
+        :param revenue_formatted: The revenue_formatted of this EmailFlow.
+        :type: str
+        """
+
+        self._revenue_formatted = revenue_formatted
 
     @property
     def status(self):

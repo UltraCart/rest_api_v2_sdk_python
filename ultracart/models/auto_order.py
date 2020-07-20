@@ -49,7 +49,8 @@ class AutoOrder(object):
         'original_order_id': 'str',
         'override_affiliate_id': 'int',
         'rebill_orders': 'list[Order]',
-        'rotating_transaction_gateway_code': 'str'
+        'rotating_transaction_gateway_code': 'str',
+        'status': 'str'
     }
 
     attribute_map = {
@@ -71,10 +72,11 @@ class AutoOrder(object):
         'original_order_id': 'original_order_id',
         'override_affiliate_id': 'override_affiliate_id',
         'rebill_orders': 'rebill_orders',
-        'rotating_transaction_gateway_code': 'rotating_transaction_gateway_code'
+        'rotating_transaction_gateway_code': 'rotating_transaction_gateway_code',
+        'status': 'status'
     }
 
-    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None):
+    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):
         """
         AutoOrder - a model defined in Swagger
         """
@@ -98,6 +100,7 @@ class AutoOrder(object):
         self._override_affiliate_id = None
         self._rebill_orders = None
         self._rotating_transaction_gateway_code = None
+        self._status = None
         self.discriminator = None
 
         if auto_order_code is not None:
@@ -138,6 +141,8 @@ class AutoOrder(object):
           self.rebill_orders = rebill_orders
         if rotating_transaction_gateway_code is not None:
           self.rotating_transaction_gateway_code = rotating_transaction_gateway_code
+        if status is not None:
+          self.status = status
 
     @property
     def auto_order_code(self):
@@ -573,6 +578,35 @@ class AutoOrder(object):
         """
 
         self._rotating_transaction_gateway_code = rotating_transaction_gateway_code
+
+    @property
+    def status(self):
+        """
+        Gets the status of this AutoOrder.
+        The status of the auto order
+
+        :return: The status of this AutoOrder.
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """
+        Sets the status of this AutoOrder.
+        The status of the auto order
+
+        :param status: The status of this AutoOrder.
+        :type: str
+        """
+        allowed_values = ["active", "canceled", "disabled"]
+        if status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"
+                .format(status, allowed_values)
+            )
+
+        self._status = status
 
     def to_dict(self):
         """

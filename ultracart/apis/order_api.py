@@ -336,6 +336,104 @@ class OrderApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def generate_order_token(self, order_id, **kwargs):
+        """
+        Generate an order token for a given order id
+        Retrieves a single order token for a given order id.  The token can be used with the getOrderByToken API. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.generate_order_token(order_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str order_id: The order id to generate a token for. (required)
+        :return: OrderTokenResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.generate_order_token_with_http_info(order_id, **kwargs)
+        else:
+            (data) = self.generate_order_token_with_http_info(order_id, **kwargs)
+            return data
+
+    def generate_order_token_with_http_info(self, order_id, **kwargs):
+        """
+        Generate an order token for a given order id
+        Retrieves a single order token for a given order id.  The token can be used with the getOrderByToken API. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.generate_order_token_with_http_info(order_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str order_id: The order id to generate a token for. (required)
+        :return: OrderTokenResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method generate_order_token" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params) or (params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `generate_order_token`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/order/orders/token/{order_id}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='OrderTokenResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_accounts_receivable_retry_config(self, **kwargs):
         """
         Retrieve A/R Retry Configuration
@@ -613,6 +711,108 @@ class OrderApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
         return self.api_client.call_api('/order/orders/{order_id}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='OrderResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_order_by_token(self, order_by_token_query, **kwargs):
+        """
+        Retrieve an order using a token
+        Retrieves a single order using the specified order token. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_order_by_token(order_by_token_query, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param OrderByTokenQuery order_by_token_query: Order by token query (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_order_by_token_with_http_info(order_by_token_query, **kwargs)
+        else:
+            (data) = self.get_order_by_token_with_http_info(order_by_token_query, **kwargs)
+            return data
+
+    def get_order_by_token_with_http_info(self, order_by_token_query, **kwargs):
+        """
+        Retrieve an order using a token
+        Retrieves a single order using the specified order token. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_order_by_token_with_http_info(order_by_token_query, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param OrderByTokenQuery order_by_token_query: Order by token query (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_by_token_query', 'expand']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_order_by_token" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_by_token_query' is set
+        if ('order_by_token_query' not in params) or (params['order_by_token_query'] is None):
+            raise ValueError("Missing the required parameter `order_by_token_query` when calling `get_order_by_token`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'order_by_token_query' in params:
+            body_params = params['order_by_token_query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/order/orders/token', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,

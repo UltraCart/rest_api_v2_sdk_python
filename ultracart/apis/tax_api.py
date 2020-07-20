@@ -1116,6 +1116,186 @@ class TaxApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_tax_provider_sovos(self, **kwargs):
+        """
+        Retrieve the Sovos tax provider
+        Retrieves the Sovos tax provider. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_tax_provider_sovos(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: TaxProviderSovos
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_tax_provider_sovos_with_http_info(**kwargs)
+        else:
+            (data) = self.get_tax_provider_sovos_with_http_info(**kwargs)
+            return data
+
+    def get_tax_provider_sovos_with_http_info(self, **kwargs):
+        """
+        Retrieve the Sovos tax provider
+        Retrieves the Sovos tax provider. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_tax_provider_sovos_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: TaxProviderSovos
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_tax_provider_sovos" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/tax/providers/sovos', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TaxProviderSovos',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_tax_provider_sovos_test(self, **kwargs):
+        """
+        Attempts to connect to Sovos and returns back the response
+        Attempts to connect to Sovos and returns back the response. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_tax_provider_sovos_test(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: TaxProviderTestResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_tax_provider_sovos_test_with_http_info(**kwargs)
+        else:
+            (data) = self.get_tax_provider_sovos_test_with_http_info(**kwargs)
+            return data
+
+    def get_tax_provider_sovos_test_with_http_info(self, **kwargs):
+        """
+        Attempts to connect to Sovos and returns back the response
+        Attempts to connect to Sovos and returns back the response. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_tax_provider_sovos_test_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: TaxProviderTestResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_tax_provider_sovos_test" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/tax/providers/sovos/test', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TaxProviderTestResult',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_tax_provider_tax_jar(self, **kwargs):
         """
         Retrieve the TaxJar tax provider
@@ -2301,6 +2481,104 @@ class TaxApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='TaxState',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_tax_provider_sovos(self, tax_provider_sovos, **kwargs):
+        """
+        Update the Sovos tax provider
+        Update the Sovos tax provider. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_tax_provider_sovos(tax_provider_sovos, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param TaxProviderSovos tax_provider_sovos: TaxProviderSovos object (required)
+        :return: TaxProviderSovos
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_tax_provider_sovos_with_http_info(tax_provider_sovos, **kwargs)
+        else:
+            (data) = self.update_tax_provider_sovos_with_http_info(tax_provider_sovos, **kwargs)
+            return data
+
+    def update_tax_provider_sovos_with_http_info(self, tax_provider_sovos, **kwargs):
+        """
+        Update the Sovos tax provider
+        Update the Sovos tax provider. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_tax_provider_sovos_with_http_info(tax_provider_sovos, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param TaxProviderSovos tax_provider_sovos: TaxProviderSovos object (required)
+        :return: TaxProviderSovos
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['tax_provider_sovos']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_tax_provider_sovos" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'tax_provider_sovos' is set
+        if ('tax_provider_sovos' not in params) or (params['tax_provider_sovos'] is None):
+            raise ValueError("Missing the required parameter `tax_provider_sovos` when calling `update_tax_provider_sovos`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'tax_provider_sovos' in params:
+            body_params = params['tax_provider_sovos']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/tax/providers/sovos', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TaxProviderSovos',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

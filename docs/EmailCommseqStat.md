@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **click_count** | **int** | Count of clicked emails | [optional] 
 **click_count_formatted** | **str** | Count of clicked emails, formatted | [optional] 
+**conversion_count** | **int** | Count of conversion | [optional] 
+**conversion_count_formatted** | **str** | Count of conversions, formatted | [optional] 
 **delivered_count** | **int** | Count of delivered emails | [optional] 
 **delivered_count_formatted** | **str** | Count of delivered emails, formatted | [optional] 
 **email_communication_sequence_uuid** | **str** | UUID associated with the communication sequence | [optional] 
@@ -17,6 +19,8 @@ Name | Type | Description | Notes
 **merchant_id** | **str** | Merchant ID | [optional] 
 **open_count** | **int** | Count of opened emails | [optional] 
 **open_count_formatted** | **str** | Count of opened emails, formatted | [optional] 
+**order_count** | **int** | Count of orders | [optional] 
+**order_count_formatted** | **str** | Count of orders, formatted | [optional] 
 **permanent_bounce_count** | **int** | Count of emails permanently bounced | [optional] 
 **permanent_bounce_count_formatted** | **str** | Count of emails permanently bounced, formatted | [optional] 
 **profit** | **float** | Profit | [optional] 
@@ -32,6 +36,8 @@ Name | Type | Description | Notes
 **started_count** | **int** | Count of customers that started the sequence | [optional] 
 **started_count_formatted** | **str** | Count of customers that started the sequence, formatted | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
+**unsubscribe_count** | **int** | Count of unsubscribes caused | [optional] 
+**unsubscribe_count_formatted** | **str** | Count of unsubscribes caused, formatted | [optional] 
 **view_count** | **int** | Count of views | [optional] 
 **view_count_formatted** | **str** | Count of views, formatted | [optional] 
 

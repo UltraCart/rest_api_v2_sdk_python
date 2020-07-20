@@ -32,6 +32,7 @@ class Coupon(object):
     """
     swagger_types = {
         'affiliate_oid': 'int',
+        'allow_multiple_one_time_codes': 'bool',
         'amount_off_items': 'CouponAmountOffItems',
         'amount_off_shipping': 'CouponAmountOffShipping',
         'amount_off_shipping_with_items_purchase': 'CouponAmountOffShippingWithItemsPurchase',
@@ -59,6 +60,7 @@ class Coupon(object):
         'free_shipping_with_items_purchase': 'CouponFreeShippingWithItemsPurchase',
         'free_shipping_with_subtotal': 'CouponFreeShippingWithSubtotal',
         'merchant_code': 'str',
+        'merchant_notes': 'str',
         'multiple_amounts_off_items': 'CouponMultipleAmountsOffItems',
         'no_discount': 'CouponNoDiscount',
         'percent_off_item_with_items_quantity_purchase': 'CouponPercentOffItemWithItemsQuantityPurchase',
@@ -73,6 +75,9 @@ class Coupon(object):
         'percent_off_subtotal_with_items_purchase': 'CouponPercentOffSubtotalWithItemsPurchase',
         'percent_off_subtotal_with_subtotal': 'CouponPercentOffSubtotalWithSubtotal',
         'quickbooks_code': 'str',
+        'restrict_by_postal_codes': 'list[str]',
+        'restrict_by_screen_branding_theme_codes': 'list[CouponRestriction]',
+        'restrict_by_storefronts': 'list[CouponRestriction]',
         'start_dts': 'str',
         'tiered_amount_off_item': 'CouponTieredAmountOffItem',
         'tiered_amount_off_subtotal': 'CouponTieredAmountOffSubtotal',
@@ -84,6 +89,7 @@ class Coupon(object):
 
     attribute_map = {
         'affiliate_oid': 'affiliate_oid',
+        'allow_multiple_one_time_codes': 'allow_multiple_one_time_codes',
         'amount_off_items': 'amount_off_items',
         'amount_off_shipping': 'amount_off_shipping',
         'amount_off_shipping_with_items_purchase': 'amount_off_shipping_with_items_purchase',
@@ -93,7 +99,7 @@ class Coupon(object):
         'amount_off_subtotal_with_block_purchase': 'amount_off_subtotal_with_block_purchase',
         'amount_off_subtotal_with_items_purchase': 'amount_off_subtotal_with_items_purchase',
         'automatically_apply_coupon_codes': 'automatically_apply_coupon_codes',
-        'calculated_description': 'calculated_)description',
+        'calculated_description': 'calculated_description',
         'can_be_used_with_other_coupons': 'can_be_used_with_other_coupons',
         'coupon_oid': 'coupon_oid',
         'coupon_type': 'coupon_type',
@@ -111,6 +117,7 @@ class Coupon(object):
         'free_shipping_with_items_purchase': 'free_shipping_with_items_purchase',
         'free_shipping_with_subtotal': 'free_shipping_with_subtotal',
         'merchant_code': 'merchant_code',
+        'merchant_notes': 'merchant_notes',
         'multiple_amounts_off_items': 'multiple_amounts_off_items',
         'no_discount': 'no_discount',
         'percent_off_item_with_items_quantity_purchase': 'percent_off_item_with_items_quantity_purchase',
@@ -122,9 +129,12 @@ class Coupon(object):
         'percent_off_subtotal': 'percent_off_subtotal',
         'percent_off_subtotal_and_free_shipping': 'percent_off_subtotal_and_free_shipping',
         'percent_off_subtotal_limit': 'percent_off_subtotal_limit',
-        'percent_off_subtotal_with_items_purchase': 'percent_off_subtotal_with_items purchase',
+        'percent_off_subtotal_with_items_purchase': 'percent_off_subtotal_with_items_purchase',
         'percent_off_subtotal_with_subtotal': 'percent_off_subtotal_with_subtotal',
         'quickbooks_code': 'quickbooks_code',
+        'restrict_by_postal_codes': 'restrict_by_postal_codes',
+        'restrict_by_screen_branding_theme_codes': 'restrict_by_screen_branding_theme_codes',
+        'restrict_by_storefronts': 'restrict_by_storefronts',
         'start_dts': 'start_dts',
         'tiered_amount_off_item': 'tiered_amount_off_item',
         'tiered_amount_off_subtotal': 'tiered_amount_off_subtotal',
@@ -134,12 +144,13 @@ class Coupon(object):
         'usable_by': 'usable_by'
     }
 
-    def __init__(self, affiliate_oid=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, automatically_apply_coupon_codes=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, merchant_code=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, start_dts=None, tiered_amount_off_item=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):
+    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, automatically_apply_coupon_codes=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, tiered_amount_off_item=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):
         """
         Coupon - a model defined in Swagger
         """
 
         self._affiliate_oid = None
+        self._allow_multiple_one_time_codes = None
         self._amount_off_items = None
         self._amount_off_shipping = None
         self._amount_off_shipping_with_items_purchase = None
@@ -167,6 +178,7 @@ class Coupon(object):
         self._free_shipping_with_items_purchase = None
         self._free_shipping_with_subtotal = None
         self._merchant_code = None
+        self._merchant_notes = None
         self._multiple_amounts_off_items = None
         self._no_discount = None
         self._percent_off_item_with_items_quantity_purchase = None
@@ -181,6 +193,9 @@ class Coupon(object):
         self._percent_off_subtotal_with_items_purchase = None
         self._percent_off_subtotal_with_subtotal = None
         self._quickbooks_code = None
+        self._restrict_by_postal_codes = None
+        self._restrict_by_screen_branding_theme_codes = None
+        self._restrict_by_storefronts = None
         self._start_dts = None
         self._tiered_amount_off_item = None
         self._tiered_amount_off_subtotal = None
@@ -192,6 +207,8 @@ class Coupon(object):
 
         if affiliate_oid is not None:
           self.affiliate_oid = affiliate_oid
+        if allow_multiple_one_time_codes is not None:
+          self.allow_multiple_one_time_codes = allow_multiple_one_time_codes
         if amount_off_items is not None:
           self.amount_off_items = amount_off_items
         if amount_off_shipping is not None:
@@ -246,6 +263,8 @@ class Coupon(object):
           self.free_shipping_with_subtotal = free_shipping_with_subtotal
         if merchant_code is not None:
           self.merchant_code = merchant_code
+        if merchant_notes is not None:
+          self.merchant_notes = merchant_notes
         if multiple_amounts_off_items is not None:
           self.multiple_amounts_off_items = multiple_amounts_off_items
         if no_discount is not None:
@@ -274,6 +293,12 @@ class Coupon(object):
           self.percent_off_subtotal_with_subtotal = percent_off_subtotal_with_subtotal
         if quickbooks_code is not None:
           self.quickbooks_code = quickbooks_code
+        if restrict_by_postal_codes is not None:
+          self.restrict_by_postal_codes = restrict_by_postal_codes
+        if restrict_by_screen_branding_theme_codes is not None:
+          self.restrict_by_screen_branding_theme_codes = restrict_by_screen_branding_theme_codes
+        if restrict_by_storefronts is not None:
+          self.restrict_by_storefronts = restrict_by_storefronts
         if start_dts is not None:
           self.start_dts = start_dts
         if tiered_amount_off_item is not None:
@@ -311,6 +336,29 @@ class Coupon(object):
         """
 
         self._affiliate_oid = affiliate_oid
+
+    @property
+    def allow_multiple_one_time_codes(self):
+        """
+        Gets the allow_multiple_one_time_codes of this Coupon.
+        True if multiple one time codes for this coupon can be used on a cart at the same time.
+
+        :return: The allow_multiple_one_time_codes of this Coupon.
+        :rtype: bool
+        """
+        return self._allow_multiple_one_time_codes
+
+    @allow_multiple_one_time_codes.setter
+    def allow_multiple_one_time_codes(self, allow_multiple_one_time_codes):
+        """
+        Sets the allow_multiple_one_time_codes of this Coupon.
+        True if multiple one time codes for this coupon can be used on a cart at the same time.
+
+        :param allow_multiple_one_time_codes: The allow_multiple_one_time_codes of this Coupon.
+        :type: bool
+        """
+
+        self._allow_multiple_one_time_codes = allow_multiple_one_time_codes
 
     @property
     def amount_off_items(self):
@@ -900,6 +948,31 @@ class Coupon(object):
         self._merchant_code = merchant_code
 
     @property
+    def merchant_notes(self):
+        """
+        Gets the merchant_notes of this Coupon.
+        Internal notes about this coupon.  These are not visible to customer.
+
+        :return: The merchant_notes of this Coupon.
+        :rtype: str
+        """
+        return self._merchant_notes
+
+    @merchant_notes.setter
+    def merchant_notes(self, merchant_notes):
+        """
+        Sets the merchant_notes of this Coupon.
+        Internal notes about this coupon.  These are not visible to customer.
+
+        :param merchant_notes: The merchant_notes of this Coupon.
+        :type: str
+        """
+        if merchant_notes is not None and len(merchant_notes) > 250:
+            raise ValueError("Invalid value for `merchant_notes`, length must be less than or equal to `250`")
+
+        self._merchant_notes = merchant_notes
+
+    @property
     def multiple_amounts_off_items(self):
         """
         Gets the multiple_amounts_off_items of this Coupon.
@@ -1196,6 +1269,75 @@ class Coupon(object):
             raise ValueError("Invalid value for `quickbooks_code`, length must be less than or equal to `20`")
 
         self._quickbooks_code = quickbooks_code
+
+    @property
+    def restrict_by_postal_codes(self):
+        """
+        Gets the restrict_by_postal_codes of this Coupon.
+        Optional list of postal codes which restrict a coupon to within these postal codes.
+
+        :return: The restrict_by_postal_codes of this Coupon.
+        :rtype: list[str]
+        """
+        return self._restrict_by_postal_codes
+
+    @restrict_by_postal_codes.setter
+    def restrict_by_postal_codes(self, restrict_by_postal_codes):
+        """
+        Sets the restrict_by_postal_codes of this Coupon.
+        Optional list of postal codes which restrict a coupon to within these postal codes.
+
+        :param restrict_by_postal_codes: The restrict_by_postal_codes of this Coupon.
+        :type: list[str]
+        """
+
+        self._restrict_by_postal_codes = restrict_by_postal_codes
+
+    @property
+    def restrict_by_screen_branding_theme_codes(self):
+        """
+        Gets the restrict_by_screen_branding_theme_codes of this Coupon.
+        Optional list of legacy screen branding theme codes to limit coupon use to only those themes.
+
+        :return: The restrict_by_screen_branding_theme_codes of this Coupon.
+        :rtype: list[CouponRestriction]
+        """
+        return self._restrict_by_screen_branding_theme_codes
+
+    @restrict_by_screen_branding_theme_codes.setter
+    def restrict_by_screen_branding_theme_codes(self, restrict_by_screen_branding_theme_codes):
+        """
+        Sets the restrict_by_screen_branding_theme_codes of this Coupon.
+        Optional list of legacy screen branding theme codes to limit coupon use to only those themes.
+
+        :param restrict_by_screen_branding_theme_codes: The restrict_by_screen_branding_theme_codes of this Coupon.
+        :type: list[CouponRestriction]
+        """
+
+        self._restrict_by_screen_branding_theme_codes = restrict_by_screen_branding_theme_codes
+
+    @property
+    def restrict_by_storefronts(self):
+        """
+        Gets the restrict_by_storefronts of this Coupon.
+        Optional list of storefronts to limit coupon use to only those storefronts.
+
+        :return: The restrict_by_storefronts of this Coupon.
+        :rtype: list[CouponRestriction]
+        """
+        return self._restrict_by_storefronts
+
+    @restrict_by_storefronts.setter
+    def restrict_by_storefronts(self, restrict_by_storefronts):
+        """
+        Sets the restrict_by_storefronts of this Coupon.
+        Optional list of storefronts to limit coupon use to only those storefronts.
+
+        :param restrict_by_storefronts: The restrict_by_storefronts of this Coupon.
+        :type: list[CouponRestriction]
+        """
+
+        self._restrict_by_storefronts = restrict_by_storefronts
 
     @property
     def start_dts(self):

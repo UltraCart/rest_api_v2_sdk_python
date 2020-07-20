@@ -31,39 +31,53 @@ class EmailList(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'allow_csv_download': 'bool',
         'created_dts': 'str',
         'deleted': 'bool',
         'email_list_uuid': 'str',
         'member_count': 'int',
         'merchant_id': 'str',
         'name': 'str',
-        'storefront_oid': 'int'
+        'public_description': 'str',
+        'public_list': 'bool',
+        'storefront_oid': 'int',
+        'used_by': 'list[EmailListSegmentUsedBy]'
     }
 
     attribute_map = {
+        'allow_csv_download': 'allow_csv_download',
         'created_dts': 'created_dts',
         'deleted': 'deleted',
         'email_list_uuid': 'email_list_uuid',
         'member_count': 'member_count',
         'merchant_id': 'merchant_id',
         'name': 'name',
-        'storefront_oid': 'storefront_oid'
+        'public_description': 'public_description',
+        'public_list': 'public_list',
+        'storefront_oid': 'storefront_oid',
+        'used_by': 'used_by'
     }
 
-    def __init__(self, created_dts=None, deleted=None, email_list_uuid=None, member_count=None, merchant_id=None, name=None, storefront_oid=None):
+    def __init__(self, allow_csv_download=None, created_dts=None, deleted=None, email_list_uuid=None, member_count=None, merchant_id=None, name=None, public_description=None, public_list=None, storefront_oid=None, used_by=None):
         """
         EmailList - a model defined in Swagger
         """
 
+        self._allow_csv_download = None
         self._created_dts = None
         self._deleted = None
         self._email_list_uuid = None
         self._member_count = None
         self._merchant_id = None
         self._name = None
+        self._public_description = None
+        self._public_list = None
         self._storefront_oid = None
+        self._used_by = None
         self.discriminator = None
 
+        if allow_csv_download is not None:
+          self.allow_csv_download = allow_csv_download
         if created_dts is not None:
           self.created_dts = created_dts
         if deleted is not None:
@@ -76,8 +90,37 @@ class EmailList(object):
           self.merchant_id = merchant_id
         if name is not None:
           self.name = name
+        if public_description is not None:
+          self.public_description = public_description
+        if public_list is not None:
+          self.public_list = public_list
         if storefront_oid is not None:
           self.storefront_oid = storefront_oid
+        if used_by is not None:
+          self.used_by = used_by
+
+    @property
+    def allow_csv_download(self):
+        """
+        Gets the allow_csv_download of this EmailList.
+        True if the current user has the rights to download this list.
+
+        :return: The allow_csv_download of this EmailList.
+        :rtype: bool
+        """
+        return self._allow_csv_download
+
+    @allow_csv_download.setter
+    def allow_csv_download(self, allow_csv_download):
+        """
+        Sets the allow_csv_download of this EmailList.
+        True if the current user has the rights to download this list.
+
+        :param allow_csv_download: The allow_csv_download of this EmailList.
+        :type: bool
+        """
+
+        self._allow_csv_download = allow_csv_download
 
     @property
     def created_dts(self):
@@ -220,6 +263,52 @@ class EmailList(object):
         self._name = name
 
     @property
+    def public_description(self):
+        """
+        Gets the public_description of this EmailList.
+        Description of list shown to customer.
+
+        :return: The public_description of this EmailList.
+        :rtype: str
+        """
+        return self._public_description
+
+    @public_description.setter
+    def public_description(self, public_description):
+        """
+        Sets the public_description of this EmailList.
+        Description of list shown to customer.
+
+        :param public_description: The public_description of this EmailList.
+        :type: str
+        """
+
+        self._public_description = public_description
+
+    @property
+    def public_list(self):
+        """
+        Gets the public_list of this EmailList.
+        True if this list is public
+
+        :return: The public_list of this EmailList.
+        :rtype: bool
+        """
+        return self._public_list
+
+    @public_list.setter
+    def public_list(self, public_list):
+        """
+        Sets the public_list of this EmailList.
+        True if this list is public
+
+        :param public_list: The public_list of this EmailList.
+        :type: bool
+        """
+
+        self._public_list = public_list
+
+    @property
     def storefront_oid(self):
         """
         Gets the storefront_oid of this EmailList.
@@ -241,6 +330,29 @@ class EmailList(object):
         """
 
         self._storefront_oid = storefront_oid
+
+    @property
+    def used_by(self):
+        """
+        Gets the used_by of this EmailList.
+        Details on the flows or campaigns that use this list.
+
+        :return: The used_by of this EmailList.
+        :rtype: list[EmailListSegmentUsedBy]
+        """
+        return self._used_by
+
+    @used_by.setter
+    def used_by(self, used_by):
+        """
+        Sets the used_by of this EmailList.
+        Details on the flows or campaigns that use this list.
+
+        :param used_by: The used_by of this EmailList.
+        :type: list[EmailListSegmentUsedBy]
+        """
+
+        self._used_by = used_by
 
     def to_dict(self):
         """

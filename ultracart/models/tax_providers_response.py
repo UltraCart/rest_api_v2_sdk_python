@@ -35,6 +35,7 @@ class TaxProvidersResponse(object):
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         '_self': 'TaxProviderSelf',
+        'sovos': 'TaxProviderSovos',
         'success': 'bool',
         'taxjar': 'TaxProviderTaxJar',
         'ultracart': 'TaxProviderUltraCart'
@@ -45,12 +46,13 @@ class TaxProvidersResponse(object):
         'error': 'error',
         'metadata': 'metadata',
         '_self': 'self',
+        'sovos': 'sovos',
         'success': 'success',
         'taxjar': 'taxjar',
         'ultracart': 'ultracart'
     }
 
-    def __init__(self, avalara=None, error=None, metadata=None, _self=None, success=None, taxjar=None, ultracart=None):
+    def __init__(self, avalara=None, error=None, metadata=None, _self=None, sovos=None, success=None, taxjar=None, ultracart=None):
         """
         TaxProvidersResponse - a model defined in Swagger
         """
@@ -59,6 +61,7 @@ class TaxProvidersResponse(object):
         self._error = None
         self._metadata = None
         self.__self = None
+        self._sovos = None
         self._success = None
         self._taxjar = None
         self._ultracart = None
@@ -72,6 +75,8 @@ class TaxProvidersResponse(object):
           self.metadata = metadata
         if _self is not None:
           self._self = _self
+        if sovos is not None:
+          self.sovos = sovos
         if success is not None:
           self.success = success
         if taxjar is not None:
@@ -162,6 +167,27 @@ class TaxProvidersResponse(object):
         """
 
         self.__self = _self
+
+    @property
+    def sovos(self):
+        """
+        Gets the sovos of this TaxProvidersResponse.
+
+        :return: The sovos of this TaxProvidersResponse.
+        :rtype: TaxProviderSovos
+        """
+        return self._sovos
+
+    @sovos.setter
+    def sovos(self, sovos):
+        """
+        Sets the sovos of this TaxProvidersResponse.
+
+        :param sovos: The sovos of this TaxProvidersResponse.
+        :type: TaxProviderSovos
+        """
+
+        self._sovos = sovos
 
     @property
     def success(self):

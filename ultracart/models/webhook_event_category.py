@@ -31,33 +31,89 @@ class WebhookEventCategory(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'any_subscribed': 'bool',
+        'available_expansions': 'list[str]',
         'event_category': 'str',
         'events': 'list[WebhookEventSubscription]',
         'subscribed': 'bool'
     }
 
     attribute_map = {
+        'any_subscribed': 'any_subscribed',
+        'available_expansions': 'available_expansions',
         'event_category': 'event_category',
         'events': 'events',
         'subscribed': 'subscribed'
     }
 
-    def __init__(self, event_category=None, events=None, subscribed=None):
+    def __init__(self, any_subscribed=None, available_expansions=None, event_category=None, events=None, subscribed=None):
         """
         WebhookEventCategory - a model defined in Swagger
         """
 
+        self._any_subscribed = None
+        self._available_expansions = None
         self._event_category = None
         self._events = None
         self._subscribed = None
         self.discriminator = None
 
+        if any_subscribed is not None:
+          self.any_subscribed = any_subscribed
+        if available_expansions is not None:
+          self.available_expansions = available_expansions
         if event_category is not None:
           self.event_category = event_category
         if events is not None:
           self.events = events
         if subscribed is not None:
           self.subscribed = subscribed
+
+    @property
+    def any_subscribed(self):
+        """
+        Gets the any_subscribed of this WebhookEventCategory.
+        True if any events are subscribed to.
+
+        :return: The any_subscribed of this WebhookEventCategory.
+        :rtype: bool
+        """
+        return self._any_subscribed
+
+    @any_subscribed.setter
+    def any_subscribed(self, any_subscribed):
+        """
+        Sets the any_subscribed of this WebhookEventCategory.
+        True if any events are subscribed to.
+
+        :param any_subscribed: The any_subscribed of this WebhookEventCategory.
+        :type: bool
+        """
+
+        self._any_subscribed = any_subscribed
+
+    @property
+    def available_expansions(self):
+        """
+        Gets the available_expansions of this WebhookEventCategory.
+        Array of available expansion constants
+
+        :return: The available_expansions of this WebhookEventCategory.
+        :rtype: list[str]
+        """
+        return self._available_expansions
+
+    @available_expansions.setter
+    def available_expansions(self, available_expansions):
+        """
+        Sets the available_expansions of this WebhookEventCategory.
+        Array of available expansion constants
+
+        :param available_expansions: The available_expansions of this WebhookEventCategory.
+        :type: list[str]
+        """
+
+        self._available_expansions = available_expansions
 
     @property
     def event_category(self):

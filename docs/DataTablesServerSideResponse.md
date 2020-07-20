@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**data** | [**list[Customer]**](Customer.md) |  | [optional] 
 **draw** | **int** |  | [optional] 
 **records_filtered** | **int** |  | [optional] 
 **records_total** | **int** |  | [optional] 

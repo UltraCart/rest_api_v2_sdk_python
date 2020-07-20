@@ -372,7 +372,7 @@ class AutoOrderApi(object):
         :param int limit: The maximum number of records to return on this one API call. (Max 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str since: Fetch auto orders that have been created/modified since this date/time.
-        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param str sort: The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: AutoOrdersResponse
                  If the method is called asynchronously,
@@ -416,7 +416,7 @@ class AutoOrderApi(object):
         :param int limit: The maximum number of records to return on this one API call. (Max 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str since: Fetch auto orders that have been created/modified since this date/time.
-        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param str sort: The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: AutoOrdersResponse
                  If the method is called asynchronously,
@@ -510,6 +510,108 @@ class AutoOrderApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
         return self.api_client.call_api('/auto_order/auto_orders', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='AutoOrdersResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_auto_orders_batch(self, auto_order_batch, **kwargs):
+        """
+        Retrieve auto order batch
+        Retrieves a group of auto orders from the account based on an array of auto order oids.  If more than 200 auto order ids are specified, the API call will fail with a bad request error. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_auto_orders_batch(auto_order_batch, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param AutoOrderQueryBatch auto_order_batch: Auto order batch (required)
+        :param str expand: The object expansion to perform on the result.
+        :return: AutoOrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_auto_orders_batch_with_http_info(auto_order_batch, **kwargs)
+        else:
+            (data) = self.get_auto_orders_batch_with_http_info(auto_order_batch, **kwargs)
+            return data
+
+    def get_auto_orders_batch_with_http_info(self, auto_order_batch, **kwargs):
+        """
+        Retrieve auto order batch
+        Retrieves a group of auto orders from the account based on an array of auto order oids.  If more than 200 auto order ids are specified, the API call will fail with a bad request error. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_auto_orders_batch_with_http_info(auto_order_batch, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param AutoOrderQueryBatch auto_order_batch: Auto order batch (required)
+        :param str expand: The object expansion to perform on the result.
+        :return: AutoOrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['auto_order_batch', 'expand']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_auto_orders_batch" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'auto_order_batch' is set
+        if ('auto_order_batch' not in params) or (params['auto_order_batch'] is None):
+            raise ValueError("Missing the required parameter `auto_order_batch` when calling `get_auto_orders_batch`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'auto_order_batch' in params:
+            body_params = params['auto_order_batch']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/auto_order/auto_orders/batch', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -740,6 +842,116 @@ class AutoOrderApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='AutoOrderResponse',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_auto_orders_batch(self, auto_orders_request, **kwargs):
+        """
+        Update multiple auto orders
+        Update multiple auto orders on the UltraCart account. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_auto_orders_batch(auto_orders_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param AutoOrdersRequest auto_orders_request: Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :param bool async: True if the operation should be run async.  No result returned
+        :return: AutoOrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_auto_orders_batch_with_http_info(auto_orders_request, **kwargs)
+        else:
+            (data) = self.update_auto_orders_batch_with_http_info(auto_orders_request, **kwargs)
+            return data
+
+    def update_auto_orders_batch_with_http_info(self, auto_orders_request, **kwargs):
+        """
+        Update multiple auto orders
+        Update multiple auto orders on the UltraCart account. 
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_auto_orders_batch_with_http_info(auto_orders_request, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param AutoOrdersRequest auto_orders_request: Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :param bool async: True if the operation should be run async.  No result returned
+        :return: AutoOrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['auto_orders_request', 'expand', 'placeholders', 'async']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_auto_orders_batch" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'auto_orders_request' is set
+        if ('auto_orders_request' not in params) or (params['auto_orders_request'] is None):
+            raise ValueError("Missing the required parameter `auto_orders_request` when calling `update_auto_orders_batch`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))
+        if 'placeholders' in params:
+            query_params.append(('_placeholders', params['placeholders']))
+        if 'async' in params:
+            query_params.append(('_async', params['async']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'auto_orders_request' in params:
+            body_params = params['auto_orders_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json; charset=UTF-8'])
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
+
+        return self.api_client.call_api('/auto_order/auto_orders/batch', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='AutoOrdersResponse',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

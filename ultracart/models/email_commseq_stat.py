@@ -33,6 +33,8 @@ class EmailCommseqStat(object):
     swagger_types = {
         'click_count': 'int',
         'click_count_formatted': 'str',
+        'conversion_count': 'int',
+        'conversion_count_formatted': 'str',
         'delivered_count': 'int',
         'delivered_count_formatted': 'str',
         'email_communication_sequence_uuid': 'str',
@@ -45,6 +47,8 @@ class EmailCommseqStat(object):
         'merchant_id': 'str',
         'open_count': 'int',
         'open_count_formatted': 'str',
+        'order_count': 'int',
+        'order_count_formatted': 'str',
         'permanent_bounce_count': 'int',
         'permanent_bounce_count_formatted': 'str',
         'profit': 'float',
@@ -60,6 +64,8 @@ class EmailCommseqStat(object):
         'started_count': 'int',
         'started_count_formatted': 'str',
         'storefront_oid': 'int',
+        'unsubscribe_count': 'int',
+        'unsubscribe_count_formatted': 'str',
         'view_count': 'int',
         'view_count_formatted': 'str'
     }
@@ -67,6 +73,8 @@ class EmailCommseqStat(object):
     attribute_map = {
         'click_count': 'click_count',
         'click_count_formatted': 'click_count_formatted',
+        'conversion_count': 'conversion_count',
+        'conversion_count_formatted': 'conversion_count_formatted',
         'delivered_count': 'delivered_count',
         'delivered_count_formatted': 'delivered_count_formatted',
         'email_communication_sequence_uuid': 'email_communication_sequence_uuid',
@@ -79,6 +87,8 @@ class EmailCommseqStat(object):
         'merchant_id': 'merchant_id',
         'open_count': 'open_count',
         'open_count_formatted': 'open_count_formatted',
+        'order_count': 'order_count',
+        'order_count_formatted': 'order_count_formatted',
         'permanent_bounce_count': 'permanent_bounce_count',
         'permanent_bounce_count_formatted': 'permanent_bounce_count_formatted',
         'profit': 'profit',
@@ -94,17 +104,21 @@ class EmailCommseqStat(object):
         'started_count': 'started_count',
         'started_count_formatted': 'started_count_formatted',
         'storefront_oid': 'storefront_oid',
+        'unsubscribe_count': 'unsubscribe_count',
+        'unsubscribe_count_formatted': 'unsubscribe_count_formatted',
         'view_count': 'view_count',
         'view_count_formatted': 'view_count_formatted'
     }
 
-    def __init__(self, click_count=None, click_count_formatted=None, delivered_count=None, delivered_count_formatted=None, email_communication_sequence_uuid=None, finished_count=None, finished_count_formatted=None, in_progress_count=None, in_progress_count_formatted=None, kickbox_count=None, kickbox_count_formatted=None, merchant_id=None, open_count=None, open_count_formatted=None, permanent_bounce_count=None, permanent_bounce_count_formatted=None, profit=None, profit_formatted=None, revenue=None, revenue_formatted=None, send_count=None, send_count_formatted=None, skipped_count=None, skipped_count_formatted=None, spam_count=None, spam_count_formatted=None, started_count=None, started_count_formatted=None, storefront_oid=None, view_count=None, view_count_formatted=None):
+    def __init__(self, click_count=None, click_count_formatted=None, conversion_count=None, conversion_count_formatted=None, delivered_count=None, delivered_count_formatted=None, email_communication_sequence_uuid=None, finished_count=None, finished_count_formatted=None, in_progress_count=None, in_progress_count_formatted=None, kickbox_count=None, kickbox_count_formatted=None, merchant_id=None, open_count=None, open_count_formatted=None, order_count=None, order_count_formatted=None, permanent_bounce_count=None, permanent_bounce_count_formatted=None, profit=None, profit_formatted=None, revenue=None, revenue_formatted=None, send_count=None, send_count_formatted=None, skipped_count=None, skipped_count_formatted=None, spam_count=None, spam_count_formatted=None, started_count=None, started_count_formatted=None, storefront_oid=None, unsubscribe_count=None, unsubscribe_count_formatted=None, view_count=None, view_count_formatted=None):
         """
         EmailCommseqStat - a model defined in Swagger
         """
 
         self._click_count = None
         self._click_count_formatted = None
+        self._conversion_count = None
+        self._conversion_count_formatted = None
         self._delivered_count = None
         self._delivered_count_formatted = None
         self._email_communication_sequence_uuid = None
@@ -117,6 +131,8 @@ class EmailCommseqStat(object):
         self._merchant_id = None
         self._open_count = None
         self._open_count_formatted = None
+        self._order_count = None
+        self._order_count_formatted = None
         self._permanent_bounce_count = None
         self._permanent_bounce_count_formatted = None
         self._profit = None
@@ -132,6 +148,8 @@ class EmailCommseqStat(object):
         self._started_count = None
         self._started_count_formatted = None
         self._storefront_oid = None
+        self._unsubscribe_count = None
+        self._unsubscribe_count_formatted = None
         self._view_count = None
         self._view_count_formatted = None
         self.discriminator = None
@@ -140,6 +158,10 @@ class EmailCommseqStat(object):
           self.click_count = click_count
         if click_count_formatted is not None:
           self.click_count_formatted = click_count_formatted
+        if conversion_count is not None:
+          self.conversion_count = conversion_count
+        if conversion_count_formatted is not None:
+          self.conversion_count_formatted = conversion_count_formatted
         if delivered_count is not None:
           self.delivered_count = delivered_count
         if delivered_count_formatted is not None:
@@ -164,6 +186,10 @@ class EmailCommseqStat(object):
           self.open_count = open_count
         if open_count_formatted is not None:
           self.open_count_formatted = open_count_formatted
+        if order_count is not None:
+          self.order_count = order_count
+        if order_count_formatted is not None:
+          self.order_count_formatted = order_count_formatted
         if permanent_bounce_count is not None:
           self.permanent_bounce_count = permanent_bounce_count
         if permanent_bounce_count_formatted is not None:
@@ -194,6 +220,10 @@ class EmailCommseqStat(object):
           self.started_count_formatted = started_count_formatted
         if storefront_oid is not None:
           self.storefront_oid = storefront_oid
+        if unsubscribe_count is not None:
+          self.unsubscribe_count = unsubscribe_count
+        if unsubscribe_count_formatted is not None:
+          self.unsubscribe_count_formatted = unsubscribe_count_formatted
         if view_count is not None:
           self.view_count = view_count
         if view_count_formatted is not None:
@@ -244,6 +274,52 @@ class EmailCommseqStat(object):
         """
 
         self._click_count_formatted = click_count_formatted
+
+    @property
+    def conversion_count(self):
+        """
+        Gets the conversion_count of this EmailCommseqStat.
+        Count of conversion
+
+        :return: The conversion_count of this EmailCommseqStat.
+        :rtype: int
+        """
+        return self._conversion_count
+
+    @conversion_count.setter
+    def conversion_count(self, conversion_count):
+        """
+        Sets the conversion_count of this EmailCommseqStat.
+        Count of conversion
+
+        :param conversion_count: The conversion_count of this EmailCommseqStat.
+        :type: int
+        """
+
+        self._conversion_count = conversion_count
+
+    @property
+    def conversion_count_formatted(self):
+        """
+        Gets the conversion_count_formatted of this EmailCommseqStat.
+        Count of conversions, formatted
+
+        :return: The conversion_count_formatted of this EmailCommseqStat.
+        :rtype: str
+        """
+        return self._conversion_count_formatted
+
+    @conversion_count_formatted.setter
+    def conversion_count_formatted(self, conversion_count_formatted):
+        """
+        Sets the conversion_count_formatted of this EmailCommseqStat.
+        Count of conversions, formatted
+
+        :param conversion_count_formatted: The conversion_count_formatted of this EmailCommseqStat.
+        :type: str
+        """
+
+        self._conversion_count_formatted = conversion_count_formatted
 
     @property
     def delivered_count(self):
@@ -520,6 +596,52 @@ class EmailCommseqStat(object):
         """
 
         self._open_count_formatted = open_count_formatted
+
+    @property
+    def order_count(self):
+        """
+        Gets the order_count of this EmailCommseqStat.
+        Count of orders
+
+        :return: The order_count of this EmailCommseqStat.
+        :rtype: int
+        """
+        return self._order_count
+
+    @order_count.setter
+    def order_count(self, order_count):
+        """
+        Sets the order_count of this EmailCommseqStat.
+        Count of orders
+
+        :param order_count: The order_count of this EmailCommseqStat.
+        :type: int
+        """
+
+        self._order_count = order_count
+
+    @property
+    def order_count_formatted(self):
+        """
+        Gets the order_count_formatted of this EmailCommseqStat.
+        Count of orders, formatted
+
+        :return: The order_count_formatted of this EmailCommseqStat.
+        :rtype: str
+        """
+        return self._order_count_formatted
+
+    @order_count_formatted.setter
+    def order_count_formatted(self, order_count_formatted):
+        """
+        Sets the order_count_formatted of this EmailCommseqStat.
+        Count of orders, formatted
+
+        :param order_count_formatted: The order_count_formatted of this EmailCommseqStat.
+        :type: str
+        """
+
+        self._order_count_formatted = order_count_formatted
 
     @property
     def permanent_bounce_count(self):
@@ -865,6 +987,52 @@ class EmailCommseqStat(object):
         """
 
         self._storefront_oid = storefront_oid
+
+    @property
+    def unsubscribe_count(self):
+        """
+        Gets the unsubscribe_count of this EmailCommseqStat.
+        Count of unsubscribes caused
+
+        :return: The unsubscribe_count of this EmailCommseqStat.
+        :rtype: int
+        """
+        return self._unsubscribe_count
+
+    @unsubscribe_count.setter
+    def unsubscribe_count(self, unsubscribe_count):
+        """
+        Sets the unsubscribe_count of this EmailCommseqStat.
+        Count of unsubscribes caused
+
+        :param unsubscribe_count: The unsubscribe_count of this EmailCommseqStat.
+        :type: int
+        """
+
+        self._unsubscribe_count = unsubscribe_count
+
+    @property
+    def unsubscribe_count_formatted(self):
+        """
+        Gets the unsubscribe_count_formatted of this EmailCommseqStat.
+        Count of unsubscribes caused, formatted
+
+        :return: The unsubscribe_count_formatted of this EmailCommseqStat.
+        :rtype: str
+        """
+        return self._unsubscribe_count_formatted
+
+    @unsubscribe_count_formatted.setter
+    def unsubscribe_count_formatted(self, unsubscribe_count_formatted):
+        """
+        Sets the unsubscribe_count_formatted of this EmailCommseqStat.
+        Count of unsubscribes caused, formatted
+
+        :param unsubscribe_count_formatted: The unsubscribe_count_formatted of this EmailCommseqStat.
+        :type: str
+        """
+
+        self._unsubscribe_count_formatted = unsubscribe_count_formatted
 
     @property
     def view_count(self):

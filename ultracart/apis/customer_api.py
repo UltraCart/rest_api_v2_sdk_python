@@ -557,7 +557,7 @@ class CustomerApi(object):
         # Authentication setting
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']
 
-        return self.api_client.call_api('/customer/customers/query', 'GET',
+        return self.api_client.call_api('/customer/customers/query', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,

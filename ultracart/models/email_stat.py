@@ -33,6 +33,9 @@ class EmailStat(object):
     swagger_types = {
         'click_count': 'int',
         'click_count_formatted': 'str',
+        'conversion_count': 'int',
+        'conversion_count_formatted': 'str',
+        'deleted': 'bool',
         'delivered_count': 'int',
         'delivered_count_formatted': 'str',
         'kickbox_count': 'int',
@@ -41,6 +44,8 @@ class EmailStat(object):
         'name': 'str',
         'open_count': 'int',
         'open_count_formatted': 'str',
+        'order_count': 'int',
+        'order_count_formatted': 'str',
         'permanent_bounce_count': 'int',
         'permanent_bounce_count_formatted': 'str',
         'profit': 'float',
@@ -56,7 +61,11 @@ class EmailStat(object):
         'stat_type': 'str',
         'status': 'str',
         'status_dts': 'str',
+        'step_uuid': 'str',
+        'steps': 'list[EmailStat]',
         'storefront_oid': 'int',
+        'unsubscribe_count': 'int',
+        'unsubscribe_count_formatted': 'str',
         'uuid': 'str',
         'view_count': 'int',
         'view_count_formatted': 'str'
@@ -65,6 +74,9 @@ class EmailStat(object):
     attribute_map = {
         'click_count': 'click_count',
         'click_count_formatted': 'click_count_formatted',
+        'conversion_count': 'conversion_count',
+        'conversion_count_formatted': 'conversion_count_formatted',
+        'deleted': 'deleted',
         'delivered_count': 'delivered_count',
         'delivered_count_formatted': 'delivered_count_formatted',
         'kickbox_count': 'kickbox_count',
@@ -73,6 +85,8 @@ class EmailStat(object):
         'name': 'name',
         'open_count': 'open_count',
         'open_count_formatted': 'open_count_formatted',
+        'order_count': 'order_count',
+        'order_count_formatted': 'order_count_formatted',
         'permanent_bounce_count': 'permanent_bounce_count',
         'permanent_bounce_count_formatted': 'permanent_bounce_count_formatted',
         'profit': 'profit',
@@ -88,19 +102,26 @@ class EmailStat(object):
         'stat_type': 'stat_type',
         'status': 'status',
         'status_dts': 'status_dts',
+        'step_uuid': 'step_uuid',
+        'steps': 'steps',
         'storefront_oid': 'storefront_oid',
+        'unsubscribe_count': 'unsubscribe_count',
+        'unsubscribe_count_formatted': 'unsubscribe_count_formatted',
         'uuid': 'uuid',
         'view_count': 'view_count',
         'view_count_formatted': 'view_count_formatted'
     }
 
-    def __init__(self, click_count=None, click_count_formatted=None, delivered_count=None, delivered_count_formatted=None, kickbox_count=None, kickbox_count_formatted=None, merchant_id=None, name=None, open_count=None, open_count_formatted=None, permanent_bounce_count=None, permanent_bounce_count_formatted=None, profit=None, profit_formatted=None, revenue=None, revenue_formatted=None, send_count=None, send_count_formatted=None, skipped_count=None, skipped_count_formatted=None, spam_count=None, spam_count_formatted=None, stat_type=None, status=None, status_dts=None, storefront_oid=None, uuid=None, view_count=None, view_count_formatted=None):
+    def __init__(self, click_count=None, click_count_formatted=None, conversion_count=None, conversion_count_formatted=None, deleted=None, delivered_count=None, delivered_count_formatted=None, kickbox_count=None, kickbox_count_formatted=None, merchant_id=None, name=None, open_count=None, open_count_formatted=None, order_count=None, order_count_formatted=None, permanent_bounce_count=None, permanent_bounce_count_formatted=None, profit=None, profit_formatted=None, revenue=None, revenue_formatted=None, send_count=None, send_count_formatted=None, skipped_count=None, skipped_count_formatted=None, spam_count=None, spam_count_formatted=None, stat_type=None, status=None, status_dts=None, step_uuid=None, steps=None, storefront_oid=None, unsubscribe_count=None, unsubscribe_count_formatted=None, uuid=None, view_count=None, view_count_formatted=None):
         """
         EmailStat - a model defined in Swagger
         """
 
         self._click_count = None
         self._click_count_formatted = None
+        self._conversion_count = None
+        self._conversion_count_formatted = None
+        self._deleted = None
         self._delivered_count = None
         self._delivered_count_formatted = None
         self._kickbox_count = None
@@ -109,6 +130,8 @@ class EmailStat(object):
         self._name = None
         self._open_count = None
         self._open_count_formatted = None
+        self._order_count = None
+        self._order_count_formatted = None
         self._permanent_bounce_count = None
         self._permanent_bounce_count_formatted = None
         self._profit = None
@@ -124,7 +147,11 @@ class EmailStat(object):
         self._stat_type = None
         self._status = None
         self._status_dts = None
+        self._step_uuid = None
+        self._steps = None
         self._storefront_oid = None
+        self._unsubscribe_count = None
+        self._unsubscribe_count_formatted = None
         self._uuid = None
         self._view_count = None
         self._view_count_formatted = None
@@ -134,6 +161,12 @@ class EmailStat(object):
           self.click_count = click_count
         if click_count_formatted is not None:
           self.click_count_formatted = click_count_formatted
+        if conversion_count is not None:
+          self.conversion_count = conversion_count
+        if conversion_count_formatted is not None:
+          self.conversion_count_formatted = conversion_count_formatted
+        if deleted is not None:
+          self.deleted = deleted
         if delivered_count is not None:
           self.delivered_count = delivered_count
         if delivered_count_formatted is not None:
@@ -150,6 +183,10 @@ class EmailStat(object):
           self.open_count = open_count
         if open_count_formatted is not None:
           self.open_count_formatted = open_count_formatted
+        if order_count is not None:
+          self.order_count = order_count
+        if order_count_formatted is not None:
+          self.order_count_formatted = order_count_formatted
         if permanent_bounce_count is not None:
           self.permanent_bounce_count = permanent_bounce_count
         if permanent_bounce_count_formatted is not None:
@@ -180,8 +217,16 @@ class EmailStat(object):
           self.status = status
         if status_dts is not None:
           self.status_dts = status_dts
+        if step_uuid is not None:
+          self.step_uuid = step_uuid
+        if steps is not None:
+          self.steps = steps
         if storefront_oid is not None:
           self.storefront_oid = storefront_oid
+        if unsubscribe_count is not None:
+          self.unsubscribe_count = unsubscribe_count
+        if unsubscribe_count_formatted is not None:
+          self.unsubscribe_count_formatted = unsubscribe_count_formatted
         if uuid is not None:
           self.uuid = uuid
         if view_count is not None:
@@ -234,6 +279,75 @@ class EmailStat(object):
         """
 
         self._click_count_formatted = click_count_formatted
+
+    @property
+    def conversion_count(self):
+        """
+        Gets the conversion_count of this EmailStat.
+        Count of conversions
+
+        :return: The conversion_count of this EmailStat.
+        :rtype: int
+        """
+        return self._conversion_count
+
+    @conversion_count.setter
+    def conversion_count(self, conversion_count):
+        """
+        Sets the conversion_count of this EmailStat.
+        Count of conversions
+
+        :param conversion_count: The conversion_count of this EmailStat.
+        :type: int
+        """
+
+        self._conversion_count = conversion_count
+
+    @property
+    def conversion_count_formatted(self):
+        """
+        Gets the conversion_count_formatted of this EmailStat.
+        Count of conversions, formatted
+
+        :return: The conversion_count_formatted of this EmailStat.
+        :rtype: str
+        """
+        return self._conversion_count_formatted
+
+    @conversion_count_formatted.setter
+    def conversion_count_formatted(self, conversion_count_formatted):
+        """
+        Sets the conversion_count_formatted of this EmailStat.
+        Count of conversions, formatted
+
+        :param conversion_count_formatted: The conversion_count_formatted of this EmailStat.
+        :type: str
+        """
+
+        self._conversion_count_formatted = conversion_count_formatted
+
+    @property
+    def deleted(self):
+        """
+        Gets the deleted of this EmailStat.
+        True if campaign/flow has been archived
+
+        :return: The deleted of this EmailStat.
+        :rtype: bool
+        """
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        """
+        Sets the deleted of this EmailStat.
+        True if campaign/flow has been archived
+
+        :param deleted: The deleted of this EmailStat.
+        :type: bool
+        """
+
+        self._deleted = deleted
 
     @property
     def delivered_count(self):
@@ -418,6 +532,52 @@ class EmailStat(object):
         """
 
         self._open_count_formatted = open_count_formatted
+
+    @property
+    def order_count(self):
+        """
+        Gets the order_count of this EmailStat.
+        Count of orders
+
+        :return: The order_count of this EmailStat.
+        :rtype: int
+        """
+        return self._order_count
+
+    @order_count.setter
+    def order_count(self, order_count):
+        """
+        Sets the order_count of this EmailStat.
+        Count of orders
+
+        :param order_count: The order_count of this EmailStat.
+        :type: int
+        """
+
+        self._order_count = order_count
+
+    @property
+    def order_count_formatted(self):
+        """
+        Gets the order_count_formatted of this EmailStat.
+        Count of orders, formatted
+
+        :return: The order_count_formatted of this EmailStat.
+        :rtype: str
+        """
+        return self._order_count_formatted
+
+    @order_count_formatted.setter
+    def order_count_formatted(self, order_count_formatted):
+        """
+        Sets the order_count_formatted of this EmailStat.
+        Count of orders, formatted
+
+        :param order_count_formatted: The order_count_formatted of this EmailStat.
+        :type: str
+        """
+
+        self._order_count_formatted = order_count_formatted
 
     @property
     def permanent_bounce_count(self):
@@ -765,6 +925,50 @@ class EmailStat(object):
         self._status_dts = status_dts
 
     @property
+    def step_uuid(self):
+        """
+        Gets the step_uuid of this EmailStat.
+        Step UUID if the statistics are at the step/email level
+
+        :return: The step_uuid of this EmailStat.
+        :rtype: str
+        """
+        return self._step_uuid
+
+    @step_uuid.setter
+    def step_uuid(self, step_uuid):
+        """
+        Sets the step_uuid of this EmailStat.
+        Step UUID if the statistics are at the step/email level
+
+        :param step_uuid: The step_uuid of this EmailStat.
+        :type: str
+        """
+
+        self._step_uuid = step_uuid
+
+    @property
+    def steps(self):
+        """
+        Gets the steps of this EmailStat.
+
+        :return: The steps of this EmailStat.
+        :rtype: list[EmailStat]
+        """
+        return self._steps
+
+    @steps.setter
+    def steps(self, steps):
+        """
+        Sets the steps of this EmailStat.
+
+        :param steps: The steps of this EmailStat.
+        :type: list[EmailStat]
+        """
+
+        self._steps = steps
+
+    @property
     def storefront_oid(self):
         """
         Gets the storefront_oid of this EmailStat.
@@ -788,10 +992,56 @@ class EmailStat(object):
         self._storefront_oid = storefront_oid
 
     @property
+    def unsubscribe_count(self):
+        """
+        Gets the unsubscribe_count of this EmailStat.
+        Count of emails classified as unsubscribe
+
+        :return: The unsubscribe_count of this EmailStat.
+        :rtype: int
+        """
+        return self._unsubscribe_count
+
+    @unsubscribe_count.setter
+    def unsubscribe_count(self, unsubscribe_count):
+        """
+        Sets the unsubscribe_count of this EmailStat.
+        Count of emails classified as unsubscribe
+
+        :param unsubscribe_count: The unsubscribe_count of this EmailStat.
+        :type: int
+        """
+
+        self._unsubscribe_count = unsubscribe_count
+
+    @property
+    def unsubscribe_count_formatted(self):
+        """
+        Gets the unsubscribe_count_formatted of this EmailStat.
+        Count of emails classified as unsubscribe, formatted
+
+        :return: The unsubscribe_count_formatted of this EmailStat.
+        :rtype: str
+        """
+        return self._unsubscribe_count_formatted
+
+    @unsubscribe_count_formatted.setter
+    def unsubscribe_count_formatted(self, unsubscribe_count_formatted):
+        """
+        Sets the unsubscribe_count_formatted of this EmailStat.
+        Count of emails classified as unsubscribe, formatted
+
+        :param unsubscribe_count_formatted: The unsubscribe_count_formatted of this EmailStat.
+        :type: str
+        """
+
+        self._unsubscribe_count_formatted = unsubscribe_count_formatted
+
+    @property
     def uuid(self):
         """
         Gets the uuid of this EmailStat.
-        List or segment uuid
+        List/Segment uuid, or Flow/Campaign uuid depending on level of stat aggregation.
 
         :return: The uuid of this EmailStat.
         :rtype: str
@@ -802,7 +1052,7 @@ class EmailStat(object):
     def uuid(self, uuid):
         """
         Sets the uuid of this EmailStat.
-        List or segment uuid
+        List/Segment uuid, or Flow/Campaign uuid depending on level of stat aggregation.
 
         :param uuid: The uuid of this EmailStat.
         :type: str

@@ -31,6 +31,8 @@ class CustomerQuery(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'all_tags': 'list[str]',
+        'any_tags': 'list[str]',
         'billing_city': 'str',
         'billing_company': 'str',
         'billing_country_code': 'str',
@@ -61,6 +63,8 @@ class CustomerQuery(object):
     }
 
     attribute_map = {
+        'all_tags': 'all_tags',
+        'any_tags': 'any_tags',
         'billing_city': 'billing_city',
         'billing_company': 'billing_company',
         'billing_country_code': 'billing_country_code',
@@ -90,11 +94,13 @@ class CustomerQuery(object):
         'signup_dts_start': 'signup_dts_start'
     }
 
-    def __init__(self, billing_city=None, billing_company=None, billing_country_code=None, billing_day_phone=None, billing_evening_phone=None, billing_first_name=None, billing_last_name=None, billing_postal_code=None, billing_state=None, email=None, last_modified_dts_end=None, last_modified_dts_start=None, pricing_tier_name=None, pricing_tier_oid=None, qb_class=None, quickbooks_code=None, shipping_city=None, shipping_company=None, shipping_country_code=None, shipping_day_phone=None, shipping_evening_phone=None, shipping_first_name=None, shipping_last_name=None, shipping_postal_code=None, shipping_state=None, signup_dts_end=None, signup_dts_start=None):
+    def __init__(self, all_tags=None, any_tags=None, billing_city=None, billing_company=None, billing_country_code=None, billing_day_phone=None, billing_evening_phone=None, billing_first_name=None, billing_last_name=None, billing_postal_code=None, billing_state=None, email=None, last_modified_dts_end=None, last_modified_dts_start=None, pricing_tier_name=None, pricing_tier_oid=None, qb_class=None, quickbooks_code=None, shipping_city=None, shipping_company=None, shipping_country_code=None, shipping_day_phone=None, shipping_evening_phone=None, shipping_first_name=None, shipping_last_name=None, shipping_postal_code=None, shipping_state=None, signup_dts_end=None, signup_dts_start=None):
         """
         CustomerQuery - a model defined in Swagger
         """
 
+        self._all_tags = None
+        self._any_tags = None
         self._billing_city = None
         self._billing_company = None
         self._billing_country_code = None
@@ -124,6 +130,10 @@ class CustomerQuery(object):
         self._signup_dts_start = None
         self.discriminator = None
 
+        if all_tags is not None:
+          self.all_tags = all_tags
+        if any_tags is not None:
+          self.any_tags = any_tags
         if billing_city is not None:
           self.billing_city = billing_city
         if billing_company is not None:
@@ -178,6 +188,52 @@ class CustomerQuery(object):
           self.signup_dts_end = signup_dts_end
         if signup_dts_start is not None:
           self.signup_dts_start = signup_dts_start
+
+    @property
+    def all_tags(self):
+        """
+        Gets the all_tags of this CustomerQuery.
+        All tags the customer must have
+
+        :return: The all_tags of this CustomerQuery.
+        :rtype: list[str]
+        """
+        return self._all_tags
+
+    @all_tags.setter
+    def all_tags(self, all_tags):
+        """
+        Sets the all_tags of this CustomerQuery.
+        All tags the customer must have
+
+        :param all_tags: The all_tags of this CustomerQuery.
+        :type: list[str]
+        """
+
+        self._all_tags = all_tags
+
+    @property
+    def any_tags(self):
+        """
+        Gets the any_tags of this CustomerQuery.
+        Any of these tags the customer must have
+
+        :return: The any_tags of this CustomerQuery.
+        :rtype: list[str]
+        """
+        return self._any_tags
+
+    @any_tags.setter
+    def any_tags(self, any_tags):
+        """
+        Sets the any_tags of this CustomerQuery.
+        Any of these tags the customer must have
+
+        :param any_tags: The any_tags of this CustomerQuery.
+        :type: list[str]
+        """
+
+        self._any_tags = any_tags
 
     @property
     def billing_city(self):
