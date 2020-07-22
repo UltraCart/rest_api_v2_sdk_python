@@ -244,7 +244,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :return: EmailListArchiveResponse
                  If the method is called asynchronously,
@@ -266,7 +266,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :return: EmailListArchiveResponse
                  If the method is called asynchronously,
@@ -349,7 +349,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :return: EmailSegmentArchiveResponse
                  If the method is called asynchronously,
@@ -371,7 +371,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :return: EmailSegmentArchiveResponse
                  If the method is called asynchronously,
@@ -454,7 +454,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_flow_uuid: (required)
         :param EmailFlowBackPopulateRequest back_populate_request: The request to back populate (required)
         :return: EmailFlowBackPopulateResponse
@@ -477,7 +477,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_flow_uuid: (required)
         :param EmailFlowBackPopulateRequest back_populate_request: The request to back populate (required)
         :return: EmailFlowBackPopulateResponse
@@ -567,7 +567,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param str email_segment_rebuild_uuid: (required)
         :return: EmailSegmentDownloadPrepareResponse
@@ -590,7 +590,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param str email_segment_rebuild_uuid: (required)
         :return: EmailSegmentDownloadPrepareResponse
@@ -680,9 +680,9 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_campaign_uuid: (required)
-        :param str target_storefront_oid:
+        :param int target_storefront_oid:
         :return: EmailCampaignResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -703,9 +703,9 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_campaign_uuid: (required)
-        :param str target_storefront_oid:
+        :param int target_storefront_oid:
         :return: EmailCampaignResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -789,9 +789,9 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_flow_uuid: (required)
-        :param str target_storefront_oid:
+        :param int target_storefront_oid:
         :return: EmailFlowResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -812,9 +812,9 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_flow_uuid: (required)
-        :param str target_storefront_oid:
+        :param int target_storefront_oid:
         :return: EmailFlowResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1096,7 +1096,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :return: None
                  If the method is called asynchronously,
@@ -1118,7 +1118,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :return: None
                  If the method is called asynchronously,
@@ -1201,7 +1201,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :return: BaseResponse
                  If the method is called asynchronously,
@@ -1223,7 +1223,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :return: BaseResponse
                  If the method is called asynchronously,
@@ -1306,7 +1306,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param str email_customer_uuid: (required)
         :return: BaseResponse
@@ -1329,7 +1329,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param str email_customer_uuid: (required)
         :return: BaseResponse
@@ -1419,7 +1419,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_postcard_uuid: (required)
         :return: BaseResponse
                  If the method is called asynchronously,
@@ -1441,7 +1441,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_postcard_uuid: (required)
         :return: BaseResponse
                  If the method is called asynchronously,
@@ -1621,7 +1621,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int storefront_experiment_oid: (required)
         :return: None
                  If the method is called asynchronously,
@@ -1643,7 +1643,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int storefront_experiment_oid: (required)
         :return: None
                  If the method is called asynchronously,
@@ -1920,7 +1920,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param GeocodeRequest geocode_request: geocode request (required)
         :return: GeocodeResponse
                  If the method is called asynchronously,
@@ -1942,7 +1942,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param GeocodeRequest geocode_request: geocode request (required)
         :return: GeocodeResponse
                  If the method is called asynchronously,
@@ -2026,7 +2026,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: CountriesResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2048,7 +2048,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: CountriesResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2223,7 +2223,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailBaseTemplateListResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2244,7 +2244,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailBaseTemplateListResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2320,7 +2320,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_campaign_uuid: (required)
         :return: EmailCampaignResponse
                  If the method is called asynchronously,
@@ -2342,7 +2342,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_campaign_uuid: (required)
         :return: EmailCampaignResponse
                  If the method is called asynchronously,
@@ -2425,7 +2425,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailCampaignsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2446,7 +2446,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailCampaignsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2522,7 +2522,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str stat_days: (required)
         :return: EmailCampaignsResponse
                  If the method is called asynchronously,
@@ -2544,7 +2544,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str stat_days: (required)
         :return: EmailCampaignsResponse
                  If the method is called asynchronously,
@@ -2627,7 +2627,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :return: EmailCommseqResponse
                  If the method is called asynchronously,
@@ -2649,7 +2649,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :return: EmailCommseqResponse
                  If the method is called asynchronously,
@@ -2732,7 +2732,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailStatSummaryRequest stats_request: StatsRequest (required)
         :return: EmailStatSummaryResponse
@@ -2755,7 +2755,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailStatSummaryRequest stats_request: StatsRequest (required)
         :return: EmailStatSummaryResponse
@@ -2845,7 +2845,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailStatPostcardSummaryRequest stats_request: StatsRequest (required)
         :return: EmailStatPostcardSummaryResponse
@@ -2868,7 +2868,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailStatPostcardSummaryRequest stats_request: StatsRequest (required)
         :return: EmailStatPostcardSummaryResponse
@@ -2958,7 +2958,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :return: EmailCommseqStatResponse
                  If the method is called asynchronously,
@@ -2980,7 +2980,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :return: EmailCommseqStatResponse
                  If the method is called asynchronously,
@@ -3063,7 +3063,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailStepStatRequest stats_request: StatsRequest (required)
         :return: EmailStepStatResponse
@@ -3086,7 +3086,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailStepStatRequest stats_request: StatsRequest (required)
         :return: EmailStepStatResponse
@@ -3176,7 +3176,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailStepWaitingRequest waiting_request: WaitingRequest (required)
         :return: EmailStepWaitingResponse
@@ -3199,7 +3199,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailStepWaitingRequest waiting_request: WaitingRequest (required)
         :return: EmailStepWaitingResponse
@@ -3289,7 +3289,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailCommseqsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3310,7 +3310,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailCommseqsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3386,7 +3386,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_customer_uuid: (required)
         :return: EmailCustomerEditorUrlResponse
                  If the method is called asynchronously,
@@ -3408,7 +3408,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_customer_uuid: (required)
         :return: EmailCustomerEditorUrlResponse
                  If the method is called asynchronously,
@@ -3491,7 +3491,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int page_number:
         :param int page_size:
         :param str search_email_prefix:
@@ -3515,7 +3515,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int page_number:
         :param int page_size:
         :param str search_email_prefix:
@@ -3600,7 +3600,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int last_records:
         :return: EmailDashboardActivityResponse
                  If the method is called asynchronously,
@@ -3622,7 +3622,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int last_records:
         :return: EmailDashboardActivityResponse
                  If the method is called asynchronously,
@@ -3701,7 +3701,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int days:
         :return: EmailDashboardStatsResponse
                  If the method is called asynchronously,
@@ -3723,7 +3723,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int days:
         :return: EmailDashboardStatsResponse
                  If the method is called asynchronously,
@@ -3802,7 +3802,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :return: EmailCommseqEmailResponse
                  If the method is called asynchronously,
@@ -3824,7 +3824,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :return: EmailCommseqEmailResponse
                  If the method is called asynchronously,
@@ -3907,7 +3907,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param str commseq_step_uuid: (required)
         :param str commseq_email_uuid: (required)
@@ -3932,7 +3932,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param str commseq_step_uuid: (required)
         :param str commseq_email_uuid: (required)
@@ -4032,7 +4032,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :param str order_id: (required)
         :return: EmailCustomerEditorUrlResponse
@@ -4055,7 +4055,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :param str order_id: (required)
         :return: EmailCustomerEditorUrlResponse
@@ -4145,7 +4145,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param str commseq_step_uuid: (required)
         :param str commseq_email_uuid: (required)
@@ -4170,7 +4170,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param str commseq_step_uuid: (required)
         :param str commseq_email_uuid: (required)
@@ -4270,7 +4270,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailCommseqEmailsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4291,7 +4291,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailCommseqEmailsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4367,7 +4367,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseqEmailsRequest email_commseq_emails_request: Request of email uuids (required)
         :return: EmailCommseqEmailsResponse
                  If the method is called asynchronously,
@@ -4389,7 +4389,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseqEmailsRequest email_commseq_emails_request: Request of email uuids (required)
         :return: EmailCommseqEmailsResponse
                  If the method is called asynchronously,
@@ -4472,7 +4472,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_flow_uuid: (required)
         :return: EmailFlowResponse
                  If the method is called asynchronously,
@@ -4494,7 +4494,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_flow_uuid: (required)
         :return: EmailFlowResponse
                  If the method is called asynchronously,
@@ -4577,7 +4577,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailFlowsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4598,7 +4598,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailFlowsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4763,7 +4763,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :return: EmailListResponse
                  If the method is called asynchronously,
@@ -4785,7 +4785,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :return: EmailListResponse
                  If the method is called asynchronously,
@@ -4868,7 +4868,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param str email_customer_uuid: (required)
         :return: EmailCustomerEditorUrlResponse
@@ -4891,7 +4891,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param str email_customer_uuid: (required)
         :return: EmailCustomerEditorUrlResponse
@@ -4981,7 +4981,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param int page_number:
         :param int page_size:
@@ -5005,7 +5005,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param int page_number:
         :param int page_size:
@@ -5094,7 +5094,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailListsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5115,7 +5115,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailListsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5191,7 +5191,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailPerformanceResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5212,7 +5212,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailPerformanceResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5288,7 +5288,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailPlanResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5309,7 +5309,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailPlanResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5385,7 +5385,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_postcard_uuid: (required)
         :return: EmailCommseqPostcardResponse
                  If the method is called asynchronously,
@@ -5407,7 +5407,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_postcard_uuid: (required)
         :return: EmailCommseqPostcardResponse
                  If the method is called asynchronously,
@@ -5490,7 +5490,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailCommseqPostcardsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5511,7 +5511,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailCommseqPostcardsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5587,7 +5587,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseqPostcardsRequest email_commseq_postcards_request: Request of postcard uuids (required)
         :return: EmailCommseqPostcardsResponse
                  If the method is called asynchronously,
@@ -5609,7 +5609,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseqPostcardsRequest email_commseq_postcards_request: Request of postcard uuids (required)
         :return: EmailCommseqPostcardsResponse
                  If the method is called asynchronously,
@@ -5692,7 +5692,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :return: EmailSegmentResponse
                  If the method is called asynchronously,
@@ -5714,7 +5714,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :return: EmailSegmentResponse
                  If the method is called asynchronously,
@@ -5797,7 +5797,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param str email_customer_uuid: (required)
         :return: EmailCustomerEditorUrlResponse
@@ -5820,7 +5820,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param str email_customer_uuid: (required)
         :return: EmailCustomerEditorUrlResponse
@@ -5910,7 +5910,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param int page_number:
         :param int page_size:
@@ -5934,7 +5934,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param int page_number:
         :param int page_size:
@@ -6023,7 +6023,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailSegmentsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6044,7 +6044,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailSegmentsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6403,7 +6403,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailSettingsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6424,7 +6424,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailSettingsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6500,7 +6500,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int email_template_oid: (required)
         :return: EmailTemplate
                  If the method is called asynchronously,
@@ -6522,7 +6522,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int email_template_oid: (required)
         :return: EmailTemplate
                  If the method is called asynchronously,
@@ -6605,7 +6605,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str trigger_type:
         :return: EmailTemplatesResponse
                  If the method is called asynchronously,
@@ -6627,7 +6627,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str trigger_type:
         :return: EmailTemplatesResponse
                  If the method is called asynchronously,
@@ -6706,7 +6706,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailThirdPartyProvidersResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6727,7 +6727,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: EmailThirdPartyProvidersResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6803,7 +6803,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: ExperimentsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6824,7 +6824,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :return: ExperimentsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6901,7 +6901,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str property_type:
         :return: EmailHistogramPropertyNamesResponse
                  If the method is called asynchronously,
@@ -6924,7 +6924,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str property_type:
         :return: EmailHistogramPropertyNamesResponse
                  If the method is called asynchronously,
@@ -7004,7 +7004,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str property_name:
         :param str property_type:
         :param int limit:
@@ -7029,7 +7029,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str property_name:
         :param str property_type:
         :param int limit:
@@ -7108,7 +7108,7 @@ class StorefrontApi(object):
     def get_library_items_by_query(self, item_query, **kwargs):  # noqa: E501
         """Retrieve library items  # noqa: E501
 
-        Retrieves a lbirary items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_library_items_by_query(item_query, async_req=True)
@@ -7133,7 +7133,7 @@ class StorefrontApi(object):
     def get_library_items_by_query_with_http_info(self, item_query, **kwargs):  # noqa: E501
         """Retrieve library items  # noqa: E501
 
-        Retrieves a lbirary items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_library_items_by_query_with_http_info(item_query, async_req=True)
@@ -7431,7 +7431,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailGlobalUnsubscribeRequest unsubscribe: Unsubscribe (required)
         :return: EmailGlobalUnsubscribeResponse
                  If the method is called asynchronously,
@@ -7453,7 +7453,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailGlobalUnsubscribeRequest unsubscribe: Unsubscribe (required)
         :return: EmailGlobalUnsubscribeResponse
                  If the method is called asynchronously,
@@ -7536,7 +7536,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailThirdPartyListImportRequest import_request: lists to import (required)
         :return: None
                  If the method is called asynchronously,
@@ -7558,7 +7558,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailThirdPartyListImportRequest import_request: lists to import (required)
         :return: None
                  If the method is called asynchronously,
@@ -7641,7 +7641,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCampaign email_campaign: Email campaign (required)
         :return: EmailCampaignResponse
                  If the method is called asynchronously,
@@ -7663,7 +7663,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCampaign email_campaign: Email campaign (required)
         :return: EmailCampaignResponse
                  If the method is called asynchronously,
@@ -7746,7 +7746,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseq email_commseq: Email commseq (required)
         :return: EmailCommseqResponse
                  If the method is called asynchronously,
@@ -7768,7 +7768,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseq email_commseq: Email commseq (required)
         :return: EmailCommseqResponse
                  If the method is called asynchronously,
@@ -7851,7 +7851,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseqEmail email_commseq_email: Email email (required)
         :return: EmailCommseqEmailResponse
                  If the method is called asynchronously,
@@ -7873,7 +7873,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseqEmail email_commseq_email: Email email (required)
         :return: EmailCommseqEmailResponse
                  If the method is called asynchronously,
@@ -7956,7 +7956,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailFlow email_flow: Email flow (required)
         :return: EmailFlowResponse
                  If the method is called asynchronously,
@@ -7978,7 +7978,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailFlow email_flow: Email flow (required)
         :return: EmailFlowResponse
                  If the method is called asynchronously,
@@ -8061,7 +8061,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailList email_list: Email list (required)
         :return: EmailListResponse
                  If the method is called asynchronously,
@@ -8083,7 +8083,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailList email_list: Email list (required)
         :return: EmailListResponse
                  If the method is called asynchronously,
@@ -8166,7 +8166,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseqPostcard email_commseq_postcard: Email postcard (required)
         :return: EmailCommseqPostcardResponse
                  If the method is called asynchronously,
@@ -8188,7 +8188,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailCommseqPostcard email_commseq_postcard: Email postcard (required)
         :return: EmailCommseqPostcardResponse
                  If the method is called asynchronously,
@@ -8271,7 +8271,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailSegment email_segment: Email segment (required)
         :return: EmailSegmentResponse
                  If the method is called asynchronously,
@@ -8293,7 +8293,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailSegment email_segment: Email segment (required)
         :return: EmailSegmentResponse
                  If the method is called asynchronously,
@@ -8376,7 +8376,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :return: EmailSegmentDownloadPrepareResponse
                  If the method is called asynchronously,
@@ -8398,7 +8398,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :return: EmailSegmentDownloadPrepareResponse
                  If the method is called asynchronously,
@@ -8481,7 +8481,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param str commseq_step_uuid: (required)
         :return: None
@@ -8504,7 +8504,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param str commseq_step_uuid: (required)
         :return: None
@@ -8594,7 +8594,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :param EmailCommseqEmailSendTestRequest email_commseq_email_review_request: Email commseq email review request (required)
         :return: EmailCommseqEmailSendTestResponse
@@ -8617,7 +8617,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :param EmailCommseqEmailSendTestRequest email_commseq_email_review_request: Email commseq email review request (required)
         :return: EmailCommseqEmailSendTestResponse
@@ -8816,7 +8816,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param str starts_with:
         :return: EmailListCustomersResponse
@@ -8839,7 +8839,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param str starts_with:
         :return: EmailListCustomersResponse
@@ -8925,7 +8925,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param str starts_with:
         :return: EmailSegmentCustomersResponse
@@ -8948,7 +8948,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param str starts_with:
         :return: EmailSegmentCustomersResponse
@@ -9034,7 +9034,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :param EmailCommseqEmailSendTestRequest email_commseq_email_test_request: Email commseq email test request (required)
         :return: EmailCommseqEmailSendTestResponse
@@ -9057,7 +9057,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :param EmailCommseqEmailSendTestRequest email_commseq_email_test_request: Email commseq email test request (required)
         :return: EmailCommseqEmailSendTestResponse
@@ -9147,7 +9147,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_postcard_uuid: (required)
         :param EmailCommseqPostcardSendTestRequest email_commseq_postcard_test_request: Email commseq email test request (required)
         :return: EmailCommseqPostcardSendTestResponse
@@ -9170,7 +9170,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_postcard_uuid: (required)
         :param EmailCommseqPostcardSendTestRequest email_commseq_postcard_test_request: Email commseq email test request (required)
         :return: EmailCommseqPostcardSendTestResponse
@@ -9260,7 +9260,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_campaign_uuid: (required)
         :return: BaseResponse
                  If the method is called asynchronously,
@@ -9282,7 +9282,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_campaign_uuid: (required)
         :return: BaseResponse
                  If the method is called asynchronously,
@@ -9365,7 +9365,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param list[EmailCustomer] customers: Customers (required)
         :return: EmailListSubscribeResponse
@@ -9388,7 +9388,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param list[EmailCustomer] customers: Customers (required)
         :return: EmailListSubscribeResponse
@@ -9478,7 +9478,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_campaign_uuid: (required)
         :param EmailCampaign email_campaign: Email campaign (required)
         :return: EmailCampaignResponse
@@ -9501,7 +9501,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_campaign_uuid: (required)
         :param EmailCampaign email_campaign: Email campaign (required)
         :return: EmailCampaignResponse
@@ -9591,7 +9591,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailCommseq email_commseq: Email commseq (required)
         :return: EmailCommseqResponse
@@ -9614,7 +9614,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_uuid: (required)
         :param EmailCommseq email_commseq: Email commseq (required)
         :return: EmailCommseqResponse
@@ -9704,7 +9704,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_customer_uuid: (required)
         :param EmailCustomer email_customer: Email customer (required)
         :return: None
@@ -9727,7 +9727,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_customer_uuid: (required)
         :param EmailCustomer email_customer: Email customer (required)
         :return: None
@@ -9817,7 +9817,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :param EmailCommseqEmail email_commseq_email: Email commseq email (required)
         :return: EmailCommseqEmailResponse
@@ -9840,7 +9840,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_email_uuid: (required)
         :param EmailCommseqEmail email_commseq_email: Email commseq email (required)
         :return: EmailCommseqEmailResponse
@@ -9930,7 +9930,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_flow_uuid: (required)
         :param EmailFlow email_flow: Email flow (required)
         :return: EmailFlowResponse
@@ -9953,7 +9953,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_flow_uuid: (required)
         :param EmailFlow email_flow: Email flow (required)
         :return: EmailFlowResponse
@@ -10140,7 +10140,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param EmailList email_list: Email list (required)
         :return: EmailListResponse
@@ -10163,7 +10163,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_list_uuid: (required)
         :param EmailList email_list: Email list (required)
         :return: EmailListResponse
@@ -10253,7 +10253,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailPlan settings: plan request (required)
         :return: EmailPlanResponse
                  If the method is called asynchronously,
@@ -10275,7 +10275,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailPlan settings: plan request (required)
         :return: EmailPlanResponse
                  If the method is called asynchronously,
@@ -10358,7 +10358,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_postcard_uuid: (required)
         :param EmailCommseqPostcard email_commseq_postcard: Email commseq postcard (required)
         :return: EmailCommseqPostcardResponse
@@ -10381,7 +10381,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str commseq_postcard_uuid: (required)
         :param EmailCommseqPostcard email_commseq_postcard: Email commseq postcard (required)
         :return: EmailCommseqPostcardResponse
@@ -10471,7 +10471,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param EmailSegment email_segment: Email segment (required)
         :return: EmailSegmentResponse
@@ -10494,7 +10494,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param str email_segment_uuid: (required)
         :param EmailSegment email_segment: Email segment (required)
         :return: EmailSegmentResponse
@@ -10584,7 +10584,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailSettings settings: settings request (required)
         :return: EmailSettingsResponse
                  If the method is called asynchronously,
@@ -10606,7 +10606,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param EmailSettings settings: settings request (required)
         :return: EmailSettingsResponse
                  If the method is called asynchronously,
@@ -10689,7 +10689,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int storefront_experiment_oid: (required)
         :param Experiment experiment: Experiment (required)
         :return: ExperimentResponse
@@ -10712,7 +10712,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str storefront_oid: (required)
+        :param int storefront_oid: (required)
         :param int storefront_experiment_oid: (required)
         :param Experiment experiment: Experiment (required)
         :return: ExperimentResponse
