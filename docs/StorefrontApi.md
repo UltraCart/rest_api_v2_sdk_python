@@ -72,6 +72,7 @@ Method | HTTP request | Description
 [**get_experiments**](StorefrontApi.md#get_experiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
 [**get_histogram_property_names**](StorefrontApi.md#get_histogram_property_names) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
 [**get_histogram_property_values**](StorefrontApi.md#get_histogram_property_values) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
+[**get_library_item**](StorefrontApi.md#get_library_item) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
 [**get_library_items_by_query**](StorefrontApi.md#get_library_items_by_query) | **POST** /storefront/code_library/query | Retrieve library items
 [**get_transaction_email**](StorefrontApi.md#get_transaction_email) | **GET** /storefront/{id}/transaction_email/list/{email_id} | Gets a transaction email object
 [**get_transaction_email_list**](StorefrontApi.md#get_transaction_email_list) | **GET** /storefront/{id}/transaction_email/list | Gets a list of transaction email names
@@ -4247,6 +4248,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailHistogramPropertyValuesResponse**](EmailHistogramPropertyValuesResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_library_item**
+> LibraryItemResponse get_library_item(library_item_oid)
+
+Get library item.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+
+
+configuration = ultracart.Configuration()
+
+# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+configuration.api_key['x-ultracart-simple-key'] \
+    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
+
+configuration.debug = True
+configuration.verify_ssl = True  # Development only.  Set to True for production.
+
+api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
+
+api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
+library_item_oid = 56 # int | 
+
+try:
+    # Get library item.
+    api_response = api_instance.get_library_item(library_item_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_library_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **library_item_oid** | **int**|  | 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
 
 ### Authorization
 
