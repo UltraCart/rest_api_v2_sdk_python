@@ -23,7 +23,7 @@ Delete a coupon
 
 Delete a coupon on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -48,7 +48,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon_oid = 56 # int | The coupon_oid to delete.
 
-try: 
+try:
     # Delete a coupon
     api_response = api_instance.delete_coupon(coupon_oid)
     pprint(api_response)
@@ -84,7 +84,7 @@ Generates one time codes for a coupon
 
 Generate one time codes for a coupon 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -110,7 +110,7 @@ api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon_oid = 56 # int | The coupon oid to generate codes.
 coupon_codes_request = ultracart.CouponCodesRequest() # CouponCodesRequest | Coupon code generation parameters
 
-try: 
+try:
     # Generates one time codes for a coupon
     api_response = api_instance.generate_coupon_codes(coupon_oid, coupon_codes_request)
     pprint(api_response)
@@ -147,7 +147,7 @@ Generates one time codes by merchant code
 
 Generate one time codes by merchant code 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -173,7 +173,7 @@ api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 merchant_code = 'merchant_code_example' # str | The merchant code to generate one time codes.
 coupon_codes_request = ultracart.CouponCodesRequest() # CouponCodesRequest | Coupon code generation parameters
 
-try: 
+try:
     # Generates one time codes by merchant code
     api_response = api_instance.generate_one_time_codes_by_merchant_code(merchant_code, coupon_codes_request)
     pprint(api_response)
@@ -210,7 +210,7 @@ Retrieve a coupon
 
 Retrieves a single coupon using the specified coupon profile oid. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -236,7 +236,7 @@ api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon_oid = 56 # int | The coupon oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve a coupon
     api_response = api_instance.get_coupon(coupon_oid, expand=expand)
     pprint(api_response)
@@ -273,7 +273,7 @@ Retrieve a coupon by merchant code
 
 Retrieves a single coupon using the specified merchant code. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -299,7 +299,7 @@ api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 merchant_code = 'merchant_code_example' # str | The coupon merchant code to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve a coupon by merchant code
     api_response = api_instance.get_coupon_by_merchant_code(merchant_code, expand=expand)
     pprint(api_response)
@@ -336,7 +336,7 @@ Retrieve coupons
 
 Retrieves coupons for this account.  If no parameters are specified, all coupons will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -373,7 +373,7 @@ offset = 0 # int | Pagination of the record set.  Offset is a zero based index. 
 sort = 'sort_example' # str | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve coupons
     api_response = api_instance.get_coupons(merchant_code=merchant_code, description=description, coupon_type=coupon_type, start_date_begin=start_date_begin, start_date_end=start_date_end, expiration_date_begin=expiration_date_begin, expiration_date_end=expiration_date_end, affiliate_oid=affiliate_oid, exclude_expired=exclude_expired, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
@@ -421,7 +421,7 @@ Retrieve coupons by query
 
 Retrieves coupons from the account.  If no parameters are specified, all coupons will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -450,7 +450,7 @@ offset = 0 # int | Pagination of the record set.  Offset is a zero based index. 
 sort = 'sort_example' # str | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve coupons by query
     api_response = api_instance.get_coupons_by_query(coupon_query, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
@@ -490,7 +490,7 @@ Retrieve values needed for a coupon editor
 
 Retrieve values needed for a coupon editor 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -514,7 +514,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve values needed for a coupon editor
     api_response = api_instance.get_editor_values()
     pprint(api_response)
@@ -547,7 +547,7 @@ Insert a coupon
 
 Insert a coupon on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -573,7 +573,7 @@ api_instance = ultracart.CouponApi(ultracart.ApiClient(configuration))
 coupon = ultracart.Coupon() # Coupon | Coupon to insert
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Insert a coupon
     api_response = api_instance.insert_coupon(coupon, expand=expand)
     pprint(api_response)
@@ -610,7 +610,7 @@ Update a coupon
 
 Update a coupon on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -637,7 +637,7 @@ coupon = ultracart.Coupon() # Coupon | Coupon to update
 coupon_oid = 56 # int | The coupon_oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Update a coupon
     api_response = api_instance.update_coupon(coupon, coupon_oid, expand=expand)
     pprint(api_response)

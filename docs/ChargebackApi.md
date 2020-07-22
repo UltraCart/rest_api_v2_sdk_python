@@ -18,7 +18,7 @@ Delete a chargeback
 
 Delete a chargeback on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -43,7 +43,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback_dispute_oid = 56 # int | The chargeback_dispute_oid to delete.
 
-try: 
+try:
     # Delete a chargeback
     api_response = api_instance.delete_chargeback(chargeback_dispute_oid)
     pprint(api_response)
@@ -79,7 +79,7 @@ Retrieve a chargeback
 
 Retrieves a single chargeback using the specified chargeback dispute oid. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -105,7 +105,7 @@ api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback_dispute_oid = 56 # int | The chargeback dispute oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve a chargeback
     api_response = api_instance.get_chargeback_dispute(chargeback_dispute_oid, expand=expand)
     pprint(api_response)
@@ -142,7 +142,7 @@ Retrieve chargebacks
 
 Retrieves chargebacks from the account.  If no parameters are specified, all chargebacks will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -178,7 +178,7 @@ since = 'since_example' # str | Fetch chargebacks that have been created/modifie
 sort = 'sort_example' # str | The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve chargebacks
     api_response = api_instance.get_chargeback_disputes(order_id=order_id, case_number=case_number, status=status, expiration_dts_start=expiration_dts_start, expiration_dts_end=expiration_dts_end, chargeback_dts_start=chargeback_dts_start, chargeback_dts_end=chargeback_dts_end, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
@@ -225,7 +225,7 @@ Insert a chargeback
 
 Insert a chargeback on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -251,7 +251,7 @@ api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback = ultracart.ChargebackDispute() # ChargebackDispute | Chargeback to insert
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Insert a chargeback
     api_response = api_instance.insert_chargeback(chargeback, expand=expand)
     pprint(api_response)
@@ -288,7 +288,7 @@ Update a chargeback
 
 Update a chargeback on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -315,7 +315,7 @@ chargeback = ultracart.ChargebackDispute() # ChargebackDispute | Chargeback to u
 chargeback_dispute_oid = 56 # int | The chargeback_dispute_oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Update a chargeback
     api_response = api_instance.update_chargeback(chargeback, chargeback_dispute_oid, expand=expand)
     pprint(api_response)

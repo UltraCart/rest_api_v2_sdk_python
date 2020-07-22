@@ -30,7 +30,7 @@ City/State for Zip
 
 Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -55,7 +55,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 cart = ultracart.Cart() # Cart | Cart
 
-try: 
+try:
     # City/State for Zip
     api_response = api_instance.city_state(cart)
     pprint(api_response)
@@ -91,7 +91,7 @@ Finalize Order
 
 Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -116,7 +116,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 finalize_request = ultracart.CartFinalizeOrderRequest() # CartFinalizeOrderRequest | Finalize request
 
-try: 
+try:
     # Finalize Order
     api_response = api_instance.finalize_order(finalize_request)
     pprint(api_response)
@@ -152,7 +152,7 @@ Get affirm checkout (by cart id)
 
 Get a Affirm checkout object for the specified cart_id parameter. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -177,7 +177,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 cart_id = 'cart_id_example' # str | Cart ID to retrieve
 
-try: 
+try:
     # Get affirm checkout (by cart id)
     api_response = api_instance.get_affirm_checkout(cart_id)
     pprint(api_response)
@@ -213,7 +213,7 @@ Allowed countries
 
 Lookup the allowed countries for this merchant id 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -237,7 +237,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Allowed countries
     api_response = api_instance.get_allowed_countries()
     pprint(api_response)
@@ -270,7 +270,7 @@ Get cart
 
 If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -295,7 +295,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Get cart
     api_response = api_instance.get_cart(expand=expand)
     pprint(api_response)
@@ -331,7 +331,7 @@ Get cart (by cart id)
 
 Get a cart specified by the cart_id parameter. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -357,7 +357,7 @@ api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 cart_id = 'cart_id_example' # str | Cart ID to retrieve
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Get cart (by cart id)
     api_response = api_instance.get_cart_by_cart_id(cart_id, expand=expand)
     pprint(api_response)
@@ -394,7 +394,7 @@ Get cart (by return code)
 
 Get a cart specified by the return code parameter. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -420,7 +420,7 @@ api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 return_code = 'return_code_example' # str | Return code to lookup cart ID by
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Get cart (by return code)
     api_response = api_instance.get_cart_by_return_code(return_code, expand=expand)
     pprint(api_response)
@@ -457,7 +457,7 @@ Get state/province list for a country code
 
 Lookup a state/province list for a given country code 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -482,7 +482,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 country_code = 'country_code_example' # str | Two letter ISO country code
 
-try: 
+try:
     # Get state/province list for a country code
     api_response = api_instance.get_state_provinces_for_country(country_code)
     pprint(api_response)
@@ -518,7 +518,7 @@ Handoff cart
 
 Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -544,7 +544,7 @@ api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 handoff_request = ultracart.CheckoutHandoffRequest() # CheckoutHandoffRequest | Handoff request
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Handoff cart
     api_response = api_instance.handoff_cart(handoff_request, expand=expand)
     pprint(api_response)
@@ -581,7 +581,7 @@ Profile login
 
 Login in to the customer profile specified by cart.billing.email and password 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -607,7 +607,7 @@ api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 login_request = ultracart.CartProfileLoginRequest() # CartProfileLoginRequest | Login request
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Profile login
     api_response = api_instance.login(login_request, expand=expand)
     pprint(api_response)
@@ -644,7 +644,7 @@ Profile logout
 
 Log the cart out of the current profile.  No error will occur if they are not logged in. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -670,7 +670,7 @@ api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 cart = ultracart.Cart() # Cart | Cart
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Profile logout
     api_response = api_instance.logout(cart, expand=expand)
     pprint(api_response)
@@ -707,7 +707,7 @@ Profile registration
 
 Register a new customer profile.  Requires the cart.billing object to be populated along with the password. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -733,7 +733,7 @@ api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 register_request = ultracart.CartProfileRegisterRequest() # CartProfileRegisterRequest | Register request
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Profile registration
     api_response = api_instance.register(register_request, expand=expand)
     pprint(api_response)
@@ -770,7 +770,7 @@ Related items
 
 Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -796,7 +796,7 @@ api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 cart = ultracart.Cart() # Cart | Cart
 expand = 'expand_example' # str | The object expansion to perform on the result.  See item resource documentation for examples (optional)
 
-try: 
+try:
     # Related items
     api_response = api_instance.related_items_for_cart(cart, expand=expand)
     pprint(api_response)
@@ -833,7 +833,7 @@ Related items (specific item)
 
 Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -860,7 +860,7 @@ item_id = 'item_id_example' # str | Item ID to retrieve related items for
 cart = ultracart.Cart() # Cart | Cart
 expand = 'expand_example' # str | The object expansion to perform on the result.  See item resource documentation for examples (optional)
 
-try: 
+try:
     # Related items (specific item)
     api_response = api_instance.related_items_for_item(item_id, cart, expand=expand)
     pprint(api_response)
@@ -898,7 +898,7 @@ Setup Browser Application
 
 Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -923,7 +923,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 browser_key_request = ultracart.CheckoutSetupBrowserKeyRequest() # CheckoutSetupBrowserKeyRequest | Setup browser key request
 
-try: 
+try:
     # Setup Browser Application
     api_response = api_instance.setup_browser_key(browser_key_request)
     pprint(api_response)
@@ -959,7 +959,7 @@ Update cart
 
 Update the cart. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -985,7 +985,7 @@ api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 cart = ultracart.Cart() # Cart | Cart
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Update cart
     api_response = api_instance.update_cart(cart, expand=expand)
     pprint(api_response)
@@ -1022,7 +1022,7 @@ Validate
 
 Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1048,7 +1048,7 @@ api_instance = ultracart.CheckoutApi(ultracart.ApiClient(configuration))
 validation_request = ultracart.CartValidationRequest() # CartValidationRequest | Validation request
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Validate
     api_response = api_instance.validate_cart(validation_request, expand=expand)
     pprint(api_response)

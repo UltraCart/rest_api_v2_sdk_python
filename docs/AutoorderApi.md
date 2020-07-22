@@ -21,7 +21,7 @@ Retrieve an auto order
 
 Retrieves a single auto order using the specified auto order oid. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -47,7 +47,7 @@ api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order_oid = 56 # int | The auto order oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve an auto order
     api_response = api_instance.get_auto_order(auto_order_oid, expand=expand)
     pprint(api_response)
@@ -84,7 +84,7 @@ Retrieve an auto order
 
 Retrieves a single auto order using the specified reference (original) order id. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -110,7 +110,7 @@ api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order_code = 'auto_order_code_example' # str | The auto order oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve an auto order
     api_response = api_instance.get_auto_order_by_code(auto_order_code, expand=expand)
     pprint(api_response)
@@ -147,7 +147,7 @@ Retrieve an auto order
 
 Retrieves a single auto order using the specified reference (original) order id. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -173,7 +173,7 @@ api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 reference_order_id = 'reference_order_id_example' # str | The auto order oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve an auto order
     api_response = api_instance.get_auto_order_by_reference_order_id(reference_order_id, expand=expand)
     pprint(api_response)
@@ -210,7 +210,7 @@ Retrieve auto orders
 
 Retrieves auto orders from the account.  If no parameters are specified, all auto orders will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -257,7 +257,7 @@ since = 'since_example' # str | Fetch auto orders that have been created/modifie
 sort = 'sort_example' # str | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve auto orders
     api_response = api_instance.get_auto_orders(auto_order_code=auto_order_code, original_order_id=original_order_id, first_name=first_name, last_name=last_name, company=company, city=city, state=state, postal_code=postal_code, country_code=country_code, phone=phone, email=email, original_order_date_begin=original_order_date_begin, original_order_date_end=original_order_date_end, next_shipment_date_begin=next_shipment_date_begin, next_shipment_date_end=next_shipment_date_end, card_type=card_type, item_id=item_id, status=status, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
@@ -315,7 +315,7 @@ Retrieve auto order batch
 
 Retrieves a group of auto orders from the account based on an array of auto order oids.  If more than 200 auto order ids are specified, the API call will fail with a bad request error. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -341,7 +341,7 @@ api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_order_batch = ultracart.AutoOrderQueryBatch() # AutoOrderQueryBatch | Auto order batch
 expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
 
-try: 
+try:
     # Retrieve auto order batch
     api_response = api_instance.get_auto_orders_batch(auto_order_batch, expand=expand)
     pprint(api_response)
@@ -378,7 +378,7 @@ Retrieve auto orders
 
 Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -407,7 +407,7 @@ offset = 0 # int | Pagination of the record set.  Offset is a zero based index. 
 sort = 'sort_example' # str | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
 
-try: 
+try:
     # Retrieve auto orders
     api_response = api_instance.get_auto_orders_by_query(auto_order_query, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
@@ -447,7 +447,7 @@ Update an auto order
 
 Update an auto order on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -474,7 +474,7 @@ auto_order = ultracart.AutoOrder() # AutoOrder | Auto order to update
 auto_order_oid = 56 # int | The auto order oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Update an auto order
     api_response = api_instance.update_auto_order(auto_order, auto_order_oid, expand=expand)
     pprint(api_response)
@@ -506,13 +506,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_auto_orders_batch**
-> AutoOrdersResponse update_auto_orders_batch(auto_orders_request, expand=expand, placeholders=placeholders, async=async)
+> AutoOrdersResponse update_auto_orders_batch(auto_orders_request, expand=expand, placeholders=placeholders, _async=_async)
 
 Update multiple auto orders
 
 Update multiple auto orders on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -538,11 +538,11 @@ api_instance = ultracart.AutoOrderApi(ultracart.ApiClient(configuration))
 auto_orders_request = ultracart.AutoOrdersRequest() # AutoOrdersRequest | Auto orders to update (synchronous maximum 20 / asynchronous maximum 100)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-async = true # bool | True if the operation should be run async.  No result returned (optional)
+_async = true # bool | True if the operation should be run async.  No result returned (optional)
 
-try: 
+try:
     # Update multiple auto orders
-    api_response = api_instance.update_auto_orders_batch(auto_orders_request, expand=expand, placeholders=placeholders, async=async)
+    api_response = api_instance.update_auto_orders_batch(auto_orders_request, expand=expand, placeholders=placeholders, _async=_async)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AutoOrderApi->update_auto_orders_batch: %s\n" % e)
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
  **auto_orders_request** | [**AutoOrdersRequest**](AutoOrdersRequest.md)| Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
  **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
- **async** | **bool**| True if the operation should be run async.  No result returned | [optional] 
+ **_async** | **bool**| True if the operation should be run async.  No result returned | [optional] 
 
 ### Return type
 

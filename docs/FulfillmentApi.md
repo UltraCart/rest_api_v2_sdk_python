@@ -18,7 +18,7 @@ Acknowledge receipt of orders.
 
 Acknowledge receipt of orders so that they are removed from the fulfillment queue.  This method must be called after receiving and order (via webhook) or retrieving (via retrieve orders method). 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -44,7 +44,7 @@ api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
 order_ids = [ultracart.list[str]()] # list[str] | Orders to acknowledge receipt of (limit 100)
 
-try: 
+try:
     # Acknowledge receipt of orders.
     api_instance.acknowledge_orders(distribution_center_code, order_ids)
 except ApiException as e:
@@ -80,7 +80,7 @@ Retrieve orders queued up for this distribution center.
 
 Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -105,7 +105,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
 
-try: 
+try:
     # Retrieve orders queued up for this distribution center.
     api_response = api_instance.get_distribution_center_orders(distribution_center_code)
     pprint(api_response)
@@ -141,7 +141,7 @@ Retrieve distribution centers
 
 Retrieves the distribution centers that this user has access to. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -165,7 +165,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve distribution centers
     api_response = api_instance.get_distribution_centers()
     pprint(api_response)
@@ -198,7 +198,7 @@ Mark orders as shipped
 
 Store the tracking information and mark the order shipped for this distribution center. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -224,7 +224,7 @@ api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
 shipments = [ultracart.FulfillmentShipment()] # list[FulfillmentShipment] | Orders to mark shipped
 
-try: 
+try:
     # Mark orders as shipped
     api_instance.ship_orders(distribution_center_code, shipments)
 except ApiException as e:
@@ -260,7 +260,7 @@ Update inventory
 
 Update the inventory for items associated with this distribution center 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -286,7 +286,7 @@ api_instance = ultracart.FulfillmentApi(ultracart.ApiClient(configuration))
 distribution_center_code = 'distribution_center_code_example' # str | Distribution center code
 inventories = [ultracart.FulfillmentInventory()] # list[FulfillmentInventory] | Inventory updates (limit 500)
 
-try: 
+try:
     # Update inventory
     api_instance.update_inventory(distribution_center_code, inventories)
 except ApiException as e:

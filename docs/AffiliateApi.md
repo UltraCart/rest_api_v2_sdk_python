@@ -15,7 +15,7 @@ Retrieve clicks
 
 Retrieves a group of clicks from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the clicks returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -43,7 +43,7 @@ limit = 10000 # int | The maximum number of records to return on this one API ca
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 expand = 'expand_example' # str | The object expansion to perform on the result.  Only option is link. (optional)
 
-try: 
+try:
     # Retrieve clicks
     api_response = api_instance.get_clicks_by_query(click_query, limit=limit, offset=offset, expand=expand)
     pprint(api_response)
@@ -82,7 +82,7 @@ Retrieve ledger entries
 
 Retrieves a group of ledger entries from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the ledgers returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -110,7 +110,7 @@ limit = 100 # int | The maximum number of records to return on this one API call
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 expand = 'expand_example' # str | The object expansion to perform on the result.  Only option is link. (optional)
 
-try: 
+try:
     # Retrieve ledger entries
     api_response = api_instance.get_ledgers_by_query(ledger_query, limit=limit, offset=offset, expand=expand)
     pprint(api_response)

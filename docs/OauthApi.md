@@ -15,7 +15,7 @@ Exchange authorization code for access token.
 
 The final leg in the OAuth process which exchanges the specified access token for the access code needed to make API calls. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -44,7 +44,7 @@ code = 'code_example' # str | Authorization code received back from the browser 
 redirect_uri = 'redirect_uri_example' # str | The URI that you redirect the browser to to start the authorization process (optional)
 refresh_token = 'refresh_token_example' # str | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token (optional)
 
-try: 
+try:
     # Exchange authorization code for access token.
     api_response = api_instance.oauth_access_token(client_id, grant_type, code=code, redirect_uri=redirect_uri, refresh_token=refresh_token)
     pprint(api_response)
@@ -84,7 +84,7 @@ Revoke this OAuth application.
 
 Revokes the OAuth application associated with the specified client_id and token. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -110,7 +110,7 @@ api_instance = ultracart.OauthApi(ultracart.ApiClient(configuration))
 client_id = 'client_id_example' # str | The OAuth application client_id.
 token = 'token_example' # str | The OAuth access token that is to be revoked..
 
-try: 
+try:
     # Revoke this OAuth application.
     api_response = api_instance.oauth_revoke(client_id, token)
     pprint(api_response)

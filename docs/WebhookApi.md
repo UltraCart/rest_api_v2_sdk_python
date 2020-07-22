@@ -21,7 +21,7 @@ Delete a webhook
 
 Delete a webhook on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -46,7 +46,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid to delete.
 
-try: 
+try:
     # Delete a webhook
     api_instance.delete_webhook(webhook_oid)
 except ApiException as e:
@@ -81,7 +81,7 @@ Delete a webhook by URL
 
 Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -106,7 +106,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook = ultracart.Webhook() # Webhook | Webhook to delete
 
-try: 
+try:
     # Delete a webhook by URL
     api_response = api_instance.delete_webhook_by_url(webhook)
     pprint(api_response)
@@ -142,7 +142,7 @@ Retrieve an individual log
 
 Retrieves an individual log for a webhook given the webhook oid the request id. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -168,7 +168,7 @@ api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid that owns the log.
 request_id = 'request_id_example' # str | The request id associated with the log to view.
 
-try: 
+try:
     # Retrieve an individual log
     api_response = api_instance.get_webhook_log(webhook_oid, request_id)
     pprint(api_response)
@@ -205,7 +205,7 @@ Retrieve the log summaries
 
 Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -233,7 +233,7 @@ limit = 100 # int | The maximum number of records to return on this one API call
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 since = 'since_example' # str | Fetch log summaries that have been delivered since this date/time. (optional)
 
-try: 
+try:
     # Retrieve the log summaries
     api_response = api_instance.get_webhook_log_summaries(webhook_oid, limit=limit, offset=offset, since=since)
     pprint(api_response)
@@ -272,7 +272,7 @@ Retrieve webhooks
 
 Retrieves the webhooks associated with this application. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -300,7 +300,7 @@ offset = 0 # int | Pagination of the record set.  Offset is a zero based index. 
 sort = 'sort_example' # str | The sort order of the webhooks.  See documentation for examples (optional)
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
-try: 
+try:
     # Retrieve webhooks
     api_response = api_instance.get_webhooks(limit=limit, offset=offset, sort=sort, placeholders=placeholders)
     pprint(api_response)
@@ -339,7 +339,7 @@ Add a webhook
 
 Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -365,7 +365,7 @@ api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook = ultracart.Webhook() # Webhook | Webhook to create
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
-try: 
+try:
     # Add a webhook
     api_response = api_instance.insert_webhook(webhook, placeholders=placeholders)
     pprint(api_response)
@@ -402,7 +402,7 @@ Resend events to the webhook endpoint.
 
 This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -428,7 +428,7 @@ api_instance = ultracart.WebhookApi(ultracart.ApiClient(configuration))
 webhook_oid = 56 # int | The webhook oid that is receiving the reflowed events.
 event_name = 'event_name_example' # str | The event to reflow.
 
-try: 
+try:
     # Resend events to the webhook endpoint.
     api_response = api_instance.resend_event(webhook_oid, event_name)
     pprint(api_response)
@@ -465,7 +465,7 @@ Update a webhook
 
 Update a webhook on the account 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -492,7 +492,7 @@ webhook = ultracart.Webhook() # Webhook | Webhook to update
 webhook_oid = 56 # int | The webhook oid to update.
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
-try: 
+try:
     # Update a webhook
     api_response = api_instance.update_webhook(webhook, webhook_oid, placeholders=placeholders)
     pprint(api_response)

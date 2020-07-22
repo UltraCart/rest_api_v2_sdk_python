@@ -3,7 +3,7 @@
 """
     UltraCart Rest API V2
 
-    UltraCart REST API Version 2
+    UltraCart REST API Version 2  # noqa: E501
 
     OpenAPI spec version: 2.0.0
     Contact: support@ultracart.com
@@ -11,11 +11,10 @@
 """
 
 
-import sys
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "UltraCart REST SDK"
-VERSION = "2.4.123"
+VERSION = "3.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -23,7 +22,13 @@ VERSION = "2.4.123"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = [
+    "certifi>=2017.4.17",
+    "python-dateutil>=2.1",
+    "six>=1.10",
+    "urllib3>=1.23"
+]
+    
 
 setup(
     name=NAME,
@@ -36,6 +41,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    UltraCart REST API Version 2
+    UltraCart REST API Version 2  # noqa: E501
     """
 )

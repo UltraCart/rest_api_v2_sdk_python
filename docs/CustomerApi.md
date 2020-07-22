@@ -23,7 +23,7 @@ Delete a customer
 
 Delete a customer on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -48,7 +48,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 customer_profile_oid = 56 # int | The customer_profile_oid to delete.
 
-try: 
+try:
     # Delete a customer
     api_response = api_instance.delete_customer(customer_profile_oid)
     pprint(api_response)
@@ -84,7 +84,7 @@ Retrieve a customer
 
 Retrieves a single customer using the specified customer profile oid. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -110,7 +110,7 @@ api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 customer_profile_oid = 56 # int | The customer oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve a customer
     api_response = api_instance.get_customer(customer_profile_oid, expand=expand)
     pprint(api_response)
@@ -147,7 +147,7 @@ Retrieve customers
 
 Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -203,7 +203,7 @@ since = 'since_example' # str | Fetch customers that have been created/modified 
 sort = 'sort_example' # str | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve customers
     api_response = api_instance.get_customers(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
@@ -270,7 +270,7 @@ Retrieve customers by query
 
 Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -300,7 +300,7 @@ since = 'since_example' # str | Fetch customers that have been created/modified 
 sort = 'sort_example' # str | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve customers by query
     api_response = api_instance.get_customers_by_query(customer_query, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
@@ -341,7 +341,7 @@ Retrieve customers for DataTables plugin
 
 Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -366,7 +366,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve customers for DataTables plugin
     api_response = api_instance.get_customers_for_data_tables(expand=expand)
     pprint(api_response)
@@ -402,7 +402,7 @@ Retrieve values needed for a customer profile editor
 
 Retrieve values needed for a customer profile editor. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -426,7 +426,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve values needed for a customer profile editor
     api_response = api_instance.get_editor_values()
     pprint(api_response)
@@ -459,7 +459,7 @@ Retrieve all email lists across all storefronts
 
 Retrieve all email lists across all storefronts 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -483,7 +483,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve all email lists across all storefronts
     api_response = api_instance.get_email_lists()
     pprint(api_response)
@@ -516,7 +516,7 @@ Insert a customer
 
 Insert a customer on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -542,7 +542,7 @@ api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 customer = ultracart.Customer() # Customer | Customer to insert
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Insert a customer
     api_response = api_instance.insert_customer(customer, expand=expand)
     pprint(api_response)
@@ -579,7 +579,7 @@ Update a customer
 
 Update a customer on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -606,7 +606,7 @@ customer = ultracart.Customer() # Customer | Customer to update
 customer_profile_oid = 56 # int | The customer_profile_oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Update a customer
     api_response = api_instance.update_customer(customer, customer_profile_oid, expand=expand)
     pprint(api_response)
@@ -644,7 +644,7 @@ Update email list subscriptions for a customer
 
 Update email list subscriptions for a customer 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -670,7 +670,7 @@ api_instance = ultracart.CustomerApi(ultracart.ApiClient(configuration))
 customer_profile_oid = 56 # int | The customer profile oid
 list_changes = ultracart.CustomerEmailListChanges() # CustomerEmailListChanges | List changes
 
-try: 
+try:
     # Update email list subscriptions for a customer
     api_response = api_instance.update_customer_email_lists(customer_profile_oid, list_changes)
     pprint(api_response)

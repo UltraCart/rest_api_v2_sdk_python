@@ -115,7 +115,7 @@ Method | HTTP request | Description
 
 Add to library
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -140,7 +140,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
 add_library_request = ultracart.AddLibraryItemRequest() # AddLibraryItemRequest | New library item
 
-try: 
+try:
     # Add to library
     api_response = api_instance.add_to_library(add_library_request)
     pprint(api_response)
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 Apply library item to storefront.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -197,10 +197,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-library_item_oid = 56 # int | null
-storefront_oid = 56 # int | null
+library_item_oid = 56 # int | 
+storefront_oid = 56 # int | 
 
-try: 
+try:
     # Apply library item to storefront.
     api_response = api_instance.apply_to_store_front(library_item_oid, storefront_oid)
     pprint(api_response)
@@ -212,8 +212,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**| null | 
- **storefront_oid** | **int**| null | 
+ **library_item_oid** | **int**|  | 
+ **storefront_oid** | **int**|  | 
 
 ### Return type
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 Archive email list
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -258,10 +258,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_list_uuid = 'email_list_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_list_uuid = 'email_list_uuid_example' # str | 
 
-try: 
+try:
     # Archive email list
     api_response = api_instance.archive_email_list(storefront_oid, email_list_uuid)
     pprint(api_response)
@@ -273,8 +273,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_list_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_list_uuid** | **str**|  | 
 
 ### Return type
 
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 Archive email segment
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -319,10 +319,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_segment_uuid = 'email_segment_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_segment_uuid = 'email_segment_uuid_example' # str | 
 
-try: 
+try:
     # Archive email segment
     api_response = api_instance.archive_email_segment(storefront_oid, email_segment_uuid)
     pprint(api_response)
@@ -334,8 +334,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_segment_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_segment_uuid** | **str**|  | 
 
 ### Return type
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 Back populate email flow
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -380,11 +380,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_flow_uuid = 'email_flow_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_flow_uuid = 'email_flow_uuid_example' # str | 
 back_populate_request = ultracart.EmailFlowBackPopulateRequest() # EmailFlowBackPopulateRequest | The request to back populate
 
-try: 
+try:
     # Back populate email flow
     api_response = api_instance.back_populate_email_flow(storefront_oid, email_flow_uuid, back_populate_request)
     pprint(api_response)
@@ -396,8 +396,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_flow_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_flow_uuid** | **str**|  | 
  **back_populate_request** | [**EmailFlowBackPopulateRequest**](EmailFlowBackPopulateRequest.md)| The request to back populate | 
 
 ### Return type
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 
 Check download of email segment
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -443,11 +443,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_segment_uuid = 'email_segment_uuid_example' # str | null
-email_segment_rebuild_uuid = 'email_segment_rebuild_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_segment_uuid = 'email_segment_uuid_example' # str | 
+email_segment_rebuild_uuid = 'email_segment_rebuild_uuid_example' # str | 
 
-try: 
+try:
     # Check download of email segment
     api_response = api_instance.check_download_email_segment(storefront_oid, email_segment_uuid, email_segment_rebuild_uuid)
     pprint(api_response)
@@ -459,9 +459,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_segment_uuid** | **str**| null | 
- **email_segment_rebuild_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_segment_uuid** | **str**|  | 
+ **email_segment_rebuild_uuid** | **str**|  | 
 
 ### Return type
 
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 Clone email campaign
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -506,11 +506,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_campaign_uuid = 'email_campaign_uuid_example' # str | null
-target_storefront_oid = 'target_storefront_oid_example' # str | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+email_campaign_uuid = 'email_campaign_uuid_example' # str | 
+target_storefront_oid = 'target_storefront_oid_example' # str |  (optional)
 
-try: 
+try:
     # Clone email campaign
     api_response = api_instance.clone_email_campaign(storefront_oid, email_campaign_uuid, target_storefront_oid=target_storefront_oid)
     pprint(api_response)
@@ -522,9 +522,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_campaign_uuid** | **str**| null | 
- **target_storefront_oid** | **str**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **email_campaign_uuid** | **str**|  | 
+ **target_storefront_oid** | **str**|  | [optional] 
 
 ### Return type
 
@@ -546,7 +546,7 @@ Name | Type | Description  | Notes
 
 Clone email flow
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -569,11 +569,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_flow_uuid = 'email_flow_uuid_example' # str | null
-target_storefront_oid = 'target_storefront_oid_example' # str | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+email_flow_uuid = 'email_flow_uuid_example' # str | 
+target_storefront_oid = 'target_storefront_oid_example' # str |  (optional)
 
-try: 
+try:
     # Clone email flow
     api_response = api_instance.clone_email_flow(storefront_oid, email_flow_uuid, target_storefront_oid=target_storefront_oid)
     pprint(api_response)
@@ -585,9 +585,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_flow_uuid** | **str**| null | 
- **target_storefront_oid** | **str**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **email_flow_uuid** | **str**|  | 
+ **target_storefront_oid** | **str**|  | [optional] 
 
 ### Return type
 
@@ -609,7 +609,7 @@ Name | Type | Description  | Notes
 
 Clone public library item.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -632,10 +632,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-library_item_oid = 56 # int | null
-storefront_oid = 56 # int | null (optional)
+library_item_oid = 56 # int | 
+storefront_oid = 56 # int |  (optional)
 
-try: 
+try:
     # Clone public library item.
     api_response = api_instance.clone_library_item(library_item_oid, storefront_oid=storefront_oid)
     pprint(api_response)
@@ -647,8 +647,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**| null | 
- **storefront_oid** | **int**| null | [optional] 
+ **library_item_oid** | **int**|  | 
+ **storefront_oid** | **int**|  | [optional] 
 
 ### Return type
 
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 Create email campaign
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -693,9 +693,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-domain = 'domain_example' # str | null
+domain = 'domain_example' # str | 
 
-try: 
+try:
     # Create email campaign
     api_response = api_instance.create_email_sending_domain(domain)
     pprint(api_response)
@@ -707,7 +707,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **str**| null | 
+ **domain** | **str**|  | 
 
 ### Return type
 
@@ -729,7 +729,7 @@ Name | Type | Description  | Notes
 
 Delete communication sequence stats
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -752,10 +752,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
 
-try: 
+try:
     # Delete communication sequence stats
     api_instance.delete_email_commseq_stat(storefront_oid, commseq_uuid)
 except ApiException as e:
@@ -766,8 +766,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
 
 ### Return type
 
@@ -789,7 +789,7 @@ void (empty response body)
 
 Delete email email
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -812,10 +812,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_email_uuid = 'commseq_email_uuid_example' # str | 
 
-try: 
+try:
     # Delete email email
     api_response = api_instance.delete_email_email(storefront_oid, commseq_email_uuid)
     pprint(api_response)
@@ -827,8 +827,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_email_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_email_uuid** | **str**|  | 
 
 ### Return type
 
@@ -850,7 +850,7 @@ Name | Type | Description  | Notes
 
 Delete email list customer
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -873,11 +873,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_list_uuid = 'email_list_uuid_example' # str | null
-email_customer_uuid = 'email_customer_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_list_uuid = 'email_list_uuid_example' # str | 
+email_customer_uuid = 'email_customer_uuid_example' # str | 
 
-try: 
+try:
     # Delete email list customer
     api_response = api_instance.delete_email_list_customer(storefront_oid, email_list_uuid, email_customer_uuid)
     pprint(api_response)
@@ -889,9 +889,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_list_uuid** | **str**| null | 
- **email_customer_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_list_uuid** | **str**|  | 
+ **email_customer_uuid** | **str**|  | 
 
 ### Return type
 
@@ -913,7 +913,7 @@ Name | Type | Description  | Notes
 
 Delete email postcard
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -936,10 +936,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | 
 
-try: 
+try:
     # Delete email postcard
     api_response = api_instance.delete_email_postcard(storefront_oid, commseq_postcard_uuid)
     pprint(api_response)
@@ -951,8 +951,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_postcard_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_postcard_uuid** | **str**|  | 
 
 ### Return type
 
@@ -974,7 +974,7 @@ Name | Type | Description  | Notes
 
 delete email campaign
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -997,9 +997,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-domain = 'domain_example' # str | null
+domain = 'domain_example' # str | 
 
-try: 
+try:
     # delete email campaign
     api_response = api_instance.delete_email_sending_domain(domain)
     pprint(api_response)
@@ -1011,7 +1011,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **str**| null | 
+ **domain** | **str**|  | 
 
 ### Return type
 
@@ -1033,7 +1033,7 @@ Name | Type | Description  | Notes
 
 Delete experiment
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1056,10 +1056,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-storefront_experiment_oid = 56 # int | null
+storefront_oid = 'storefront_oid_example' # str | 
+storefront_experiment_oid = 56 # int | 
 
-try: 
+try:
     # Delete experiment
     api_instance.delete_experiment(storefront_oid, storefront_experiment_oid)
 except ApiException as e:
@@ -1070,8 +1070,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **storefront_experiment_oid** | **int**| null | 
+ **storefront_oid** | **str**|  | 
+ **storefront_experiment_oid** | **int**|  | 
 
 ### Return type
 
@@ -1093,7 +1093,7 @@ void (empty response body)
 
 Delete library item
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1116,9 +1116,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-library_item_oid = 56 # int | null
+library_item_oid = 56 # int | 
 
-try: 
+try:
     # Delete library item
     api_instance.delete_library_item(library_item_oid)
 except ApiException as e:
@@ -1129,7 +1129,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**| null | 
+ **library_item_oid** | **int**|  | 
 
 ### Return type
 
@@ -1151,7 +1151,7 @@ void (empty response body)
 
 Duplicate library item.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1174,9 +1174,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-library_item_oid = 56 # int | null
+library_item_oid = 56 # int | 
 
-try: 
+try:
     # Duplicate library item.
     api_response = api_instance.duplicate_library_item(library_item_oid)
     pprint(api_response)
@@ -1188,7 +1188,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**| null | 
+ **library_item_oid** | **int**|  | 
 
 ### Return type
 
@@ -1210,7 +1210,7 @@ Name | Type | Description  | Notes
 
 Obtain lat/long for an address
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1233,10 +1233,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 geocode_request = ultracart.GeocodeRequest() # GeocodeRequest | geocode request
 
-try: 
+try:
     # Obtain lat/long for an address
     api_response = api_instance.geocode_address(storefront_oid, geocode_request)
     pprint(api_response)
@@ -1248,7 +1248,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **geocode_request** | [**GeocodeRequest**](GeocodeRequest.md)| geocode request | 
 
 ### Return type
@@ -1273,7 +1273,7 @@ Get countries
 
 Obtain a list of all the countries 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1296,9 +1296,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get countries
     api_response = api_instance.get_countries(storefront_oid)
     pprint(api_response)
@@ -1310,7 +1310,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -1334,7 +1334,7 @@ Gets editor token
 
 Fetches a temporary authentication token for the editor 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1357,9 +1357,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-id = 56 # int | null
+id = 56 # int | 
 
-try: 
+try:
     # Gets editor token
     api_response = api_instance.get_editor_token(id)
     pprint(api_response)
@@ -1371,7 +1371,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| null | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -1393,7 +1393,7 @@ Name | Type | Description  | Notes
 
 Get email communication base templates
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1416,9 +1416,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email communication base templates
     api_response = api_instance.get_email_base_templates(storefront_oid)
     pprint(api_response)
@@ -1430,7 +1430,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -1452,7 +1452,7 @@ Name | Type | Description  | Notes
 
 Get email campaign
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1475,10 +1475,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_campaign_uuid = 'email_campaign_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_campaign_uuid = 'email_campaign_uuid_example' # str | 
 
-try: 
+try:
     # Get email campaign
     api_response = api_instance.get_email_campaign(storefront_oid, email_campaign_uuid)
     pprint(api_response)
@@ -1490,8 +1490,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_campaign_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_campaign_uuid** | **str**|  | 
 
 ### Return type
 
@@ -1513,7 +1513,7 @@ Name | Type | Description  | Notes
 
 Get email campaigns
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1536,9 +1536,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email campaigns
     api_response = api_instance.get_email_campaigns(storefront_oid)
     pprint(api_response)
@@ -1550,7 +1550,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -1572,7 +1572,7 @@ Name | Type | Description  | Notes
 
 Get email campaigns with stats
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1595,10 +1595,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-stat_days = 'stat_days_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+stat_days = 'stat_days_example' # str | 
 
-try: 
+try:
     # Get email campaigns with stats
     api_response = api_instance.get_email_campaigns_with_stats(storefront_oid, stat_days)
     pprint(api_response)
@@ -1610,8 +1610,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **stat_days** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **stat_days** | **str**|  | 
 
 ### Return type
 
@@ -1633,7 +1633,7 @@ Name | Type | Description  | Notes
 
 Get email commseq
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1656,10 +1656,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
 
-try: 
+try:
     # Get email commseq
     api_response = api_instance.get_email_commseq(storefront_oid, commseq_uuid)
     pprint(api_response)
@@ -1671,8 +1671,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
 
 ### Return type
 
@@ -1694,7 +1694,7 @@ Name | Type | Description  | Notes
 
 Get email communication sequence emails stats
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1717,11 +1717,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
 stats_request = ultracart.EmailStatSummaryRequest() # EmailStatSummaryRequest | StatsRequest
 
-try: 
+try:
     # Get email communication sequence emails stats
     api_response = api_instance.get_email_commseq_email_stats(storefront_oid, commseq_uuid, stats_request)
     pprint(api_response)
@@ -1733,8 +1733,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
  **stats_request** | [**EmailStatSummaryRequest**](EmailStatSummaryRequest.md)| StatsRequest | 
 
 ### Return type
@@ -1757,7 +1757,7 @@ Name | Type | Description  | Notes
 
 Get email communication sequence postcard stats
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1780,11 +1780,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
 stats_request = ultracart.EmailStatPostcardSummaryRequest() # EmailStatPostcardSummaryRequest | StatsRequest
 
-try: 
+try:
     # Get email communication sequence postcard stats
     api_response = api_instance.get_email_commseq_postcard_stats(storefront_oid, commseq_uuid, stats_request)
     pprint(api_response)
@@ -1796,8 +1796,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
  **stats_request** | [**EmailStatPostcardSummaryRequest**](EmailStatPostcardSummaryRequest.md)| StatsRequest | 
 
 ### Return type
@@ -1820,7 +1820,7 @@ Name | Type | Description  | Notes
 
 Get communication sequence stats overall
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1843,10 +1843,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
 
-try: 
+try:
     # Get communication sequence stats overall
     api_response = api_instance.get_email_commseq_stat_overall(storefront_oid, commseq_uuid)
     pprint(api_response)
@@ -1858,8 +1858,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
 
 ### Return type
 
@@ -1881,7 +1881,7 @@ Name | Type | Description  | Notes
 
 Get email communication sequence step stats
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1904,11 +1904,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
 stats_request = ultracart.EmailStepStatRequest() # EmailStepStatRequest | StatsRequest
 
-try: 
+try:
     # Get email communication sequence step stats
     api_response = api_instance.get_email_commseq_step_stats(storefront_oid, commseq_uuid, stats_request)
     pprint(api_response)
@@ -1920,8 +1920,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
  **stats_request** | [**EmailStepStatRequest**](EmailStepStatRequest.md)| StatsRequest | 
 
 ### Return type
@@ -1944,7 +1944,7 @@ Name | Type | Description  | Notes
 
 Get email communication sequence customers waiting at each requested step
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1967,11 +1967,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
 waiting_request = ultracart.EmailStepWaitingRequest() # EmailStepWaitingRequest | WaitingRequest
 
-try: 
+try:
     # Get email communication sequence customers waiting at each requested step
     api_response = api_instance.get_email_commseq_step_waiting(storefront_oid, commseq_uuid, waiting_request)
     pprint(api_response)
@@ -1983,8 +1983,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
  **waiting_request** | [**EmailStepWaitingRequest**](EmailStepWaitingRequest.md)| WaitingRequest | 
 
 ### Return type
@@ -2007,7 +2007,7 @@ Name | Type | Description  | Notes
 
 Get email commseqs
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2030,9 +2030,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email commseqs
     api_response = api_instance.get_email_commseqs(storefront_oid)
     pprint(api_response)
@@ -2044,7 +2044,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -2066,7 +2066,7 @@ Name | Type | Description  | Notes
 
 Get customers editor URL
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2089,10 +2089,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_customer_uuid = 'email_customer_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_customer_uuid = 'email_customer_uuid_example' # str | 
 
-try: 
+try:
     # Get customers editor URL
     api_response = api_instance.get_email_customer_editor_url(storefront_oid, email_customer_uuid)
     pprint(api_response)
@@ -2104,8 +2104,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_customer_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_customer_uuid** | **str**|  | 
 
 ### Return type
 
@@ -2127,7 +2127,7 @@ Name | Type | Description  | Notes
 
 Get email customers
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2150,12 +2150,12 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-page_number = 56 # int | null (optional)
-page_size = 56 # int | null (optional)
-search_email_prefix = 'search_email_prefix_example' # str | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+page_number = 56 # int |  (optional)
+page_size = 56 # int |  (optional)
+search_email_prefix = 'search_email_prefix_example' # str |  (optional)
 
-try: 
+try:
     # Get email customers
     api_response = api_instance.get_email_customers(storefront_oid, page_number=page_number, page_size=page_size, search_email_prefix=search_email_prefix)
     pprint(api_response)
@@ -2167,10 +2167,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **page_number** | **int**| null | [optional] 
- **page_size** | **int**| null | [optional] 
- **search_email_prefix** | **str**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **page_number** | **int**|  | [optional] 
+ **page_size** | **int**|  | [optional] 
+ **search_email_prefix** | **str**|  | [optional] 
 
 ### Return type
 
@@ -2192,7 +2192,7 @@ Name | Type | Description  | Notes
 
 Get email dashboard activity
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2215,10 +2215,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-last_records = 56 # int | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+last_records = 56 # int |  (optional)
 
-try: 
+try:
     # Get email dashboard activity
     api_response = api_instance.get_email_dashboard_activity(storefront_oid, last_records=last_records)
     pprint(api_response)
@@ -2230,8 +2230,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **last_records** | **int**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **last_records** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2253,7 +2253,7 @@ Name | Type | Description  | Notes
 
 Get dashboard stats
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2276,10 +2276,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-days = 56 # int | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+days = 56 # int |  (optional)
 
-try: 
+try:
     # Get dashboard stats
     api_response = api_instance.get_email_dashboard_stats(storefront_oid, days=days)
     pprint(api_response)
@@ -2291,8 +2291,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **days** | **int**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **days** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2314,7 +2314,7 @@ Name | Type | Description  | Notes
 
 Get email email
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2337,10 +2337,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_email_uuid = 'commseq_email_uuid_example' # str | 
 
-try: 
+try:
     # Get email email
     api_response = api_instance.get_email_email(storefront_oid, commseq_email_uuid)
     pprint(api_response)
@@ -2352,8 +2352,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_email_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_email_uuid** | **str**|  | 
 
 ### Return type
 
@@ -2375,7 +2375,7 @@ Name | Type | Description  | Notes
 
 Get email email clicks
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2398,13 +2398,13 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
-commseq_step_uuid = 'commseq_step_uuid_example' # str | null
-commseq_email_uuid = 'commseq_email_uuid_example' # str | null
-days = 56 # int | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
+commseq_step_uuid = 'commseq_step_uuid_example' # str | 
+commseq_email_uuid = 'commseq_email_uuid_example' # str | 
+days = 56 # int |  (optional)
 
-try: 
+try:
     # Get email email clicks
     api_response = api_instance.get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
     pprint(api_response)
@@ -2416,11 +2416,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
- **commseq_step_uuid** | **str**| null | 
- **commseq_email_uuid** | **str**| null | 
- **days** | **int**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
+ **commseq_step_uuid** | **str**|  | 
+ **commseq_email_uuid** | **str**|  | 
+ **days** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2442,7 +2442,7 @@ Name | Type | Description  | Notes
 
 Get email order customer editor url
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2465,11 +2465,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_email_uuid = 'commseq_email_uuid_example' # str | null
-order_id = 'order_id_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_email_uuid = 'commseq_email_uuid_example' # str | 
+order_id = 'order_id_example' # str | 
 
-try: 
+try:
     # Get email order customer editor url
     api_response = api_instance.get_email_email_customer_editor_url(storefront_oid, commseq_email_uuid, order_id)
     pprint(api_response)
@@ -2481,9 +2481,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_email_uuid** | **str**| null | 
- **order_id** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_email_uuid** | **str**|  | 
+ **order_id** | **str**|  | 
 
 ### Return type
 
@@ -2505,7 +2505,7 @@ Name | Type | Description  | Notes
 
 Get email email orders
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2528,13 +2528,13 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
-commseq_step_uuid = 'commseq_step_uuid_example' # str | null
-commseq_email_uuid = 'commseq_email_uuid_example' # str | null
-days = 56 # int | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
+commseq_step_uuid = 'commseq_step_uuid_example' # str | 
+commseq_email_uuid = 'commseq_email_uuid_example' # str | 
+days = 56 # int |  (optional)
 
-try: 
+try:
     # Get email email orders
     api_response = api_instance.get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
     pprint(api_response)
@@ -2546,11 +2546,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
- **commseq_step_uuid** | **str**| null | 
- **commseq_email_uuid** | **str**| null | 
- **days** | **int**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
+ **commseq_step_uuid** | **str**|  | 
+ **commseq_email_uuid** | **str**|  | 
+ **days** | **int**|  | [optional] 
 
 ### Return type
 
@@ -2572,7 +2572,7 @@ Name | Type | Description  | Notes
 
 Get email emails
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2595,9 +2595,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email emails
     api_response = api_instance.get_email_emails(storefront_oid)
     pprint(api_response)
@@ -2609,7 +2609,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -2631,7 +2631,7 @@ Name | Type | Description  | Notes
 
 Get email emails multiple
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2654,10 +2654,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 email_commseq_emails_request = ultracart.EmailCommseqEmailsRequest() # EmailCommseqEmailsRequest | Request of email uuids
 
-try: 
+try:
     # Get email emails multiple
     api_response = api_instance.get_email_emails_multiple(storefront_oid, email_commseq_emails_request)
     pprint(api_response)
@@ -2669,7 +2669,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **email_commseq_emails_request** | [**EmailCommseqEmailsRequest**](EmailCommseqEmailsRequest.md)| Request of email uuids | 
 
 ### Return type
@@ -2692,7 +2692,7 @@ Name | Type | Description  | Notes
 
 Get email flow
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2715,10 +2715,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_flow_uuid = 'email_flow_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_flow_uuid = 'email_flow_uuid_example' # str | 
 
-try: 
+try:
     # Get email flow
     api_response = api_instance.get_email_flow(storefront_oid, email_flow_uuid)
     pprint(api_response)
@@ -2730,8 +2730,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_flow_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_flow_uuid** | **str**|  | 
 
 ### Return type
 
@@ -2753,7 +2753,7 @@ Name | Type | Description  | Notes
 
 Get email flows
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2776,9 +2776,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email flows
     api_response = api_instance.get_email_flows(storefront_oid)
     pprint(api_response)
@@ -2790,7 +2790,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -2812,7 +2812,7 @@ Name | Type | Description  | Notes
 
 Get email globalsettings
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2836,7 +2836,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Get email globalsettings
     api_response = api_instance.get_email_global_settings()
     pprint(api_response)
@@ -2867,7 +2867,7 @@ This endpoint does not need any parameter.
 
 Get email list
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2890,10 +2890,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_list_uuid = 'email_list_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_list_uuid = 'email_list_uuid_example' # str | 
 
-try: 
+try:
     # Get email list
     api_response = api_instance.get_email_list(storefront_oid, email_list_uuid)
     pprint(api_response)
@@ -2905,8 +2905,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_list_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_list_uuid** | **str**|  | 
 
 ### Return type
 
@@ -2928,7 +2928,7 @@ Name | Type | Description  | Notes
 
 Get email list customer editor url
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2951,11 +2951,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_list_uuid = 'email_list_uuid_example' # str | null
-email_customer_uuid = 'email_customer_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_list_uuid = 'email_list_uuid_example' # str | 
+email_customer_uuid = 'email_customer_uuid_example' # str | 
 
-try: 
+try:
     # Get email list customer editor url
     api_response = api_instance.get_email_list_customer_editor_url(storefront_oid, email_list_uuid, email_customer_uuid)
     pprint(api_response)
@@ -2967,9 +2967,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_list_uuid** | **str**| null | 
- **email_customer_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_list_uuid** | **str**|  | 
+ **email_customer_uuid** | **str**|  | 
 
 ### Return type
 
@@ -2991,7 +2991,7 @@ Name | Type | Description  | Notes
 
 Get email list customers
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3014,12 +3014,12 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_list_uuid = 'email_list_uuid_example' # str | null
-page_number = 56 # int | null (optional)
-page_size = 56 # int | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+email_list_uuid = 'email_list_uuid_example' # str | 
+page_number = 56 # int |  (optional)
+page_size = 56 # int |  (optional)
 
-try: 
+try:
     # Get email list customers
     api_response = api_instance.get_email_list_customers(storefront_oid, email_list_uuid, page_number=page_number, page_size=page_size)
     pprint(api_response)
@@ -3031,10 +3031,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_list_uuid** | **str**| null | 
- **page_number** | **int**| null | [optional] 
- **page_size** | **int**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **email_list_uuid** | **str**|  | 
+ **page_number** | **int**|  | [optional] 
+ **page_size** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3056,7 +3056,7 @@ Name | Type | Description  | Notes
 
 Get email lists
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3079,9 +3079,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email lists
     api_response = api_instance.get_email_lists(storefront_oid)
     pprint(api_response)
@@ -3093,7 +3093,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -3115,7 +3115,7 @@ Name | Type | Description  | Notes
 
 Get email performance
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3138,9 +3138,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email performance
     api_response = api_instance.get_email_performance(storefront_oid)
     pprint(api_response)
@@ -3152,7 +3152,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -3174,7 +3174,7 @@ Name | Type | Description  | Notes
 
 Get email plan
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3197,9 +3197,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email plan
     api_response = api_instance.get_email_plan(storefront_oid)
     pprint(api_response)
@@ -3211,7 +3211,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -3233,7 +3233,7 @@ Name | Type | Description  | Notes
 
 Get email postcard
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3256,10 +3256,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | 
 
-try: 
+try:
     # Get email postcard
     api_response = api_instance.get_email_postcard(storefront_oid, commseq_postcard_uuid)
     pprint(api_response)
@@ -3271,8 +3271,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_postcard_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_postcard_uuid** | **str**|  | 
 
 ### Return type
 
@@ -3294,7 +3294,7 @@ Name | Type | Description  | Notes
 
 Get email postcards
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3317,9 +3317,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email postcards
     api_response = api_instance.get_email_postcards(storefront_oid)
     pprint(api_response)
@@ -3331,7 +3331,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -3353,7 +3353,7 @@ Name | Type | Description  | Notes
 
 Get email postcards multiple
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3376,10 +3376,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 email_commseq_postcards_request = ultracart.EmailCommseqPostcardsRequest() # EmailCommseqPostcardsRequest | Request of postcard uuids
 
-try: 
+try:
     # Get email postcards multiple
     api_response = api_instance.get_email_postcards_multiple(storefront_oid, email_commseq_postcards_request)
     pprint(api_response)
@@ -3391,7 +3391,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **email_commseq_postcards_request** | [**EmailCommseqPostcardsRequest**](EmailCommseqPostcardsRequest.md)| Request of postcard uuids | 
 
 ### Return type
@@ -3414,7 +3414,7 @@ Name | Type | Description  | Notes
 
 Get email segment
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3437,10 +3437,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_segment_uuid = 'email_segment_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_segment_uuid = 'email_segment_uuid_example' # str | 
 
-try: 
+try:
     # Get email segment
     api_response = api_instance.get_email_segment(storefront_oid, email_segment_uuid)
     pprint(api_response)
@@ -3452,8 +3452,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_segment_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_segment_uuid** | **str**|  | 
 
 ### Return type
 
@@ -3475,7 +3475,7 @@ Name | Type | Description  | Notes
 
 Get email segment customers editor URL
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3498,11 +3498,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_segment_uuid = 'email_segment_uuid_example' # str | null
-email_customer_uuid = 'email_customer_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_segment_uuid = 'email_segment_uuid_example' # str | 
+email_customer_uuid = 'email_customer_uuid_example' # str | 
 
-try: 
+try:
     # Get email segment customers editor URL
     api_response = api_instance.get_email_segment_customer_editor_url(storefront_oid, email_segment_uuid, email_customer_uuid)
     pprint(api_response)
@@ -3514,9 +3514,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_segment_uuid** | **str**| null | 
- **email_customer_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_segment_uuid** | **str**|  | 
+ **email_customer_uuid** | **str**|  | 
 
 ### Return type
 
@@ -3538,7 +3538,7 @@ Name | Type | Description  | Notes
 
 Get email segment customers
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3561,12 +3561,12 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_segment_uuid = 'email_segment_uuid_example' # str | null
-page_number = 56 # int | null (optional)
-page_size = 56 # int | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+email_segment_uuid = 'email_segment_uuid_example' # str | 
+page_number = 56 # int |  (optional)
+page_size = 56 # int |  (optional)
 
-try: 
+try:
     # Get email segment customers
     api_response = api_instance.get_email_segment_customers(storefront_oid, email_segment_uuid, page_number=page_number, page_size=page_size)
     pprint(api_response)
@@ -3578,10 +3578,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_segment_uuid** | **str**| null | 
- **page_number** | **int**| null | [optional] 
- **page_size** | **int**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **email_segment_uuid** | **str**|  | 
+ **page_number** | **int**|  | [optional] 
+ **page_size** | **int**|  | [optional] 
 
 ### Return type
 
@@ -3603,7 +3603,7 @@ Name | Type | Description  | Notes
 
 Get email segments
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3626,9 +3626,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email segments
     api_response = api_instance.get_email_segments(storefront_oid)
     pprint(api_response)
@@ -3640,7 +3640,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -3662,7 +3662,7 @@ Name | Type | Description  | Notes
 
 Get email sending domain
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3685,9 +3685,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-domain = 'domain_example' # str | null
+domain = 'domain_example' # str | 
 
-try: 
+try:
     # Get email sending domain
     api_response = api_instance.get_email_sending_domain(domain)
     pprint(api_response)
@@ -3699,7 +3699,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **str**| null | 
+ **domain** | **str**|  | 
 
 ### Return type
 
@@ -3721,7 +3721,7 @@ Name | Type | Description  | Notes
 
 Get email sending domain status
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3744,9 +3744,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-domain = 'domain_example' # str | null
+domain = 'domain_example' # str | 
 
-try: 
+try:
     # Get email sending domain status
     api_response = api_instance.get_email_sending_domain_status(domain)
     pprint(api_response)
@@ -3758,7 +3758,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **str**| null | 
+ **domain** | **str**|  | 
 
 ### Return type
 
@@ -3780,7 +3780,7 @@ Name | Type | Description  | Notes
 
 Get email sending domains
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3804,7 +3804,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Get email sending domains
     api_response = api_instance.get_email_sending_domains()
     pprint(api_response)
@@ -3835,7 +3835,7 @@ This endpoint does not need any parameter.
 
 Get email settings
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3858,9 +3858,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get email settings
     api_response = api_instance.get_email_settings(storefront_oid)
     pprint(api_response)
@@ -3872,7 +3872,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -3894,7 +3894,7 @@ Name | Type | Description  | Notes
 
 Get email template
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3917,10 +3917,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_template_oid = 56 # int | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_template_oid = 56 # int | 
 
-try: 
+try:
     # Get email template
     api_response = api_instance.get_email_template(storefront_oid, email_template_oid)
     pprint(api_response)
@@ -3932,8 +3932,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_template_oid** | **int**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_template_oid** | **int**|  | 
 
 ### Return type
 
@@ -3955,7 +3955,7 @@ Name | Type | Description  | Notes
 
 Get email templates
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3978,10 +3978,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-trigger_type = 'trigger_type_example' # str | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+trigger_type = 'trigger_type_example' # str |  (optional)
 
-try: 
+try:
     # Get email templates
     api_response = api_instance.get_email_templates(storefront_oid, trigger_type=trigger_type)
     pprint(api_response)
@@ -3993,8 +3993,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **trigger_type** | **str**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **trigger_type** | **str**|  | [optional] 
 
 ### Return type
 
@@ -4016,7 +4016,7 @@ Name | Type | Description  | Notes
 
 Get a list of third party email providers
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4039,9 +4039,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get a list of third party email providers
     api_response = api_instance.get_email_third_party_providers(storefront_oid)
     pprint(api_response)
@@ -4053,7 +4053,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -4075,7 +4075,7 @@ Name | Type | Description  | Notes
 
 Get experiments
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4098,9 +4098,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 
-try: 
+try:
     # Get experiments
     api_response = api_instance.get_experiments(storefront_oid)
     pprint(api_response)
@@ -4112,7 +4112,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
 
 ### Return type
 
@@ -4136,7 +4136,7 @@ Get histogram property names
 
 Obtain a list of property names for a given property type 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4159,10 +4159,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-property_type = 'property_type_example' # str | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+property_type = 'property_type_example' # str |  (optional)
 
-try: 
+try:
     # Get histogram property names
     api_response = api_instance.get_histogram_property_names(storefront_oid, property_type=property_type)
     pprint(api_response)
@@ -4174,8 +4174,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **property_type** | **str**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **property_type** | **str**|  | [optional] 
 
 ### Return type
 
@@ -4199,7 +4199,7 @@ Get histogram property values
 
 Obtain a list of property values for a given property name and type 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4222,12 +4222,12 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-property_name = 'property_name_example' # str | null (optional)
-property_type = 'property_type_example' # str | null (optional)
-limit = 56 # int | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+property_name = 'property_name_example' # str |  (optional)
+property_type = 'property_type_example' # str |  (optional)
+limit = 56 # int |  (optional)
 
-try: 
+try:
     # Get histogram property values
     api_response = api_instance.get_histogram_property_values(storefront_oid, property_name=property_name, property_type=property_type, limit=limit)
     pprint(api_response)
@@ -4239,10 +4239,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **property_name** | **str**| null | [optional] 
- **property_type** | **str**| null | [optional] 
- **limit** | **int**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **property_name** | **str**|  | [optional] 
+ **property_type** | **str**|  | [optional] 
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 
@@ -4266,7 +4266,7 @@ Retrieve library items
 
 Retrieves a lbirary items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4294,7 +4294,7 @@ limit = 10000 # int | The maximum number of records to return on this one API ca
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 sort = 'sort_example' # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 
-try: 
+try:
     # Retrieve library items
     api_response = api_instance.get_library_items_by_query(item_query, limit=limit, offset=offset, sort=sort)
     pprint(api_response)
@@ -4333,7 +4333,7 @@ Gets a transaction email object
 
 Fetch a transactional email 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4356,10 +4356,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-id = 56 # int | null
-email_id = 'email_id_example' # str | null
+id = 56 # int | 
+email_id = 'email_id_example' # str | 
 
-try: 
+try:
     # Gets a transaction email object
     api_response = api_instance.get_transaction_email(id, email_id)
     pprint(api_response)
@@ -4371,8 +4371,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| null | 
- **email_id** | **str**| null | 
+ **id** | **int**|  | 
+ **email_id** | **str**|  | 
 
 ### Return type
 
@@ -4396,7 +4396,7 @@ Gets a list of transaction email names
 
 Obtain a list of all transactional emails and return back just their names 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4419,9 +4419,9 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-id = 56 # int | null
+id = 56 # int | 
 
-try: 
+try:
     # Gets a list of transaction email names
     api_response = api_instance.get_transaction_email_list(id)
     pprint(api_response)
@@ -4433,7 +4433,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| null | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -4455,7 +4455,7 @@ Name | Type | Description  | Notes
 
 Globally unsubscribe a customer
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4478,10 +4478,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 unsubscribe = ultracart.EmailGlobalUnsubscribeRequest() # EmailGlobalUnsubscribeRequest | Unsubscribe
 
-try: 
+try:
     # Globally unsubscribe a customer
     api_response = api_instance.global_unsubscribe(storefront_oid, unsubscribe)
     pprint(api_response)
@@ -4493,7 +4493,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **unsubscribe** | [**EmailGlobalUnsubscribeRequest**](EmailGlobalUnsubscribeRequest.md)| Unsubscribe | 
 
 ### Return type
@@ -4516,7 +4516,7 @@ Name | Type | Description  | Notes
 
 Import a third party provider list
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4539,10 +4539,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 import_request = ultracart.EmailThirdPartyListImportRequest() # EmailThirdPartyListImportRequest | lists to import
 
-try: 
+try:
     # Import a third party provider list
     api_instance.import_email_third_party_provider_list(storefront_oid, import_request)
 except ApiException as e:
@@ -4553,7 +4553,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **import_request** | [**EmailThirdPartyListImportRequest**](EmailThirdPartyListImportRequest.md)| lists to import | 
 
 ### Return type
@@ -4576,7 +4576,7 @@ void (empty response body)
 
 Insert email campaign
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4599,10 +4599,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 email_campaign = ultracart.EmailCampaign() # EmailCampaign | Email campaign
 
-try: 
+try:
     # Insert email campaign
     api_response = api_instance.insert_email_campaign(storefront_oid, email_campaign)
     pprint(api_response)
@@ -4614,7 +4614,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **email_campaign** | [**EmailCampaign**](EmailCampaign.md)| Email campaign | 
 
 ### Return type
@@ -4637,7 +4637,7 @@ Name | Type | Description  | Notes
 
 Insert email commseq
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4660,10 +4660,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 email_commseq = ultracart.EmailCommseq() # EmailCommseq | Email commseq
 
-try: 
+try:
     # Insert email commseq
     api_response = api_instance.insert_email_commseq(storefront_oid, email_commseq)
     pprint(api_response)
@@ -4675,7 +4675,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **email_commseq** | [**EmailCommseq**](EmailCommseq.md)| Email commseq | 
 
 ### Return type
@@ -4698,7 +4698,7 @@ Name | Type | Description  | Notes
 
 Insert email email
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4721,10 +4721,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 email_commseq_email = ultracart.EmailCommseqEmail() # EmailCommseqEmail | Email email
 
-try: 
+try:
     # Insert email email
     api_response = api_instance.insert_email_email(storefront_oid, email_commseq_email)
     pprint(api_response)
@@ -4736,7 +4736,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **email_commseq_email** | [**EmailCommseqEmail**](EmailCommseqEmail.md)| Email email | 
 
 ### Return type
@@ -4759,7 +4759,7 @@ Name | Type | Description  | Notes
 
 Insert email flow
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4782,10 +4782,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 email_flow = ultracart.EmailFlow() # EmailFlow | Email flow
 
-try: 
+try:
     # Insert email flow
     api_response = api_instance.insert_email_flow(storefront_oid, email_flow)
     pprint(api_response)
@@ -4797,7 +4797,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **email_flow** | [**EmailFlow**](EmailFlow.md)| Email flow | 
 
 ### Return type
@@ -4820,7 +4820,7 @@ Name | Type | Description  | Notes
 
 Insert email list
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4843,10 +4843,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 email_list = ultracart.EmailList() # EmailList | Email list
 
-try: 
+try:
     # Insert email list
     api_response = api_instance.insert_email_list(storefront_oid, email_list)
     pprint(api_response)
@@ -4858,7 +4858,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **email_list** | [**EmailList**](EmailList.md)| Email list | 
 
 ### Return type
@@ -4881,7 +4881,7 @@ Name | Type | Description  | Notes
 
 Insert email postcard
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4904,10 +4904,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 email_commseq_postcard = ultracart.EmailCommseqPostcard() # EmailCommseqPostcard | Email postcard
 
-try: 
+try:
     # Insert email postcard
     api_response = api_instance.insert_email_postcard(storefront_oid, email_commseq_postcard)
     pprint(api_response)
@@ -4919,7 +4919,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **email_commseq_postcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email postcard | 
 
 ### Return type
@@ -4942,7 +4942,7 @@ Name | Type | Description  | Notes
 
 Insert email segment
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -4965,10 +4965,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 email_segment = ultracart.EmailSegment() # EmailSegment | Email segment
 
-try: 
+try:
     # Insert email segment
     api_response = api_instance.insert_email_segment(storefront_oid, email_segment)
     pprint(api_response)
@@ -4980,7 +4980,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **email_segment** | [**EmailSegment**](EmailSegment.md)| Email segment | 
 
 ### Return type
@@ -5003,7 +5003,7 @@ Name | Type | Description  | Notes
 
 Prepare download of email segment
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5026,10 +5026,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_segment_uuid = 'email_segment_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_segment_uuid = 'email_segment_uuid_example' # str | 
 
-try: 
+try:
     # Prepare download of email segment
     api_response = api_instance.prepare_download_email_segment(storefront_oid, email_segment_uuid)
     pprint(api_response)
@@ -5041,8 +5041,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_segment_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_segment_uuid** | **str**|  | 
 
 ### Return type
 
@@ -5064,7 +5064,7 @@ Name | Type | Description  | Notes
 
 Release email communication sequence customers waiting at the specified step
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5087,11 +5087,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
-commseq_step_uuid = 'commseq_step_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
+commseq_step_uuid = 'commseq_step_uuid_example' # str | 
 
-try: 
+try:
     # Release email communication sequence customers waiting at the specified step
     api_instance.release_email_commseq_step_waiting(storefront_oid, commseq_uuid, commseq_step_uuid)
 except ApiException as e:
@@ -5102,9 +5102,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
- **commseq_step_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
+ **commseq_step_uuid** | **str**|  | 
 
 ### Return type
 
@@ -5126,7 +5126,7 @@ void (empty response body)
 
 Request a review of an email
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5149,11 +5149,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_email_uuid = 'commseq_email_uuid_example' # str | 
 email_commseq_email_review_request = ultracart.EmailCommseqEmailSendTestRequest() # EmailCommseqEmailSendTestRequest | Email commseq email review request
 
-try: 
+try:
     # Request a review of an email
     api_response = api_instance.review(storefront_oid, commseq_email_uuid, email_commseq_email_review_request)
     pprint(api_response)
@@ -5165,8 +5165,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_email_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_email_uuid** | **str**|  | 
  **email_commseq_email_review_request** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email review request | 
 
 ### Return type
@@ -5189,7 +5189,7 @@ Name | Type | Description  | Notes
 
 Searches for all matching values
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5212,13 +5212,13 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-category = 'category_example' # str | null (optional)
-matches = 'matches_example' # str | null (optional)
-storefront_oid = 'storefront_oid_example' # str | null (optional)
-max_hits = 56 # int | null (optional)
-subcategory = 'subcategory_example' # str | null (optional)
+category = 'category_example' # str |  (optional)
+matches = 'matches_example' # str |  (optional)
+storefront_oid = 'storefront_oid_example' # str |  (optional)
+max_hits = 56 # int |  (optional)
+subcategory = 'subcategory_example' # str |  (optional)
 
-try: 
+try:
     # Searches for all matching values
     api_response = api_instance.search(category=category, matches=matches, storefront_oid=storefront_oid, max_hits=max_hits, subcategory=subcategory)
     pprint(api_response)
@@ -5230,11 +5230,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **str**| null | [optional] 
- **matches** | **str**| null | [optional] 
- **storefront_oid** | **str**| null | [optional] 
- **max_hits** | **int**| null | [optional] 
- **subcategory** | **str**| null | [optional] 
+ **category** | **str**|  | [optional] 
+ **matches** | **str**|  | [optional] 
+ **storefront_oid** | **str**|  | [optional] 
+ **max_hits** | **int**|  | [optional] 
+ **subcategory** | **str**|  | [optional] 
 
 ### Return type
 
@@ -5256,7 +5256,7 @@ Name | Type | Description  | Notes
 
 Search email list customers
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5279,11 +5279,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_list_uuid = 'email_list_uuid_example' # str | null
-starts_with = 'starts_with_example' # str | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+email_list_uuid = 'email_list_uuid_example' # str | 
+starts_with = 'starts_with_example' # str |  (optional)
 
-try: 
+try:
     # Search email list customers
     api_response = api_instance.search_email_list_customers(storefront_oid, email_list_uuid, starts_with=starts_with)
     pprint(api_response)
@@ -5295,9 +5295,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_list_uuid** | **str**| null | 
- **starts_with** | **str**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **email_list_uuid** | **str**|  | 
+ **starts_with** | **str**|  | [optional] 
 
 ### Return type
 
@@ -5319,7 +5319,7 @@ Name | Type | Description  | Notes
 
 Search email segment customers
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5342,11 +5342,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_segment_uuid = 'email_segment_uuid_example' # str | null
-starts_with = 'starts_with_example' # str | null (optional)
+storefront_oid = 'storefront_oid_example' # str | 
+email_segment_uuid = 'email_segment_uuid_example' # str | 
+starts_with = 'starts_with_example' # str |  (optional)
 
-try: 
+try:
     # Search email segment customers
     api_response = api_instance.search_email_segment_customers(storefront_oid, email_segment_uuid, starts_with=starts_with)
     pprint(api_response)
@@ -5358,9 +5358,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_segment_uuid** | **str**| null | 
- **starts_with** | **str**| null | [optional] 
+ **storefront_oid** | **str**|  | 
+ **email_segment_uuid** | **str**|  | 
+ **starts_with** | **str**|  | [optional] 
 
 ### Return type
 
@@ -5382,7 +5382,7 @@ Name | Type | Description  | Notes
 
 Send email test
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5405,11 +5405,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_email_uuid = 'commseq_email_uuid_example' # str | 
 email_commseq_email_test_request = ultracart.EmailCommseqEmailSendTestRequest() # EmailCommseqEmailSendTestRequest | Email commseq email test request
 
-try: 
+try:
     # Send email test
     api_response = api_instance.send_email_test(storefront_oid, commseq_email_uuid, email_commseq_email_test_request)
     pprint(api_response)
@@ -5421,8 +5421,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_email_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_email_uuid** | **str**|  | 
  **email_commseq_email_test_request** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email test request | 
 
 ### Return type
@@ -5445,7 +5445,7 @@ Name | Type | Description  | Notes
 
 Send postcard test
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5468,11 +5468,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | 
 email_commseq_postcard_test_request = ultracart.EmailCommseqPostcardSendTestRequest() # EmailCommseqPostcardSendTestRequest | Email commseq email test request
 
-try: 
+try:
     # Send postcard test
     api_response = api_instance.send_postcard_test(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request)
     pprint(api_response)
@@ -5484,8 +5484,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_postcard_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_postcard_uuid** | **str**|  | 
  **email_commseq_postcard_test_request** | [**EmailCommseqPostcardSendTestRequest**](EmailCommseqPostcardSendTestRequest.md)| Email commseq email test request | 
 
 ### Return type
@@ -5508,7 +5508,7 @@ Name | Type | Description  | Notes
 
 Start email campaign
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5531,10 +5531,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_campaign_uuid = 'email_campaign_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_campaign_uuid = 'email_campaign_uuid_example' # str | 
 
-try: 
+try:
     # Start email campaign
     api_response = api_instance.start_email_campaign(storefront_oid, email_campaign_uuid)
     pprint(api_response)
@@ -5546,8 +5546,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_campaign_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_campaign_uuid** | **str**|  | 
 
 ### Return type
 
@@ -5569,7 +5569,7 @@ Name | Type | Description  | Notes
 
 Subscribe customers to email list
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5592,11 +5592,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_list_uuid = 'email_list_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_list_uuid = 'email_list_uuid_example' # str | 
 customers = [ultracart.EmailCustomer()] # list[EmailCustomer] | Customers
 
-try: 
+try:
     # Subscribe customers to email list
     api_response = api_instance.subscribe_to_email_list(storefront_oid, email_list_uuid, customers)
     pprint(api_response)
@@ -5608,8 +5608,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_list_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_list_uuid** | **str**|  | 
  **customers** | [**list[EmailCustomer]**](EmailCustomer.md)| Customers | 
 
 ### Return type
@@ -5632,7 +5632,7 @@ Name | Type | Description  | Notes
 
 Update email campaign
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5655,11 +5655,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_campaign_uuid = 'email_campaign_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_campaign_uuid = 'email_campaign_uuid_example' # str | 
 email_campaign = ultracart.EmailCampaign() # EmailCampaign | Email campaign
 
-try: 
+try:
     # Update email campaign
     api_response = api_instance.update_email_campaign(storefront_oid, email_campaign_uuid, email_campaign)
     pprint(api_response)
@@ -5671,8 +5671,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_campaign_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_campaign_uuid** | **str**|  | 
  **email_campaign** | [**EmailCampaign**](EmailCampaign.md)| Email campaign | 
 
 ### Return type
@@ -5695,7 +5695,7 @@ Name | Type | Description  | Notes
 
 Update email commseq
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5718,11 +5718,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_uuid = 'commseq_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_uuid = 'commseq_uuid_example' # str | 
 email_commseq = ultracart.EmailCommseq() # EmailCommseq | Email commseq
 
-try: 
+try:
     # Update email commseq
     api_response = api_instance.update_email_commseq(storefront_oid, commseq_uuid, email_commseq)
     pprint(api_response)
@@ -5734,8 +5734,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_uuid** | **str**|  | 
  **email_commseq** | [**EmailCommseq**](EmailCommseq.md)| Email commseq | 
 
 ### Return type
@@ -5758,7 +5758,7 @@ Name | Type | Description  | Notes
 
 Update email customer
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5781,11 +5781,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_customer_uuid = 'email_customer_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_customer_uuid = 'email_customer_uuid_example' # str | 
 email_customer = ultracart.EmailCustomer() # EmailCustomer | Email customer
 
-try: 
+try:
     # Update email customer
     api_instance.update_email_customer(storefront_oid, email_customer_uuid, email_customer)
 except ApiException as e:
@@ -5796,8 +5796,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_customer_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_customer_uuid** | **str**|  | 
  **email_customer** | [**EmailCustomer**](EmailCustomer.md)| Email customer | 
 
 ### Return type
@@ -5820,7 +5820,7 @@ void (empty response body)
 
 Update email email
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5843,11 +5843,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_email_uuid = 'commseq_email_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_email_uuid = 'commseq_email_uuid_example' # str | 
 email_commseq_email = ultracart.EmailCommseqEmail() # EmailCommseqEmail | Email commseq email
 
-try: 
+try:
     # Update email email
     api_response = api_instance.update_email_email(storefront_oid, commseq_email_uuid, email_commseq_email)
     pprint(api_response)
@@ -5859,8 +5859,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_email_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_email_uuid** | **str**|  | 
  **email_commseq_email** | [**EmailCommseqEmail**](EmailCommseqEmail.md)| Email commseq email | 
 
 ### Return type
@@ -5883,7 +5883,7 @@ Name | Type | Description  | Notes
 
 Update email flow
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5906,11 +5906,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_flow_uuid = 'email_flow_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_flow_uuid = 'email_flow_uuid_example' # str | 
 email_flow = ultracart.EmailFlow() # EmailFlow | Email flow
 
-try: 
+try:
     # Update email flow
     api_response = api_instance.update_email_flow(storefront_oid, email_flow_uuid, email_flow)
     pprint(api_response)
@@ -5922,8 +5922,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_flow_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_flow_uuid** | **str**|  | 
  **email_flow** | [**EmailFlow**](EmailFlow.md)| Email flow | 
 
 ### Return type
@@ -5946,7 +5946,7 @@ Name | Type | Description  | Notes
 
 Update email global settings
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -5971,7 +5971,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
 global_settings = ultracart.EmailGlobalSettings() # EmailGlobalSettings | global settings request
 
-try: 
+try:
     # Update email global settings
     api_response = api_instance.update_email_global_settings(global_settings)
     pprint(api_response)
@@ -6005,7 +6005,7 @@ Name | Type | Description  | Notes
 
 Update email list
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -6028,11 +6028,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_list_uuid = 'email_list_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_list_uuid = 'email_list_uuid_example' # str | 
 email_list = ultracart.EmailList() # EmailList | Email list
 
-try: 
+try:
     # Update email list
     api_response = api_instance.update_email_list(storefront_oid, email_list_uuid, email_list)
     pprint(api_response)
@@ -6044,8 +6044,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_list_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_list_uuid** | **str**|  | 
  **email_list** | [**EmailList**](EmailList.md)| Email list | 
 
 ### Return type
@@ -6068,7 +6068,7 @@ Name | Type | Description  | Notes
 
 Update email plan
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -6091,10 +6091,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 settings = ultracart.EmailPlan() # EmailPlan | plan request
 
-try: 
+try:
     # Update email plan
     api_response = api_instance.update_email_plan(storefront_oid, settings)
     pprint(api_response)
@@ -6106,7 +6106,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **settings** | [**EmailPlan**](EmailPlan.md)| plan request | 
 
 ### Return type
@@ -6129,7 +6129,7 @@ Name | Type | Description  | Notes
 
 Update email postcard
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -6152,11 +6152,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | 
 email_commseq_postcard = ultracart.EmailCommseqPostcard() # EmailCommseqPostcard | Email commseq postcard
 
-try: 
+try:
     # Update email postcard
     api_response = api_instance.update_email_postcard(storefront_oid, commseq_postcard_uuid, email_commseq_postcard)
     pprint(api_response)
@@ -6168,8 +6168,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **commseq_postcard_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **commseq_postcard_uuid** | **str**|  | 
  **email_commseq_postcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email commseq postcard | 
 
 ### Return type
@@ -6192,7 +6192,7 @@ Name | Type | Description  | Notes
 
 Update email segment
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -6215,11 +6215,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-email_segment_uuid = 'email_segment_uuid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
+email_segment_uuid = 'email_segment_uuid_example' # str | 
 email_segment = ultracart.EmailSegment() # EmailSegment | Email segment
 
-try: 
+try:
     # Update email segment
     api_response = api_instance.update_email_segment(storefront_oid, email_segment_uuid, email_segment)
     pprint(api_response)
@@ -6231,8 +6231,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **email_segment_uuid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
+ **email_segment_uuid** | **str**|  | 
  **email_segment** | [**EmailSegment**](EmailSegment.md)| Email segment | 
 
 ### Return type
@@ -6255,7 +6255,7 @@ Name | Type | Description  | Notes
 
 Update email settings
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -6278,10 +6278,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
+storefront_oid = 'storefront_oid_example' # str | 
 settings = ultracart.EmailSettings() # EmailSettings | settings request
 
-try: 
+try:
     # Update email settings
     api_response = api_instance.update_email_settings(storefront_oid, settings)
     pprint(api_response)
@@ -6293,7 +6293,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
+ **storefront_oid** | **str**|  | 
  **settings** | [**EmailSettings**](EmailSettings.md)| settings request | 
 
 ### Return type
@@ -6316,7 +6316,7 @@ Name | Type | Description  | Notes
 
 Update experiment
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -6339,11 +6339,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-storefront_oid = 'storefront_oid_example' # str | null
-storefront_experiment_oid = 56 # int | null
+storefront_oid = 'storefront_oid_example' # str | 
+storefront_experiment_oid = 56 # int | 
 experiment = ultracart.Experiment() # Experiment | Experiment
 
-try: 
+try:
     # Update experiment
     api_response = api_instance.update_experiment(storefront_oid, storefront_experiment_oid, experiment)
     pprint(api_response)
@@ -6355,8 +6355,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **str**| null | 
- **storefront_experiment_oid** | **int**| null | 
+ **storefront_oid** | **str**|  | 
+ **storefront_experiment_oid** | **int**|  | 
  **experiment** | [**Experiment**](Experiment.md)| Experiment | 
 
 ### Return type
@@ -6379,7 +6379,7 @@ Name | Type | Description  | Notes
 
 Update library item. Note that only certain fields may be updated via this method.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -6402,10 +6402,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-library_item_oid = 56 # int | null
+library_item_oid = 56 # int | 
 library_item = ultracart.LibraryItem() # LibraryItem | Library item
 
-try: 
+try:
     # Update library item. Note that only certain fields may be updated via this method.
     api_response = api_instance.update_library_item(library_item_oid, library_item)
     pprint(api_response)
@@ -6417,7 +6417,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**| null | 
+ **library_item_oid** | **int**|  | 
  **library_item** | [**LibraryItem**](LibraryItem.md)| Library item | 
 
 ### Return type
@@ -6442,7 +6442,7 @@ Updates a transaction email object
 
 Updates a transactional email 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -6465,11 +6465,11 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.StorefrontApi(ultracart.ApiClient(configuration))
-id = 56 # int | null
-email_id = 'email_id_example' # str | null
+id = 56 # int | 
+email_id = 'email_id_example' # str | 
 transaction_email = ultracart.TransactionEmail() # TransactionEmail | TransactionEmail
 
-try: 
+try:
     # Updates a transaction email object
     api_response = api_instance.update_transaction_email(id, email_id, transaction_email)
     pprint(api_response)
@@ -6481,8 +6481,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| null | 
- **email_id** | **str**| null | 
+ **id** | **int**|  | 
+ **email_id** | **str**|  | 
  **transaction_email** | [**TransactionEmail**](TransactionEmail.md)| TransactionEmail | 
 
 ### Return type

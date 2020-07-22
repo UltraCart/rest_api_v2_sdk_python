@@ -31,7 +31,7 @@ Cancel an order
 
 Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -56,7 +56,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | The order id to cancel.
 
-try: 
+try:
     # Cancel an order
     api_response = api_instance.cancel_order(order_id)
     pprint(api_response)
@@ -92,7 +92,7 @@ Delete an order
 
 Delete an order on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -117,7 +117,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | The order id to delete.
 
-try: 
+try:
     # Delete an order
     api_instance.delete_order(order_id)
 except ApiException as e:
@@ -152,7 +152,7 @@ Format order
 
 Format the order for display at text or html 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -178,7 +178,7 @@ api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | The order id to format
 format_options = ultracart.OrderFormat() # OrderFormat | Format options
 
-try: 
+try:
     # Format order
     api_response = api_instance.format(order_id, format_options)
     pprint(api_response)
@@ -215,7 +215,7 @@ Generate an order token for a given order id
 
 Retrieves a single order token for a given order id.  The token can be used with the getOrderByToken API. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -240,7 +240,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | The order id to generate a token for.
 
-try: 
+try:
     # Generate an order token for a given order id
     api_response = api_instance.generate_order_token(order_id)
     pprint(api_response)
@@ -276,7 +276,7 @@ Retrieve A/R Retry Configuration
 
 Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -300,7 +300,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve A/R Retry Configuration
     api_response = api_instance.get_accounts_receivable_retry_config()
     pprint(api_response)
@@ -333,7 +333,7 @@ Retrieve A/R Retry Statistics
 
 Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -356,10 +356,10 @@ configuration.verify_ssl = True  # Development only.  Set to True for production
 api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
 
 api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
-_from = '_from_example' # str | null (optional)
-to = 'to_example' # str | null (optional)
+_from = '_from_example' # str |  (optional)
+to = 'to_example' # str |  (optional)
 
-try: 
+try:
     # Retrieve A/R Retry Statistics
     api_response = api_instance.get_accounts_receivable_retry_stats(_from=_from, to=to)
     pprint(api_response)
@@ -371,8 +371,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_from** | **str**| null | [optional] 
- **to** | **str**| null | [optional] 
+ **_from** | **str**|  | [optional] 
+ **to** | **str**|  | [optional] 
 
 ### Return type
 
@@ -396,7 +396,7 @@ Retrieve an order
 
 Retrieves a single order using the specified order id. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -422,7 +422,7 @@ api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | The order id to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve an order
     api_response = api_instance.get_order(order_id, expand=expand)
     pprint(api_response)
@@ -459,7 +459,7 @@ Retrieve an order using a token
 
 Retrieves a single order using the specified order token. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -485,7 +485,7 @@ api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_by_token_query = ultracart.OrderByTokenQuery() # OrderByTokenQuery | Order by token query
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve an order using a token
     api_response = api_instance.get_order_by_token(order_by_token_query, expand=expand)
     pprint(api_response)
@@ -522,7 +522,7 @@ Retrieve orders
 
 Retrieves a group of orders from the account.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -557,7 +557,7 @@ country_code = 'country_code_example' # str | Country Code (ISO-3166 two letter)
 phone = 'phone_example' # str | Phone (optional)
 email = 'email_example' # str | Email (optional)
 cc_email = 'cc_email_example' # str | CC Email (optional)
-total = 3.4 # float | Total (optional)
+total = 8.14 # float | Total (optional)
 screen_branding_theme_code = 'screen_branding_theme_code_example' # str | Screen Branding Theme Code (optional)
 storefront_host_name = 'storefront_host_name_example' # str | StoreFront Host Name (optional)
 creation_date_begin = 'creation_date_begin_example' # str | Creation Date Begin (optional)
@@ -572,15 +572,15 @@ item_id = 'item_id_example' # str | Item Id (optional)
 current_stage = 'current_stage_example' # str | Current Stage (optional)
 channel_partner_code = 'channel_partner_code_example' # str | Channel Partner Code (optional)
 channel_partner_order_id = 'channel_partner_order_id_example' # str | Channel Partner Order ID (optional)
-customer_profile_oid = 56 # int | null (optional)
-refund_date_begin = 'refund_date_begin_example' # str | null (optional)
-refund_date_end = 'refund_date_end_example' # str | null (optional)
+customer_profile_oid = 56 # int |  (optional)
+refund_date_begin = 'refund_date_begin_example' # str |  (optional)
+refund_date_end = 'refund_date_end_example' # str |  (optional)
 limit = 100 # int | The maximum number of records to return on this one API call. (Maximum 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 sort = 'sort_example' # str | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
 
-try: 
+try:
     # Retrieve orders
     api_response = api_instance.get_orders(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, customer_profile_oid=customer_profile_oid, refund_date_begin=refund_date_begin, refund_date_end=refund_date_end, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
@@ -619,9 +619,9 @@ Name | Type | Description  | Notes
  **current_stage** | **str**| Current Stage | [optional] 
  **channel_partner_code** | **str**| Channel Partner Code | [optional] 
  **channel_partner_order_id** | **str**| Channel Partner Order ID | [optional] 
- **customer_profile_oid** | **int**| null | [optional] 
- **refund_date_begin** | **str**| null | [optional] 
- **refund_date_end** | **str**| null | [optional] 
+ **customer_profile_oid** | **int**|  | [optional] 
+ **refund_date_begin** | **str**|  | [optional] 
+ **refund_date_end** | **str**|  | [optional] 
  **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **sort** | **str**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
@@ -649,7 +649,7 @@ Retrieve order batch
 
 Retrieves a group of orders from the account based on an array of order ids.  If more than 500 order ids are specified, the API call will fail with a bad request error. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -675,7 +675,7 @@ api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_batch = ultracart.OrderQueryBatch() # OrderQueryBatch | Order batch
 expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
 
-try: 
+try:
     # Retrieve order batch
     api_response = api_instance.get_orders_batch(order_batch, expand=expand)
     pprint(api_response)
@@ -712,7 +712,7 @@ Retrieve orders
 
 Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -741,7 +741,7 @@ offset = 0 # int | Pagination of the record set.  Offset is a zero based index. 
 sort = 'sort_example' # str | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
 
-try: 
+try:
     # Retrieve orders
     api_response = api_instance.get_orders_by_query(order_query, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
@@ -781,7 +781,7 @@ Insert an order
 
 Inserts a new order on the UltraCart account.  This is probably NOT the method you want.  This is for channel orders.  For regular orders the customer is entering, use the CheckoutApi.  It has many, many more features, checks, and validations. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -807,7 +807,7 @@ api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order = ultracart.Order() # Order | Order to insert
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Insert an order
     api_response = api_instance.insert_order(order, expand=expand)
     pprint(api_response)
@@ -844,7 +844,7 @@ Refund an order
 
 Perform a refund operation on an order and then update the order if successful 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -876,7 +876,7 @@ manual_refund = false # bool | Consider a manual refund done externally (optiona
 reverse_affiliate_transactions = true # bool | Reverse affiliate transactions (optional) (default to true)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Refund an order
     api_response = api_instance.refund_order(order, order_id, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, expand=expand)
     pprint(api_response)
@@ -919,7 +919,7 @@ Replacement order
 
 Create a replacement order based upon a previous order 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -945,7 +945,7 @@ api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | The order id to generate a replacement for.
 replacement = ultracart.OrderReplacement() # OrderReplacement | Replacement order details
 
-try: 
+try:
     # Replacement order
     api_response = api_instance.replacement(order_id, replacement)
     pprint(api_response)
@@ -982,7 +982,7 @@ Resend receipt
 
 Resend the receipt for an order on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1007,7 +1007,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | The order id to resend the receipt for.
 
-try: 
+try:
     # Resend receipt
     api_response = api_instance.resend_receipt(order_id)
     pprint(api_response)
@@ -1043,7 +1043,7 @@ Resend shipment confirmation
 
 Resend shipment confirmation for an order on the UltraCart account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1068,7 +1068,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | The order id to resend the shipment notification for.
 
-try: 
+try:
     # Resend shipment confirmation
     api_response = api_instance.resend_shipment_confirmation(order_id)
     pprint(api_response)
@@ -1104,7 +1104,7 @@ Update A/R Retry Configuration
 
 Update A/R Retry Configuration.  This is primarily an internal API call.  It is doubtful you would ever need to use it. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1129,7 +1129,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.OrderApi(ultracart.ApiClient(configuration))
 retry_config = ultracart.AccountsReceivableRetryConfig() # AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
 
-try: 
+try:
     # Update A/R Retry Configuration
     api_response = api_instance.update_accounts_receivable_retry_config(retry_config)
     pprint(api_response)
@@ -1165,7 +1165,7 @@ Update an order
 
 Update a new order on the UltraCart account.  This is probably NOT the method you want.  It is rare to update a completed order.  This will not trigger charges, emails, or any other automation. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1192,7 +1192,7 @@ order = ultracart.Order() # Order | Order to update
 order_id = 'order_id_example' # str | The order id to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Update an order
     api_response = api_instance.update_order(order, order_id, expand=expand)
     pprint(api_response)

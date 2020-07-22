@@ -41,7 +41,7 @@ Deletes a Self tax provider city
 
 Deletes a Self tax provider city. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -67,7 +67,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 city = 'city_example' # str | The city being deleted.
 tax_city = ultracart.TaxCity() # TaxCity | tax city to be deleted
 
-try: 
+try:
     # Deletes a Self tax provider city
     api_instance.delete_tax_provider_self_city(city, tax_city)
 except ApiException as e:
@@ -103,7 +103,7 @@ Deletes a Self tax provider country
 
 Deletes a Self tax provider country. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -129,7 +129,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 country_code = 'country_code_example' # str | The country code being deleted.
 tax_country = ultracart.TaxCountry() # TaxCountry | tax country to be deleted
 
-try: 
+try:
     # Deletes a Self tax provider country
     api_instance.delete_tax_provider_self_country(country_code, tax_country)
 except ApiException as e:
@@ -165,7 +165,7 @@ Deletes a Self tax provider county
 
 Deletes a Self tax provider county. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -191,7 +191,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 county = 'county_example' # str | The county being deleted.
 tax_county = ultracart.TaxCounty() # TaxCounty | tax county to be deleted
 
-try: 
+try:
     # Deletes a Self tax provider county
     api_instance.delete_tax_provider_self_county(county, tax_county)
 except ApiException as e:
@@ -227,7 +227,7 @@ Deletes a Self tax provider postalCode
 
 Deletes a Self tax provider postalCode. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -253,7 +253,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 postal_code = 'postal_code_example' # str | The postal code being deleted.
 tax_postal_code = ultracart.TaxPostalCode() # TaxPostalCode | tax postal code to be deleted
 
-try: 
+try:
     # Deletes a Self tax provider postalCode
     api_instance.delete_tax_provider_self_postal_code(postal_code, tax_postal_code)
 except ApiException as e:
@@ -289,7 +289,7 @@ Deletes a Self tax provider state
 
 Deletes a Self tax provider state. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -315,7 +315,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 state_code = 'state_code_example' # str | The state code being deleted.
 tax_state = ultracart.TaxState() # TaxState | tax state to be deleted
 
-try: 
+try:
     # Deletes a Self tax provider state
     api_instance.delete_tax_provider_self_state(state_code, tax_state)
 except ApiException as e:
@@ -351,7 +351,7 @@ Retrieve the Avalara tax provider
 
 Retrieves the Avalara tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -375,7 +375,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve the Avalara tax provider
     api_response = api_instance.get_tax_provider_avalara()
     pprint(api_response)
@@ -408,7 +408,7 @@ Returns Avalara Tax companies configured by the merchant
 
 Returns Avalara Tax companies configured by the merchant 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -433,7 +433,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_avalara = ultracart.TaxProviderAvalara() # TaxProviderAvalara | TaxProviderAvalara object
 
-try: 
+try:
     # Returns Avalara Tax companies configured by the merchant
     api_response = api_instance.get_tax_provider_avalara_companies(tax_provider_avalara)
     pprint(api_response)
@@ -469,7 +469,7 @@ Attempts to connect to Avalara and returns back the response
 
 Attempts to connect to Avalara and returns back the response. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -493,7 +493,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Attempts to connect to Avalara and returns back the response
     api_response = api_instance.get_tax_provider_avalara_test()
     pprint(api_response)
@@ -526,7 +526,7 @@ Retrieve the Self tax provider
 
 Retrieves the Self tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -550,7 +550,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve the Self tax provider
     api_response = api_instance.get_tax_provider_self()
     pprint(api_response)
@@ -583,7 +583,7 @@ Retrieve the Self tax provider countries
 
 Retrieves the Self tax provider countries. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -607,7 +607,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve the Self tax provider countries
     api_response = api_instance.get_tax_provider_self_countries()
     pprint(api_response)
@@ -640,7 +640,7 @@ Retrieve the Self tax provider regions for a given country code
 
 Retrieves the Self tax provider regions for a given country code. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -665,7 +665,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 country_code = 'country_code_example' # str | The country code regions desired.
 
-try: 
+try:
     # Retrieve the Self tax provider regions for a given country code
     api_response = api_instance.get_tax_provider_self_regions_by_country_code(country_code)
     pprint(api_response)
@@ -701,7 +701,7 @@ Retrieve the Sovos tax provider
 
 Retrieves the Sovos tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -725,7 +725,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve the Sovos tax provider
     api_response = api_instance.get_tax_provider_sovos()
     pprint(api_response)
@@ -758,7 +758,7 @@ Attempts to connect to Sovos and returns back the response
 
 Attempts to connect to Sovos and returns back the response. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -782,7 +782,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Attempts to connect to Sovos and returns back the response
     api_response = api_instance.get_tax_provider_sovos_test()
     pprint(api_response)
@@ -815,7 +815,7 @@ Retrieve the TaxJar tax provider
 
 Retrieves the TaxJar tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -839,7 +839,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve the TaxJar tax provider
     api_response = api_instance.get_tax_provider_tax_jar()
     pprint(api_response)
@@ -872,7 +872,7 @@ Attempts to connect to TaxJar and returns back the response
 
 Attempts to connect to TaxJar and returns back the response. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -896,7 +896,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Attempts to connect to TaxJar and returns back the response
     api_response = api_instance.get_tax_provider_tax_jar_test()
     pprint(api_response)
@@ -929,7 +929,7 @@ Retrieve the UltraCart tax provider
 
 Retrieves the UltraCart tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -953,7 +953,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
-try: 
+try:
     # Retrieve the UltraCart tax provider
     api_response = api_instance.get_tax_provider_ultra_cart()
     pprint(api_response)
@@ -986,7 +986,7 @@ Retrieve tax methods
 
 Retrieves tax methods for this account. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1013,7 +1013,7 @@ limit = 100 # int | The maximum number of records to return on this one API call
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-try: 
+try:
     # Retrieve tax methods
     api_response = api_instance.get_tax_providers(limit=limit, offset=offset, expand=expand)
     pprint(api_response)
@@ -1051,7 +1051,7 @@ Toggle a tax provider to active
 
 Toggle a tax provider to active. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1076,7 +1076,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 provider_name = 'provider_name_example' # str | The tax provider to set active.
 
-try: 
+try:
     # Toggle a tax provider to active
     api_response = api_instance.set_active_tax_provider(provider_name)
     pprint(api_response)
@@ -1112,7 +1112,7 @@ Update the Avalara tax provider
 
 Update the Avalara tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1137,7 +1137,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_avalara = ultracart.TaxProviderAvalara() # TaxProviderAvalara | TaxProviderAvalara object
 
-try: 
+try:
     # Update the Avalara tax provider
     api_response = api_instance.update_tax_provider_avalara(tax_provider_avalara)
     pprint(api_response)
@@ -1173,7 +1173,7 @@ Update the Self tax provider
 
 Update the Self tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1198,7 +1198,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_self = ultracart.TaxProviderSelf() # TaxProviderSelf | TaxProviderSelf object
 
-try: 
+try:
     # Update the Self tax provider
     api_response = api_instance.update_tax_provider_self(tax_provider_self)
     pprint(api_response)
@@ -1234,7 +1234,7 @@ Updates a Self tax provider city
 
 Updates a Self tax provider city. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1260,7 +1260,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 city = 'city_example' # str | The city being updated.
 tax_city = ultracart.TaxCity() # TaxCity | tax city to be updated
 
-try: 
+try:
     # Updates a Self tax provider city
     api_response = api_instance.update_tax_provider_self_city(city, tax_city)
     pprint(api_response)
@@ -1297,7 +1297,7 @@ Updates a Self tax provider country
 
 Updates a Self tax provider country. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1323,7 +1323,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 country_code = 'country_code_example' # str | The country code being updated.
 tax_country = ultracart.TaxCountry() # TaxCountry | tax country to be updated
 
-try: 
+try:
     # Updates a Self tax provider country
     api_response = api_instance.update_tax_provider_self_country(country_code, tax_country)
     pprint(api_response)
@@ -1360,7 +1360,7 @@ Updates a Self tax provider county
 
 Updates a Self tax provider county. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1386,7 +1386,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 county = 'county_example' # str | The county being updated.
 tax_county = ultracart.TaxCounty() # TaxCounty | tax county to be updated
 
-try: 
+try:
     # Updates a Self tax provider county
     api_response = api_instance.update_tax_provider_self_county(county, tax_county)
     pprint(api_response)
@@ -1423,7 +1423,7 @@ Updates a Self tax provider postalCode
 
 Updates a Self tax provider postalCode. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1449,7 +1449,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 postal_code = 'postal_code_example' # str | The postal code being updated.
 tax_postal_code = ultracart.TaxPostalCode() # TaxPostalCode | tax postal code to be updated
 
-try: 
+try:
     # Updates a Self tax provider postalCode
     api_response = api_instance.update_tax_provider_self_postal_code(postal_code, tax_postal_code)
     pprint(api_response)
@@ -1486,7 +1486,7 @@ Updates a Self tax provider state
 
 Updates a Self tax provider state. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1512,7 +1512,7 @@ api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 state_code = 'state_code_example' # str | The state code being updated.
 tax_state = ultracart.TaxState() # TaxState | tax state to be updated
 
-try: 
+try:
     # Updates a Self tax provider state
     api_response = api_instance.update_tax_provider_self_state(state_code, tax_state)
     pprint(api_response)
@@ -1549,7 +1549,7 @@ Update the Sovos tax provider
 
 Update the Sovos tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1574,7 +1574,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_sovos = ultracart.TaxProviderSovos() # TaxProviderSovos | TaxProviderSovos object
 
-try: 
+try:
     # Update the Sovos tax provider
     api_response = api_instance.update_tax_provider_sovos(tax_provider_sovos)
     pprint(api_response)
@@ -1610,7 +1610,7 @@ Update the TaxJar tax provider
 
 Update the TaxJar tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1635,7 +1635,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_tax_jar = ultracart.TaxProviderTaxJar() # TaxProviderTaxJar | TaxProviderTaxJar object
 
-try: 
+try:
     # Update the TaxJar tax provider
     api_response = api_instance.update_tax_provider_tax_jar(tax_provider_tax_jar)
     pprint(api_response)
@@ -1671,7 +1671,7 @@ Update the UltraCart tax provider
 
 Update the UltraCart tax provider. 
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1696,7 +1696,7 @@ api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api
 api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_ultracart = ultracart.TaxProviderUltraCart() # TaxProviderUltraCart | TaxProviderUltraCart object
 
-try: 
+try:
     # Update the UltraCart tax provider
     api_response = api_instance.update_tax_provider_ultra_cart(tax_provider_ultracart)
     pprint(api_response)
