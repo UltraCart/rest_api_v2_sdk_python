@@ -34,6 +34,7 @@ class WebhookLogSummariesResponse(object):
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         'success': 'bool',
+        'warning': 'Warning',
         'webhook_log_summaries': 'list[WebhookLogSummary]'
     }
 
@@ -41,15 +42,17 @@ class WebhookLogSummariesResponse(object):
         'error': 'error',
         'metadata': 'metadata',
         'success': 'success',
+        'warning': 'warning',
         'webhook_log_summaries': 'webhook_log_summaries'
     }
 
-    def __init__(self, error=None, metadata=None, success=None, webhook_log_summaries=None):  # noqa: E501
+    def __init__(self, error=None, metadata=None, success=None, warning=None, webhook_log_summaries=None):  # noqa: E501
         """WebhookLogSummariesResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._metadata = None
         self._success = None
+        self._warning = None
         self._webhook_log_summaries = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class WebhookLogSummariesResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
         if webhook_log_summaries is not None:
             self.webhook_log_summaries = webhook_log_summaries
 
@@ -126,6 +131,27 @@ class WebhookLogSummariesResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this WebhookLogSummariesResponse.  # noqa: E501
+
+
+        :return: The warning of this WebhookLogSummariesResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this WebhookLogSummariesResponse.
+
+
+        :param warning: The warning of this WebhookLogSummariesResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     @property
     def webhook_log_summaries(self):

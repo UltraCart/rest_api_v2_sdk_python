@@ -820,7 +820,7 @@ class PricingTier(object):
     def suppress_buysafe(self):
         """Gets the suppress_buysafe of this PricingTier.  # noqa: E501
 
-        Suppress buySAFE  # noqa: E501
+        Suppress buySAFE (deprecated)  # noqa: E501
 
         :return: The suppress_buysafe of this PricingTier.  # noqa: E501
         :rtype: bool
@@ -831,7 +831,7 @@ class PricingTier(object):
     def suppress_buysafe(self, suppress_buysafe):
         """Sets the suppress_buysafe of this PricingTier.
 
-        Suppress buySAFE  # noqa: E501
+        Suppress buySAFE (deprecated)  # noqa: E501
 
         :param suppress_buysafe: The suppress_buysafe of this PricingTier.  # noqa: E501
         :type: bool

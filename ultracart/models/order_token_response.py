@@ -34,23 +34,26 @@ class OrderTokenResponse(object):
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         'order_token': 'str',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
         'error': 'error',
         'metadata': 'metadata',
         'order_token': 'order_token',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, error=None, metadata=None, order_token=None, success=None):  # noqa: E501
+    def __init__(self, error=None, metadata=None, order_token=None, success=None, warning=None):  # noqa: E501
         """OrderTokenResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._metadata = None
         self._order_token = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if error is not None:
@@ -61,6 +64,8 @@ class OrderTokenResponse(object):
             self.order_token = order_token
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def error(self):
@@ -149,6 +154,27 @@ class OrderTokenResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this OrderTokenResponse.  # noqa: E501
+
+
+        :return: The warning of this OrderTokenResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this OrderTokenResponse.
+
+
+        :param warning: The warning of this OrderTokenResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

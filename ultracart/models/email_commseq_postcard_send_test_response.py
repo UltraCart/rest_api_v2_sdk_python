@@ -36,7 +36,8 @@ class EmailCommseqPostcardSendTestResponse(object):
         'front_thumbnail': 'str',
         'metadata': 'ResponseMetadata',
         'rendered_pdf': 'str',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class EmailCommseqPostcardSendTestResponse(object):
         'front_thumbnail': 'frontThumbnail',
         'metadata': 'metadata',
         'rendered_pdf': 'renderedPdf',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, back_thumbnail=None, error=None, front_thumbnail=None, metadata=None, rendered_pdf=None, success=None):  # noqa: E501
+    def __init__(self, back_thumbnail=None, error=None, front_thumbnail=None, metadata=None, rendered_pdf=None, success=None, warning=None):  # noqa: E501
         """EmailCommseqPostcardSendTestResponse - a model defined in Swagger"""  # noqa: E501
 
         self._back_thumbnail = None
@@ -57,6 +59,7 @@ class EmailCommseqPostcardSendTestResponse(object):
         self._metadata = None
         self._rendered_pdf = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if back_thumbnail is not None:
@@ -71,6 +74,8 @@ class EmailCommseqPostcardSendTestResponse(object):
             self.rendered_pdf = rendered_pdf
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def back_thumbnail(self):
@@ -199,6 +204,27 @@ class EmailCommseqPostcardSendTestResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this EmailCommseqPostcardSendTestResponse.  # noqa: E501
+
+
+        :return: The warning of this EmailCommseqPostcardSendTestResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this EmailCommseqPostcardSendTestResponse.
+
+
+        :param warning: The warning of this EmailCommseqPostcardSendTestResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

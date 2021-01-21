@@ -32,13 +32,14 @@ class LibraryItemQuery(object):
     """
     swagger_types = {
         'category': 'str',
+        'content_type': 'str',
         'description': 'str',
         'industry': 'str',
         'price_high': 'float',
         'price_low': 'float',
-        'public_items': 'bool',
         'published_dts_begin': 'str',
         'published_dts_end': 'str',
+        'source_of_published': 'bool',
         'style': 'str',
         'title': 'str',
         'type': 'str'
@@ -46,29 +47,31 @@ class LibraryItemQuery(object):
 
     attribute_map = {
         'category': 'category',
+        'content_type': 'content_type',
         'description': 'description',
         'industry': 'industry',
         'price_high': 'price_high',
         'price_low': 'price_low',
-        'public_items': 'public_items',
         'published_dts_begin': 'published_dts_begin',
         'published_dts_end': 'published_dts_end',
+        'source_of_published': 'source_of_published',
         'style': 'style',
         'title': 'title',
         'type': 'type'
     }
 
-    def __init__(self, category=None, description=None, industry=None, price_high=None, price_low=None, public_items=None, published_dts_begin=None, published_dts_end=None, style=None, title=None, type=None):  # noqa: E501
+    def __init__(self, category=None, content_type=None, description=None, industry=None, price_high=None, price_low=None, published_dts_begin=None, published_dts_end=None, source_of_published=None, style=None, title=None, type=None):  # noqa: E501
         """LibraryItemQuery - a model defined in Swagger"""  # noqa: E501
 
         self._category = None
+        self._content_type = None
         self._description = None
         self._industry = None
         self._price_high = None
         self._price_low = None
-        self._public_items = None
         self._published_dts_begin = None
         self._published_dts_end = None
+        self._source_of_published = None
         self._style = None
         self._title = None
         self._type = None
@@ -76,6 +79,8 @@ class LibraryItemQuery(object):
 
         if category is not None:
             self.category = category
+        if content_type is not None:
+            self.content_type = content_type
         if description is not None:
             self.description = description
         if industry is not None:
@@ -84,12 +89,12 @@ class LibraryItemQuery(object):
             self.price_high = price_high
         if price_low is not None:
             self.price_low = price_low
-        if public_items is not None:
-            self.public_items = public_items
         if published_dts_begin is not None:
             self.published_dts_begin = published_dts_begin
         if published_dts_end is not None:
             self.published_dts_end = published_dts_end
+        if source_of_published is not None:
+            self.source_of_published = source_of_published
         if style is not None:
             self.style = style
         if title is not None:
@@ -119,6 +124,29 @@ class LibraryItemQuery(object):
         """
 
         self._category = category
+
+    @property
+    def content_type(self):
+        """Gets the content_type of this LibraryItemQuery.  # noqa: E501
+
+        Library item content type such as flow, campaign, cjson, email, or transactional_email  # noqa: E501
+
+        :return: The content_type of this LibraryItemQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._content_type
+
+    @content_type.setter
+    def content_type(self, content_type):
+        """Sets the content_type of this LibraryItemQuery.
+
+        Library item content type such as flow, campaign, cjson, email, or transactional_email  # noqa: E501
+
+        :param content_type: The content_type of this LibraryItemQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._content_type = content_type
 
     @property
     def description(self):
@@ -213,29 +241,6 @@ class LibraryItemQuery(object):
         self._price_low = price_low
 
     @property
-    def public_items(self):
-        """Gets the public_items of this LibraryItemQuery.  # noqa: E501
-
-        Boolean, true returns back public items as well as merchant owned items  # noqa: E501
-
-        :return: The public_items of this LibraryItemQuery.  # noqa: E501
-        :rtype: bool
-        """
-        return self._public_items
-
-    @public_items.setter
-    def public_items(self, public_items):
-        """Sets the public_items of this LibraryItemQuery.
-
-        Boolean, true returns back public items as well as merchant owned items  # noqa: E501
-
-        :param public_items: The public_items of this LibraryItemQuery.  # noqa: E501
-        :type: bool
-        """
-
-        self._public_items = public_items
-
-    @property
     def published_dts_begin(self):
         """Gets the published_dts_begin of this LibraryItemQuery.  # noqa: E501
 
@@ -280,6 +285,29 @@ class LibraryItemQuery(object):
         """
 
         self._published_dts_end = published_dts_end
+
+    @property
+    def source_of_published(self):
+        """Gets the source_of_published of this LibraryItemQuery.  # noqa: E501
+
+        Boolean, true if this library item has been published and is the master copy of that published work  # noqa: E501
+
+        :return: The source_of_published of this LibraryItemQuery.  # noqa: E501
+        :rtype: bool
+        """
+        return self._source_of_published
+
+    @source_of_published.setter
+    def source_of_published(self, source_of_published):
+        """Sets the source_of_published of this LibraryItemQuery.
+
+        Boolean, true if this library item has been published and is the master copy of that published work  # noqa: E501
+
+        :param source_of_published: The source_of_published of this LibraryItemQuery.  # noqa: E501
+        :type: bool
+        """
+
+        self._source_of_published = source_of_published
 
     @property
     def style(self):
@@ -331,7 +359,7 @@ class LibraryItemQuery(object):
     def type(self):
         """Gets the type of this LibraryItemQuery.  # noqa: E501
 
-        Library item type  # noqa: E501
+        Library item type such as header, footer, shipping block, etc  # noqa: E501
 
         :return: The type of this LibraryItemQuery.  # noqa: E501
         :rtype: str
@@ -342,7 +370,7 @@ class LibraryItemQuery(object):
     def type(self, type):
         """Sets the type of this LibraryItemQuery.
 
-        Library item type  # noqa: E501
+        Library item type such as header, footer, shipping block, etc  # noqa: E501
 
         :param type: The type of this LibraryItemQuery.  # noqa: E501
         :type: str

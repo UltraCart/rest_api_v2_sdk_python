@@ -40,11 +40,16 @@ class EmailCommseqEmail(object):
         'email_template_vm_path': 'str',
         'filter_profile_equation_json': 'str',
         'individually_render': 'bool',
+        'library_item_oid': 'int',
         'merchant_id': 'str',
         'pending_review': 'bool',
         'preview_text': 'str',
         'rejected': 'bool',
         'requires_review': 'bool',
+        'screenshot_large_full_url': 'str',
+        'screenshot_large_viewport_url': 'str',
+        'screenshot_small_full_url': 'str',
+        'screenshot_small_viewport_url': 'str',
         'smart_sending': 'bool',
         'storefront_oid': 'int',
         'subject': 'str',
@@ -62,11 +67,16 @@ class EmailCommseqEmail(object):
         'email_template_vm_path': 'email_template_vm_path',
         'filter_profile_equation_json': 'filter_profile_equation_json',
         'individually_render': 'individually_render',
+        'library_item_oid': 'library_item_oid',
         'merchant_id': 'merchant_id',
         'pending_review': 'pending_review',
         'preview_text': 'preview_text',
         'rejected': 'rejected',
         'requires_review': 'requires_review',
+        'screenshot_large_full_url': 'screenshot_large_full_url',
+        'screenshot_large_viewport_url': 'screenshot_large_viewport_url',
+        'screenshot_small_full_url': 'screenshot_small_full_url',
+        'screenshot_small_viewport_url': 'screenshot_small_viewport_url',
         'smart_sending': 'smart_sending',
         'storefront_oid': 'storefront_oid',
         'subject': 'subject',
@@ -74,7 +84,7 @@ class EmailCommseqEmail(object):
         'version': 'version'
     }
 
-    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, filter_profile_equation_json=None, individually_render=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, smart_sending=None, storefront_oid=None, subject=None, transactional_email=None, version=None):  # noqa: E501
+    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, filter_profile_equation_json=None, individually_render=None, library_item_oid=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, smart_sending=None, storefront_oid=None, subject=None, transactional_email=None, version=None):  # noqa: E501
         """EmailCommseqEmail - a model defined in Swagger"""  # noqa: E501
 
         self._deleted = None
@@ -86,11 +96,16 @@ class EmailCommseqEmail(object):
         self._email_template_vm_path = None
         self._filter_profile_equation_json = None
         self._individually_render = None
+        self._library_item_oid = None
         self._merchant_id = None
         self._pending_review = None
         self._preview_text = None
         self._rejected = None
         self._requires_review = None
+        self._screenshot_large_full_url = None
+        self._screenshot_large_viewport_url = None
+        self._screenshot_small_full_url = None
+        self._screenshot_small_viewport_url = None
         self._smart_sending = None
         self._storefront_oid = None
         self._subject = None
@@ -116,6 +131,8 @@ class EmailCommseqEmail(object):
             self.filter_profile_equation_json = filter_profile_equation_json
         if individually_render is not None:
             self.individually_render = individually_render
+        if library_item_oid is not None:
+            self.library_item_oid = library_item_oid
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if pending_review is not None:
@@ -126,6 +143,14 @@ class EmailCommseqEmail(object):
             self.rejected = rejected
         if requires_review is not None:
             self.requires_review = requires_review
+        if screenshot_large_full_url is not None:
+            self.screenshot_large_full_url = screenshot_large_full_url
+        if screenshot_large_viewport_url is not None:
+            self.screenshot_large_viewport_url = screenshot_large_viewport_url
+        if screenshot_small_full_url is not None:
+            self.screenshot_small_full_url = screenshot_small_full_url
+        if screenshot_small_viewport_url is not None:
+            self.screenshot_small_viewport_url = screenshot_small_viewport_url
         if smart_sending is not None:
             self.smart_sending = smart_sending
         if storefront_oid is not None:
@@ -345,6 +370,29 @@ class EmailCommseqEmail(object):
         self._individually_render = individually_render
 
     @property
+    def library_item_oid(self):
+        """Gets the library_item_oid of this EmailCommseqEmail.  # noqa: E501
+
+        If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.  # noqa: E501
+
+        :return: The library_item_oid of this EmailCommseqEmail.  # noqa: E501
+        :rtype: int
+        """
+        return self._library_item_oid
+
+    @library_item_oid.setter
+    def library_item_oid(self, library_item_oid):
+        """Sets the library_item_oid of this EmailCommseqEmail.
+
+        If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.  # noqa: E501
+
+        :param library_item_oid: The library_item_oid of this EmailCommseqEmail.  # noqa: E501
+        :type: int
+        """
+
+        self._library_item_oid = library_item_oid
+
+    @property
     def merchant_id(self):
         """Gets the merchant_id of this EmailCommseqEmail.  # noqa: E501
 
@@ -458,6 +506,98 @@ class EmailCommseqEmail(object):
         """
 
         self._requires_review = requires_review
+
+    @property
+    def screenshot_large_full_url(self):
+        """Gets the screenshot_large_full_url of this EmailCommseqEmail.  # noqa: E501
+
+        URL to screenshot in large form factor full page  # noqa: E501
+
+        :return: The screenshot_large_full_url of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_large_full_url
+
+    @screenshot_large_full_url.setter
+    def screenshot_large_full_url(self, screenshot_large_full_url):
+        """Sets the screenshot_large_full_url of this EmailCommseqEmail.
+
+        URL to screenshot in large form factor full page  # noqa: E501
+
+        :param screenshot_large_full_url: The screenshot_large_full_url of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_large_full_url = screenshot_large_full_url
+
+    @property
+    def screenshot_large_viewport_url(self):
+        """Gets the screenshot_large_viewport_url of this EmailCommseqEmail.  # noqa: E501
+
+        URL to screenshot in large form factor viewport  # noqa: E501
+
+        :return: The screenshot_large_viewport_url of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_large_viewport_url
+
+    @screenshot_large_viewport_url.setter
+    def screenshot_large_viewport_url(self, screenshot_large_viewport_url):
+        """Sets the screenshot_large_viewport_url of this EmailCommseqEmail.
+
+        URL to screenshot in large form factor viewport  # noqa: E501
+
+        :param screenshot_large_viewport_url: The screenshot_large_viewport_url of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_large_viewport_url = screenshot_large_viewport_url
+
+    @property
+    def screenshot_small_full_url(self):
+        """Gets the screenshot_small_full_url of this EmailCommseqEmail.  # noqa: E501
+
+        URL to screenshot in small form factor full page  # noqa: E501
+
+        :return: The screenshot_small_full_url of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_small_full_url
+
+    @screenshot_small_full_url.setter
+    def screenshot_small_full_url(self, screenshot_small_full_url):
+        """Sets the screenshot_small_full_url of this EmailCommseqEmail.
+
+        URL to screenshot in small form factor full page  # noqa: E501
+
+        :param screenshot_small_full_url: The screenshot_small_full_url of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_small_full_url = screenshot_small_full_url
+
+    @property
+    def screenshot_small_viewport_url(self):
+        """Gets the screenshot_small_viewport_url of this EmailCommseqEmail.  # noqa: E501
+
+        URL to screenshot in small form factor viewport  # noqa: E501
+
+        :return: The screenshot_small_viewport_url of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_small_viewport_url
+
+    @screenshot_small_viewport_url.setter
+    def screenshot_small_viewport_url(self, screenshot_small_viewport_url):
+        """Sets the screenshot_small_viewport_url of this EmailCommseqEmail.
+
+        URL to screenshot in small form factor viewport  # noqa: E501
+
+        :param screenshot_small_viewport_url: The screenshot_small_viewport_url of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_small_viewport_url = screenshot_small_viewport_url
 
     @property
     def smart_sending(self):

@@ -31,21 +31,89 @@ class CouponEditorValues(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'coupon_types': 'list[str]'
+        'affiliates': 'list[SimpleValue]',
+        'coupon_types': 'list[str]',
+        'coupon_types_for_display': 'list[CouponType]',
+        'currency_codes': 'list[str]',
+        'deprecated_themes': 'list[SimpleValue]',
+        'mix_and_match_names': 'list[str]',
+        'shipping_methods': 'list[str]',
+        'storefronts': 'list[SimpleValue]',
+        'usable_by': 'list[SimpleValue]',
+        'valid_with_other_coupons': 'list[str]'
     }
 
     attribute_map = {
-        'coupon_types': 'coupon_types'
+        'affiliates': 'affiliates',
+        'coupon_types': 'coupon_types',
+        'coupon_types_for_display': 'coupon_types_for_display',
+        'currency_codes': 'currency_codes',
+        'deprecated_themes': 'deprecated_themes',
+        'mix_and_match_names': 'mix_and_match_names',
+        'shipping_methods': 'shipping_methods',
+        'storefronts': 'storefronts',
+        'usable_by': 'usable_by',
+        'valid_with_other_coupons': 'valid_with_other_coupons'
     }
 
-    def __init__(self, coupon_types=None):  # noqa: E501
+    def __init__(self, affiliates=None, coupon_types=None, coupon_types_for_display=None, currency_codes=None, deprecated_themes=None, mix_and_match_names=None, shipping_methods=None, storefronts=None, usable_by=None, valid_with_other_coupons=None):  # noqa: E501
         """CouponEditorValues - a model defined in Swagger"""  # noqa: E501
 
+        self._affiliates = None
         self._coupon_types = None
+        self._coupon_types_for_display = None
+        self._currency_codes = None
+        self._deprecated_themes = None
+        self._mix_and_match_names = None
+        self._shipping_methods = None
+        self._storefronts = None
+        self._usable_by = None
+        self._valid_with_other_coupons = None
         self.discriminator = None
 
+        if affiliates is not None:
+            self.affiliates = affiliates
         if coupon_types is not None:
             self.coupon_types = coupon_types
+        if coupon_types_for_display is not None:
+            self.coupon_types_for_display = coupon_types_for_display
+        if currency_codes is not None:
+            self.currency_codes = currency_codes
+        if deprecated_themes is not None:
+            self.deprecated_themes = deprecated_themes
+        if mix_and_match_names is not None:
+            self.mix_and_match_names = mix_and_match_names
+        if shipping_methods is not None:
+            self.shipping_methods = shipping_methods
+        if storefronts is not None:
+            self.storefronts = storefronts
+        if usable_by is not None:
+            self.usable_by = usable_by
+        if valid_with_other_coupons is not None:
+            self.valid_with_other_coupons = valid_with_other_coupons
+
+    @property
+    def affiliates(self):
+        """Gets the affiliates of this CouponEditorValues.  # noqa: E501
+
+        affiliates  # noqa: E501
+
+        :return: The affiliates of this CouponEditorValues.  # noqa: E501
+        :rtype: list[SimpleValue]
+        """
+        return self._affiliates
+
+    @affiliates.setter
+    def affiliates(self, affiliates):
+        """Sets the affiliates of this CouponEditorValues.
+
+        affiliates  # noqa: E501
+
+        :param affiliates: The affiliates of this CouponEditorValues.  # noqa: E501
+        :type: list[SimpleValue]
+        """
+
+        self._affiliates = affiliates
 
     @property
     def coupon_types(self):
@@ -69,6 +137,190 @@ class CouponEditorValues(object):
         """
 
         self._coupon_types = coupon_types
+
+    @property
+    def coupon_types_for_display(self):
+        """Gets the coupon_types_for_display of this CouponEditorValues.  # noqa: E501
+
+        coupon_types_for_display  # noqa: E501
+
+        :return: The coupon_types_for_display of this CouponEditorValues.  # noqa: E501
+        :rtype: list[CouponType]
+        """
+        return self._coupon_types_for_display
+
+    @coupon_types_for_display.setter
+    def coupon_types_for_display(self, coupon_types_for_display):
+        """Sets the coupon_types_for_display of this CouponEditorValues.
+
+        coupon_types_for_display  # noqa: E501
+
+        :param coupon_types_for_display: The coupon_types_for_display of this CouponEditorValues.  # noqa: E501
+        :type: list[CouponType]
+        """
+
+        self._coupon_types_for_display = coupon_types_for_display
+
+    @property
+    def currency_codes(self):
+        """Gets the currency_codes of this CouponEditorValues.  # noqa: E501
+
+        currency_codes  # noqa: E501
+
+        :return: The currency_codes of this CouponEditorValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._currency_codes
+
+    @currency_codes.setter
+    def currency_codes(self, currency_codes):
+        """Sets the currency_codes of this CouponEditorValues.
+
+        currency_codes  # noqa: E501
+
+        :param currency_codes: The currency_codes of this CouponEditorValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._currency_codes = currency_codes
+
+    @property
+    def deprecated_themes(self):
+        """Gets the deprecated_themes of this CouponEditorValues.  # noqa: E501
+
+        deprecated_themes  # noqa: E501
+
+        :return: The deprecated_themes of this CouponEditorValues.  # noqa: E501
+        :rtype: list[SimpleValue]
+        """
+        return self._deprecated_themes
+
+    @deprecated_themes.setter
+    def deprecated_themes(self, deprecated_themes):
+        """Sets the deprecated_themes of this CouponEditorValues.
+
+        deprecated_themes  # noqa: E501
+
+        :param deprecated_themes: The deprecated_themes of this CouponEditorValues.  # noqa: E501
+        :type: list[SimpleValue]
+        """
+
+        self._deprecated_themes = deprecated_themes
+
+    @property
+    def mix_and_match_names(self):
+        """Gets the mix_and_match_names of this CouponEditorValues.  # noqa: E501
+
+        mix_and_match_names  # noqa: E501
+
+        :return: The mix_and_match_names of this CouponEditorValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._mix_and_match_names
+
+    @mix_and_match_names.setter
+    def mix_and_match_names(self, mix_and_match_names):
+        """Sets the mix_and_match_names of this CouponEditorValues.
+
+        mix_and_match_names  # noqa: E501
+
+        :param mix_and_match_names: The mix_and_match_names of this CouponEditorValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._mix_and_match_names = mix_and_match_names
+
+    @property
+    def shipping_methods(self):
+        """Gets the shipping_methods of this CouponEditorValues.  # noqa: E501
+
+        shipping_methods  # noqa: E501
+
+        :return: The shipping_methods of this CouponEditorValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._shipping_methods
+
+    @shipping_methods.setter
+    def shipping_methods(self, shipping_methods):
+        """Sets the shipping_methods of this CouponEditorValues.
+
+        shipping_methods  # noqa: E501
+
+        :param shipping_methods: The shipping_methods of this CouponEditorValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._shipping_methods = shipping_methods
+
+    @property
+    def storefronts(self):
+        """Gets the storefronts of this CouponEditorValues.  # noqa: E501
+
+        storefronts  # noqa: E501
+
+        :return: The storefronts of this CouponEditorValues.  # noqa: E501
+        :rtype: list[SimpleValue]
+        """
+        return self._storefronts
+
+    @storefronts.setter
+    def storefronts(self, storefronts):
+        """Sets the storefronts of this CouponEditorValues.
+
+        storefronts  # noqa: E501
+
+        :param storefronts: The storefronts of this CouponEditorValues.  # noqa: E501
+        :type: list[SimpleValue]
+        """
+
+        self._storefronts = storefronts
+
+    @property
+    def usable_by(self):
+        """Gets the usable_by of this CouponEditorValues.  # noqa: E501
+
+        usable_by  # noqa: E501
+
+        :return: The usable_by of this CouponEditorValues.  # noqa: E501
+        :rtype: list[SimpleValue]
+        """
+        return self._usable_by
+
+    @usable_by.setter
+    def usable_by(self, usable_by):
+        """Sets the usable_by of this CouponEditorValues.
+
+        usable_by  # noqa: E501
+
+        :param usable_by: The usable_by of this CouponEditorValues.  # noqa: E501
+        :type: list[SimpleValue]
+        """
+
+        self._usable_by = usable_by
+
+    @property
+    def valid_with_other_coupons(self):
+        """Gets the valid_with_other_coupons of this CouponEditorValues.  # noqa: E501
+
+        valid_with_other_coupons  # noqa: E501
+
+        :return: The valid_with_other_coupons of this CouponEditorValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._valid_with_other_coupons
+
+    @valid_with_other_coupons.setter
+    def valid_with_other_coupons(self, valid_with_other_coupons):
+        """Sets the valid_with_other_coupons of this CouponEditorValues.
+
+        valid_with_other_coupons  # noqa: E501
+
+        :param valid_with_other_coupons: The valid_with_other_coupons of this CouponEditorValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._valid_with_other_coupons = valid_with_other_coupons
 
     def to_dict(self):
         """Returns the model properties as a dict"""

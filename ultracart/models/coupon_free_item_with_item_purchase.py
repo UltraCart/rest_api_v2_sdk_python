@@ -33,20 +33,23 @@ class CouponFreeItemWithItemPurchase(object):
     swagger_types = {
         'items': 'list[str]',
         'limit': 'int',
+        'match_required_purchase_item_to_free_item': 'bool',
         'required_purchase_items': 'list[str]'
     }
 
     attribute_map = {
         'items': 'items',
         'limit': 'limit',
+        'match_required_purchase_item_to_free_item': 'match_required_purchase_item_to_free_item',
         'required_purchase_items': 'required_purchase_items'
     }
 
-    def __init__(self, items=None, limit=None, required_purchase_items=None):  # noqa: E501
+    def __init__(self, items=None, limit=None, match_required_purchase_item_to_free_item=None, required_purchase_items=None):  # noqa: E501
         """CouponFreeItemWithItemPurchase - a model defined in Swagger"""  # noqa: E501
 
         self._items = None
         self._limit = None
+        self._match_required_purchase_item_to_free_item = None
         self._required_purchase_items = None
         self.discriminator = None
 
@@ -54,6 +57,8 @@ class CouponFreeItemWithItemPurchase(object):
             self.items = items
         if limit is not None:
             self.limit = limit
+        if match_required_purchase_item_to_free_item is not None:
+            self.match_required_purchase_item_to_free_item = match_required_purchase_item_to_free_item
         if required_purchase_items is not None:
             self.required_purchase_items = required_purchase_items
 
@@ -102,6 +107,29 @@ class CouponFreeItemWithItemPurchase(object):
         """
 
         self._limit = limit
+
+    @property
+    def match_required_purchase_item_to_free_item(self):
+        """Gets the match_required_purchase_item_to_free_item of this CouponFreeItemWithItemPurchase.  # noqa: E501
+
+        If true then the free item is matched 1:1 with the free item in the list.  # noqa: E501
+
+        :return: The match_required_purchase_item_to_free_item of this CouponFreeItemWithItemPurchase.  # noqa: E501
+        :rtype: bool
+        """
+        return self._match_required_purchase_item_to_free_item
+
+    @match_required_purchase_item_to_free_item.setter
+    def match_required_purchase_item_to_free_item(self, match_required_purchase_item_to_free_item):
+        """Sets the match_required_purchase_item_to_free_item of this CouponFreeItemWithItemPurchase.
+
+        If true then the free item is matched 1:1 with the free item in the list.  # noqa: E501
+
+        :param match_required_purchase_item_to_free_item: The match_required_purchase_item_to_free_item of this CouponFreeItemWithItemPurchase.  # noqa: E501
+        :type: bool
+        """
+
+        self._match_required_purchase_item_to_free_item = match_required_purchase_item_to_free_item
 
     @property
     def required_purchase_items(self):

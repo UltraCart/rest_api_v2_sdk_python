@@ -34,12 +34,14 @@ class EmailPlan(object):
         'additional_customers': 'int',
         'additional_emails': 'int',
         'allow_list_import': 'bool',
+        'allow_tracking_emails': 'bool',
         'customer_tiers': 'list[EmailPlanAdditional]',
         'initial_sending_limits': 'int',
         'plan_customers': 'int',
         'plan_emails': 'int',
         'plan_name': 'str',
         'plan_name_formatted': 'str',
+        'require_order_within_last_days': 'int',
         'revenue_percent': 'int',
         'spam_percent_limit': 'int',
         'total_customers': 'int',
@@ -51,12 +53,14 @@ class EmailPlan(object):
         'additional_customers': 'additional_customers',
         'additional_emails': 'additional_emails',
         'allow_list_import': 'allow_list_import',
+        'allow_tracking_emails': 'allow_tracking_emails',
         'customer_tiers': 'customer_tiers',
         'initial_sending_limits': 'initial_sending_limits',
         'plan_customers': 'plan_customers',
         'plan_emails': 'plan_emails',
         'plan_name': 'plan_name',
         'plan_name_formatted': 'plan_name_formatted',
+        'require_order_within_last_days': 'require_order_within_last_days',
         'revenue_percent': 'revenue_percent',
         'spam_percent_limit': 'spam_percent_limit',
         'total_customers': 'total_customers',
@@ -64,18 +68,20 @@ class EmailPlan(object):
         'upgrade_to': 'upgrade_to'
     }
 
-    def __init__(self, additional_customers=None, additional_emails=None, allow_list_import=None, customer_tiers=None, initial_sending_limits=None, plan_customers=None, plan_emails=None, plan_name=None, plan_name_formatted=None, revenue_percent=None, spam_percent_limit=None, total_customers=None, total_emails=None, upgrade_to=None):  # noqa: E501
+    def __init__(self, additional_customers=None, additional_emails=None, allow_list_import=None, allow_tracking_emails=None, customer_tiers=None, initial_sending_limits=None, plan_customers=None, plan_emails=None, plan_name=None, plan_name_formatted=None, require_order_within_last_days=None, revenue_percent=None, spam_percent_limit=None, total_customers=None, total_emails=None, upgrade_to=None):  # noqa: E501
         """EmailPlan - a model defined in Swagger"""  # noqa: E501
 
         self._additional_customers = None
         self._additional_emails = None
         self._allow_list_import = None
+        self._allow_tracking_emails = None
         self._customer_tiers = None
         self._initial_sending_limits = None
         self._plan_customers = None
         self._plan_emails = None
         self._plan_name = None
         self._plan_name_formatted = None
+        self._require_order_within_last_days = None
         self._revenue_percent = None
         self._spam_percent_limit = None
         self._total_customers = None
@@ -89,6 +95,8 @@ class EmailPlan(object):
             self.additional_emails = additional_emails
         if allow_list_import is not None:
             self.allow_list_import = allow_list_import
+        if allow_tracking_emails is not None:
+            self.allow_tracking_emails = allow_tracking_emails
         if customer_tiers is not None:
             self.customer_tiers = customer_tiers
         if initial_sending_limits is not None:
@@ -101,6 +109,8 @@ class EmailPlan(object):
             self.plan_name = plan_name
         if plan_name_formatted is not None:
             self.plan_name_formatted = plan_name_formatted
+        if require_order_within_last_days is not None:
+            self.require_order_within_last_days = require_order_within_last_days
         if revenue_percent is not None:
             self.revenue_percent = revenue_percent
         if spam_percent_limit is not None:
@@ -174,6 +184,27 @@ class EmailPlan(object):
         """
 
         self._allow_list_import = allow_list_import
+
+    @property
+    def allow_tracking_emails(self):
+        """Gets the allow_tracking_emails of this EmailPlan.  # noqa: E501
+
+
+        :return: The allow_tracking_emails of this EmailPlan.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_tracking_emails
+
+    @allow_tracking_emails.setter
+    def allow_tracking_emails(self, allow_tracking_emails):
+        """Sets the allow_tracking_emails of this EmailPlan.
+
+
+        :param allow_tracking_emails: The allow_tracking_emails of this EmailPlan.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_tracking_emails = allow_tracking_emails
 
     @property
     def customer_tiers(self):
@@ -300,6 +331,27 @@ class EmailPlan(object):
         """
 
         self._plan_name_formatted = plan_name_formatted
+
+    @property
+    def require_order_within_last_days(self):
+        """Gets the require_order_within_last_days of this EmailPlan.  # noqa: E501
+
+
+        :return: The require_order_within_last_days of this EmailPlan.  # noqa: E501
+        :rtype: int
+        """
+        return self._require_order_within_last_days
+
+    @require_order_within_last_days.setter
+    def require_order_within_last_days(self, require_order_within_last_days):
+        """Sets the require_order_within_last_days of this EmailPlan.
+
+
+        :param require_order_within_last_days: The require_order_within_last_days of this EmailPlan.  # noqa: E501
+        :type: int
+        """
+
+        self._require_order_within_last_days = require_order_within_last_days
 
     @property
     def revenue_percent(self):

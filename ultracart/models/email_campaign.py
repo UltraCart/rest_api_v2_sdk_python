@@ -36,16 +36,20 @@ class EmailCampaign(object):
         'deleted': 'bool',
         'email_campaign_uuid': 'str',
         'email_communication_sequence_uuid': 'str',
+        'end_once_customer_purchases': 'bool',
         'esp_domain_user': 'str',
         'esp_domain_uuid': 'str',
         'esp_friendly_name': 'str',
+        'library_item_oid': 'int',
         'memberships': 'list[EmailListSegmentMembership]',
         'merchant_id': 'str',
         'name': 'str',
         'open_rate_formatted': 'str',
         'prevent_sending_due_to_spam': 'bool',
         'revenue_formatted': 'str',
+        'revenue_per_customer_formatted': 'str',
         'scheduled_dts': 'str',
+        'screenshot_large_full_url': 'str',
         'status': 'str',
         'status_dts': 'str',
         'storefront_oid': 'int'
@@ -57,22 +61,26 @@ class EmailCampaign(object):
         'deleted': 'deleted',
         'email_campaign_uuid': 'email_campaign_uuid',
         'email_communication_sequence_uuid': 'email_communication_sequence_uuid',
+        'end_once_customer_purchases': 'end_once_customer_purchases',
         'esp_domain_user': 'esp_domain_user',
         'esp_domain_uuid': 'esp_domain_uuid',
         'esp_friendly_name': 'esp_friendly_name',
+        'library_item_oid': 'library_item_oid',
         'memberships': 'memberships',
         'merchant_id': 'merchant_id',
         'name': 'name',
         'open_rate_formatted': 'open_rate_formatted',
         'prevent_sending_due_to_spam': 'prevent_sending_due_to_spam',
         'revenue_formatted': 'revenue_formatted',
+        'revenue_per_customer_formatted': 'revenue_per_customer_formatted',
         'scheduled_dts': 'scheduled_dts',
+        'screenshot_large_full_url': 'screenshot_large_full_url',
         'status': 'status',
         'status_dts': 'status_dts',
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, scheduled_dts=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
+    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, end_once_customer_purchases=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, library_item_oid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, revenue_per_customer_formatted=None, scheduled_dts=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
         """EmailCampaign - a model defined in Swagger"""  # noqa: E501
 
         self._click_rate_formatted = None
@@ -80,16 +88,20 @@ class EmailCampaign(object):
         self._deleted = None
         self._email_campaign_uuid = None
         self._email_communication_sequence_uuid = None
+        self._end_once_customer_purchases = None
         self._esp_domain_user = None
         self._esp_domain_uuid = None
         self._esp_friendly_name = None
+        self._library_item_oid = None
         self._memberships = None
         self._merchant_id = None
         self._name = None
         self._open_rate_formatted = None
         self._prevent_sending_due_to_spam = None
         self._revenue_formatted = None
+        self._revenue_per_customer_formatted = None
         self._scheduled_dts = None
+        self._screenshot_large_full_url = None
         self._status = None
         self._status_dts = None
         self._storefront_oid = None
@@ -105,12 +117,16 @@ class EmailCampaign(object):
             self.email_campaign_uuid = email_campaign_uuid
         if email_communication_sequence_uuid is not None:
             self.email_communication_sequence_uuid = email_communication_sequence_uuid
+        if end_once_customer_purchases is not None:
+            self.end_once_customer_purchases = end_once_customer_purchases
         if esp_domain_user is not None:
             self.esp_domain_user = esp_domain_user
         if esp_domain_uuid is not None:
             self.esp_domain_uuid = esp_domain_uuid
         if esp_friendly_name is not None:
             self.esp_friendly_name = esp_friendly_name
+        if library_item_oid is not None:
+            self.library_item_oid = library_item_oid
         if memberships is not None:
             self.memberships = memberships
         if merchant_id is not None:
@@ -123,8 +139,12 @@ class EmailCampaign(object):
             self.prevent_sending_due_to_spam = prevent_sending_due_to_spam
         if revenue_formatted is not None:
             self.revenue_formatted = revenue_formatted
+        if revenue_per_customer_formatted is not None:
+            self.revenue_per_customer_formatted = revenue_per_customer_formatted
         if scheduled_dts is not None:
             self.scheduled_dts = scheduled_dts
+        if screenshot_large_full_url is not None:
+            self.screenshot_large_full_url = screenshot_large_full_url
         if status is not None:
             self.status = status
         if status_dts is not None:
@@ -248,6 +268,29 @@ class EmailCampaign(object):
         self._email_communication_sequence_uuid = email_communication_sequence_uuid
 
     @property
+    def end_once_customer_purchases(self):
+        """Gets the end_once_customer_purchases of this EmailCampaign.  # noqa: E501
+
+        True if the customer should end the flow once they purchase  # noqa: E501
+
+        :return: The end_once_customer_purchases of this EmailCampaign.  # noqa: E501
+        :rtype: bool
+        """
+        return self._end_once_customer_purchases
+
+    @end_once_customer_purchases.setter
+    def end_once_customer_purchases(self, end_once_customer_purchases):
+        """Sets the end_once_customer_purchases of this EmailCampaign.
+
+        True if the customer should end the flow once they purchase  # noqa: E501
+
+        :param end_once_customer_purchases: The end_once_customer_purchases of this EmailCampaign.  # noqa: E501
+        :type: bool
+        """
+
+        self._end_once_customer_purchases = end_once_customer_purchases
+
+    @property
     def esp_domain_user(self):
         """Gets the esp_domain_user of this EmailCampaign.  # noqa: E501
 
@@ -315,6 +358,29 @@ class EmailCampaign(object):
         """
 
         self._esp_friendly_name = esp_friendly_name
+
+    @property
+    def library_item_oid(self):
+        """Gets the library_item_oid of this EmailCampaign.  # noqa: E501
+
+        If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.  # noqa: E501
+
+        :return: The library_item_oid of this EmailCampaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._library_item_oid
+
+    @library_item_oid.setter
+    def library_item_oid(self, library_item_oid):
+        """Sets the library_item_oid of this EmailCampaign.
+
+        If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.  # noqa: E501
+
+        :param library_item_oid: The library_item_oid of this EmailCampaign.  # noqa: E501
+        :type: int
+        """
+
+        self._library_item_oid = library_item_oid
 
     @property
     def memberships(self):
@@ -457,6 +523,29 @@ class EmailCampaign(object):
         self._revenue_formatted = revenue_formatted
 
     @property
+    def revenue_per_customer_formatted(self):
+        """Gets the revenue_per_customer_formatted of this EmailCampaign.  # noqa: E501
+
+        Revenue per customer associated with campaign  # noqa: E501
+
+        :return: The revenue_per_customer_formatted of this EmailCampaign.  # noqa: E501
+        :rtype: str
+        """
+        return self._revenue_per_customer_formatted
+
+    @revenue_per_customer_formatted.setter
+    def revenue_per_customer_formatted(self, revenue_per_customer_formatted):
+        """Sets the revenue_per_customer_formatted of this EmailCampaign.
+
+        Revenue per customer associated with campaign  # noqa: E501
+
+        :param revenue_per_customer_formatted: The revenue_per_customer_formatted of this EmailCampaign.  # noqa: E501
+        :type: str
+        """
+
+        self._revenue_per_customer_formatted = revenue_per_customer_formatted
+
+    @property
     def scheduled_dts(self):
         """Gets the scheduled_dts of this EmailCampaign.  # noqa: E501
 
@@ -478,6 +567,29 @@ class EmailCampaign(object):
         """
 
         self._scheduled_dts = scheduled_dts
+
+    @property
+    def screenshot_large_full_url(self):
+        """Gets the screenshot_large_full_url of this EmailCampaign.  # noqa: E501
+
+        URL to a large full length screenshot  # noqa: E501
+
+        :return: The screenshot_large_full_url of this EmailCampaign.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_large_full_url
+
+    @screenshot_large_full_url.setter
+    def screenshot_large_full_url(self, screenshot_large_full_url):
+        """Sets the screenshot_large_full_url of this EmailCampaign.
+
+        URL to a large full length screenshot  # noqa: E501
+
+        :param screenshot_large_full_url: The screenshot_large_full_url of this EmailCampaign.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_large_full_url = screenshot_large_full_url
 
     @property
     def status(self):

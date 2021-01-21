@@ -37,7 +37,8 @@ class AccountsReceivableRetryConfigResponse(object):
         'error': 'Error',
         'has_linked_accounts': 'bool',
         'metadata': 'ResponseMetadata',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class AccountsReceivableRetryConfigResponse(object):
         'error': 'error',
         'has_linked_accounts': 'has_linked_accounts',
         'metadata': 'metadata',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, config=None, coupon_codes=None, emails=None, error=None, has_linked_accounts=None, metadata=None, success=None):  # noqa: E501
+    def __init__(self, config=None, coupon_codes=None, emails=None, error=None, has_linked_accounts=None, metadata=None, success=None, warning=None):  # noqa: E501
         """AccountsReceivableRetryConfigResponse - a model defined in Swagger"""  # noqa: E501
 
         self._config = None
@@ -60,6 +62,7 @@ class AccountsReceivableRetryConfigResponse(object):
         self._has_linked_accounts = None
         self._metadata = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if config is not None:
@@ -76,6 +79,8 @@ class AccountsReceivableRetryConfigResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def config(self):
@@ -225,6 +230,27 @@ class AccountsReceivableRetryConfigResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this AccountsReceivableRetryConfigResponse.  # noqa: E501
+
+
+        :return: The warning of this AccountsReceivableRetryConfigResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this AccountsReceivableRetryConfigResponse.
+
+
+        :param warning: The warning of this AccountsReceivableRetryConfigResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

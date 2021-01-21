@@ -34,23 +34,26 @@ class EmailDashboardActivityResponse(object):
         'activity': 'list[EmailDashboardActivity]',
         'error': 'Error',
         'metadata': 'ResponseMetadata',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
         'activity': 'activity',
         'error': 'error',
         'metadata': 'metadata',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, activity=None, error=None, metadata=None, success=None):  # noqa: E501
+    def __init__(self, activity=None, error=None, metadata=None, success=None, warning=None):  # noqa: E501
         """EmailDashboardActivityResponse - a model defined in Swagger"""  # noqa: E501
 
         self._activity = None
         self._error = None
         self._metadata = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if activity is not None:
@@ -61,6 +64,8 @@ class EmailDashboardActivityResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def activity(self):
@@ -147,6 +152,27 @@ class EmailDashboardActivityResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this EmailDashboardActivityResponse.  # noqa: E501
+
+
+        :return: The warning of this EmailDashboardActivityResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this EmailDashboardActivityResponse.
+
+
+        :param warning: The warning of this EmailDashboardActivityResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

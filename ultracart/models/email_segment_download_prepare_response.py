@@ -37,7 +37,8 @@ class EmailSegmentDownloadPrepareResponse(object):
         'metadata': 'ResponseMetadata',
         'percentage_complete': 'float',
         'proceed': 'bool',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class EmailSegmentDownloadPrepareResponse(object):
         'metadata': 'metadata',
         'percentage_complete': 'percentage_complete',
         'proceed': 'proceed',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, email_segment_rebuild_uuid=None, email_segment_uuid=None, error=None, metadata=None, percentage_complete=None, proceed=None, success=None):  # noqa: E501
+    def __init__(self, email_segment_rebuild_uuid=None, email_segment_uuid=None, error=None, metadata=None, percentage_complete=None, proceed=None, success=None, warning=None):  # noqa: E501
         """EmailSegmentDownloadPrepareResponse - a model defined in Swagger"""  # noqa: E501
 
         self._email_segment_rebuild_uuid = None
@@ -60,6 +62,7 @@ class EmailSegmentDownloadPrepareResponse(object):
         self._percentage_complete = None
         self._proceed = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if email_segment_rebuild_uuid is not None:
@@ -76,6 +79,8 @@ class EmailSegmentDownloadPrepareResponse(object):
             self.proceed = proceed
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def email_segment_rebuild_uuid(self):
@@ -225,6 +230,27 @@ class EmailSegmentDownloadPrepareResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this EmailSegmentDownloadPrepareResponse.  # noqa: E501
+
+
+        :return: The warning of this EmailSegmentDownloadPrepareResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this EmailSegmentDownloadPrepareResponse.
+
+
+        :param warning: The warning of this EmailSegmentDownloadPrepareResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

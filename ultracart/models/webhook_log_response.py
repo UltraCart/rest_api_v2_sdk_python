@@ -34,6 +34,7 @@ class WebhookLogResponse(object):
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         'success': 'bool',
+        'warning': 'Warning',
         'webhook_log': 'WebhookLog'
     }
 
@@ -41,15 +42,17 @@ class WebhookLogResponse(object):
         'error': 'error',
         'metadata': 'metadata',
         'success': 'success',
+        'warning': 'warning',
         'webhook_log': 'webhook_log'
     }
 
-    def __init__(self, error=None, metadata=None, success=None, webhook_log=None):  # noqa: E501
+    def __init__(self, error=None, metadata=None, success=None, warning=None, webhook_log=None):  # noqa: E501
         """WebhookLogResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._metadata = None
         self._success = None
+        self._warning = None
         self._webhook_log = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class WebhookLogResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
         if webhook_log is not None:
             self.webhook_log = webhook_log
 
@@ -126,6 +131,27 @@ class WebhookLogResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this WebhookLogResponse.  # noqa: E501
+
+
+        :return: The warning of this WebhookLogResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this WebhookLogResponse.
+
+
+        :param warning: The warning of this WebhookLogResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     @property
     def webhook_log(self):

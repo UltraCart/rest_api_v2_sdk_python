@@ -1444,7 +1444,7 @@ class Customer(object):
     def suppress_buysafe(self):
         """Gets the suppress_buysafe of this Customer.  # noqa: E501
 
-        Suppress buySAFE  # noqa: E501
+        Suppress buySAFE (deprecated)  # noqa: E501
 
         :return: The suppress_buysafe of this Customer.  # noqa: E501
         :rtype: bool
@@ -1455,7 +1455,7 @@ class Customer(object):
     def suppress_buysafe(self, suppress_buysafe):
         """Sets the suppress_buysafe of this Customer.
 
-        Suppress buySAFE  # noqa: E501
+        Suppress buySAFE (deprecated)  # noqa: E501
 
         :param suppress_buysafe: The suppress_buysafe of this Customer.  # noqa: E501
         :type: bool

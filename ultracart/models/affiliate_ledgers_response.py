@@ -34,23 +34,26 @@ class AffiliateLedgersResponse(object):
         'error': 'Error',
         'ledgers': 'list[AffiliateLedger]',
         'metadata': 'ResponseMetadata',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
         'error': 'error',
         'ledgers': 'ledgers',
         'metadata': 'metadata',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, error=None, ledgers=None, metadata=None, success=None):  # noqa: E501
+    def __init__(self, error=None, ledgers=None, metadata=None, success=None, warning=None):  # noqa: E501
         """AffiliateLedgersResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._ledgers = None
         self._metadata = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if error is not None:
@@ -61,6 +64,8 @@ class AffiliateLedgersResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def error(self):
@@ -149,6 +154,27 @@ class AffiliateLedgersResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this AffiliateLedgersResponse.  # noqa: E501
+
+
+        :return: The warning of this AffiliateLedgersResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this AffiliateLedgersResponse.
+
+
+        :param warning: The warning of this AffiliateLedgersResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,23 +34,26 @@ class EmailGlobalSettingsResponse(object):
         'error': 'Error',
         'global_settings': 'EmailGlobalSettings',
         'metadata': 'ResponseMetadata',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
         'error': 'error',
         'global_settings': 'global_settings',
         'metadata': 'metadata',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, error=None, global_settings=None, metadata=None, success=None):  # noqa: E501
+    def __init__(self, error=None, global_settings=None, metadata=None, success=None, warning=None):  # noqa: E501
         """EmailGlobalSettingsResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._global_settings = None
         self._metadata = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if error is not None:
@@ -61,6 +64,8 @@ class EmailGlobalSettingsResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def error(self):
@@ -147,6 +152,27 @@ class EmailGlobalSettingsResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this EmailGlobalSettingsResponse.  # noqa: E501
+
+
+        :return: The warning of this EmailGlobalSettingsResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this EmailGlobalSettingsResponse.
+
+
+        :param warning: The warning of this EmailGlobalSettingsResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

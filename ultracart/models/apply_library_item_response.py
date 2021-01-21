@@ -33,42 +33,50 @@ class ApplyLibraryItemResponse(object):
     swagger_types = {
         'cjson': 'str',
         'content_type': 'str',
+        'email_template_vm_path': 'str',
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         'storefront_oid': 'int',
         'success': 'bool',
         'title': 'str',
-        'uuid': 'str'
+        'uuid': 'str',
+        'warning': 'Warning'
     }
 
     attribute_map = {
         'cjson': 'cjson',
         'content_type': 'content_type',
+        'email_template_vm_path': 'email_template_vm_path',
         'error': 'error',
         'metadata': 'metadata',
         'storefront_oid': 'storefront_oid',
         'success': 'success',
         'title': 'title',
-        'uuid': 'uuid'
+        'uuid': 'uuid',
+        'warning': 'warning'
     }
 
-    def __init__(self, cjson=None, content_type=None, error=None, metadata=None, storefront_oid=None, success=None, title=None, uuid=None):  # noqa: E501
+    def __init__(self, cjson=None, content_type=None, email_template_vm_path=None, error=None, metadata=None, storefront_oid=None, success=None, title=None, uuid=None, warning=None):  # noqa: E501
         """ApplyLibraryItemResponse - a model defined in Swagger"""  # noqa: E501
 
         self._cjson = None
         self._content_type = None
+        self._email_template_vm_path = None
         self._error = None
         self._metadata = None
         self._storefront_oid = None
         self._success = None
         self._title = None
         self._uuid = None
+        self._warning = None
         self.discriminator = None
 
         if cjson is not None:
             self.cjson = cjson
         if content_type is not None:
             self.content_type = content_type
+        if email_template_vm_path is not None:
+            self.email_template_vm_path = email_template_vm_path
         if error is not None:
             self.error = error
         if metadata is not None:
@@ -81,12 +89,14 @@ class ApplyLibraryItemResponse(object):
             self.title = title
         if uuid is not None:
             self.uuid = uuid
+        if warning is not None:
+            self.warning = warning
 
     @property
     def cjson(self):
         """Gets the cjson of this ApplyLibraryItemResponse.  # noqa: E501
 
-        Cjson from library item, only populated if this library item was a cjson snippet  # noqa: E501
+        Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional)  # noqa: E501
 
         :return: The cjson of this ApplyLibraryItemResponse.  # noqa: E501
         :rtype: str
@@ -97,7 +107,7 @@ class ApplyLibraryItemResponse(object):
     def cjson(self, cjson):
         """Sets the cjson of this ApplyLibraryItemResponse.
 
-        Cjson from library item, only populated if this library item was a cjson snippet  # noqa: E501
+        Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional)  # noqa: E501
 
         :param cjson: The cjson of this ApplyLibraryItemResponse.  # noqa: E501
         :type: str
@@ -109,7 +119,7 @@ class ApplyLibraryItemResponse(object):
     def content_type(self):
         """Gets the content_type of this ApplyLibraryItemResponse.  # noqa: E501
 
-        flow, campaign, cjson, or upsell  # noqa: E501
+        flow, campaign, cjson, upsell, transactional_email or email  # noqa: E501
 
         :return: The content_type of this ApplyLibraryItemResponse.  # noqa: E501
         :rtype: str
@@ -120,13 +130,36 @@ class ApplyLibraryItemResponse(object):
     def content_type(self, content_type):
         """Sets the content_type of this ApplyLibraryItemResponse.
 
-        flow, campaign, cjson, or upsell  # noqa: E501
+        flow, campaign, cjson, upsell, transactional_email or email  # noqa: E501
 
         :param content_type: The content_type of this ApplyLibraryItemResponse.  # noqa: E501
         :type: str
         """
 
         self._content_type = content_type
+
+    @property
+    def email_template_vm_path(self):
+        """Gets the email_template_vm_path of this ApplyLibraryItemResponse.  # noqa: E501
+
+        If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI.  # noqa: E501
+
+        :return: The email_template_vm_path of this ApplyLibraryItemResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._email_template_vm_path
+
+    @email_template_vm_path.setter
+    def email_template_vm_path(self, email_template_vm_path):
+        """Sets the email_template_vm_path of this ApplyLibraryItemResponse.
+
+        If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI.  # noqa: E501
+
+        :param email_template_vm_path: The email_template_vm_path of this ApplyLibraryItemResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._email_template_vm_path = email_template_vm_path
 
     @property
     def error(self):
@@ -243,7 +276,7 @@ class ApplyLibraryItemResponse(object):
     def uuid(self):
         """Gets the uuid of this ApplyLibraryItemResponse.  # noqa: E501
 
-        UUID of communication flow or campaign if this library item was a campaign or flow  # noqa: E501
+        UUID of marketing email or communication flow/campaign if this library item was an email, campaign or flow  # noqa: E501
 
         :return: The uuid of this ApplyLibraryItemResponse.  # noqa: E501
         :rtype: str
@@ -254,13 +287,34 @@ class ApplyLibraryItemResponse(object):
     def uuid(self, uuid):
         """Sets the uuid of this ApplyLibraryItemResponse.
 
-        UUID of communication flow or campaign if this library item was a campaign or flow  # noqa: E501
+        UUID of marketing email or communication flow/campaign if this library item was an email, campaign or flow  # noqa: E501
 
         :param uuid: The uuid of this ApplyLibraryItemResponse.  # noqa: E501
         :type: str
         """
 
         self._uuid = uuid
+
+    @property
+    def warning(self):
+        """Gets the warning of this ApplyLibraryItemResponse.  # noqa: E501
+
+
+        :return: The warning of this ApplyLibraryItemResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this ApplyLibraryItemResponse.
+
+
+        :param warning: The warning of this ApplyLibraryItemResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

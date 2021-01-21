@@ -40,6 +40,7 @@ class Experiment(object):
         'name': 'str',
         'notes': 'str',
         'objective': 'str',
+        'objective_parameter': 'str',
         'optimization_type': 'str',
         'session_count': 'int',
         'start_dts': 'str',
@@ -60,6 +61,7 @@ class Experiment(object):
         'name': 'name',
         'notes': 'notes',
         'objective': 'objective',
+        'objective_parameter': 'objective_parameter',
         'optimization_type': 'optimization_type',
         'session_count': 'session_count',
         'start_dts': 'start_dts',
@@ -70,7 +72,7 @@ class Experiment(object):
         'variations': 'variations'
     }
 
-    def __init__(self, container_id=None, duration_days=None, end_dts=None, equal_weighting=None, experiment_type=None, id=None, name=None, notes=None, objective=None, optimization_type=None, session_count=None, start_dts=None, status=None, storefront_experiment_oid=None, storefront_oid=None, uri=None, variations=None):  # noqa: E501
+    def __init__(self, container_id=None, duration_days=None, end_dts=None, equal_weighting=None, experiment_type=None, id=None, name=None, notes=None, objective=None, objective_parameter=None, optimization_type=None, session_count=None, start_dts=None, status=None, storefront_experiment_oid=None, storefront_oid=None, uri=None, variations=None):  # noqa: E501
         """Experiment - a model defined in Swagger"""  # noqa: E501
 
         self._container_id = None
@@ -82,6 +84,7 @@ class Experiment(object):
         self._name = None
         self._notes = None
         self._objective = None
+        self._objective_parameter = None
         self._optimization_type = None
         self._session_count = None
         self._start_dts = None
@@ -110,6 +113,8 @@ class Experiment(object):
             self.notes = notes
         if objective is not None:
             self.objective = objective
+        if objective_parameter is not None:
+            self.objective_parameter = objective_parameter
         if optimization_type is not None:
             self.optimization_type = optimization_type
         if session_count is not None:
@@ -333,6 +338,29 @@ class Experiment(object):
         """
 
         self._objective = objective
+
+    @property
+    def objective_parameter(self):
+        """Gets the objective_parameter of this Experiment.  # noqa: E501
+
+        Objective parameter (such as event name) that is being optimized  # noqa: E501
+
+        :return: The objective_parameter of this Experiment.  # noqa: E501
+        :rtype: str
+        """
+        return self._objective_parameter
+
+    @objective_parameter.setter
+    def objective_parameter(self, objective_parameter):
+        """Sets the objective_parameter of this Experiment.
+
+        Objective parameter (such as event name) that is being optimized  # noqa: E501
+
+        :param objective_parameter: The objective_parameter of this Experiment.  # noqa: E501
+        :type: str
+        """
+
+        self._objective_parameter = objective_parameter
 
     @property
     def optimization_type(self):

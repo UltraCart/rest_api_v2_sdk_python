@@ -38,8 +38,10 @@ class TransactionEmail(object):
         'file_exists': 'bool',
         'file_name': 'str',
         'group': 'str',
+        'handlebar_variables': 'list[str]',
         'invalid': 'bool',
         'last_modified': 'str',
+        'library_item_oid': 'int',
         'options': 'list[TransactionEmailOption]',
         'path': 'str',
         'size': 'str',
@@ -59,8 +61,10 @@ class TransactionEmail(object):
         'file_exists': 'file_exists',
         'file_name': 'file_name',
         'group': 'group',
+        'handlebar_variables': 'handlebar_variables',
         'invalid': 'invalid',
         'last_modified': 'last_modified',
+        'library_item_oid': 'library_item_oid',
         'options': 'options',
         'path': 'path',
         'size': 'size',
@@ -72,7 +76,7 @@ class TransactionEmail(object):
         'theme_relative_path': 'theme_relative_path'
     }
 
-    def __init__(self, content=None, esp_domain_uuid=None, esp_friendly_name=None, esp_user=None, file_exists=None, file_name=None, group=None, invalid=None, last_modified=None, options=None, path=None, size=None, store_front_fs_directory_oid=None, store_front_fs_file_oid=None, subject=None, syntax_errors=None, template_path_relative_path=None, theme_relative_path=None):  # noqa: E501
+    def __init__(self, content=None, esp_domain_uuid=None, esp_friendly_name=None, esp_user=None, file_exists=None, file_name=None, group=None, handlebar_variables=None, invalid=None, last_modified=None, library_item_oid=None, options=None, path=None, size=None, store_front_fs_directory_oid=None, store_front_fs_file_oid=None, subject=None, syntax_errors=None, template_path_relative_path=None, theme_relative_path=None):  # noqa: E501
         """TransactionEmail - a model defined in Swagger"""  # noqa: E501
 
         self._content = None
@@ -82,8 +86,10 @@ class TransactionEmail(object):
         self._file_exists = None
         self._file_name = None
         self._group = None
+        self._handlebar_variables = None
         self._invalid = None
         self._last_modified = None
+        self._library_item_oid = None
         self._options = None
         self._path = None
         self._size = None
@@ -109,10 +115,14 @@ class TransactionEmail(object):
             self.file_name = file_name
         if group is not None:
             self.group = group
+        if handlebar_variables is not None:
+            self.handlebar_variables = handlebar_variables
         if invalid is not None:
             self.invalid = invalid
         if last_modified is not None:
             self.last_modified = last_modified
+        if library_item_oid is not None:
+            self.library_item_oid = library_item_oid
         if options is not None:
             self.options = options
         if path is not None:
@@ -294,6 +304,29 @@ class TransactionEmail(object):
         self._group = group
 
     @property
+    def handlebar_variables(self):
+        """Gets the handlebar_variables of this TransactionEmail.  # noqa: E501
+
+        Handlebar Variables available for email template  # noqa: E501
+
+        :return: The handlebar_variables of this TransactionEmail.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._handlebar_variables
+
+    @handlebar_variables.setter
+    def handlebar_variables(self, handlebar_variables):
+        """Sets the handlebar_variables of this TransactionEmail.
+
+        Handlebar Variables available for email template  # noqa: E501
+
+        :param handlebar_variables: The handlebar_variables of this TransactionEmail.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._handlebar_variables = handlebar_variables
+
+    @property
     def invalid(self):
         """Gets the invalid of this TransactionEmail.  # noqa: E501
 
@@ -338,6 +371,29 @@ class TransactionEmail(object):
         """
 
         self._last_modified = last_modified
+
+    @property
+    def library_item_oid(self):
+        """Gets the library_item_oid of this TransactionEmail.  # noqa: E501
+
+        If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.  # noqa: E501
+
+        :return: The library_item_oid of this TransactionEmail.  # noqa: E501
+        :rtype: int
+        """
+        return self._library_item_oid
+
+    @library_item_oid.setter
+    def library_item_oid(self, library_item_oid):
+        """Sets the library_item_oid of this TransactionEmail.
+
+        If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.  # noqa: E501
+
+        :param library_item_oid: The library_item_oid of this TransactionEmail.  # noqa: E501
+        :type: int
+        """
+
+        self._library_item_oid = library_item_oid
 
     @property
     def options(self):

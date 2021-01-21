@@ -35,7 +35,11 @@ class EmailThirdPartyProvider(object):
         'list_count': 'int',
         'lists': 'list[EmailThirdPartyList]',
         'logo_url': 'str',
-        'name': 'str'
+        'name': 'str',
+        'supports_add_tags': 'bool',
+        'supports_list_subscribe': 'bool',
+        'supports_list_unsubscribe': 'bool',
+        'supports_remove_tags': 'bool'
     }
 
     attribute_map = {
@@ -43,10 +47,14 @@ class EmailThirdPartyProvider(object):
         'list_count': 'list_count',
         'lists': 'lists',
         'logo_url': 'logo_url',
-        'name': 'name'
+        'name': 'name',
+        'supports_add_tags': 'supports_add_tags',
+        'supports_list_subscribe': 'supports_list_subscribe',
+        'supports_list_unsubscribe': 'supports_list_unsubscribe',
+        'supports_remove_tags': 'supports_remove_tags'
     }
 
-    def __init__(self, connect_url=None, list_count=None, lists=None, logo_url=None, name=None):  # noqa: E501
+    def __init__(self, connect_url=None, list_count=None, lists=None, logo_url=None, name=None, supports_add_tags=None, supports_list_subscribe=None, supports_list_unsubscribe=None, supports_remove_tags=None):  # noqa: E501
         """EmailThirdPartyProvider - a model defined in Swagger"""  # noqa: E501
 
         self._connect_url = None
@@ -54,6 +62,10 @@ class EmailThirdPartyProvider(object):
         self._lists = None
         self._logo_url = None
         self._name = None
+        self._supports_add_tags = None
+        self._supports_list_subscribe = None
+        self._supports_list_unsubscribe = None
+        self._supports_remove_tags = None
         self.discriminator = None
 
         if connect_url is not None:
@@ -66,6 +78,14 @@ class EmailThirdPartyProvider(object):
             self.logo_url = logo_url
         if name is not None:
             self.name = name
+        if supports_add_tags is not None:
+            self.supports_add_tags = supports_add_tags
+        if supports_list_subscribe is not None:
+            self.supports_list_subscribe = supports_list_subscribe
+        if supports_list_unsubscribe is not None:
+            self.supports_list_unsubscribe = supports_list_unsubscribe
+        if supports_remove_tags is not None:
+            self.supports_remove_tags = supports_remove_tags
 
     @property
     def connect_url(self):
@@ -181,6 +201,98 @@ class EmailThirdPartyProvider(object):
         """
 
         self._name = name
+
+    @property
+    def supports_add_tags(self):
+        """Gets the supports_add_tags of this EmailThirdPartyProvider.  # noqa: E501
+
+        True if this provider can support adding tags  # noqa: E501
+
+        :return: The supports_add_tags of this EmailThirdPartyProvider.  # noqa: E501
+        :rtype: bool
+        """
+        return self._supports_add_tags
+
+    @supports_add_tags.setter
+    def supports_add_tags(self, supports_add_tags):
+        """Sets the supports_add_tags of this EmailThirdPartyProvider.
+
+        True if this provider can support adding tags  # noqa: E501
+
+        :param supports_add_tags: The supports_add_tags of this EmailThirdPartyProvider.  # noqa: E501
+        :type: bool
+        """
+
+        self._supports_add_tags = supports_add_tags
+
+    @property
+    def supports_list_subscribe(self):
+        """Gets the supports_list_subscribe of this EmailThirdPartyProvider.  # noqa: E501
+
+        True if this provider can support list subscribe  # noqa: E501
+
+        :return: The supports_list_subscribe of this EmailThirdPartyProvider.  # noqa: E501
+        :rtype: bool
+        """
+        return self._supports_list_subscribe
+
+    @supports_list_subscribe.setter
+    def supports_list_subscribe(self, supports_list_subscribe):
+        """Sets the supports_list_subscribe of this EmailThirdPartyProvider.
+
+        True if this provider can support list subscribe  # noqa: E501
+
+        :param supports_list_subscribe: The supports_list_subscribe of this EmailThirdPartyProvider.  # noqa: E501
+        :type: bool
+        """
+
+        self._supports_list_subscribe = supports_list_subscribe
+
+    @property
+    def supports_list_unsubscribe(self):
+        """Gets the supports_list_unsubscribe of this EmailThirdPartyProvider.  # noqa: E501
+
+        True if this provider can support list unsubscribe  # noqa: E501
+
+        :return: The supports_list_unsubscribe of this EmailThirdPartyProvider.  # noqa: E501
+        :rtype: bool
+        """
+        return self._supports_list_unsubscribe
+
+    @supports_list_unsubscribe.setter
+    def supports_list_unsubscribe(self, supports_list_unsubscribe):
+        """Sets the supports_list_unsubscribe of this EmailThirdPartyProvider.
+
+        True if this provider can support list unsubscribe  # noqa: E501
+
+        :param supports_list_unsubscribe: The supports_list_unsubscribe of this EmailThirdPartyProvider.  # noqa: E501
+        :type: bool
+        """
+
+        self._supports_list_unsubscribe = supports_list_unsubscribe
+
+    @property
+    def supports_remove_tags(self):
+        """Gets the supports_remove_tags of this EmailThirdPartyProvider.  # noqa: E501
+
+        True if this provider can support remove tags  # noqa: E501
+
+        :return: The supports_remove_tags of this EmailThirdPartyProvider.  # noqa: E501
+        :rtype: bool
+        """
+        return self._supports_remove_tags
+
+    @supports_remove_tags.setter
+    def supports_remove_tags(self, supports_remove_tags):
+        """Sets the supports_remove_tags of this EmailThirdPartyProvider.
+
+        True if this provider can support remove tags  # noqa: E501
+
+        :param supports_remove_tags: The supports_remove_tags of this EmailThirdPartyProvider.  # noqa: E501
+        :type: bool
+        """
+
+        self._supports_remove_tags = supports_remove_tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

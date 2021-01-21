@@ -34,23 +34,26 @@ class CustomerTaxCodes(object):
         'avalara_customer_code': 'str',
         'avalara_entity_use_code': 'str',
         'sovos_customer_code': 'str',
-        'taxjar_customer_id': 'str'
+        'taxjar_customer_id': 'str',
+        'taxjar_exemption_type': 'str'
     }
 
     attribute_map = {
         'avalara_customer_code': 'avalara_customer_code',
         'avalara_entity_use_code': 'avalara_entity_use_code',
         'sovos_customer_code': 'sovos_customer_code',
-        'taxjar_customer_id': 'taxjar_customer_id'
+        'taxjar_customer_id': 'taxjar_customer_id',
+        'taxjar_exemption_type': 'taxjar_exemption_type'
     }
 
-    def __init__(self, avalara_customer_code=None, avalara_entity_use_code=None, sovos_customer_code=None, taxjar_customer_id=None):  # noqa: E501
+    def __init__(self, avalara_customer_code=None, avalara_entity_use_code=None, sovos_customer_code=None, taxjar_customer_id=None, taxjar_exemption_type=None):  # noqa: E501
         """CustomerTaxCodes - a model defined in Swagger"""  # noqa: E501
 
         self._avalara_customer_code = None
         self._avalara_entity_use_code = None
         self._sovos_customer_code = None
         self._taxjar_customer_id = None
+        self._taxjar_exemption_type = None
         self.discriminator = None
 
         if avalara_customer_code is not None:
@@ -61,6 +64,8 @@ class CustomerTaxCodes(object):
             self.sovos_customer_code = sovos_customer_code
         if taxjar_customer_id is not None:
             self.taxjar_customer_id = taxjar_customer_id
+        if taxjar_exemption_type is not None:
+            self.taxjar_exemption_type = taxjar_exemption_type
 
     @property
     def avalara_customer_code(self):
@@ -153,6 +158,29 @@ class CustomerTaxCodes(object):
         """
 
         self._taxjar_customer_id = taxjar_customer_id
+
+    @property
+    def taxjar_exemption_type(self):
+        """Gets the taxjar_exemption_type of this CustomerTaxCodes.  # noqa: E501
+
+        TaxJar exemption type  # noqa: E501
+
+        :return: The taxjar_exemption_type of this CustomerTaxCodes.  # noqa: E501
+        :rtype: str
+        """
+        return self._taxjar_exemption_type
+
+    @taxjar_exemption_type.setter
+    def taxjar_exemption_type(self, taxjar_exemption_type):
+        """Sets the taxjar_exemption_type of this CustomerTaxCodes.
+
+        TaxJar exemption type  # noqa: E501
+
+        :param taxjar_exemption_type: The taxjar_exemption_type of this CustomerTaxCodes.  # noqa: E501
+        :type: str
+        """
+
+        self._taxjar_exemption_type = taxjar_exemption_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

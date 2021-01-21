@@ -42,7 +42,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddLibraryItemRequest add_library_request: New library item (required)
+        :param AddLibraryItemRequest add_library_request: New library item request (required)
         :return: LibraryItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -63,7 +63,7 @@ class StorefrontApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddLibraryItemRequest add_library_request: New library item (required)
+        :param AddLibraryItemRequest add_library_request: New library item request (required)
         :return: LibraryItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -130,45 +130,43 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def apply_to_store_front(self, library_item_oid, storefront_oid, **kwargs):  # noqa: E501
+    def apply_to_store_front(self, apply_library_request, **kwargs):  # noqa: E501
         """Apply library item to storefront.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.apply_to_store_front(library_item_oid, storefront_oid, async_req=True)
+        >>> thread = api.apply_to_store_front(apply_library_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int library_item_oid: (required)
-        :param int storefront_oid: (required)
+        :param ApplyLibraryItemRequest apply_library_request: New library item (required)
         :return: ApplyLibraryItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.apply_to_store_front_with_http_info(library_item_oid, storefront_oid, **kwargs)  # noqa: E501
+            return self.apply_to_store_front_with_http_info(apply_library_request, **kwargs)  # noqa: E501
         else:
-            (data) = self.apply_to_store_front_with_http_info(library_item_oid, storefront_oid, **kwargs)  # noqa: E501
+            (data) = self.apply_to_store_front_with_http_info(apply_library_request, **kwargs)  # noqa: E501
             return data
 
-    def apply_to_store_front_with_http_info(self, library_item_oid, storefront_oid, **kwargs):  # noqa: E501
+    def apply_to_store_front_with_http_info(self, apply_library_request, **kwargs):  # noqa: E501
         """Apply library item to storefront.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.apply_to_store_front_with_http_info(library_item_oid, storefront_oid, async_req=True)
+        >>> thread = api.apply_to_store_front_with_http_info(apply_library_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int library_item_oid: (required)
-        :param int storefront_oid: (required)
+        :param ApplyLibraryItemRequest apply_library_request: New library item (required)
         :return: ApplyLibraryItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['library_item_oid', 'storefront_oid']  # noqa: E501
+        all_params = ['apply_library_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -183,22 +181,14 @@ class StorefrontApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'library_item_oid' is set
-        if ('library_item_oid' not in params or
-                params['library_item_oid'] is None):
-            raise ValueError("Missing the required parameter `library_item_oid` when calling `apply_to_store_front`")  # noqa: E501
-        # verify the required parameter 'storefront_oid' is set
-        if ('storefront_oid' not in params or
-                params['storefront_oid'] is None):
-            raise ValueError("Missing the required parameter `storefront_oid` when calling `apply_to_store_front`")  # noqa: E501
+        # verify the required parameter 'apply_library_request' is set
+        if ('apply_library_request' not in params or
+                params['apply_library_request'] is None):
+            raise ValueError("Missing the required parameter `apply_library_request` when calling `apply_to_store_front`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'library_item_oid' in params:
-            path_params['library_item_oid'] = params['library_item_oid']  # noqa: E501
-        if 'storefront_oid' in params:
-            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
 
         query_params = []
 
@@ -208,6 +198,8 @@ class StorefrontApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'apply_library_request' in params:
+            body_params = params['apply_library_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -220,7 +212,7 @@ class StorefrontApi(object):
         auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid}', 'POST',
+            '/storefront/code_library/apply', 'POST',
             path_params,
             query_params,
             header_params,
@@ -882,107 +874,6 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailFlowResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def clone_library_item(self, library_item_oid, **kwargs):  # noqa: E501
-        """Clone public library item.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.clone_library_item(library_item_oid, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int library_item_oid: (required)
-        :param int storefront_oid:
-        :return: LibraryItemResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.clone_library_item_with_http_info(library_item_oid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.clone_library_item_with_http_info(library_item_oid, **kwargs)  # noqa: E501
-            return data
-
-    def clone_library_item_with_http_info(self, library_item_oid, **kwargs):  # noqa: E501
-        """Clone public library item.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.clone_library_item_with_http_info(library_item_oid, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int library_item_oid: (required)
-        :param int storefront_oid:
-        :return: LibraryItemResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['library_item_oid', 'storefront_oid']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method clone_library_item" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'library_item_oid' is set
-        if ('library_item_oid' not in params or
-                params['library_item_oid'] is None):
-            raise ValueError("Missing the required parameter `library_item_oid` when calling `clone_library_item`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'library_item_oid' in params:
-            path_params['library_item_oid'] = params['library_item_oid']  # noqa: E501
-
-        query_params = []
-        if 'storefront_oid' in params:
-            query_params.append(('storefront_oid', params['storefront_oid']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/storefront/code_library/{library_item_oid}/clone', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='LibraryItemResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1814,6 +1705,208 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_library_item_published_versions(self, library_item_oid, **kwargs):  # noqa: E501
+        """Delete all published versions for a library item, including anything in review.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_library_item_published_versions(library_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int library_item_oid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_library_item_published_versions_with_http_info(library_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_library_item_published_versions_with_http_info(library_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_library_item_published_versions_with_http_info(self, library_item_oid, **kwargs):  # noqa: E501
+        """Delete all published versions for a library item, including anything in review.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_library_item_published_versions_with_http_info(library_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int library_item_oid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['library_item_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_library_item_published_versions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'library_item_oid' is set
+        if ('library_item_oid' not in params or
+                params['library_item_oid'] is None):
+            raise ValueError("Missing the required parameter `library_item_oid` when calling `delete_library_item_published_versions`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'library_item_oid' in params:
+            path_params['library_item_oid'] = params['library_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/code_library/{library_item_oid}/published_versions', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_screen_recording_segment(self, storefront_oid, screen_recording_segment_oid, **kwargs):  # noqa: E501
+        """Delete screen recording segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_screen_recording_segment(storefront_oid, screen_recording_segment_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param int screen_recording_segment_oid: (required)
+        :return: ScreenRecordingSegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_screen_recording_segment_with_http_info(storefront_oid, screen_recording_segment_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_screen_recording_segment_with_http_info(storefront_oid, screen_recording_segment_oid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_screen_recording_segment_with_http_info(self, storefront_oid, screen_recording_segment_oid, **kwargs):  # noqa: E501
+        """Delete screen recording segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_screen_recording_segment_with_http_info(storefront_oid, screen_recording_segment_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param int screen_recording_segment_oid: (required)
+        :return: ScreenRecordingSegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'screen_recording_segment_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_screen_recording_segment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `delete_screen_recording_segment`")  # noqa: E501
+        # verify the required parameter 'screen_recording_segment_oid' is set
+        if ('screen_recording_segment_oid' not in params or
+                params['screen_recording_segment_oid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_segment_oid` when calling `delete_screen_recording_segment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'screen_recording_segment_oid' in params:
+            path_params['screen_recording_segment_oid'] = params['screen_recording_segment_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingSegmentResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def duplicate_library_item(self, library_item_oid, **kwargs):  # noqa: E501
         """Duplicate library item.  # noqa: E501
 
@@ -1904,6 +1997,113 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='LibraryItemResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def favorite_screen_recording(self, storefront_oid, screen_recording_uuid, **kwargs):  # noqa: E501
+        """Update favorite flag on screen recording  # noqa: E501
+
+        Update favorite flag on screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.favorite_screen_recording(storefront_oid, screen_recording_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.favorite_screen_recording_with_http_info(storefront_oid, screen_recording_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.favorite_screen_recording_with_http_info(storefront_oid, screen_recording_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def favorite_screen_recording_with_http_info(self, storefront_oid, screen_recording_uuid, **kwargs):  # noqa: E501
+        """Update favorite flag on screen recording  # noqa: E501
+
+        Update favorite flag on screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.favorite_screen_recording_with_http_info(storefront_oid, screen_recording_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'screen_recording_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method favorite_screen_recording" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `favorite_screen_recording`")  # noqa: E501
+        # verify the required parameter 'screen_recording_uuid' is set
+        if ('screen_recording_uuid' not in params or
+                params['screen_recording_uuid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_uuid` when calling `favorite_screen_recording`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'screen_recording_uuid' in params:
+            path_params['screen_recording_uuid'] = params['screen_recording_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2115,45 +2315,45 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_editor_token(self, id, **kwargs):  # noqa: E501
+    def get_editor_token(self, storefront_oid, **kwargs):  # noqa: E501
         """Gets editor token  # noqa: E501
 
         Fetches a temporary authentication token for the editor   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_editor_token(id, async_req=True)
+        >>> thread = api.get_editor_token(storefront_oid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: (required)
+        :param int storefront_oid: (required)
         :return: EmailEditorTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_editor_token_with_http_info(id, **kwargs)  # noqa: E501
+            return self.get_editor_token_with_http_info(storefront_oid, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_editor_token_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.get_editor_token_with_http_info(storefront_oid, **kwargs)  # noqa: E501
             return data
 
-    def get_editor_token_with_http_info(self, id, **kwargs):  # noqa: E501
+    def get_editor_token_with_http_info(self, storefront_oid, **kwargs):  # noqa: E501
         """Gets editor token  # noqa: E501
 
         Fetches a temporary authentication token for the editor   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_editor_token_with_http_info(id, async_req=True)
+        >>> thread = api.get_editor_token_with_http_info(storefront_oid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: (required)
+        :param int storefront_oid: (required)
         :return: EmailEditorTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['storefront_oid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2168,16 +2368,16 @@ class StorefrontApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `get_editor_token`")  # noqa: E501
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_editor_token`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in params:
-            path_params['id'] = params['id']  # noqa: E501
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
 
         query_params = []
 
@@ -2199,7 +2399,7 @@ class StorefrontApi(object):
         auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/storefront/{id}/editor_token', 'GET',
+            '/storefront/{storefront_oid}/editor_token', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2409,6 +2609,111 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailCampaignResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_email_campaign_screenshots(self, storefront_oid, email_campaign_uuid, **kwargs):  # noqa: E501
+        """Get email campaign screenshots  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_campaign_screenshots(storefront_oid, email_campaign_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_campaign_uuid: (required)
+        :return: ScreenshotsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_email_campaign_screenshots_with_http_info(storefront_oid, email_campaign_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_email_campaign_screenshots_with_http_info(storefront_oid, email_campaign_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_email_campaign_screenshots_with_http_info(self, storefront_oid, email_campaign_uuid, **kwargs):  # noqa: E501
+        """Get email campaign screenshots  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_campaign_screenshots_with_http_info(storefront_oid, email_campaign_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_campaign_uuid: (required)
+        :return: ScreenshotsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_campaign_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_campaign_screenshots" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_campaign_screenshots`")  # noqa: E501
+        # verify the required parameter 'email_campaign_uuid' is set
+        if ('email_campaign_uuid' not in params or
+                params['email_campaign_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_campaign_uuid` when calling `get_email_campaign_screenshots`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'email_campaign_uuid' in params:
+            path_params['email_campaign_uuid'] = params['email_campaign_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/screenshots', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenshotsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4561,6 +4866,111 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailFlowResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_email_flow_screenshots(self, storefront_oid, email_flow_uuid, **kwargs):  # noqa: E501
+        """Get email flow screenshots  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_flow_screenshots(storefront_oid, email_flow_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_flow_uuid: (required)
+        :return: ScreenshotsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_email_flow_screenshots_with_http_info(storefront_oid, email_flow_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_email_flow_screenshots_with_http_info(storefront_oid, email_flow_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_email_flow_screenshots_with_http_info(self, storefront_oid, email_flow_uuid, **kwargs):  # noqa: E501
+        """Get email flow screenshots  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_flow_screenshots_with_http_info(storefront_oid, email_flow_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_flow_uuid: (required)
+        :return: ScreenshotsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_flow_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_flow_screenshots" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_flow_screenshots`")  # noqa: E501
+        # verify the required parameter 'email_flow_uuid' is set
+        if ('email_flow_uuid' not in params or
+                params['email_flow_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_flow_uuid` when calling `get_email_flow_screenshots`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'email_flow_uuid' in params:
+            path_params['email_flow_uuid'] = params['email_flow_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/flows/{email_flow_uuid}/screenshots', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenshotsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7105,6 +7515,95 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_library_filter_values(self, **kwargs):  # noqa: E501
+        """Get library values used to populate drop down boxes for filtering.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_library_filter_values(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: LibraryFilterValuesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_library_filter_values_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_library_filter_values_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_library_filter_values_with_http_info(self, **kwargs):  # noqa: E501
+        """Get library values used to populate drop down boxes for filtering.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_library_filter_values_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: LibraryFilterValuesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_library_filter_values" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/code_library/filter_values', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LibraryFilterValuesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_library_item(self, library_item_oid, **kwargs):  # noqa: E501
         """Get library item.  # noqa: E501
 
@@ -7202,51 +7701,43 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_library_items_by_query(self, item_query, **kwargs):  # noqa: E501
-        """Retrieve library items  # noqa: E501
+    def get_library_item_published_versions(self, library_item_oid, **kwargs):  # noqa: E501
+        """Get all published versions for a library item.  # noqa: E501
 
-        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_library_items_by_query(item_query, async_req=True)
+        >>> thread = api.get_library_item_published_versions(library_item_oid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param LibraryItemQuery item_query: Item query (required)
-        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
-        :param int offset: Pagination of the record set.  Offset is a zero based index.
-        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param int library_item_oid: (required)
         :return: LibraryItemsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_library_items_by_query_with_http_info(item_query, **kwargs)  # noqa: E501
+            return self.get_library_item_published_versions_with_http_info(library_item_oid, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_library_items_by_query_with_http_info(item_query, **kwargs)  # noqa: E501
+            (data) = self.get_library_item_published_versions_with_http_info(library_item_oid, **kwargs)  # noqa: E501
             return data
 
-    def get_library_items_by_query_with_http_info(self, item_query, **kwargs):  # noqa: E501
-        """Retrieve library items  # noqa: E501
+    def get_library_item_published_versions_with_http_info(self, library_item_oid, **kwargs):  # noqa: E501
+        """Get all published versions for a library item.  # noqa: E501
 
-        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_library_items_by_query_with_http_info(item_query, async_req=True)
+        >>> thread = api.get_library_item_published_versions_with_http_info(library_item_oid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param LibraryItemQuery item_query: Item query (required)
-        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
-        :param int offset: Pagination of the record set.  Offset is a zero based index.
-        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param int library_item_oid: (required)
         :return: LibraryItemsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['item_query', 'limit', 'offset', 'sort']  # noqa: E501
+        all_params = ['library_item_oid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7257,18 +7748,846 @@ class StorefrontApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_library_items_by_query" % key
+                    " to method get_library_item_published_versions" % key
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'item_query' is set
-        if ('item_query' not in params or
-                params['item_query'] is None):
-            raise ValueError("Missing the required parameter `item_query` when calling `get_library_items_by_query`")  # noqa: E501
+        # verify the required parameter 'library_item_oid' is set
+        if ('library_item_oid' not in params or
+                params['library_item_oid'] is None):
+            raise ValueError("Missing the required parameter `library_item_oid` when calling `get_library_item_published_versions`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'library_item_oid' in params:
+            path_params['library_item_oid'] = params['library_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/code_library/{library_item_oid}/published_versions', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LibraryItemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_pricing_tiers(self, **kwargs):  # noqa: E501
+        """Retrieve pricing tiers  # noqa: E501
+
+        Retrieves the pricing tiers   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pricing_tiers(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: PricingTiersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_pricing_tiers_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_pricing_tiers_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_pricing_tiers_with_http_info(self, **kwargs):  # noqa: E501
+        """Retrieve pricing tiers  # noqa: E501
+
+        Retrieves the pricing tiers   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pricing_tiers_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: PricingTiersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_pricing_tiers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/pricing_tiers', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PricingTiersResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_screen_recording(self, storefront_oid, screen_recording_uuid, **kwargs):  # noqa: E501
+        """Get screen recording  # noqa: E501
+
+        Get screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording(storefront_oid, screen_recording_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :return: ScreenRecordingResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_screen_recording_with_http_info(storefront_oid, screen_recording_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_screen_recording_with_http_info(storefront_oid, screen_recording_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_screen_recording_with_http_info(self, storefront_oid, screen_recording_uuid, **kwargs):  # noqa: E501
+        """Get screen recording  # noqa: E501
+
+        Get screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_with_http_info(storefront_oid, screen_recording_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :return: ScreenRecordingResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'screen_recording_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_screen_recording" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_screen_recording`")  # noqa: E501
+        # verify the required parameter 'screen_recording_uuid' is set
+        if ('screen_recording_uuid' not in params or
+                params['screen_recording_uuid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_uuid` when calling `get_screen_recording`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'screen_recording_uuid' in params:
+            path_params['screen_recording_uuid'] = params['screen_recording_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_screen_recording_page_view_data(self, storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid, **kwargs):  # noqa: E501
+        """Get screen recording page view data  # noqa: E501
+
+        Get screen recording page view data   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_page_view_data(storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :param str screen_recording_page_view_uuid: (required)
+        :return: ScreenRecordingResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_screen_recording_page_view_data_with_http_info(storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_screen_recording_page_view_data_with_http_info(storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_screen_recording_page_view_data_with_http_info(self, storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid, **kwargs):  # noqa: E501
+        """Get screen recording page view data  # noqa: E501
+
+        Get screen recording page view data   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_page_view_data_with_http_info(storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :param str screen_recording_page_view_uuid: (required)
+        :return: ScreenRecordingResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'screen_recording_uuid', 'screen_recording_page_view_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_screen_recording_page_view_data" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_screen_recording_page_view_data`")  # noqa: E501
+        # verify the required parameter 'screen_recording_uuid' is set
+        if ('screen_recording_uuid' not in params or
+                params['screen_recording_uuid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_uuid` when calling `get_screen_recording_page_view_data`")  # noqa: E501
+        # verify the required parameter 'screen_recording_page_view_uuid' is set
+        if ('screen_recording_page_view_uuid' not in params or
+                params['screen_recording_page_view_uuid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_page_view_uuid` when calling `get_screen_recording_page_view_data`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'screen_recording_uuid' in params:
+            path_params['screen_recording_uuid'] = params['screen_recording_uuid']  # noqa: E501
+        if 'screen_recording_page_view_uuid' in params:
+            path_params['screen_recording_page_view_uuid'] = params['screen_recording_page_view_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/page_view_data/{screen_recording_page_view_uuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_screen_recording_segment(self, storefront_oid, screen_recording_segment_oid, **kwargs):  # noqa: E501
+        """Get screen recording segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_segment(storefront_oid, screen_recording_segment_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param int screen_recording_segment_oid: (required)
+        :return: ScreenRecordingSegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_screen_recording_segment_with_http_info(storefront_oid, screen_recording_segment_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_screen_recording_segment_with_http_info(storefront_oid, screen_recording_segment_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_screen_recording_segment_with_http_info(self, storefront_oid, screen_recording_segment_oid, **kwargs):  # noqa: E501
+        """Get screen recording segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_segment_with_http_info(storefront_oid, screen_recording_segment_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param int screen_recording_segment_oid: (required)
+        :return: ScreenRecordingSegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'screen_recording_segment_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_screen_recording_segment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_screen_recording_segment`")  # noqa: E501
+        # verify the required parameter 'screen_recording_segment_oid' is set
+        if ('screen_recording_segment_oid' not in params or
+                params['screen_recording_segment_oid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_segment_oid` when calling `get_screen_recording_segment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'screen_recording_segment_oid' in params:
+            path_params['screen_recording_segment_oid'] = params['screen_recording_segment_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingSegmentResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_screen_recording_segments(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get screen recording segments  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_segments(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: ScreenRecordingSegmentsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_screen_recording_segments_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_screen_recording_segments_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_screen_recording_segments_with_http_info(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get screen recording segments  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_segments_with_http_info(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: ScreenRecordingSegmentsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_screen_recording_segments" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_screen_recording_segments`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/segments', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingSegmentsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_screen_recording_settings(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get screen recording settings  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_settings(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: ScreenRecordingSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_screen_recording_settings_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_screen_recording_settings_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_screen_recording_settings_with_http_info(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get screen recording settings  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_settings_with_http_info(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: ScreenRecordingSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_screen_recording_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_screen_recording_settings`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/settings', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingSettingsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_screen_recording_tags(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get tags used by screen recording  # noqa: E501
+
+        Get tags used by screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_tags(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: ScreenRecordingTagsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_screen_recording_tags_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_screen_recording_tags_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_screen_recording_tags_with_http_info(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get tags used by screen recording  # noqa: E501
+
+        Get tags used by screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recording_tags_with_http_info(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: ScreenRecordingTagsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_screen_recording_tags" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_screen_recording_tags`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/tags', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingTagsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_screen_recordings_by_query(self, storefront_oid, query, **kwargs):  # noqa: E501
+        """Query screen recordings  # noqa: E501
+
+        Query screen recordings   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recordings_by_query(storefront_oid, query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingQueryRequest query: Query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 500)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: ScreenRecordingQueryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_screen_recordings_by_query_with_http_info(storefront_oid, query, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_screen_recordings_by_query_with_http_info(storefront_oid, query, **kwargs)  # noqa: E501
+            return data
+
+    def get_screen_recordings_by_query_with_http_info(self, storefront_oid, query, **kwargs):  # noqa: E501
+        """Query screen recordings  # noqa: E501
+
+        Query screen recordings   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recordings_by_query_with_http_info(storefront_oid, query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingQueryRequest query: Query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 500)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: ScreenRecordingQueryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'query', 'limit', 'offset', 'sort']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_screen_recordings_by_query" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_screen_recordings_by_query`")  # noqa: E501
+        # verify the required parameter 'query' is set
+        if ('query' not in params or
+                params['query'] is None):
+            raise ValueError("Missing the required parameter `query` when calling `get_screen_recordings_by_query`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
 
         query_params = []
         if 'limit' in params:
@@ -7284,8 +8603,8 @@ class StorefrontApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'item_query' in params:
-            body_params = params['item_query']
+        if 'query' in params:
+            body_params = params['query']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -7298,14 +8617,14 @@ class StorefrontApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/storefront/code_library/query', 'POST',
+            '/storefront/{storefront_oid}/screen_recordings/query', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='LibraryItemsResponse',  # noqa: E501
+            response_type='ScreenRecordingQueryResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7313,17 +8632,233 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_transaction_email(self, id, email_id, **kwargs):  # noqa: E501
+    def get_screen_recordings_by_segment(self, storefront_oid, screen_recording_segment_oid, **kwargs):  # noqa: E501
+        """Get screen recordings by segment  # noqa: E501
+
+        Get screen recordings by segment   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recordings_by_segment(storefront_oid, screen_recording_segment_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param int screen_recording_segment_oid: (required)
+        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 500)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: ScreenRecordingQueryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_screen_recordings_by_segment_with_http_info(storefront_oid, screen_recording_segment_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_screen_recordings_by_segment_with_http_info(storefront_oid, screen_recording_segment_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_screen_recordings_by_segment_with_http_info(self, storefront_oid, screen_recording_segment_oid, **kwargs):  # noqa: E501
+        """Get screen recordings by segment  # noqa: E501
+
+        Get screen recordings by segment   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_screen_recordings_by_segment_with_http_info(storefront_oid, screen_recording_segment_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param int screen_recording_segment_oid: (required)
+        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 500)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: ScreenRecordingQueryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'screen_recording_segment_oid', 'limit', 'offset', 'sort']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_screen_recordings_by_segment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_screen_recordings_by_segment`")  # noqa: E501
+        # verify the required parameter 'screen_recording_segment_oid' is set
+        if ('screen_recording_segment_oid' not in params or
+                params['screen_recording_segment_oid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_segment_oid` when calling `get_screen_recordings_by_segment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'screen_recording_segment_oid' in params:
+            path_params['screen_recording_segment_oid'] = params['screen_recording_segment_oid']  # noqa: E501
+
+        query_params = []
+        if 'limit' in params:
+            query_params.append(('_limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('_offset', params['offset']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('_sort', params['sort']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingQueryResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_thumbnail_parameters(self, thumbnail_parameters, **kwargs):  # noqa: E501
+        """Get thumbnail parameters  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_thumbnail_parameters(thumbnail_parameters, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ThumbnailParametersRequest thumbnail_parameters: Thumbnail Parameters (required)
+        :return: ThumbnailParametersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_thumbnail_parameters_with_http_info(thumbnail_parameters, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_thumbnail_parameters_with_http_info(thumbnail_parameters, **kwargs)  # noqa: E501
+            return data
+
+    def get_thumbnail_parameters_with_http_info(self, thumbnail_parameters, **kwargs):  # noqa: E501
+        """Get thumbnail parameters  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_thumbnail_parameters_with_http_info(thumbnail_parameters, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ThumbnailParametersRequest thumbnail_parameters: Thumbnail Parameters (required)
+        :return: ThumbnailParametersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['thumbnail_parameters']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_thumbnail_parameters" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'thumbnail_parameters' is set
+        if ('thumbnail_parameters' not in params or
+                params['thumbnail_parameters'] is None):
+            raise ValueError("Missing the required parameter `thumbnail_parameters` when calling `get_thumbnail_parameters`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'thumbnail_parameters' in params:
+            body_params = params['thumbnail_parameters']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/thumbnailParameters', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ThumbnailParametersResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_transaction_email(self, storefront_oid, email_id, **kwargs):  # noqa: E501
         """Gets a transaction email object  # noqa: E501
 
         Fetch a transactional email   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_transaction_email(id, email_id, async_req=True)
+        >>> thread = api.get_transaction_email(storefront_oid, email_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: (required)
+        :param int storefront_oid: (required)
         :param str email_id: (required)
         :return: TransactionEmailResponse
                  If the method is called asynchronously,
@@ -7331,29 +8866,29 @@ class StorefrontApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_transaction_email_with_http_info(id, email_id, **kwargs)  # noqa: E501
+            return self.get_transaction_email_with_http_info(storefront_oid, email_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_transaction_email_with_http_info(id, email_id, **kwargs)  # noqa: E501
+            (data) = self.get_transaction_email_with_http_info(storefront_oid, email_id, **kwargs)  # noqa: E501
             return data
 
-    def get_transaction_email_with_http_info(self, id, email_id, **kwargs):  # noqa: E501
+    def get_transaction_email_with_http_info(self, storefront_oid, email_id, **kwargs):  # noqa: E501
         """Gets a transaction email object  # noqa: E501
 
         Fetch a transactional email   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_transaction_email_with_http_info(id, email_id, async_req=True)
+        >>> thread = api.get_transaction_email_with_http_info(storefront_oid, email_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: (required)
+        :param int storefront_oid: (required)
         :param str email_id: (required)
         :return: TransactionEmailResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'email_id']  # noqa: E501
+        all_params = ['storefront_oid', 'email_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7368,10 +8903,10 @@ class StorefrontApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `get_transaction_email`")  # noqa: E501
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_transaction_email`")  # noqa: E501
         # verify the required parameter 'email_id' is set
         if ('email_id' not in params or
                 params['email_id'] is None):
@@ -7380,8 +8915,8 @@ class StorefrontApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'id' in params:
-            path_params['id'] = params['id']  # noqa: E501
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
         if 'email_id' in params:
             path_params['email_id'] = params['email_id']  # noqa: E501
 
@@ -7405,7 +8940,7 @@ class StorefrontApi(object):
         auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/storefront/{id}/transaction_email/list/{email_id}', 'GET',
+            '/storefront/{storefront_oid}/transaction_email/list/{email_id}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -7420,45 +8955,45 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_transaction_email_list(self, id, **kwargs):  # noqa: E501
+    def get_transaction_email_list(self, storefront_oid, **kwargs):  # noqa: E501
         """Gets a list of transaction email names  # noqa: E501
 
         Obtain a list of all transactional emails and return back just their names   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_transaction_email_list(id, async_req=True)
+        >>> thread = api.get_transaction_email_list(storefront_oid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: (required)
+        :param int storefront_oid: (required)
         :return: TransactionEmailListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_transaction_email_list_with_http_info(id, **kwargs)  # noqa: E501
+            return self.get_transaction_email_list_with_http_info(storefront_oid, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_transaction_email_list_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.get_transaction_email_list_with_http_info(storefront_oid, **kwargs)  # noqa: E501
             return data
 
-    def get_transaction_email_list_with_http_info(self, id, **kwargs):  # noqa: E501
+    def get_transaction_email_list_with_http_info(self, storefront_oid, **kwargs):  # noqa: E501
         """Gets a list of transaction email names  # noqa: E501
 
         Obtain a list of all transactional emails and return back just their names   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_transaction_email_list_with_http_info(id, async_req=True)
+        >>> thread = api.get_transaction_email_list_with_http_info(storefront_oid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: (required)
+        :param int storefront_oid: (required)
         :return: TransactionEmailListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['storefront_oid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7473,16 +9008,16 @@ class StorefrontApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `get_transaction_email_list`")  # noqa: E501
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_transaction_email_list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in params:
-            path_params['id'] = params['id']  # noqa: E501
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
 
         query_params = []
 
@@ -7504,7 +9039,7 @@ class StorefrontApi(object):
         auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/storefront/{id}/transaction_email/list', 'GET',
+            '/storefront/{storefront_oid}/transaction_email/list', 'GET',
             path_params,
             query_params,
             header_params,
@@ -7512,6 +9047,111 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='TransactionEmailListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_transaction_email_screenshots(self, storefront_oid, email_id, **kwargs):  # noqa: E501
+        """Get transactional email screenshots  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_transaction_email_screenshots(storefront_oid, email_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_id: (required)
+        :return: ScreenshotsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_transaction_email_screenshots_with_http_info(storefront_oid, email_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_transaction_email_screenshots_with_http_info(storefront_oid, email_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_transaction_email_screenshots_with_http_info(self, storefront_oid, email_id, **kwargs):  # noqa: E501
+        """Get transactional email screenshots  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_transaction_email_screenshots_with_http_info(storefront_oid, email_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_id: (required)
+        :return: ScreenshotsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_transaction_email_screenshots" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_transaction_email_screenshots`")  # noqa: E501
+        # verify the required parameter 'email_id' is set
+        if ('email_id' not in params or
+                params['email_id'] is None):
+            raise ValueError("Missing the required parameter `email_id` when calling `get_transaction_email_screenshots`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'email_id' in params:
+            path_params['email_id'] = params['email_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/transaction_email/list/{email_id}/screenshots', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenshotsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8464,6 +10104,111 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def insert_screen_recording_segment(self, storefront_oid, segment, **kwargs):  # noqa: E501
+        """Insert screen recording segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_screen_recording_segment(storefront_oid, segment, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingSegment segment: Segment (required)
+        :return: ScreenRecordingSegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_screen_recording_segment_with_http_info(storefront_oid, segment, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_screen_recording_segment_with_http_info(storefront_oid, segment, **kwargs)  # noqa: E501
+            return data
+
+    def insert_screen_recording_segment_with_http_info(self, storefront_oid, segment, **kwargs):  # noqa: E501
+        """Insert screen recording segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_screen_recording_segment_with_http_info(storefront_oid, segment, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingSegment segment: Segment (required)
+        :return: ScreenRecordingSegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'segment']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_screen_recording_segment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `insert_screen_recording_segment`")  # noqa: E501
+        # verify the required parameter 'segment' is set
+        if ('segment' not in params or
+                params['segment'] is None):
+            raise ValueError("Missing the required parameter `segment` when calling `insert_screen_recording_segment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'segment' in params:
+            body_params = params['segment']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/segments', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingSegmentResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def prepare_download_email_segment(self, storefront_oid, email_segment_uuid, **kwargs):  # noqa: E501
         """Prepare download of email segment  # noqa: E501
 
@@ -8562,6 +10307,212 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailSegmentDownloadPrepareResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def publish_library_item(self, library_item_oid, publish_library_request, **kwargs):  # noqa: E501
+        """Publish library item.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.publish_library_item(library_item_oid, publish_library_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int library_item_oid: (required)
+        :param PublishLibraryItemRequest publish_library_request: Publish library item request (required)
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.publish_library_item_with_http_info(library_item_oid, publish_library_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.publish_library_item_with_http_info(library_item_oid, publish_library_request, **kwargs)  # noqa: E501
+            return data
+
+    def publish_library_item_with_http_info(self, library_item_oid, publish_library_request, **kwargs):  # noqa: E501
+        """Publish library item.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.publish_library_item_with_http_info(library_item_oid, publish_library_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int library_item_oid: (required)
+        :param PublishLibraryItemRequest publish_library_request: Publish library item request (required)
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['library_item_oid', 'publish_library_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method publish_library_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'library_item_oid' is set
+        if ('library_item_oid' not in params or
+                params['library_item_oid'] is None):
+            raise ValueError("Missing the required parameter `library_item_oid` when calling `publish_library_item`")  # noqa: E501
+        # verify the required parameter 'publish_library_request' is set
+        if ('publish_library_request' not in params or
+                params['publish_library_request'] is None):
+            raise ValueError("Missing the required parameter `publish_library_request` when calling `publish_library_item`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'library_item_oid' in params:
+            path_params['library_item_oid'] = params['library_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'publish_library_request' in params:
+            body_params = params['publish_library_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/code_library/{library_item_oid}/publish', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LibraryItemResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def purchase_library_item(self, library_item_oid, **kwargs):  # noqa: E501
+        """Purchase public library item, which creates a copy of the item in your personal code library  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.purchase_library_item(library_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int library_item_oid: (required)
+        :param int storefront_oid:
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.purchase_library_item_with_http_info(library_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.purchase_library_item_with_http_info(library_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def purchase_library_item_with_http_info(self, library_item_oid, **kwargs):  # noqa: E501
+        """Purchase public library item, which creates a copy of the item in your personal code library  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.purchase_library_item_with_http_info(library_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int library_item_oid: (required)
+        :param int storefront_oid:
+        :return: LibraryItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['library_item_oid', 'storefront_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method purchase_library_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'library_item_oid' is set
+        if ('library_item_oid' not in params or
+                params['library_item_oid'] is None):
+            raise ValueError("Missing the required parameter `library_item_oid` when calling `purchase_library_item`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'library_item_oid' in params:
+            path_params['library_item_oid'] = params['library_item_oid']  # noqa: E501
+
+        query_params = []
+        if 'storefront_oid' in params:
+            query_params.append(('storefront_oid', params['storefront_oid']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/code_library/{library_item_oid}/purchase', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LibraryItemResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8904,6 +10855,103 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def search2(self, lookup_request, **kwargs):  # noqa: E501
+        """Searches for all matching values (using POST)  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search2(lookup_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LookupRequest lookup_request: LookupRequest (required)
+        :return: LookupResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search2_with_http_info(lookup_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search2_with_http_info(lookup_request, **kwargs)  # noqa: E501
+            return data
+
+    def search2_with_http_info(self, lookup_request, **kwargs):  # noqa: E501
+        """Searches for all matching values (using POST)  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search2_with_http_info(lookup_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LookupRequest lookup_request: LookupRequest (required)
+        :return: LookupResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['lookup_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search2" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'lookup_request' is set
+        if ('lookup_request' not in params or
+                params['lookup_request'] is None):
+            raise ValueError("Missing the required parameter `lookup_request` when calling `search2`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'lookup_request' in params:
+            body_params = params['lookup_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/search', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LookupResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def search_email_list_customers(self, storefront_oid, email_list_uuid, **kwargs):  # noqa: E501
         """Search email list customers  # noqa: E501
 
@@ -9115,6 +11163,450 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailSegmentCustomersResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_library_items(self, item_query, **kwargs):  # noqa: E501
+        """Retrieve library items  # noqa: E501
+
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_library_items(item_query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_library_items_with_http_info(item_query, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_library_items_with_http_info(item_query, **kwargs)  # noqa: E501
+            return data
+
+    def search_library_items_with_http_info(self, item_query, **kwargs):  # noqa: E501
+        """Retrieve library items  # noqa: E501
+
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_library_items_with_http_info(item_query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['item_query', 'limit', 'offset', 'sort']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_library_items" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'item_query' is set
+        if ('item_query' not in params or
+                params['item_query'] is None):
+            raise ValueError("Missing the required parameter `item_query` when calling `search_library_items`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'limit' in params:
+            query_params.append(('_limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('_offset', params['offset']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('_sort', params['sort']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'item_query' in params:
+            body_params = params['item_query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/code_library/search', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LibraryItemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_published_items(self, item_query, **kwargs):  # noqa: E501
+        """Retrieve library items  # noqa: E501
+
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_published_items(item_query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_published_items_with_http_info(item_query, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_published_items_with_http_info(item_query, **kwargs)  # noqa: E501
+            return data
+
+    def search_published_items_with_http_info(self, item_query, **kwargs):  # noqa: E501
+        """Retrieve library items  # noqa: E501
+
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_published_items_with_http_info(item_query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['item_query', 'limit', 'offset', 'sort']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_published_items" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'item_query' is set
+        if ('item_query' not in params or
+                params['item_query'] is None):
+            raise ValueError("Missing the required parameter `item_query` when calling `search_published_items`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'limit' in params:
+            query_params.append(('_limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('_offset', params['offset']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('_sort', params['sort']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'item_query' in params:
+            body_params = params['item_query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/code_library/search_published', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LibraryItemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_review_items(self, item_query, **kwargs):  # noqa: E501
+        """Retrieve library items needing review or rejected  # noqa: E501
+
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_review_items(item_query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_review_items_with_http_info(item_query, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_review_items_with_http_info(item_query, **kwargs)  # noqa: E501
+            return data
+
+    def search_review_items_with_http_info(self, item_query, **kwargs):  # noqa: E501
+        """Retrieve library items needing review or rejected  # noqa: E501
+
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_review_items_with_http_info(item_query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['item_query', 'limit', 'offset', 'sort']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_review_items" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'item_query' is set
+        if ('item_query' not in params or
+                params['item_query'] is None):
+            raise ValueError("Missing the required parameter `item_query` when calling `search_review_items`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'limit' in params:
+            query_params.append(('_limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('_offset', params['offset']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('_sort', params['sort']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'item_query' in params:
+            body_params = params['item_query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/code_library/search_review', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LibraryItemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_shared_items(self, item_query, **kwargs):  # noqa: E501
+        """Retrieve library items  # noqa: E501
+
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_shared_items(item_query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_shared_items_with_http_info(item_query, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_shared_items_with_http_info(item_query, **kwargs)  # noqa: E501
+            return data
+
+    def search_shared_items_with_http_info(self, item_query, **kwargs):  # noqa: E501
+        """Retrieve library items  # noqa: E501
+
+        Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_shared_items_with_http_info(item_query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LibraryItemQuery item_query: Item query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Maximum 10000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :return: LibraryItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['item_query', 'limit', 'offset', 'sort']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_shared_items" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'item_query' is set
+        if ('item_query' not in params or
+                params['item_query'] is None):
+            raise ValueError("Missing the required parameter `item_query` when calling `search_shared_items`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'limit' in params:
+            query_params.append(('_limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('_offset', params['offset']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('_sort', params['sort']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'item_query' in params:
+            body_params = params['item_query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/code_library/search_shared', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LibraryItemsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9559,6 +12051,113 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailListSubscribeResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def unfavorite_screen_recording(self, storefront_oid, screen_recording_uuid, **kwargs):  # noqa: E501
+        """Remove favorite flag on screen recording  # noqa: E501
+
+        Remove favorite flag on screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.unfavorite_screen_recording(storefront_oid, screen_recording_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.unfavorite_screen_recording_with_http_info(storefront_oid, screen_recording_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.unfavorite_screen_recording_with_http_info(storefront_oid, screen_recording_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def unfavorite_screen_recording_with_http_info(self, storefront_oid, screen_recording_uuid, **kwargs):  # noqa: E501
+        """Remove favorite flag on screen recording  # noqa: E501
+
+        Remove favorite flag on screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.unfavorite_screen_recording_with_http_info(storefront_oid, screen_recording_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'screen_recording_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method unfavorite_screen_recording" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `unfavorite_screen_recording`")  # noqa: E501
+        # verify the required parameter 'screen_recording_uuid' is set
+        if ('screen_recording_uuid' not in params or
+                params['screen_recording_uuid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_uuid` when calling `unfavorite_screen_recording`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'screen_recording_uuid' in params:
+            path_params['screen_recording_uuid'] = params['screen_recording_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -10995,17 +13594,350 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_transaction_email(self, id, email_id, transaction_email, **kwargs):  # noqa: E501
+    def update_screen_recording_segment(self, storefront_oid, screen_recording_segment_oid, segment, **kwargs):  # noqa: E501
+        """Update screen recording segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_screen_recording_segment(storefront_oid, screen_recording_segment_oid, segment, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param int screen_recording_segment_oid: (required)
+        :param ScreenRecordingSegment segment: Segment (required)
+        :return: ScreenRecordingSegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_screen_recording_segment_with_http_info(storefront_oid, screen_recording_segment_oid, segment, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_screen_recording_segment_with_http_info(storefront_oid, screen_recording_segment_oid, segment, **kwargs)  # noqa: E501
+            return data
+
+    def update_screen_recording_segment_with_http_info(self, storefront_oid, screen_recording_segment_oid, segment, **kwargs):  # noqa: E501
+        """Update screen recording segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_screen_recording_segment_with_http_info(storefront_oid, screen_recording_segment_oid, segment, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param int screen_recording_segment_oid: (required)
+        :param ScreenRecordingSegment segment: Segment (required)
+        :return: ScreenRecordingSegmentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'screen_recording_segment_oid', 'segment']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_screen_recording_segment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_screen_recording_segment`")  # noqa: E501
+        # verify the required parameter 'screen_recording_segment_oid' is set
+        if ('screen_recording_segment_oid' not in params or
+                params['screen_recording_segment_oid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_segment_oid` when calling `update_screen_recording_segment`")  # noqa: E501
+        # verify the required parameter 'segment' is set
+        if ('segment' not in params or
+                params['segment'] is None):
+            raise ValueError("Missing the required parameter `segment` when calling `update_screen_recording_segment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'screen_recording_segment_oid' in params:
+            path_params['screen_recording_segment_oid'] = params['screen_recording_segment_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'segment' in params:
+            body_params = params['segment']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingSegmentResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_screen_recording_settings(self, storefront_oid, settings, **kwargs):  # noqa: E501
+        """Update screen recording settings  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_screen_recording_settings(storefront_oid, settings, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingSettings settings: Settings (required)
+        :return: ScreenRecordingSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_screen_recording_settings_with_http_info(storefront_oid, settings, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_screen_recording_settings_with_http_info(storefront_oid, settings, **kwargs)  # noqa: E501
+            return data
+
+    def update_screen_recording_settings_with_http_info(self, storefront_oid, settings, **kwargs):  # noqa: E501
+        """Update screen recording settings  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_screen_recording_settings_with_http_info(storefront_oid, settings, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingSettings settings: Settings (required)
+        :return: ScreenRecordingSettingsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'settings']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_screen_recording_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_screen_recording_settings`")  # noqa: E501
+        # verify the required parameter 'settings' is set
+        if ('settings' not in params or
+                params['settings'] is None):
+            raise ValueError("Missing the required parameter `settings` when calling `update_screen_recording_settings`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'settings' in params:
+            body_params = params['settings']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/settings', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingSettingsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_screen_recording_tags(self, storefront_oid, screen_recording_uuid, tags, **kwargs):  # noqa: E501
+        """Update tags on a screen recording  # noqa: E501
+
+        Update tags on a screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_screen_recording_tags(storefront_oid, screen_recording_uuid, tags, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :param ScreenRecordingTagsRequest tags: Tags (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_screen_recording_tags_with_http_info(storefront_oid, screen_recording_uuid, tags, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_screen_recording_tags_with_http_info(storefront_oid, screen_recording_uuid, tags, **kwargs)  # noqa: E501
+            return data
+
+    def update_screen_recording_tags_with_http_info(self, storefront_oid, screen_recording_uuid, tags, **kwargs):  # noqa: E501
+        """Update tags on a screen recording  # noqa: E501
+
+        Update tags on a screen recording   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_screen_recording_tags_with_http_info(storefront_oid, screen_recording_uuid, tags, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str screen_recording_uuid: (required)
+        :param ScreenRecordingTagsRequest tags: Tags (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'screen_recording_uuid', 'tags']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_screen_recording_tags" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_screen_recording_tags`")  # noqa: E501
+        # verify the required parameter 'screen_recording_uuid' is set
+        if ('screen_recording_uuid' not in params or
+                params['screen_recording_uuid'] is None):
+            raise ValueError("Missing the required parameter `screen_recording_uuid` when calling `update_screen_recording_tags`")  # noqa: E501
+        # verify the required parameter 'tags' is set
+        if ('tags' not in params or
+                params['tags'] is None):
+            raise ValueError("Missing the required parameter `tags` when calling `update_screen_recording_tags`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'screen_recording_uuid' in params:
+            path_params['screen_recording_uuid'] = params['screen_recording_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'tags' in params:
+            body_params = params['tags']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_transaction_email(self, storefront_oid, email_id, transaction_email, **kwargs):  # noqa: E501
         """Updates a transaction email object  # noqa: E501
 
         Updates a transactional email   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_transaction_email(id, email_id, transaction_email, async_req=True)
+        >>> thread = api.update_transaction_email(storefront_oid, email_id, transaction_email, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: (required)
+        :param int storefront_oid: (required)
         :param str email_id: (required)
         :param TransactionEmail transaction_email: TransactionEmail (required)
         :return: TransactionEmailResponse
@@ -11014,22 +13946,22 @@ class StorefrontApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_transaction_email_with_http_info(id, email_id, transaction_email, **kwargs)  # noqa: E501
+            return self.update_transaction_email_with_http_info(storefront_oid, email_id, transaction_email, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_transaction_email_with_http_info(id, email_id, transaction_email, **kwargs)  # noqa: E501
+            (data) = self.update_transaction_email_with_http_info(storefront_oid, email_id, transaction_email, **kwargs)  # noqa: E501
             return data
 
-    def update_transaction_email_with_http_info(self, id, email_id, transaction_email, **kwargs):  # noqa: E501
+    def update_transaction_email_with_http_info(self, storefront_oid, email_id, transaction_email, **kwargs):  # noqa: E501
         """Updates a transaction email object  # noqa: E501
 
         Updates a transactional email   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_transaction_email_with_http_info(id, email_id, transaction_email, async_req=True)
+        >>> thread = api.update_transaction_email_with_http_info(storefront_oid, email_id, transaction_email, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: (required)
+        :param int storefront_oid: (required)
         :param str email_id: (required)
         :param TransactionEmail transaction_email: TransactionEmail (required)
         :return: TransactionEmailResponse
@@ -11037,7 +13969,7 @@ class StorefrontApi(object):
                  returns the request thread.
         """
 
-        all_params = ['id', 'email_id', 'transaction_email']  # noqa: E501
+        all_params = ['storefront_oid', 'email_id', 'transaction_email']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -11052,10 +13984,10 @@ class StorefrontApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `update_transaction_email`")  # noqa: E501
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_transaction_email`")  # noqa: E501
         # verify the required parameter 'email_id' is set
         if ('email_id' not in params or
                 params['email_id'] is None):
@@ -11068,8 +14000,8 @@ class StorefrontApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'id' in params:
-            path_params['id'] = params['id']  # noqa: E501
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
         if 'email_id' in params:
             path_params['email_id'] = params['email_id']  # noqa: E501
 
@@ -11095,7 +14027,7 @@ class StorefrontApi(object):
         auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/storefront/{id}/transaction_email/list/{email_id}', 'PUT',
+            '/storefront/{storefront_oid}/transaction_email/list/{email_id}', 'PUT',
             path_params,
             query_params,
             header_params,

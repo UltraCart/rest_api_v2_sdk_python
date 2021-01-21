@@ -31,6 +31,8 @@ class OrderSummary(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'actual_fulfillment': 'Currency',
+        'actual_shipping': 'Currency',
         'arbitrary_shipping_handling_total': 'Currency',
         'other_refunded': 'Currency',
         'shipping_handling_refunded': 'Currency',
@@ -49,6 +51,8 @@ class OrderSummary(object):
     }
 
     attribute_map = {
+        'actual_fulfillment': 'actual_fulfillment',
+        'actual_shipping': 'actual_shipping',
         'arbitrary_shipping_handling_total': 'arbitrary_shipping_handling_total',
         'other_refunded': 'other_refunded',
         'shipping_handling_refunded': 'shipping_handling_refunded',
@@ -66,9 +70,11 @@ class OrderSummary(object):
         'total_refunded': 'total_refunded'
     }
 
-    def __init__(self, arbitrary_shipping_handling_total=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
+    def __init__(self, actual_fulfillment=None, actual_shipping=None, arbitrary_shipping_handling_total=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
         """OrderSummary - a model defined in Swagger"""  # noqa: E501
 
+        self._actual_fulfillment = None
+        self._actual_shipping = None
         self._arbitrary_shipping_handling_total = None
         self._other_refunded = None
         self._shipping_handling_refunded = None
@@ -86,6 +92,10 @@ class OrderSummary(object):
         self._total_refunded = None
         self.discriminator = None
 
+        if actual_fulfillment is not None:
+            self.actual_fulfillment = actual_fulfillment
+        if actual_shipping is not None:
+            self.actual_shipping = actual_shipping
         if arbitrary_shipping_handling_total is not None:
             self.arbitrary_shipping_handling_total = arbitrary_shipping_handling_total
         if other_refunded is not None:
@@ -116,6 +126,48 @@ class OrderSummary(object):
             self.total = total
         if total_refunded is not None:
             self.total_refunded = total_refunded
+
+    @property
+    def actual_fulfillment(self):
+        """Gets the actual_fulfillment of this OrderSummary.  # noqa: E501
+
+
+        :return: The actual_fulfillment of this OrderSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._actual_fulfillment
+
+    @actual_fulfillment.setter
+    def actual_fulfillment(self, actual_fulfillment):
+        """Sets the actual_fulfillment of this OrderSummary.
+
+
+        :param actual_fulfillment: The actual_fulfillment of this OrderSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._actual_fulfillment = actual_fulfillment
+
+    @property
+    def actual_shipping(self):
+        """Gets the actual_shipping of this OrderSummary.  # noqa: E501
+
+
+        :return: The actual_shipping of this OrderSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._actual_shipping
+
+    @actual_shipping.setter
+    def actual_shipping(self, actual_shipping):
+        """Sets the actual_shipping of this OrderSummary.
+
+
+        :param actual_shipping: The actual_shipping of this OrderSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._actual_shipping = actual_shipping
 
     @property
     def arbitrary_shipping_handling_total(self):

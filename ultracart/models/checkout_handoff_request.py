@@ -169,7 +169,7 @@ class CheckoutHandoffRequest(object):
         :param operation: The operation of this CheckoutHandoffRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["checkout", "payPal", "payPalCredit", "view", "affirm"]  # noqa: E501
+        allowed_values = ["checkout", "payPal", "payPalCredit", "view", "affirm", "sezzle"]  # noqa: E501
         if operation not in allowed_values:
             raise ValueError(
                 "Invalid value for `operation` ({0}), must be one of {1}"  # noqa: E501

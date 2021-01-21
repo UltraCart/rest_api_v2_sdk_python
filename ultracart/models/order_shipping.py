@@ -57,6 +57,7 @@ class OrderShipping(object):
         'special_instructions': 'str',
         'state_region': 'str',
         'title': 'str',
+        'tracking_number_details': 'list[OrderTrackingNumberDetails]',
         'tracking_numbers': 'list[str]',
         'weight': 'Weight'
     }
@@ -88,11 +89,12 @@ class OrderShipping(object):
         'special_instructions': 'special_instructions',
         'state_region': 'state_region',
         'title': 'title',
+        'tracking_number_details': 'tracking_number_details',
         'tracking_numbers': 'tracking_numbers',
         'weight': 'weight'
     }
 
-    def __init__(self, address1=None, address2=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, delivery_date=None, evening_phone=None, first_name=None, last_name=None, least_cost_route=None, least_cost_route_shipping_methods=None, lift_gate=None, postal_code=None, rma=None, ship_on_date=None, ship_to_residential=None, shipping_3rd_party_account_number=None, shipping_date=None, shipping_department_status=None, shipping_method=None, shipping_method_accounting_code=None, special_instructions=None, state_region=None, title=None, tracking_numbers=None, weight=None):  # noqa: E501
+    def __init__(self, address1=None, address2=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, delivery_date=None, evening_phone=None, first_name=None, last_name=None, least_cost_route=None, least_cost_route_shipping_methods=None, lift_gate=None, postal_code=None, rma=None, ship_on_date=None, ship_to_residential=None, shipping_3rd_party_account_number=None, shipping_date=None, shipping_department_status=None, shipping_method=None, shipping_method_accounting_code=None, special_instructions=None, state_region=None, title=None, tracking_number_details=None, tracking_numbers=None, weight=None):  # noqa: E501
         """OrderShipping - a model defined in Swagger"""  # noqa: E501
 
         self._address1 = None
@@ -121,6 +123,7 @@ class OrderShipping(object):
         self._special_instructions = None
         self._state_region = None
         self._title = None
+        self._tracking_number_details = None
         self._tracking_numbers = None
         self._weight = None
         self.discriminator = None
@@ -177,6 +180,8 @@ class OrderShipping(object):
             self.state_region = state_region
         if title is not None:
             self.title = title
+        if tracking_number_details is not None:
+            self.tracking_number_details = tracking_number_details
         if tracking_numbers is not None:
             self.tracking_numbers = tracking_numbers
         if weight is not None:
@@ -811,6 +816,29 @@ class OrderShipping(object):
             raise ValueError("Invalid value for `title`, length must be less than or equal to `50`")  # noqa: E501
 
         self._title = title
+
+    @property
+    def tracking_number_details(self):
+        """Gets the tracking_number_details of this OrderShipping.  # noqa: E501
+
+        Tracking number details  # noqa: E501
+
+        :return: The tracking_number_details of this OrderShipping.  # noqa: E501
+        :rtype: list[OrderTrackingNumberDetails]
+        """
+        return self._tracking_number_details
+
+    @tracking_number_details.setter
+    def tracking_number_details(self, tracking_number_details):
+        """Sets the tracking_number_details of this OrderShipping.
+
+        Tracking number details  # noqa: E501
+
+        :param tracking_number_details: The tracking_number_details of this OrderShipping.  # noqa: E501
+        :type: list[OrderTrackingNumberDetails]
+        """
+
+        self._tracking_number_details = tracking_number_details
 
     @property
     def tracking_numbers(self):

@@ -33,6 +33,113 @@ class OrderApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def adjust_order_total(self, order_id, desired_total, **kwargs):  # noqa: E501
+        """Adjusts an order total  # noqa: E501
+
+        Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.adjust_order_total(order_id, desired_total, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to cancel. (required)
+        :param str desired_total: The desired total with no formatting. example 123.45 (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.adjust_order_total_with_http_info(order_id, desired_total, **kwargs)  # noqa: E501
+        else:
+            (data) = self.adjust_order_total_with_http_info(order_id, desired_total, **kwargs)  # noqa: E501
+            return data
+
+    def adjust_order_total_with_http_info(self, order_id, desired_total, **kwargs):  # noqa: E501
+        """Adjusts an order total  # noqa: E501
+
+        Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.adjust_order_total_with_http_info(order_id, desired_total, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to cancel. (required)
+        :param str desired_total: The desired total with no formatting. example 123.45 (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'desired_total']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method adjust_order_total" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `adjust_order_total`")  # noqa: E501
+        # verify the required parameter 'desired_total' is set
+        if ('desired_total' not in params or
+                params['desired_total'] is None):
+            raise ValueError("Missing the required parameter `desired_total` when calling `adjust_order_total`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+        if 'desired_total' in params:
+            path_params['desired_total'] = params['desired_total']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/order/orders/{order_id}/adjust_order_total/{desired_total}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BaseResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def cancel_order(self, order_id, **kwargs):  # noqa: E501
         """Cancel an order  # noqa: E501
 
@@ -1374,6 +1481,113 @@ class OrderApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='OrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def process_payment(self, order_id, process_payment_request, **kwargs):  # noqa: E501
+        """Process payment  # noqa: E501
+
+        Process payment on order   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.process_payment(order_id, process_payment_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to process payment on (required)
+        :param OrderProcessPaymentRequest process_payment_request: Process payment parameters (required)
+        :return: OrderProcessPaymentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.process_payment_with_http_info(order_id, process_payment_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.process_payment_with_http_info(order_id, process_payment_request, **kwargs)  # noqa: E501
+            return data
+
+    def process_payment_with_http_info(self, order_id, process_payment_request, **kwargs):  # noqa: E501
+        """Process payment  # noqa: E501
+
+        Process payment on order   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.process_payment_with_http_info(order_id, process_payment_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to process payment on (required)
+        :param OrderProcessPaymentRequest process_payment_request: Process payment parameters (required)
+        :return: OrderProcessPaymentResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'process_payment_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method process_payment" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `process_payment`")  # noqa: E501
+        # verify the required parameter 'process_payment_request' is set
+        if ('process_payment_request' not in params or
+                params['process_payment_request'] is None):
+            raise ValueError("Missing the required parameter `process_payment_request` when calling `process_payment`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'process_payment_request' in params:
+            body_params = params['process_payment_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/order/orders/{order_id}/process_payment', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderProcessPaymentResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

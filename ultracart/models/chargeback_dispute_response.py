@@ -34,23 +34,26 @@ class ChargebackDisputeResponse(object):
         'chargeback': 'ChargebackDispute',
         'error': 'Error',
         'metadata': 'ResponseMetadata',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
         'chargeback': 'chargeback',
         'error': 'error',
         'metadata': 'metadata',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, chargeback=None, error=None, metadata=None, success=None):  # noqa: E501
+    def __init__(self, chargeback=None, error=None, metadata=None, success=None, warning=None):  # noqa: E501
         """ChargebackDisputeResponse - a model defined in Swagger"""  # noqa: E501
 
         self._chargeback = None
         self._error = None
         self._metadata = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if chargeback is not None:
@@ -61,6 +64,8 @@ class ChargebackDisputeResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def chargeback(self):
@@ -147,6 +152,27 @@ class ChargebackDisputeResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this ChargebackDisputeResponse.  # noqa: E501
+
+
+        :return: The warning of this ChargebackDisputeResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this ChargebackDisputeResponse.
+
+
+        :param warning: The warning of this ChargebackDisputeResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -41,7 +41,9 @@ class CartCheckout(object):
         'custom_field7': 'str',
         'ip_address': 'str',
         'return_code': 'str',
-        'screen_branding_theme_code': 'str'
+        'screen_branding_theme_code': 'str',
+        'storefront_host_name': 'str',
+        'user_agent': 'str'
     }
 
     attribute_map = {
@@ -55,10 +57,12 @@ class CartCheckout(object):
         'custom_field7': 'custom_field7',
         'ip_address': 'ip_address',
         'return_code': 'return_code',
-        'screen_branding_theme_code': 'screen_branding_theme_code'
+        'screen_branding_theme_code': 'screen_branding_theme_code',
+        'storefront_host_name': 'storefront_host_name',
+        'user_agent': 'user_agent'
     }
 
-    def __init__(self, comments=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, ip_address=None, return_code=None, screen_branding_theme_code=None):  # noqa: E501
+    def __init__(self, comments=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, ip_address=None, return_code=None, screen_branding_theme_code=None, storefront_host_name=None, user_agent=None):  # noqa: E501
         """CartCheckout - a model defined in Swagger"""  # noqa: E501
 
         self._comments = None
@@ -72,6 +76,8 @@ class CartCheckout(object):
         self._ip_address = None
         self._return_code = None
         self._screen_branding_theme_code = None
+        self._storefront_host_name = None
+        self._user_agent = None
         self.discriminator = None
 
         if comments is not None:
@@ -96,6 +102,10 @@ class CartCheckout(object):
             self.return_code = return_code
         if screen_branding_theme_code is not None:
             self.screen_branding_theme_code = screen_branding_theme_code
+        if storefront_host_name is not None:
+            self.storefront_host_name = storefront_host_name
+        if user_agent is not None:
+            self.user_agent = user_agent
 
     @property
     def comments(self):
@@ -367,6 +377,52 @@ class CartCheckout(object):
             raise ValueError("Invalid value for `screen_branding_theme_code`, length must be less than or equal to `10`")  # noqa: E501
 
         self._screen_branding_theme_code = screen_branding_theme_code
+
+    @property
+    def storefront_host_name(self):
+        """Gets the storefront_host_name of this CartCheckout.  # noqa: E501
+
+        StoreFront Host Name  # noqa: E501
+
+        :return: The storefront_host_name of this CartCheckout.  # noqa: E501
+        :rtype: str
+        """
+        return self._storefront_host_name
+
+    @storefront_host_name.setter
+    def storefront_host_name(self, storefront_host_name):
+        """Sets the storefront_host_name of this CartCheckout.
+
+        StoreFront Host Name  # noqa: E501
+
+        :param storefront_host_name: The storefront_host_name of this CartCheckout.  # noqa: E501
+        :type: str
+        """
+
+        self._storefront_host_name = storefront_host_name
+
+    @property
+    def user_agent(self):
+        """Gets the user_agent of this CartCheckout.  # noqa: E501
+
+        User agent of the browser  # noqa: E501
+
+        :return: The user_agent of this CartCheckout.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_agent
+
+    @user_agent.setter
+    def user_agent(self, user_agent):
+        """Sets the user_agent of this CartCheckout.
+
+        User agent of the browser  # noqa: E501
+
+        :param user_agent: The user_agent of this CartCheckout.  # noqa: E501
+        :type: str
+        """
+
+        self._user_agent = user_agent
 
     def to_dict(self):
         """Returns the model properties as a dict"""

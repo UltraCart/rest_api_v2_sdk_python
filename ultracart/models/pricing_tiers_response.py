@@ -34,23 +34,26 @@ class PricingTiersResponse(object):
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         'pricing_tiers': 'list[PricingTier]',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
         'error': 'error',
         'metadata': 'metadata',
         'pricing_tiers': 'pricingTiers',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, error=None, metadata=None, pricing_tiers=None, success=None):  # noqa: E501
+    def __init__(self, error=None, metadata=None, pricing_tiers=None, success=None, warning=None):  # noqa: E501
         """PricingTiersResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._metadata = None
         self._pricing_tiers = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if error is not None:
@@ -61,6 +64,8 @@ class PricingTiersResponse(object):
             self.pricing_tiers = pricing_tiers
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def error(self):
@@ -149,6 +154,27 @@ class PricingTiersResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this PricingTiersResponse.  # noqa: E501
+
+
+        :return: The warning of this PricingTiersResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this PricingTiersResponse.
+
+
+        :param warning: The warning of this PricingTiersResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

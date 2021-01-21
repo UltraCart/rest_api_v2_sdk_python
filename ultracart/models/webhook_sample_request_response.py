@@ -34,6 +34,7 @@ class WebhookSampleRequestResponse(object):
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         'success': 'bool',
+        'warning': 'Warning',
         'webhook_sample_request': 'WebhookSampleRequest'
     }
 
@@ -41,15 +42,17 @@ class WebhookSampleRequestResponse(object):
         'error': 'error',
         'metadata': 'metadata',
         'success': 'success',
+        'warning': 'warning',
         'webhook_sample_request': 'webhook_sample_request'
     }
 
-    def __init__(self, error=None, metadata=None, success=None, webhook_sample_request=None):  # noqa: E501
+    def __init__(self, error=None, metadata=None, success=None, warning=None, webhook_sample_request=None):  # noqa: E501
         """WebhookSampleRequestResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._metadata = None
         self._success = None
+        self._warning = None
         self._webhook_sample_request = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class WebhookSampleRequestResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
         if webhook_sample_request is not None:
             self.webhook_sample_request = webhook_sample_request
 
@@ -126,6 +131,27 @@ class WebhookSampleRequestResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this WebhookSampleRequestResponse.  # noqa: E501
+
+
+        :return: The warning of this WebhookSampleRequestResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this WebhookSampleRequestResponse.
+
+
+        :param warning: The warning of this WebhookSampleRequestResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     @property
     def webhook_sample_request(self):

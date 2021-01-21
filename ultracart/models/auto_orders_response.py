@@ -34,23 +34,26 @@ class AutoOrdersResponse(object):
         'auto_orders': 'list[AutoOrder]',
         'error': 'Error',
         'metadata': 'ResponseMetadata',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
         'auto_orders': 'auto_orders',
         'error': 'error',
         'metadata': 'metadata',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, auto_orders=None, error=None, metadata=None, success=None):  # noqa: E501
+    def __init__(self, auto_orders=None, error=None, metadata=None, success=None, warning=None):  # noqa: E501
         """AutoOrdersResponse - a model defined in Swagger"""  # noqa: E501
 
         self._auto_orders = None
         self._error = None
         self._metadata = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if auto_orders is not None:
@@ -61,6 +64,8 @@ class AutoOrdersResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def auto_orders(self):
@@ -147,6 +152,27 @@ class AutoOrdersResponse(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this AutoOrdersResponse.  # noqa: E501
+
+
+        :return: The warning of this AutoOrdersResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this AutoOrdersResponse.
+
+
+        :param warning: The warning of this AutoOrdersResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

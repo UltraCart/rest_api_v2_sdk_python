@@ -221,7 +221,7 @@ class ItemContent(object):
     def extended_description(self):
         """Gets the extended_description of this ItemContent.  # noqa: E501
 
-        Extended description (max 2000 characters)  # noqa: E501
+        Extended description (max 10000 characters)  # noqa: E501
 
         :return: The extended_description of this ItemContent.  # noqa: E501
         :rtype: str
@@ -232,13 +232,13 @@ class ItemContent(object):
     def extended_description(self, extended_description):
         """Sets the extended_description of this ItemContent.
 
-        Extended description (max 2000 characters)  # noqa: E501
+        Extended description (max 10000 characters)  # noqa: E501
 
         :param extended_description: The extended_description of this ItemContent.  # noqa: E501
         :type: str
         """
-        if extended_description is not None and len(extended_description) > 2000:
-            raise ValueError("Invalid value for `extended_description`, length must be less than or equal to `2000`")  # noqa: E501
+        if extended_description is not None and len(extended_description) > 10000:
+            raise ValueError("Invalid value for `extended_description`, length must be less than or equal to `10000`")  # noqa: E501
 
         self._extended_description = extended_description
 

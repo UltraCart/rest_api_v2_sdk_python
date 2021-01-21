@@ -44,7 +44,7 @@ class CouponApi(object):
 
         :param async_req bool
         :param int coupon_oid: The coupon_oid to delete. (required)
-        :return: CouponResponse
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -66,7 +66,7 @@ class CouponApi(object):
 
         :param async_req bool
         :param int coupon_oid: The coupon_oid to delete. (required)
-        :return: CouponResponse
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -124,7 +124,304 @@ class CouponApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CouponResponse',  # noqa: E501
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_coupons_by_code(self, coupon_delete_request, **kwargs):  # noqa: E501
+        """Deletes multiple coupons  # noqa: E501
+
+        Delete coupons on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_coupons_by_code(coupon_delete_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponDeletesRequest coupon_delete_request: Coupon oids to delete (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_coupons_by_code_with_http_info(coupon_delete_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_coupons_by_code_with_http_info(coupon_delete_request, **kwargs)  # noqa: E501
+            return data
+
+    def delete_coupons_by_code_with_http_info(self, coupon_delete_request, **kwargs):  # noqa: E501
+        """Deletes multiple coupons  # noqa: E501
+
+        Delete coupons on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_coupons_by_code_with_http_info(coupon_delete_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponDeletesRequest coupon_delete_request: Coupon oids to delete (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['coupon_delete_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_coupons_by_code" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'coupon_delete_request' is set
+        if ('coupon_delete_request' not in params or
+                params['coupon_delete_request'] is None):
+            raise ValueError("Missing the required parameter `coupon_delete_request` when calling `delete_coupons_by_code`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'coupon_delete_request' in params:
+            body_params = params['coupon_delete_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/coupon/coupons/by_code', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_coupons_by_oid(self, coupon_delete_request, **kwargs):  # noqa: E501
+        """Deletes multiple coupons  # noqa: E501
+
+        Delete coupons on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_coupons_by_oid(coupon_delete_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponDeletesRequest coupon_delete_request: Coupon oids to delete (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_coupons_by_oid_with_http_info(coupon_delete_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_coupons_by_oid_with_http_info(coupon_delete_request, **kwargs)  # noqa: E501
+            return data
+
+    def delete_coupons_by_oid_with_http_info(self, coupon_delete_request, **kwargs):  # noqa: E501
+        """Deletes multiple coupons  # noqa: E501
+
+        Delete coupons on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_coupons_by_oid_with_http_info(coupon_delete_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponDeletesRequest coupon_delete_request: Coupon oids to delete (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['coupon_delete_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_coupons_by_oid" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'coupon_delete_request' is set
+        if ('coupon_delete_request' not in params or
+                params['coupon_delete_request'] is None):
+            raise ValueError("Missing the required parameter `coupon_delete_request` when calling `delete_coupons_by_oid`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'coupon_delete_request' in params:
+            body_params = params['coupon_delete_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/coupon/coupons/by_oid', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def does_coupon_code_exist(self, merchant_code, **kwargs):  # noqa: E501
+        """Determines if a coupon merchant code already exists  # noqa: E501
+
+        Determines if a coupon merchant code already exists.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.does_coupon_code_exist(merchant_code, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str merchant_code: The coupon merchant code to examine. (required)
+        :return: CouponExistsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.does_coupon_code_exist_with_http_info(merchant_code, **kwargs)  # noqa: E501
+        else:
+            (data) = self.does_coupon_code_exist_with_http_info(merchant_code, **kwargs)  # noqa: E501
+            return data
+
+    def does_coupon_code_exist_with_http_info(self, merchant_code, **kwargs):  # noqa: E501
+        """Determines if a coupon merchant code already exists  # noqa: E501
+
+        Determines if a coupon merchant code already exists.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.does_coupon_code_exist_with_http_info(merchant_code, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str merchant_code: The coupon merchant code to examine. (required)
+        :return: CouponExistsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['merchant_code']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method does_coupon_code_exist" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'merchant_code' is set
+        if ('merchant_code' not in params or
+                params['merchant_code'] is None):
+            raise ValueError("Missing the required parameter `merchant_code` when calling `does_coupon_code_exist`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'merchant_code' in params:
+            path_params['merchant_code'] = params['merchant_code']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/coupon/coupons/merchant_code/{merchant_code}/exists', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CouponExistsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -339,6 +636,97 @@ class CouponApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CouponCodesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_auto_apply(self, **kwargs):  # noqa: E501
+        """Retrieve auto apply rules and conditions  # noqa: E501
+
+        Retrieve auto apply rules and conditions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auto_apply(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: CouponAutoApplyConditions
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_auto_apply_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_auto_apply_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_auto_apply_with_http_info(self, **kwargs):  # noqa: E501
+        """Retrieve auto apply rules and conditions  # noqa: E501
+
+        Retrieve auto apply rules and conditions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auto_apply_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: CouponAutoApplyConditions
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_auto_apply" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/coupon/auto_apply', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CouponAutoApplyConditions',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1004,6 +1392,311 @@ class CouponApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def insert_coupons(self, coupons_request, **kwargs):  # noqa: E501
+        """Insert multiple coupons  # noqa: E501
+
+        Insert multiple coupon on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_coupons(coupons_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponsRequest coupons_request: Coupons to insert (maximum 20) (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: CouponsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_coupons_with_http_info(coupons_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_coupons_with_http_info(coupons_request, **kwargs)  # noqa: E501
+            return data
+
+    def insert_coupons_with_http_info(self, coupons_request, **kwargs):  # noqa: E501
+        """Insert multiple coupons  # noqa: E501
+
+        Insert multiple coupon on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_coupons_with_http_info(coupons_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponsRequest coupons_request: Coupons to insert (maximum 20) (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: CouponsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['coupons_request', 'expand', 'placeholders']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_coupons" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'coupons_request' is set
+        if ('coupons_request' not in params or
+                params['coupons_request'] is None):
+            raise ValueError("Missing the required parameter `coupons_request` when calling `insert_coupons`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+        if 'placeholders' in params:
+            query_params.append(('_placeholders', params['placeholders']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'coupons_request' in params:
+            body_params = params['coupons_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/coupon/coupons/batch', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CouponsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_items(self, **kwargs):  # noqa: E501
+        """Searches for items to display within a coupon editor and assign to coupons  # noqa: E501
+
+        Searches for items to display within a coupon editor and assign to coupons   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_items(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str s:
+        :param int m:
+        :return: CouponItemSearchResultsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_items_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.search_items_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def search_items_with_http_info(self, **kwargs):  # noqa: E501
+        """Searches for items to display within a coupon editor and assign to coupons  # noqa: E501
+
+        Searches for items to display within a coupon editor and assign to coupons   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_items_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str s:
+        :param int m:
+        :return: CouponItemSearchResultsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['s', 'm']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_items" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 's' in params:
+            query_params.append(('s', params['s']))  # noqa: E501
+        if 'm' in params:
+            query_params.append(('m', params['m']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/coupon/searchItems', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CouponItemSearchResultsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_auto_apply(self, conditions, **kwargs):  # noqa: E501
+        """Update auto apply rules and conditions  # noqa: E501
+
+        Update auto apply rules and conditions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auto_apply(conditions, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponAutoApplyConditions conditions: Conditions (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_auto_apply_with_http_info(conditions, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_auto_apply_with_http_info(conditions, **kwargs)  # noqa: E501
+            return data
+
+    def update_auto_apply_with_http_info(self, conditions, **kwargs):  # noqa: E501
+        """Update auto apply rules and conditions  # noqa: E501
+
+        Update auto apply rules and conditions   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_auto_apply_with_http_info(conditions, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponAutoApplyConditions conditions: Conditions (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conditions']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_auto_apply" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conditions' is set
+        if ('conditions' not in params or
+                params['conditions'] is None):
+            raise ValueError("Missing the required parameter `conditions` when calling `update_auto_apply`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'conditions' in params:
+            body_params = params['conditions']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/coupon/auto_apply', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_coupon(self, coupon, coupon_oid, **kwargs):  # noqa: E501
         """Update a coupon  # noqa: E501
 
@@ -1108,6 +1801,224 @@ class CouponApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CouponResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_coupons(self, coupons_request, **kwargs):  # noqa: E501
+        """Update multiple coupons  # noqa: E501
+
+        Update multiple coupon on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_coupons(coupons_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponsRequest coupons_request: Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :param bool _async: True if the operation should be run async.  No result returned
+        :return: CouponsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_coupons_with_http_info(coupons_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_coupons_with_http_info(coupons_request, **kwargs)  # noqa: E501
+            return data
+
+    def update_coupons_with_http_info(self, coupons_request, **kwargs):  # noqa: E501
+        """Update multiple coupons  # noqa: E501
+
+        Update multiple coupon on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_coupons_with_http_info(coupons_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CouponsRequest coupons_request: Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :param bool _async: True if the operation should be run async.  No result returned
+        :return: CouponsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['coupons_request', 'expand', 'placeholders', '_async']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_coupons" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'coupons_request' is set
+        if ('coupons_request' not in params or
+                params['coupons_request'] is None):
+            raise ValueError("Missing the required parameter `coupons_request` when calling `update_coupons`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+        if 'placeholders' in params:
+            query_params.append(('_placeholders', params['placeholders']))  # noqa: E501
+        if '_async' in params:
+            query_params.append(('_async', params['_async']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'coupons_request' in params:
+            body_params = params['coupons_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/coupon/coupons/batch', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CouponsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def upload_coupon_codes(self, coupon_oid, upload_coupon_codes_request, **kwargs):  # noqa: E501
+        """Upload one-time codes for a coupon  # noqa: E501
+
+        Upload one-time codes for a coupon   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.upload_coupon_codes(coupon_oid, upload_coupon_codes_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int coupon_oid: The coupon oid to associate with the provided one-time codes. (required)
+        :param UploadCouponCodesRequest upload_coupon_codes_request: One-time coupon codes (required)
+        :return: UploadCouponCodesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.upload_coupon_codes_with_http_info(coupon_oid, upload_coupon_codes_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.upload_coupon_codes_with_http_info(coupon_oid, upload_coupon_codes_request, **kwargs)  # noqa: E501
+            return data
+
+    def upload_coupon_codes_with_http_info(self, coupon_oid, upload_coupon_codes_request, **kwargs):  # noqa: E501
+        """Upload one-time codes for a coupon  # noqa: E501
+
+        Upload one-time codes for a coupon   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.upload_coupon_codes_with_http_info(coupon_oid, upload_coupon_codes_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int coupon_oid: The coupon oid to associate with the provided one-time codes. (required)
+        :param UploadCouponCodesRequest upload_coupon_codes_request: One-time coupon codes (required)
+        :return: UploadCouponCodesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['coupon_oid', 'upload_coupon_codes_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method upload_coupon_codes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'coupon_oid' is set
+        if ('coupon_oid' not in params or
+                params['coupon_oid'] is None):
+            raise ValueError("Missing the required parameter `coupon_oid` when calling `upload_coupon_codes`")  # noqa: E501
+        # verify the required parameter 'upload_coupon_codes_request' is set
+        if ('upload_coupon_codes_request' not in params or
+                params['upload_coupon_codes_request'] is None):
+            raise ValueError("Missing the required parameter `upload_coupon_codes_request` when calling `upload_coupon_codes`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'coupon_oid' in params:
+            path_params['coupon_oid'] = params['coupon_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload_coupon_codes_request' in params:
+            body_params = params['upload_coupon_codes_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/coupon/coupons/{coupon_oid}/upload_codes', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UploadCouponCodesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

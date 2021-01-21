@@ -15,4 +15,5 @@ from ultracart.api.oauth_api import OauthApi
 from ultracart.api.order_api import OrderApi
 from ultracart.api.storefront_api import StorefrontApi
 from ultracart.api.tax_api import TaxApi
+from ultracart.api.user_api import UserApi
 from ultracart.api.webhook_api import WebhookApi

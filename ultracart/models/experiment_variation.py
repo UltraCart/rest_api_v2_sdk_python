@@ -38,6 +38,7 @@ class ExperimentVariation(object):
         'bounce_count': 'int',
         'conversion_rate': 'float',
         'duration_seconds_sum': 'int',
+        'event_count': 'int',
         'initiate_checkout_count': 'int',
         'order_count': 'int',
         'original_traffic_percentage': 'float',
@@ -59,6 +60,7 @@ class ExperimentVariation(object):
         'bounce_count': 'bounce_count',
         'conversion_rate': 'conversion_rate',
         'duration_seconds_sum': 'duration_seconds_sum',
+        'event_count': 'event_count',
         'initiate_checkout_count': 'initiate_checkout_count',
         'order_count': 'order_count',
         'original_traffic_percentage': 'original_traffic_percentage',
@@ -72,7 +74,7 @@ class ExperimentVariation(object):
         'winner': 'winner'
     }
 
-    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, average_order_value=None, bounce_count=None, conversion_rate=None, duration_seconds_sum=None, initiate_checkout_count=None, order_count=None, original_traffic_percentage=None, page_view_count=None, revenue=None, session_count=None, traffic_percentage=None, url=None, variation_name=None, variation_number=None, winner=None):  # noqa: E501
+    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, average_order_value=None, bounce_count=None, conversion_rate=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, original_traffic_percentage=None, page_view_count=None, revenue=None, session_count=None, traffic_percentage=None, url=None, variation_name=None, variation_number=None, winner=None):  # noqa: E501
         """ExperimentVariation - a model defined in Swagger"""  # noqa: E501
 
         self._add_to_cart_count = None
@@ -82,6 +84,7 @@ class ExperimentVariation(object):
         self._bounce_count = None
         self._conversion_rate = None
         self._duration_seconds_sum = None
+        self._event_count = None
         self._initiate_checkout_count = None
         self._order_count = None
         self._original_traffic_percentage = None
@@ -109,6 +112,8 @@ class ExperimentVariation(object):
             self.conversion_rate = conversion_rate
         if duration_seconds_sum is not None:
             self.duration_seconds_sum = duration_seconds_sum
+        if event_count is not None:
+            self.event_count = event_count
         if initiate_checkout_count is not None:
             self.initiate_checkout_count = initiate_checkout_count
         if order_count is not None:
@@ -292,6 +297,29 @@ class ExperimentVariation(object):
         """
 
         self._duration_seconds_sum = duration_seconds_sum
+
+    @property
+    def event_count(self):
+        """Gets the event_count of this ExperimentVariation.  # noqa: E501
+
+        Total event ocunt for this variation  # noqa: E501
+
+        :return: The event_count of this ExperimentVariation.  # noqa: E501
+        :rtype: int
+        """
+        return self._event_count
+
+    @event_count.setter
+    def event_count(self, event_count):
+        """Sets the event_count of this ExperimentVariation.
+
+        Total event ocunt for this variation  # noqa: E501
+
+        :param event_count: The event_count of this ExperimentVariation.  # noqa: E501
+        :type: int
+        """
+
+        self._event_count = event_count
 
     @property
     def initiate_checkout_count(self):

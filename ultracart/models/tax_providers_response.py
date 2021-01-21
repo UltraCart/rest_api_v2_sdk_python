@@ -38,7 +38,8 @@ class TaxProvidersResponse(object):
         'sovos': 'TaxProviderSovos',
         'success': 'bool',
         'taxjar': 'TaxProviderTaxJar',
-        'ultracart': 'TaxProviderUltraCart'
+        'ultracart': 'TaxProviderUltraCart',
+        'warning': 'Warning'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class TaxProvidersResponse(object):
         'sovos': 'sovos',
         'success': 'success',
         'taxjar': 'taxjar',
-        'ultracart': 'ultracart'
+        'ultracart': 'ultracart',
+        'warning': 'warning'
     }
 
-    def __init__(self, avalara=None, error=None, metadata=None, _self=None, sovos=None, success=None, taxjar=None, ultracart=None):  # noqa: E501
+    def __init__(self, avalara=None, error=None, metadata=None, _self=None, sovos=None, success=None, taxjar=None, ultracart=None, warning=None):  # noqa: E501
         """TaxProvidersResponse - a model defined in Swagger"""  # noqa: E501
 
         self._avalara = None
@@ -63,6 +65,7 @@ class TaxProvidersResponse(object):
         self._success = None
         self._taxjar = None
         self._ultracart = None
+        self._warning = None
         self.discriminator = None
 
         if avalara is not None:
@@ -81,6 +84,8 @@ class TaxProvidersResponse(object):
             self.taxjar = taxjar
         if ultracart is not None:
             self.ultracart = ultracart
+        if warning is not None:
+            self.warning = warning
 
     @property
     def avalara(self):
@@ -251,6 +256,27 @@ class TaxProvidersResponse(object):
         """
 
         self._ultracart = ultracart
+
+    @property
+    def warning(self):
+        """Gets the warning of this TaxProvidersResponse.  # noqa: E501
+
+
+        :return: The warning of this TaxProvidersResponse.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this TaxProvidersResponse.
+
+
+        :param warning: The warning of this TaxProvidersResponse.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

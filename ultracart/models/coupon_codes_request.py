@@ -36,7 +36,8 @@ class CouponCodesRequest(object):
         'expiration_seconds': 'int',
         'metadata': 'ResponseMetadata',
         'quantity': 'int',
-        'success': 'bool'
+        'success': 'bool',
+        'warning': 'Warning'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class CouponCodesRequest(object):
         'expiration_seconds': 'expiration_seconds',
         'metadata': 'metadata',
         'quantity': 'quantity',
-        'success': 'success'
+        'success': 'success',
+        'warning': 'warning'
     }
 
-    def __init__(self, error=None, expiration_dts=None, expiration_seconds=None, metadata=None, quantity=None, success=None):  # noqa: E501
+    def __init__(self, error=None, expiration_dts=None, expiration_seconds=None, metadata=None, quantity=None, success=None, warning=None):  # noqa: E501
         """CouponCodesRequest - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
@@ -57,6 +59,7 @@ class CouponCodesRequest(object):
         self._metadata = None
         self._quantity = None
         self._success = None
+        self._warning = None
         self.discriminator = None
 
         if error is not None:
@@ -71,6 +74,8 @@ class CouponCodesRequest(object):
             self.quantity = quantity
         if success is not None:
             self.success = success
+        if warning is not None:
+            self.warning = warning
 
     @property
     def error(self):
@@ -205,6 +210,27 @@ class CouponCodesRequest(object):
         """
 
         self._success = success
+
+    @property
+    def warning(self):
+        """Gets the warning of this CouponCodesRequest.  # noqa: E501
+
+
+        :return: The warning of this CouponCodesRequest.  # noqa: E501
+        :rtype: Warning
+        """
+        return self._warning
+
+    @warning.setter
+    def warning(self, warning):
+        """Sets the warning of this CouponCodesRequest.
+
+
+        :param warning: The warning of this CouponCodesRequest.  # noqa: E501
+        :type: Warning
+        """
+
+        self._warning = warning
 
     def to_dict(self):
         """Returns the model properties as a dict"""

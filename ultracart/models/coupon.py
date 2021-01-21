@@ -42,6 +42,7 @@ class Coupon(object):
         'amount_off_subtotal_with_block_purchase': 'CouponAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase': 'CouponAmountOffSubtotalWithItemsPurchase',
         'automatically_apply_coupon_codes': 'CouponAutomaticallyApplyCouponCodes',
+        'buy_one_get_one': 'CouponBuyOneGetOneLimit',
         'calculated_description': 'str',
         'can_be_used_with_other_coupons': 'bool',
         'coupon_oid': 'int',
@@ -79,6 +80,7 @@ class Coupon(object):
         'restrict_by_screen_branding_theme_codes': 'list[CouponRestriction]',
         'restrict_by_storefronts': 'list[CouponRestriction]',
         'start_dts': 'str',
+        'super_coupon': 'bool',
         'tiered_amount_off_item': 'CouponTieredAmountOffItem',
         'tiered_amount_off_subtotal': 'CouponTieredAmountOffSubtotal',
         'tiered_percent_off_items': 'CouponTieredPercentOffItems',
@@ -99,6 +101,7 @@ class Coupon(object):
         'amount_off_subtotal_with_block_purchase': 'amount_off_subtotal_with_block_purchase',
         'amount_off_subtotal_with_items_purchase': 'amount_off_subtotal_with_items_purchase',
         'automatically_apply_coupon_codes': 'automatically_apply_coupon_codes',
+        'buy_one_get_one': 'buy_one_get_one',
         'calculated_description': 'calculated_description',
         'can_be_used_with_other_coupons': 'can_be_used_with_other_coupons',
         'coupon_oid': 'coupon_oid',
@@ -136,6 +139,7 @@ class Coupon(object):
         'restrict_by_screen_branding_theme_codes': 'restrict_by_screen_branding_theme_codes',
         'restrict_by_storefronts': 'restrict_by_storefronts',
         'start_dts': 'start_dts',
+        'super_coupon': 'super_coupon',
         'tiered_amount_off_item': 'tiered_amount_off_item',
         'tiered_amount_off_subtotal': 'tiered_amount_off_subtotal',
         'tiered_percent_off_items': 'tiered_percent_off_items',
@@ -144,7 +148,7 @@ class Coupon(object):
         'usable_by': 'usable_by'
     }
 
-    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, automatically_apply_coupon_codes=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, tiered_amount_off_item=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):  # noqa: E501
+    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_item=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):  # noqa: E501
         """Coupon - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_oid = None
@@ -158,6 +162,7 @@ class Coupon(object):
         self._amount_off_subtotal_with_block_purchase = None
         self._amount_off_subtotal_with_items_purchase = None
         self._automatically_apply_coupon_codes = None
+        self._buy_one_get_one = None
         self._calculated_description = None
         self._can_be_used_with_other_coupons = None
         self._coupon_oid = None
@@ -195,6 +200,7 @@ class Coupon(object):
         self._restrict_by_screen_branding_theme_codes = None
         self._restrict_by_storefronts = None
         self._start_dts = None
+        self._super_coupon = None
         self._tiered_amount_off_item = None
         self._tiered_amount_off_subtotal = None
         self._tiered_percent_off_items = None
@@ -225,6 +231,8 @@ class Coupon(object):
             self.amount_off_subtotal_with_items_purchase = amount_off_subtotal_with_items_purchase
         if automatically_apply_coupon_codes is not None:
             self.automatically_apply_coupon_codes = automatically_apply_coupon_codes
+        if buy_one_get_one is not None:
+            self.buy_one_get_one = buy_one_get_one
         if calculated_description is not None:
             self.calculated_description = calculated_description
         if can_be_used_with_other_coupons is not None:
@@ -299,6 +307,8 @@ class Coupon(object):
             self.restrict_by_storefronts = restrict_by_storefronts
         if start_dts is not None:
             self.start_dts = start_dts
+        if super_coupon is not None:
+            self.super_coupon = super_coupon
         if tiered_amount_off_item is not None:
             self.tiered_amount_off_item = tiered_amount_off_item
         if tiered_amount_off_subtotal is not None:
@@ -546,6 +556,27 @@ class Coupon(object):
         """
 
         self._automatically_apply_coupon_codes = automatically_apply_coupon_codes
+
+    @property
+    def buy_one_get_one(self):
+        """Gets the buy_one_get_one of this Coupon.  # noqa: E501
+
+
+        :return: The buy_one_get_one of this Coupon.  # noqa: E501
+        :rtype: CouponBuyOneGetOneLimit
+        """
+        return self._buy_one_get_one
+
+    @buy_one_get_one.setter
+    def buy_one_get_one(self, buy_one_get_one):
+        """Sets the buy_one_get_one of this Coupon.
+
+
+        :param buy_one_get_one: The buy_one_get_one of this Coupon.  # noqa: E501
+        :type: CouponBuyOneGetOneLimit
+        """
+
+        self._buy_one_get_one = buy_one_get_one
 
     @property
     def calculated_description(self):
@@ -1359,6 +1390,29 @@ class Coupon(object):
         """
 
         self._start_dts = start_dts
+
+    @property
+    def super_coupon(self):
+        """Gets the super_coupon of this Coupon.  # noqa: E501
+
+        If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration  # noqa: E501
+
+        :return: The super_coupon of this Coupon.  # noqa: E501
+        :rtype: bool
+        """
+        return self._super_coupon
+
+    @super_coupon.setter
+    def super_coupon(self, super_coupon):
+        """Sets the super_coupon of this Coupon.
+
+        If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration  # noqa: E501
+
+        :param super_coupon: The super_coupon of this Coupon.  # noqa: E501
+        :type: bool
+        """
+
+        self._super_coupon = super_coupon
 
     @property
     def tiered_amount_off_item(self):

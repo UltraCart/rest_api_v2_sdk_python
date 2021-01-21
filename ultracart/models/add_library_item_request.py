@@ -33,26 +33,41 @@ class AddLibraryItemRequest(object):
     swagger_types = {
         'cjson': 'str',
         'content_type': 'str',
+        'description': 'str',
+        'email_name': 'str',
+        'email_path': 'str',
+        'screenshots': 'list[LibraryItemScreenshot]',
         'storefront_oid': 'int',
         'title': 'str',
+        'upsell_offer_oid': 'int',
         'uuid': 'str'
     }
 
     attribute_map = {
         'cjson': 'cjson',
         'content_type': 'content_type',
+        'description': 'description',
+        'email_name': 'email_name',
+        'email_path': 'email_path',
+        'screenshots': 'screenshots',
         'storefront_oid': 'storefront_oid',
         'title': 'title',
+        'upsell_offer_oid': 'upsell_offer_oid',
         'uuid': 'uuid'
     }
 
-    def __init__(self, cjson=None, content_type=None, storefront_oid=None, title=None, uuid=None):  # noqa: E501
+    def __init__(self, cjson=None, content_type=None, description=None, email_name=None, email_path=None, screenshots=None, storefront_oid=None, title=None, upsell_offer_oid=None, uuid=None):  # noqa: E501
         """AddLibraryItemRequest - a model defined in Swagger"""  # noqa: E501
 
         self._cjson = None
         self._content_type = None
+        self._description = None
+        self._email_name = None
+        self._email_path = None
+        self._screenshots = None
         self._storefront_oid = None
         self._title = None
+        self._upsell_offer_oid = None
         self._uuid = None
         self.discriminator = None
 
@@ -60,10 +75,20 @@ class AddLibraryItemRequest(object):
             self.cjson = cjson
         if content_type is not None:
             self.content_type = content_type
+        if description is not None:
+            self.description = description
+        if email_name is not None:
+            self.email_name = email_name
+        if email_path is not None:
+            self.email_path = email_path
+        if screenshots is not None:
+            self.screenshots = screenshots
         if storefront_oid is not None:
             self.storefront_oid = storefront_oid
         if title is not None:
             self.title = title
+        if upsell_offer_oid is not None:
+            self.upsell_offer_oid = upsell_offer_oid
         if uuid is not None:
             self.uuid = uuid
 
@@ -94,7 +119,7 @@ class AddLibraryItemRequest(object):
     def content_type(self):
         """Gets the content_type of this AddLibraryItemRequest.  # noqa: E501
 
-        flow, campaign, cjson, or upsell  # noqa: E501
+        flow, campaign, cjson, email, transactional_email or upsell  # noqa: E501
 
         :return: The content_type of this AddLibraryItemRequest.  # noqa: E501
         :rtype: str
@@ -105,13 +130,105 @@ class AddLibraryItemRequest(object):
     def content_type(self, content_type):
         """Sets the content_type of this AddLibraryItemRequest.
 
-        flow, campaign, cjson, or upsell  # noqa: E501
+        flow, campaign, cjson, email, transactional_email or upsell  # noqa: E501
 
         :param content_type: The content_type of this AddLibraryItemRequest.  # noqa: E501
         :type: str
         """
 
         self._content_type = content_type
+
+    @property
+    def description(self):
+        """Gets the description of this AddLibraryItemRequest.  # noqa: E501
+
+        description of library item  # noqa: E501
+
+        :return: The description of this AddLibraryItemRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this AddLibraryItemRequest.
+
+        description of library item  # noqa: E501
+
+        :param description: The description of this AddLibraryItemRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def email_name(self):
+        """Gets the email_name of this AddLibraryItemRequest.  # noqa: E501
+
+        Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm  # noqa: E501
+
+        :return: The email_name of this AddLibraryItemRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._email_name
+
+    @email_name.setter
+    def email_name(self, email_name):
+        """Sets the email_name of this AddLibraryItemRequest.
+
+        Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm  # noqa: E501
+
+        :param email_name: The email_name of this AddLibraryItemRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._email_name = email_name
+
+    @property
+    def email_path(self):
+        """Gets the email_path of this AddLibraryItemRequest.  # noqa: E501
+
+        Required if content_type is transactional_email. This is the full path to the email template stored in the file system.  This defines which StoreFront contains the desired email template.  An example is /themes/Elements/core/emails/auto_order_cancel_html.vm  # noqa: E501
+
+        :return: The email_path of this AddLibraryItemRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._email_path
+
+    @email_path.setter
+    def email_path(self, email_path):
+        """Sets the email_path of this AddLibraryItemRequest.
+
+        Required if content_type is transactional_email. This is the full path to the email template stored in the file system.  This defines which StoreFront contains the desired email template.  An example is /themes/Elements/core/emails/auto_order_cancel_html.vm  # noqa: E501
+
+        :param email_path: The email_path of this AddLibraryItemRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._email_path = email_path
+
+    @property
+    def screenshots(self):
+        """Gets the screenshots of this AddLibraryItemRequest.  # noqa: E501
+
+        Screenshot urls for display  # noqa: E501
+
+        :return: The screenshots of this AddLibraryItemRequest.  # noqa: E501
+        :rtype: list[LibraryItemScreenshot]
+        """
+        return self._screenshots
+
+    @screenshots.setter
+    def screenshots(self, screenshots):
+        """Sets the screenshots of this AddLibraryItemRequest.
+
+        Screenshot urls for display  # noqa: E501
+
+        :param screenshots: The screenshots of this AddLibraryItemRequest.  # noqa: E501
+        :type: list[LibraryItemScreenshot]
+        """
+
+        self._screenshots = screenshots
 
     @property
     def storefront_oid(self):
@@ -160,10 +277,33 @@ class AddLibraryItemRequest(object):
         self._title = title
 
     @property
+    def upsell_offer_oid(self):
+        """Gets the upsell_offer_oid of this AddLibraryItemRequest.  # noqa: E501
+
+        Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer.  # noqa: E501
+
+        :return: The upsell_offer_oid of this AddLibraryItemRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._upsell_offer_oid
+
+    @upsell_offer_oid.setter
+    def upsell_offer_oid(self, upsell_offer_oid):
+        """Sets the upsell_offer_oid of this AddLibraryItemRequest.
+
+        Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer.  # noqa: E501
+
+        :param upsell_offer_oid: The upsell_offer_oid of this AddLibraryItemRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._upsell_offer_oid = upsell_offer_oid
+
+    @property
     def uuid(self):
         """Gets the uuid of this AddLibraryItemRequest.  # noqa: E501
 
-        UUID of communication flow or campaign, null if this item is neither  # noqa: E501
+        UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name  # noqa: E501
 
         :return: The uuid of this AddLibraryItemRequest.  # noqa: E501
         :rtype: str
@@ -174,7 +314,7 @@ class AddLibraryItemRequest(object):
     def uuid(self, uuid):
         """Sets the uuid of this AddLibraryItemRequest.
 
-        UUID of communication flow or campaign, null if this item is neither  # noqa: E501
+        UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name  # noqa: E501
 
         :param uuid: The uuid of this AddLibraryItemRequest.  # noqa: E501
         :type: str

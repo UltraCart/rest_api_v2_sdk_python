@@ -33,21 +33,24 @@ class CouponAmountOffItems(object):
     swagger_types = {
         'currency_code': 'str',
         'discount_amount': 'float',
-        'items': 'list[str]'
+        'items': 'list[str]',
+        'limit': 'int'
     }
 
     attribute_map = {
         'currency_code': 'currency_code',
         'discount_amount': 'discount_amount',
-        'items': 'items'
+        'items': 'items',
+        'limit': 'limit'
     }
 
-    def __init__(self, currency_code=None, discount_amount=None, items=None):  # noqa: E501
+    def __init__(self, currency_code=None, discount_amount=None, items=None, limit=None):  # noqa: E501
         """CouponAmountOffItems - a model defined in Swagger"""  # noqa: E501
 
         self._currency_code = None
         self._discount_amount = None
         self._items = None
+        self._limit = None
         self.discriminator = None
 
         if currency_code is not None:
@@ -56,6 +59,8 @@ class CouponAmountOffItems(object):
             self.discount_amount = discount_amount
         if items is not None:
             self.items = items
+        if limit is not None:
+            self.limit = limit
 
     @property
     def currency_code(self):
@@ -127,6 +132,29 @@ class CouponAmountOffItems(object):
         """
 
         self._items = items
+
+    @property
+    def limit(self):
+        """Gets the limit of this CouponAmountOffItems.  # noqa: E501
+
+        The limit of items which are eligible for the discount amount.  # noqa: E501
+
+        :return: The limit of this CouponAmountOffItems.  # noqa: E501
+        :rtype: int
+        """
+        return self._limit
+
+    @limit.setter
+    def limit(self, limit):
+        """Sets the limit of this CouponAmountOffItems.
+
+        The limit of items which are eligible for the discount amount.  # noqa: E501
+
+        :param limit: The limit of this CouponAmountOffItems.  # noqa: E501
+        :type: int
+        """
+
+        self._limit = limit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

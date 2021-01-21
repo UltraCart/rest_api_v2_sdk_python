@@ -34,6 +34,7 @@ class TaxJarConfig(object):
         'active': 'bool',
         'api_key': 'str',
         'estimate_only': 'bool',
+        'send_outside_nexus': 'bool',
         'send_test_orders': 'bool',
         'use_distribution_center_from': 'bool'
     }
@@ -42,16 +43,18 @@ class TaxJarConfig(object):
         'active': 'active',
         'api_key': 'api_key',
         'estimate_only': 'estimate_only',
+        'send_outside_nexus': 'send_outside_nexus',
         'send_test_orders': 'send_test_orders',
         'use_distribution_center_from': 'use_distribution_center_from'
     }
 
-    def __init__(self, active=None, api_key=None, estimate_only=None, send_test_orders=None, use_distribution_center_from=None):  # noqa: E501
+    def __init__(self, active=None, api_key=None, estimate_only=None, send_outside_nexus=None, send_test_orders=None, use_distribution_center_from=None):  # noqa: E501
         """TaxJarConfig - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
         self._api_key = None
         self._estimate_only = None
+        self._send_outside_nexus = None
         self._send_test_orders = None
         self._use_distribution_center_from = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class TaxJarConfig(object):
             self.api_key = api_key
         if estimate_only is not None:
             self.estimate_only = estimate_only
+        if send_outside_nexus is not None:
+            self.send_outside_nexus = send_outside_nexus
         if send_test_orders is not None:
             self.send_test_orders = send_test_orders
         if use_distribution_center_from is not None:
@@ -135,6 +140,29 @@ class TaxJarConfig(object):
         """
 
         self._estimate_only = estimate_only
+
+    @property
+    def send_outside_nexus(self):
+        """Gets the send_outside_nexus of this TaxJarConfig.  # noqa: E501
+
+        Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state.  # noqa: E501
+
+        :return: The send_outside_nexus of this TaxJarConfig.  # noqa: E501
+        :rtype: bool
+        """
+        return self._send_outside_nexus
+
+    @send_outside_nexus.setter
+    def send_outside_nexus(self, send_outside_nexus):
+        """Sets the send_outside_nexus of this TaxJarConfig.
+
+        Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state.  # noqa: E501
+
+        :param send_outside_nexus: The send_outside_nexus of this TaxJarConfig.  # noqa: E501
+        :type: bool
+        """
+
+        self._send_outside_nexus = send_outside_nexus
 
     @property
     def send_test_orders(self):

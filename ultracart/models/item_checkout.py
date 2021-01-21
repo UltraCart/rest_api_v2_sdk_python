@@ -61,7 +61,7 @@ class ItemCheckout(object):
     def suppress_buysafe(self):
         """Gets the suppress_buysafe of this ItemCheckout.  # noqa: E501
 
-        True to suppress buySAFE  # noqa: E501
+        True to suppress buySAFE (deprecated)  # noqa: E501
 
         :return: The suppress_buysafe of this ItemCheckout.  # noqa: E501
         :rtype: bool
@@ -72,7 +72,7 @@ class ItemCheckout(object):
     def suppress_buysafe(self, suppress_buysafe):
         """Sets the suppress_buysafe of this ItemCheckout.
 
-        True to suppress buySAFE  # noqa: E501
+        True to suppress buySAFE (deprecated)  # noqa: E501
 
         :param suppress_buysafe: The suppress_buysafe of this ItemCheckout.  # noqa: E501
         :type: bool
