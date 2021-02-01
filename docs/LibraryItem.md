@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assets** | [**list[LibraryItemAsset]**](LibraryItemAsset.md) |  | [optional] 
+**attributes** | [**list[LibraryItemAttribute]**](LibraryItemAttribute.md) |  | [optional] 
 **categories** | **list[str]** |  | [optional] 
 **content** | **str** |  | [optional] 
 **content_type** | **str** |  | [optional] 

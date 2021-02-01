@@ -32,6 +32,7 @@ class LibraryItem(object):
     """
     swagger_types = {
         'assets': 'list[LibraryItemAsset]',
+        'attributes': 'list[LibraryItemAttribute]',
         'categories': 'list[str]',
         'content': 'str',
         'content_type': 'str',
@@ -74,6 +75,7 @@ class LibraryItem(object):
 
     attribute_map = {
         'assets': 'assets',
+        'attributes': 'attributes',
         'categories': 'categories',
         'content': 'content',
         'content_type': 'content_type',
@@ -114,10 +116,11 @@ class LibraryItem(object):
         'under_review': 'under_review'
     }
 
-    def __init__(self, assets=None, categories=None, content=None, content_type=None, description=None, industries=None, library_item_oid=None, merchant_id=None, my_purchased_version=None, original_object_id=None, price=None, price_formatted=None, published=None, published_dts=None, published_from_library_item_oid=None, published_meta=None, published_version=None, purchased=None, purchased_from_library_item_oid=None, purchased_meta=None, purchased_version=None, rejected=None, rejected_reason=None, release_notes=None, release_version=None, reviewed=None, reviewed_dts=None, screenshots=None, share_with_accounts=None, share_with_other_emails=None, shared=None, source=None, source_to_library_item_oid=None, source_version=None, style=None, times_purchased=None, title=None, type=None, under_review=None):  # noqa: E501
+    def __init__(self, assets=None, attributes=None, categories=None, content=None, content_type=None, description=None, industries=None, library_item_oid=None, merchant_id=None, my_purchased_version=None, original_object_id=None, price=None, price_formatted=None, published=None, published_dts=None, published_from_library_item_oid=None, published_meta=None, published_version=None, purchased=None, purchased_from_library_item_oid=None, purchased_meta=None, purchased_version=None, rejected=None, rejected_reason=None, release_notes=None, release_version=None, reviewed=None, reviewed_dts=None, screenshots=None, share_with_accounts=None, share_with_other_emails=None, shared=None, source=None, source_to_library_item_oid=None, source_version=None, style=None, times_purchased=None, title=None, type=None, under_review=None):  # noqa: E501
         """LibraryItem - a model defined in Swagger"""  # noqa: E501
 
         self._assets = None
+        self._attributes = None
         self._categories = None
         self._content = None
         self._content_type = None
@@ -160,6 +163,8 @@ class LibraryItem(object):
 
         if assets is not None:
             self.assets = assets
+        if attributes is not None:
+            self.attributes = attributes
         if categories is not None:
             self.categories = categories
         if content is not None:
@@ -257,6 +262,27 @@ class LibraryItem(object):
         """
 
         self._assets = assets
+
+    @property
+    def attributes(self):
+        """Gets the attributes of this LibraryItem.  # noqa: E501
+
+
+        :return: The attributes of this LibraryItem.  # noqa: E501
+        :rtype: list[LibraryItemAttribute]
+        """
+        return self._attributes
+
+    @attributes.setter
+    def attributes(self, attributes):
+        """Sets the attributes of this LibraryItem.
+
+
+        :param attributes: The attributes of this LibraryItem.  # noqa: E501
+        :type: list[LibraryItemAttribute]
+        """
+
+        self._attributes = attributes
 
     @property
     def categories(self):

@@ -207,6 +207,9 @@ from ultracart.models.distribution_center import DistributionCenter
 from ultracart.models.distribution_centers_response import DistributionCentersResponse
 from ultracart.models.email_base_template_list_response import EmailBaseTemplateListResponse
 from ultracart.models.email_campaign import EmailCampaign
+from ultracart.models.email_campaign_folder import EmailCampaignFolder
+from ultracart.models.email_campaign_folder_response import EmailCampaignFolderResponse
+from ultracart.models.email_campaign_folders_response import EmailCampaignFoldersResponse
 from ultracart.models.email_campaign_response import EmailCampaignResponse
 from ultracart.models.email_campaigns_response import EmailCampaignsResponse
 from ultracart.models.email_click import EmailClick
@@ -240,6 +243,9 @@ from ultracart.models.email_editor_token_response import EmailEditorTokenRespons
 from ultracart.models.email_flow import EmailFlow
 from ultracart.models.email_flow_back_populate_request import EmailFlowBackPopulateRequest
 from ultracart.models.email_flow_back_populate_response import EmailFlowBackPopulateResponse
+from ultracart.models.email_flow_folder import EmailFlowFolder
+from ultracart.models.email_flow_folder_response import EmailFlowFolderResponse
+from ultracart.models.email_flow_folders_response import EmailFlowFoldersResponse
 from ultracart.models.email_flow_response import EmailFlowResponse
 from ultracart.models.email_flows_response import EmailFlowsResponse
 from ultracart.models.email_global_settings import EmailGlobalSettings
@@ -390,6 +396,7 @@ from ultracart.models.library_filter_values_response import LibraryFilterValuesR
 from ultracart.models.library_item import LibraryItem
 from ultracart.models.library_item_account import LibraryItemAccount
 from ultracart.models.library_item_asset import LibraryItemAsset
+from ultracart.models.library_item_attribute import LibraryItemAttribute
 from ultracart.models.library_item_email import LibraryItemEmail
 from ultracart.models.library_item_published_meta import LibraryItemPublishedMeta
 from ultracart.models.library_item_purchased_meta import LibraryItemPurchasedMeta

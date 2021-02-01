@@ -31,6 +31,7 @@ class AddLibraryItemRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attributes': 'list[LibraryItemAttribute]',
         'cjson': 'str',
         'content_type': 'str',
         'description': 'str',
@@ -44,6 +45,7 @@ class AddLibraryItemRequest(object):
     }
 
     attribute_map = {
+        'attributes': 'attributes',
         'cjson': 'cjson',
         'content_type': 'content_type',
         'description': 'description',
@@ -56,9 +58,10 @@ class AddLibraryItemRequest(object):
         'uuid': 'uuid'
     }
 
-    def __init__(self, cjson=None, content_type=None, description=None, email_name=None, email_path=None, screenshots=None, storefront_oid=None, title=None, upsell_offer_oid=None, uuid=None):  # noqa: E501
+    def __init__(self, attributes=None, cjson=None, content_type=None, description=None, email_name=None, email_path=None, screenshots=None, storefront_oid=None, title=None, upsell_offer_oid=None, uuid=None):  # noqa: E501
         """AddLibraryItemRequest - a model defined in Swagger"""  # noqa: E501
 
+        self._attributes = None
         self._cjson = None
         self._content_type = None
         self._description = None
@@ -71,6 +74,8 @@ class AddLibraryItemRequest(object):
         self._uuid = None
         self.discriminator = None
 
+        if attributes is not None:
+            self.attributes = attributes
         if cjson is not None:
             self.cjson = cjson
         if content_type is not None:
@@ -91,6 +96,29 @@ class AddLibraryItemRequest(object):
             self.upsell_offer_oid = upsell_offer_oid
         if uuid is not None:
             self.uuid = uuid
+
+    @property
+    def attributes(self):
+        """Gets the attributes of this AddLibraryItemRequest.  # noqa: E501
+
+        Attributes associated with the library item to contain additional configuration.  # noqa: E501
+
+        :return: The attributes of this AddLibraryItemRequest.  # noqa: E501
+        :rtype: list[LibraryItemAttribute]
+        """
+        return self._attributes
+
+    @attributes.setter
+    def attributes(self, attributes):
+        """Sets the attributes of this AddLibraryItemRequest.
+
+        Attributes associated with the library item to contain additional configuration.  # noqa: E501
+
+        :param attributes: The attributes of this AddLibraryItemRequest.  # noqa: E501
+        :type: list[LibraryItemAttribute]
+        """
+
+        self._attributes = attributes
 
     @property
     def cjson(self):

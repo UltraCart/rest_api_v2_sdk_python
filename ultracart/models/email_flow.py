@@ -42,6 +42,7 @@ class EmailFlow(object):
         'enrolled_customers': 'int',
         'esp_domain_user': 'str',
         'esp_domain_uuid': 'str',
+        'esp_flow_folder_uuid': 'str',
         'esp_friendly_name': 'str',
         'filter_profile_equation_json': 'str',
         'library_item_oid': 'int',
@@ -71,6 +72,7 @@ class EmailFlow(object):
         'enrolled_customers': 'enrolled_customers',
         'esp_domain_user': 'esp_domain_user',
         'esp_domain_uuid': 'esp_domain_uuid',
+        'esp_flow_folder_uuid': 'esp_flow_folder_uuid',
         'esp_friendly_name': 'esp_friendly_name',
         'filter_profile_equation_json': 'filter_profile_equation_json',
         'library_item_oid': 'library_item_oid',
@@ -88,7 +90,7 @@ class EmailFlow(object):
         'trigger_type': 'trigger_type'
     }
 
-    def __init__(self, allow_multiple_concurrent_enrollments=None, back_populating=None, click_rate_formatted=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, end_once_customer_purchases=None, enrolled_customers=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, filter_profile_equation_json=None, library_item_oid=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, revenue_per_customer_formatted=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):  # noqa: E501
+    def __init__(self, allow_multiple_concurrent_enrollments=None, back_populating=None, click_rate_formatted=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, end_once_customer_purchases=None, enrolled_customers=None, esp_domain_user=None, esp_domain_uuid=None, esp_flow_folder_uuid=None, esp_friendly_name=None, filter_profile_equation_json=None, library_item_oid=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, revenue_per_customer_formatted=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):  # noqa: E501
         """EmailFlow - a model defined in Swagger"""  # noqa: E501
 
         self._allow_multiple_concurrent_enrollments = None
@@ -102,6 +104,7 @@ class EmailFlow(object):
         self._enrolled_customers = None
         self._esp_domain_user = None
         self._esp_domain_uuid = None
+        self._esp_flow_folder_uuid = None
         self._esp_friendly_name = None
         self._filter_profile_equation_json = None
         self._library_item_oid = None
@@ -141,6 +144,8 @@ class EmailFlow(object):
             self.esp_domain_user = esp_domain_user
         if esp_domain_uuid is not None:
             self.esp_domain_uuid = esp_domain_uuid
+        if esp_flow_folder_uuid is not None:
+            self.esp_flow_folder_uuid = esp_flow_folder_uuid
         if esp_friendly_name is not None:
             self.esp_friendly_name = esp_friendly_name
         if filter_profile_equation_json is not None:
@@ -424,6 +429,29 @@ class EmailFlow(object):
         """
 
         self._esp_domain_uuid = esp_domain_uuid
+
+    @property
+    def esp_flow_folder_uuid(self):
+        """Gets the esp_flow_folder_uuid of this EmailFlow.  # noqa: E501
+
+        Flow folder UUID.  Null for uncategorized  # noqa: E501
+
+        :return: The esp_flow_folder_uuid of this EmailFlow.  # noqa: E501
+        :rtype: str
+        """
+        return self._esp_flow_folder_uuid
+
+    @esp_flow_folder_uuid.setter
+    def esp_flow_folder_uuid(self, esp_flow_folder_uuid):
+        """Sets the esp_flow_folder_uuid of this EmailFlow.
+
+        Flow folder UUID.  Null for uncategorized  # noqa: E501
+
+        :param esp_flow_folder_uuid: The esp_flow_folder_uuid of this EmailFlow.  # noqa: E501
+        :type: str
+        """
+
+        self._esp_flow_folder_uuid = esp_flow_folder_uuid
 
     @property
     def esp_friendly_name(self):

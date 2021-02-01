@@ -41,6 +41,7 @@ class CartCheckout(object):
         'custom_field7': 'str',
         'ip_address': 'str',
         'return_code': 'str',
+        'return_url': 'str',
         'screen_branding_theme_code': 'str',
         'storefront_host_name': 'str',
         'user_agent': 'str'
@@ -57,12 +58,13 @@ class CartCheckout(object):
         'custom_field7': 'custom_field7',
         'ip_address': 'ip_address',
         'return_code': 'return_code',
+        'return_url': 'return_url',
         'screen_branding_theme_code': 'screen_branding_theme_code',
         'storefront_host_name': 'storefront_host_name',
         'user_agent': 'user_agent'
     }
 
-    def __init__(self, comments=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, ip_address=None, return_code=None, screen_branding_theme_code=None, storefront_host_name=None, user_agent=None):  # noqa: E501
+    def __init__(self, comments=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, ip_address=None, return_code=None, return_url=None, screen_branding_theme_code=None, storefront_host_name=None, user_agent=None):  # noqa: E501
         """CartCheckout - a model defined in Swagger"""  # noqa: E501
 
         self._comments = None
@@ -75,6 +77,7 @@ class CartCheckout(object):
         self._custom_field7 = None
         self._ip_address = None
         self._return_code = None
+        self._return_url = None
         self._screen_branding_theme_code = None
         self._storefront_host_name = None
         self._user_agent = None
@@ -100,6 +103,8 @@ class CartCheckout(object):
             self.ip_address = ip_address
         if return_code is not None:
             self.return_code = return_code
+        if return_url is not None:
+            self.return_url = return_url
         if screen_branding_theme_code is not None:
             self.screen_branding_theme_code = screen_branding_theme_code
         if storefront_host_name is not None:
@@ -352,6 +357,31 @@ class CartCheckout(object):
         """
 
         self._return_code = return_code
+
+    @property
+    def return_url(self):
+        """Gets the return_url of this CartCheckout.  # noqa: E501
+
+        The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol.  # noqa: E501
+
+        :return: The return_url of this CartCheckout.  # noqa: E501
+        :rtype: str
+        """
+        return self._return_url
+
+    @return_url.setter
+    def return_url(self, return_url):
+        """Sets the return_url of this CartCheckout.
+
+        The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol.  # noqa: E501
+
+        :param return_url: The return_url of this CartCheckout.  # noqa: E501
+        :type: str
+        """
+        if return_url is not None and len(return_url) > 2048:
+            raise ValueError("Invalid value for `return_url`, length must be less than or equal to `2048`")  # noqa: E501
+
+        self._return_url = return_url
 
     @property
     def screen_branding_theme_code(self):

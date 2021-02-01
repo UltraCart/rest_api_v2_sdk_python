@@ -37,6 +37,7 @@ class EmailCampaign(object):
         'email_campaign_uuid': 'str',
         'email_communication_sequence_uuid': 'str',
         'end_once_customer_purchases': 'bool',
+        'esp_campaign_folder_uuid': 'str',
         'esp_domain_user': 'str',
         'esp_domain_uuid': 'str',
         'esp_friendly_name': 'str',
@@ -62,6 +63,7 @@ class EmailCampaign(object):
         'email_campaign_uuid': 'email_campaign_uuid',
         'email_communication_sequence_uuid': 'email_communication_sequence_uuid',
         'end_once_customer_purchases': 'end_once_customer_purchases',
+        'esp_campaign_folder_uuid': 'esp_campaign_folder_uuid',
         'esp_domain_user': 'esp_domain_user',
         'esp_domain_uuid': 'esp_domain_uuid',
         'esp_friendly_name': 'esp_friendly_name',
@@ -80,7 +82,7 @@ class EmailCampaign(object):
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, end_once_customer_purchases=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, library_item_oid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, revenue_per_customer_formatted=None, scheduled_dts=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
+    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, end_once_customer_purchases=None, esp_campaign_folder_uuid=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, library_item_oid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, revenue_per_customer_formatted=None, scheduled_dts=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
         """EmailCampaign - a model defined in Swagger"""  # noqa: E501
 
         self._click_rate_formatted = None
@@ -89,6 +91,7 @@ class EmailCampaign(object):
         self._email_campaign_uuid = None
         self._email_communication_sequence_uuid = None
         self._end_once_customer_purchases = None
+        self._esp_campaign_folder_uuid = None
         self._esp_domain_user = None
         self._esp_domain_uuid = None
         self._esp_friendly_name = None
@@ -119,6 +122,8 @@ class EmailCampaign(object):
             self.email_communication_sequence_uuid = email_communication_sequence_uuid
         if end_once_customer_purchases is not None:
             self.end_once_customer_purchases = end_once_customer_purchases
+        if esp_campaign_folder_uuid is not None:
+            self.esp_campaign_folder_uuid = esp_campaign_folder_uuid
         if esp_domain_user is not None:
             self.esp_domain_user = esp_domain_user
         if esp_domain_uuid is not None:
@@ -289,6 +294,29 @@ class EmailCampaign(object):
         """
 
         self._end_once_customer_purchases = end_once_customer_purchases
+
+    @property
+    def esp_campaign_folder_uuid(self):
+        """Gets the esp_campaign_folder_uuid of this EmailCampaign.  # noqa: E501
+
+        Campaign folder UUID.  Null for uncategorized  # noqa: E501
+
+        :return: The esp_campaign_folder_uuid of this EmailCampaign.  # noqa: E501
+        :rtype: str
+        """
+        return self._esp_campaign_folder_uuid
+
+    @esp_campaign_folder_uuid.setter
+    def esp_campaign_folder_uuid(self, esp_campaign_folder_uuid):
+        """Sets the esp_campaign_folder_uuid of this EmailCampaign.
+
+        Campaign folder UUID.  Null for uncategorized  # noqa: E501
+
+        :param esp_campaign_folder_uuid: The esp_campaign_folder_uuid of this EmailCampaign.  # noqa: E501
+        :type: str
+        """
+
+        self._esp_campaign_folder_uuid = esp_campaign_folder_uuid
 
     @property
     def esp_domain_user(self):

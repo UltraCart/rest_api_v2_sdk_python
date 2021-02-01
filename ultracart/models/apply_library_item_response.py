@@ -31,6 +31,7 @@ class ApplyLibraryItemResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'attributes': 'list[LibraryItemAttribute]',
         'cjson': 'str',
         'content_type': 'str',
         'email_template_vm_path': 'str',
@@ -44,6 +45,7 @@ class ApplyLibraryItemResponse(object):
     }
 
     attribute_map = {
+        'attributes': 'attributes',
         'cjson': 'cjson',
         'content_type': 'content_type',
         'email_template_vm_path': 'email_template_vm_path',
@@ -56,9 +58,10 @@ class ApplyLibraryItemResponse(object):
         'warning': 'warning'
     }
 
-    def __init__(self, cjson=None, content_type=None, email_template_vm_path=None, error=None, metadata=None, storefront_oid=None, success=None, title=None, uuid=None, warning=None):  # noqa: E501
+    def __init__(self, attributes=None, cjson=None, content_type=None, email_template_vm_path=None, error=None, metadata=None, storefront_oid=None, success=None, title=None, uuid=None, warning=None):  # noqa: E501
         """ApplyLibraryItemResponse - a model defined in Swagger"""  # noqa: E501
 
+        self._attributes = None
         self._cjson = None
         self._content_type = None
         self._email_template_vm_path = None
@@ -71,6 +74,8 @@ class ApplyLibraryItemResponse(object):
         self._warning = None
         self.discriminator = None
 
+        if attributes is not None:
+            self.attributes = attributes
         if cjson is not None:
             self.cjson = cjson
         if content_type is not None:
@@ -91,6 +96,29 @@ class ApplyLibraryItemResponse(object):
             self.uuid = uuid
         if warning is not None:
             self.warning = warning
+
+    @property
+    def attributes(self):
+        """Gets the attributes of this ApplyLibraryItemResponse.  # noqa: E501
+
+        Attributes from the library item  # noqa: E501
+
+        :return: The attributes of this ApplyLibraryItemResponse.  # noqa: E501
+        :rtype: list[LibraryItemAttribute]
+        """
+        return self._attributes
+
+    @attributes.setter
+    def attributes(self, attributes):
+        """Sets the attributes of this ApplyLibraryItemResponse.
+
+        Attributes from the library item  # noqa: E501
+
+        :param attributes: The attributes of this ApplyLibraryItemResponse.  # noqa: E501
+        :type: list[LibraryItemAttribute]
+        """
+
+        self._attributes = attributes
 
     @property
     def cjson(self):

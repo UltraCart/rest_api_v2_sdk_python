@@ -978,6 +978,111 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_email_campaign_folder(self, storefront_oid, email_campaign_folder_uuid, **kwargs):  # noqa: E501
+        """Delete email campaignFolder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_email_campaign_folder(storefront_oid, email_campaign_folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_campaign_folder_uuid: (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_email_campaign_folder_with_http_info(self, storefront_oid, email_campaign_folder_uuid, **kwargs):  # noqa: E501
+        """Delete email campaignFolder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_campaign_folder_uuid: (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_campaign_folder_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_email_campaign_folder" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `delete_email_campaign_folder`")  # noqa: E501
+        # verify the required parameter 'email_campaign_folder_uuid' is set
+        if ('email_campaign_folder_uuid' not in params or
+                params['email_campaign_folder_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_campaign_folder_uuid` when calling `delete_email_campaign_folder`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'email_campaign_folder_uuid' in params:
+            path_params['email_campaign_folder_uuid'] = params['email_campaign_folder_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BaseResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_email_commseq_stat(self, storefront_oid, commseq_uuid, **kwargs):  # noqa: E501
         """Delete communication sequence stats  # noqa: E501
 
@@ -1174,6 +1279,111 @@ class StorefrontApi(object):
 
         return self.api_client.call_api(
             '/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BaseResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_email_flow_folder(self, storefront_oid, email_flow_folder_uuid, **kwargs):  # noqa: E501
+        """Delete email flowFolder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_email_flow_folder(storefront_oid, email_flow_folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_flow_folder_uuid: (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_email_flow_folder_with_http_info(storefront_oid, email_flow_folder_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_email_flow_folder_with_http_info(storefront_oid, email_flow_folder_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_email_flow_folder_with_http_info(self, storefront_oid, email_flow_folder_uuid, **kwargs):  # noqa: E501
+        """Delete email flowFolder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_email_flow_folder_with_http_info(storefront_oid, email_flow_folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_flow_folder_uuid: (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_flow_folder_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_email_flow_folder" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `delete_email_flow_folder`")  # noqa: E501
+        # verify the required parameter 'email_flow_folder_uuid' is set
+        if ('email_flow_folder_uuid' not in params or
+                params['email_flow_folder_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_flow_folder_uuid` when calling `delete_email_flow_folder`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'email_flow_folder_uuid' in params:
+            path_params['email_flow_folder_uuid'] = params['email_flow_folder_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -2609,6 +2819,208 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailCampaignResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_email_campaign_folder(self, storefront_oid, email_campaign_folder_uuid, **kwargs):  # noqa: E501
+        """Get email campaign folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_campaign_folder(storefront_oid, email_campaign_folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_campaign_folder_uuid: (required)
+        :return: EmailCampaignFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_email_campaign_folder_with_http_info(self, storefront_oid, email_campaign_folder_uuid, **kwargs):  # noqa: E501
+        """Get email campaign folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_campaign_folder_uuid: (required)
+        :return: EmailCampaignFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_campaign_folder_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_campaign_folder" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_campaign_folder`")  # noqa: E501
+        # verify the required parameter 'email_campaign_folder_uuid' is set
+        if ('email_campaign_folder_uuid' not in params or
+                params['email_campaign_folder_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_campaign_folder_uuid` when calling `get_email_campaign_folder`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'email_campaign_folder_uuid' in params:
+            path_params['email_campaign_folder_uuid'] = params['email_campaign_folder_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailCampaignFolderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_email_campaign_folders(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get email campaign folders  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_campaign_folders(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: EmailCampaignFoldersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_email_campaign_folders_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_email_campaign_folders_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_email_campaign_folders_with_http_info(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get email campaign folders  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_campaign_folders_with_http_info(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: EmailCampaignFoldersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_campaign_folders" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_campaign_folders`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/campaign_folders', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailCampaignFoldersResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4866,6 +5278,208 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailFlowResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_email_flow_folder(self, storefront_oid, email_flow_folder_uuid, **kwargs):  # noqa: E501
+        """Get email flow folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_flow_folder(storefront_oid, email_flow_folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_flow_folder_uuid: (required)
+        :return: EmailFlowFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_email_flow_folder_with_http_info(storefront_oid, email_flow_folder_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_email_flow_folder_with_http_info(storefront_oid, email_flow_folder_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_email_flow_folder_with_http_info(self, storefront_oid, email_flow_folder_uuid, **kwargs):  # noqa: E501
+        """Get email flow folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_flow_folder_with_http_info(storefront_oid, email_flow_folder_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_flow_folder_uuid: (required)
+        :return: EmailFlowFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_flow_folder_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_flow_folder" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_flow_folder`")  # noqa: E501
+        # verify the required parameter 'email_flow_folder_uuid' is set
+        if ('email_flow_folder_uuid' not in params or
+                params['email_flow_folder_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_flow_folder_uuid` when calling `get_email_flow_folder`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'email_flow_folder_uuid' in params:
+            path_params['email_flow_folder_uuid'] = params['email_flow_folder_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailFlowFolderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_email_flow_folders(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get email flow folders  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_flow_folders(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: EmailFlowFoldersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_email_flow_folders_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_email_flow_folders_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_email_flow_folders_with_http_info(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get email flow folders  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_flow_folders_with_http_info(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: EmailFlowFoldersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_flow_folders" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_flow_folders`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/flow_folders', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailFlowFoldersResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9474,6 +10088,111 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def insert_email_campaign_folder(self, storefront_oid, email_campaign_folder, **kwargs):  # noqa: E501
+        """Insert email campaign folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_email_campaign_folder(storefront_oid, email_campaign_folder, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param EmailCampaignFolder email_campaign_folder: Email campaign folder (required)
+        :return: EmailCampaignFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder, **kwargs)  # noqa: E501
+            return data
+
+    def insert_email_campaign_folder_with_http_info(self, storefront_oid, email_campaign_folder, **kwargs):  # noqa: E501
+        """Insert email campaign folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param EmailCampaignFolder email_campaign_folder: Email campaign folder (required)
+        :return: EmailCampaignFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_campaign_folder']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_email_campaign_folder" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `insert_email_campaign_folder`")  # noqa: E501
+        # verify the required parameter 'email_campaign_folder' is set
+        if ('email_campaign_folder' not in params or
+                params['email_campaign_folder'] is None):
+            raise ValueError("Missing the required parameter `email_campaign_folder` when calling `insert_email_campaign_folder`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_campaign_folder' in params:
+            body_params = params['email_campaign_folder']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/campaign_folders', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailCampaignFolderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def insert_email_commseq(self, storefront_oid, email_commseq, **kwargs):  # noqa: E501
         """Insert email commseq  # noqa: E501
 
@@ -9782,6 +10501,111 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailFlowResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def insert_email_flow_folder(self, storefront_oid, email_flow_folder, **kwargs):  # noqa: E501
+        """Insert email flow folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_email_flow_folder(storefront_oid, email_flow_folder, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param EmailFlowFolder email_flow_folder: Email flow folder (required)
+        :return: EmailFlowFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_email_flow_folder_with_http_info(storefront_oid, email_flow_folder, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_email_flow_folder_with_http_info(storefront_oid, email_flow_folder, **kwargs)  # noqa: E501
+            return data
+
+    def insert_email_flow_folder_with_http_info(self, storefront_oid, email_flow_folder, **kwargs):  # noqa: E501
+        """Insert email flow folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_email_flow_folder_with_http_info(storefront_oid, email_flow_folder, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param EmailFlowFolder email_flow_folder: Email flow folder (required)
+        :return: EmailFlowFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_flow_folder']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_email_flow_folder" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `insert_email_flow_folder`")  # noqa: E501
+        # verify the required parameter 'email_flow_folder' is set
+        if ('email_flow_folder' not in params or
+                params['email_flow_folder'] is None):
+            raise ValueError("Missing the required parameter `email_flow_folder` when calling `insert_email_flow_folder`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_flow_folder' in params:
+            body_params = params['email_flow_folder']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/flow_folders', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailFlowFolderResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -12278,6 +13102,119 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def update_email_campaign_folder(self, storefront_oid, email_campaign_folder_uuid, email_campaign_folder, **kwargs):  # noqa: E501
+        """Update email campaign folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_email_campaign_folder(storefront_oid, email_campaign_folder_uuid, email_campaign_folder, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_campaign_folder_uuid: (required)
+        :param EmailCampaignFolder email_campaign_folder: Email campaign folder (required)
+        :return: EmailCampaignFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder_uuid, email_campaign_folder, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder_uuid, email_campaign_folder, **kwargs)  # noqa: E501
+            return data
+
+    def update_email_campaign_folder_with_http_info(self, storefront_oid, email_campaign_folder_uuid, email_campaign_folder, **kwargs):  # noqa: E501
+        """Update email campaign folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_email_campaign_folder_with_http_info(storefront_oid, email_campaign_folder_uuid, email_campaign_folder, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_campaign_folder_uuid: (required)
+        :param EmailCampaignFolder email_campaign_folder: Email campaign folder (required)
+        :return: EmailCampaignFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_campaign_folder_uuid', 'email_campaign_folder']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_email_campaign_folder" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_email_campaign_folder`")  # noqa: E501
+        # verify the required parameter 'email_campaign_folder_uuid' is set
+        if ('email_campaign_folder_uuid' not in params or
+                params['email_campaign_folder_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_campaign_folder_uuid` when calling `update_email_campaign_folder`")  # noqa: E501
+        # verify the required parameter 'email_campaign_folder' is set
+        if ('email_campaign_folder' not in params or
+                params['email_campaign_folder'] is None):
+            raise ValueError("Missing the required parameter `email_campaign_folder` when calling `update_email_campaign_folder`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'email_campaign_folder_uuid' in params:
+            path_params['email_campaign_folder_uuid'] = params['email_campaign_folder_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_campaign_folder' in params:
+            body_params = params['email_campaign_folder']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailCampaignFolderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_email_commseq(self, storefront_oid, commseq_uuid, email_commseq, **kwargs):  # noqa: E501
         """Update email commseq  # noqa: E501
 
@@ -12723,6 +13660,119 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailFlowResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_email_flow_folder(self, storefront_oid, email_flow_folder_uuid, email_flow_folder, **kwargs):  # noqa: E501
+        """Update email flow folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_email_flow_folder(storefront_oid, email_flow_folder_uuid, email_flow_folder, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_flow_folder_uuid: (required)
+        :param EmailFlowFolder email_flow_folder: Email flow folder (required)
+        :return: EmailFlowFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_email_flow_folder_with_http_info(storefront_oid, email_flow_folder_uuid, email_flow_folder, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_email_flow_folder_with_http_info(storefront_oid, email_flow_folder_uuid, email_flow_folder, **kwargs)  # noqa: E501
+            return data
+
+    def update_email_flow_folder_with_http_info(self, storefront_oid, email_flow_folder_uuid, email_flow_folder, **kwargs):  # noqa: E501
+        """Update email flow folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_email_flow_folder_with_http_info(storefront_oid, email_flow_folder_uuid, email_flow_folder, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str email_flow_folder_uuid: (required)
+        :param EmailFlowFolder email_flow_folder: Email flow folder (required)
+        :return: EmailFlowFolderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'email_flow_folder_uuid', 'email_flow_folder']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_email_flow_folder" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `update_email_flow_folder`")  # noqa: E501
+        # verify the required parameter 'email_flow_folder_uuid' is set
+        if ('email_flow_folder_uuid' not in params or
+                params['email_flow_folder_uuid'] is None):
+            raise ValueError("Missing the required parameter `email_flow_folder_uuid` when calling `update_email_flow_folder`")  # noqa: E501
+        # verify the required parameter 'email_flow_folder' is set
+        if ('email_flow_folder' not in params or
+                params['email_flow_folder'] is None):
+            raise ValueError("Missing the required parameter `email_flow_folder` when calling `update_email_flow_folder`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'email_flow_folder_uuid' in params:
+            path_params['email_flow_folder_uuid'] = params['email_flow_folder_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'email_flow_folder' in params:
+            body_params = params['email_flow_folder']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailFlowFolderResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
