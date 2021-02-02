@@ -49,21 +49,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 city = 'city_example' # str | The city being deleted.
 tax_city = ultracart.TaxCity() # TaxCity | tax city to be deleted
 
@@ -111,21 +100,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 country_code = 'country_code_example' # str | The country code being deleted.
 tax_country = ultracart.TaxCountry() # TaxCountry | tax country to be deleted
 
@@ -173,21 +151,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 county = 'county_example' # str | The county being deleted.
 tax_county = ultracart.TaxCounty() # TaxCounty | tax county to be deleted
 
@@ -235,21 +202,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 postal_code = 'postal_code_example' # str | The postal code being deleted.
 tax_postal_code = ultracart.TaxPostalCode() # TaxPostalCode | tax postal code to be deleted
 
@@ -297,21 +253,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 state_code = 'state_code_example' # str | The state code being deleted.
 tax_state = ultracart.TaxState() # TaxState | tax state to be deleted
 
@@ -359,21 +304,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
 try:
     # Retrieve the Avalara tax provider
@@ -416,21 +350,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_avalara = ultracart.TaxProviderAvalara() # TaxProviderAvalara | TaxProviderAvalara object
 
 try:
@@ -477,21 +400,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
 try:
     # Attempts to connect to Avalara and returns back the response
@@ -534,21 +446,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
 try:
     # Retrieve the Self tax provider
@@ -591,21 +492,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
 try:
     # Retrieve the Self tax provider countries
@@ -648,21 +538,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 country_code = 'country_code_example' # str | The country code regions desired.
 
 try:
@@ -709,21 +588,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
 try:
     # Retrieve the Sovos tax provider
@@ -766,21 +634,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
 try:
     # Attempts to connect to Sovos and returns back the response
@@ -823,21 +680,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
 try:
     # Retrieve the TaxJar tax provider
@@ -880,21 +726,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
 try:
     # Attempts to connect to TaxJar and returns back the response
@@ -937,21 +772,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 
 try:
     # Retrieve the UltraCart tax provider
@@ -994,21 +818,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1059,21 +872,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 provider_name = 'provider_name_example' # str | The tax provider to set active.
 
 try:
@@ -1120,21 +922,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_avalara = ultracart.TaxProviderAvalara() # TaxProviderAvalara | TaxProviderAvalara object
 
 try:
@@ -1181,21 +972,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_self = ultracart.TaxProviderSelf() # TaxProviderSelf | TaxProviderSelf object
 
 try:
@@ -1242,21 +1022,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 city = 'city_example' # str | The city being updated.
 tax_city = ultracart.TaxCity() # TaxCity | tax city to be updated
 
@@ -1305,21 +1074,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 country_code = 'country_code_example' # str | The country code being updated.
 tax_country = ultracart.TaxCountry() # TaxCountry | tax country to be updated
 
@@ -1368,21 +1126,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 county = 'county_example' # str | The county being updated.
 tax_county = ultracart.TaxCounty() # TaxCounty | tax county to be updated
 
@@ -1431,21 +1178,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 postal_code = 'postal_code_example' # str | The postal code being updated.
 tax_postal_code = ultracart.TaxPostalCode() # TaxPostalCode | tax postal code to be updated
 
@@ -1494,21 +1230,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 state_code = 'state_code_example' # str | The state code being updated.
 tax_state = ultracart.TaxState() # TaxState | tax state to be updated
 
@@ -1557,21 +1282,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_sovos = ultracart.TaxProviderSovos() # TaxProviderSovos | TaxProviderSovos object
 
 try:
@@ -1618,21 +1332,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_tax_jar = ultracart.TaxProviderTaxJar() # TaxProviderTaxJar | TaxProviderTaxJar object
 
 try:
@@ -1679,21 +1382,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.TaxApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.TaxApi(ultracart.ApiClient(configuration))
 tax_provider_ultracart = ultracart.TaxProviderUltraCart() # TaxProviderUltraCart | TaxProviderUltraCart object
 
 try:

@@ -26,21 +26,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ChargebackApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback_dispute_oid = 56 # int | The chargeback_dispute_oid to delete.
 
 try:
@@ -87,21 +76,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ChargebackApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback_dispute_oid = 56 # int | The chargeback dispute oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -150,21 +128,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ChargebackApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 order_id = 'order_id_example' # str | Order Id (optional)
 case_number = 'case_number_example' # str | Case number (optional)
 status = 'status_example' # str | Status (optional)
@@ -233,21 +200,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ChargebackApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback = ultracart.ChargebackDispute() # ChargebackDispute | Chargeback to insert
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -296,21 +252,10 @@ import ultracart
 from ultracart.rest import ApiException
 from pprint import pprint
 
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ChargebackApi.fromApiKey(simple_key, False, True)
 
-
-configuration = ultracart.Configuration()
-
-# this key is valid only in the UltraCart development system.  You need to supply a valid simple key here.
-# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-configuration.api_key['x-ultracart-simple-key'] \
-    = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100'
-
-configuration.debug = True
-configuration.verify_ssl = True  # Development only.  Set to True for production.
-
-api_client = ApiClient(configuration=configuration, header_name='X-UltraCart-Api-Version', header_value='2017-03-01')
-
-api_instance = ultracart.ChargebackApi(ultracart.ApiClient(configuration))
 chargeback = ultracart.ChargebackDispute() # ChargebackDispute | Chargeback to update
 chargeback_dispute_oid = 56 # int | The chargeback_dispute_oid to update.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
