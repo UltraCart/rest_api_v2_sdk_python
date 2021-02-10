@@ -31,6 +31,7 @@ class EmailPlanAdditional(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'active': 'bool',
         'can_downgrade': 'bool',
         'can_upgrade': 'bool',
         'cost': 'float',
@@ -42,6 +43,7 @@ class EmailPlanAdditional(object):
     }
 
     attribute_map = {
+        'active': 'active',
         'can_downgrade': 'can_downgrade',
         'can_upgrade': 'can_upgrade',
         'cost': 'cost',
@@ -52,9 +54,10 @@ class EmailPlanAdditional(object):
         'emails': 'emails'
     }
 
-    def __init__(self, can_downgrade=None, can_upgrade=None, cost=None, cost_change=None, cost_change_formatted=None, cost_formatted=None, customers=None, emails=None):  # noqa: E501
+    def __init__(self, active=None, can_downgrade=None, can_upgrade=None, cost=None, cost_change=None, cost_change_formatted=None, cost_formatted=None, customers=None, emails=None):  # noqa: E501
         """EmailPlanAdditional - a model defined in Swagger"""  # noqa: E501
 
+        self._active = None
         self._can_downgrade = None
         self._can_upgrade = None
         self._cost = None
@@ -65,6 +68,8 @@ class EmailPlanAdditional(object):
         self._emails = None
         self.discriminator = None
 
+        if active is not None:
+            self.active = active
         if can_downgrade is not None:
             self.can_downgrade = can_downgrade
         if can_upgrade is not None:
@@ -81,6 +86,27 @@ class EmailPlanAdditional(object):
             self.customers = customers
         if emails is not None:
             self.emails = emails
+
+    @property
+    def active(self):
+        """Gets the active of this EmailPlanAdditional.  # noqa: E501
+
+
+        :return: The active of this EmailPlanAdditional.  # noqa: E501
+        :rtype: bool
+        """
+        return self._active
+
+    @active.setter
+    def active(self, active):
+        """Sets the active of this EmailPlanAdditional.
+
+
+        :param active: The active of this EmailPlanAdditional.  # noqa: E501
+        :type: bool
+        """
+
+        self._active = active
 
     @property
     def can_downgrade(self):

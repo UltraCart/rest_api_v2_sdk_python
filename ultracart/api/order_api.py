@@ -1283,7 +1283,7 @@ class OrderApi(object):
             collection_formats=collection_formats)
 
     def get_orders_by_query(self, order_query, **kwargs):  # noqa: E501
-        """Retrieve orders  # noqa: E501
+        """Retrieve orders by query  # noqa: E501
 
         Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1309,7 +1309,7 @@ class OrderApi(object):
             return data
 
     def get_orders_by_query_with_http_info(self, order_query, **kwargs):  # noqa: E501
-        """Retrieve orders  # noqa: E501
+        """Retrieve orders by query  # noqa: E501
 
         Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

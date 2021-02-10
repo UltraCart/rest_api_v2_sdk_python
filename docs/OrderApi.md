@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**get_order_by_token**](OrderApi.md#get_order_by_token) | **POST** /order/orders/token | Retrieve an order using a token
 [**get_orders**](OrderApi.md#get_orders) | **GET** /order/orders | Retrieve orders
 [**get_orders_batch**](OrderApi.md#get_orders_batch) | **POST** /order/orders/batch | Retrieve order batch
-[**get_orders_by_query**](OrderApi.md#get_orders_by_query) | **POST** /order/orders/query | Retrieve orders
+[**get_orders_by_query**](OrderApi.md#get_orders_by_query) | **POST** /order/orders/query | Retrieve orders by query
 [**insert_order**](OrderApi.md#insert_order) | **POST** /order/orders | Insert an order
 [**process_payment**](OrderApi.md#process_payment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 [**refund_order**](OrderApi.md#refund_order) | **PUT** /order/orders/{order_id}/refund | Refund an order
@@ -652,7 +652,7 @@ Name | Type | Description  | Notes
 # **get_orders_by_query**
 > OrdersResponse get_orders_by_query(order_query, limit=limit, offset=offset, sort=sort, expand=expand)
 
-Retrieve orders
+Retrieve orders by query
 
 Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
@@ -675,7 +675,7 @@ sort = 'sort_example' # str | The sort order of the orders.  See Sorting documen
 expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
 
 try:
-    # Retrieve orders
+    # Retrieve orders by query
     api_response = api_instance.get_orders_by_query(order_query, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:

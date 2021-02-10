@@ -4,12 +4,12 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_auto_order**](AutoOrderApi.md#get_auto_order) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-[**get_auto_order_by_code**](AutoOrderApi.md#get_auto_order_by_code) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
-[**get_auto_order_by_reference_order_id**](AutoOrderApi.md#get_auto_order_by_reference_order_id) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
+[**get_auto_order**](AutoOrderApi.md#get_auto_order) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
+[**get_auto_order_by_code**](AutoOrderApi.md#get_auto_order_by_code) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
+[**get_auto_order_by_reference_order_id**](AutoOrderApi.md#get_auto_order_by_reference_order_id) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
 [**get_auto_orders**](AutoOrderApi.md#get_auto_orders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 [**get_auto_orders_batch**](AutoOrderApi.md#get_auto_orders_batch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
-[**get_auto_orders_by_query**](AutoOrderApi.md#get_auto_orders_by_query) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
+[**get_auto_orders_by_query**](AutoOrderApi.md#get_auto_orders_by_query) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 [**update_auto_order**](AutoOrderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 [**update_auto_orders_batch**](AutoOrderApi.md#update_auto_orders_batch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 # **get_auto_order**
 > AutoOrderResponse get_auto_order(auto_order_oid, expand=expand)
 
-Retrieve an auto order
+Retrieve an auto order by oid
 
 Retrieves a single auto order using the specified auto order oid. 
 
@@ -37,7 +37,7 @@ auto_order_oid = 56 # int | The auto order oid to retrieve.
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try:
-    # Retrieve an auto order
+    # Retrieve an auto order by oid
     api_response = api_instance.get_auto_order(auto_order_oid, expand=expand)
     pprint(api_response)
 except ApiException as e:
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 # **get_auto_order_by_code**
 > AutoOrderResponse get_auto_order_by_code(auto_order_code, expand=expand)
 
-Retrieve an auto order
+Retrieve an auto order by code
 
 Retrieves a single auto order using the specified reference (original) order id. 
 
@@ -89,7 +89,7 @@ auto_order_code = 'auto_order_code_example' # str | The auto order oid to retrie
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try:
-    # Retrieve an auto order
+    # Retrieve an auto order by code
     api_response = api_instance.get_auto_order_by_code(auto_order_code, expand=expand)
     pprint(api_response)
 except ApiException as e:
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 # **get_auto_order_by_reference_order_id**
 > AutoOrderResponse get_auto_order_by_reference_order_id(reference_order_id, expand=expand)
 
-Retrieve an auto order
+Retrieve an auto order by order id
 
 Retrieves a single auto order using the specified reference (original) order id. 
 
@@ -141,7 +141,7 @@ reference_order_id = 'reference_order_id_example' # str | The auto order oid to 
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try:
-    # Retrieve an auto order
+    # Retrieve an auto order by order id
     api_response = api_instance.get_auto_order_by_reference_order_id(reference_order_id, expand=expand)
     pprint(api_response)
 except ApiException as e:
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 # **get_auto_orders_by_query**
 > AutoOrdersResponse get_auto_orders_by_query(auto_order_query, limit=limit, offset=offset, sort=sort, expand=expand)
 
-Retrieve auto orders
+Retrieve auto orders by query
 
 Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
@@ -342,7 +342,7 @@ sort = 'sort_example' # str | The sort order of the auto orders.  See Sorting do
 expand = 'expand_example' # str | The object expansion to perform on the result. (optional)
 
 try:
-    # Retrieve auto orders
+    # Retrieve auto orders by query
     api_response = api_instance.get_auto_orders_by_query(auto_order_query, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:

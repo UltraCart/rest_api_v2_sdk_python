@@ -46,7 +46,7 @@ class AutoOrderApi(object):
 
 
     def get_auto_order(self, auto_order_oid, **kwargs):  # noqa: E501
-        """Retrieve an auto order  # noqa: E501
+        """Retrieve an auto order by oid  # noqa: E501
 
         Retrieves a single auto order using the specified auto order oid.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -69,7 +69,7 @@ class AutoOrderApi(object):
             return data
 
     def get_auto_order_with_http_info(self, auto_order_oid, **kwargs):  # noqa: E501
-        """Retrieve an auto order  # noqa: E501
+        """Retrieve an auto order by oid  # noqa: E501
 
         Retrieves a single auto order using the specified auto order oid.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -149,7 +149,7 @@ class AutoOrderApi(object):
             collection_formats=collection_formats)
 
     def get_auto_order_by_code(self, auto_order_code, **kwargs):  # noqa: E501
-        """Retrieve an auto order  # noqa: E501
+        """Retrieve an auto order by code  # noqa: E501
 
         Retrieves a single auto order using the specified reference (original) order id.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -172,7 +172,7 @@ class AutoOrderApi(object):
             return data
 
     def get_auto_order_by_code_with_http_info(self, auto_order_code, **kwargs):  # noqa: E501
-        """Retrieve an auto order  # noqa: E501
+        """Retrieve an auto order by code  # noqa: E501
 
         Retrieves a single auto order using the specified reference (original) order id.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -252,7 +252,7 @@ class AutoOrderApi(object):
             collection_formats=collection_formats)
 
     def get_auto_order_by_reference_order_id(self, reference_order_id, **kwargs):  # noqa: E501
-        """Retrieve an auto order  # noqa: E501
+        """Retrieve an auto order by order id  # noqa: E501
 
         Retrieves a single auto order using the specified reference (original) order id.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -275,7 +275,7 @@ class AutoOrderApi(object):
             return data
 
     def get_auto_order_by_reference_order_id_with_http_info(self, reference_order_id, **kwargs):  # noqa: E501
-        """Retrieve an auto order  # noqa: E501
+        """Retrieve an auto order by order id  # noqa: E501
 
         Retrieves a single auto order using the specified reference (original) order id.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -641,7 +641,7 @@ class AutoOrderApi(object):
             collection_formats=collection_formats)
 
     def get_auto_orders_by_query(self, auto_order_query, **kwargs):  # noqa: E501
-        """Retrieve auto orders  # noqa: E501
+        """Retrieve auto orders by query  # noqa: E501
 
         Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -667,7 +667,7 @@ class AutoOrderApi(object):
             return data
 
     def get_auto_orders_by_query_with_http_info(self, auto_order_query, **kwargs):  # noqa: E501
-        """Retrieve auto orders  # noqa: E501
+        """Retrieve auto orders by query  # noqa: E501
 
         Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

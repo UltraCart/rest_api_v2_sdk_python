@@ -84,7 +84,7 @@ class CouponTieredAmountOffItem(object):
     def limit(self):
         """Gets the limit of this CouponTieredAmountOffItem.  # noqa: E501
 
-        The maximum amount of total discount by this coupon.  # noqa: E501
+        The maximum number of discounted items.  # noqa: E501
 
         :return: The limit of this CouponTieredAmountOffItem.  # noqa: E501
         :rtype: float
@@ -95,7 +95,7 @@ class CouponTieredAmountOffItem(object):
     def limit(self, limit):
         """Sets the limit of this CouponTieredAmountOffItem.
 
-        The maximum amount of total discount by this coupon.  # noqa: E501
+        The maximum number of discounted items.  # noqa: E501
 
         :param limit: The limit of this CouponTieredAmountOffItem.  # noqa: E501
         :type: float
