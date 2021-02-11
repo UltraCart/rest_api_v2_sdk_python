@@ -1396,7 +1396,7 @@ class CustomerApi(object):
 
         :param async_req bool
         :param EmailVerifyTokenValidateRequest validation_request: Token validation request (required)
-        :return: EmailVerifyTokenResponse
+        :return: EmailVerifyTokenValidateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1418,7 +1418,7 @@ class CustomerApi(object):
 
         :param async_req bool
         :param EmailVerifyTokenValidateRequest validation_request: Token validation request (required)
-        :return: EmailVerifyTokenResponse
+        :return: EmailVerifyTokenValidateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1476,7 +1476,7 @@ class CustomerApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='EmailVerifyTokenResponse',  # noqa: E501
+            response_type='EmailVerifyTokenValidateResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

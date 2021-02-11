@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_email_verification_token**
-> EmailVerifyTokenResponse validate_email_verification_token(validation_request)
+> EmailVerifyTokenValidateResponse validate_email_verification_token(validation_request)
 
 Validate a token that can be used to verify a customer email address
 
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EmailVerifyTokenResponse**](EmailVerifyTokenResponse.md)
+[**EmailVerifyTokenValidateResponse**](EmailVerifyTokenValidateResponse.md)
 
 ### Authorization
 
