@@ -39,6 +39,7 @@ class ScreenRecording(object):
         'esp_customer_uuid': 'str',
         'events_gz_size': 'int',
         'events_json_key': 'str',
+        'favorite': 'bool',
         'favorites': 'list[int]',
         'geolocation': 'GeoPoint',
         'geolocation_country': 'str',
@@ -74,6 +75,7 @@ class ScreenRecording(object):
         'esp_customer_uuid': 'esp_customer_uuid',
         'events_gz_size': 'events_gz_size',
         'events_json_key': 'events_json_key',
+        'favorite': 'favorite',
         'favorites': 'favorites',
         'geolocation': 'geolocation',
         'geolocation_country': 'geolocation_country',
@@ -100,7 +102,7 @@ class ScreenRecording(object):
         'window_width': 'window_width'
     }
 
-    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, watched=None, window_height=None, window_width=None):  # noqa: E501
+    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, watched=None, window_height=None, window_width=None):  # noqa: E501
         """ScreenRecording - a model defined in Swagger"""  # noqa: E501
 
         self._analytics_client_oid = None
@@ -111,6 +113,7 @@ class ScreenRecording(object):
         self._esp_customer_uuid = None
         self._events_gz_size = None
         self._events_json_key = None
+        self._favorite = None
         self._favorites = None
         self._geolocation = None
         self._geolocation_country = None
@@ -153,6 +156,8 @@ class ScreenRecording(object):
             self.events_gz_size = events_gz_size
         if events_json_key is not None:
             self.events_json_key = events_json_key
+        if favorite is not None:
+            self.favorite = favorite
         if favorites is not None:
             self.favorites = favorites
         if geolocation is not None:
@@ -373,9 +378,33 @@ class ScreenRecording(object):
         self._events_json_key = events_json_key
 
     @property
+    def favorite(self):
+        """Gets the favorite of this ScreenRecording.  # noqa: E501
+
+        True if the user calling the API has favorited this particular screen recording.  # noqa: E501
+
+        :return: The favorite of this ScreenRecording.  # noqa: E501
+        :rtype: bool
+        """
+        return self._favorite
+
+    @favorite.setter
+    def favorite(self, favorite):
+        """Sets the favorite of this ScreenRecording.
+
+        True if the user calling the API has favorited this particular screen recording.  # noqa: E501
+
+        :param favorite: The favorite of this ScreenRecording.  # noqa: E501
+        :type: bool
+        """
+
+        self._favorite = favorite
+
+    @property
     def favorites(self):
         """Gets the favorites of this ScreenRecording.  # noqa: E501
 
+        Array of user ids that favorited this particular screen recording.  # noqa: E501
 
         :return: The favorites of this ScreenRecording.  # noqa: E501
         :rtype: list[int]
@@ -386,6 +415,7 @@ class ScreenRecording(object):
     def favorites(self, favorites):
         """Sets the favorites of this ScreenRecording.
 
+        Array of user ids that favorited this particular screen recording.  # noqa: E501
 
         :param favorites: The favorites of this ScreenRecording.  # noqa: E501
         :type: list[int]
