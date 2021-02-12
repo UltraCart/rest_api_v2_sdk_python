@@ -1830,7 +1830,7 @@ class CouponApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param CouponsRequest coupons_request: Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+        :param CouponsRequest coupons_request: Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :param bool _async: True if the operation should be run async.  No result returned
@@ -1855,7 +1855,7 @@ class CouponApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param CouponsRequest coupons_request: Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+        :param CouponsRequest coupons_request: Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :param bool _async: True if the operation should be run async.  No result returned
