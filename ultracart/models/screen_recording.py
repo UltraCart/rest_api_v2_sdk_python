@@ -62,6 +62,7 @@ class ScreenRecording(object):
         'user_agent_raw': 'str',
         'user_ip': 'str',
         'user_properties': 'list[ScreenRecordingUserProperty]',
+        'visitor_number': 'int',
         'watched': 'bool',
         'window_height': 'int',
         'window_width': 'int'
@@ -99,12 +100,13 @@ class ScreenRecording(object):
         'user_agent_raw': 'user_agent_raw',
         'user_ip': 'user_ip',
         'user_properties': 'user_properties',
+        'visitor_number': 'visitor_number',
         'watched': 'watched',
         'window_height': 'window_height',
         'window_width': 'window_width'
     }
 
-    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, watched=None, window_height=None, window_width=None):  # noqa: E501
+    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
         """ScreenRecording - a model defined in Swagger"""  # noqa: E501
 
         self._analytics_client_oid = None
@@ -138,6 +140,7 @@ class ScreenRecording(object):
         self._user_agent_raw = None
         self._user_ip = None
         self._user_properties = None
+        self._visitor_number = None
         self._watched = None
         self._window_height = None
         self._window_width = None
@@ -205,6 +208,8 @@ class ScreenRecording(object):
             self.user_ip = user_ip
         if user_properties is not None:
             self.user_properties = user_properties
+        if visitor_number is not None:
+            self.visitor_number = visitor_number
         if watched is not None:
             self.watched = watched
         if window_height is not None:
@@ -870,6 +875,27 @@ class ScreenRecording(object):
         """
 
         self._user_properties = user_properties
+
+    @property
+    def visitor_number(self):
+        """Gets the visitor_number of this ScreenRecording.  # noqa: E501
+
+
+        :return: The visitor_number of this ScreenRecording.  # noqa: E501
+        :rtype: int
+        """
+        return self._visitor_number
+
+    @visitor_number.setter
+    def visitor_number(self, visitor_number):
+        """Sets the visitor_number of this ScreenRecording.
+
+
+        :param visitor_number: The visitor_number of this ScreenRecording.  # noqa: E501
+        :type: int
+        """
+
+        self._visitor_number = visitor_number
 
     @property
     def watched(self):
