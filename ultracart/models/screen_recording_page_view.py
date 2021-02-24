@@ -35,6 +35,7 @@ class ScreenRecordingPageView(object):
         'first_event_timestamp': 'str',
         'http_post': 'bool',
         'last_event_timestamp': 'str',
+        'missing_events': 'bool',
         'params': 'list[ScreenRecordingPageViewParameter]',
         'range_end': 'int',
         'range_start': 'int',
@@ -53,6 +54,7 @@ class ScreenRecordingPageView(object):
         'first_event_timestamp': 'first_event_timestamp',
         'http_post': 'http_post',
         'last_event_timestamp': 'last_event_timestamp',
+        'missing_events': 'missing_events',
         'params': 'params',
         'range_end': 'range_end',
         'range_start': 'range_start',
@@ -66,13 +68,14 @@ class ScreenRecordingPageView(object):
         'url': 'url'
     }
 
-    def __init__(self, events=None, first_event_timestamp=None, http_post=None, last_event_timestamp=None, params=None, range_end=None, range_start=None, referrer=None, referrer_params=None, referrer_raw=None, screen_recording_page_view_uuid=None, time_on_page=None, truncated_events=None, ucapv=None, url=None):  # noqa: E501
+    def __init__(self, events=None, first_event_timestamp=None, http_post=None, last_event_timestamp=None, missing_events=None, params=None, range_end=None, range_start=None, referrer=None, referrer_params=None, referrer_raw=None, screen_recording_page_view_uuid=None, time_on_page=None, truncated_events=None, ucapv=None, url=None):  # noqa: E501
         """ScreenRecordingPageView - a model defined in Swagger"""  # noqa: E501
 
         self._events = None
         self._first_event_timestamp = None
         self._http_post = None
         self._last_event_timestamp = None
+        self._missing_events = None
         self._params = None
         self._range_end = None
         self._range_start = None
@@ -94,6 +97,8 @@ class ScreenRecordingPageView(object):
             self.http_post = http_post
         if last_event_timestamp is not None:
             self.last_event_timestamp = last_event_timestamp
+        if missing_events is not None:
+            self.missing_events = missing_events
         if params is not None:
             self.params = params
         if range_end is not None:
@@ -204,6 +209,27 @@ class ScreenRecordingPageView(object):
         """
 
         self._last_event_timestamp = last_event_timestamp
+
+    @property
+    def missing_events(self):
+        """Gets the missing_events of this ScreenRecordingPageView.  # noqa: E501
+
+
+        :return: The missing_events of this ScreenRecordingPageView.  # noqa: E501
+        :rtype: bool
+        """
+        return self._missing_events
+
+    @missing_events.setter
+    def missing_events(self, missing_events):
+        """Sets the missing_events of this ScreenRecordingPageView.
+
+
+        :param missing_events: The missing_events of this ScreenRecordingPageView.  # noqa: E501
+        :type: bool
+        """
+
+        self._missing_events = missing_events
 
     @property
     def params(self):

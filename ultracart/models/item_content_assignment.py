@@ -31,6 +31,7 @@ class ItemContentAssignment(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'default_assignment': 'bool',
         'group_oid': 'int',
         'group_path': 'str',
         'host': 'str',
@@ -39,6 +40,7 @@ class ItemContentAssignment(object):
     }
 
     attribute_map = {
+        'default_assignment': 'default_assignment',
         'group_oid': 'group_oid',
         'group_path': 'group_path',
         'host': 'host',
@@ -46,9 +48,10 @@ class ItemContentAssignment(object):
         'url_part': 'url_part'
     }
 
-    def __init__(self, group_oid=None, group_path=None, host=None, sort_order=None, url_part=None):  # noqa: E501
+    def __init__(self, default_assignment=None, group_oid=None, group_path=None, host=None, sort_order=None, url_part=None):  # noqa: E501
         """ItemContentAssignment - a model defined in Swagger"""  # noqa: E501
 
+        self._default_assignment = None
         self._group_oid = None
         self._group_path = None
         self._host = None
@@ -56,6 +59,8 @@ class ItemContentAssignment(object):
         self._url_part = None
         self.discriminator = None
 
+        if default_assignment is not None:
+            self.default_assignment = default_assignment
         if group_oid is not None:
             self.group_oid = group_oid
         if group_path is not None:
@@ -66,6 +71,29 @@ class ItemContentAssignment(object):
             self.sort_order = sort_order
         if url_part is not None:
             self.url_part = url_part
+
+    @property
+    def default_assignment(self):
+        """Gets the default_assignment of this ItemContentAssignment.  # noqa: E501
+
+        True if this group is the default assignment for this item  # noqa: E501
+
+        :return: The default_assignment of this ItemContentAssignment.  # noqa: E501
+        :rtype: bool
+        """
+        return self._default_assignment
+
+    @default_assignment.setter
+    def default_assignment(self, default_assignment):
+        """Sets the default_assignment of this ItemContentAssignment.
+
+        True if this group is the default assignment for this item  # noqa: E501
+
+        :param default_assignment: The default_assignment of this ItemContentAssignment.  # noqa: E501
+        :type: bool
+        """
+
+        self._default_assignment = default_assignment
 
     @property
     def group_oid(self):
