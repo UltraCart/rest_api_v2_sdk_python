@@ -45,6 +45,7 @@ class ScreenRecording(object):
         'geolocation_country': 'str',
         'geolocation_state': 'str',
         'merchant_id': 'str',
+        'merchant_notes': 'str',
         'order_id': 'str',
         'page_view_count': 'int',
         'page_views': 'list[ScreenRecordingPageView]',
@@ -81,6 +82,7 @@ class ScreenRecording(object):
         'geolocation_country': 'geolocation_country',
         'geolocation_state': 'geolocation_state',
         'merchant_id': 'merchant_id',
+        'merchant_notes': 'merchant_notes',
         'order_id': 'order_id',
         'page_view_count': 'page_view_count',
         'page_views': 'page_views',
@@ -102,7 +104,7 @@ class ScreenRecording(object):
         'window_width': 'window_width'
     }
 
-    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, watched=None, window_height=None, window_width=None):  # noqa: E501
+    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, watched=None, window_height=None, window_width=None):  # noqa: E501
         """ScreenRecording - a model defined in Swagger"""  # noqa: E501
 
         self._analytics_client_oid = None
@@ -119,6 +121,7 @@ class ScreenRecording(object):
         self._geolocation_country = None
         self._geolocation_state = None
         self._merchant_id = None
+        self._merchant_notes = None
         self._order_id = None
         self._page_view_count = None
         self._page_views = None
@@ -168,6 +171,8 @@ class ScreenRecording(object):
             self.geolocation_state = geolocation_state
         if merchant_id is not None:
             self.merchant_id = merchant_id
+        if merchant_notes is not None:
+            self.merchant_notes = merchant_notes
         if order_id is not None:
             self.order_id = order_id
         if page_view_count is not None:
@@ -506,6 +511,27 @@ class ScreenRecording(object):
         """
 
         self._merchant_id = merchant_id
+
+    @property
+    def merchant_notes(self):
+        """Gets the merchant_notes of this ScreenRecording.  # noqa: E501
+
+
+        :return: The merchant_notes of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._merchant_notes
+
+    @merchant_notes.setter
+    def merchant_notes(self, merchant_notes):
+        """Sets the merchant_notes of this ScreenRecording.
+
+
+        :param merchant_notes: The merchant_notes of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._merchant_notes = merchant_notes
 
     @property
     def order_id(self):
