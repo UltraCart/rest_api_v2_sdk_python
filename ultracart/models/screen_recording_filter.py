@@ -57,6 +57,7 @@ class ScreenRecordingFilter(object):
         'user_agent_os_name': 'str',
         'user_agent_os_version': 'str',
         'user_ip': 'ScreenRecordingFilterIpSearch',
+        'visitor_number': 'int',
         'watched': 'bool'
     }
 
@@ -87,10 +88,11 @@ class ScreenRecordingFilter(object):
         'user_agent_os_name': 'user_agent_os_name',
         'user_agent_os_version': 'user_agent_os_version',
         'user_ip': 'user_ip',
+        'visitor_number': 'visitor_number',
         'watched': 'watched'
     }
 
-    def __init__(self, email=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, watched=None):  # noqa: E501
+    def __init__(self, email=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, visitor_number=None, watched=None):  # noqa: E501
         """ScreenRecordingFilter - a model defined in Swagger"""  # noqa: E501
 
         self._email = None
@@ -119,6 +121,7 @@ class ScreenRecordingFilter(object):
         self._user_agent_os_name = None
         self._user_agent_os_version = None
         self._user_ip = None
+        self._visitor_number = None
         self._watched = None
         self.discriminator = None
 
@@ -174,6 +177,8 @@ class ScreenRecordingFilter(object):
             self.user_agent_os_version = user_agent_os_version
         if user_ip is not None:
             self.user_ip = user_ip
+        if visitor_number is not None:
+            self.visitor_number = visitor_number
         if watched is not None:
             self.watched = watched
 
@@ -722,6 +727,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._user_ip = user_ip
+
+    @property
+    def visitor_number(self):
+        """Gets the visitor_number of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The visitor_number of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: int
+        """
+        return self._visitor_number
+
+    @visitor_number.setter
+    def visitor_number(self, visitor_number):
+        """Sets the visitor_number of this ScreenRecordingFilter.
+
+
+        :param visitor_number: The visitor_number of this ScreenRecordingFilter.  # noqa: E501
+        :type: int
+        """
+
+        self._visitor_number = visitor_number
 
     @property
     def watched(self):

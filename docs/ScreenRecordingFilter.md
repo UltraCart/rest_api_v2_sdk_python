@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **user_agent_os_name** | **str** |  | [optional] 
 **user_agent_os_version** | **str** |  | [optional] 
 **user_ip** | [**ScreenRecordingFilterIpSearch**](ScreenRecordingFilterIpSearch.md) |  | [optional] 
+**visitor_number** | **int** |  | [optional] 
 **watched** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
