@@ -1414,7 +1414,7 @@ class CouponApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param CouponsRequest coupons_request: Coupons to insert (maximum 20) (required)
+        :param CouponsRequest coupons_request: Coupons to insert (maximum 50) (required)
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: CouponsResponse
@@ -1438,7 +1438,7 @@ class CouponApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param CouponsRequest coupons_request: Coupons to insert (maximum 20) (required)
+        :param CouponsRequest coupons_request: Coupons to insert (maximum 50) (required)
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: CouponsResponse

@@ -725,7 +725,7 @@ from pprint import pprint
 simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
 api_instance = ultracart.CouponApi.fromApiKey(simple_key, False, True)
 
-coupons_request = ultracart.CouponsRequest() # CouponsRequest | Coupons to insert (maximum 20)
+coupons_request = ultracart.CouponsRequest() # CouponsRequest | Coupons to insert (maximum 50)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
@@ -741,7 +741,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coupons_request** | [**CouponsRequest**](CouponsRequest.md)| Coupons to insert (maximum 20) | 
+ **coupons_request** | [**CouponsRequest**](CouponsRequest.md)| Coupons to insert (maximum 50) | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
  **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
