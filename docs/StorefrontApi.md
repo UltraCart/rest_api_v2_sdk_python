@@ -1095,7 +1095,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_screen_recording_segment**
-> ScreenRecordingSegmentResponse delete_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
+> delete_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
 
 Delete screen recording segment
 
@@ -1116,8 +1116,7 @@ screen_recording_segment_oid = 56 # int |
 
 try:
     # Delete screen recording segment
-    api_response = api_instance.delete_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
-    pprint(api_response)
+    api_instance.delete_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
 except ApiException as e:
     print("Exception when calling StorefrontApi->delete_screen_recording_segment: %s\n" % e)
 ```
@@ -1131,7 +1130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScreenRecordingSegmentResponse**](ScreenRecordingSegmentResponse.md)
+void (empty response body)
 
 ### Authorization
 
