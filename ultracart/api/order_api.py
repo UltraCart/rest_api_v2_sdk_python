@@ -992,6 +992,13 @@ class OrderApi(object):
         :param int customer_profile_oid:
         :param str refund_date_begin:
         :param str refund_date_end:
+        :param str custom_field_1:
+        :param str custom_field_2:
+        :param str custom_field_3:
+        :param str custom_field_4:
+        :param str custom_field_5:
+        :param str custom_field_6:
+        :param str custom_field_7:
         :param int limit: The maximum number of records to return on this one API call. (Maximum 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str sort: The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -1047,6 +1054,13 @@ class OrderApi(object):
         :param int customer_profile_oid:
         :param str refund_date_begin:
         :param str refund_date_end:
+        :param str custom_field_1:
+        :param str custom_field_2:
+        :param str custom_field_3:
+        :param str custom_field_4:
+        :param str custom_field_5:
+        :param str custom_field_6:
+        :param str custom_field_7:
         :param int limit: The maximum number of records to return on this one API call. (Maximum 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str sort: The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -1056,7 +1070,7 @@ class OrderApi(object):
                  returns the request thread.
         """
 
-        all_params = ['order_id', 'payment_method', 'company', 'first_name', 'last_name', 'city', 'state_region', 'postal_code', 'country_code', 'phone', 'email', 'cc_email', 'total', 'screen_branding_theme_code', 'storefront_host_name', 'creation_date_begin', 'creation_date_end', 'payment_date_begin', 'payment_date_end', 'shipment_date_begin', 'shipment_date_end', 'rma', 'purchase_order_number', 'item_id', 'current_stage', 'channel_partner_code', 'channel_partner_order_id', 'customer_profile_oid', 'refund_date_begin', 'refund_date_end', 'limit', 'offset', 'sort', 'expand']  # noqa: E501
+        all_params = ['order_id', 'payment_method', 'company', 'first_name', 'last_name', 'city', 'state_region', 'postal_code', 'country_code', 'phone', 'email', 'cc_email', 'total', 'screen_branding_theme_code', 'storefront_host_name', 'creation_date_begin', 'creation_date_end', 'payment_date_begin', 'payment_date_end', 'shipment_date_begin', 'shipment_date_end', 'rma', 'purchase_order_number', 'item_id', 'current_stage', 'channel_partner_code', 'channel_partner_order_id', 'customer_profile_oid', 'refund_date_begin', 'refund_date_end', 'custom_field_1', 'custom_field_2', 'custom_field_3', 'custom_field_4', 'custom_field_5', 'custom_field_6', 'custom_field_7', 'limit', 'offset', 'sort', 'expand']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1137,6 +1151,20 @@ class OrderApi(object):
             query_params.append(('Refund Date Begin', params['refund_date_begin']))  # noqa: E501
         if 'refund_date_end' in params:
             query_params.append(('Refund Date End', params['refund_date_end']))  # noqa: E501
+        if 'custom_field_1' in params:
+            query_params.append(('Custom Field 1', params['custom_field_1']))  # noqa: E501
+        if 'custom_field_2' in params:
+            query_params.append(('Custom Field 2', params['custom_field_2']))  # noqa: E501
+        if 'custom_field_3' in params:
+            query_params.append(('Custom Field 3', params['custom_field_3']))  # noqa: E501
+        if 'custom_field_4' in params:
+            query_params.append(('Custom Field 4', params['custom_field_4']))  # noqa: E501
+        if 'custom_field_5' in params:
+            query_params.append(('Custom Field 5', params['custom_field_5']))  # noqa: E501
+        if 'custom_field_6' in params:
+            query_params.append(('Custom Field 6', params['custom_field_6']))  # noqa: E501
+        if 'custom_field_7' in params:
+            query_params.append(('Custom Field 7', params['custom_field_7']))  # noqa: E501
         if 'limit' in params:
             query_params.append(('_limit', params['limit']))  # noqa: E501
         if 'offset' in params:

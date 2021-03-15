@@ -53,6 +53,7 @@ class EmailCommseqEmail(object):
         'smart_sending': 'bool',
         'storefront_oid': 'int',
         'subject': 'str',
+        'suspended_for_spam': 'bool',
         'transactional_email': 'bool',
         'version': 'int'
     }
@@ -80,11 +81,12 @@ class EmailCommseqEmail(object):
         'smart_sending': 'smart_sending',
         'storefront_oid': 'storefront_oid',
         'subject': 'subject',
+        'suspended_for_spam': 'suspended_for_spam',
         'transactional_email': 'transactional_email',
         'version': 'version'
     }
 
-    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, filter_profile_equation_json=None, individually_render=None, library_item_oid=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, smart_sending=None, storefront_oid=None, subject=None, transactional_email=None, version=None):  # noqa: E501
+    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, filter_profile_equation_json=None, individually_render=None, library_item_oid=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, smart_sending=None, storefront_oid=None, subject=None, suspended_for_spam=None, transactional_email=None, version=None):  # noqa: E501
         """EmailCommseqEmail - a model defined in Swagger"""  # noqa: E501
 
         self._deleted = None
@@ -109,6 +111,7 @@ class EmailCommseqEmail(object):
         self._smart_sending = None
         self._storefront_oid = None
         self._subject = None
+        self._suspended_for_spam = None
         self._transactional_email = None
         self._version = None
         self.discriminator = None
@@ -157,6 +160,8 @@ class EmailCommseqEmail(object):
             self.storefront_oid = storefront_oid
         if subject is not None:
             self.subject = subject
+        if suspended_for_spam is not None:
+            self.suspended_for_spam = suspended_for_spam
         if transactional_email is not None:
             self.transactional_email = transactional_email
         if version is not None:
@@ -667,6 +672,29 @@ class EmailCommseqEmail(object):
         """
 
         self._subject = subject
+
+    @property
+    def suspended_for_spam(self):
+        """Gets the suspended_for_spam of this EmailCommseqEmail.  # noqa: E501
+
+        True if the email was suspended for too high of a spam rate.  # noqa: E501
+
+        :return: The suspended_for_spam of this EmailCommseqEmail.  # noqa: E501
+        :rtype: bool
+        """
+        return self._suspended_for_spam
+
+    @suspended_for_spam.setter
+    def suspended_for_spam(self, suspended_for_spam):
+        """Sets the suspended_for_spam of this EmailCommseqEmail.
+
+        True if the email was suspended for too high of a spam rate.  # noqa: E501
+
+        :param suspended_for_spam: The suspended_for_spam of this EmailCommseqEmail.  # noqa: E501
+        :type: bool
+        """
+
+        self._suspended_for_spam = suspended_for_spam
 
     @property
     def transactional_email(self):
