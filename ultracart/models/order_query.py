@@ -65,6 +65,8 @@ class OrderQuery(object):
         'screen_branding_theme_code': 'str',
         'shipment_date_begin': 'str',
         'shipment_date_end': 'str',
+        'shipped_on_date_begin': 'str',
+        'shipped_on_date_end': 'str',
         'state_region': 'str',
         'storefront_host_name': 'str',
         'total': 'float'
@@ -105,12 +107,14 @@ class OrderQuery(object):
         'screen_branding_theme_code': 'screen_branding_theme_code',
         'shipment_date_begin': 'shipment_date_begin',
         'shipment_date_end': 'shipment_date_end',
+        'shipped_on_date_begin': 'shipped_on_date_begin',
+        'shipped_on_date_end': 'shipped_on_date_end',
         'state_region': 'state_region',
         'storefront_host_name': 'storefront_host_name',
         'total': 'total'
     }
 
-    def __init__(self, cc_email=None, channel_partner_code=None, channel_partner_order_id=None, city=None, company=None, country_code=None, creation_date_begin=None, creation_date_end=None, current_stage=None, custom_field_1=None, custom_field_2=None, custom_field_3=None, custom_field_4=None, custom_field_5=None, custom_field_6=None, custom_field_7=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, order_id=None, payment_date_begin=None, payment_date_end=None, payment_method=None, phone=None, postal_code=None, purchase_order_number=None, refund_date_begin=None, refund_date_end=None, rma=None, screen_branding_theme_code=None, shipment_date_begin=None, shipment_date_end=None, state_region=None, storefront_host_name=None, total=None):  # noqa: E501
+    def __init__(self, cc_email=None, channel_partner_code=None, channel_partner_order_id=None, city=None, company=None, country_code=None, creation_date_begin=None, creation_date_end=None, current_stage=None, custom_field_1=None, custom_field_2=None, custom_field_3=None, custom_field_4=None, custom_field_5=None, custom_field_6=None, custom_field_7=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, order_id=None, payment_date_begin=None, payment_date_end=None, payment_method=None, phone=None, postal_code=None, purchase_order_number=None, refund_date_begin=None, refund_date_end=None, rma=None, screen_branding_theme_code=None, shipment_date_begin=None, shipment_date_end=None, shipped_on_date_begin=None, shipped_on_date_end=None, state_region=None, storefront_host_name=None, total=None):  # noqa: E501
         """OrderQuery - a model defined in Swagger"""  # noqa: E501
 
         self._cc_email = None
@@ -147,6 +151,8 @@ class OrderQuery(object):
         self._screen_branding_theme_code = None
         self._shipment_date_begin = None
         self._shipment_date_end = None
+        self._shipped_on_date_begin = None
+        self._shipped_on_date_end = None
         self._state_region = None
         self._storefront_host_name = None
         self._total = None
@@ -220,6 +226,10 @@ class OrderQuery(object):
             self.shipment_date_begin = shipment_date_begin
         if shipment_date_end is not None:
             self.shipment_date_end = shipment_date_end
+        if shipped_on_date_begin is not None:
+            self.shipped_on_date_begin = shipped_on_date_begin
+        if shipped_on_date_end is not None:
+            self.shipped_on_date_end = shipped_on_date_end
         if state_region is not None:
             self.state_region = state_region
         if storefront_host_name is not None:
@@ -1001,7 +1011,7 @@ class OrderQuery(object):
     def shipment_date_begin(self):
         """Gets the shipment_date_begin of this OrderQuery.  # noqa: E501
 
-        Date/time that the order was shipping  # noqa: E501
+        Date/time that the order was shipped  # noqa: E501
 
         :return: The shipment_date_begin of this OrderQuery.  # noqa: E501
         :rtype: str
@@ -1012,7 +1022,7 @@ class OrderQuery(object):
     def shipment_date_begin(self, shipment_date_begin):
         """Sets the shipment_date_begin of this OrderQuery.
 
-        Date/time that the order was shipping  # noqa: E501
+        Date/time that the order was shipped  # noqa: E501
 
         :param shipment_date_begin: The shipment_date_begin of this OrderQuery.  # noqa: E501
         :type: str
@@ -1042,6 +1052,52 @@ class OrderQuery(object):
         """
 
         self._shipment_date_end = shipment_date_end
+
+    @property
+    def shipped_on_date_begin(self):
+        """Gets the shipped_on_date_begin of this OrderQuery.  # noqa: E501
+
+        Date/time that the order should ship on  # noqa: E501
+
+        :return: The shipped_on_date_begin of this OrderQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._shipped_on_date_begin
+
+    @shipped_on_date_begin.setter
+    def shipped_on_date_begin(self, shipped_on_date_begin):
+        """Sets the shipped_on_date_begin of this OrderQuery.
+
+        Date/time that the order should ship on  # noqa: E501
+
+        :param shipped_on_date_begin: The shipped_on_date_begin of this OrderQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._shipped_on_date_begin = shipped_on_date_begin
+
+    @property
+    def shipped_on_date_end(self):
+        """Gets the shipped_on_date_end of this OrderQuery.  # noqa: E501
+
+        Date/time that the order should ship on  # noqa: E501
+
+        :return: The shipped_on_date_end of this OrderQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._shipped_on_date_end
+
+    @shipped_on_date_end.setter
+    def shipped_on_date_end(self, shipped_on_date_end):
+        """Sets the shipped_on_date_end of this OrderQuery.
+
+        Date/time that the order should ship on  # noqa: E501
+
+        :param shipped_on_date_end: The shipped_on_date_end of this OrderQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._shipped_on_date_end = shipped_on_date_end
 
     @property
     def state_region(self):

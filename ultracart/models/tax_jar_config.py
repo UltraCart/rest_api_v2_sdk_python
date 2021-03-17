@@ -36,6 +36,7 @@ class TaxJarConfig(object):
         'estimate_only': 'bool',
         'send_outside_nexus': 'bool',
         'send_test_orders': 'bool',
+        'skip_channel_orders': 'bool',
         'use_distribution_center_from': 'bool'
     }
 
@@ -45,10 +46,11 @@ class TaxJarConfig(object):
         'estimate_only': 'estimate_only',
         'send_outside_nexus': 'send_outside_nexus',
         'send_test_orders': 'send_test_orders',
+        'skip_channel_orders': 'skip_channel_orders',
         'use_distribution_center_from': 'use_distribution_center_from'
     }
 
-    def __init__(self, active=None, api_key=None, estimate_only=None, send_outside_nexus=None, send_test_orders=None, use_distribution_center_from=None):  # noqa: E501
+    def __init__(self, active=None, api_key=None, estimate_only=None, send_outside_nexus=None, send_test_orders=None, skip_channel_orders=None, use_distribution_center_from=None):  # noqa: E501
         """TaxJarConfig - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
@@ -56,6 +58,7 @@ class TaxJarConfig(object):
         self._estimate_only = None
         self._send_outside_nexus = None
         self._send_test_orders = None
+        self._skip_channel_orders = None
         self._use_distribution_center_from = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class TaxJarConfig(object):
             self.send_outside_nexus = send_outside_nexus
         if send_test_orders is not None:
             self.send_test_orders = send_test_orders
+        if skip_channel_orders is not None:
+            self.skip_channel_orders = skip_channel_orders
         if use_distribution_center_from is not None:
             self.use_distribution_center_from = use_distribution_center_from
 
@@ -186,6 +191,29 @@ class TaxJarConfig(object):
         """
 
         self._send_test_orders = send_test_orders
+
+    @property
+    def skip_channel_orders(self):
+        """Gets the skip_channel_orders of this TaxJarConfig.  # noqa: E501
+
+        Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own.  # noqa: E501
+
+        :return: The skip_channel_orders of this TaxJarConfig.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_channel_orders
+
+    @skip_channel_orders.setter
+    def skip_channel_orders(self, skip_channel_orders):
+        """Sets the skip_channel_orders of this TaxJarConfig.
+
+        Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own.  # noqa: E501
+
+        :param skip_channel_orders: The skip_channel_orders of this TaxJarConfig.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_channel_orders = skip_channel_orders
 
     @property
     def use_distribution_center_from(self):
