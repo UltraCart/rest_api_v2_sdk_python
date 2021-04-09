@@ -35,6 +35,8 @@ class ScreenRecordingFilterValues(object):
         'geolocation_states': 'list[str]',
         'max_values': 'int',
         'page_views': 'list[ScreenRecordingFilterValuesPageView]',
+        'time_on_site_max': 'int',
+        'time_on_site_min': 'int',
         'urls': 'list[str]',
         'user_agent_device_names': 'list[str]',
         'user_agent_device_os_names': 'list[str]',
@@ -48,6 +50,8 @@ class ScreenRecordingFilterValues(object):
         'geolocation_states': 'geolocation_states',
         'max_values': 'max_values',
         'page_views': 'page_views',
+        'time_on_site_max': 'time_on_site_max',
+        'time_on_site_min': 'time_on_site_min',
         'urls': 'urls',
         'user_agent_device_names': 'user_agent_device_names',
         'user_agent_device_os_names': 'user_agent_device_os_names',
@@ -56,13 +60,15 @@ class ScreenRecordingFilterValues(object):
         'user_agent_originals': 'user_agent_originals'
     }
 
-    def __init__(self, geolocation_countries=None, geolocation_states=None, max_values=None, page_views=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None):  # noqa: E501
+    def __init__(self, geolocation_countries=None, geolocation_states=None, max_values=None, page_views=None, time_on_site_max=None, time_on_site_min=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None):  # noqa: E501
         """ScreenRecordingFilterValues - a model defined in Swagger"""  # noqa: E501
 
         self._geolocation_countries = None
         self._geolocation_states = None
         self._max_values = None
         self._page_views = None
+        self._time_on_site_max = None
+        self._time_on_site_min = None
         self._urls = None
         self._user_agent_device_names = None
         self._user_agent_device_os_names = None
@@ -79,6 +85,10 @@ class ScreenRecordingFilterValues(object):
             self.max_values = max_values
         if page_views is not None:
             self.page_views = page_views
+        if time_on_site_max is not None:
+            self.time_on_site_max = time_on_site_max
+        if time_on_site_min is not None:
+            self.time_on_site_min = time_on_site_min
         if urls is not None:
             self.urls = urls
         if user_agent_device_names is not None:
@@ -175,6 +185,48 @@ class ScreenRecordingFilterValues(object):
         """
 
         self._page_views = page_views
+
+    @property
+    def time_on_site_max(self):
+        """Gets the time_on_site_max of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The time_on_site_max of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: int
+        """
+        return self._time_on_site_max
+
+    @time_on_site_max.setter
+    def time_on_site_max(self, time_on_site_max):
+        """Sets the time_on_site_max of this ScreenRecordingFilterValues.
+
+
+        :param time_on_site_max: The time_on_site_max of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: int
+        """
+
+        self._time_on_site_max = time_on_site_max
+
+    @property
+    def time_on_site_min(self):
+        """Gets the time_on_site_min of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The time_on_site_min of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: int
+        """
+        return self._time_on_site_min
+
+    @time_on_site_min.setter
+    def time_on_site_min(self, time_on_site_min):
+        """Sets the time_on_site_min of this ScreenRecordingFilterValues.
+
+
+        :param time_on_site_min: The time_on_site_min of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: int
+        """
+
+        self._time_on_site_min = time_on_site_min
 
     @property
     def urls(self):

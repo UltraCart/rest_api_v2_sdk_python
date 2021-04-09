@@ -33,20 +33,26 @@ class ScreenRecordingFilterValuesPageView(object):
     swagger_types = {
         'events': 'list[ScreenRecordingFilterValuesEvent]',
         'page_params': 'list[ScreenRecordingFilterValuesPageParam]',
+        'time_on_page_max': 'int',
+        'time_on_page_min': 'int',
         'urls': 'list[str]'
     }
 
     attribute_map = {
         'events': 'events',
         'page_params': 'page_params',
+        'time_on_page_max': 'time_on_page_max',
+        'time_on_page_min': 'time_on_page_min',
         'urls': 'urls'
     }
 
-    def __init__(self, events=None, page_params=None, urls=None):  # noqa: E501
+    def __init__(self, events=None, page_params=None, time_on_page_max=None, time_on_page_min=None, urls=None):  # noqa: E501
         """ScreenRecordingFilterValuesPageView - a model defined in Swagger"""  # noqa: E501
 
         self._events = None
         self._page_params = None
+        self._time_on_page_max = None
+        self._time_on_page_min = None
         self._urls = None
         self.discriminator = None
 
@@ -54,6 +60,10 @@ class ScreenRecordingFilterValuesPageView(object):
             self.events = events
         if page_params is not None:
             self.page_params = page_params
+        if time_on_page_max is not None:
+            self.time_on_page_max = time_on_page_max
+        if time_on_page_min is not None:
+            self.time_on_page_min = time_on_page_min
         if urls is not None:
             self.urls = urls
 
@@ -98,6 +108,48 @@ class ScreenRecordingFilterValuesPageView(object):
         """
 
         self._page_params = page_params
+
+    @property
+    def time_on_page_max(self):
+        """Gets the time_on_page_max of this ScreenRecordingFilterValuesPageView.  # noqa: E501
+
+
+        :return: The time_on_page_max of this ScreenRecordingFilterValuesPageView.  # noqa: E501
+        :rtype: int
+        """
+        return self._time_on_page_max
+
+    @time_on_page_max.setter
+    def time_on_page_max(self, time_on_page_max):
+        """Sets the time_on_page_max of this ScreenRecordingFilterValuesPageView.
+
+
+        :param time_on_page_max: The time_on_page_max of this ScreenRecordingFilterValuesPageView.  # noqa: E501
+        :type: int
+        """
+
+        self._time_on_page_max = time_on_page_max
+
+    @property
+    def time_on_page_min(self):
+        """Gets the time_on_page_min of this ScreenRecordingFilterValuesPageView.  # noqa: E501
+
+
+        :return: The time_on_page_min of this ScreenRecordingFilterValuesPageView.  # noqa: E501
+        :rtype: int
+        """
+        return self._time_on_page_min
+
+    @time_on_page_min.setter
+    def time_on_page_min(self, time_on_page_min):
+        """Sets the time_on_page_min of this ScreenRecordingFilterValuesPageView.
+
+
+        :param time_on_page_min: The time_on_page_min of this ScreenRecordingFilterValuesPageView.  # noqa: E501
+        :type: int
+        """
+
+        self._time_on_page_min = time_on_page_min
 
     @property
     def urls(self):
