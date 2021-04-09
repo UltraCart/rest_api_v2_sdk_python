@@ -3,11 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**events** | [**list[ScreenRecordingFilterValuesEvent]**](ScreenRecordingFilterValuesEvent.md) |  | [optional] 
 **geolocation_countries** | **list[str]** |  | [optional] 
 **geolocation_states** | **list[str]** |  | [optional] 
 **max_values** | **int** |  | [optional] 
-**page_params** | [**list[ScreenRecordingFilterValuesPageParam]**](ScreenRecordingFilterValuesPageParam.md) |  | [optional] 
+**page_views** | [**list[ScreenRecordingFilterValuesPageView]**](ScreenRecordingFilterValuesPageView.md) |  | [optional] 
 **urls** | **list[str]** |  | [optional] 
 **user_agent_device_names** | **list[str]** |  | [optional] 
 **user_agent_device_os_names** | **list[str]** |  | [optional] 

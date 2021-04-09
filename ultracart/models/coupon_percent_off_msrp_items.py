@@ -112,7 +112,7 @@ class CouponPercentOffMsrpItems(object):
     def items(self):
         """Gets the items of this CouponPercentOffMsrpItems.  # noqa: E501
 
-        An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.  # noqa: E501
+        An list of items which will receive a discount.  # noqa: E501
 
         :return: The items of this CouponPercentOffMsrpItems.  # noqa: E501
         :rtype: list[str]
@@ -123,7 +123,7 @@ class CouponPercentOffMsrpItems(object):
     def items(self, items):
         """Sets the items of this CouponPercentOffMsrpItems.
 
-        An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.  # noqa: E501
+        An list of items which will receive a discount.  # noqa: E501
 
         :param items: The items of this CouponPercentOffMsrpItems.  # noqa: E501
         :type: list[str]

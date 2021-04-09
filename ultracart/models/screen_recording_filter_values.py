@@ -31,11 +31,10 @@ class ScreenRecordingFilterValues(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'events': 'list[ScreenRecordingFilterValuesEvent]',
         'geolocation_countries': 'list[str]',
         'geolocation_states': 'list[str]',
         'max_values': 'int',
-        'page_params': 'list[ScreenRecordingFilterValuesPageParam]',
+        'page_views': 'list[ScreenRecordingFilterValuesPageView]',
         'urls': 'list[str]',
         'user_agent_device_names': 'list[str]',
         'user_agent_device_os_names': 'list[str]',
@@ -45,11 +44,10 @@ class ScreenRecordingFilterValues(object):
     }
 
     attribute_map = {
-        'events': 'events',
         'geolocation_countries': 'geolocation_countries',
         'geolocation_states': 'geolocation_states',
         'max_values': 'max_values',
-        'page_params': 'page_params',
+        'page_views': 'page_views',
         'urls': 'urls',
         'user_agent_device_names': 'user_agent_device_names',
         'user_agent_device_os_names': 'user_agent_device_os_names',
@@ -58,14 +56,13 @@ class ScreenRecordingFilterValues(object):
         'user_agent_originals': 'user_agent_originals'
     }
 
-    def __init__(self, events=None, geolocation_countries=None, geolocation_states=None, max_values=None, page_params=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None):  # noqa: E501
+    def __init__(self, geolocation_countries=None, geolocation_states=None, max_values=None, page_views=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None):  # noqa: E501
         """ScreenRecordingFilterValues - a model defined in Swagger"""  # noqa: E501
 
-        self._events = None
         self._geolocation_countries = None
         self._geolocation_states = None
         self._max_values = None
-        self._page_params = None
+        self._page_views = None
         self._urls = None
         self._user_agent_device_names = None
         self._user_agent_device_os_names = None
@@ -74,16 +71,14 @@ class ScreenRecordingFilterValues(object):
         self._user_agent_originals = None
         self.discriminator = None
 
-        if events is not None:
-            self.events = events
         if geolocation_countries is not None:
             self.geolocation_countries = geolocation_countries
         if geolocation_states is not None:
             self.geolocation_states = geolocation_states
         if max_values is not None:
             self.max_values = max_values
-        if page_params is not None:
-            self.page_params = page_params
+        if page_views is not None:
+            self.page_views = page_views
         if urls is not None:
             self.urls = urls
         if user_agent_device_names is not None:
@@ -96,27 +91,6 @@ class ScreenRecordingFilterValues(object):
             self.user_agent_names = user_agent_names
         if user_agent_originals is not None:
             self.user_agent_originals = user_agent_originals
-
-    @property
-    def events(self):
-        """Gets the events of this ScreenRecordingFilterValues.  # noqa: E501
-
-
-        :return: The events of this ScreenRecordingFilterValues.  # noqa: E501
-        :rtype: list[ScreenRecordingFilterValuesEvent]
-        """
-        return self._events
-
-    @events.setter
-    def events(self, events):
-        """Sets the events of this ScreenRecordingFilterValues.
-
-
-        :param events: The events of this ScreenRecordingFilterValues.  # noqa: E501
-        :type: list[ScreenRecordingFilterValuesEvent]
-        """
-
-        self._events = events
 
     @property
     def geolocation_countries(self):
@@ -182,25 +156,25 @@ class ScreenRecordingFilterValues(object):
         self._max_values = max_values
 
     @property
-    def page_params(self):
-        """Gets the page_params of this ScreenRecordingFilterValues.  # noqa: E501
+    def page_views(self):
+        """Gets the page_views of this ScreenRecordingFilterValues.  # noqa: E501
 
 
-        :return: The page_params of this ScreenRecordingFilterValues.  # noqa: E501
-        :rtype: list[ScreenRecordingFilterValuesPageParam]
+        :return: The page_views of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[ScreenRecordingFilterValuesPageView]
         """
-        return self._page_params
+        return self._page_views
 
-    @page_params.setter
-    def page_params(self, page_params):
-        """Sets the page_params of this ScreenRecordingFilterValues.
+    @page_views.setter
+    def page_views(self, page_views):
+        """Sets the page_views of this ScreenRecordingFilterValues.
 
 
-        :param page_params: The page_params of this ScreenRecordingFilterValues.  # noqa: E501
-        :type: list[ScreenRecordingFilterValuesPageParam]
+        :param page_views: The page_views of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[ScreenRecordingFilterValuesPageView]
         """
 
-        self._page_params = page_params
+        self._page_views = page_views
 
     @property
     def urls(self):
