@@ -68,6 +68,8 @@ class ScreenRecording(object):
         'user_agent_raw': 'str',
         'user_ip': 'str',
         'user_properties': 'list[ScreenRecordingUserProperty]',
+        'utm_campaign': 'str',
+        'utm_source': 'str',
         'visitor_first_seen': 'str',
         'visitor_number': 'int',
         'watched': 'bool',
@@ -113,6 +115,8 @@ class ScreenRecording(object):
         'user_agent_raw': 'user_agent_raw',
         'user_ip': 'user_ip',
         'user_properties': 'user_properties',
+        'utm_campaign': 'utm_campaign',
+        'utm_source': 'utm_source',
         'visitor_first_seen': 'visitor_first_seen',
         'visitor_number': 'visitor_number',
         'watched': 'watched',
@@ -120,7 +124,7 @@ class ScreenRecording(object):
         'window_width': 'window_width'
     }
 
-    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, communications_campaign_name=None, communications_campaign_uuid=None, communications_email_subject=None, communications_email_uuid=None, communications_flow_name=None, communications_flow_uuid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
+    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, communications_campaign_name=None, communications_campaign_uuid=None, communications_email_subject=None, communications_email_uuid=None, communications_flow_name=None, communications_flow_uuid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, utm_campaign=None, utm_source=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
         """ScreenRecording - a model defined in Swagger"""  # noqa: E501
 
         self._analytics_client_oid = None
@@ -160,6 +164,8 @@ class ScreenRecording(object):
         self._user_agent_raw = None
         self._user_ip = None
         self._user_properties = None
+        self._utm_campaign = None
+        self._utm_source = None
         self._visitor_first_seen = None
         self._visitor_number = None
         self._watched = None
@@ -241,6 +247,10 @@ class ScreenRecording(object):
             self.user_ip = user_ip
         if user_properties is not None:
             self.user_properties = user_properties
+        if utm_campaign is not None:
+            self.utm_campaign = utm_campaign
+        if utm_source is not None:
+            self.utm_source = utm_source
         if visitor_first_seen is not None:
             self.visitor_first_seen = visitor_first_seen
         if visitor_number is not None:
@@ -1048,6 +1058,52 @@ class ScreenRecording(object):
         """
 
         self._user_properties = user_properties
+
+    @property
+    def utm_campaign(self):
+        """Gets the utm_campaign of this ScreenRecording.  # noqa: E501
+
+        UTM Campaign  # noqa: E501
+
+        :return: The utm_campaign of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._utm_campaign
+
+    @utm_campaign.setter
+    def utm_campaign(self, utm_campaign):
+        """Sets the utm_campaign of this ScreenRecording.
+
+        UTM Campaign  # noqa: E501
+
+        :param utm_campaign: The utm_campaign of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._utm_campaign = utm_campaign
+
+    @property
+    def utm_source(self):
+        """Gets the utm_source of this ScreenRecording.  # noqa: E501
+
+        UTM Source  # noqa: E501
+
+        :return: The utm_source of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._utm_source
+
+    @utm_source.setter
+    def utm_source(self, utm_source):
+        """Sets the utm_source of this ScreenRecording.
+
+        UTM Source  # noqa: E501
+
+        :param utm_source: The utm_source of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._utm_source = utm_source
 
     @property
     def visitor_first_seen(self):

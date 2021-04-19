@@ -45,7 +45,9 @@ class ScreenRecordingFilterValues(object):
         'user_agent_device_os_names': 'list[str]',
         'user_agent_device_os_versions': 'list[str]',
         'user_agent_names': 'list[str]',
-        'user_agent_originals': 'list[str]'
+        'user_agent_originals': 'list[str]',
+        'utm_campaigns': 'list[str]',
+        'utm_sources': 'list[str]'
     }
 
     attribute_map = {
@@ -63,10 +65,12 @@ class ScreenRecordingFilterValues(object):
         'user_agent_device_os_names': 'user_agent_device_os_names',
         'user_agent_device_os_versions': 'user_agent_device_os_versions',
         'user_agent_names': 'user_agent_names',
-        'user_agent_originals': 'user_agent_originals'
+        'user_agent_originals': 'user_agent_originals',
+        'utm_campaigns': 'utm_campaigns',
+        'utm_sources': 'utm_sources'
     }
 
-    def __init__(self, communications_campaign_names=None, communications_email_subjects=None, communications_flow_names=None, geolocation_countries=None, geolocation_states=None, max_values=None, page_views=None, time_on_site_max=None, time_on_site_min=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None):  # noqa: E501
+    def __init__(self, communications_campaign_names=None, communications_email_subjects=None, communications_flow_names=None, geolocation_countries=None, geolocation_states=None, max_values=None, page_views=None, time_on_site_max=None, time_on_site_min=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None, utm_campaigns=None, utm_sources=None):  # noqa: E501
         """ScreenRecordingFilterValues - a model defined in Swagger"""  # noqa: E501
 
         self._communications_campaign_names = None
@@ -84,6 +88,8 @@ class ScreenRecordingFilterValues(object):
         self._user_agent_device_os_versions = None
         self._user_agent_names = None
         self._user_agent_originals = None
+        self._utm_campaigns = None
+        self._utm_sources = None
         self.discriminator = None
 
         if communications_campaign_names is not None:
@@ -116,6 +122,10 @@ class ScreenRecordingFilterValues(object):
             self.user_agent_names = user_agent_names
         if user_agent_originals is not None:
             self.user_agent_originals = user_agent_originals
+        if utm_campaigns is not None:
+            self.utm_campaigns = utm_campaigns
+        if utm_sources is not None:
+            self.utm_sources = utm_sources
 
     @property
     def communications_campaign_names(self):
@@ -431,6 +441,48 @@ class ScreenRecordingFilterValues(object):
         """
 
         self._user_agent_originals = user_agent_originals
+
+    @property
+    def utm_campaigns(self):
+        """Gets the utm_campaigns of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The utm_campaigns of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._utm_campaigns
+
+    @utm_campaigns.setter
+    def utm_campaigns(self, utm_campaigns):
+        """Sets the utm_campaigns of this ScreenRecordingFilterValues.
+
+
+        :param utm_campaigns: The utm_campaigns of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._utm_campaigns = utm_campaigns
+
+    @property
+    def utm_sources(self):
+        """Gets the utm_sources of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The utm_sources of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._utm_sources
+
+    @utm_sources.setter
+    def utm_sources(self, utm_sources):
+        """Sets the utm_sources of this ScreenRecordingFilterValues.
+
+
+        :param utm_sources: The utm_sources of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._utm_sources = utm_sources
 
     def to_dict(self):
         """Returns the model properties as a dict"""

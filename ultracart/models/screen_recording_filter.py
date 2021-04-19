@@ -60,6 +60,8 @@ class ScreenRecordingFilter(object):
         'user_agent_os_name': 'str',
         'user_agent_os_version': 'str',
         'user_ip': 'ScreenRecordingFilterIpSearch',
+        'utm_campaign': 'str',
+        'utm_source': 'str',
         'visitor_number': 'int',
         'watched': 'bool'
     }
@@ -94,11 +96,13 @@ class ScreenRecordingFilter(object):
         'user_agent_os_name': 'user_agent_os_name',
         'user_agent_os_version': 'user_agent_os_version',
         'user_ip': 'user_ip',
+        'utm_campaign': 'utm_campaign',
+        'utm_source': 'utm_source',
         'visitor_number': 'visitor_number',
         'watched': 'watched'
     }
 
-    def __init__(self, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, visitor_number=None, watched=None):  # noqa: E501
+    def __init__(self, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, utm_campaign=None, utm_source=None, visitor_number=None, watched=None):  # noqa: E501
         """ScreenRecordingFilter - a model defined in Swagger"""  # noqa: E501
 
         self._communications_campaign_name = None
@@ -130,6 +134,8 @@ class ScreenRecordingFilter(object):
         self._user_agent_os_name = None
         self._user_agent_os_version = None
         self._user_ip = None
+        self._utm_campaign = None
+        self._utm_source = None
         self._visitor_number = None
         self._watched = None
         self.discriminator = None
@@ -192,6 +198,10 @@ class ScreenRecordingFilter(object):
             self.user_agent_os_version = user_agent_os_version
         if user_ip is not None:
             self.user_ip = user_ip
+        if utm_campaign is not None:
+            self.utm_campaign = utm_campaign
+        if utm_source is not None:
+            self.utm_source = utm_source
         if visitor_number is not None:
             self.visitor_number = visitor_number
         if watched is not None:
@@ -805,6 +815,48 @@ class ScreenRecordingFilter(object):
         """
 
         self._user_ip = user_ip
+
+    @property
+    def utm_campaign(self):
+        """Gets the utm_campaign of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The utm_campaign of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: str
+        """
+        return self._utm_campaign
+
+    @utm_campaign.setter
+    def utm_campaign(self, utm_campaign):
+        """Sets the utm_campaign of this ScreenRecordingFilter.
+
+
+        :param utm_campaign: The utm_campaign of this ScreenRecordingFilter.  # noqa: E501
+        :type: str
+        """
+
+        self._utm_campaign = utm_campaign
+
+    @property
+    def utm_source(self):
+        """Gets the utm_source of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The utm_source of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: str
+        """
+        return self._utm_source
+
+    @utm_source.setter
+    def utm_source(self, utm_source):
+        """Sets the utm_source of this ScreenRecordingFilter.
+
+
+        :param utm_source: The utm_source of this ScreenRecordingFilter.  # noqa: E501
+        :type: str
+        """
+
+        self._utm_source = utm_source
 
     @property
     def visitor_number(self):
