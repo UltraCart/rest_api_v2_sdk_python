@@ -31,6 +31,9 @@ class ScreenRecordingFilter(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'communications_campaign_name': 'str',
+        'communications_email_subject': 'str',
+        'communications_flow_name': 'str',
         'email': 'ScreenRecordingFilterStringSearch',
         'email_identified': 'bool',
         'end_timestamp': 'ScreenRecordingFilterRangeDate',
@@ -62,6 +65,9 @@ class ScreenRecordingFilter(object):
     }
 
     attribute_map = {
+        'communications_campaign_name': 'communications_campaign_name',
+        'communications_email_subject': 'communications_email_subject',
+        'communications_flow_name': 'communications_flow_name',
         'email': 'email',
         'email_identified': 'email_identified',
         'end_timestamp': 'end_timestamp',
@@ -92,9 +98,12 @@ class ScreenRecordingFilter(object):
         'watched': 'watched'
     }
 
-    def __init__(self, email=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, visitor_number=None, watched=None):  # noqa: E501
+    def __init__(self, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, visitor_number=None, watched=None):  # noqa: E501
         """ScreenRecordingFilter - a model defined in Swagger"""  # noqa: E501
 
+        self._communications_campaign_name = None
+        self._communications_email_subject = None
+        self._communications_flow_name = None
         self._email = None
         self._email_identified = None
         self._end_timestamp = None
@@ -125,6 +134,12 @@ class ScreenRecordingFilter(object):
         self._watched = None
         self.discriminator = None
 
+        if communications_campaign_name is not None:
+            self.communications_campaign_name = communications_campaign_name
+        if communications_email_subject is not None:
+            self.communications_email_subject = communications_email_subject
+        if communications_flow_name is not None:
+            self.communications_flow_name = communications_flow_name
         if email is not None:
             self.email = email
         if email_identified is not None:
@@ -181,6 +196,69 @@ class ScreenRecordingFilter(object):
             self.visitor_number = visitor_number
         if watched is not None:
             self.watched = watched
+
+    @property
+    def communications_campaign_name(self):
+        """Gets the communications_campaign_name of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The communications_campaign_name of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: str
+        """
+        return self._communications_campaign_name
+
+    @communications_campaign_name.setter
+    def communications_campaign_name(self, communications_campaign_name):
+        """Sets the communications_campaign_name of this ScreenRecordingFilter.
+
+
+        :param communications_campaign_name: The communications_campaign_name of this ScreenRecordingFilter.  # noqa: E501
+        :type: str
+        """
+
+        self._communications_campaign_name = communications_campaign_name
+
+    @property
+    def communications_email_subject(self):
+        """Gets the communications_email_subject of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The communications_email_subject of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: str
+        """
+        return self._communications_email_subject
+
+    @communications_email_subject.setter
+    def communications_email_subject(self, communications_email_subject):
+        """Sets the communications_email_subject of this ScreenRecordingFilter.
+
+
+        :param communications_email_subject: The communications_email_subject of this ScreenRecordingFilter.  # noqa: E501
+        :type: str
+        """
+
+        self._communications_email_subject = communications_email_subject
+
+    @property
+    def communications_flow_name(self):
+        """Gets the communications_flow_name of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The communications_flow_name of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: str
+        """
+        return self._communications_flow_name
+
+    @communications_flow_name.setter
+    def communications_flow_name(self, communications_flow_name):
+        """Sets the communications_flow_name of this ScreenRecordingFilter.
+
+
+        :param communications_flow_name: The communications_flow_name of this ScreenRecordingFilter.  # noqa: E501
+        :type: str
+        """
+
+        self._communications_flow_name = communications_flow_name
 
     @property
     def email(self):

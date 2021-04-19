@@ -31,6 +31,9 @@ class ScreenRecordingFilterValues(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'communications_campaign_names': 'list[str]',
+        'communications_email_subjects': 'list[str]',
+        'communications_flow_names': 'list[str]',
         'geolocation_countries': 'list[str]',
         'geolocation_states': 'list[str]',
         'max_values': 'int',
@@ -46,6 +49,9 @@ class ScreenRecordingFilterValues(object):
     }
 
     attribute_map = {
+        'communications_campaign_names': 'communications_campaign_names',
+        'communications_email_subjects': 'communications_email_subjects',
+        'communications_flow_names': 'communications_flow_names',
         'geolocation_countries': 'geolocation_countries',
         'geolocation_states': 'geolocation_states',
         'max_values': 'max_values',
@@ -60,9 +66,12 @@ class ScreenRecordingFilterValues(object):
         'user_agent_originals': 'user_agent_originals'
     }
 
-    def __init__(self, geolocation_countries=None, geolocation_states=None, max_values=None, page_views=None, time_on_site_max=None, time_on_site_min=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None):  # noqa: E501
+    def __init__(self, communications_campaign_names=None, communications_email_subjects=None, communications_flow_names=None, geolocation_countries=None, geolocation_states=None, max_values=None, page_views=None, time_on_site_max=None, time_on_site_min=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None):  # noqa: E501
         """ScreenRecordingFilterValues - a model defined in Swagger"""  # noqa: E501
 
+        self._communications_campaign_names = None
+        self._communications_email_subjects = None
+        self._communications_flow_names = None
         self._geolocation_countries = None
         self._geolocation_states = None
         self._max_values = None
@@ -77,6 +86,12 @@ class ScreenRecordingFilterValues(object):
         self._user_agent_originals = None
         self.discriminator = None
 
+        if communications_campaign_names is not None:
+            self.communications_campaign_names = communications_campaign_names
+        if communications_email_subjects is not None:
+            self.communications_email_subjects = communications_email_subjects
+        if communications_flow_names is not None:
+            self.communications_flow_names = communications_flow_names
         if geolocation_countries is not None:
             self.geolocation_countries = geolocation_countries
         if geolocation_states is not None:
@@ -101,6 +116,69 @@ class ScreenRecordingFilterValues(object):
             self.user_agent_names = user_agent_names
         if user_agent_originals is not None:
             self.user_agent_originals = user_agent_originals
+
+    @property
+    def communications_campaign_names(self):
+        """Gets the communications_campaign_names of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The communications_campaign_names of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._communications_campaign_names
+
+    @communications_campaign_names.setter
+    def communications_campaign_names(self, communications_campaign_names):
+        """Sets the communications_campaign_names of this ScreenRecordingFilterValues.
+
+
+        :param communications_campaign_names: The communications_campaign_names of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._communications_campaign_names = communications_campaign_names
+
+    @property
+    def communications_email_subjects(self):
+        """Gets the communications_email_subjects of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The communications_email_subjects of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._communications_email_subjects
+
+    @communications_email_subjects.setter
+    def communications_email_subjects(self, communications_email_subjects):
+        """Sets the communications_email_subjects of this ScreenRecordingFilterValues.
+
+
+        :param communications_email_subjects: The communications_email_subjects of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._communications_email_subjects = communications_email_subjects
+
+    @property
+    def communications_flow_names(self):
+        """Gets the communications_flow_names of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The communications_flow_names of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._communications_flow_names
+
+    @communications_flow_names.setter
+    def communications_flow_names(self, communications_flow_names):
+        """Sets the communications_flow_names of this ScreenRecordingFilterValues.
+
+
+        :param communications_flow_names: The communications_flow_names of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._communications_flow_names = communications_flow_names
 
     @property
     def geolocation_countries(self):

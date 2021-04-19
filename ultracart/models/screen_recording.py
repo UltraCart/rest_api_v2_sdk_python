@@ -34,6 +34,12 @@ class ScreenRecording(object):
         'analytics_client_oid': 'int',
         'analytics_session_dts': 'int',
         'analytics_session_oid': 'int',
+        'communications_campaign_name': 'str',
+        'communications_campaign_uuid': 'str',
+        'communications_email_subject': 'str',
+        'communications_email_uuid': 'str',
+        'communications_flow_name': 'str',
+        'communications_flow_uuid': 'str',
         'email': 'str',
         'end_timestamp': 'str',
         'esp_customer_uuid': 'str',
@@ -73,6 +79,12 @@ class ScreenRecording(object):
         'analytics_client_oid': 'analytics_client_oid',
         'analytics_session_dts': 'analytics_session_dts',
         'analytics_session_oid': 'analytics_session_oid',
+        'communications_campaign_name': 'communications_campaign_name',
+        'communications_campaign_uuid': 'communications_campaign_uuid',
+        'communications_email_subject': 'communications_email_subject',
+        'communications_email_uuid': 'communications_email_uuid',
+        'communications_flow_name': 'communications_flow_name',
+        'communications_flow_uuid': 'communications_flow_uuid',
         'email': 'email',
         'end_timestamp': 'end_timestamp',
         'esp_customer_uuid': 'esp_customer_uuid',
@@ -108,12 +120,18 @@ class ScreenRecording(object):
         'window_width': 'window_width'
     }
 
-    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
+    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, communications_campaign_name=None, communications_campaign_uuid=None, communications_email_subject=None, communications_email_uuid=None, communications_flow_name=None, communications_flow_uuid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
         """ScreenRecording - a model defined in Swagger"""  # noqa: E501
 
         self._analytics_client_oid = None
         self._analytics_session_dts = None
         self._analytics_session_oid = None
+        self._communications_campaign_name = None
+        self._communications_campaign_uuid = None
+        self._communications_email_subject = None
+        self._communications_email_uuid = None
+        self._communications_flow_name = None
+        self._communications_flow_uuid = None
         self._email = None
         self._end_timestamp = None
         self._esp_customer_uuid = None
@@ -155,6 +173,18 @@ class ScreenRecording(object):
             self.analytics_session_dts = analytics_session_dts
         if analytics_session_oid is not None:
             self.analytics_session_oid = analytics_session_oid
+        if communications_campaign_name is not None:
+            self.communications_campaign_name = communications_campaign_name
+        if communications_campaign_uuid is not None:
+            self.communications_campaign_uuid = communications_campaign_uuid
+        if communications_email_subject is not None:
+            self.communications_email_subject = communications_email_subject
+        if communications_email_uuid is not None:
+            self.communications_email_uuid = communications_email_uuid
+        if communications_flow_name is not None:
+            self.communications_flow_name = communications_flow_name
+        if communications_flow_uuid is not None:
+            self.communications_flow_uuid = communications_flow_uuid
         if email is not None:
             self.email = email
         if end_timestamp is not None:
@@ -284,6 +314,144 @@ class ScreenRecording(object):
         """
 
         self._analytics_session_oid = analytics_session_oid
+
+    @property
+    def communications_campaign_name(self):
+        """Gets the communications_campaign_name of this ScreenRecording.  # noqa: E501
+
+        Campaign Name  # noqa: E501
+
+        :return: The communications_campaign_name of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._communications_campaign_name
+
+    @communications_campaign_name.setter
+    def communications_campaign_name(self, communications_campaign_name):
+        """Sets the communications_campaign_name of this ScreenRecording.
+
+        Campaign Name  # noqa: E501
+
+        :param communications_campaign_name: The communications_campaign_name of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._communications_campaign_name = communications_campaign_name
+
+    @property
+    def communications_campaign_uuid(self):
+        """Gets the communications_campaign_uuid of this ScreenRecording.  # noqa: E501
+
+        Campaign UUID  # noqa: E501
+
+        :return: The communications_campaign_uuid of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._communications_campaign_uuid
+
+    @communications_campaign_uuid.setter
+    def communications_campaign_uuid(self, communications_campaign_uuid):
+        """Sets the communications_campaign_uuid of this ScreenRecording.
+
+        Campaign UUID  # noqa: E501
+
+        :param communications_campaign_uuid: The communications_campaign_uuid of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._communications_campaign_uuid = communications_campaign_uuid
+
+    @property
+    def communications_email_subject(self):
+        """Gets the communications_email_subject of this ScreenRecording.  # noqa: E501
+
+        Email subject  # noqa: E501
+
+        :return: The communications_email_subject of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._communications_email_subject
+
+    @communications_email_subject.setter
+    def communications_email_subject(self, communications_email_subject):
+        """Sets the communications_email_subject of this ScreenRecording.
+
+        Email subject  # noqa: E501
+
+        :param communications_email_subject: The communications_email_subject of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._communications_email_subject = communications_email_subject
+
+    @property
+    def communications_email_uuid(self):
+        """Gets the communications_email_uuid of this ScreenRecording.  # noqa: E501
+
+        Email UUID  # noqa: E501
+
+        :return: The communications_email_uuid of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._communications_email_uuid
+
+    @communications_email_uuid.setter
+    def communications_email_uuid(self, communications_email_uuid):
+        """Sets the communications_email_uuid of this ScreenRecording.
+
+        Email UUID  # noqa: E501
+
+        :param communications_email_uuid: The communications_email_uuid of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._communications_email_uuid = communications_email_uuid
+
+    @property
+    def communications_flow_name(self):
+        """Gets the communications_flow_name of this ScreenRecording.  # noqa: E501
+
+        Flow Name  # noqa: E501
+
+        :return: The communications_flow_name of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._communications_flow_name
+
+    @communications_flow_name.setter
+    def communications_flow_name(self, communications_flow_name):
+        """Sets the communications_flow_name of this ScreenRecording.
+
+        Flow Name  # noqa: E501
+
+        :param communications_flow_name: The communications_flow_name of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._communications_flow_name = communications_flow_name
+
+    @property
+    def communications_flow_uuid(self):
+        """Gets the communications_flow_uuid of this ScreenRecording.  # noqa: E501
+
+        Flow UUID  # noqa: E501
+
+        :return: The communications_flow_uuid of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._communications_flow_uuid
+
+    @communications_flow_uuid.setter
+    def communications_flow_uuid(self, communications_flow_uuid):
+        """Sets the communications_flow_uuid of this ScreenRecording.
+
+        Flow UUID  # noqa: E501
+
+        :param communications_flow_uuid: The communications_flow_uuid of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._communications_flow_uuid = communications_flow_uuid
 
     @property
     def email(self):
