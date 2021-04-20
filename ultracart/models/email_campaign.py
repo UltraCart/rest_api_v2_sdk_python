@@ -37,6 +37,7 @@ class EmailCampaign(object):
         'email_campaign_uuid': 'str',
         'email_communication_sequence_uuid': 'str',
         'end_once_customer_purchases': 'bool',
+        'end_once_customer_purchases_anywhere': 'bool',
         'esp_campaign_folder_uuid': 'str',
         'esp_domain_user': 'str',
         'esp_domain_uuid': 'str',
@@ -63,6 +64,7 @@ class EmailCampaign(object):
         'email_campaign_uuid': 'email_campaign_uuid',
         'email_communication_sequence_uuid': 'email_communication_sequence_uuid',
         'end_once_customer_purchases': 'end_once_customer_purchases',
+        'end_once_customer_purchases_anywhere': 'end_once_customer_purchases_anywhere',
         'esp_campaign_folder_uuid': 'esp_campaign_folder_uuid',
         'esp_domain_user': 'esp_domain_user',
         'esp_domain_uuid': 'esp_domain_uuid',
@@ -82,7 +84,7 @@ class EmailCampaign(object):
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, end_once_customer_purchases=None, esp_campaign_folder_uuid=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, library_item_oid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, revenue_per_customer_formatted=None, scheduled_dts=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
+    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, esp_campaign_folder_uuid=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, library_item_oid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, revenue_per_customer_formatted=None, scheduled_dts=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
         """EmailCampaign - a model defined in Swagger"""  # noqa: E501
 
         self._click_rate_formatted = None
@@ -91,6 +93,7 @@ class EmailCampaign(object):
         self._email_campaign_uuid = None
         self._email_communication_sequence_uuid = None
         self._end_once_customer_purchases = None
+        self._end_once_customer_purchases_anywhere = None
         self._esp_campaign_folder_uuid = None
         self._esp_domain_user = None
         self._esp_domain_uuid = None
@@ -122,6 +125,8 @@ class EmailCampaign(object):
             self.email_communication_sequence_uuid = email_communication_sequence_uuid
         if end_once_customer_purchases is not None:
             self.end_once_customer_purchases = end_once_customer_purchases
+        if end_once_customer_purchases_anywhere is not None:
+            self.end_once_customer_purchases_anywhere = end_once_customer_purchases_anywhere
         if esp_campaign_folder_uuid is not None:
             self.esp_campaign_folder_uuid = esp_campaign_folder_uuid
         if esp_domain_user is not None:
@@ -276,7 +281,7 @@ class EmailCampaign(object):
     def end_once_customer_purchases(self):
         """Gets the end_once_customer_purchases of this EmailCampaign.  # noqa: E501
 
-        True if the customer should end the flow once they purchase  # noqa: E501
+        True if the customer should end the flow once they purchase from this campaign  # noqa: E501
 
         :return: The end_once_customer_purchases of this EmailCampaign.  # noqa: E501
         :rtype: bool
@@ -287,13 +292,36 @@ class EmailCampaign(object):
     def end_once_customer_purchases(self, end_once_customer_purchases):
         """Sets the end_once_customer_purchases of this EmailCampaign.
 
-        True if the customer should end the flow once they purchase  # noqa: E501
+        True if the customer should end the flow once they purchase from this campaign  # noqa: E501
 
         :param end_once_customer_purchases: The end_once_customer_purchases of this EmailCampaign.  # noqa: E501
         :type: bool
         """
 
         self._end_once_customer_purchases = end_once_customer_purchases
+
+    @property
+    def end_once_customer_purchases_anywhere(self):
+        """Gets the end_once_customer_purchases_anywhere of this EmailCampaign.  # noqa: E501
+
+        True if the customer should end the flow once they purchase from anywhere  # noqa: E501
+
+        :return: The end_once_customer_purchases_anywhere of this EmailCampaign.  # noqa: E501
+        :rtype: bool
+        """
+        return self._end_once_customer_purchases_anywhere
+
+    @end_once_customer_purchases_anywhere.setter
+    def end_once_customer_purchases_anywhere(self, end_once_customer_purchases_anywhere):
+        """Sets the end_once_customer_purchases_anywhere of this EmailCampaign.
+
+        True if the customer should end the flow once they purchase from anywhere  # noqa: E501
+
+        :param end_once_customer_purchases_anywhere: The end_once_customer_purchases_anywhere of this EmailCampaign.  # noqa: E501
+        :type: bool
+        """
+
+        self._end_once_customer_purchases_anywhere = end_once_customer_purchases_anywhere
 
     @property
     def esp_campaign_folder_uuid(self):

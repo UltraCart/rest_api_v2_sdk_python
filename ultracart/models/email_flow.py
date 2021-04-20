@@ -39,6 +39,7 @@ class EmailFlow(object):
         'email_communication_sequence_uuid': 'str',
         'email_flow_uuid': 'str',
         'end_once_customer_purchases': 'bool',
+        'end_once_customer_purchases_anywhere': 'bool',
         'enrolled_customers': 'int',
         'esp_domain_user': 'str',
         'esp_domain_uuid': 'str',
@@ -69,6 +70,7 @@ class EmailFlow(object):
         'email_communication_sequence_uuid': 'email_communication_sequence_uuid',
         'email_flow_uuid': 'email_flow_uuid',
         'end_once_customer_purchases': 'end_once_customer_purchases',
+        'end_once_customer_purchases_anywhere': 'end_once_customer_purchases_anywhere',
         'enrolled_customers': 'enrolled_customers',
         'esp_domain_user': 'esp_domain_user',
         'esp_domain_uuid': 'esp_domain_uuid',
@@ -90,7 +92,7 @@ class EmailFlow(object):
         'trigger_type': 'trigger_type'
     }
 
-    def __init__(self, allow_multiple_concurrent_enrollments=None, back_populating=None, click_rate_formatted=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, end_once_customer_purchases=None, enrolled_customers=None, esp_domain_user=None, esp_domain_uuid=None, esp_flow_folder_uuid=None, esp_friendly_name=None, filter_profile_equation_json=None, library_item_oid=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, revenue_per_customer_formatted=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):  # noqa: E501
+    def __init__(self, allow_multiple_concurrent_enrollments=None, back_populating=None, click_rate_formatted=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, enrolled_customers=None, esp_domain_user=None, esp_domain_uuid=None, esp_flow_folder_uuid=None, esp_friendly_name=None, filter_profile_equation_json=None, library_item_oid=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, revenue_per_customer_formatted=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):  # noqa: E501
         """EmailFlow - a model defined in Swagger"""  # noqa: E501
 
         self._allow_multiple_concurrent_enrollments = None
@@ -101,6 +103,7 @@ class EmailFlow(object):
         self._email_communication_sequence_uuid = None
         self._email_flow_uuid = None
         self._end_once_customer_purchases = None
+        self._end_once_customer_purchases_anywhere = None
         self._enrolled_customers = None
         self._esp_domain_user = None
         self._esp_domain_uuid = None
@@ -138,6 +141,8 @@ class EmailFlow(object):
             self.email_flow_uuid = email_flow_uuid
         if end_once_customer_purchases is not None:
             self.end_once_customer_purchases = end_once_customer_purchases
+        if end_once_customer_purchases_anywhere is not None:
+            self.end_once_customer_purchases_anywhere = end_once_customer_purchases_anywhere
         if enrolled_customers is not None:
             self.enrolled_customers = enrolled_customers
         if esp_domain_user is not None:
@@ -342,7 +347,7 @@ class EmailFlow(object):
     def end_once_customer_purchases(self):
         """Gets the end_once_customer_purchases of this EmailFlow.  # noqa: E501
 
-        True if the customer should end the flow once they purchase  # noqa: E501
+        True if the customer should end the flow once they purchase from an email on this flow  # noqa: E501
 
         :return: The end_once_customer_purchases of this EmailFlow.  # noqa: E501
         :rtype: bool
@@ -353,13 +358,36 @@ class EmailFlow(object):
     def end_once_customer_purchases(self, end_once_customer_purchases):
         """Sets the end_once_customer_purchases of this EmailFlow.
 
-        True if the customer should end the flow once they purchase  # noqa: E501
+        True if the customer should end the flow once they purchase from an email on this flow  # noqa: E501
 
         :param end_once_customer_purchases: The end_once_customer_purchases of this EmailFlow.  # noqa: E501
         :type: bool
         """
 
         self._end_once_customer_purchases = end_once_customer_purchases
+
+    @property
+    def end_once_customer_purchases_anywhere(self):
+        """Gets the end_once_customer_purchases_anywhere of this EmailFlow.  # noqa: E501
+
+        True if the customer should end the flow once they purchase from any source  # noqa: E501
+
+        :return: The end_once_customer_purchases_anywhere of this EmailFlow.  # noqa: E501
+        :rtype: bool
+        """
+        return self._end_once_customer_purchases_anywhere
+
+    @end_once_customer_purchases_anywhere.setter
+    def end_once_customer_purchases_anywhere(self, end_once_customer_purchases_anywhere):
+        """Sets the end_once_customer_purchases_anywhere of this EmailFlow.
+
+        True if the customer should end the flow once they purchase from any source  # noqa: E501
+
+        :param end_once_customer_purchases_anywhere: The end_once_customer_purchases_anywhere of this EmailFlow.  # noqa: E501
+        :type: bool
+        """
+
+        self._end_once_customer_purchases_anywhere = end_once_customer_purchases_anywhere
 
     @property
     def enrolled_customers(self):
