@@ -42,6 +42,7 @@ class ScreenRecordingFilter(object):
         'geolocation': 'ScreenRecordingFilterGeoDistance',
         'geolocation_country': 'ScreenRecordingFilterStringSearch',
         'geolocation_state': 'ScreenRecordingFilterStringSearch',
+        'language_iso_code': 'ScreenRecordingFilterStringSearch',
         'max_filter_values': 'int',
         'order_id': 'ScreenRecordingFilterStringSearch',
         'page_view_count': 'ScreenRecordingFilterRangeInteger',
@@ -78,6 +79,7 @@ class ScreenRecordingFilter(object):
         'geolocation': 'geolocation',
         'geolocation_country': 'geolocation_country',
         'geolocation_state': 'geolocation_state',
+        'language_iso_code': 'language_iso_code',
         'max_filter_values': 'max_filter_values',
         'order_id': 'order_id',
         'page_view_count': 'page_view_count',
@@ -102,7 +104,7 @@ class ScreenRecordingFilter(object):
         'watched': 'watched'
     }
 
-    def __init__(self, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, utm_campaign=None, utm_source=None, visitor_number=None, watched=None):  # noqa: E501
+    def __init__(self, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, utm_campaign=None, utm_source=None, visitor_number=None, watched=None):  # noqa: E501
         """ScreenRecordingFilter - a model defined in Swagger"""  # noqa: E501
 
         self._communications_campaign_name = None
@@ -116,6 +118,7 @@ class ScreenRecordingFilter(object):
         self._geolocation = None
         self._geolocation_country = None
         self._geolocation_state = None
+        self._language_iso_code = None
         self._max_filter_values = None
         self._order_id = None
         self._page_view_count = None
@@ -162,6 +165,8 @@ class ScreenRecordingFilter(object):
             self.geolocation_country = geolocation_country
         if geolocation_state is not None:
             self.geolocation_state = geolocation_state
+        if language_iso_code is not None:
+            self.language_iso_code = language_iso_code
         if max_filter_values is not None:
             self.max_filter_values = max_filter_values
         if order_id is not None:
@@ -437,6 +442,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._geolocation_state = geolocation_state
+
+    @property
+    def language_iso_code(self):
+        """Gets the language_iso_code of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The language_iso_code of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: ScreenRecordingFilterStringSearch
+        """
+        return self._language_iso_code
+
+    @language_iso_code.setter
+    def language_iso_code(self, language_iso_code):
+        """Sets the language_iso_code of this ScreenRecordingFilter.
+
+
+        :param language_iso_code: The language_iso_code of this ScreenRecordingFilter.  # noqa: E501
+        :type: ScreenRecordingFilterStringSearch
+        """
+
+        self._language_iso_code = language_iso_code
 
     @property
     def max_filter_values(self):

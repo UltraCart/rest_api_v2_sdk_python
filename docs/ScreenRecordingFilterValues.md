@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **communications_flow_names** | **list[str]** |  | [optional] 
 **geolocation_countries** | **list[str]** |  | [optional] 
 **geolocation_states** | **list[str]** |  | [optional] 
+**language_iso_codes** | **list[str]** |  | [optional] 
 **max_values** | **int** |  | [optional] 
 **page_views** | [**list[ScreenRecordingFilterValuesPageView]**](ScreenRecordingFilterValuesPageView.md) |  | [optional] 
 **time_on_site_max** | **int** |  | [optional] 

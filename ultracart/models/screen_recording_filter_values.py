@@ -36,6 +36,7 @@ class ScreenRecordingFilterValues(object):
         'communications_flow_names': 'list[str]',
         'geolocation_countries': 'list[str]',
         'geolocation_states': 'list[str]',
+        'language_iso_codes': 'list[str]',
         'max_values': 'int',
         'page_views': 'list[ScreenRecordingFilterValuesPageView]',
         'time_on_site_max': 'int',
@@ -56,6 +57,7 @@ class ScreenRecordingFilterValues(object):
         'communications_flow_names': 'communications_flow_names',
         'geolocation_countries': 'geolocation_countries',
         'geolocation_states': 'geolocation_states',
+        'language_iso_codes': 'language_iso_codes',
         'max_values': 'max_values',
         'page_views': 'page_views',
         'time_on_site_max': 'time_on_site_max',
@@ -70,7 +72,7 @@ class ScreenRecordingFilterValues(object):
         'utm_sources': 'utm_sources'
     }
 
-    def __init__(self, communications_campaign_names=None, communications_email_subjects=None, communications_flow_names=None, geolocation_countries=None, geolocation_states=None, max_values=None, page_views=None, time_on_site_max=None, time_on_site_min=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None, utm_campaigns=None, utm_sources=None):  # noqa: E501
+    def __init__(self, communications_campaign_names=None, communications_email_subjects=None, communications_flow_names=None, geolocation_countries=None, geolocation_states=None, language_iso_codes=None, max_values=None, page_views=None, time_on_site_max=None, time_on_site_min=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None, utm_campaigns=None, utm_sources=None):  # noqa: E501
         """ScreenRecordingFilterValues - a model defined in Swagger"""  # noqa: E501
 
         self._communications_campaign_names = None
@@ -78,6 +80,7 @@ class ScreenRecordingFilterValues(object):
         self._communications_flow_names = None
         self._geolocation_countries = None
         self._geolocation_states = None
+        self._language_iso_codes = None
         self._max_values = None
         self._page_views = None
         self._time_on_site_max = None
@@ -102,6 +105,8 @@ class ScreenRecordingFilterValues(object):
             self.geolocation_countries = geolocation_countries
         if geolocation_states is not None:
             self.geolocation_states = geolocation_states
+        if language_iso_codes is not None:
+            self.language_iso_codes = language_iso_codes
         if max_values is not None:
             self.max_values = max_values
         if page_views is not None:
@@ -231,6 +236,27 @@ class ScreenRecordingFilterValues(object):
         """
 
         self._geolocation_states = geolocation_states
+
+    @property
+    def language_iso_codes(self):
+        """Gets the language_iso_codes of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The language_iso_codes of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._language_iso_codes
+
+    @language_iso_codes.setter
+    def language_iso_codes(self, language_iso_codes):
+        """Sets the language_iso_codes of this ScreenRecordingFilterValues.
+
+
+        :param language_iso_codes: The language_iso_codes of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._language_iso_codes = language_iso_codes
 
     @property
     def max_values(self):

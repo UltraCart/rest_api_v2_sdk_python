@@ -50,6 +50,7 @@ class ScreenRecording(object):
         'geolocation': 'GeoPoint',
         'geolocation_country': 'str',
         'geolocation_state': 'str',
+        'language_iso_code': 'str',
         'merchant_id': 'str',
         'merchant_notes': 'str',
         'order_id': 'str',
@@ -97,6 +98,7 @@ class ScreenRecording(object):
         'geolocation': 'geolocation',
         'geolocation_country': 'geolocation_country',
         'geolocation_state': 'geolocation_state',
+        'language_iso_code': 'language_iso_code',
         'merchant_id': 'merchant_id',
         'merchant_notes': 'merchant_notes',
         'order_id': 'order_id',
@@ -124,7 +126,7 @@ class ScreenRecording(object):
         'window_width': 'window_width'
     }
 
-    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, communications_campaign_name=None, communications_campaign_uuid=None, communications_email_subject=None, communications_email_uuid=None, communications_flow_name=None, communications_flow_uuid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, utm_campaign=None, utm_source=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
+    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, communications_campaign_name=None, communications_campaign_uuid=None, communications_email_subject=None, communications_email_uuid=None, communications_flow_name=None, communications_flow_uuid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, utm_campaign=None, utm_source=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
         """ScreenRecording - a model defined in Swagger"""  # noqa: E501
 
         self._analytics_client_oid = None
@@ -146,6 +148,7 @@ class ScreenRecording(object):
         self._geolocation = None
         self._geolocation_country = None
         self._geolocation_state = None
+        self._language_iso_code = None
         self._merchant_id = None
         self._merchant_notes = None
         self._order_id = None
@@ -211,6 +214,8 @@ class ScreenRecording(object):
             self.geolocation_country = geolocation_country
         if geolocation_state is not None:
             self.geolocation_state = geolocation_state
+        if language_iso_code is not None:
+            self.language_iso_code = language_iso_code
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if merchant_notes is not None:
@@ -678,6 +683,29 @@ class ScreenRecording(object):
         """
 
         self._geolocation_state = geolocation_state
+
+    @property
+    def language_iso_code(self):
+        """Gets the language_iso_code of this ScreenRecording.  # noqa: E501
+
+        Language ISO code  # noqa: E501
+
+        :return: The language_iso_code of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._language_iso_code
+
+    @language_iso_code.setter
+    def language_iso_code(self, language_iso_code):
+        """Sets the language_iso_code of this ScreenRecording.
+
+        Language ISO code  # noqa: E501
+
+        :param language_iso_code: The language_iso_code of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._language_iso_code = language_iso_code
 
     @property
     def merchant_id(self):

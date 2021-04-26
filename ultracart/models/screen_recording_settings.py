@@ -31,21 +31,46 @@ class ScreenRecordingSettings(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'enabled': 'bool'
+        'enabled': 'bool',
+        'sessions_current_billing_period': 'int',
+        'sessions_last_billing_period': 'int',
+        'sessions_trial_billing_period': 'int',
+        'trial_expiration': 'str',
+        'trial_expired': 'bool'
     }
 
     attribute_map = {
-        'enabled': 'enabled'
+        'enabled': 'enabled',
+        'sessions_current_billing_period': 'sessions_current_billing_period',
+        'sessions_last_billing_period': 'sessions_last_billing_period',
+        'sessions_trial_billing_period': 'sessions_trial_billing_period',
+        'trial_expiration': 'trial_expiration',
+        'trial_expired': 'trial_expired'
     }
 
-    def __init__(self, enabled=None):  # noqa: E501
+    def __init__(self, enabled=None, sessions_current_billing_period=None, sessions_last_billing_period=None, sessions_trial_billing_period=None, trial_expiration=None, trial_expired=None):  # noqa: E501
         """ScreenRecordingSettings - a model defined in Swagger"""  # noqa: E501
 
         self._enabled = None
+        self._sessions_current_billing_period = None
+        self._sessions_last_billing_period = None
+        self._sessions_trial_billing_period = None
+        self._trial_expiration = None
+        self._trial_expired = None
         self.discriminator = None
 
         if enabled is not None:
             self.enabled = enabled
+        if sessions_current_billing_period is not None:
+            self.sessions_current_billing_period = sessions_current_billing_period
+        if sessions_last_billing_period is not None:
+            self.sessions_last_billing_period = sessions_last_billing_period
+        if sessions_trial_billing_period is not None:
+            self.sessions_trial_billing_period = sessions_trial_billing_period
+        if trial_expiration is not None:
+            self.trial_expiration = trial_expiration
+        if trial_expired is not None:
+            self.trial_expired = trial_expired
 
     @property
     def enabled(self):
@@ -67,6 +92,111 @@ class ScreenRecordingSettings(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def sessions_current_billing_period(self):
+        """Gets the sessions_current_billing_period of this ScreenRecordingSettings.  # noqa: E501
+
+
+        :return: The sessions_current_billing_period of this ScreenRecordingSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._sessions_current_billing_period
+
+    @sessions_current_billing_period.setter
+    def sessions_current_billing_period(self, sessions_current_billing_period):
+        """Sets the sessions_current_billing_period of this ScreenRecordingSettings.
+
+
+        :param sessions_current_billing_period: The sessions_current_billing_period of this ScreenRecordingSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._sessions_current_billing_period = sessions_current_billing_period
+
+    @property
+    def sessions_last_billing_period(self):
+        """Gets the sessions_last_billing_period of this ScreenRecordingSettings.  # noqa: E501
+
+
+        :return: The sessions_last_billing_period of this ScreenRecordingSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._sessions_last_billing_period
+
+    @sessions_last_billing_period.setter
+    def sessions_last_billing_period(self, sessions_last_billing_period):
+        """Sets the sessions_last_billing_period of this ScreenRecordingSettings.
+
+
+        :param sessions_last_billing_period: The sessions_last_billing_period of this ScreenRecordingSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._sessions_last_billing_period = sessions_last_billing_period
+
+    @property
+    def sessions_trial_billing_period(self):
+        """Gets the sessions_trial_billing_period of this ScreenRecordingSettings.  # noqa: E501
+
+
+        :return: The sessions_trial_billing_period of this ScreenRecordingSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._sessions_trial_billing_period
+
+    @sessions_trial_billing_period.setter
+    def sessions_trial_billing_period(self, sessions_trial_billing_period):
+        """Sets the sessions_trial_billing_period of this ScreenRecordingSettings.
+
+
+        :param sessions_trial_billing_period: The sessions_trial_billing_period of this ScreenRecordingSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._sessions_trial_billing_period = sessions_trial_billing_period
+
+    @property
+    def trial_expiration(self):
+        """Gets the trial_expiration of this ScreenRecordingSettings.  # noqa: E501
+
+
+        :return: The trial_expiration of this ScreenRecordingSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._trial_expiration
+
+    @trial_expiration.setter
+    def trial_expiration(self, trial_expiration):
+        """Sets the trial_expiration of this ScreenRecordingSettings.
+
+
+        :param trial_expiration: The trial_expiration of this ScreenRecordingSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._trial_expiration = trial_expiration
+
+    @property
+    def trial_expired(self):
+        """Gets the trial_expired of this ScreenRecordingSettings.  # noqa: E501
+
+
+        :return: The trial_expired of this ScreenRecordingSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._trial_expired
+
+    @trial_expired.setter
+    def trial_expired(self, trial_expired):
+        """Sets the trial_expired of this ScreenRecordingSettings.
+
+
+        :param trial_expired: The trial_expired of this ScreenRecordingSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._trial_expired = trial_expired
 
     def to_dict(self):
         """Returns the model properties as a dict"""
