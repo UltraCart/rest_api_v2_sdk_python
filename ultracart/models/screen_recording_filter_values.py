@@ -34,11 +34,14 @@ class ScreenRecordingFilterValues(object):
         'communications_campaign_names': 'list[str]',
         'communications_email_subjects': 'list[str]',
         'communications_flow_names': 'list[str]',
+        'email_domains': 'list[str]',
         'geolocation_countries': 'list[str]',
         'geolocation_states': 'list[str]',
         'language_iso_codes': 'list[str]',
         'max_values': 'int',
         'page_views': 'list[ScreenRecordingFilterValuesPageView]',
+        'preferred_languages': 'list[str]',
+        'referrer_domains': 'list[str]',
         'time_on_site_max': 'int',
         'time_on_site_min': 'int',
         'urls': 'list[str]',
@@ -55,11 +58,14 @@ class ScreenRecordingFilterValues(object):
         'communications_campaign_names': 'communications_campaign_names',
         'communications_email_subjects': 'communications_email_subjects',
         'communications_flow_names': 'communications_flow_names',
+        'email_domains': 'email_domains',
         'geolocation_countries': 'geolocation_countries',
         'geolocation_states': 'geolocation_states',
         'language_iso_codes': 'language_iso_codes',
         'max_values': 'max_values',
         'page_views': 'page_views',
+        'preferred_languages': 'preferred_languages',
+        'referrer_domains': 'referrer_domains',
         'time_on_site_max': 'time_on_site_max',
         'time_on_site_min': 'time_on_site_min',
         'urls': 'urls',
@@ -72,17 +78,20 @@ class ScreenRecordingFilterValues(object):
         'utm_sources': 'utm_sources'
     }
 
-    def __init__(self, communications_campaign_names=None, communications_email_subjects=None, communications_flow_names=None, geolocation_countries=None, geolocation_states=None, language_iso_codes=None, max_values=None, page_views=None, time_on_site_max=None, time_on_site_min=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None, utm_campaigns=None, utm_sources=None):  # noqa: E501
+    def __init__(self, communications_campaign_names=None, communications_email_subjects=None, communications_flow_names=None, email_domains=None, geolocation_countries=None, geolocation_states=None, language_iso_codes=None, max_values=None, page_views=None, preferred_languages=None, referrer_domains=None, time_on_site_max=None, time_on_site_min=None, urls=None, user_agent_device_names=None, user_agent_device_os_names=None, user_agent_device_os_versions=None, user_agent_names=None, user_agent_originals=None, utm_campaigns=None, utm_sources=None):  # noqa: E501
         """ScreenRecordingFilterValues - a model defined in Swagger"""  # noqa: E501
 
         self._communications_campaign_names = None
         self._communications_email_subjects = None
         self._communications_flow_names = None
+        self._email_domains = None
         self._geolocation_countries = None
         self._geolocation_states = None
         self._language_iso_codes = None
         self._max_values = None
         self._page_views = None
+        self._preferred_languages = None
+        self._referrer_domains = None
         self._time_on_site_max = None
         self._time_on_site_min = None
         self._urls = None
@@ -101,6 +110,8 @@ class ScreenRecordingFilterValues(object):
             self.communications_email_subjects = communications_email_subjects
         if communications_flow_names is not None:
             self.communications_flow_names = communications_flow_names
+        if email_domains is not None:
+            self.email_domains = email_domains
         if geolocation_countries is not None:
             self.geolocation_countries = geolocation_countries
         if geolocation_states is not None:
@@ -111,6 +122,10 @@ class ScreenRecordingFilterValues(object):
             self.max_values = max_values
         if page_views is not None:
             self.page_views = page_views
+        if preferred_languages is not None:
+            self.preferred_languages = preferred_languages
+        if referrer_domains is not None:
+            self.referrer_domains = referrer_domains
         if time_on_site_max is not None:
             self.time_on_site_max = time_on_site_max
         if time_on_site_min is not None:
@@ -194,6 +209,27 @@ class ScreenRecordingFilterValues(object):
         """
 
         self._communications_flow_names = communications_flow_names
+
+    @property
+    def email_domains(self):
+        """Gets the email_domains of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The email_domains of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._email_domains
+
+    @email_domains.setter
+    def email_domains(self, email_domains):
+        """Sets the email_domains of this ScreenRecordingFilterValues.
+
+
+        :param email_domains: The email_domains of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._email_domains = email_domains
 
     @property
     def geolocation_countries(self):
@@ -299,6 +335,48 @@ class ScreenRecordingFilterValues(object):
         """
 
         self._page_views = page_views
+
+    @property
+    def preferred_languages(self):
+        """Gets the preferred_languages of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The preferred_languages of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._preferred_languages
+
+    @preferred_languages.setter
+    def preferred_languages(self, preferred_languages):
+        """Sets the preferred_languages of this ScreenRecordingFilterValues.
+
+
+        :param preferred_languages: The preferred_languages of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._preferred_languages = preferred_languages
+
+    @property
+    def referrer_domains(self):
+        """Gets the referrer_domains of this ScreenRecordingFilterValues.  # noqa: E501
+
+
+        :return: The referrer_domains of this ScreenRecordingFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._referrer_domains
+
+    @referrer_domains.setter
+    def referrer_domains(self, referrer_domains):
+        """Sets the referrer_domains of this ScreenRecordingFilterValues.
+
+
+        :param referrer_domains: The referrer_domains of this ScreenRecordingFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._referrer_domains = referrer_domains
 
     @property
     def time_on_site_max(self):

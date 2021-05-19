@@ -34,6 +34,9 @@ class ScreenRecordingQueryResponse(object):
         'error': 'Error',
         'filter': 'ScreenRecordingFilter',
         'filter_values': 'ScreenRecordingFilterValues',
+        'histogram_data': 'list[int]',
+        'histogram_interval': 'str',
+        'histogram_start_dts': 'str',
         'metadata': 'ResponseMetadata',
         'screen_recordings': 'list[ScreenRecording]',
         'success': 'bool',
@@ -44,18 +47,24 @@ class ScreenRecordingQueryResponse(object):
         'error': 'error',
         'filter': 'filter',
         'filter_values': 'filter_values',
+        'histogram_data': 'histogram_data',
+        'histogram_interval': 'histogram_interval',
+        'histogram_start_dts': 'histogram_start_dts',
         'metadata': 'metadata',
         'screen_recordings': 'screen_recordings',
         'success': 'success',
         'warning': 'warning'
     }
 
-    def __init__(self, error=None, filter=None, filter_values=None, metadata=None, screen_recordings=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, error=None, filter=None, filter_values=None, histogram_data=None, histogram_interval=None, histogram_start_dts=None, metadata=None, screen_recordings=None, success=None, warning=None):  # noqa: E501
         """ScreenRecordingQueryResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._filter = None
         self._filter_values = None
+        self._histogram_data = None
+        self._histogram_interval = None
+        self._histogram_start_dts = None
         self._metadata = None
         self._screen_recordings = None
         self._success = None
@@ -68,6 +77,12 @@ class ScreenRecordingQueryResponse(object):
             self.filter = filter
         if filter_values is not None:
             self.filter_values = filter_values
+        if histogram_data is not None:
+            self.histogram_data = histogram_data
+        if histogram_interval is not None:
+            self.histogram_interval = histogram_interval
+        if histogram_start_dts is not None:
+            self.histogram_start_dts = histogram_start_dts
         if metadata is not None:
             self.metadata = metadata
         if screen_recordings is not None:
@@ -139,6 +154,69 @@ class ScreenRecordingQueryResponse(object):
         """
 
         self._filter_values = filter_values
+
+    @property
+    def histogram_data(self):
+        """Gets the histogram_data of this ScreenRecordingQueryResponse.  # noqa: E501
+
+
+        :return: The histogram_data of this ScreenRecordingQueryResponse.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._histogram_data
+
+    @histogram_data.setter
+    def histogram_data(self, histogram_data):
+        """Sets the histogram_data of this ScreenRecordingQueryResponse.
+
+
+        :param histogram_data: The histogram_data of this ScreenRecordingQueryResponse.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._histogram_data = histogram_data
+
+    @property
+    def histogram_interval(self):
+        """Gets the histogram_interval of this ScreenRecordingQueryResponse.  # noqa: E501
+
+
+        :return: The histogram_interval of this ScreenRecordingQueryResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._histogram_interval
+
+    @histogram_interval.setter
+    def histogram_interval(self, histogram_interval):
+        """Sets the histogram_interval of this ScreenRecordingQueryResponse.
+
+
+        :param histogram_interval: The histogram_interval of this ScreenRecordingQueryResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._histogram_interval = histogram_interval
+
+    @property
+    def histogram_start_dts(self):
+        """Gets the histogram_start_dts of this ScreenRecordingQueryResponse.  # noqa: E501
+
+
+        :return: The histogram_start_dts of this ScreenRecordingQueryResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._histogram_start_dts
+
+    @histogram_start_dts.setter
+    def histogram_start_dts(self, histogram_start_dts):
+        """Sets the histogram_start_dts of this ScreenRecordingQueryResponse.
+
+
+        :param histogram_start_dts: The histogram_start_dts of this ScreenRecordingQueryResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._histogram_start_dts = histogram_start_dts
 
     @property
     def metadata(self):

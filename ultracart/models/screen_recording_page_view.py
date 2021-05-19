@@ -44,6 +44,8 @@ class ScreenRecordingPageView(object):
         'referrer_raw': 'str',
         'screen_recording_page_view_uuid': 'str',
         'time_on_page': 'int',
+        'timing_dom_content_loaded': 'int',
+        'timing_loaded': 'int',
         'truncated_events': 'bool',
         'ucapv': 'str',
         'url': 'str'
@@ -63,12 +65,14 @@ class ScreenRecordingPageView(object):
         'referrer_raw': 'referrer_raw',
         'screen_recording_page_view_uuid': 'screen_recording_page_view_uuid',
         'time_on_page': 'time_on_page',
+        'timing_dom_content_loaded': 'timing_dom_content_loaded',
+        'timing_loaded': 'timing_loaded',
         'truncated_events': 'truncated_events',
         'ucapv': 'ucapv',
         'url': 'url'
     }
 
-    def __init__(self, events=None, first_event_timestamp=None, http_post=None, last_event_timestamp=None, missing_events=None, params=None, range_end=None, range_start=None, referrer=None, referrer_params=None, referrer_raw=None, screen_recording_page_view_uuid=None, time_on_page=None, truncated_events=None, ucapv=None, url=None):  # noqa: E501
+    def __init__(self, events=None, first_event_timestamp=None, http_post=None, last_event_timestamp=None, missing_events=None, params=None, range_end=None, range_start=None, referrer=None, referrer_params=None, referrer_raw=None, screen_recording_page_view_uuid=None, time_on_page=None, timing_dom_content_loaded=None, timing_loaded=None, truncated_events=None, ucapv=None, url=None):  # noqa: E501
         """ScreenRecordingPageView - a model defined in Swagger"""  # noqa: E501
 
         self._events = None
@@ -84,6 +88,8 @@ class ScreenRecordingPageView(object):
         self._referrer_raw = None
         self._screen_recording_page_view_uuid = None
         self._time_on_page = None
+        self._timing_dom_content_loaded = None
+        self._timing_loaded = None
         self._truncated_events = None
         self._ucapv = None
         self._url = None
@@ -115,6 +121,10 @@ class ScreenRecordingPageView(object):
             self.screen_recording_page_view_uuid = screen_recording_page_view_uuid
         if time_on_page is not None:
             self.time_on_page = time_on_page
+        if timing_dom_content_loaded is not None:
+            self.timing_dom_content_loaded = timing_dom_content_loaded
+        if timing_loaded is not None:
+            self.timing_loaded = timing_loaded
         if truncated_events is not None:
             self.truncated_events = truncated_events
         if ucapv is not None:
@@ -398,6 +408,52 @@ class ScreenRecordingPageView(object):
         """
 
         self._time_on_page = time_on_page
+
+    @property
+    def timing_dom_content_loaded(self):
+        """Gets the timing_dom_content_loaded of this ScreenRecordingPageView.  # noqa: E501
+
+        Amount of time for DOMContentLoaded event to fire (milliseconds)  # noqa: E501
+
+        :return: The timing_dom_content_loaded of this ScreenRecordingPageView.  # noqa: E501
+        :rtype: int
+        """
+        return self._timing_dom_content_loaded
+
+    @timing_dom_content_loaded.setter
+    def timing_dom_content_loaded(self, timing_dom_content_loaded):
+        """Sets the timing_dom_content_loaded of this ScreenRecordingPageView.
+
+        Amount of time for DOMContentLoaded event to fire (milliseconds)  # noqa: E501
+
+        :param timing_dom_content_loaded: The timing_dom_content_loaded of this ScreenRecordingPageView.  # noqa: E501
+        :type: int
+        """
+
+        self._timing_dom_content_loaded = timing_dom_content_loaded
+
+    @property
+    def timing_loaded(self):
+        """Gets the timing_loaded of this ScreenRecordingPageView.  # noqa: E501
+
+        Amount of time for loaded event to fire (milliseconds)  # noqa: E501
+
+        :return: The timing_loaded of this ScreenRecordingPageView.  # noqa: E501
+        :rtype: int
+        """
+        return self._timing_loaded
+
+    @timing_loaded.setter
+    def timing_loaded(self, timing_loaded):
+        """Sets the timing_loaded of this ScreenRecordingPageView.
+
+        Amount of time for loaded event to fire (milliseconds)  # noqa: E501
+
+        :param timing_loaded: The timing_loaded of this ScreenRecordingPageView.  # noqa: E501
+        :type: int
+        """
+
+        self._timing_loaded = timing_loaded
 
     @property
     def truncated_events(self):

@@ -31,6 +31,7 @@ class ScreenRecording(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ad_platform': 'ScreenRecordingAdPlatform',
         'analytics_client_oid': 'int',
         'analytics_session_dts': 'int',
         'analytics_session_oid': 'int',
@@ -41,6 +42,7 @@ class ScreenRecording(object):
         'communications_flow_name': 'str',
         'communications_flow_uuid': 'str',
         'email': 'str',
+        'email_domain': 'str',
         'end_timestamp': 'str',
         'esp_customer_uuid': 'str',
         'events_gz_size': 'int',
@@ -56,6 +58,8 @@ class ScreenRecording(object):
         'order_id': 'str',
         'page_view_count': 'int',
         'page_views': 'list[ScreenRecordingPageView]',
+        'preferred_language': 'str',
+        'referrer_domain': 'str',
         'rrweb_version': 'str',
         'screen_recording_uuid': 'str',
         'signed_download_url': 'str',
@@ -79,6 +83,7 @@ class ScreenRecording(object):
     }
 
     attribute_map = {
+        'ad_platform': 'ad_platform',
         'analytics_client_oid': 'analytics_client_oid',
         'analytics_session_dts': 'analytics_session_dts',
         'analytics_session_oid': 'analytics_session_oid',
@@ -89,6 +94,7 @@ class ScreenRecording(object):
         'communications_flow_name': 'communications_flow_name',
         'communications_flow_uuid': 'communications_flow_uuid',
         'email': 'email',
+        'email_domain': 'email_domain',
         'end_timestamp': 'end_timestamp',
         'esp_customer_uuid': 'esp_customer_uuid',
         'events_gz_size': 'events_gz_size',
@@ -104,6 +110,8 @@ class ScreenRecording(object):
         'order_id': 'order_id',
         'page_view_count': 'page_view_count',
         'page_views': 'page_views',
+        'preferred_language': 'preferred_language',
+        'referrer_domain': 'referrer_domain',
         'rrweb_version': 'rrweb_version',
         'screen_recording_uuid': 'screen_recording_uuid',
         'signed_download_url': 'signed_download_url',
@@ -126,9 +134,10 @@ class ScreenRecording(object):
         'window_width': 'window_width'
     }
 
-    def __init__(self, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, communications_campaign_name=None, communications_campaign_uuid=None, communications_email_subject=None, communications_email_uuid=None, communications_flow_name=None, communications_flow_uuid=None, email=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, utm_campaign=None, utm_source=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
+    def __init__(self, ad_platform=None, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, communications_campaign_name=None, communications_campaign_uuid=None, communications_email_subject=None, communications_email_uuid=None, communications_flow_name=None, communications_flow_uuid=None, email=None, email_domain=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, preferred_language=None, referrer_domain=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, utm_campaign=None, utm_source=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
         """ScreenRecording - a model defined in Swagger"""  # noqa: E501
 
+        self._ad_platform = None
         self._analytics_client_oid = None
         self._analytics_session_dts = None
         self._analytics_session_oid = None
@@ -139,6 +148,7 @@ class ScreenRecording(object):
         self._communications_flow_name = None
         self._communications_flow_uuid = None
         self._email = None
+        self._email_domain = None
         self._end_timestamp = None
         self._esp_customer_uuid = None
         self._events_gz_size = None
@@ -154,6 +164,8 @@ class ScreenRecording(object):
         self._order_id = None
         self._page_view_count = None
         self._page_views = None
+        self._preferred_language = None
+        self._referrer_domain = None
         self._rrweb_version = None
         self._screen_recording_uuid = None
         self._signed_download_url = None
@@ -176,6 +188,8 @@ class ScreenRecording(object):
         self._window_width = None
         self.discriminator = None
 
+        if ad_platform is not None:
+            self.ad_platform = ad_platform
         if analytics_client_oid is not None:
             self.analytics_client_oid = analytics_client_oid
         if analytics_session_dts is not None:
@@ -196,6 +210,8 @@ class ScreenRecording(object):
             self.communications_flow_uuid = communications_flow_uuid
         if email is not None:
             self.email = email
+        if email_domain is not None:
+            self.email_domain = email_domain
         if end_timestamp is not None:
             self.end_timestamp = end_timestamp
         if esp_customer_uuid is not None:
@@ -226,6 +242,10 @@ class ScreenRecording(object):
             self.page_view_count = page_view_count
         if page_views is not None:
             self.page_views = page_views
+        if preferred_language is not None:
+            self.preferred_language = preferred_language
+        if referrer_domain is not None:
+            self.referrer_domain = referrer_domain
         if rrweb_version is not None:
             self.rrweb_version = rrweb_version
         if screen_recording_uuid is not None:
@@ -266,6 +286,27 @@ class ScreenRecording(object):
             self.window_height = window_height
         if window_width is not None:
             self.window_width = window_width
+
+    @property
+    def ad_platform(self):
+        """Gets the ad_platform of this ScreenRecording.  # noqa: E501
+
+
+        :return: The ad_platform of this ScreenRecording.  # noqa: E501
+        :rtype: ScreenRecordingAdPlatform
+        """
+        return self._ad_platform
+
+    @ad_platform.setter
+    def ad_platform(self, ad_platform):
+        """Sets the ad_platform of this ScreenRecording.
+
+
+        :param ad_platform: The ad_platform of this ScreenRecording.  # noqa: E501
+        :type: ScreenRecordingAdPlatform
+        """
+
+        self._ad_platform = ad_platform
 
     @property
     def analytics_client_oid(self):
@@ -488,6 +529,27 @@ class ScreenRecording(object):
         """
 
         self._email = email
+
+    @property
+    def email_domain(self):
+        """Gets the email_domain of this ScreenRecording.  # noqa: E501
+
+
+        :return: The email_domain of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._email_domain
+
+    @email_domain.setter
+    def email_domain(self, email_domain):
+        """Sets the email_domain of this ScreenRecording.
+
+
+        :param email_domain: The email_domain of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._email_domain = email_domain
 
     @property
     def end_timestamp(self):
@@ -811,6 +873,50 @@ class ScreenRecording(object):
         """
 
         self._page_views = page_views
+
+    @property
+    def preferred_language(self):
+        """Gets the preferred_language of this ScreenRecording.  # noqa: E501
+
+        ISO 3 Letter language code that the customer would prefer  # noqa: E501
+
+        :return: The preferred_language of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._preferred_language
+
+    @preferred_language.setter
+    def preferred_language(self, preferred_language):
+        """Sets the preferred_language of this ScreenRecording.
+
+        ISO 3 Letter language code that the customer would prefer  # noqa: E501
+
+        :param preferred_language: The preferred_language of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._preferred_language = preferred_language
+
+    @property
+    def referrer_domain(self):
+        """Gets the referrer_domain of this ScreenRecording.  # noqa: E501
+
+
+        :return: The referrer_domain of this ScreenRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._referrer_domain
+
+    @referrer_domain.setter
+    def referrer_domain(self, referrer_domain):
+        """Sets the referrer_domain of this ScreenRecording.
+
+
+        :param referrer_domain: The referrer_domain of this ScreenRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._referrer_domain = referrer_domain
 
     @property
     def rrweb_version(self):

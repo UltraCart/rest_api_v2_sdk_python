@@ -33,6 +33,7 @@ class ScreenRecordingPageViewEvent(object):
     swagger_types = {
         'name': 'str',
         'params': 'list[ScreenRecordingPageViewEventParameter]',
+        'prior_page_view': 'bool',
         'timestamp': 'str',
         'ts': 'int'
     }
@@ -40,15 +41,17 @@ class ScreenRecordingPageViewEvent(object):
     attribute_map = {
         'name': 'name',
         'params': 'params',
+        'prior_page_view': 'prior_page_view',
         'timestamp': 'timestamp',
         'ts': 'ts'
     }
 
-    def __init__(self, name=None, params=None, timestamp=None, ts=None):  # noqa: E501
+    def __init__(self, name=None, params=None, prior_page_view=None, timestamp=None, ts=None):  # noqa: E501
         """ScreenRecordingPageViewEvent - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._params = None
+        self._prior_page_view = None
         self._timestamp = None
         self._ts = None
         self.discriminator = None
@@ -57,6 +60,8 @@ class ScreenRecordingPageViewEvent(object):
             self.name = name
         if params is not None:
             self.params = params
+        if prior_page_view is not None:
+            self.prior_page_view = prior_page_view
         if timestamp is not None:
             self.timestamp = timestamp
         if ts is not None:
@@ -103,6 +108,27 @@ class ScreenRecordingPageViewEvent(object):
         """
 
         self._params = params
+
+    @property
+    def prior_page_view(self):
+        """Gets the prior_page_view of this ScreenRecordingPageViewEvent.  # noqa: E501
+
+
+        :return: The prior_page_view of this ScreenRecordingPageViewEvent.  # noqa: E501
+        :rtype: bool
+        """
+        return self._prior_page_view
+
+    @prior_page_view.setter
+    def prior_page_view(self, prior_page_view):
+        """Sets the prior_page_view of this ScreenRecordingPageViewEvent.
+
+
+        :param prior_page_view: The prior_page_view of this ScreenRecordingPageViewEvent.  # noqa: E501
+        :type: bool
+        """
+
+        self._prior_page_view = prior_page_view
 
     @property
     def timestamp(self):

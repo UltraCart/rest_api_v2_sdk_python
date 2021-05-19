@@ -484,6 +484,7 @@ from ultracart.models.register_affiliate_click_response import RegisterAffiliate
 from ultracart.models.response_metadata import ResponseMetadata
 from ultracart.models.result_set import ResultSet
 from ultracart.models.screen_recording import ScreenRecording
+from ultracart.models.screen_recording_ad_platform import ScreenRecordingAdPlatform
 from ultracart.models.screen_recording_filter import ScreenRecordingFilter
 from ultracart.models.screen_recording_filter_geo_distance import ScreenRecordingFilterGeoDistance
 from ultracart.models.screen_recording_filter_ip_search import ScreenRecordingFilterIpSearch

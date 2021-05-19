@@ -31,10 +31,13 @@ class ScreenRecordingFilter(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'affiliate_email': 'str',
+        'affiliate_id': 'int',
         'communications_campaign_name': 'str',
         'communications_email_subject': 'str',
         'communications_flow_name': 'str',
         'email': 'ScreenRecordingFilterStringSearch',
+        'email_domain': 'str',
         'email_identified': 'bool',
         'end_timestamp': 'ScreenRecordingFilterRangeDate',
         'esp_customer_uuid': 'str',
@@ -43,11 +46,14 @@ class ScreenRecordingFilter(object):
         'geolocation_country': 'ScreenRecordingFilterStringSearch',
         'geolocation_state': 'ScreenRecordingFilterStringSearch',
         'language_iso_code': 'ScreenRecordingFilterStringSearch',
+        'last_x_days': 'int',
         'max_filter_values': 'int',
         'order_id': 'ScreenRecordingFilterStringSearch',
         'page_view_count': 'ScreenRecordingFilterRangeInteger',
         'page_views': 'list[ScreenRecordingFilterPageView]',
         'placed_order': 'bool',
+        'preferred_language': 'ScreenRecordingFilterStringSearch',
+        'referrer_domain': 'str',
         'screen_recording_uuids': 'list[str]',
         'screen_sizes': 'list[str]',
         'skip_filter_values': 'bool',
@@ -68,10 +74,13 @@ class ScreenRecordingFilter(object):
     }
 
     attribute_map = {
+        'affiliate_email': 'affiliate_email',
+        'affiliate_id': 'affiliate_id',
         'communications_campaign_name': 'communications_campaign_name',
         'communications_email_subject': 'communications_email_subject',
         'communications_flow_name': 'communications_flow_name',
         'email': 'email',
+        'email_domain': 'email_domain',
         'email_identified': 'email_identified',
         'end_timestamp': 'end_timestamp',
         'esp_customer_uuid': 'esp_customer_uuid',
@@ -80,11 +89,14 @@ class ScreenRecordingFilter(object):
         'geolocation_country': 'geolocation_country',
         'geolocation_state': 'geolocation_state',
         'language_iso_code': 'language_iso_code',
+        'last_x_days': 'last_x_days',
         'max_filter_values': 'max_filter_values',
         'order_id': 'order_id',
         'page_view_count': 'page_view_count',
         'page_views': 'page_views',
         'placed_order': 'placed_order',
+        'preferred_language': 'preferred_language',
+        'referrer_domain': 'referrer_domain',
         'screen_recording_uuids': 'screen_recording_uuids',
         'screen_sizes': 'screen_sizes',
         'skip_filter_values': 'skip_filter_values',
@@ -104,13 +116,16 @@ class ScreenRecordingFilter(object):
         'watched': 'watched'
     }
 
-    def __init__(self, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, utm_campaign=None, utm_source=None, visitor_number=None, watched=None):  # noqa: E501
+    def __init__(self, affiliate_email=None, affiliate_id=None, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_domain=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, last_x_days=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, preferred_language=None, referrer_domain=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, utm_campaign=None, utm_source=None, visitor_number=None, watched=None):  # noqa: E501
         """ScreenRecordingFilter - a model defined in Swagger"""  # noqa: E501
 
+        self._affiliate_email = None
+        self._affiliate_id = None
         self._communications_campaign_name = None
         self._communications_email_subject = None
         self._communications_flow_name = None
         self._email = None
+        self._email_domain = None
         self._email_identified = None
         self._end_timestamp = None
         self._esp_customer_uuid = None
@@ -119,11 +134,14 @@ class ScreenRecordingFilter(object):
         self._geolocation_country = None
         self._geolocation_state = None
         self._language_iso_code = None
+        self._last_x_days = None
         self._max_filter_values = None
         self._order_id = None
         self._page_view_count = None
         self._page_views = None
         self._placed_order = None
+        self._preferred_language = None
+        self._referrer_domain = None
         self._screen_recording_uuids = None
         self._screen_sizes = None
         self._skip_filter_values = None
@@ -143,6 +161,10 @@ class ScreenRecordingFilter(object):
         self._watched = None
         self.discriminator = None
 
+        if affiliate_email is not None:
+            self.affiliate_email = affiliate_email
+        if affiliate_id is not None:
+            self.affiliate_id = affiliate_id
         if communications_campaign_name is not None:
             self.communications_campaign_name = communications_campaign_name
         if communications_email_subject is not None:
@@ -151,6 +173,8 @@ class ScreenRecordingFilter(object):
             self.communications_flow_name = communications_flow_name
         if email is not None:
             self.email = email
+        if email_domain is not None:
+            self.email_domain = email_domain
         if email_identified is not None:
             self.email_identified = email_identified
         if end_timestamp is not None:
@@ -167,6 +191,8 @@ class ScreenRecordingFilter(object):
             self.geolocation_state = geolocation_state
         if language_iso_code is not None:
             self.language_iso_code = language_iso_code
+        if last_x_days is not None:
+            self.last_x_days = last_x_days
         if max_filter_values is not None:
             self.max_filter_values = max_filter_values
         if order_id is not None:
@@ -177,6 +203,10 @@ class ScreenRecordingFilter(object):
             self.page_views = page_views
         if placed_order is not None:
             self.placed_order = placed_order
+        if preferred_language is not None:
+            self.preferred_language = preferred_language
+        if referrer_domain is not None:
+            self.referrer_domain = referrer_domain
         if screen_recording_uuids is not None:
             self.screen_recording_uuids = screen_recording_uuids
         if screen_sizes is not None:
@@ -211,6 +241,48 @@ class ScreenRecordingFilter(object):
             self.visitor_number = visitor_number
         if watched is not None:
             self.watched = watched
+
+    @property
+    def affiliate_email(self):
+        """Gets the affiliate_email of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The affiliate_email of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: str
+        """
+        return self._affiliate_email
+
+    @affiliate_email.setter
+    def affiliate_email(self, affiliate_email):
+        """Sets the affiliate_email of this ScreenRecordingFilter.
+
+
+        :param affiliate_email: The affiliate_email of this ScreenRecordingFilter.  # noqa: E501
+        :type: str
+        """
+
+        self._affiliate_email = affiliate_email
+
+    @property
+    def affiliate_id(self):
+        """Gets the affiliate_id of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The affiliate_id of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: int
+        """
+        return self._affiliate_id
+
+    @affiliate_id.setter
+    def affiliate_id(self, affiliate_id):
+        """Sets the affiliate_id of this ScreenRecordingFilter.
+
+
+        :param affiliate_id: The affiliate_id of this ScreenRecordingFilter.  # noqa: E501
+        :type: int
+        """
+
+        self._affiliate_id = affiliate_id
 
     @property
     def communications_campaign_name(self):
@@ -295,6 +367,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._email = email
+
+    @property
+    def email_domain(self):
+        """Gets the email_domain of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The email_domain of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: str
+        """
+        return self._email_domain
+
+    @email_domain.setter
+    def email_domain(self, email_domain):
+        """Sets the email_domain of this ScreenRecordingFilter.
+
+
+        :param email_domain: The email_domain of this ScreenRecordingFilter.  # noqa: E501
+        :type: str
+        """
+
+        self._email_domain = email_domain
 
     @property
     def email_identified(self):
@@ -465,6 +558,27 @@ class ScreenRecordingFilter(object):
         self._language_iso_code = language_iso_code
 
     @property
+    def last_x_days(self):
+        """Gets the last_x_days of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The last_x_days of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_x_days
+
+    @last_x_days.setter
+    def last_x_days(self, last_x_days):
+        """Sets the last_x_days of this ScreenRecordingFilter.
+
+
+        :param last_x_days: The last_x_days of this ScreenRecordingFilter.  # noqa: E501
+        :type: int
+        """
+
+        self._last_x_days = last_x_days
+
+    @property
     def max_filter_values(self):
         """Gets the max_filter_values of this ScreenRecordingFilter.  # noqa: E501
 
@@ -568,6 +682,48 @@ class ScreenRecordingFilter(object):
         """
 
         self._placed_order = placed_order
+
+    @property
+    def preferred_language(self):
+        """Gets the preferred_language of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The preferred_language of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: ScreenRecordingFilterStringSearch
+        """
+        return self._preferred_language
+
+    @preferred_language.setter
+    def preferred_language(self, preferred_language):
+        """Sets the preferred_language of this ScreenRecordingFilter.
+
+
+        :param preferred_language: The preferred_language of this ScreenRecordingFilter.  # noqa: E501
+        :type: ScreenRecordingFilterStringSearch
+        """
+
+        self._preferred_language = preferred_language
+
+    @property
+    def referrer_domain(self):
+        """Gets the referrer_domain of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The referrer_domain of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: str
+        """
+        return self._referrer_domain
+
+    @referrer_domain.setter
+    def referrer_domain(self, referrer_domain):
+        """Sets the referrer_domain of this ScreenRecordingFilter.
+
+
+        :param referrer_domain: The referrer_domain of this ScreenRecordingFilter.  # noqa: E501
+        :type: str
+        """
+
+        self._referrer_domain = referrer_domain
 
     @property
     def screen_recording_uuids(self):

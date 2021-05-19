@@ -31,21 +31,49 @@ class OrderProcessPaymentRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'amount': 'float',
         'card_verification_number_token': 'str'
     }
 
     attribute_map = {
+        'amount': 'amount',
         'card_verification_number_token': 'card_verification_number_token'
     }
 
-    def __init__(self, card_verification_number_token=None):  # noqa: E501
+    def __init__(self, amount=None, card_verification_number_token=None):  # noqa: E501
         """OrderProcessPaymentRequest - a model defined in Swagger"""  # noqa: E501
 
+        self._amount = None
         self._card_verification_number_token = None
         self.discriminator = None
 
+        if amount is not None:
+            self.amount = amount
         if card_verification_number_token is not None:
             self.card_verification_number_token = card_verification_number_token
+
+    @property
+    def amount(self):
+        """Gets the amount of this OrderProcessPaymentRequest.  # noqa: E501
+
+        Specific amount to bill (optional).  If not specified the total of the order is billed.  # noqa: E501
+
+        :return: The amount of this OrderProcessPaymentRequest.  # noqa: E501
+        :rtype: float
+        """
+        return self._amount
+
+    @amount.setter
+    def amount(self, amount):
+        """Sets the amount of this OrderProcessPaymentRequest.
+
+        Specific amount to bill (optional).  If not specified the total of the order is billed.  # noqa: E501
+
+        :param amount: The amount of this OrderProcessPaymentRequest.  # noqa: E501
+        :type: float
+        """
+
+        self._amount = amount
 
     @property
     def card_verification_number_token(self):

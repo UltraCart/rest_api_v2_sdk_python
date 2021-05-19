@@ -33,20 +33,23 @@ class CustomerLoyalty(object):
     swagger_types = {
         'current_points': 'int',
         'ledger_entries': 'list[CustomerLoyaltyLedger]',
+        'pending_points': 'int',
         'redemptions': 'list[CustomerLoyaltyRedemption]'
     }
 
     attribute_map = {
         'current_points': 'current_points',
         'ledger_entries': 'ledger_entries',
+        'pending_points': 'pending_points',
         'redemptions': 'redemptions'
     }
 
-    def __init__(self, current_points=None, ledger_entries=None, redemptions=None):  # noqa: E501
+    def __init__(self, current_points=None, ledger_entries=None, pending_points=None, redemptions=None):  # noqa: E501
         """CustomerLoyalty - a model defined in Swagger"""  # noqa: E501
 
         self._current_points = None
         self._ledger_entries = None
+        self._pending_points = None
         self._redemptions = None
         self.discriminator = None
 
@@ -54,6 +57,8 @@ class CustomerLoyalty(object):
             self.current_points = current_points
         if ledger_entries is not None:
             self.ledger_entries = ledger_entries
+        if pending_points is not None:
+            self.pending_points = pending_points
         if redemptions is not None:
             self.redemptions = redemptions
 
@@ -102,6 +107,29 @@ class CustomerLoyalty(object):
         """
 
         self._ledger_entries = ledger_entries
+
+    @property
+    def pending_points(self):
+        """Gets the pending_points of this CustomerLoyalty.  # noqa: E501
+
+        Pending Points  # noqa: E501
+
+        :return: The pending_points of this CustomerLoyalty.  # noqa: E501
+        :rtype: int
+        """
+        return self._pending_points
+
+    @pending_points.setter
+    def pending_points(self, pending_points):
+        """Sets the pending_points of this CustomerLoyalty.
+
+        Pending Points  # noqa: E501
+
+        :param pending_points: The pending_points of this CustomerLoyalty.  # noqa: E501
+        :type: int
+        """
+
+        self._pending_points = pending_points
 
     @property
     def redemptions(self):
