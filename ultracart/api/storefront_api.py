@@ -1830,6 +1830,113 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_heatmap(self, storefront_oid, query, **kwargs):  # noqa: E501
+        """Delete screen recording heatmap  # noqa: E501
+
+        Delete screen recording heatmap   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_heatmap(storefront_oid, query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingHeatmapReset query: Query (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_heatmap_with_http_info(storefront_oid, query, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_heatmap_with_http_info(storefront_oid, query, **kwargs)  # noqa: E501
+            return data
+
+    def delete_heatmap_with_http_info(self, storefront_oid, query, **kwargs):  # noqa: E501
+        """Delete screen recording heatmap  # noqa: E501
+
+        Delete screen recording heatmap   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_heatmap_with_http_info(storefront_oid, query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingHeatmapReset query: Query (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'query']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_heatmap" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `delete_heatmap`")  # noqa: E501
+        # verify the required parameter 'query' is set
+        if ('query' not in params or
+                params['query'] is None):
+            raise ValueError("Missing the required parameter `query` when calling `delete_heatmap`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'query' in params:
+            body_params = params['query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/heatmap', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_library_item(self, library_item_oid, **kwargs):  # noqa: E501
         """Delete library item  # noqa: E501
 
@@ -7920,6 +8027,212 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ExperimentsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_heatmap(self, storefront_oid, query, **kwargs):  # noqa: E501
+        """Get screen recording heatmap  # noqa: E501
+
+        Get screen recording heatmap   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_heatmap(storefront_oid, query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingHeatmapRequest query: Query (required)
+        :return: ScreenRecordingHeatmapResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_heatmap_with_http_info(storefront_oid, query, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_heatmap_with_http_info(storefront_oid, query, **kwargs)  # noqa: E501
+            return data
+
+    def get_heatmap_with_http_info(self, storefront_oid, query, **kwargs):  # noqa: E501
+        """Get screen recording heatmap  # noqa: E501
+
+        Get screen recording heatmap   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_heatmap_with_http_info(storefront_oid, query, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param ScreenRecordingHeatmapRequest query: Query (required)
+        :return: ScreenRecordingHeatmapResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'query']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_heatmap" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_heatmap`")  # noqa: E501
+        # verify the required parameter 'query' is set
+        if ('query' not in params or
+                params['query'] is None):
+            raise ValueError("Missing the required parameter `query` when calling `get_heatmap`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'query' in params:
+            body_params = params['query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/heatmap', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingHeatmapResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_heatmap_index(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get screen recording heatmap index  # noqa: E501
+
+        Get screen recording heatmap index   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_heatmap_index(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: ScreenRecordingHeatmapIndexResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_heatmap_index_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_heatmap_index_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_heatmap_index_with_http_info(self, storefront_oid, **kwargs):  # noqa: E501
+        """Get screen recording heatmap index  # noqa: E501
+
+        Get screen recording heatmap index   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_heatmap_index_with_http_info(storefront_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :return: ScreenRecordingHeatmapIndexResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_heatmap_index" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_heatmap_index`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/screen_recordings/heatmap/index', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ScreenRecordingHeatmapIndexResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

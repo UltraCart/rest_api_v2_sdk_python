@@ -48,7 +48,7 @@ class OrderApi(object):
     def adjust_order_total(self, order_id, desired_total, **kwargs):  # noqa: E501
         """Adjusts an order total  # noqa: E501
 
-        Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful.   # noqa: E501
+        Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order and must be less than the current total and greater than zero.  This call will change the order total.  It returns true if the desired total is achieved.  If the goal seeking algorithm falls short (usually by pennies), this method returns back false.  View the merchant notes for the order for further details.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.adjust_order_total(order_id, desired_total, async_req=True)
@@ -71,7 +71,7 @@ class OrderApi(object):
     def adjust_order_total_with_http_info(self, order_id, desired_total, **kwargs):  # noqa: E501
         """Adjusts an order total  # noqa: E501
 
-        Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful.   # noqa: E501
+        Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order and must be less than the current total and greater than zero.  This call will change the order total.  It returns true if the desired total is achieved.  If the goal seeking algorithm falls short (usually by pennies), this method returns back false.  View the merchant notes for the order for further details.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.adjust_order_total_with_http_info(order_id, desired_total, async_req=True)

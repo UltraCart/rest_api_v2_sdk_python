@@ -32,6 +32,7 @@ class OrderSummary(object):
     """
     swagger_types = {
         'actual_fulfillment': 'Currency',
+        'actual_payment_processing': 'Currency',
         'actual_shipping': 'Currency',
         'arbitrary_shipping_handling_total': 'Currency',
         'other_refunded': 'Currency',
@@ -52,6 +53,7 @@ class OrderSummary(object):
 
     attribute_map = {
         'actual_fulfillment': 'actual_fulfillment',
+        'actual_payment_processing': 'actual_payment_processing',
         'actual_shipping': 'actual_shipping',
         'arbitrary_shipping_handling_total': 'arbitrary_shipping_handling_total',
         'other_refunded': 'other_refunded',
@@ -70,10 +72,11 @@ class OrderSummary(object):
         'total_refunded': 'total_refunded'
     }
 
-    def __init__(self, actual_fulfillment=None, actual_shipping=None, arbitrary_shipping_handling_total=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
+    def __init__(self, actual_fulfillment=None, actual_payment_processing=None, actual_shipping=None, arbitrary_shipping_handling_total=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
         """OrderSummary - a model defined in Swagger"""  # noqa: E501
 
         self._actual_fulfillment = None
+        self._actual_payment_processing = None
         self._actual_shipping = None
         self._arbitrary_shipping_handling_total = None
         self._other_refunded = None
@@ -94,6 +97,8 @@ class OrderSummary(object):
 
         if actual_fulfillment is not None:
             self.actual_fulfillment = actual_fulfillment
+        if actual_payment_processing is not None:
+            self.actual_payment_processing = actual_payment_processing
         if actual_shipping is not None:
             self.actual_shipping = actual_shipping
         if arbitrary_shipping_handling_total is not None:
@@ -147,6 +152,27 @@ class OrderSummary(object):
         """
 
         self._actual_fulfillment = actual_fulfillment
+
+    @property
+    def actual_payment_processing(self):
+        """Gets the actual_payment_processing of this OrderSummary.  # noqa: E501
+
+
+        :return: The actual_payment_processing of this OrderSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._actual_payment_processing
+
+    @actual_payment_processing.setter
+    def actual_payment_processing(self, actual_payment_processing):
+        """Sets the actual_payment_processing of this OrderSummary.
+
+
+        :param actual_payment_processing: The actual_payment_processing of this OrderSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._actual_payment_processing = actual_payment_processing
 
     @property
     def actual_shipping(self):

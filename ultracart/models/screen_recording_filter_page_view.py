@@ -31,6 +31,7 @@ class ScreenRecordingFilterPageView(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'domain': 'ScreenRecordingFilterStringSearch',
         'events': 'list[ScreenRecordingFilterPageViewEvent]',
         'params': 'list[ScreenRecordingFilterPageViewParam]',
         'referrer': 'ScreenRecordingFilterStringSearch',
@@ -41,6 +42,7 @@ class ScreenRecordingFilterPageView(object):
     }
 
     attribute_map = {
+        'domain': 'domain',
         'events': 'events',
         'params': 'params',
         'referrer': 'referrer',
@@ -50,9 +52,10 @@ class ScreenRecordingFilterPageView(object):
         'url': 'url'
     }
 
-    def __init__(self, events=None, params=None, referrer=None, referrer_params=None, referrer_raw=None, time_on_page=None, url=None):  # noqa: E501
+    def __init__(self, domain=None, events=None, params=None, referrer=None, referrer_params=None, referrer_raw=None, time_on_page=None, url=None):  # noqa: E501
         """ScreenRecordingFilterPageView - a model defined in Swagger"""  # noqa: E501
 
+        self._domain = None
         self._events = None
         self._params = None
         self._referrer = None
@@ -62,6 +65,8 @@ class ScreenRecordingFilterPageView(object):
         self._url = None
         self.discriminator = None
 
+        if domain is not None:
+            self.domain = domain
         if events is not None:
             self.events = events
         if params is not None:
@@ -76,6 +81,27 @@ class ScreenRecordingFilterPageView(object):
             self.time_on_page = time_on_page
         if url is not None:
             self.url = url
+
+    @property
+    def domain(self):
+        """Gets the domain of this ScreenRecordingFilterPageView.  # noqa: E501
+
+
+        :return: The domain of this ScreenRecordingFilterPageView.  # noqa: E501
+        :rtype: ScreenRecordingFilterStringSearch
+        """
+        return self._domain
+
+    @domain.setter
+    def domain(self, domain):
+        """Sets the domain of this ScreenRecordingFilterPageView.
+
+
+        :param domain: The domain of this ScreenRecordingFilterPageView.  # noqa: E501
+        :type: ScreenRecordingFilterStringSearch
+        """
+
+        self._domain = domain
 
     @property
     def events(self):

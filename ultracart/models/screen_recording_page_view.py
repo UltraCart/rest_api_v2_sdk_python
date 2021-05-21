@@ -31,6 +31,7 @@ class ScreenRecordingPageView(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'domain': 'str',
         'events': 'list[ScreenRecordingPageViewEvent]',
         'first_event_timestamp': 'str',
         'http_post': 'bool',
@@ -52,6 +53,7 @@ class ScreenRecordingPageView(object):
     }
 
     attribute_map = {
+        'domain': 'domain',
         'events': 'events',
         'first_event_timestamp': 'first_event_timestamp',
         'http_post': 'http_post',
@@ -72,9 +74,10 @@ class ScreenRecordingPageView(object):
         'url': 'url'
     }
 
-    def __init__(self, events=None, first_event_timestamp=None, http_post=None, last_event_timestamp=None, missing_events=None, params=None, range_end=None, range_start=None, referrer=None, referrer_params=None, referrer_raw=None, screen_recording_page_view_uuid=None, time_on_page=None, timing_dom_content_loaded=None, timing_loaded=None, truncated_events=None, ucapv=None, url=None):  # noqa: E501
+    def __init__(self, domain=None, events=None, first_event_timestamp=None, http_post=None, last_event_timestamp=None, missing_events=None, params=None, range_end=None, range_start=None, referrer=None, referrer_params=None, referrer_raw=None, screen_recording_page_view_uuid=None, time_on_page=None, timing_dom_content_loaded=None, timing_loaded=None, truncated_events=None, ucapv=None, url=None):  # noqa: E501
         """ScreenRecordingPageView - a model defined in Swagger"""  # noqa: E501
 
+        self._domain = None
         self._events = None
         self._first_event_timestamp = None
         self._http_post = None
@@ -95,6 +98,8 @@ class ScreenRecordingPageView(object):
         self._url = None
         self.discriminator = None
 
+        if domain is not None:
+            self.domain = domain
         if events is not None:
             self.events = events
         if first_event_timestamp is not None:
@@ -131,6 +136,27 @@ class ScreenRecordingPageView(object):
             self.ucapv = ucapv
         if url is not None:
             self.url = url
+
+    @property
+    def domain(self):
+        """Gets the domain of this ScreenRecordingPageView.  # noqa: E501
+
+
+        :return: The domain of this ScreenRecordingPageView.  # noqa: E501
+        :rtype: str
+        """
+        return self._domain
+
+    @domain.setter
+    def domain(self, domain):
+        """Sets the domain of this ScreenRecordingPageView.
+
+
+        :param domain: The domain of this ScreenRecordingPageView.  # noqa: E501
+        :type: str
+        """
+
+        self._domain = domain
 
     @property
     def events(self):

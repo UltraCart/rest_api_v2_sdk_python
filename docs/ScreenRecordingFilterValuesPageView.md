@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**domains** | **list[str]** |  | [optional] 
 **events** | [**list[ScreenRecordingFilterValuesEvent]**](ScreenRecordingFilterValuesEvent.md) |  | [optional] 
 **page_params** | [**list[ScreenRecordingFilterValuesPageParam]**](ScreenRecordingFilterValuesPageParam.md) |  | [optional] 
 **time_on_page_max** | **int** |  | [optional] 
