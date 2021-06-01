@@ -32,23 +32,28 @@ class CouponTierPercent(object):
     """
     swagger_types = {
         'discount_percent': 'float',
+        'quickbooks_code': 'str',
         'subtotal_amount': 'float'
     }
 
     attribute_map = {
         'discount_percent': 'discount_percent',
+        'quickbooks_code': 'quickbooks_code',
         'subtotal_amount': 'subtotal_amount'
     }
 
-    def __init__(self, discount_percent=None, subtotal_amount=None):  # noqa: E501
+    def __init__(self, discount_percent=None, quickbooks_code=None, subtotal_amount=None):  # noqa: E501
         """CouponTierPercent - a model defined in Swagger"""  # noqa: E501
 
         self._discount_percent = None
+        self._quickbooks_code = None
         self._subtotal_amount = None
         self.discriminator = None
 
         if discount_percent is not None:
             self.discount_percent = discount_percent
+        if quickbooks_code is not None:
+            self.quickbooks_code = quickbooks_code
         if subtotal_amount is not None:
             self.subtotal_amount = subtotal_amount
 
@@ -74,6 +79,31 @@ class CouponTierPercent(object):
         """
 
         self._discount_percent = discount_percent
+
+    @property
+    def quickbooks_code(self):
+        """Gets the quickbooks_code of this CouponTierPercent.  # noqa: E501
+
+        Quickbooks accounting code.  # noqa: E501
+
+        :return: The quickbooks_code of this CouponTierPercent.  # noqa: E501
+        :rtype: str
+        """
+        return self._quickbooks_code
+
+    @quickbooks_code.setter
+    def quickbooks_code(self, quickbooks_code):
+        """Sets the quickbooks_code of this CouponTierPercent.
+
+        Quickbooks accounting code.  # noqa: E501
+
+        :param quickbooks_code: The quickbooks_code of this CouponTierPercent.  # noqa: E501
+        :type: str
+        """
+        if quickbooks_code is not None and len(quickbooks_code) > 20:
+            raise ValueError("Invalid value for `quickbooks_code`, length must be less than or equal to `20`")  # noqa: E501
+
+        self._quickbooks_code = quickbooks_code
 
     @property
     def subtotal_amount(self):

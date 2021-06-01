@@ -32,25 +32,30 @@ class CouponTierQuantityAmount(object):
     """
     swagger_types = {
         'discount_amount': 'float',
-        'item_quantity': 'int'
+        'item_quantity': 'int',
+        'quickbooks_code': 'str'
     }
 
     attribute_map = {
         'discount_amount': 'discount_amount',
-        'item_quantity': 'item_quantity'
+        'item_quantity': 'item_quantity',
+        'quickbooks_code': 'quickbooks_code'
     }
 
-    def __init__(self, discount_amount=None, item_quantity=None):  # noqa: E501
+    def __init__(self, discount_amount=None, item_quantity=None, quickbooks_code=None):  # noqa: E501
         """CouponTierQuantityAmount - a model defined in Swagger"""  # noqa: E501
 
         self._discount_amount = None
         self._item_quantity = None
+        self._quickbooks_code = None
         self.discriminator = None
 
         if discount_amount is not None:
             self.discount_amount = discount_amount
         if item_quantity is not None:
             self.item_quantity = item_quantity
+        if quickbooks_code is not None:
+            self.quickbooks_code = quickbooks_code
 
     @property
     def discount_amount(self):
@@ -97,6 +102,31 @@ class CouponTierQuantityAmount(object):
         """
 
         self._item_quantity = item_quantity
+
+    @property
+    def quickbooks_code(self):
+        """Gets the quickbooks_code of this CouponTierQuantityAmount.  # noqa: E501
+
+        Quickbooks accounting code.  # noqa: E501
+
+        :return: The quickbooks_code of this CouponTierQuantityAmount.  # noqa: E501
+        :rtype: str
+        """
+        return self._quickbooks_code
+
+    @quickbooks_code.setter
+    def quickbooks_code(self, quickbooks_code):
+        """Sets the quickbooks_code of this CouponTierQuantityAmount.
+
+        Quickbooks accounting code.  # noqa: E501
+
+        :param quickbooks_code: The quickbooks_code of this CouponTierQuantityAmount.  # noqa: E501
+        :type: str
+        """
+        if quickbooks_code is not None and len(quickbooks_code) > 20:
+            raise ValueError("Invalid value for `quickbooks_code`, length must be less than or equal to `20`")  # noqa: E501
+
+        self._quickbooks_code = quickbooks_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

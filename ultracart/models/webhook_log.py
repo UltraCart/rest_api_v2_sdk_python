@@ -33,6 +33,7 @@ class WebhookLog(object):
     swagger_types = {
         'delivery_dts': 'str',
         'duration': 'int',
+        'queue_delay': 'int',
         'request': 'str',
         'request_headers': 'list[HTTPHeader]',
         'request_id': 'str',
@@ -46,6 +47,7 @@ class WebhookLog(object):
     attribute_map = {
         'delivery_dts': 'delivery_dts',
         'duration': 'duration',
+        'queue_delay': 'queue_delay',
         'request': 'request',
         'request_headers': 'request_headers',
         'request_id': 'request_id',
@@ -56,11 +58,12 @@ class WebhookLog(object):
         'uri': 'uri'
     }
 
-    def __init__(self, delivery_dts=None, duration=None, request=None, request_headers=None, request_id=None, response=None, response_headers=None, status_code=None, success=None, uri=None):  # noqa: E501
+    def __init__(self, delivery_dts=None, duration=None, queue_delay=None, request=None, request_headers=None, request_id=None, response=None, response_headers=None, status_code=None, success=None, uri=None):  # noqa: E501
         """WebhookLog - a model defined in Swagger"""  # noqa: E501
 
         self._delivery_dts = None
         self._duration = None
+        self._queue_delay = None
         self._request = None
         self._request_headers = None
         self._request_id = None
@@ -75,6 +78,8 @@ class WebhookLog(object):
             self.delivery_dts = delivery_dts
         if duration is not None:
             self.duration = duration
+        if queue_delay is not None:
+            self.queue_delay = queue_delay
         if request is not None:
             self.request = request
         if request_headers is not None:
@@ -137,6 +142,29 @@ class WebhookLog(object):
         """
 
         self._duration = duration
+
+    @property
+    def queue_delay(self):
+        """Gets the queue_delay of this WebhookLog.  # noqa: E501
+
+        Number of milliseconds of delay caused by queuing  # noqa: E501
+
+        :return: The queue_delay of this WebhookLog.  # noqa: E501
+        :rtype: int
+        """
+        return self._queue_delay
+
+    @queue_delay.setter
+    def queue_delay(self, queue_delay):
+        """Sets the queue_delay of this WebhookLog.
+
+        Number of milliseconds of delay caused by queuing  # noqa: E501
+
+        :param queue_delay: The queue_delay of this WebhookLog.  # noqa: E501
+        :type: int
+        """
+
+        self._queue_delay = queue_delay
 
     @property
     def request(self):

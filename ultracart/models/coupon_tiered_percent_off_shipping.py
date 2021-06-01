@@ -31,26 +31,56 @@ class CouponTieredPercentOffShipping(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'quickbooks_code': 'str',
         'shipping_methods': 'list[str]',
         'tiers': 'list[CouponTierPercent]'
     }
 
     attribute_map = {
+        'quickbooks_code': 'quickbooks_code',
         'shipping_methods': 'shipping_methods',
         'tiers': 'tiers'
     }
 
-    def __init__(self, shipping_methods=None, tiers=None):  # noqa: E501
+    def __init__(self, quickbooks_code=None, shipping_methods=None, tiers=None):  # noqa: E501
         """CouponTieredPercentOffShipping - a model defined in Swagger"""  # noqa: E501
 
+        self._quickbooks_code = None
         self._shipping_methods = None
         self._tiers = None
         self.discriminator = None
 
+        if quickbooks_code is not None:
+            self.quickbooks_code = quickbooks_code
         if shipping_methods is not None:
             self.shipping_methods = shipping_methods
         if tiers is not None:
             self.tiers = tiers
+
+    @property
+    def quickbooks_code(self):
+        """Gets the quickbooks_code of this CouponTieredPercentOffShipping.  # noqa: E501
+
+        Quickbooks accounting code.  # noqa: E501
+
+        :return: The quickbooks_code of this CouponTieredPercentOffShipping.  # noqa: E501
+        :rtype: str
+        """
+        return self._quickbooks_code
+
+    @quickbooks_code.setter
+    def quickbooks_code(self, quickbooks_code):
+        """Sets the quickbooks_code of this CouponTieredPercentOffShipping.
+
+        Quickbooks accounting code.  # noqa: E501
+
+        :param quickbooks_code: The quickbooks_code of this CouponTieredPercentOffShipping.  # noqa: E501
+        :type: str
+        """
+        if quickbooks_code is not None and len(quickbooks_code) > 20:
+            raise ValueError("Invalid value for `quickbooks_code`, length must be less than or equal to `20`")  # noqa: E501
+
+        self._quickbooks_code = quickbooks_code
 
     @property
     def shipping_methods(self):
