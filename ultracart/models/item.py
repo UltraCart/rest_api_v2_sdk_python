@@ -35,7 +35,7 @@ class Item(object):
         'amember': 'ItemAmember',
         'auto_order': 'ItemAutoOrder',
         'ccbill': 'ItemCCBill',
-        'channel_partner_mappings': 'list[ItemChannelPartnerMapping]',
+        'channel_partner_item_mappings': 'list[ItemChannelPartnerMapping]',
         'chargeback': 'ItemChargeback',
         'checkout': 'ItemCheckout',
         'content': 'ItemContent',
@@ -88,7 +88,7 @@ class Item(object):
         'amember': 'amember',
         'auto_order': 'auto_order',
         'ccbill': 'ccbill',
-        'channel_partner_mappings': 'channelPartnerMappings',
+        'channel_partner_item_mappings': 'channel_partner_item_mappings',
         'chargeback': 'chargeback',
         'checkout': 'checkout',
         'content': 'content',
@@ -136,14 +136,14 @@ class Item(object):
         'wishlist_member': 'wishlist_member'
     }
 
-    def __init__(self, accounting=None, amember=None, auto_order=None, ccbill=None, channel_partner_mappings=None, chargeback=None, checkout=None, content=None, creation_dts=None, description=None, description_translated_text_instance_oid=None, digital_delivery=None, ebay=None, email_notifications=None, enrollment123=None, gift_certificate=None, google_product_search=None, identifiers=None, inactive=None, instant_payment_notifications=None, internal=None, kit=None, kit_component_only=None, kit_definition=None, last_modified_dts=None, merchant_id=None, merchant_item_id=None, merchant_item_oid=None, options=None, parent_category_id=None, parent_category_path=None, payment_processing=None, physical=None, pricing=None, properties=None, realtime_pricing=None, recommend_replenishment_days=None, related=None, reporting=None, restriction=None, revguard=None, reviews=None, salesforce=None, shipping=None, tags=None, tax=None, third_party_email_marketing=None, variant_items=None, variations=None, wishlist_member=None):  # noqa: E501
+    def __init__(self, accounting=None, amember=None, auto_order=None, ccbill=None, channel_partner_item_mappings=None, chargeback=None, checkout=None, content=None, creation_dts=None, description=None, description_translated_text_instance_oid=None, digital_delivery=None, ebay=None, email_notifications=None, enrollment123=None, gift_certificate=None, google_product_search=None, identifiers=None, inactive=None, instant_payment_notifications=None, internal=None, kit=None, kit_component_only=None, kit_definition=None, last_modified_dts=None, merchant_id=None, merchant_item_id=None, merchant_item_oid=None, options=None, parent_category_id=None, parent_category_path=None, payment_processing=None, physical=None, pricing=None, properties=None, realtime_pricing=None, recommend_replenishment_days=None, related=None, reporting=None, restriction=None, revguard=None, reviews=None, salesforce=None, shipping=None, tags=None, tax=None, third_party_email_marketing=None, variant_items=None, variations=None, wishlist_member=None):  # noqa: E501
         """Item - a model defined in Swagger"""  # noqa: E501
 
         self._accounting = None
         self._amember = None
         self._auto_order = None
         self._ccbill = None
-        self._channel_partner_mappings = None
+        self._channel_partner_item_mappings = None
         self._chargeback = None
         self._checkout = None
         self._content = None
@@ -199,8 +199,8 @@ class Item(object):
             self.auto_order = auto_order
         if ccbill is not None:
             self.ccbill = ccbill
-        if channel_partner_mappings is not None:
-            self.channel_partner_mappings = channel_partner_mappings
+        if channel_partner_item_mappings is not None:
+            self.channel_partner_item_mappings = channel_partner_item_mappings
         if chargeback is not None:
             self.chargeback = chargeback
         if checkout is not None:
@@ -377,27 +377,27 @@ class Item(object):
         self._ccbill = ccbill
 
     @property
-    def channel_partner_mappings(self):
-        """Gets the channel_partner_mappings of this Item.  # noqa: E501
+    def channel_partner_item_mappings(self):
+        """Gets the channel_partner_item_mappings of this Item.  # noqa: E501
 
         Channel Partner Item Mapping  # noqa: E501
 
-        :return: The channel_partner_mappings of this Item.  # noqa: E501
+        :return: The channel_partner_item_mappings of this Item.  # noqa: E501
         :rtype: list[ItemChannelPartnerMapping]
         """
-        return self._channel_partner_mappings
+        return self._channel_partner_item_mappings
 
-    @channel_partner_mappings.setter
-    def channel_partner_mappings(self, channel_partner_mappings):
-        """Sets the channel_partner_mappings of this Item.
+    @channel_partner_item_mappings.setter
+    def channel_partner_item_mappings(self, channel_partner_item_mappings):
+        """Sets the channel_partner_item_mappings of this Item.
 
         Channel Partner Item Mapping  # noqa: E501
 
-        :param channel_partner_mappings: The channel_partner_mappings of this Item.  # noqa: E501
+        :param channel_partner_item_mappings: The channel_partner_item_mappings of this Item.  # noqa: E501
         :type: list[ItemChannelPartnerMapping]
         """
 
-        self._channel_partner_mappings = channel_partner_mappings
+        self._channel_partner_item_mappings = channel_partner_item_mappings
 
     @property
     def chargeback(self):

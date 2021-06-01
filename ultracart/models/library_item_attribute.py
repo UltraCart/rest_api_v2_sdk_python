@@ -31,26 +31,52 @@ class LibraryItemAttribute(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'library_item_oid': 'int',
         'name': 'str',
         'value': 'str'
     }
 
     attribute_map = {
+        'library_item_oid': 'libraryItemOid',
         'name': 'name',
         'value': 'value'
     }
 
-    def __init__(self, name=None, value=None):  # noqa: E501
+    def __init__(self, library_item_oid=None, name=None, value=None):  # noqa: E501
         """LibraryItemAttribute - a model defined in Swagger"""  # noqa: E501
 
+        self._library_item_oid = None
         self._name = None
         self._value = None
         self.discriminator = None
 
+        if library_item_oid is not None:
+            self.library_item_oid = library_item_oid
         if name is not None:
             self.name = name
         if value is not None:
             self.value = value
+
+    @property
+    def library_item_oid(self):
+        """Gets the library_item_oid of this LibraryItemAttribute.  # noqa: E501
+
+
+        :return: The library_item_oid of this LibraryItemAttribute.  # noqa: E501
+        :rtype: int
+        """
+        return self._library_item_oid
+
+    @library_item_oid.setter
+    def library_item_oid(self, library_item_oid):
+        """Sets the library_item_oid of this LibraryItemAttribute.
+
+
+        :param library_item_oid: The library_item_oid of this LibraryItemAttribute.  # noqa: E501
+        :type: int
+        """
+
+        self._library_item_oid = library_item_oid
 
     @property
     def name(self):
