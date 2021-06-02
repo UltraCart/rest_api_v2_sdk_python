@@ -37,7 +37,9 @@ class ItemReviews(object):
         'review_overall': 'float',
         'review_template_name': 'str',
         'review_template_oid': 'int',
-        'reviewable': 'bool'
+        'reviewable': 'bool',
+        'share_reviews_with_merchant_item_id': 'str',
+        'share_reviews_with_merchant_item_oid': 'int'
     }
 
     attribute_map = {
@@ -47,10 +49,12 @@ class ItemReviews(object):
         'review_overall': 'review_overall',
         'review_template_name': 'review_template_name',
         'review_template_oid': 'review_template_oid',
-        'reviewable': 'reviewable'
+        'reviewable': 'reviewable',
+        'share_reviews_with_merchant_item_id': 'share_reviews_with_merchant_item_id',
+        'share_reviews_with_merchant_item_oid': 'share_reviews_with_merchant_item_oid'
     }
 
-    def __init__(self, has_approved_review=None, has_review=None, review_count=None, review_overall=None, review_template_name=None, review_template_oid=None, reviewable=None):  # noqa: E501
+    def __init__(self, has_approved_review=None, has_review=None, review_count=None, review_overall=None, review_template_name=None, review_template_oid=None, reviewable=None, share_reviews_with_merchant_item_id=None, share_reviews_with_merchant_item_oid=None):  # noqa: E501
         """ItemReviews - a model defined in Swagger"""  # noqa: E501
 
         self._has_approved_review = None
@@ -60,6 +64,8 @@ class ItemReviews(object):
         self._review_template_name = None
         self._review_template_oid = None
         self._reviewable = None
+        self._share_reviews_with_merchant_item_id = None
+        self._share_reviews_with_merchant_item_oid = None
         self.discriminator = None
 
         if has_approved_review is not None:
@@ -76,6 +82,10 @@ class ItemReviews(object):
             self.review_template_oid = review_template_oid
         if reviewable is not None:
             self.reviewable = reviewable
+        if share_reviews_with_merchant_item_id is not None:
+            self.share_reviews_with_merchant_item_id = share_reviews_with_merchant_item_id
+        if share_reviews_with_merchant_item_oid is not None:
+            self.share_reviews_with_merchant_item_oid = share_reviews_with_merchant_item_oid
 
     @property
     def has_approved_review(self):
@@ -237,6 +247,52 @@ class ItemReviews(object):
         """
 
         self._reviewable = reviewable
+
+    @property
+    def share_reviews_with_merchant_item_id(self):
+        """Gets the share_reviews_with_merchant_item_id of this ItemReviews.  # noqa: E501
+
+        Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field.  # noqa: E501
+
+        :return: The share_reviews_with_merchant_item_id of this ItemReviews.  # noqa: E501
+        :rtype: str
+        """
+        return self._share_reviews_with_merchant_item_id
+
+    @share_reviews_with_merchant_item_id.setter
+    def share_reviews_with_merchant_item_id(self, share_reviews_with_merchant_item_id):
+        """Sets the share_reviews_with_merchant_item_id of this ItemReviews.
+
+        Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field.  # noqa: E501
+
+        :param share_reviews_with_merchant_item_id: The share_reviews_with_merchant_item_id of this ItemReviews.  # noqa: E501
+        :type: str
+        """
+
+        self._share_reviews_with_merchant_item_id = share_reviews_with_merchant_item_id
+
+    @property
+    def share_reviews_with_merchant_item_oid(self):
+        """Gets the share_reviews_with_merchant_item_oid of this ItemReviews.  # noqa: E501
+
+        Share reviews with item oid.  To null out this field, set teh value to zero.  # noqa: E501
+
+        :return: The share_reviews_with_merchant_item_oid of this ItemReviews.  # noqa: E501
+        :rtype: int
+        """
+        return self._share_reviews_with_merchant_item_oid
+
+    @share_reviews_with_merchant_item_oid.setter
+    def share_reviews_with_merchant_item_oid(self, share_reviews_with_merchant_item_oid):
+        """Sets the share_reviews_with_merchant_item_oid of this ItemReviews.
+
+        Share reviews with item oid.  To null out this field, set teh value to zero.  # noqa: E501
+
+        :param share_reviews_with_merchant_item_oid: The share_reviews_with_merchant_item_oid of this ItemReviews.  # noqa: E501
+        :type: int
+        """
+
+        self._share_reviews_with_merchant_item_oid = share_reviews_with_merchant_item_oid
 
     def to_dict(self):
         """Returns the model properties as a dict"""
