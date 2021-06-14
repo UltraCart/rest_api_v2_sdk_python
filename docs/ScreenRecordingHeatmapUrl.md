@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **histogram_data** | **list[int]** |  | [optional] 
 **histogram_interval** | **str** |  | [optional] 
 **histogram_start_dts** | **str** |  | [optional] 
+**page_rank** | **int** |  | [optional] 
 **session_count** | **int** |  | [optional] 
 **url** | **str** |  | [optional] 
 

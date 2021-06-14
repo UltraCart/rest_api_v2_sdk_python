@@ -8141,45 +8141,53 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_heatmap_index(self, storefront_oid, **kwargs):  # noqa: E501
+    def get_heatmap_index(self, storefront_oid, query, **kwargs):  # noqa: E501
         """Get screen recording heatmap index  # noqa: E501
 
         Get screen recording heatmap index   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_heatmap_index(storefront_oid, async_req=True)
+        >>> thread = api.get_heatmap_index(storefront_oid, query, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int storefront_oid: (required)
+        :param ScreenRecordingHeatmapIndexRequest query: Query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 500)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
         :return: ScreenRecordingHeatmapIndexResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_heatmap_index_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+            return self.get_heatmap_index_with_http_info(storefront_oid, query, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_heatmap_index_with_http_info(storefront_oid, **kwargs)  # noqa: E501
+            (data) = self.get_heatmap_index_with_http_info(storefront_oid, query, **kwargs)  # noqa: E501
             return data
 
-    def get_heatmap_index_with_http_info(self, storefront_oid, **kwargs):  # noqa: E501
+    def get_heatmap_index_with_http_info(self, storefront_oid, query, **kwargs):  # noqa: E501
         """Get screen recording heatmap index  # noqa: E501
 
         Get screen recording heatmap index   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_heatmap_index_with_http_info(storefront_oid, async_req=True)
+        >>> thread = api.get_heatmap_index_with_http_info(storefront_oid, query, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int storefront_oid: (required)
+        :param ScreenRecordingHeatmapIndexRequest query: Query (required)
+        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 500)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
         :return: ScreenRecordingHeatmapIndexResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['storefront_oid']  # noqa: E501
+        all_params = ['storefront_oid', 'query', 'limit', 'offset', 'sort']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8198,6 +8206,10 @@ class StorefrontApi(object):
         if ('storefront_oid' not in params or
                 params['storefront_oid'] is None):
             raise ValueError("Missing the required parameter `storefront_oid` when calling `get_heatmap_index`")  # noqa: E501
+        # verify the required parameter 'query' is set
+        if ('query' not in params or
+                params['query'] is None):
+            raise ValueError("Missing the required parameter `query` when calling `get_heatmap_index`")  # noqa: E501
 
         collection_formats = {}
 
@@ -8206,6 +8218,12 @@ class StorefrontApi(object):
             path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
 
         query_params = []
+        if 'limit' in params:
+            query_params.append(('_limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('_offset', params['offset']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('_sort', params['sort']))  # noqa: E501
 
         header_params = {}
 
@@ -8213,6 +8231,8 @@ class StorefrontApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'query' in params:
+            body_params = params['query']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

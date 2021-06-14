@@ -4041,7 +4041,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_heatmap_index**
-> ScreenRecordingHeatmapIndexResponse get_heatmap_index(storefront_oid)
+> ScreenRecordingHeatmapIndexResponse get_heatmap_index(storefront_oid, query, limit=limit, offset=offset, sort=sort)
 
 Get screen recording heatmap index
 
@@ -4060,10 +4060,14 @@ simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
 api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
 
 storefront_oid = 56 # int | 
+query = ultracart.ScreenRecordingHeatmapIndexRequest() # ScreenRecordingHeatmapIndexRequest | Query
+limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) (default to 100)
+offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
+sort = 'sort_example' # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
 
 try:
     # Get screen recording heatmap index
-    api_response = api_instance.get_heatmap_index(storefront_oid)
+    api_response = api_instance.get_heatmap_index(storefront_oid, query, limit=limit, offset=offset, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StorefrontApi->get_heatmap_index: %s\n" % e)
@@ -4074,6 +4078,10 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **int**|  | 
+ **query** | [**ScreenRecordingHeatmapIndexRequest**](ScreenRecordingHeatmapIndexRequest.md)| Query | 
+ **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] [default to 100]
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
 
 ### Return type
 

@@ -34,6 +34,7 @@ class ScreenRecordingHeatmapUrl(object):
         'histogram_data': 'list[int]',
         'histogram_interval': 'str',
         'histogram_start_dts': 'str',
+        'page_rank': 'int',
         'session_count': 'int',
         'url': 'str'
     }
@@ -42,16 +43,18 @@ class ScreenRecordingHeatmapUrl(object):
         'histogram_data': 'histogram_data',
         'histogram_interval': 'histogram_interval',
         'histogram_start_dts': 'histogram_start_dts',
+        'page_rank': 'page_rank',
         'session_count': 'session_count',
         'url': 'url'
     }
 
-    def __init__(self, histogram_data=None, histogram_interval=None, histogram_start_dts=None, session_count=None, url=None):  # noqa: E501
+    def __init__(self, histogram_data=None, histogram_interval=None, histogram_start_dts=None, page_rank=None, session_count=None, url=None):  # noqa: E501
         """ScreenRecordingHeatmapUrl - a model defined in Swagger"""  # noqa: E501
 
         self._histogram_data = None
         self._histogram_interval = None
         self._histogram_start_dts = None
+        self._page_rank = None
         self._session_count = None
         self._url = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ScreenRecordingHeatmapUrl(object):
             self.histogram_interval = histogram_interval
         if histogram_start_dts is not None:
             self.histogram_start_dts = histogram_start_dts
+        if page_rank is not None:
+            self.page_rank = page_rank
         if session_count is not None:
             self.session_count = session_count
         if url is not None:
@@ -129,6 +134,27 @@ class ScreenRecordingHeatmapUrl(object):
         """
 
         self._histogram_start_dts = histogram_start_dts
+
+    @property
+    def page_rank(self):
+        """Gets the page_rank of this ScreenRecordingHeatmapUrl.  # noqa: E501
+
+
+        :return: The page_rank of this ScreenRecordingHeatmapUrl.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_rank
+
+    @page_rank.setter
+    def page_rank(self, page_rank):
+        """Sets the page_rank of this ScreenRecordingHeatmapUrl.
+
+
+        :param page_rank: The page_rank of this ScreenRecordingHeatmapUrl.  # noqa: E501
+        :type: int
+        """
+
+        self._page_rank = page_rank
 
     @property
     def session_count(self):

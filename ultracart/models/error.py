@@ -34,6 +34,7 @@ class Error(object):
         'developer_message': 'str',
         'error_code': 'str',
         'more_info': 'str',
+        'object_id': 'str',
         'user_message': 'str'
     }
 
@@ -41,15 +42,17 @@ class Error(object):
         'developer_message': 'developer_message',
         'error_code': 'error_code',
         'more_info': 'more_info',
+        'object_id': 'object_id',
         'user_message': 'user_message'
     }
 
-    def __init__(self, developer_message=None, error_code=None, more_info=None, user_message=None):  # noqa: E501
+    def __init__(self, developer_message=None, error_code=None, more_info=None, object_id=None, user_message=None):  # noqa: E501
         """Error - a model defined in Swagger"""  # noqa: E501
 
         self._developer_message = None
         self._error_code = None
         self._more_info = None
+        self._object_id = None
         self._user_message = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class Error(object):
             self.error_code = error_code
         if more_info is not None:
             self.more_info = more_info
+        if object_id is not None:
+            self.object_id = object_id
         if user_message is not None:
             self.user_message = user_message
 
@@ -130,6 +135,29 @@ class Error(object):
         """
 
         self._more_info = more_info
+
+    @property
+    def object_id(self):
+        """Gets the object_id of this Error.  # noqa: E501
+
+        Object id that the error is associated with  # noqa: E501
+
+        :return: The object_id of this Error.  # noqa: E501
+        :rtype: str
+        """
+        return self._object_id
+
+    @object_id.setter
+    def object_id(self, object_id):
+        """Sets the object_id of this Error.
+
+        Object id that the error is associated with  # noqa: E501
+
+        :param object_id: The object_id of this Error.  # noqa: E501
+        :type: str
+        """
+
+        self._object_id = object_id
 
     @property
     def user_message(self):

@@ -40,6 +40,7 @@ class ItemChannelPartnerMapping(object):
         'buyer_item_number': 'str',
         'channel_partner_code': 'str',
         'channel_partner_oid': 'int',
+        'cost': 'float',
         'from_item_id': 'str',
         'from_sku': 'str',
         'mutually_defined_number': 'str',
@@ -61,6 +62,7 @@ class ItemChannelPartnerMapping(object):
         'buyer_item_number': 'buyer_item_number',
         'channel_partner_code': 'channel_partner_code',
         'channel_partner_oid': 'channel_partner_oid',
+        'cost': 'cost',
         'from_item_id': 'from_item_id',
         'from_sku': 'from_sku',
         'mutually_defined_number': 'mutually_defined_number',
@@ -72,7 +74,7 @@ class ItemChannelPartnerMapping(object):
         'vendor_style_number': 'vendor_style_number'
     }
 
-    def __init__(self, barcode_ua=None, barcode_uc=None, barcode_ui=None, barcode_uk=None, buyer_catalog_number=None, buyer_dpci=None, buyer_item_number=None, channel_partner_code=None, channel_partner_oid=None, from_item_id=None, from_sku=None, mutually_defined_number=None, quantity_ratio_cp=None, quantity_ratio_uc=None, sku=None, unit_of_measure=None, vendor_number=None, vendor_style_number=None):  # noqa: E501
+    def __init__(self, barcode_ua=None, barcode_uc=None, barcode_ui=None, barcode_uk=None, buyer_catalog_number=None, buyer_dpci=None, buyer_item_number=None, channel_partner_code=None, channel_partner_oid=None, cost=None, from_item_id=None, from_sku=None, mutually_defined_number=None, quantity_ratio_cp=None, quantity_ratio_uc=None, sku=None, unit_of_measure=None, vendor_number=None, vendor_style_number=None):  # noqa: E501
         """ItemChannelPartnerMapping - a model defined in Swagger"""  # noqa: E501
 
         self._barcode_ua = None
@@ -84,6 +86,7 @@ class ItemChannelPartnerMapping(object):
         self._buyer_item_number = None
         self._channel_partner_code = None
         self._channel_partner_oid = None
+        self._cost = None
         self._from_item_id = None
         self._from_sku = None
         self._mutually_defined_number = None
@@ -113,6 +116,8 @@ class ItemChannelPartnerMapping(object):
             self.channel_partner_code = channel_partner_code
         if channel_partner_oid is not None:
             self.channel_partner_oid = channel_partner_oid
+        if cost is not None:
+            self.cost = cost
         if from_item_id is not None:
             self.from_item_id = from_item_id
         if from_sku is not None:
@@ -338,6 +343,29 @@ class ItemChannelPartnerMapping(object):
         """
 
         self._channel_partner_oid = channel_partner_oid
+
+    @property
+    def cost(self):
+        """Gets the cost of this ItemChannelPartnerMapping.  # noqa: E501
+
+        Cost given to this channel partner  # noqa: E501
+
+        :return: The cost of this ItemChannelPartnerMapping.  # noqa: E501
+        :rtype: float
+        """
+        return self._cost
+
+    @cost.setter
+    def cost(self, cost):
+        """Sets the cost of this ItemChannelPartnerMapping.
+
+        Cost given to this channel partner  # noqa: E501
+
+        :param cost: The cost of this ItemChannelPartnerMapping.  # noqa: E501
+        :type: float
+        """
+
+        self._cost = cost
 
     @property
     def from_item_id(self):
