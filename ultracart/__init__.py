@@ -23,6 +23,7 @@ from ultracart.api.checkout_api import CheckoutApi
 from ultracart.api.coupon_api import CouponApi
 from ultracart.api.customer_api import CustomerApi
 from ultracart.api.fulfillment_api import FulfillmentApi
+from ultracart.api.integration_log_api import IntegrationLogApi
 from ultracart.api.item_api import ItemApi
 from ultracart.api.oauth_api import OauthApi
 from ultracart.api.order_api import OrderApi
@@ -343,6 +344,12 @@ from ultracart.models.group_response import GroupResponse
 from ultracart.models.group_user_membership import GroupUserMembership
 from ultracart.models.groups_response import GroupsResponse
 from ultracart.models.http_header import HTTPHeader
+from ultracart.models.integration_log import IntegrationLog
+from ultracart.models.integration_log_file import IntegrationLogFile
+from ultracart.models.integration_log_log import IntegrationLogLog
+from ultracart.models.integration_log_query_filter_values import IntegrationLogQueryFilterValues
+from ultracart.models.integration_log_query_request import IntegrationLogQueryRequest
+from ultracart.models.integration_log_query_response import IntegrationLogQueryResponse
 from ultracart.models.item import Item
 from ultracart.models.item_accounting import ItemAccounting
 from ultracart.models.item_amember import ItemAmember

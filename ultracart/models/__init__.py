@@ -323,6 +323,12 @@ from ultracart.models.group_response import GroupResponse
 from ultracart.models.group_user_membership import GroupUserMembership
 from ultracart.models.groups_response import GroupsResponse
 from ultracart.models.http_header import HTTPHeader
+from ultracart.models.integration_log import IntegrationLog
+from ultracart.models.integration_log_file import IntegrationLogFile
+from ultracart.models.integration_log_log import IntegrationLogLog
+from ultracart.models.integration_log_query_filter_values import IntegrationLogQueryFilterValues
+from ultracart.models.integration_log_query_request import IntegrationLogQueryRequest
+from ultracart.models.integration_log_query_response import IntegrationLogQueryResponse
 from ultracart.models.item import Item
 from ultracart.models.item_accounting import ItemAccounting
 from ultracart.models.item_amember import ItemAmember

@@ -1,0 +1,24 @@
+# IntegrationLog
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**action** | **str** |  | [optional] 
+**direction** | **str** |  | [optional] 
+**email** | **str** |  | [optional] 
+**files** | [**list[IntegrationLogFile]**](IntegrationLogFile.md) |  | [optional] 
+**integration_log_oid** | **int** |  | [optional] 
+**item_id** | **str** |  | [optional] 
+**item_ipn_oid** | **int** |  | [optional] 
+**log_dts** | **str** |  | [optional] 
+**log_type** | **str** |  | [optional] 
+**logger_id** | **str** |  | [optional] 
+**logs** | [**list[IntegrationLogLog]**](IntegrationLogLog.md) |  | [optional] 
+**order_ids** | **list[str]** |  | [optional] 
+**pk** | **str** |  | [optional] 
+**sk** | **str** |  | [optional] 
+**status** | **str** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
