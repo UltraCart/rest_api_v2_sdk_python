@@ -350,6 +350,7 @@ from ultracart.models.integration_log_log import IntegrationLogLog
 from ultracart.models.integration_log_query_filter_values import IntegrationLogQueryFilterValues
 from ultracart.models.integration_log_query_request import IntegrationLogQueryRequest
 from ultracart.models.integration_log_query_response import IntegrationLogQueryResponse
+from ultracart.models.integration_log_response import IntegrationLogResponse
 from ultracart.models.item import Item
 from ultracart.models.item_accounting import ItemAccounting
 from ultracart.models.item_amember import ItemAmember

@@ -32,23 +32,28 @@ class ScreenRecordingHeatmapRequest(object):
     """
     swagger_types = {
         'range': 'ScreenRecordingFilterRangeDate',
+        'screen_sizes': 'list[str]',
         'url': 'str'
     }
 
     attribute_map = {
         'range': 'range',
+        'screen_sizes': 'screen_sizes',
         'url': 'url'
     }
 
-    def __init__(self, range=None, url=None):  # noqa: E501
+    def __init__(self, range=None, screen_sizes=None, url=None):  # noqa: E501
         """ScreenRecordingHeatmapRequest - a model defined in Swagger"""  # noqa: E501
 
         self._range = None
+        self._screen_sizes = None
         self._url = None
         self.discriminator = None
 
         if range is not None:
             self.range = range
+        if screen_sizes is not None:
+            self.screen_sizes = screen_sizes
         if url is not None:
             self.url = url
 
@@ -72,6 +77,27 @@ class ScreenRecordingHeatmapRequest(object):
         """
 
         self._range = range
+
+    @property
+    def screen_sizes(self):
+        """Gets the screen_sizes of this ScreenRecordingHeatmapRequest.  # noqa: E501
+
+
+        :return: The screen_sizes of this ScreenRecordingHeatmapRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._screen_sizes
+
+    @screen_sizes.setter
+    def screen_sizes(self, screen_sizes):
+        """Sets the screen_sizes of this ScreenRecordingHeatmapRequest.
+
+
+        :param screen_sizes: The screen_sizes of this ScreenRecordingHeatmapRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._screen_sizes = screen_sizes
 
     @property
     def url(self):
