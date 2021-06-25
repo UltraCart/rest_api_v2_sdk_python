@@ -7,11 +7,11 @@ Method | HTTP request | Description
 [**delete_customer**](CustomerApi.md#delete_customer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**get_customer**](CustomerApi.md#get_customer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**get_customer_by_email**](CustomerApi.md#get_customer_by_email) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
+[**get_customer_editor_values**](CustomerApi.md#get_customer_editor_values) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
+[**get_customer_email_lists**](CustomerApi.md#get_customer_email_lists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 [**get_customers**](CustomerApi.md#get_customers) | **GET** /customer/customers | Retrieve customers
 [**get_customers_by_query**](CustomerApi.md#get_customers_by_query) | **POST** /customer/customers/query | Retrieve customers by query
 [**get_customers_for_data_tables**](CustomerApi.md#get_customers_for_data_tables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
-[**get_editor_values**](CustomerApi.md#get_editor_values) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
-[**get_email_lists**](CustomerApi.md#get_email_lists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 [**get_email_verification_token**](CustomerApi.md#get_email_verification_token) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**insert_customer**](CustomerApi.md#insert_customer) | **POST** /customer/customers | Insert a customer
 [**update_customer**](CustomerApi.md#update_customer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
@@ -161,6 +161,98 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_customer_editor_values**
+> CustomerEditorValues get_customer_editor_values()
+
+Retrieve values needed for a customer profile editor
+
+Retrieve values needed for a customer profile editor. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
+
+
+try:
+    # Retrieve values needed for a customer profile editor
+    api_response = api_instance.get_customer_editor_values()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->get_customer_editor_values: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CustomerEditorValues**](CustomerEditorValues.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_customer_email_lists**
+> EmailListsResponse get_customer_email_lists()
+
+Retrieve all email lists across all storefronts
+
+Retrieve all email lists across all storefronts 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
+
+
+try:
+    # Retrieve all email lists across all storefronts
+    api_response = api_instance.get_customer_email_lists()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->get_customer_email_lists: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EmailListsResponse**](EmailListsResponse.md)
 
 ### Authorization
 
@@ -383,98 +475,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DataTablesServerSideResponse**](DataTablesServerSideResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_editor_values**
-> CustomerEditorValues get_editor_values()
-
-Retrieve values needed for a customer profile editor
-
-Retrieve values needed for a customer profile editor. 
-
-### Example
-```python
-from __future__ import print_function
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
-
-
-try:
-    # Retrieve values needed for a customer profile editor
-    api_response = api_instance.get_editor_values()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CustomerApi->get_editor_values: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CustomerEditorValues**](CustomerEditorValues.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_email_lists**
-> EmailListsResponse get_email_lists()
-
-Retrieve all email lists across all storefronts
-
-Retrieve all email lists across all storefronts 
-
-### Example
-```python
-from __future__ import print_function
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
-
-
-try:
-    # Retrieve all email lists across all storefronts
-    api_response = api_instance.get_email_lists()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling CustomerApi->get_email_lists: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**EmailListsResponse**](EmailListsResponse.md)
 
 ### Authorization
 

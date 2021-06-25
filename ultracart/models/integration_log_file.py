@@ -31,31 +31,57 @@ class IntegrationLogFile(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'mime_type': 'str',
         'name': 'str',
         'size': 'int',
         'uuid': 'str'
     }
 
     attribute_map = {
+        'mime_type': 'mime_type',
         'name': 'name',
         'size': 'size',
         'uuid': 'uuid'
     }
 
-    def __init__(self, name=None, size=None, uuid=None):  # noqa: E501
+    def __init__(self, mime_type=None, name=None, size=None, uuid=None):  # noqa: E501
         """IntegrationLogFile - a model defined in Swagger"""  # noqa: E501
 
+        self._mime_type = None
         self._name = None
         self._size = None
         self._uuid = None
         self.discriminator = None
 
+        if mime_type is not None:
+            self.mime_type = mime_type
         if name is not None:
             self.name = name
         if size is not None:
             self.size = size
         if uuid is not None:
             self.uuid = uuid
+
+    @property
+    def mime_type(self):
+        """Gets the mime_type of this IntegrationLogFile.  # noqa: E501
+
+
+        :return: The mime_type of this IntegrationLogFile.  # noqa: E501
+        :rtype: str
+        """
+        return self._mime_type
+
+    @mime_type.setter
+    def mime_type(self, mime_type):
+        """Sets the mime_type of this IntegrationLogFile.
+
+
+        :param mime_type: The mime_type of this IntegrationLogFile.  # noqa: E501
+        :type: str
+        """
+
+        self._mime_type = mime_type
 
     @property
     def name(self):
