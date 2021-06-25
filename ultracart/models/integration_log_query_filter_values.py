@@ -38,6 +38,7 @@ class IntegrationLogQueryFilterValues(object):
         'item_ids': 'list[str]',
         'item_ipn_oids': 'list[int]',
         'log_types': 'list[str]',
+        'logger_names': 'list[str]',
         'order_ids': 'list[str]',
         'statuses': 'list[str]'
     }
@@ -50,11 +51,12 @@ class IntegrationLogQueryFilterValues(object):
         'item_ids': 'item_ids',
         'item_ipn_oids': 'item_ipn_oids',
         'log_types': 'log_types',
+        'logger_names': 'logger_names',
         'order_ids': 'order_ids',
         'statuses': 'statuses'
     }
 
-    def __init__(self, actions=None, directions=None, emails=None, file_names=None, item_ids=None, item_ipn_oids=None, log_types=None, order_ids=None, statuses=None):  # noqa: E501
+    def __init__(self, actions=None, directions=None, emails=None, file_names=None, item_ids=None, item_ipn_oids=None, log_types=None, logger_names=None, order_ids=None, statuses=None):  # noqa: E501
         """IntegrationLogQueryFilterValues - a model defined in Swagger"""  # noqa: E501
 
         self._actions = None
@@ -64,6 +66,7 @@ class IntegrationLogQueryFilterValues(object):
         self._item_ids = None
         self._item_ipn_oids = None
         self._log_types = None
+        self._logger_names = None
         self._order_ids = None
         self._statuses = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class IntegrationLogQueryFilterValues(object):
             self.item_ipn_oids = item_ipn_oids
         if log_types is not None:
             self.log_types = log_types
+        if logger_names is not None:
+            self.logger_names = logger_names
         if order_ids is not None:
             self.order_ids = order_ids
         if statuses is not None:
@@ -233,6 +238,27 @@ class IntegrationLogQueryFilterValues(object):
         """
 
         self._log_types = log_types
+
+    @property
+    def logger_names(self):
+        """Gets the logger_names of this IntegrationLogQueryFilterValues.  # noqa: E501
+
+
+        :return: The logger_names of this IntegrationLogQueryFilterValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._logger_names
+
+    @logger_names.setter
+    def logger_names(self, logger_names):
+        """Sets the logger_names of this IntegrationLogQueryFilterValues.
+
+
+        :param logger_names: The logger_names of this IntegrationLogQueryFilterValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._logger_names = logger_names
 
     @property
     def order_ids(self):

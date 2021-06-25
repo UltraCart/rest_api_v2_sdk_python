@@ -41,6 +41,7 @@ class IntegrationLog(object):
         'log_dts': 'str',
         'log_type': 'str',
         'logger_id': 'str',
+        'logger_name': 'str',
         'logs': 'list[IntegrationLogLog]',
         'order_ids': 'list[str]',
         'pk': 'str',
@@ -59,6 +60,7 @@ class IntegrationLog(object):
         'log_dts': 'log_dts',
         'log_type': 'log_type',
         'logger_id': 'logger_id',
+        'logger_name': 'logger_name',
         'logs': 'logs',
         'order_ids': 'order_ids',
         'pk': 'pk',
@@ -66,7 +68,7 @@ class IntegrationLog(object):
         'status': 'status'
     }
 
-    def __init__(self, action=None, direction=None, email=None, files=None, integration_log_oid=None, item_id=None, item_ipn_oid=None, log_dts=None, log_type=None, logger_id=None, logs=None, order_ids=None, pk=None, sk=None, status=None):  # noqa: E501
+    def __init__(self, action=None, direction=None, email=None, files=None, integration_log_oid=None, item_id=None, item_ipn_oid=None, log_dts=None, log_type=None, logger_id=None, logger_name=None, logs=None, order_ids=None, pk=None, sk=None, status=None):  # noqa: E501
         """IntegrationLog - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
@@ -79,6 +81,7 @@ class IntegrationLog(object):
         self._log_dts = None
         self._log_type = None
         self._logger_id = None
+        self._logger_name = None
         self._logs = None
         self._order_ids = None
         self._pk = None
@@ -106,6 +109,8 @@ class IntegrationLog(object):
             self.log_type = log_type
         if logger_id is not None:
             self.logger_id = logger_id
+        if logger_name is not None:
+            self.logger_name = logger_name
         if logs is not None:
             self.logs = logs
         if order_ids is not None:
@@ -326,6 +331,27 @@ class IntegrationLog(object):
         """
 
         self._logger_id = logger_id
+
+    @property
+    def logger_name(self):
+        """Gets the logger_name of this IntegrationLog.  # noqa: E501
+
+
+        :return: The logger_name of this IntegrationLog.  # noqa: E501
+        :rtype: str
+        """
+        return self._logger_name
+
+    @logger_name.setter
+    def logger_name(self, logger_name):
+        """Sets the logger_name of this IntegrationLog.
+
+
+        :param logger_name: The logger_name of this IntegrationLog.  # noqa: E501
+        :type: str
+        """
+
+        self._logger_name = logger_name
 
     @property
     def logs(self):

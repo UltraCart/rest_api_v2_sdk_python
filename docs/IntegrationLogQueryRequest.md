@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **log_dts_end** | **str** | Log date/time end | [optional] 
 **log_type** | **str** |  | [optional] 
 **logger_id** | **str** |  | [optional] 
+**logger_name** | **str** |  | [optional] 
 **order_ids** | **list[str]** |  | [optional] 
 **status** | **str** |  | [optional] 
 

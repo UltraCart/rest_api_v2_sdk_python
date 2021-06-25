@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **item_ids** | **list[str]** |  | [optional] 
 **item_ipn_oids** | **list[int]** |  | [optional] 
 **log_types** | **list[str]** |  | [optional] 
+**logger_names** | **list[str]** |  | [optional] 
 **order_ids** | **list[str]** |  | [optional] 
 **statuses** | **list[str]** |  | [optional] 
 

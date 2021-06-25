@@ -41,6 +41,7 @@ class IntegrationLogQueryRequest(object):
         'log_dts_end': 'str',
         'log_type': 'str',
         'logger_id': 'str',
+        'logger_name': 'str',
         'order_ids': 'list[str]',
         'status': 'str'
     }
@@ -56,11 +57,12 @@ class IntegrationLogQueryRequest(object):
         'log_dts_end': 'log_dts_end',
         'log_type': 'log_type',
         'logger_id': 'logger_id',
+        'logger_name': 'logger_name',
         'order_ids': 'order_ids',
         'status': 'status'
     }
 
-    def __init__(self, action=None, direction=None, email=None, file_names=None, item_id=None, item_ipn_oid=None, log_dts_begin=None, log_dts_end=None, log_type=None, logger_id=None, order_ids=None, status=None):  # noqa: E501
+    def __init__(self, action=None, direction=None, email=None, file_names=None, item_id=None, item_ipn_oid=None, log_dts_begin=None, log_dts_end=None, log_type=None, logger_id=None, logger_name=None, order_ids=None, status=None):  # noqa: E501
         """IntegrationLogQueryRequest - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
@@ -73,6 +75,7 @@ class IntegrationLogQueryRequest(object):
         self._log_dts_end = None
         self._log_type = None
         self._logger_id = None
+        self._logger_name = None
         self._order_ids = None
         self._status = None
         self.discriminator = None
@@ -97,6 +100,8 @@ class IntegrationLogQueryRequest(object):
             self.log_type = log_type
         if logger_id is not None:
             self.logger_id = logger_id
+        if logger_name is not None:
+            self.logger_name = logger_name
         if order_ids is not None:
             self.order_ids = order_ids
         if status is not None:
@@ -315,6 +320,27 @@ class IntegrationLogQueryRequest(object):
         """
 
         self._logger_id = logger_id
+
+    @property
+    def logger_name(self):
+        """Gets the logger_name of this IntegrationLogQueryRequest.  # noqa: E501
+
+
+        :return: The logger_name of this IntegrationLogQueryRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._logger_name
+
+    @logger_name.setter
+    def logger_name(self, logger_name):
+        """Sets the logger_name of this IntegrationLogQueryRequest.
+
+
+        :param logger_name: The logger_name of this IntegrationLogQueryRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._logger_name = logger_name
 
     @property
     def order_ids(self):
