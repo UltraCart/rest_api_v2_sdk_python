@@ -43,10 +43,12 @@ class IntegrationLog(object):
         'logger_id': 'str',
         'logger_name': 'str',
         'logs': 'list[IntegrationLogLog]',
+        'omit_log_map': 'bool',
         'order_ids': 'list[str]',
         'pk': 'str',
         'sk': 'str',
-        'status': 'str'
+        'status': 'str',
+        'status_code': 'int'
     }
 
     attribute_map = {
@@ -62,13 +64,15 @@ class IntegrationLog(object):
         'logger_id': 'logger_id',
         'logger_name': 'logger_name',
         'logs': 'logs',
+        'omit_log_map': 'omit_log_map',
         'order_ids': 'order_ids',
         'pk': 'pk',
         'sk': 'sk',
-        'status': 'status'
+        'status': 'status',
+        'status_code': 'status_code'
     }
 
-    def __init__(self, action=None, direction=None, email=None, files=None, integration_log_oid=None, item_id=None, item_ipn_oid=None, log_dts=None, log_type=None, logger_id=None, logger_name=None, logs=None, order_ids=None, pk=None, sk=None, status=None):  # noqa: E501
+    def __init__(self, action=None, direction=None, email=None, files=None, integration_log_oid=None, item_id=None, item_ipn_oid=None, log_dts=None, log_type=None, logger_id=None, logger_name=None, logs=None, omit_log_map=None, order_ids=None, pk=None, sk=None, status=None, status_code=None):  # noqa: E501
         """IntegrationLog - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
@@ -83,10 +87,12 @@ class IntegrationLog(object):
         self._logger_id = None
         self._logger_name = None
         self._logs = None
+        self._omit_log_map = None
         self._order_ids = None
         self._pk = None
         self._sk = None
         self._status = None
+        self._status_code = None
         self.discriminator = None
 
         if action is not None:
@@ -113,6 +119,8 @@ class IntegrationLog(object):
             self.logger_name = logger_name
         if logs is not None:
             self.logs = logs
+        if omit_log_map is not None:
+            self.omit_log_map = omit_log_map
         if order_ids is not None:
             self.order_ids = order_ids
         if pk is not None:
@@ -121,6 +129,8 @@ class IntegrationLog(object):
             self.sk = sk
         if status is not None:
             self.status = status
+        if status_code is not None:
+            self.status_code = status_code
 
     @property
     def action(self):
@@ -375,6 +385,27 @@ class IntegrationLog(object):
         self._logs = logs
 
     @property
+    def omit_log_map(self):
+        """Gets the omit_log_map of this IntegrationLog.  # noqa: E501
+
+
+        :return: The omit_log_map of this IntegrationLog.  # noqa: E501
+        :rtype: bool
+        """
+        return self._omit_log_map
+
+    @omit_log_map.setter
+    def omit_log_map(self, omit_log_map):
+        """Sets the omit_log_map of this IntegrationLog.
+
+
+        :param omit_log_map: The omit_log_map of this IntegrationLog.  # noqa: E501
+        :type: bool
+        """
+
+        self._omit_log_map = omit_log_map
+
+    @property
     def order_ids(self):
         """Gets the order_ids of this IntegrationLog.  # noqa: E501
 
@@ -457,6 +488,27 @@ class IntegrationLog(object):
         """
 
         self._status = status
+
+    @property
+    def status_code(self):
+        """Gets the status_code of this IntegrationLog.  # noqa: E501
+
+
+        :return: The status_code of this IntegrationLog.  # noqa: E501
+        :rtype: int
+        """
+        return self._status_code
+
+    @status_code.setter
+    def status_code(self, status_code):
+        """Sets the status_code of this IntegrationLog.
+
+
+        :param status_code: The status_code of this IntegrationLog.  # noqa: E501
+        :type: int
+        """
+
+        self._status_code = status_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

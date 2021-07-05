@@ -41,8 +41,10 @@ class AutoOrderQuery(object):
         'first_name': 'str',
         'item_id': 'str',
         'last_name': 'str',
+        'next_item_id': 'str',
         'next_shipment_date_begin': 'str',
         'next_shipment_date_end': 'str',
+        'original_item_id': 'str',
         'original_order_date_begin': 'str',
         'original_order_date_end': 'str',
         'original_order_id': 'str',
@@ -63,8 +65,10 @@ class AutoOrderQuery(object):
         'first_name': 'first_name',
         'item_id': 'item_id',
         'last_name': 'last_name',
+        'next_item_id': 'next_item_id',
         'next_shipment_date_begin': 'next_shipment_date_begin',
         'next_shipment_date_end': 'next_shipment_date_end',
+        'original_item_id': 'original_item_id',
         'original_order_date_begin': 'original_order_date_begin',
         'original_order_date_end': 'original_order_date_end',
         'original_order_id': 'original_order_id',
@@ -74,7 +78,7 @@ class AutoOrderQuery(object):
         'status': 'status'
     }
 
-    def __init__(self, auto_order_code=None, card_type=None, city=None, company=None, country_code=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, next_shipment_date_begin=None, next_shipment_date_end=None, original_order_date_begin=None, original_order_date_end=None, original_order_id=None, phone=None, postal_code=None, state=None, status=None):  # noqa: E501
+    def __init__(self, auto_order_code=None, card_type=None, city=None, company=None, country_code=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, next_item_id=None, next_shipment_date_begin=None, next_shipment_date_end=None, original_item_id=None, original_order_date_begin=None, original_order_date_end=None, original_order_id=None, phone=None, postal_code=None, state=None, status=None):  # noqa: E501
         """AutoOrderQuery - a model defined in Swagger"""  # noqa: E501
 
         self._auto_order_code = None
@@ -87,8 +91,10 @@ class AutoOrderQuery(object):
         self._first_name = None
         self._item_id = None
         self._last_name = None
+        self._next_item_id = None
         self._next_shipment_date_begin = None
         self._next_shipment_date_end = None
+        self._original_item_id = None
         self._original_order_date_begin = None
         self._original_order_date_end = None
         self._original_order_id = None
@@ -118,10 +124,14 @@ class AutoOrderQuery(object):
             self.item_id = item_id
         if last_name is not None:
             self.last_name = last_name
+        if next_item_id is not None:
+            self.next_item_id = next_item_id
         if next_shipment_date_begin is not None:
             self.next_shipment_date_begin = next_shipment_date_begin
         if next_shipment_date_end is not None:
             self.next_shipment_date_end = next_shipment_date_end
+        if original_item_id is not None:
+            self.original_item_id = original_item_id
         if original_order_date_begin is not None:
             self.original_order_date_begin = original_order_date_begin
         if original_order_date_end is not None:
@@ -331,7 +341,7 @@ class AutoOrderQuery(object):
     def item_id(self):
         """Gets the item_id of this AutoOrderQuery.  # noqa: E501
 
-        Item ID  # noqa: E501
+        Item ID.  Deprecated query field.  This incorrectly meant the original order contained this item id.  # noqa: E501
 
         :return: The item_id of this AutoOrderQuery.  # noqa: E501
         :rtype: str
@@ -342,7 +352,7 @@ class AutoOrderQuery(object):
     def item_id(self, item_id):
         """Sets the item_id of this AutoOrderQuery.
 
-        Item ID  # noqa: E501
+        Item ID.  Deprecated query field.  This incorrectly meant the original order contained this item id.  # noqa: E501
 
         :param item_id: The item_id of this AutoOrderQuery.  # noqa: E501
         :type: str
@@ -372,6 +382,29 @@ class AutoOrderQuery(object):
         """
 
         self._last_name = last_name
+
+    @property
+    def next_item_id(self):
+        """Gets the next_item_id of this AutoOrderQuery.  # noqa: E501
+
+        Next Item ID that is supposed to ship.  This is calculated based upon the schedule associated with the original item id.  # noqa: E501
+
+        :return: The next_item_id of this AutoOrderQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_item_id
+
+    @next_item_id.setter
+    def next_item_id(self, next_item_id):
+        """Sets the next_item_id of this AutoOrderQuery.
+
+        Next Item ID that is supposed to ship.  This is calculated based upon the schedule associated with the original item id.  # noqa: E501
+
+        :param next_item_id: The next_item_id of this AutoOrderQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._next_item_id = next_item_id
 
     @property
     def next_shipment_date_begin(self):
@@ -418,6 +451,29 @@ class AutoOrderQuery(object):
         """
 
         self._next_shipment_date_end = next_shipment_date_end
+
+    @property
+    def original_item_id(self):
+        """Gets the original_item_id of this AutoOrderQuery.  # noqa: E501
+
+        Original Item ID purchased on auto order.  # noqa: E501
+
+        :return: The original_item_id of this AutoOrderQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._original_item_id
+
+    @original_item_id.setter
+    def original_item_id(self, original_item_id):
+        """Sets the original_item_id of this AutoOrderQuery.
+
+        Original Item ID purchased on auto order.  # noqa: E501
+
+        :param original_item_id: The original_item_id of this AutoOrderQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._original_item_id = original_item_id
 
     @property
     def original_order_date_begin(self):
