@@ -283,6 +283,7 @@ class IntegrationLog(object):
     def log_dts(self):
         """Gets the log_dts of this IntegrationLog.  # noqa: E501
 
+        Date/time the integration log was created  # noqa: E501
 
         :return: The log_dts of this IntegrationLog.  # noqa: E501
         :rtype: str
@@ -293,6 +294,7 @@ class IntegrationLog(object):
     def log_dts(self, log_dts):
         """Sets the log_dts of this IntegrationLog.
 
+        Date/time the integration log was created  # noqa: E501
 
         :param log_dts: The log_dts of this IntegrationLog.  # noqa: E501
         :type: str

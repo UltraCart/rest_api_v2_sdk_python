@@ -37,6 +37,8 @@ class IntegrationLogQueryFilterValues(object):
         'file_names': 'list[str]',
         'item_ids': 'list[str]',
         'item_ipn_oids': 'list[int]',
+        'log_dts_max': 'str',
+        'log_dts_min': 'str',
         'log_types': 'list[str]',
         'logger_names': 'list[str]',
         'order_ids': 'list[str]',
@@ -50,13 +52,15 @@ class IntegrationLogQueryFilterValues(object):
         'file_names': 'file_names',
         'item_ids': 'item_ids',
         'item_ipn_oids': 'item_ipn_oids',
+        'log_dts_max': 'log_dts_max',
+        'log_dts_min': 'log_dts_min',
         'log_types': 'log_types',
         'logger_names': 'logger_names',
         'order_ids': 'order_ids',
         'statuses': 'statuses'
     }
 
-    def __init__(self, actions=None, directions=None, emails=None, file_names=None, item_ids=None, item_ipn_oids=None, log_types=None, logger_names=None, order_ids=None, statuses=None):  # noqa: E501
+    def __init__(self, actions=None, directions=None, emails=None, file_names=None, item_ids=None, item_ipn_oids=None, log_dts_max=None, log_dts_min=None, log_types=None, logger_names=None, order_ids=None, statuses=None):  # noqa: E501
         """IntegrationLogQueryFilterValues - a model defined in Swagger"""  # noqa: E501
 
         self._actions = None
@@ -65,6 +69,8 @@ class IntegrationLogQueryFilterValues(object):
         self._file_names = None
         self._item_ids = None
         self._item_ipn_oids = None
+        self._log_dts_max = None
+        self._log_dts_min = None
         self._log_types = None
         self._logger_names = None
         self._order_ids = None
@@ -83,6 +89,10 @@ class IntegrationLogQueryFilterValues(object):
             self.item_ids = item_ids
         if item_ipn_oids is not None:
             self.item_ipn_oids = item_ipn_oids
+        if log_dts_max is not None:
+            self.log_dts_max = log_dts_max
+        if log_dts_min is not None:
+            self.log_dts_min = log_dts_min
         if log_types is not None:
             self.log_types = log_types
         if logger_names is not None:
@@ -217,6 +227,52 @@ class IntegrationLogQueryFilterValues(object):
         """
 
         self._item_ipn_oids = item_ipn_oids
+
+    @property
+    def log_dts_max(self):
+        """Gets the log_dts_max of this IntegrationLogQueryFilterValues.  # noqa: E501
+
+        Maximum date/time log date/time  # noqa: E501
+
+        :return: The log_dts_max of this IntegrationLogQueryFilterValues.  # noqa: E501
+        :rtype: str
+        """
+        return self._log_dts_max
+
+    @log_dts_max.setter
+    def log_dts_max(self, log_dts_max):
+        """Sets the log_dts_max of this IntegrationLogQueryFilterValues.
+
+        Maximum date/time log date/time  # noqa: E501
+
+        :param log_dts_max: The log_dts_max of this IntegrationLogQueryFilterValues.  # noqa: E501
+        :type: str
+        """
+
+        self._log_dts_max = log_dts_max
+
+    @property
+    def log_dts_min(self):
+        """Gets the log_dts_min of this IntegrationLogQueryFilterValues.  # noqa: E501
+
+        Minimum date/time log date/time  # noqa: E501
+
+        :return: The log_dts_min of this IntegrationLogQueryFilterValues.  # noqa: E501
+        :rtype: str
+        """
+        return self._log_dts_min
+
+    @log_dts_min.setter
+    def log_dts_min(self, log_dts_min):
+        """Sets the log_dts_min of this IntegrationLogQueryFilterValues.
+
+        Minimum date/time log date/time  # noqa: E501
+
+        :param log_dts_min: The log_dts_min of this IntegrationLogQueryFilterValues.  # noqa: E501
+        :type: str
+        """
+
+        self._log_dts_min = log_dts_min
 
     @property
     def log_types(self):

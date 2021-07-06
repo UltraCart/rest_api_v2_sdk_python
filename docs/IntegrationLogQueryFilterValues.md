@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **file_names** | **list[str]** |  | [optional] 
 **item_ids** | **list[str]** |  | [optional] 
 **item_ipn_oids** | **list[int]** |  | [optional] 
+**log_dts_max** | **str** | Maximum date/time log date/time | [optional] 
+**log_dts_min** | **str** | Minimum date/time log date/time | [optional] 
 **log_types** | **list[str]** |  | [optional] 
 **logger_names** | **list[str]** |  | [optional] 
 **order_ids** | **list[str]** |  | [optional] 
