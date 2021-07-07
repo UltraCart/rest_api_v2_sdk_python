@@ -31,7 +31,9 @@ class ScreenRecordingSettings(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'cost_per_thousand': 'float',
         'enabled': 'bool',
+        'retention_interval': 'str',
         'sessions_current_billing_period': 'int',
         'sessions_last_billing_period': 'int',
         'sessions_trial_billing_period': 'int',
@@ -40,7 +42,9 @@ class ScreenRecordingSettings(object):
     }
 
     attribute_map = {
+        'cost_per_thousand': 'cost_per_thousand',
         'enabled': 'enabled',
+        'retention_interval': 'retention_interval',
         'sessions_current_billing_period': 'sessions_current_billing_period',
         'sessions_last_billing_period': 'sessions_last_billing_period',
         'sessions_trial_billing_period': 'sessions_trial_billing_period',
@@ -48,10 +52,12 @@ class ScreenRecordingSettings(object):
         'trial_expired': 'trial_expired'
     }
 
-    def __init__(self, enabled=None, sessions_current_billing_period=None, sessions_last_billing_period=None, sessions_trial_billing_period=None, trial_expiration=None, trial_expired=None):  # noqa: E501
+    def __init__(self, cost_per_thousand=None, enabled=None, retention_interval=None, sessions_current_billing_period=None, sessions_last_billing_period=None, sessions_trial_billing_period=None, trial_expiration=None, trial_expired=None):  # noqa: E501
         """ScreenRecordingSettings - a model defined in Swagger"""  # noqa: E501
 
+        self._cost_per_thousand = None
         self._enabled = None
+        self._retention_interval = None
         self._sessions_current_billing_period = None
         self._sessions_last_billing_period = None
         self._sessions_trial_billing_period = None
@@ -59,8 +65,12 @@ class ScreenRecordingSettings(object):
         self._trial_expired = None
         self.discriminator = None
 
+        if cost_per_thousand is not None:
+            self.cost_per_thousand = cost_per_thousand
         if enabled is not None:
             self.enabled = enabled
+        if retention_interval is not None:
+            self.retention_interval = retention_interval
         if sessions_current_billing_period is not None:
             self.sessions_current_billing_period = sessions_current_billing_period
         if sessions_last_billing_period is not None:
@@ -71,6 +81,29 @@ class ScreenRecordingSettings(object):
             self.trial_expiration = trial_expiration
         if trial_expired is not None:
             self.trial_expired = trial_expired
+
+    @property
+    def cost_per_thousand(self):
+        """Gets the cost_per_thousand of this ScreenRecordingSettings.  # noqa: E501
+
+        Cost per one thousand sessions  # noqa: E501
+
+        :return: The cost_per_thousand of this ScreenRecordingSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._cost_per_thousand
+
+    @cost_per_thousand.setter
+    def cost_per_thousand(self, cost_per_thousand):
+        """Sets the cost_per_thousand of this ScreenRecordingSettings.
+
+        Cost per one thousand sessions  # noqa: E501
+
+        :param cost_per_thousand: The cost_per_thousand of this ScreenRecordingSettings.  # noqa: E501
+        :type: float
+        """
+
+        self._cost_per_thousand = cost_per_thousand
 
     @property
     def enabled(self):
@@ -92,6 +125,29 @@ class ScreenRecordingSettings(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def retention_interval(self):
+        """Gets the retention_interval of this ScreenRecordingSettings.  # noqa: E501
+
+        How long screen recording data is retained  # noqa: E501
+
+        :return: The retention_interval of this ScreenRecordingSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._retention_interval
+
+    @retention_interval.setter
+    def retention_interval(self, retention_interval):
+        """Sets the retention_interval of this ScreenRecordingSettings.
+
+        How long screen recording data is retained  # noqa: E501
+
+        :param retention_interval: The retention_interval of this ScreenRecordingSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._retention_interval = retention_interval
 
     @property
     def sessions_current_billing_period(self):
