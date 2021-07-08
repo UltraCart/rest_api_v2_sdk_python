@@ -35,6 +35,7 @@ class Customer(object):
         'affiliate_oid': 'int',
         'allow_3rd_party_billing': 'bool',
         'allow_cod': 'bool',
+        'allow_drop_shipping': 'bool',
         'allow_purchase_order': 'bool',
         'allow_quote_request': 'bool',
         'allow_selection_of_address_type': 'bool',
@@ -96,6 +97,7 @@ class Customer(object):
         'affiliate_oid': 'affiliate_oid',
         'allow_3rd_party_billing': 'allow_3rd_party_billing',
         'allow_cod': 'allow_cod',
+        'allow_drop_shipping': 'allow_drop_shipping',
         'allow_purchase_order': 'allow_purchase_order',
         'allow_quote_request': 'allow_quote_request',
         'allow_selection_of_address_type': 'allow_selection_of_address_type',
@@ -152,13 +154,14 @@ class Customer(object):
         'website_url': 'website_url'
     }
 
-    def __init__(self, activity=None, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, attachments=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, loyalty=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, privacy=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, reviewer=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, software_entitlements=None, suppress_buysafe=None, tags=None, tax_codes=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):  # noqa: E501
+    def __init__(self, activity=None, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_drop_shipping=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, attachments=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, loyalty=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, privacy=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, reviewer=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, software_entitlements=None, suppress_buysafe=None, tags=None, tax_codes=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):  # noqa: E501
         """Customer - a model defined in Swagger"""  # noqa: E501
 
         self._activity = None
         self._affiliate_oid = None
         self._allow_3rd_party_billing = None
         self._allow_cod = None
+        self._allow_drop_shipping = None
         self._allow_purchase_order = None
         self._allow_quote_request = None
         self._allow_selection_of_address_type = None
@@ -223,6 +226,8 @@ class Customer(object):
             self.allow_3rd_party_billing = allow_3rd_party_billing
         if allow_cod is not None:
             self.allow_cod = allow_cod
+        if allow_drop_shipping is not None:
+            self.allow_drop_shipping = allow_drop_shipping
         if allow_purchase_order is not None:
             self.allow_purchase_order = allow_purchase_order
         if allow_quote_request is not None:
@@ -421,6 +426,29 @@ class Customer(object):
         """
 
         self._allow_cod = allow_cod
+
+    @property
+    def allow_drop_shipping(self):
+        """Gets the allow_drop_shipping of this Customer.  # noqa: E501
+
+        Allow Drop Shipping  # noqa: E501
+
+        :return: The allow_drop_shipping of this Customer.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_drop_shipping
+
+    @allow_drop_shipping.setter
+    def allow_drop_shipping(self, allow_drop_shipping):
+        """Sets the allow_drop_shipping of this Customer.
+
+        Allow Drop Shipping  # noqa: E501
+
+        :param allow_drop_shipping: The allow_drop_shipping of this Customer.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_drop_shipping = allow_drop_shipping
 
     @property
     def allow_purchase_order(self):
