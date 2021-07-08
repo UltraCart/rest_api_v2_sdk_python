@@ -55,6 +55,7 @@ class ScreenRecording(object):
         'language_iso_code': 'str',
         'merchant_id': 'str',
         'merchant_notes': 'str',
+        'missing_external_tracking': 'bool',
         'order_id': 'str',
         'page_view_count': 'int',
         'page_views': 'list[ScreenRecordingPageView]',
@@ -107,6 +108,7 @@ class ScreenRecording(object):
         'language_iso_code': 'language_iso_code',
         'merchant_id': 'merchant_id',
         'merchant_notes': 'merchant_notes',
+        'missing_external_tracking': 'missing_external_tracking',
         'order_id': 'order_id',
         'page_view_count': 'page_view_count',
         'page_views': 'page_views',
@@ -134,7 +136,7 @@ class ScreenRecording(object):
         'window_width': 'window_width'
     }
 
-    def __init__(self, ad_platform=None, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, communications_campaign_name=None, communications_campaign_uuid=None, communications_email_subject=None, communications_email_uuid=None, communications_flow_name=None, communications_flow_uuid=None, email=None, email_domain=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, merchant_id=None, merchant_notes=None, order_id=None, page_view_count=None, page_views=None, preferred_language=None, referrer_domain=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, utm_campaign=None, utm_source=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
+    def __init__(self, ad_platform=None, analytics_client_oid=None, analytics_session_dts=None, analytics_session_oid=None, communications_campaign_name=None, communications_campaign_uuid=None, communications_email_subject=None, communications_email_uuid=None, communications_flow_name=None, communications_flow_uuid=None, email=None, email_domain=None, end_timestamp=None, esp_customer_uuid=None, events_gz_size=None, events_json_key=None, favorite=None, favorites=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, merchant_id=None, merchant_notes=None, missing_external_tracking=None, order_id=None, page_view_count=None, page_views=None, preferred_language=None, referrer_domain=None, rrweb_version=None, screen_recording_uuid=None, signed_download_url=None, start_timestamp=None, storefront_oids=None, storefronts=None, tags=None, time_on_site=None, ucacid=None, user_agent=None, user_agent_raw=None, user_ip=None, user_properties=None, utm_campaign=None, utm_source=None, visitor_first_seen=None, visitor_number=None, watched=None, window_height=None, window_width=None):  # noqa: E501
         """ScreenRecording - a model defined in Swagger"""  # noqa: E501
 
         self._ad_platform = None
@@ -161,6 +163,7 @@ class ScreenRecording(object):
         self._language_iso_code = None
         self._merchant_id = None
         self._merchant_notes = None
+        self._missing_external_tracking = None
         self._order_id = None
         self._page_view_count = None
         self._page_views = None
@@ -236,6 +239,8 @@ class ScreenRecording(object):
             self.merchant_id = merchant_id
         if merchant_notes is not None:
             self.merchant_notes = merchant_notes
+        if missing_external_tracking is not None:
+            self.missing_external_tracking = missing_external_tracking
         if order_id is not None:
             self.order_id = order_id
         if page_view_count is not None:
@@ -810,6 +815,29 @@ class ScreenRecording(object):
         """
 
         self._merchant_notes = merchant_notes
+
+    @property
+    def missing_external_tracking(self):
+        """Gets the missing_external_tracking of this ScreenRecording.  # noqa: E501
+
+        True if external page view was not tracked  # noqa: E501
+
+        :return: The missing_external_tracking of this ScreenRecording.  # noqa: E501
+        :rtype: bool
+        """
+        return self._missing_external_tracking
+
+    @missing_external_tracking.setter
+    def missing_external_tracking(self, missing_external_tracking):
+        """Sets the missing_external_tracking of this ScreenRecording.
+
+        True if external page view was not tracked  # noqa: E501
+
+        :param missing_external_tracking: The missing_external_tracking of this ScreenRecording.  # noqa: E501
+        :type: bool
+        """
+
+        self._missing_external_tracking = missing_external_tracking
 
     @property
     def order_id(self):

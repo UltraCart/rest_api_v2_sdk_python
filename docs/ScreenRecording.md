@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **language_iso_code** | **str** | Language ISO code | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **merchant_notes** | **str** |  | [optional] 
+**missing_external_tracking** | **bool** | True if external page view was not tracked | [optional] 
 **order_id** | **str** |  | [optional] 
 **page_view_count** | **int** |  | [optional] 
 **page_views** | [**list[ScreenRecordingPageView]**](ScreenRecordingPageView.md) |  | [optional] 

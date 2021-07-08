@@ -31,6 +31,7 @@ class ScreenRecordingQueryResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'checkout_only': 'bool',
         'error': 'Error',
         'filter': 'ScreenRecordingFilter',
         'filter_values': 'ScreenRecordingFilterValues',
@@ -44,6 +45,7 @@ class ScreenRecordingQueryResponse(object):
     }
 
     attribute_map = {
+        'checkout_only': 'checkout_only',
         'error': 'error',
         'filter': 'filter',
         'filter_values': 'filter_values',
@@ -56,9 +58,10 @@ class ScreenRecordingQueryResponse(object):
         'warning': 'warning'
     }
 
-    def __init__(self, error=None, filter=None, filter_values=None, histogram_data=None, histogram_interval=None, histogram_start_dts=None, metadata=None, screen_recordings=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, checkout_only=None, error=None, filter=None, filter_values=None, histogram_data=None, histogram_interval=None, histogram_start_dts=None, metadata=None, screen_recordings=None, success=None, warning=None):  # noqa: E501
         """ScreenRecordingQueryResponse - a model defined in Swagger"""  # noqa: E501
 
+        self._checkout_only = None
         self._error = None
         self._filter = None
         self._filter_values = None
@@ -71,6 +74,8 @@ class ScreenRecordingQueryResponse(object):
         self._warning = None
         self.discriminator = None
 
+        if checkout_only is not None:
+            self.checkout_only = checkout_only
         if error is not None:
             self.error = error
         if filter is not None:
@@ -91,6 +96,27 @@ class ScreenRecordingQueryResponse(object):
             self.success = success
         if warning is not None:
             self.warning = warning
+
+    @property
+    def checkout_only(self):
+        """Gets the checkout_only of this ScreenRecordingQueryResponse.  # noqa: E501
+
+
+        :return: The checkout_only of this ScreenRecordingQueryResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._checkout_only
+
+    @checkout_only.setter
+    def checkout_only(self, checkout_only):
+        """Sets the checkout_only of this ScreenRecordingQueryResponse.
+
+
+        :param checkout_only: The checkout_only of this ScreenRecordingQueryResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._checkout_only = checkout_only
 
     @property
     def error(self):
