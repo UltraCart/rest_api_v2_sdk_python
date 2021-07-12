@@ -34,23 +34,26 @@ class OrderCoupon(object):
         'accounting_code': 'str',
         'automatically_applied': 'bool',
         'base_coupon_code': 'str',
-        'coupon_code': 'str'
+        'coupon_code': 'str',
+        'hdie_from_customer': 'bool'
     }
 
     attribute_map = {
         'accounting_code': 'accounting_code',
         'automatically_applied': 'automatically_applied',
         'base_coupon_code': 'base_coupon_code',
-        'coupon_code': 'coupon_code'
+        'coupon_code': 'coupon_code',
+        'hdie_from_customer': 'hdie_from_customer'
     }
 
-    def __init__(self, accounting_code=None, automatically_applied=None, base_coupon_code=None, coupon_code=None):  # noqa: E501
+    def __init__(self, accounting_code=None, automatically_applied=None, base_coupon_code=None, coupon_code=None, hdie_from_customer=None):  # noqa: E501
         """OrderCoupon - a model defined in Swagger"""  # noqa: E501
 
         self._accounting_code = None
         self._automatically_applied = None
         self._base_coupon_code = None
         self._coupon_code = None
+        self._hdie_from_customer = None
         self.discriminator = None
 
         if accounting_code is not None:
@@ -61,6 +64,8 @@ class OrderCoupon(object):
             self.base_coupon_code = base_coupon_code
         if coupon_code is not None:
             self.coupon_code = coupon_code
+        if hdie_from_customer is not None:
+            self.hdie_from_customer = hdie_from_customer
 
     @property
     def accounting_code(self):
@@ -157,6 +162,29 @@ class OrderCoupon(object):
             raise ValueError("Invalid value for `coupon_code`, length must be less than or equal to `20`")  # noqa: E501
 
         self._coupon_code = coupon_code
+
+    @property
+    def hdie_from_customer(self):
+        """Gets the hdie_from_customer of this OrderCoupon.  # noqa: E501
+
+        True if this coupon is hidde from the customer  # noqa: E501
+
+        :return: The hdie_from_customer of this OrderCoupon.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hdie_from_customer
+
+    @hdie_from_customer.setter
+    def hdie_from_customer(self, hdie_from_customer):
+        """Sets the hdie_from_customer of this OrderCoupon.
+
+        True if this coupon is hidde from the customer  # noqa: E501
+
+        :param hdie_from_customer: The hdie_from_customer of this OrderCoupon.  # noqa: E501
+        :type: bool
+        """
+
+        self._hdie_from_customer = hdie_from_customer
 
     def to_dict(self):
         """Returns the model properties as a dict"""

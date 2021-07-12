@@ -557,7 +557,7 @@ class OrderApi(object):
             collection_formats=collection_formats)
 
     def generate_packing_slip_all_dc(self, order_id, **kwargs):  # noqa: E501
-        """Generate a packing slip for this order for the given distribution center.  # noqa: E501
+        """Generate a packing slip for this order across all distribution centers.  # noqa: E501
 
         The packing slip PDF that is returned is base 64 encoded   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -579,7 +579,7 @@ class OrderApi(object):
             return data
 
     def generate_packing_slip_all_dc_with_http_info(self, order_id, **kwargs):  # noqa: E501
-        """Generate a packing slip for this order for the given distribution center.  # noqa: E501
+        """Generate a packing slip for this order across all distribution centers.  # noqa: E501
 
         The packing slip PDF that is returned is base 64 encoded   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
