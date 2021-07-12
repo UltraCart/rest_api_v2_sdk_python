@@ -61,6 +61,7 @@ class Coupon(object):
         'free_shipping_specific_items': 'CouponFreeShippingSpecificItems',
         'free_shipping_with_items_purchase': 'CouponFreeShippingWithItemsPurchase',
         'free_shipping_with_subtotal': 'CouponFreeShippingWithSubtotal',
+        'hide_from_customer': 'bool',
         'merchant_code': 'str',
         'merchant_notes': 'str',
         'multiple_amounts_off_items': 'CouponMultipleAmountsOffItems',
@@ -122,6 +123,7 @@ class Coupon(object):
         'free_shipping_specific_items': 'free_shipping_specific_items',
         'free_shipping_with_items_purchase': 'free_shipping_with_items_purchase',
         'free_shipping_with_subtotal': 'free_shipping_with_subtotal',
+        'hide_from_customer': 'hide_from_customer',
         'merchant_code': 'merchant_code',
         'merchant_notes': 'merchant_notes',
         'multiple_amounts_off_items': 'multiple_amounts_off_items',
@@ -152,7 +154,7 @@ class Coupon(object):
         'usable_by': 'usable_by'
     }
 
-    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_item=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):  # noqa: E501
+    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, hide_from_customer=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_item=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):  # noqa: E501
         """Coupon - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_oid = None
@@ -185,6 +187,7 @@ class Coupon(object):
         self._free_shipping_specific_items = None
         self._free_shipping_with_items_purchase = None
         self._free_shipping_with_subtotal = None
+        self._hide_from_customer = None
         self._merchant_code = None
         self._merchant_notes = None
         self._multiple_amounts_off_items = None
@@ -275,6 +278,8 @@ class Coupon(object):
             self.free_shipping_with_items_purchase = free_shipping_with_items_purchase
         if free_shipping_with_subtotal is not None:
             self.free_shipping_with_subtotal = free_shipping_with_subtotal
+        if hide_from_customer is not None:
+            self.hide_from_customer = hide_from_customer
         if merchant_code is not None:
             self.merchant_code = merchant_code
         if merchant_notes is not None:
@@ -981,6 +986,29 @@ class Coupon(object):
         """
 
         self._free_shipping_with_subtotal = free_shipping_with_subtotal
+
+    @property
+    def hide_from_customer(self):
+        """Gets the hide_from_customer of this Coupon.  # noqa: E501
+
+        Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms.  # noqa: E501
+
+        :return: The hide_from_customer of this Coupon.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hide_from_customer
+
+    @hide_from_customer.setter
+    def hide_from_customer(self, hide_from_customer):
+        """Sets the hide_from_customer of this Coupon.
+
+        Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms.  # noqa: E501
+
+        :param hide_from_customer: The hide_from_customer of this Coupon.  # noqa: E501
+        :type: bool
+        """
+
+        self._hide_from_customer = hide_from_customer
 
     @property
     def merchant_code(self):
