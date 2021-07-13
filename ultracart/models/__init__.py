@@ -233,6 +233,8 @@ from ultracart.models.email_commseq_response import EmailCommseqResponse
 from ultracart.models.email_commseq_stat import EmailCommseqStat
 from ultracart.models.email_commseq_stat_response import EmailCommseqStatResponse
 from ultracart.models.email_commseq_step import EmailCommseqStep
+from ultracart.models.email_commseq_step_log import EmailCommseqStepLog
+from ultracart.models.email_commseq_step_logs_response import EmailCommseqStepLogsResponse
 from ultracart.models.email_commseqs_response import EmailCommseqsResponse
 from ultracart.models.email_customer import EmailCustomer
 from ultracart.models.email_customer_editor_url_response import EmailCustomerEditorUrlResponse
