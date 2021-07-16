@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **params** | [**list[ScreenRecordingPageViewEventParameter]**](ScreenRecordingPageViewEventParameter.md) |  | [optional] 
 **prior_page_view** | **bool** |  | [optional] 
+**sub_text** | **str** |  | [optional] 
 **timestamp** | **str** | Timestamp of the event | [optional] 
 **ts** | **int** |  | [optional] 
 

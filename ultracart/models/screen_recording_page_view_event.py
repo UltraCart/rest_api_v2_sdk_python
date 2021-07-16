@@ -34,6 +34,7 @@ class ScreenRecordingPageViewEvent(object):
         'name': 'str',
         'params': 'list[ScreenRecordingPageViewEventParameter]',
         'prior_page_view': 'bool',
+        'sub_text': 'str',
         'timestamp': 'str',
         'ts': 'int'
     }
@@ -42,16 +43,18 @@ class ScreenRecordingPageViewEvent(object):
         'name': 'name',
         'params': 'params',
         'prior_page_view': 'prior_page_view',
+        'sub_text': 'sub_text',
         'timestamp': 'timestamp',
         'ts': 'ts'
     }
 
-    def __init__(self, name=None, params=None, prior_page_view=None, timestamp=None, ts=None):  # noqa: E501
+    def __init__(self, name=None, params=None, prior_page_view=None, sub_text=None, timestamp=None, ts=None):  # noqa: E501
         """ScreenRecordingPageViewEvent - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._params = None
         self._prior_page_view = None
+        self._sub_text = None
         self._timestamp = None
         self._ts = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ScreenRecordingPageViewEvent(object):
             self.params = params
         if prior_page_view is not None:
             self.prior_page_view = prior_page_view
+        if sub_text is not None:
+            self.sub_text = sub_text
         if timestamp is not None:
             self.timestamp = timestamp
         if ts is not None:
@@ -129,6 +134,27 @@ class ScreenRecordingPageViewEvent(object):
         """
 
         self._prior_page_view = prior_page_view
+
+    @property
+    def sub_text(self):
+        """Gets the sub_text of this ScreenRecordingPageViewEvent.  # noqa: E501
+
+
+        :return: The sub_text of this ScreenRecordingPageViewEvent.  # noqa: E501
+        :rtype: str
+        """
+        return self._sub_text
+
+    @sub_text.setter
+    def sub_text(self, sub_text):
+        """Sets the sub_text of this ScreenRecordingPageViewEvent.
+
+
+        :param sub_text: The sub_text of this ScreenRecordingPageViewEvent.  # noqa: E501
+        :type: str
+        """
+
+        self._sub_text = sub_text
 
     @property
     def timestamp(self):
