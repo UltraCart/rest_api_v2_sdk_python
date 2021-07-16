@@ -57,7 +57,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sso_authorize**
-> ItemsResponse sso_authorize(authorization_request)
+> SingleSignOnAuthorizeResponse sso_authorize(authorization_request)
 
 Authorize a single sign on session
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**SingleSignOnAuthorizeResponse**](SingleSignOnAuthorizeResponse.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sso_token**
-> ItemsResponse sso_token(token_request)
+> SingleSignOnTokenResponse sso_token(token_request)
 
 Exchange a single sign on code for a simple key token
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**SingleSignOnTokenResponse**](SingleSignOnTokenResponse.md)
 
 ### Authorization
 

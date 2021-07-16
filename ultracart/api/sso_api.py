@@ -147,7 +147,7 @@ class SsoApi(object):
 
         :param async_req bool
         :param SingleSignOnAuthorizeRequest authorization_request: Authorization request (required)
-        :return: ItemsResponse
+        :return: SingleSignOnAuthorizeResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -169,7 +169,7 @@ class SsoApi(object):
 
         :param async_req bool
         :param SingleSignOnAuthorizeRequest authorization_request: Authorization request (required)
-        :return: ItemsResponse
+        :return: SingleSignOnAuthorizeResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -227,7 +227,7 @@ class SsoApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ItemsResponse',  # noqa: E501
+            response_type='SingleSignOnAuthorizeResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -337,7 +337,7 @@ class SsoApi(object):
 
         :param async_req bool
         :param SingleSignOnTokenRequest token_request: Token request (required)
-        :return: ItemsResponse
+        :return: SingleSignOnTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -359,7 +359,7 @@ class SsoApi(object):
 
         :param async_req bool
         :param SingleSignOnTokenRequest token_request: Token request (required)
-        :return: ItemsResponse
+        :return: SingleSignOnTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -417,7 +417,7 @@ class SsoApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ItemsResponse',  # noqa: E501
+            response_type='SingleSignOnTokenResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
