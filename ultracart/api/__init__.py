@@ -14,6 +14,7 @@ from ultracart.api.integration_log_api import IntegrationLogApi
 from ultracart.api.item_api import ItemApi
 from ultracart.api.oauth_api import OauthApi
 from ultracart.api.order_api import OrderApi
+from ultracart.api.sso_api import SsoApi
 from ultracart.api.storefront_api import StorefrontApi
 from ultracart.api.tax_api import TaxApi
 from ultracart.api.user_api import UserApi
