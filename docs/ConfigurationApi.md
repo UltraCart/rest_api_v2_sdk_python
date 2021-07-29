@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_payments_rotating_transaction_gateways**
-> RotatingTransactionGateway get_payments_rotating_transaction_gateways()
+> RotatingTransactionGatewaysResponse get_payments_rotating_transaction_gateways()
 
 Retrieve a list of rotating transaction gateways
 
@@ -300,7 +300,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewaysResponse**](RotatingTransactionGatewaysResponse.md)
 
 ### Authorization
 
@@ -314,7 +314,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_payments_rtg_summaries**
-> RotatingTransactionGateway get_payments_rtg_summaries()
+> RtgSummary get_payments_rtg_summaries()
 
 Retrieve a summary of rotating transaction gateways
 
@@ -346,7 +346,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RtgSummary**](RtgSummary.md)
 
 ### Authorization
 

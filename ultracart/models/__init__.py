@@ -333,6 +333,9 @@ from ultracart.models.integration_log_query_filter_values import IntegrationLogQ
 from ultracart.models.integration_log_query_request import IntegrationLogQueryRequest
 from ultracart.models.integration_log_query_response import IntegrationLogQueryResponse
 from ultracart.models.integration_log_response import IntegrationLogResponse
+from ultracart.models.integration_log_summary import IntegrationLogSummary
+from ultracart.models.integration_log_summary_query_request import IntegrationLogSummaryQueryRequest
+from ultracart.models.integration_log_summary_query_response import IntegrationLogSummaryQueryResponse
 from ultracart.models.item import Item
 from ultracart.models.item_accounting import ItemAccounting
 from ultracart.models.item_amember import ItemAmember
@@ -512,9 +515,12 @@ from ultracart.models.register_affiliate_click_response import RegisterAffiliate
 from ultracart.models.response_metadata import ResponseMetadata
 from ultracart.models.result_set import ResultSet
 from ultracart.models.rotating_transaction_gateway import RotatingTransactionGateway
+from ultracart.models.rotating_transaction_gateways_response import RotatingTransactionGatewaysResponse
 from ultracart.models.rtg_currency import RtgCurrency
 from ultracart.models.rtg_day_of_month_restriction import RtgDayOfMonthRestriction
 from ultracart.models.rtg_day_of_week_restriction import RtgDayOfWeekRestriction
+from ultracart.models.rtg_summary import RtgSummary
+from ultracart.models.rtg_summary_gateway import RtgSummaryGateway
 from ultracart.models.rtg_theme_restriction import RtgThemeRestriction
 from ultracart.models.screen_recording import ScreenRecording
 from ultracart.models.screen_recording_ad_platform import ScreenRecordingAdPlatform
