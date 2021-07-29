@@ -7,6 +7,7 @@ from ultracart.api.affiliate_api import AffiliateApi
 from ultracart.api.auto_order_api import AutoOrderApi
 from ultracart.api.chargeback_api import ChargebackApi
 from ultracart.api.checkout_api import CheckoutApi
+from ultracart.api.configuration_api import ConfigurationApi
 from ultracart.api.coupon_api import CouponApi
 from ultracart.api.customer_api import CustomerApi
 from ultracart.api.fulfillment_api import FulfillmentApi
