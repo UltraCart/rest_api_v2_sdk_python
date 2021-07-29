@@ -515,12 +515,13 @@ from ultracart.models.register_affiliate_click_response import RegisterAffiliate
 from ultracart.models.response_metadata import ResponseMetadata
 from ultracart.models.result_set import ResultSet
 from ultracart.models.rotating_transaction_gateway import RotatingTransactionGateway
+from ultracart.models.rotating_transaction_gateway_response import RotatingTransactionGatewayResponse
 from ultracart.models.rotating_transaction_gateways_response import RotatingTransactionGatewaysResponse
 from ultracart.models.rtg_currency import RtgCurrency
 from ultracart.models.rtg_day_of_month_restriction import RtgDayOfMonthRestriction
 from ultracart.models.rtg_day_of_week_restriction import RtgDayOfWeekRestriction
-from ultracart.models.rtg_summary import RtgSummary
 from ultracart.models.rtg_summary_gateway import RtgSummaryGateway
+from ultracart.models.rtg_summary_response import RtgSummaryResponse
 from ultracart.models.rtg_theme_restriction import RtgThemeRestriction
 from ultracart.models.screen_recording import ScreenRecording
 from ultracart.models.screen_recording_ad_platform import ScreenRecordingAdPlatform

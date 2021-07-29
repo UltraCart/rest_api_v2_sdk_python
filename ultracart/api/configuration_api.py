@@ -253,7 +253,7 @@ class ConfigurationApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: PaymentsConfiguration
+        :return: PaymentsConfigurationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -274,7 +274,7 @@ class ConfigurationApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: PaymentsConfiguration
+        :return: PaymentsConfigurationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -326,7 +326,7 @@ class ConfigurationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PaymentsConfiguration',  # noqa: E501
+            response_type='PaymentsConfigurationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -345,7 +345,7 @@ class ConfigurationApi(object):
 
         :param async_req bool
         :param int rtg_oid: The rtg_oid for the desired record. (required)
-        :return: RotatingTransactionGateway
+        :return: RotatingTransactionGatewayResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -367,7 +367,7 @@ class ConfigurationApi(object):
 
         :param async_req bool
         :param int rtg_oid: The rtg_oid for the desired record. (required)
-        :return: RotatingTransactionGateway
+        :return: RotatingTransactionGatewayResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -425,7 +425,7 @@ class ConfigurationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RotatingTransactionGateway',  # noqa: E501
+            response_type='RotatingTransactionGatewayResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -444,7 +444,7 @@ class ConfigurationApi(object):
 
         :param async_req bool
         :param str code: The code for the desired rotating transaction gateway. (required)
-        :return: RotatingTransactionGateway
+        :return: RotatingTransactionGatewayResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -466,7 +466,7 @@ class ConfigurationApi(object):
 
         :param async_req bool
         :param str code: The code for the desired rotating transaction gateway. (required)
-        :return: RotatingTransactionGateway
+        :return: RotatingTransactionGatewayResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -524,7 +524,7 @@ class ConfigurationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RotatingTransactionGateway',  # noqa: E501
+            response_type='RotatingTransactionGatewayResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -633,7 +633,7 @@ class ConfigurationApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: RtgSummary
+        :return: RtgSummaryResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -654,7 +654,7 @@ class ConfigurationApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: RtgSummary
+        :return: RtgSummaryResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -706,7 +706,7 @@ class ConfigurationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RtgSummary',  # noqa: E501
+            response_type='RtgSummaryResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -816,7 +816,7 @@ class ConfigurationApi(object):
 
         :param async_req bool
         :param RotatingTransactionGateway rotating_transaction_gateway: Rotating transaction gateway (required)
-        :return: RotatingTransactionGateway
+        :return: RotatingTransactionGatewayResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -838,7 +838,7 @@ class ConfigurationApi(object):
 
         :param async_req bool
         :param RotatingTransactionGateway rotating_transaction_gateway: Rotating transaction gateway (required)
-        :return: RotatingTransactionGateway
+        :return: RotatingTransactionGatewayResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -896,7 +896,7 @@ class ConfigurationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RotatingTransactionGateway',  # noqa: E501
+            response_type='RotatingTransactionGatewayResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -915,7 +915,7 @@ class ConfigurationApi(object):
 
         :param async_req bool
         :param str code: The short code for the new rotating transaction gateway (required)
-        :return: RotatingTransactionGateway
+        :return: RotatingTransactionGatewayResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -937,7 +937,7 @@ class ConfigurationApi(object):
 
         :param async_req bool
         :param str code: The short code for the new rotating transaction gateway (required)
-        :return: RotatingTransactionGateway
+        :return: RotatingTransactionGatewayResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -995,7 +995,7 @@ class ConfigurationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RotatingTransactionGateway',  # noqa: E501
+            response_type='RotatingTransactionGatewayResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
