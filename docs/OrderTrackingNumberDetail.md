@@ -4,8 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **city** | **str** |  | [optional] 
+**event_dts** | **str** | ISO 8601 timestamp that the event occurred | [optional] 
 **event_local_date** | **str** |  | [optional] 
 **event_local_time** | **str** |  | [optional] 
+**event_timezone_id** | **str** | Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time. | [optional] 
 **state** | **str** |  | [optional] 
 **subtag** | **str** |  | [optional] 
 **subtag_message** | **str** |  | [optional] 

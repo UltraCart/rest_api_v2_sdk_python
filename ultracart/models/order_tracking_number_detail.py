@@ -32,8 +32,10 @@ class OrderTrackingNumberDetail(object):
     """
     swagger_types = {
         'city': 'str',
+        'event_dts': 'str',
         'event_local_date': 'str',
         'event_local_time': 'str',
+        'event_timezone_id': 'str',
         'state': 'str',
         'subtag': 'str',
         'subtag_message': 'str',
@@ -45,8 +47,10 @@ class OrderTrackingNumberDetail(object):
 
     attribute_map = {
         'city': 'city',
+        'event_dts': 'event_dts',
         'event_local_date': 'event_local_date',
         'event_local_time': 'event_local_time',
+        'event_timezone_id': 'event_timezone_id',
         'state': 'state',
         'subtag': 'subtag',
         'subtag_message': 'subtag_message',
@@ -56,12 +60,14 @@ class OrderTrackingNumberDetail(object):
         'zip': 'zip'
     }
 
-    def __init__(self, city=None, event_local_date=None, event_local_time=None, state=None, subtag=None, subtag_message=None, tag=None, tag_description=None, tag_icon=None, zip=None):  # noqa: E501
+    def __init__(self, city=None, event_dts=None, event_local_date=None, event_local_time=None, event_timezone_id=None, state=None, subtag=None, subtag_message=None, tag=None, tag_description=None, tag_icon=None, zip=None):  # noqa: E501
         """OrderTrackingNumberDetail - a model defined in Swagger"""  # noqa: E501
 
         self._city = None
+        self._event_dts = None
         self._event_local_date = None
         self._event_local_time = None
+        self._event_timezone_id = None
         self._state = None
         self._subtag = None
         self._subtag_message = None
@@ -73,10 +79,14 @@ class OrderTrackingNumberDetail(object):
 
         if city is not None:
             self.city = city
+        if event_dts is not None:
+            self.event_dts = event_dts
         if event_local_date is not None:
             self.event_local_date = event_local_date
         if event_local_time is not None:
             self.event_local_time = event_local_time
+        if event_timezone_id is not None:
+            self.event_timezone_id = event_timezone_id
         if state is not None:
             self.state = state
         if subtag is not None:
@@ -112,6 +122,29 @@ class OrderTrackingNumberDetail(object):
         """
 
         self._city = city
+
+    @property
+    def event_dts(self):
+        """Gets the event_dts of this OrderTrackingNumberDetail.  # noqa: E501
+
+        ISO 8601 timestamp that the event occurred  # noqa: E501
+
+        :return: The event_dts of this OrderTrackingNumberDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._event_dts
+
+    @event_dts.setter
+    def event_dts(self, event_dts):
+        """Sets the event_dts of this OrderTrackingNumberDetail.
+
+        ISO 8601 timestamp that the event occurred  # noqa: E501
+
+        :param event_dts: The event_dts of this OrderTrackingNumberDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._event_dts = event_dts
 
     @property
     def event_local_date(self):
@@ -154,6 +187,29 @@ class OrderTrackingNumberDetail(object):
         """
 
         self._event_local_time = event_local_time
+
+    @property
+    def event_timezone_id(self):
+        """Gets the event_timezone_id of this OrderTrackingNumberDetail.  # noqa: E501
+
+        Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time.  # noqa: E501
+
+        :return: The event_timezone_id of this OrderTrackingNumberDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._event_timezone_id
+
+    @event_timezone_id.setter
+    def event_timezone_id(self, event_timezone_id):
+        """Sets the event_timezone_id of this OrderTrackingNumberDetail.
+
+        Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time.  # noqa: E501
+
+        :param event_timezone_id: The event_timezone_id of this OrderTrackingNumberDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._event_timezone_id = event_timezone_id
 
     @property
     def state(self):
