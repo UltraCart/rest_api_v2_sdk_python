@@ -36,6 +36,7 @@ class OrderChannelPartner(object):
         'channel_partner_data': 'str',
         'channel_partner_oid': 'int',
         'channel_partner_order_id': 'str',
+        'ignore_invalid_shipping_method': 'bool',
         'no_realtime_payment_processing': 'bool',
         'skip_payment_processing': 'bool',
         'store_completed': 'bool',
@@ -49,6 +50,7 @@ class OrderChannelPartner(object):
         'channel_partner_data': 'channel_partner_data',
         'channel_partner_oid': 'channel_partner_oid',
         'channel_partner_order_id': 'channel_partner_order_id',
+        'ignore_invalid_shipping_method': 'ignore_invalid_shipping_method',
         'no_realtime_payment_processing': 'no_realtime_payment_processing',
         'skip_payment_processing': 'skip_payment_processing',
         'store_completed': 'store_completed',
@@ -56,7 +58,7 @@ class OrderChannelPartner(object):
         'treat_warnings_as_errors': 'treat_warnings_as_errors'
     }
 
-    def __init__(self, auto_approve_purchase_order=None, channel_partner_code=None, channel_partner_data=None, channel_partner_oid=None, channel_partner_order_id=None, no_realtime_payment_processing=None, skip_payment_processing=None, store_completed=None, store_if_payment_declines=None, treat_warnings_as_errors=None):  # noqa: E501
+    def __init__(self, auto_approve_purchase_order=None, channel_partner_code=None, channel_partner_data=None, channel_partner_oid=None, channel_partner_order_id=None, ignore_invalid_shipping_method=None, no_realtime_payment_processing=None, skip_payment_processing=None, store_completed=None, store_if_payment_declines=None, treat_warnings_as_errors=None):  # noqa: E501
         """OrderChannelPartner - a model defined in Swagger"""  # noqa: E501
 
         self._auto_approve_purchase_order = None
@@ -64,6 +66,7 @@ class OrderChannelPartner(object):
         self._channel_partner_data = None
         self._channel_partner_oid = None
         self._channel_partner_order_id = None
+        self._ignore_invalid_shipping_method = None
         self._no_realtime_payment_processing = None
         self._skip_payment_processing = None
         self._store_completed = None
@@ -81,6 +84,8 @@ class OrderChannelPartner(object):
             self.channel_partner_oid = channel_partner_oid
         if channel_partner_order_id is not None:
             self.channel_partner_order_id = channel_partner_order_id
+        if ignore_invalid_shipping_method is not None:
+            self.ignore_invalid_shipping_method = ignore_invalid_shipping_method
         if no_realtime_payment_processing is not None:
             self.no_realtime_payment_processing = no_realtime_payment_processing
         if skip_payment_processing is not None:
@@ -206,6 +211,29 @@ class OrderChannelPartner(object):
         """
 
         self._channel_partner_order_id = channel_partner_order_id
+
+    @property
+    def ignore_invalid_shipping_method(self):
+        """Gets the ignore_invalid_shipping_method of this OrderChannelPartner.  # noqa: E501
+
+        Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders.  # noqa: E501
+
+        :return: The ignore_invalid_shipping_method of this OrderChannelPartner.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_invalid_shipping_method
+
+    @ignore_invalid_shipping_method.setter
+    def ignore_invalid_shipping_method(self, ignore_invalid_shipping_method):
+        """Sets the ignore_invalid_shipping_method of this OrderChannelPartner.
+
+        Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders.  # noqa: E501
+
+        :param ignore_invalid_shipping_method: The ignore_invalid_shipping_method of this OrderChannelPartner.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_invalid_shipping_method = ignore_invalid_shipping_method
 
     @property
     def no_realtime_payment_processing(self):
