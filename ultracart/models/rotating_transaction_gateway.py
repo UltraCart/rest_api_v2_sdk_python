@@ -73,6 +73,7 @@ class RotatingTransactionGateway(object):
         'traffic_percentage': 'float',
         'trial_daily_amount': 'int',
         'trial_daily_limit': 'int',
+        'trial_monthly_amount': 'int',
         'trial_monthly_limit': 'int'
     }
 
@@ -119,10 +120,11 @@ class RotatingTransactionGateway(object):
         'traffic_percentage': 'traffic_percentage',
         'trial_daily_amount': 'trial_daily_amount',
         'trial_daily_limit': 'trial_daily_limit',
+        'trial_monthly_amount': 'trial_monthly_amount',
         'trial_monthly_limit': 'trial_monthly_limit'
     }
 
-    def __init__(self, additional_native_currency_codes=None, auto_order_cancel_unless_response_name=None, auto_order_cancel_unless_response_values=None, base_currency_code=None, cascade_code=None, cascade_codes=None, cascade_daily_auto_order_code=None, charge_appears_on_statement_as=None, code=None, current_daily=None, current_daily_auto_order=None, current_monthly=None, customer_service_email=None, customer_service_phone=None, day_of_month_restrictions=None, day_of_week_restrictions=None, deactivate_after_failures=None, end_date=None, gateways=None, maximum_daily=None, maximum_daily_auto_order=None, maximum_monthly=None, next_daily_auto_order_reset=None, next_daily_reset=None, next_monthly_reset=None, order_total=None, order_total_comparison=None, rebill_auto_orders_against_this_rtg_code=None, reserve_days=None, reserve_percentage=None, reserve_refunded=None, reserves_released_through=None, rotating_transaction_gateway_oid=None, selected_gateway_name=None, show_cascade_codes=None, show_merchant_account_profiles=None, start_date=None, status=None, theme_restrictions=None, traffic_percentage=None, trial_daily_amount=None, trial_daily_limit=None, trial_monthly_limit=None):  # noqa: E501
+    def __init__(self, additional_native_currency_codes=None, auto_order_cancel_unless_response_name=None, auto_order_cancel_unless_response_values=None, base_currency_code=None, cascade_code=None, cascade_codes=None, cascade_daily_auto_order_code=None, charge_appears_on_statement_as=None, code=None, current_daily=None, current_daily_auto_order=None, current_monthly=None, customer_service_email=None, customer_service_phone=None, day_of_month_restrictions=None, day_of_week_restrictions=None, deactivate_after_failures=None, end_date=None, gateways=None, maximum_daily=None, maximum_daily_auto_order=None, maximum_monthly=None, next_daily_auto_order_reset=None, next_daily_reset=None, next_monthly_reset=None, order_total=None, order_total_comparison=None, rebill_auto_orders_against_this_rtg_code=None, reserve_days=None, reserve_percentage=None, reserve_refunded=None, reserves_released_through=None, rotating_transaction_gateway_oid=None, selected_gateway_name=None, show_cascade_codes=None, show_merchant_account_profiles=None, start_date=None, status=None, theme_restrictions=None, traffic_percentage=None, trial_daily_amount=None, trial_daily_limit=None, trial_monthly_amount=None, trial_monthly_limit=None):  # noqa: E501
         """RotatingTransactionGateway - a model defined in Swagger"""  # noqa: E501
 
         self._additional_native_currency_codes = None
@@ -167,6 +169,7 @@ class RotatingTransactionGateway(object):
         self._traffic_percentage = None
         self._trial_daily_amount = None
         self._trial_daily_limit = None
+        self._trial_monthly_amount = None
         self._trial_monthly_limit = None
         self.discriminator = None
 
@@ -254,6 +257,8 @@ class RotatingTransactionGateway(object):
             self.trial_daily_amount = trial_daily_amount
         if trial_daily_limit is not None:
             self.trial_daily_limit = trial_daily_limit
+        if trial_monthly_amount is not None:
+            self.trial_monthly_amount = trial_monthly_amount
         if trial_monthly_limit is not None:
             self.trial_monthly_limit = trial_monthly_limit
 
@@ -1193,7 +1198,7 @@ class RotatingTransactionGateway(object):
     def trial_daily_amount(self):
         """Gets the trial_daily_amount of this RotatingTransactionGateway.  # noqa: E501
 
-        If specified, limits the total daily dollar amount of trial orders  # noqa: E501
+        If specified, limits the total daily count of trial orders  # noqa: E501
 
         :return: The trial_daily_amount of this RotatingTransactionGateway.  # noqa: E501
         :rtype: int
@@ -1204,7 +1209,7 @@ class RotatingTransactionGateway(object):
     def trial_daily_amount(self, trial_daily_amount):
         """Sets the trial_daily_amount of this RotatingTransactionGateway.
 
-        If specified, limits the total daily dollar amount of trial orders  # noqa: E501
+        If specified, limits the total daily count of trial orders  # noqa: E501
 
         :param trial_daily_amount: The trial_daily_amount of this RotatingTransactionGateway.  # noqa: E501
         :type: int
@@ -1216,7 +1221,7 @@ class RotatingTransactionGateway(object):
     def trial_daily_limit(self):
         """Gets the trial_daily_limit of this RotatingTransactionGateway.  # noqa: E501
 
-        If specified, limits the total month count of trial orders  # noqa: E501
+        If specified, limits the total daily dollar amount of trial orders  # noqa: E501
 
         :return: The trial_daily_limit of this RotatingTransactionGateway.  # noqa: E501
         :rtype: int
@@ -1227,7 +1232,7 @@ class RotatingTransactionGateway(object):
     def trial_daily_limit(self, trial_daily_limit):
         """Sets the trial_daily_limit of this RotatingTransactionGateway.
 
-        If specified, limits the total month count of trial orders  # noqa: E501
+        If specified, limits the total daily dollar amount of trial orders  # noqa: E501
 
         :param trial_daily_limit: The trial_daily_limit of this RotatingTransactionGateway.  # noqa: E501
         :type: int
@@ -1236,10 +1241,33 @@ class RotatingTransactionGateway(object):
         self._trial_daily_limit = trial_daily_limit
 
     @property
+    def trial_monthly_amount(self):
+        """Gets the trial_monthly_amount of this RotatingTransactionGateway.  # noqa: E501
+
+        If specified, limits the total month dollar amount of trial orders  # noqa: E501
+
+        :return: The trial_monthly_amount of this RotatingTransactionGateway.  # noqa: E501
+        :rtype: int
+        """
+        return self._trial_monthly_amount
+
+    @trial_monthly_amount.setter
+    def trial_monthly_amount(self, trial_monthly_amount):
+        """Sets the trial_monthly_amount of this RotatingTransactionGateway.
+
+        If specified, limits the total month dollar amount of trial orders  # noqa: E501
+
+        :param trial_monthly_amount: The trial_monthly_amount of this RotatingTransactionGateway.  # noqa: E501
+        :type: int
+        """
+
+        self._trial_monthly_amount = trial_monthly_amount
+
+    @property
     def trial_monthly_limit(self):
         """Gets the trial_monthly_limit of this RotatingTransactionGateway.  # noqa: E501
 
-        If specified, limits the total month dollar amount of trial orders  # noqa: E501
+        If specified, limits the total month count of trial orders  # noqa: E501
 
         :return: The trial_monthly_limit of this RotatingTransactionGateway.  # noqa: E501
         :rtype: int
@@ -1250,7 +1278,7 @@ class RotatingTransactionGateway(object):
     def trial_monthly_limit(self, trial_monthly_limit):
         """Sets the trial_monthly_limit of this RotatingTransactionGateway.
 
-        If specified, limits the total month dollar amount of trial orders  # noqa: E501
+        If specified, limits the total month count of trial orders  # noqa: E501
 
         :param trial_monthly_limit: The trial_monthly_limit of this RotatingTransactionGateway.  # noqa: E501
         :type: int
