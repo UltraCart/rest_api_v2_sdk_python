@@ -656,7 +656,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_rotating_transaction_gateway**
-> RotatingTransactionGateway update_rotating_transaction_gateway(rtg_oid, rotating_transaction_gateway)
+> RotatingTransactionGatewayResponse update_rotating_transaction_gateway(rtg_oid, rotating_transaction_gateway)
 
 Update a rotating transaction gateway
 
@@ -694,7 +694,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
