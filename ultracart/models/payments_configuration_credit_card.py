@@ -38,7 +38,6 @@ class PaymentsConfigurationCreditCard(object):
         'configured_gateways_details': 'str',
         'failed_attempts': 'str',
         'hide_connect_single_gateway': 'bool',
-        'immediate_finalize_domains': 'str',
         'send_customer_billing_update_on_decline': 'bool'
     }
 
@@ -50,11 +49,10 @@ class PaymentsConfigurationCreditCard(object):
         'configured_gateways_details': 'configuredGatewaysDetails',
         'failed_attempts': 'failedAttempts',
         'hide_connect_single_gateway': 'hideConnectSingleGateway',
-        'immediate_finalize_domains': 'immediateFinalizeDomains',
         'send_customer_billing_update_on_decline': 'sendCustomerBillingUpdateOnDecline'
     }
 
-    def __init__(self, accept_credit_cards=None, billed_by=None, charge_during_checkout=None, collect_cvv2=None, configured_gateways_details=None, failed_attempts=None, hide_connect_single_gateway=None, immediate_finalize_domains=None, send_customer_billing_update_on_decline=None):  # noqa: E501
+    def __init__(self, accept_credit_cards=None, billed_by=None, charge_during_checkout=None, collect_cvv2=None, configured_gateways_details=None, failed_attempts=None, hide_connect_single_gateway=None, send_customer_billing_update_on_decline=None):  # noqa: E501
         """PaymentsConfigurationCreditCard - a model defined in Swagger"""  # noqa: E501
 
         self._accept_credit_cards = None
@@ -64,7 +62,6 @@ class PaymentsConfigurationCreditCard(object):
         self._configured_gateways_details = None
         self._failed_attempts = None
         self._hide_connect_single_gateway = None
-        self._immediate_finalize_domains = None
         self._send_customer_billing_update_on_decline = None
         self.discriminator = None
 
@@ -82,8 +79,6 @@ class PaymentsConfigurationCreditCard(object):
             self.failed_attempts = failed_attempts
         if hide_connect_single_gateway is not None:
             self.hide_connect_single_gateway = hide_connect_single_gateway
-        if immediate_finalize_domains is not None:
-            self.immediate_finalize_domains = immediate_finalize_domains
         if send_customer_billing_update_on_decline is not None:
             self.send_customer_billing_update_on_decline = send_customer_billing_update_on_decline
 
@@ -233,27 +228,6 @@ class PaymentsConfigurationCreditCard(object):
         """
 
         self._hide_connect_single_gateway = hide_connect_single_gateway
-
-    @property
-    def immediate_finalize_domains(self):
-        """Gets the immediate_finalize_domains of this PaymentsConfigurationCreditCard.  # noqa: E501
-
-
-        :return: The immediate_finalize_domains of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :rtype: str
-        """
-        return self._immediate_finalize_domains
-
-    @immediate_finalize_domains.setter
-    def immediate_finalize_domains(self, immediate_finalize_domains):
-        """Sets the immediate_finalize_domains of this PaymentsConfigurationCreditCard.
-
-
-        :param immediate_finalize_domains: The immediate_finalize_domains of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :type: str
-        """
-
-        self._immediate_finalize_domains = immediate_finalize_domains
 
     @property
     def send_customer_billing_update_on_decline(self):

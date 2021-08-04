@@ -35,6 +35,7 @@ class EmailList(object):
         'created_dts': 'str',
         'deleted': 'bool',
         'email_list_uuid': 'str',
+        'esp_list_segment_folder_uuid': 'str',
         'member_count': 'int',
         'merchant_id': 'str',
         'name': 'str',
@@ -49,6 +50,7 @@ class EmailList(object):
         'created_dts': 'created_dts',
         'deleted': 'deleted',
         'email_list_uuid': 'email_list_uuid',
+        'esp_list_segment_folder_uuid': 'esp_list_segment_folder_uuid',
         'member_count': 'member_count',
         'merchant_id': 'merchant_id',
         'name': 'name',
@@ -58,13 +60,14 @@ class EmailList(object):
         'used_by': 'used_by'
     }
 
-    def __init__(self, allow_csv_download=None, created_dts=None, deleted=None, email_list_uuid=None, member_count=None, merchant_id=None, name=None, public_description=None, public_list=None, storefront_oid=None, used_by=None):  # noqa: E501
+    def __init__(self, allow_csv_download=None, created_dts=None, deleted=None, email_list_uuid=None, esp_list_segment_folder_uuid=None, member_count=None, merchant_id=None, name=None, public_description=None, public_list=None, storefront_oid=None, used_by=None):  # noqa: E501
         """EmailList - a model defined in Swagger"""  # noqa: E501
 
         self._allow_csv_download = None
         self._created_dts = None
         self._deleted = None
         self._email_list_uuid = None
+        self._esp_list_segment_folder_uuid = None
         self._member_count = None
         self._merchant_id = None
         self._name = None
@@ -82,6 +85,8 @@ class EmailList(object):
             self.deleted = deleted
         if email_list_uuid is not None:
             self.email_list_uuid = email_list_uuid
+        if esp_list_segment_folder_uuid is not None:
+            self.esp_list_segment_folder_uuid = esp_list_segment_folder_uuid
         if member_count is not None:
             self.member_count = member_count
         if merchant_id is not None:
@@ -188,6 +193,29 @@ class EmailList(object):
         """
 
         self._email_list_uuid = email_list_uuid
+
+    @property
+    def esp_list_segment_folder_uuid(self):
+        """Gets the esp_list_segment_folder_uuid of this EmailList.  # noqa: E501
+
+        List/Segment folder UUID  # noqa: E501
+
+        :return: The esp_list_segment_folder_uuid of this EmailList.  # noqa: E501
+        :rtype: str
+        """
+        return self._esp_list_segment_folder_uuid
+
+    @esp_list_segment_folder_uuid.setter
+    def esp_list_segment_folder_uuid(self, esp_list_segment_folder_uuid):
+        """Sets the esp_list_segment_folder_uuid of this EmailList.
+
+        List/Segment folder UUID  # noqa: E501
+
+        :param esp_list_segment_folder_uuid: The esp_list_segment_folder_uuid of this EmailList.  # noqa: E501
+        :type: str
+        """
+
+        self._esp_list_segment_folder_uuid = esp_list_segment_folder_uuid
 
     @property
     def member_count(self):

@@ -36,6 +36,7 @@ class EmailSegment(object):
         'created_dts': 'str',
         'deleted': 'bool',
         'email_segment_uuid': 'str',
+        'esp_list_segment_folder_uuid': 'str',
         'facebook_custom_audience': 'bool',
         'filter_profile_equation_json': 'str',
         'member_count': 'int',
@@ -53,6 +54,7 @@ class EmailSegment(object):
         'created_dts': 'created_dts',
         'deleted': 'deleted',
         'email_segment_uuid': 'email_segment_uuid',
+        'esp_list_segment_folder_uuid': 'esp_list_segment_folder_uuid',
         'facebook_custom_audience': 'facebook_custom_audience',
         'filter_profile_equation_json': 'filter_profile_equation_json',
         'member_count': 'member_count',
@@ -64,7 +66,7 @@ class EmailSegment(object):
         'used_by': 'used_by'
     }
 
-    def __init__(self, allow_csv_download=None, allow_facebook_audiences=None, created_dts=None, deleted=None, email_segment_uuid=None, facebook_custom_audience=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rank_json=None, rebuild_required=None, storefront_oid=None, used_by=None):  # noqa: E501
+    def __init__(self, allow_csv_download=None, allow_facebook_audiences=None, created_dts=None, deleted=None, email_segment_uuid=None, esp_list_segment_folder_uuid=None, facebook_custom_audience=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rank_json=None, rebuild_required=None, storefront_oid=None, used_by=None):  # noqa: E501
         """EmailSegment - a model defined in Swagger"""  # noqa: E501
 
         self._allow_csv_download = None
@@ -72,6 +74,7 @@ class EmailSegment(object):
         self._created_dts = None
         self._deleted = None
         self._email_segment_uuid = None
+        self._esp_list_segment_folder_uuid = None
         self._facebook_custom_audience = None
         self._filter_profile_equation_json = None
         self._member_count = None
@@ -93,6 +96,8 @@ class EmailSegment(object):
             self.deleted = deleted
         if email_segment_uuid is not None:
             self.email_segment_uuid = email_segment_uuid
+        if esp_list_segment_folder_uuid is not None:
+            self.esp_list_segment_folder_uuid = esp_list_segment_folder_uuid
         if facebook_custom_audience is not None:
             self.facebook_custom_audience = facebook_custom_audience
         if filter_profile_equation_json is not None:
@@ -226,6 +231,29 @@ class EmailSegment(object):
         """
 
         self._email_segment_uuid = email_segment_uuid
+
+    @property
+    def esp_list_segment_folder_uuid(self):
+        """Gets the esp_list_segment_folder_uuid of this EmailSegment.  # noqa: E501
+
+        List/Segment folder UUID  # noqa: E501
+
+        :return: The esp_list_segment_folder_uuid of this EmailSegment.  # noqa: E501
+        :rtype: str
+        """
+        return self._esp_list_segment_folder_uuid
+
+    @esp_list_segment_folder_uuid.setter
+    def esp_list_segment_folder_uuid(self, esp_list_segment_folder_uuid):
+        """Sets the esp_list_segment_folder_uuid of this EmailSegment.
+
+        List/Segment folder UUID  # noqa: E501
+
+        :param esp_list_segment_folder_uuid: The esp_list_segment_folder_uuid of this EmailSegment.  # noqa: E501
+        :type: str
+        """
+
+        self._esp_list_segment_folder_uuid = esp_list_segment_folder_uuid
 
     @property
     def facebook_custom_audience(self):
