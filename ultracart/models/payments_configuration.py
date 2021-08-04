@@ -37,7 +37,9 @@ class PaymentsConfiguration(object):
         'check': 'PaymentsConfigurationCheck',
         'cod': 'PaymentsConfigurationCOD',
         'credit_card': 'PaymentsConfigurationCreditCard',
+        'e_check': 'PaymentsConfigurationEcheck',
         'loan_hero': 'PaymentsConfigurationLoanHero',
+        'money_order': 'PaymentsConfigurationMoneyOrder',
         'pay_pal': 'PaymentsConfigurationPayPal',
         'purchase_order': 'PaymentsConfigurationPurchaseOrder',
         'quote_request': 'PaymentsConfigurationQuoteRequest',
@@ -56,7 +58,9 @@ class PaymentsConfiguration(object):
         'check': 'check',
         'cod': 'cod',
         'credit_card': 'creditCard',
+        'e_check': 'eCheck',
         'loan_hero': 'loanHero',
+        'money_order': 'moneyOrder',
         'pay_pal': 'payPal',
         'purchase_order': 'purchaseOrder',
         'quote_request': 'quoteRequest',
@@ -68,7 +72,7 @@ class PaymentsConfiguration(object):
         'wire_transfer': 'wireTransfer'
     }
 
-    def __init__(self, affirm=None, amazon=None, cash=None, check=None, cod=None, credit_card=None, loan_hero=None, pay_pal=None, purchase_order=None, quote_request=None, sezzle=None, show_accounting_code=None, switch_to_sub_tab=None, switch_to_tab=None, we_pay=None, wire_transfer=None):  # noqa: E501
+    def __init__(self, affirm=None, amazon=None, cash=None, check=None, cod=None, credit_card=None, e_check=None, loan_hero=None, money_order=None, pay_pal=None, purchase_order=None, quote_request=None, sezzle=None, show_accounting_code=None, switch_to_sub_tab=None, switch_to_tab=None, we_pay=None, wire_transfer=None):  # noqa: E501
         """PaymentsConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._affirm = None
@@ -77,7 +81,9 @@ class PaymentsConfiguration(object):
         self._check = None
         self._cod = None
         self._credit_card = None
+        self._e_check = None
         self._loan_hero = None
+        self._money_order = None
         self._pay_pal = None
         self._purchase_order = None
         self._quote_request = None
@@ -101,8 +107,12 @@ class PaymentsConfiguration(object):
             self.cod = cod
         if credit_card is not None:
             self.credit_card = credit_card
+        if e_check is not None:
+            self.e_check = e_check
         if loan_hero is not None:
             self.loan_hero = loan_hero
+        if money_order is not None:
+            self.money_order = money_order
         if pay_pal is not None:
             self.pay_pal = pay_pal
         if purchase_order is not None:
@@ -249,6 +259,27 @@ class PaymentsConfiguration(object):
         self._credit_card = credit_card
 
     @property
+    def e_check(self):
+        """Gets the e_check of this PaymentsConfiguration.  # noqa: E501
+
+
+        :return: The e_check of this PaymentsConfiguration.  # noqa: E501
+        :rtype: PaymentsConfigurationEcheck
+        """
+        return self._e_check
+
+    @e_check.setter
+    def e_check(self, e_check):
+        """Sets the e_check of this PaymentsConfiguration.
+
+
+        :param e_check: The e_check of this PaymentsConfiguration.  # noqa: E501
+        :type: PaymentsConfigurationEcheck
+        """
+
+        self._e_check = e_check
+
+    @property
     def loan_hero(self):
         """Gets the loan_hero of this PaymentsConfiguration.  # noqa: E501
 
@@ -268,6 +299,27 @@ class PaymentsConfiguration(object):
         """
 
         self._loan_hero = loan_hero
+
+    @property
+    def money_order(self):
+        """Gets the money_order of this PaymentsConfiguration.  # noqa: E501
+
+
+        :return: The money_order of this PaymentsConfiguration.  # noqa: E501
+        :rtype: PaymentsConfigurationMoneyOrder
+        """
+        return self._money_order
+
+    @money_order.setter
+    def money_order(self, money_order):
+        """Sets the money_order of this PaymentsConfiguration.
+
+
+        :param money_order: The money_order of this PaymentsConfiguration.  # noqa: E501
+        :type: PaymentsConfigurationMoneyOrder
+        """
+
+        self._money_order = money_order
 
     @property
     def pay_pal(self):

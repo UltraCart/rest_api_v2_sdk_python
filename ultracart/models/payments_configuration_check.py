@@ -32,13 +32,9 @@ class PaymentsConfigurationCheck(object):
     """
     swagger_types = {
         'accept_check_orders': 'bool',
-        'accept_e_check': 'bool',
-        'accept_money_orders': 'bool',
         'check_accounting_code': 'str',
         'check_deposit_to_account': 'str',
         'checks_payable_to': 'str',
-        'e_check_accounting_code': 'str',
-        'e_check_deposit_to_account': 'str',
         'mail_to_address1': 'str',
         'mail_to_address2': 'str',
         'mail_to_city': 'str',
@@ -53,13 +49,9 @@ class PaymentsConfigurationCheck(object):
 
     attribute_map = {
         'accept_check_orders': 'acceptCheckOrders',
-        'accept_e_check': 'acceptECheck',
-        'accept_money_orders': 'acceptMoneyOrders',
         'check_accounting_code': 'checkAccountingCode',
         'check_deposit_to_account': 'checkDepositToAccount',
         'checks_payable_to': 'checksPayableTo',
-        'e_check_accounting_code': 'eCheckAccountingCode',
-        'e_check_deposit_to_account': 'eCheckDepositToAccount',
         'mail_to_address1': 'mailToAddress1',
         'mail_to_address2': 'mailToAddress2',
         'mail_to_city': 'mailToCity',
@@ -72,17 +64,13 @@ class PaymentsConfigurationCheck(object):
         'restrictions': 'restrictions'
     }
 
-    def __init__(self, accept_check_orders=None, accept_e_check=None, accept_money_orders=None, check_accounting_code=None, check_deposit_to_account=None, checks_payable_to=None, e_check_accounting_code=None, e_check_deposit_to_account=None, mail_to_address1=None, mail_to_address2=None, mail_to_city=None, mail_to_country=None, mail_to_name=None, mail_to_state=None, mail_to_zip=None, money_order_accounting_code=None, money_order_deposit_to_account=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_check_orders=None, check_accounting_code=None, check_deposit_to_account=None, checks_payable_to=None, mail_to_address1=None, mail_to_address2=None, mail_to_city=None, mail_to_country=None, mail_to_name=None, mail_to_state=None, mail_to_zip=None, money_order_accounting_code=None, money_order_deposit_to_account=None, restrictions=None):  # noqa: E501
         """PaymentsConfigurationCheck - a model defined in Swagger"""  # noqa: E501
 
         self._accept_check_orders = None
-        self._accept_e_check = None
-        self._accept_money_orders = None
         self._check_accounting_code = None
         self._check_deposit_to_account = None
         self._checks_payable_to = None
-        self._e_check_accounting_code = None
-        self._e_check_deposit_to_account = None
         self._mail_to_address1 = None
         self._mail_to_address2 = None
         self._mail_to_city = None
@@ -97,20 +85,12 @@ class PaymentsConfigurationCheck(object):
 
         if accept_check_orders is not None:
             self.accept_check_orders = accept_check_orders
-        if accept_e_check is not None:
-            self.accept_e_check = accept_e_check
-        if accept_money_orders is not None:
-            self.accept_money_orders = accept_money_orders
         if check_accounting_code is not None:
             self.check_accounting_code = check_accounting_code
         if check_deposit_to_account is not None:
             self.check_deposit_to_account = check_deposit_to_account
         if checks_payable_to is not None:
             self.checks_payable_to = checks_payable_to
-        if e_check_accounting_code is not None:
-            self.e_check_accounting_code = e_check_accounting_code
-        if e_check_deposit_to_account is not None:
-            self.e_check_deposit_to_account = e_check_deposit_to_account
         if mail_to_address1 is not None:
             self.mail_to_address1 = mail_to_address1
         if mail_to_address2 is not None:
@@ -152,48 +132,6 @@ class PaymentsConfigurationCheck(object):
         """
 
         self._accept_check_orders = accept_check_orders
-
-    @property
-    def accept_e_check(self):
-        """Gets the accept_e_check of this PaymentsConfigurationCheck.  # noqa: E501
-
-
-        :return: The accept_e_check of this PaymentsConfigurationCheck.  # noqa: E501
-        :rtype: bool
-        """
-        return self._accept_e_check
-
-    @accept_e_check.setter
-    def accept_e_check(self, accept_e_check):
-        """Sets the accept_e_check of this PaymentsConfigurationCheck.
-
-
-        :param accept_e_check: The accept_e_check of this PaymentsConfigurationCheck.  # noqa: E501
-        :type: bool
-        """
-
-        self._accept_e_check = accept_e_check
-
-    @property
-    def accept_money_orders(self):
-        """Gets the accept_money_orders of this PaymentsConfigurationCheck.  # noqa: E501
-
-
-        :return: The accept_money_orders of this PaymentsConfigurationCheck.  # noqa: E501
-        :rtype: bool
-        """
-        return self._accept_money_orders
-
-    @accept_money_orders.setter
-    def accept_money_orders(self, accept_money_orders):
-        """Sets the accept_money_orders of this PaymentsConfigurationCheck.
-
-
-        :param accept_money_orders: The accept_money_orders of this PaymentsConfigurationCheck.  # noqa: E501
-        :type: bool
-        """
-
-        self._accept_money_orders = accept_money_orders
 
     @property
     def check_accounting_code(self):
@@ -257,48 +195,6 @@ class PaymentsConfigurationCheck(object):
         """
 
         self._checks_payable_to = checks_payable_to
-
-    @property
-    def e_check_accounting_code(self):
-        """Gets the e_check_accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
-
-
-        :return: The e_check_accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
-        :rtype: str
-        """
-        return self._e_check_accounting_code
-
-    @e_check_accounting_code.setter
-    def e_check_accounting_code(self, e_check_accounting_code):
-        """Sets the e_check_accounting_code of this PaymentsConfigurationCheck.
-
-
-        :param e_check_accounting_code: The e_check_accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
-        :type: str
-        """
-
-        self._e_check_accounting_code = e_check_accounting_code
-
-    @property
-    def e_check_deposit_to_account(self):
-        """Gets the e_check_deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
-
-
-        :return: The e_check_deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
-        :rtype: str
-        """
-        return self._e_check_deposit_to_account
-
-    @e_check_deposit_to_account.setter
-    def e_check_deposit_to_account(self, e_check_deposit_to_account):
-        """Sets the e_check_deposit_to_account of this PaymentsConfigurationCheck.
-
-
-        :param e_check_deposit_to_account: The e_check_deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
-        :type: str
-        """
-
-        self._e_check_deposit_to_account = e_check_deposit_to_account
 
     @property
     def mail_to_address1(self):

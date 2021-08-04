@@ -4,13 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accept_check_orders** | **bool** |  | [optional] 
-**accept_e_check** | **bool** |  | [optional] 
-**accept_money_orders** | **bool** |  | [optional] 
 **check_accounting_code** | **str** |  | [optional] 
 **check_deposit_to_account** | **str** |  | [optional] 
 **checks_payable_to** | **str** |  | [optional] 
-**e_check_accounting_code** | **str** |  | [optional] 
-**e_check_deposit_to_account** | **str** |  | [optional] 
 **mail_to_address1** | **str** |  | [optional] 
 **mail_to_address2** | **str** |  | [optional] 
 **mail_to_city** | **str** |  | [optional] 
