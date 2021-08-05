@@ -46,18 +46,18 @@ class PaymentsConfigurationRestrictions(object):
     }
 
     attribute_map = {
-        'maximum_subtotal': 'maximumSubtotal',
-        'minimum_subtotal': 'minimumSubtotal',
-        'payment_method': 'paymentMethod',
-        'restriction_alaska_hawaii': 'restrictionAlaskaHawaii',
-        'restriction_apo_fpo': 'restrictionApoFpo',
-        'restriction_canada': 'restrictionCanada',
-        'restriction_continental_us': 'restrictionContinentalUS',
-        'restriction_domestic_only': 'restrictionDomesticOnly',
-        'restriction_international_only': 'restrictionInternationalOnly',
-        'restriction_po_box': 'restrictionPoBox',
-        'restriction_puerto_rico': 'restrictionPuertoRico',
-        'restriction_us_territories': 'restrictionUSTerritories'
+        'maximum_subtotal': 'maximum_subtotal',
+        'minimum_subtotal': 'minimum_subtotal',
+        'payment_method': 'payment_method',
+        'restriction_alaska_hawaii': 'restriction_alaska_hawaii',
+        'restriction_apo_fpo': 'restriction_apo_fpo',
+        'restriction_canada': 'restriction_canada',
+        'restriction_continental_us': 'restriction_continental_us',
+        'restriction_domestic_only': 'restriction_domestic_only',
+        'restriction_international_only': 'restriction_international_only',
+        'restriction_po_box': 'restriction_po_box',
+        'restriction_puerto_rico': 'restriction_puerto_rico',
+        'restriction_us_territories': 'restriction_us_territories'
     }
 
     def __init__(self, maximum_subtotal=None, minimum_subtotal=None, payment_method=None, restriction_alaska_hawaii=None, restriction_apo_fpo=None, restriction_canada=None, restriction_continental_us=None, restriction_domestic_only=None, restriction_international_only=None, restriction_po_box=None, restriction_puerto_rico=None, restriction_us_territories=None):  # noqa: E501
@@ -106,6 +106,7 @@ class PaymentsConfigurationRestrictions(object):
     def maximum_subtotal(self):
         """Gets the maximum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        Maximum subtotal  # noqa: E501
 
         :return: The maximum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -116,6 +117,7 @@ class PaymentsConfigurationRestrictions(object):
     def maximum_subtotal(self, maximum_subtotal):
         """Sets the maximum_subtotal of this PaymentsConfigurationRestrictions.
 
+        Maximum subtotal  # noqa: E501
 
         :param maximum_subtotal: The maximum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -127,6 +129,7 @@ class PaymentsConfigurationRestrictions(object):
     def minimum_subtotal(self):
         """Gets the minimum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        Minimum subtotal  # noqa: E501
 
         :return: The minimum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -137,6 +140,7 @@ class PaymentsConfigurationRestrictions(object):
     def minimum_subtotal(self, minimum_subtotal):
         """Sets the minimum_subtotal of this PaymentsConfigurationRestrictions.
 
+        Minimum subtotal  # noqa: E501
 
         :param minimum_subtotal: The minimum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -148,6 +152,7 @@ class PaymentsConfigurationRestrictions(object):
     def payment_method(self):
         """Gets the payment_method of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        Payment method  # noqa: E501
 
         :return: The payment_method of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -158,6 +163,7 @@ class PaymentsConfigurationRestrictions(object):
     def payment_method(self, payment_method):
         """Sets the payment_method of this PaymentsConfigurationRestrictions.
 
+        Payment method  # noqa: E501
 
         :param payment_method: The payment_method of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -169,6 +175,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_alaska_hawaii(self):
         """Gets the restriction_alaska_hawaii of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        Alaska and Hawaii restriction  # noqa: E501
 
         :return: The restriction_alaska_hawaii of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -179,6 +186,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_alaska_hawaii(self, restriction_alaska_hawaii):
         """Sets the restriction_alaska_hawaii of this PaymentsConfigurationRestrictions.
 
+        Alaska and Hawaii restriction  # noqa: E501
 
         :param restriction_alaska_hawaii: The restriction_alaska_hawaii of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -190,6 +198,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_apo_fpo(self):
         """Gets the restriction_apo_fpo of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        APO/FPO restriction  # noqa: E501
 
         :return: The restriction_apo_fpo of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -200,6 +209,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_apo_fpo(self, restriction_apo_fpo):
         """Sets the restriction_apo_fpo of this PaymentsConfigurationRestrictions.
 
+        APO/FPO restriction  # noqa: E501
 
         :param restriction_apo_fpo: The restriction_apo_fpo of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -211,6 +221,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_canada(self):
         """Gets the restriction_canada of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        Canada restriction  # noqa: E501
 
         :return: The restriction_canada of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -221,6 +232,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_canada(self, restriction_canada):
         """Sets the restriction_canada of this PaymentsConfigurationRestrictions.
 
+        Canada restriction  # noqa: E501
 
         :param restriction_canada: The restriction_canada of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -232,6 +244,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_continental_us(self):
         """Gets the restriction_continental_us of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        Continental US restriction  # noqa: E501
 
         :return: The restriction_continental_us of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -242,6 +255,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_continental_us(self, restriction_continental_us):
         """Sets the restriction_continental_us of this PaymentsConfigurationRestrictions.
 
+        Continental US restriction  # noqa: E501
 
         :param restriction_continental_us: The restriction_continental_us of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -253,6 +267,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_domestic_only(self):
         """Gets the restriction_domestic_only of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        Domestic only restriction  # noqa: E501
 
         :return: The restriction_domestic_only of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -263,6 +278,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_domestic_only(self, restriction_domestic_only):
         """Sets the restriction_domestic_only of this PaymentsConfigurationRestrictions.
 
+        Domestic only restriction  # noqa: E501
 
         :param restriction_domestic_only: The restriction_domestic_only of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -274,6 +290,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_international_only(self):
         """Gets the restriction_international_only of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        International only restriction  # noqa: E501
 
         :return: The restriction_international_only of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -284,6 +301,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_international_only(self, restriction_international_only):
         """Sets the restriction_international_only of this PaymentsConfigurationRestrictions.
 
+        International only restriction  # noqa: E501
 
         :param restriction_international_only: The restriction_international_only of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -295,6 +313,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_po_box(self):
         """Gets the restriction_po_box of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        PO Box restriction  # noqa: E501
 
         :return: The restriction_po_box of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -305,6 +324,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_po_box(self, restriction_po_box):
         """Sets the restriction_po_box of this PaymentsConfigurationRestrictions.
 
+        PO Box restriction  # noqa: E501
 
         :param restriction_po_box: The restriction_po_box of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -316,6 +336,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_puerto_rico(self):
         """Gets the restriction_puerto_rico of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        Puerto Rico restriction  # noqa: E501
 
         :return: The restriction_puerto_rico of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -326,6 +347,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_puerto_rico(self, restriction_puerto_rico):
         """Sets the restriction_puerto_rico of this PaymentsConfigurationRestrictions.
 
+        Puerto Rico restriction  # noqa: E501
 
         :param restriction_puerto_rico: The restriction_puerto_rico of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
@@ -337,6 +359,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_us_territories(self):
         """Gets the restriction_us_territories of this PaymentsConfigurationRestrictions.  # noqa: E501
 
+        US Territories restriction  # noqa: E501
 
         :return: The restriction_us_territories of this PaymentsConfigurationRestrictions.  # noqa: E501
         :rtype: str
@@ -347,6 +370,7 @@ class PaymentsConfigurationRestrictions(object):
     def restriction_us_territories(self, restriction_us_territories):
         """Sets the restriction_us_territories of this PaymentsConfigurationRestrictions.
 
+        US Territories restriction  # noqa: E501
 
         :param restriction_us_territories: The restriction_us_territories of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str

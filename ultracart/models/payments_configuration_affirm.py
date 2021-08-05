@@ -32,53 +32,53 @@ class PaymentsConfigurationAffirm(object):
     """
     swagger_types = {
         'accept_affirm': 'bool',
-        'affirm_accounting_code': 'str',
-        'affirm_deposit_to_account': 'str',
-        'affirm_environment': 'str',
-        'affirm_financial_product_key': 'str',
-        'affirm_private_api_key': 'str',
-        'affirm_public_api_key': 'str',
+        'accounting_code': 'str',
+        'deposit_to_account': 'str',
+        'environment': 'str',
+        'financial_product_key': 'str',
+        'private_api_key': 'str',
+        'public_api_key': 'str',
         'restrictions': 'PaymentsConfigurationRestrictions'
     }
 
     attribute_map = {
-        'accept_affirm': 'acceptAffirm',
-        'affirm_accounting_code': 'affirmAccountingCode',
-        'affirm_deposit_to_account': 'affirmDepositToAccount',
-        'affirm_environment': 'affirmEnvironment',
-        'affirm_financial_product_key': 'affirmFinancialProductKey',
-        'affirm_private_api_key': 'affirmPrivateApiKey',
-        'affirm_public_api_key': 'affirmPublicApiKey',
+        'accept_affirm': 'accept_affirm',
+        'accounting_code': 'accounting_code',
+        'deposit_to_account': 'deposit_to_account',
+        'environment': 'environment',
+        'financial_product_key': 'financial_product_key',
+        'private_api_key': 'private_api_key',
+        'public_api_key': 'public_api_key',
         'restrictions': 'restrictions'
     }
 
-    def __init__(self, accept_affirm=None, affirm_accounting_code=None, affirm_deposit_to_account=None, affirm_environment=None, affirm_financial_product_key=None, affirm_private_api_key=None, affirm_public_api_key=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_affirm=None, accounting_code=None, deposit_to_account=None, environment=None, financial_product_key=None, private_api_key=None, public_api_key=None, restrictions=None):  # noqa: E501
         """PaymentsConfigurationAffirm - a model defined in Swagger"""  # noqa: E501
 
         self._accept_affirm = None
-        self._affirm_accounting_code = None
-        self._affirm_deposit_to_account = None
-        self._affirm_environment = None
-        self._affirm_financial_product_key = None
-        self._affirm_private_api_key = None
-        self._affirm_public_api_key = None
+        self._accounting_code = None
+        self._deposit_to_account = None
+        self._environment = None
+        self._financial_product_key = None
+        self._private_api_key = None
+        self._public_api_key = None
         self._restrictions = None
         self.discriminator = None
 
         if accept_affirm is not None:
             self.accept_affirm = accept_affirm
-        if affirm_accounting_code is not None:
-            self.affirm_accounting_code = affirm_accounting_code
-        if affirm_deposit_to_account is not None:
-            self.affirm_deposit_to_account = affirm_deposit_to_account
-        if affirm_environment is not None:
-            self.affirm_environment = affirm_environment
-        if affirm_financial_product_key is not None:
-            self.affirm_financial_product_key = affirm_financial_product_key
-        if affirm_private_api_key is not None:
-            self.affirm_private_api_key = affirm_private_api_key
-        if affirm_public_api_key is not None:
-            self.affirm_public_api_key = affirm_public_api_key
+        if accounting_code is not None:
+            self.accounting_code = accounting_code
+        if deposit_to_account is not None:
+            self.deposit_to_account = deposit_to_account
+        if environment is not None:
+            self.environment = environment
+        if financial_product_key is not None:
+            self.financial_product_key = financial_product_key
+        if private_api_key is not None:
+            self.private_api_key = private_api_key
+        if public_api_key is not None:
+            self.public_api_key = public_api_key
         if restrictions is not None:
             self.restrictions = restrictions
 
@@ -86,6 +86,7 @@ class PaymentsConfigurationAffirm(object):
     def accept_affirm(self):
         """Gets the accept_affirm of this PaymentsConfigurationAffirm.  # noqa: E501
 
+        Master flag indicating this merchant accepts Affirm payments  # noqa: E501
 
         :return: The accept_affirm of this PaymentsConfigurationAffirm.  # noqa: E501
         :rtype: bool
@@ -96,6 +97,7 @@ class PaymentsConfigurationAffirm(object):
     def accept_affirm(self, accept_affirm):
         """Sets the accept_affirm of this PaymentsConfigurationAffirm.
 
+        Master flag indicating this merchant accepts Affirm payments  # noqa: E501
 
         :param accept_affirm: The accept_affirm of this PaymentsConfigurationAffirm.  # noqa: E501
         :type: bool
@@ -104,130 +106,148 @@ class PaymentsConfigurationAffirm(object):
         self._accept_affirm = accept_affirm
 
     @property
-    def affirm_accounting_code(self):
-        """Gets the affirm_accounting_code of this PaymentsConfigurationAffirm.  # noqa: E501
+    def accounting_code(self):
+        """Gets the accounting_code of this PaymentsConfigurationAffirm.  # noqa: E501
 
+        Optional Quickbooks code for this payment method  # noqa: E501
 
-        :return: The affirm_accounting_code of this PaymentsConfigurationAffirm.  # noqa: E501
+        :return: The accounting_code of this PaymentsConfigurationAffirm.  # noqa: E501
         :rtype: str
         """
-        return self._affirm_accounting_code
+        return self._accounting_code
 
-    @affirm_accounting_code.setter
-    def affirm_accounting_code(self, affirm_accounting_code):
-        """Sets the affirm_accounting_code of this PaymentsConfigurationAffirm.
+    @accounting_code.setter
+    def accounting_code(self, accounting_code):
+        """Sets the accounting_code of this PaymentsConfigurationAffirm.
 
+        Optional Quickbooks code for this payment method  # noqa: E501
 
-        :param affirm_accounting_code: The affirm_accounting_code of this PaymentsConfigurationAffirm.  # noqa: E501
+        :param accounting_code: The accounting_code of this PaymentsConfigurationAffirm.  # noqa: E501
         :type: str
         """
 
-        self._affirm_accounting_code = affirm_accounting_code
+        self._accounting_code = accounting_code
 
     @property
-    def affirm_deposit_to_account(self):
-        """Gets the affirm_deposit_to_account of this PaymentsConfigurationAffirm.  # noqa: E501
+    def deposit_to_account(self):
+        """Gets the deposit_to_account of this PaymentsConfigurationAffirm.  # noqa: E501
 
+        Optional Quickbooks Deposit to Account value  # noqa: E501
 
-        :return: The affirm_deposit_to_account of this PaymentsConfigurationAffirm.  # noqa: E501
+        :return: The deposit_to_account of this PaymentsConfigurationAffirm.  # noqa: E501
         :rtype: str
         """
-        return self._affirm_deposit_to_account
+        return self._deposit_to_account
 
-    @affirm_deposit_to_account.setter
-    def affirm_deposit_to_account(self, affirm_deposit_to_account):
-        """Sets the affirm_deposit_to_account of this PaymentsConfigurationAffirm.
+    @deposit_to_account.setter
+    def deposit_to_account(self, deposit_to_account):
+        """Sets the deposit_to_account of this PaymentsConfigurationAffirm.
 
+        Optional Quickbooks Deposit to Account value  # noqa: E501
 
-        :param affirm_deposit_to_account: The affirm_deposit_to_account of this PaymentsConfigurationAffirm.  # noqa: E501
+        :param deposit_to_account: The deposit_to_account of this PaymentsConfigurationAffirm.  # noqa: E501
         :type: str
         """
 
-        self._affirm_deposit_to_account = affirm_deposit_to_account
+        self._deposit_to_account = deposit_to_account
 
     @property
-    def affirm_environment(self):
-        """Gets the affirm_environment of this PaymentsConfigurationAffirm.  # noqa: E501
+    def environment(self):
+        """Gets the environment of this PaymentsConfigurationAffirm.  # noqa: E501
 
+        Environment  # noqa: E501
 
-        :return: The affirm_environment of this PaymentsConfigurationAffirm.  # noqa: E501
+        :return: The environment of this PaymentsConfigurationAffirm.  # noqa: E501
         :rtype: str
         """
-        return self._affirm_environment
+        return self._environment
 
-    @affirm_environment.setter
-    def affirm_environment(self, affirm_environment):
-        """Sets the affirm_environment of this PaymentsConfigurationAffirm.
+    @environment.setter
+    def environment(self, environment):
+        """Sets the environment of this PaymentsConfigurationAffirm.
 
+        Environment  # noqa: E501
 
-        :param affirm_environment: The affirm_environment of this PaymentsConfigurationAffirm.  # noqa: E501
+        :param environment: The environment of this PaymentsConfigurationAffirm.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Live", "Sandbox"]  # noqa: E501
+        if environment not in allowed_values:
+            raise ValueError(
+                "Invalid value for `environment` ({0}), must be one of {1}"  # noqa: E501
+                .format(environment, allowed_values)
+            )
 
-        self._affirm_environment = affirm_environment
+        self._environment = environment
 
     @property
-    def affirm_financial_product_key(self):
-        """Gets the affirm_financial_product_key of this PaymentsConfigurationAffirm.  # noqa: E501
+    def financial_product_key(self):
+        """Gets the financial_product_key of this PaymentsConfigurationAffirm.  # noqa: E501
 
+        Financial product key  # noqa: E501
 
-        :return: The affirm_financial_product_key of this PaymentsConfigurationAffirm.  # noqa: E501
+        :return: The financial_product_key of this PaymentsConfigurationAffirm.  # noqa: E501
         :rtype: str
         """
-        return self._affirm_financial_product_key
+        return self._financial_product_key
 
-    @affirm_financial_product_key.setter
-    def affirm_financial_product_key(self, affirm_financial_product_key):
-        """Sets the affirm_financial_product_key of this PaymentsConfigurationAffirm.
+    @financial_product_key.setter
+    def financial_product_key(self, financial_product_key):
+        """Sets the financial_product_key of this PaymentsConfigurationAffirm.
 
+        Financial product key  # noqa: E501
 
-        :param affirm_financial_product_key: The affirm_financial_product_key of this PaymentsConfigurationAffirm.  # noqa: E501
+        :param financial_product_key: The financial_product_key of this PaymentsConfigurationAffirm.  # noqa: E501
         :type: str
         """
 
-        self._affirm_financial_product_key = affirm_financial_product_key
+        self._financial_product_key = financial_product_key
 
     @property
-    def affirm_private_api_key(self):
-        """Gets the affirm_private_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
+    def private_api_key(self):
+        """Gets the private_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
 
+        Private API key  # noqa: E501
 
-        :return: The affirm_private_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
+        :return: The private_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
         :rtype: str
         """
-        return self._affirm_private_api_key
+        return self._private_api_key
 
-    @affirm_private_api_key.setter
-    def affirm_private_api_key(self, affirm_private_api_key):
-        """Sets the affirm_private_api_key of this PaymentsConfigurationAffirm.
+    @private_api_key.setter
+    def private_api_key(self, private_api_key):
+        """Sets the private_api_key of this PaymentsConfigurationAffirm.
 
+        Private API key  # noqa: E501
 
-        :param affirm_private_api_key: The affirm_private_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
+        :param private_api_key: The private_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
         :type: str
         """
 
-        self._affirm_private_api_key = affirm_private_api_key
+        self._private_api_key = private_api_key
 
     @property
-    def affirm_public_api_key(self):
-        """Gets the affirm_public_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
+    def public_api_key(self):
+        """Gets the public_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
 
+        Public API key  # noqa: E501
 
-        :return: The affirm_public_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
+        :return: The public_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
         :rtype: str
         """
-        return self._affirm_public_api_key
+        return self._public_api_key
 
-    @affirm_public_api_key.setter
-    def affirm_public_api_key(self, affirm_public_api_key):
-        """Sets the affirm_public_api_key of this PaymentsConfigurationAffirm.
+    @public_api_key.setter
+    def public_api_key(self, public_api_key):
+        """Sets the public_api_key of this PaymentsConfigurationAffirm.
 
+        Public API key  # noqa: E501
 
-        :param affirm_public_api_key: The affirm_public_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
+        :param public_api_key: The public_api_key of this PaymentsConfigurationAffirm.  # noqa: E501
         :type: str
         """
 
-        self._affirm_public_api_key = affirm_public_api_key
+        self._public_api_key = public_api_key
 
     @property
     def restrictions(self):

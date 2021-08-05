@@ -32,33 +32,33 @@ class PaymentsConfigurationPurchaseOrder(object):
     """
     swagger_types = {
         'accept_purchase_orders': 'bool',
-        'purchase_order_approved_customers_only': 'bool',
-        'purchase_order_prevent_duplicate_number': 'bool',
+        'approved_customers_only': 'bool',
+        'prevent_duplicate_number': 'bool',
         'restrictions': 'PaymentsConfigurationRestrictions'
     }
 
     attribute_map = {
-        'accept_purchase_orders': 'acceptPurchaseOrders',
-        'purchase_order_approved_customers_only': 'purchaseOrderApprovedCustomersOnly',
-        'purchase_order_prevent_duplicate_number': 'purchaseOrderPreventDuplicateNumber',
+        'accept_purchase_orders': 'accept_purchase_orders',
+        'approved_customers_only': 'approved_customers_only',
+        'prevent_duplicate_number': 'prevent_duplicate_number',
         'restrictions': 'restrictions'
     }
 
-    def __init__(self, accept_purchase_orders=None, purchase_order_approved_customers_only=None, purchase_order_prevent_duplicate_number=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_purchase_orders=None, approved_customers_only=None, prevent_duplicate_number=None, restrictions=None):  # noqa: E501
         """PaymentsConfigurationPurchaseOrder - a model defined in Swagger"""  # noqa: E501
 
         self._accept_purchase_orders = None
-        self._purchase_order_approved_customers_only = None
-        self._purchase_order_prevent_duplicate_number = None
+        self._approved_customers_only = None
+        self._prevent_duplicate_number = None
         self._restrictions = None
         self.discriminator = None
 
         if accept_purchase_orders is not None:
             self.accept_purchase_orders = accept_purchase_orders
-        if purchase_order_approved_customers_only is not None:
-            self.purchase_order_approved_customers_only = purchase_order_approved_customers_only
-        if purchase_order_prevent_duplicate_number is not None:
-            self.purchase_order_prevent_duplicate_number = purchase_order_prevent_duplicate_number
+        if approved_customers_only is not None:
+            self.approved_customers_only = approved_customers_only
+        if prevent_duplicate_number is not None:
+            self.prevent_duplicate_number = prevent_duplicate_number
         if restrictions is not None:
             self.restrictions = restrictions
 
@@ -66,6 +66,7 @@ class PaymentsConfigurationPurchaseOrder(object):
     def accept_purchase_orders(self):
         """Gets the accept_purchase_orders of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
 
+        Master flag indicating this merchant accepts purchase orders  # noqa: E501
 
         :return: The accept_purchase_orders of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
         :rtype: bool
@@ -76,6 +77,7 @@ class PaymentsConfigurationPurchaseOrder(object):
     def accept_purchase_orders(self, accept_purchase_orders):
         """Sets the accept_purchase_orders of this PaymentsConfigurationPurchaseOrder.
 
+        Master flag indicating this merchant accepts purchase orders  # noqa: E501
 
         :param accept_purchase_orders: The accept_purchase_orders of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
         :type: bool
@@ -84,46 +86,50 @@ class PaymentsConfigurationPurchaseOrder(object):
         self._accept_purchase_orders = accept_purchase_orders
 
     @property
-    def purchase_order_approved_customers_only(self):
-        """Gets the purchase_order_approved_customers_only of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
+    def approved_customers_only(self):
+        """Gets the approved_customers_only of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
 
+        If true, only approved customers may pay with a purchase order  # noqa: E501
 
-        :return: The purchase_order_approved_customers_only of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
+        :return: The approved_customers_only of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
         :rtype: bool
         """
-        return self._purchase_order_approved_customers_only
+        return self._approved_customers_only
 
-    @purchase_order_approved_customers_only.setter
-    def purchase_order_approved_customers_only(self, purchase_order_approved_customers_only):
-        """Sets the purchase_order_approved_customers_only of this PaymentsConfigurationPurchaseOrder.
+    @approved_customers_only.setter
+    def approved_customers_only(self, approved_customers_only):
+        """Sets the approved_customers_only of this PaymentsConfigurationPurchaseOrder.
 
+        If true, only approved customers may pay with a purchase order  # noqa: E501
 
-        :param purchase_order_approved_customers_only: The purchase_order_approved_customers_only of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
+        :param approved_customers_only: The approved_customers_only of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
         :type: bool
         """
 
-        self._purchase_order_approved_customers_only = purchase_order_approved_customers_only
+        self._approved_customers_only = approved_customers_only
 
     @property
-    def purchase_order_prevent_duplicate_number(self):
-        """Gets the purchase_order_prevent_duplicate_number of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
+    def prevent_duplicate_number(self):
+        """Gets the prevent_duplicate_number of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
 
+        If true, customers may not use duplicate PO numbers for any order  # noqa: E501
 
-        :return: The purchase_order_prevent_duplicate_number of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
+        :return: The prevent_duplicate_number of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
         :rtype: bool
         """
-        return self._purchase_order_prevent_duplicate_number
+        return self._prevent_duplicate_number
 
-    @purchase_order_prevent_duplicate_number.setter
-    def purchase_order_prevent_duplicate_number(self, purchase_order_prevent_duplicate_number):
-        """Sets the purchase_order_prevent_duplicate_number of this PaymentsConfigurationPurchaseOrder.
+    @prevent_duplicate_number.setter
+    def prevent_duplicate_number(self, prevent_duplicate_number):
+        """Sets the prevent_duplicate_number of this PaymentsConfigurationPurchaseOrder.
 
+        If true, customers may not use duplicate PO numbers for any order  # noqa: E501
 
-        :param purchase_order_prevent_duplicate_number: The purchase_order_prevent_duplicate_number of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
+        :param prevent_duplicate_number: The prevent_duplicate_number of this PaymentsConfigurationPurchaseOrder.  # noqa: E501
         :type: bool
         """
 
-        self._purchase_order_prevent_duplicate_number = purchase_order_prevent_duplicate_number
+        self._prevent_duplicate_number = prevent_duplicate_number
 
     @property
     def restrictions(self):

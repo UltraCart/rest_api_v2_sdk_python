@@ -32,23 +32,33 @@ class PaymentsConfigurationMoneyOrder(object):
     """
     swagger_types = {
         'accept_money_orders': 'bool',
+        'accounting_code': 'str',
+        'deposit_to_account': 'str',
         'restrictions': 'PaymentsConfigurationRestrictions'
     }
 
     attribute_map = {
-        'accept_money_orders': 'acceptMoneyOrders',
+        'accept_money_orders': 'accept_money_orders',
+        'accounting_code': 'accounting_code',
+        'deposit_to_account': 'deposit_to_account',
         'restrictions': 'restrictions'
     }
 
-    def __init__(self, accept_money_orders=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_money_orders=None, accounting_code=None, deposit_to_account=None, restrictions=None):  # noqa: E501
         """PaymentsConfigurationMoneyOrder - a model defined in Swagger"""  # noqa: E501
 
         self._accept_money_orders = None
+        self._accounting_code = None
+        self._deposit_to_account = None
         self._restrictions = None
         self.discriminator = None
 
         if accept_money_orders is not None:
             self.accept_money_orders = accept_money_orders
+        if accounting_code is not None:
+            self.accounting_code = accounting_code
+        if deposit_to_account is not None:
+            self.deposit_to_account = deposit_to_account
         if restrictions is not None:
             self.restrictions = restrictions
 
@@ -56,6 +66,7 @@ class PaymentsConfigurationMoneyOrder(object):
     def accept_money_orders(self):
         """Gets the accept_money_orders of this PaymentsConfigurationMoneyOrder.  # noqa: E501
 
+        Master flag for this merchant accepting money orders  # noqa: E501
 
         :return: The accept_money_orders of this PaymentsConfigurationMoneyOrder.  # noqa: E501
         :rtype: bool
@@ -66,12 +77,59 @@ class PaymentsConfigurationMoneyOrder(object):
     def accept_money_orders(self, accept_money_orders):
         """Sets the accept_money_orders of this PaymentsConfigurationMoneyOrder.
 
+        Master flag for this merchant accepting money orders  # noqa: E501
 
         :param accept_money_orders: The accept_money_orders of this PaymentsConfigurationMoneyOrder.  # noqa: E501
         :type: bool
         """
 
         self._accept_money_orders = accept_money_orders
+
+    @property
+    def accounting_code(self):
+        """Gets the accounting_code of this PaymentsConfigurationMoneyOrder.  # noqa: E501
+
+        Optional Quickbooks accounting code  # noqa: E501
+
+        :return: The accounting_code of this PaymentsConfigurationMoneyOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._accounting_code
+
+    @accounting_code.setter
+    def accounting_code(self, accounting_code):
+        """Sets the accounting_code of this PaymentsConfigurationMoneyOrder.
+
+        Optional Quickbooks accounting code  # noqa: E501
+
+        :param accounting_code: The accounting_code of this PaymentsConfigurationMoneyOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._accounting_code = accounting_code
+
+    @property
+    def deposit_to_account(self):
+        """Gets the deposit_to_account of this PaymentsConfigurationMoneyOrder.  # noqa: E501
+
+        Optional Quickbooks deposit to account  # noqa: E501
+
+        :return: The deposit_to_account of this PaymentsConfigurationMoneyOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._deposit_to_account
+
+    @deposit_to_account.setter
+    def deposit_to_account(self, deposit_to_account):
+        """Sets the deposit_to_account of this PaymentsConfigurationMoneyOrder.
+
+        Optional Quickbooks deposit to account  # noqa: E501
+
+        :param deposit_to_account: The deposit_to_account of this PaymentsConfigurationMoneyOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._deposit_to_account = deposit_to_account
 
     @property
     def restrictions(self):

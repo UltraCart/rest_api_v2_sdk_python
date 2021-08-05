@@ -32,60 +32,61 @@ class PaymentsConfigurationAmazon(object):
     """
     swagger_types = {
         'accept_amazon': 'bool',
-        'amazon_access_key_id': 'str',
-        'amazon_accounting_code': 'str',
-        'amazon_deposit_to_account': 'str',
+        'access_key_id': 'str',
+        'accounting_code': 'str',
         'amazon_merchant_id': 'str',
-        'amazon_sandbox': 'bool',
-        'amazon_secret_access_key': 'str',
-        'restrictions': 'PaymentsConfigurationRestrictions'
+        'deposit_to_account': 'str',
+        'restrictions': 'PaymentsConfigurationRestrictions',
+        'sandbox': 'bool',
+        'secret_access_key': 'str'
     }
 
     attribute_map = {
-        'accept_amazon': 'acceptAmazon',
-        'amazon_access_key_id': 'amazonAccessKeyId',
-        'amazon_accounting_code': 'amazonAccountingCode',
-        'amazon_deposit_to_account': 'amazonDepositToAccount',
-        'amazon_merchant_id': 'amazonMerchantId',
-        'amazon_sandbox': 'amazonSandbox',
-        'amazon_secret_access_key': 'amazonSecretAccessKey',
-        'restrictions': 'restrictions'
+        'accept_amazon': 'accept_amazon',
+        'access_key_id': 'access_key_id',
+        'accounting_code': 'accounting_code',
+        'amazon_merchant_id': 'amazon_merchant_id',
+        'deposit_to_account': 'deposit_to_account',
+        'restrictions': 'restrictions',
+        'sandbox': 'sandbox',
+        'secret_access_key': 'secret_access_key'
     }
 
-    def __init__(self, accept_amazon=None, amazon_access_key_id=None, amazon_accounting_code=None, amazon_deposit_to_account=None, amazon_merchant_id=None, amazon_sandbox=None, amazon_secret_access_key=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_amazon=None, access_key_id=None, accounting_code=None, amazon_merchant_id=None, deposit_to_account=None, restrictions=None, sandbox=None, secret_access_key=None):  # noqa: E501
         """PaymentsConfigurationAmazon - a model defined in Swagger"""  # noqa: E501
 
         self._accept_amazon = None
-        self._amazon_access_key_id = None
-        self._amazon_accounting_code = None
-        self._amazon_deposit_to_account = None
+        self._access_key_id = None
+        self._accounting_code = None
         self._amazon_merchant_id = None
-        self._amazon_sandbox = None
-        self._amazon_secret_access_key = None
+        self._deposit_to_account = None
         self._restrictions = None
+        self._sandbox = None
+        self._secret_access_key = None
         self.discriminator = None
 
         if accept_amazon is not None:
             self.accept_amazon = accept_amazon
-        if amazon_access_key_id is not None:
-            self.amazon_access_key_id = amazon_access_key_id
-        if amazon_accounting_code is not None:
-            self.amazon_accounting_code = amazon_accounting_code
-        if amazon_deposit_to_account is not None:
-            self.amazon_deposit_to_account = amazon_deposit_to_account
+        if access_key_id is not None:
+            self.access_key_id = access_key_id
+        if accounting_code is not None:
+            self.accounting_code = accounting_code
         if amazon_merchant_id is not None:
             self.amazon_merchant_id = amazon_merchant_id
-        if amazon_sandbox is not None:
-            self.amazon_sandbox = amazon_sandbox
-        if amazon_secret_access_key is not None:
-            self.amazon_secret_access_key = amazon_secret_access_key
+        if deposit_to_account is not None:
+            self.deposit_to_account = deposit_to_account
         if restrictions is not None:
             self.restrictions = restrictions
+        if sandbox is not None:
+            self.sandbox = sandbox
+        if secret_access_key is not None:
+            self.secret_access_key = secret_access_key
 
     @property
     def accept_amazon(self):
         """Gets the accept_amazon of this PaymentsConfigurationAmazon.  # noqa: E501
 
+        Master flag to determine if this merchant accepts Pay by Amazon  # noqa: E501
 
         :return: The accept_amazon of this PaymentsConfigurationAmazon.  # noqa: E501
         :rtype: bool
@@ -96,6 +97,7 @@ class PaymentsConfigurationAmazon(object):
     def accept_amazon(self, accept_amazon):
         """Sets the accept_amazon of this PaymentsConfigurationAmazon.
 
+        Master flag to determine if this merchant accepts Pay by Amazon  # noqa: E501
 
         :param accept_amazon: The accept_amazon of this PaymentsConfigurationAmazon.  # noqa: E501
         :type: bool
@@ -104,72 +106,56 @@ class PaymentsConfigurationAmazon(object):
         self._accept_amazon = accept_amazon
 
     @property
-    def amazon_access_key_id(self):
-        """Gets the amazon_access_key_id of this PaymentsConfigurationAmazon.  # noqa: E501
+    def access_key_id(self):
+        """Gets the access_key_id of this PaymentsConfigurationAmazon.  # noqa: E501
 
+        Amazon access key ID  # noqa: E501
 
-        :return: The amazon_access_key_id of this PaymentsConfigurationAmazon.  # noqa: E501
+        :return: The access_key_id of this PaymentsConfigurationAmazon.  # noqa: E501
         :rtype: str
         """
-        return self._amazon_access_key_id
+        return self._access_key_id
 
-    @amazon_access_key_id.setter
-    def amazon_access_key_id(self, amazon_access_key_id):
-        """Sets the amazon_access_key_id of this PaymentsConfigurationAmazon.
+    @access_key_id.setter
+    def access_key_id(self, access_key_id):
+        """Sets the access_key_id of this PaymentsConfigurationAmazon.
 
+        Amazon access key ID  # noqa: E501
 
-        :param amazon_access_key_id: The amazon_access_key_id of this PaymentsConfigurationAmazon.  # noqa: E501
+        :param access_key_id: The access_key_id of this PaymentsConfigurationAmazon.  # noqa: E501
         :type: str
         """
 
-        self._amazon_access_key_id = amazon_access_key_id
+        self._access_key_id = access_key_id
 
     @property
-    def amazon_accounting_code(self):
-        """Gets the amazon_accounting_code of this PaymentsConfigurationAmazon.  # noqa: E501
+    def accounting_code(self):
+        """Gets the accounting_code of this PaymentsConfigurationAmazon.  # noqa: E501
 
+        Optional accounting code for use with Quickbooks integrations  # noqa: E501
 
-        :return: The amazon_accounting_code of this PaymentsConfigurationAmazon.  # noqa: E501
+        :return: The accounting_code of this PaymentsConfigurationAmazon.  # noqa: E501
         :rtype: str
         """
-        return self._amazon_accounting_code
+        return self._accounting_code
 
-    @amazon_accounting_code.setter
-    def amazon_accounting_code(self, amazon_accounting_code):
-        """Sets the amazon_accounting_code of this PaymentsConfigurationAmazon.
+    @accounting_code.setter
+    def accounting_code(self, accounting_code):
+        """Sets the accounting_code of this PaymentsConfigurationAmazon.
 
+        Optional accounting code for use with Quickbooks integrations  # noqa: E501
 
-        :param amazon_accounting_code: The amazon_accounting_code of this PaymentsConfigurationAmazon.  # noqa: E501
+        :param accounting_code: The accounting_code of this PaymentsConfigurationAmazon.  # noqa: E501
         :type: str
         """
 
-        self._amazon_accounting_code = amazon_accounting_code
-
-    @property
-    def amazon_deposit_to_account(self):
-        """Gets the amazon_deposit_to_account of this PaymentsConfigurationAmazon.  # noqa: E501
-
-
-        :return: The amazon_deposit_to_account of this PaymentsConfigurationAmazon.  # noqa: E501
-        :rtype: str
-        """
-        return self._amazon_deposit_to_account
-
-    @amazon_deposit_to_account.setter
-    def amazon_deposit_to_account(self, amazon_deposit_to_account):
-        """Sets the amazon_deposit_to_account of this PaymentsConfigurationAmazon.
-
-
-        :param amazon_deposit_to_account: The amazon_deposit_to_account of this PaymentsConfigurationAmazon.  # noqa: E501
-        :type: str
-        """
-
-        self._amazon_deposit_to_account = amazon_deposit_to_account
+        self._accounting_code = accounting_code
 
     @property
     def amazon_merchant_id(self):
         """Gets the amazon_merchant_id of this PaymentsConfigurationAmazon.  # noqa: E501
 
+        Amazon merchant ID  # noqa: E501
 
         :return: The amazon_merchant_id of this PaymentsConfigurationAmazon.  # noqa: E501
         :rtype: str
@@ -180,6 +166,7 @@ class PaymentsConfigurationAmazon(object):
     def amazon_merchant_id(self, amazon_merchant_id):
         """Sets the amazon_merchant_id of this PaymentsConfigurationAmazon.
 
+        Amazon merchant ID  # noqa: E501
 
         :param amazon_merchant_id: The amazon_merchant_id of this PaymentsConfigurationAmazon.  # noqa: E501
         :type: str
@@ -188,46 +175,27 @@ class PaymentsConfigurationAmazon(object):
         self._amazon_merchant_id = amazon_merchant_id
 
     @property
-    def amazon_sandbox(self):
-        """Gets the amazon_sandbox of this PaymentsConfigurationAmazon.  # noqa: E501
+    def deposit_to_account(self):
+        """Gets the deposit_to_account of this PaymentsConfigurationAmazon.  # noqa: E501
 
+        Optional deposit to account field for use with Quickbooks integrations  # noqa: E501
 
-        :return: The amazon_sandbox of this PaymentsConfigurationAmazon.  # noqa: E501
-        :rtype: bool
-        """
-        return self._amazon_sandbox
-
-    @amazon_sandbox.setter
-    def amazon_sandbox(self, amazon_sandbox):
-        """Sets the amazon_sandbox of this PaymentsConfigurationAmazon.
-
-
-        :param amazon_sandbox: The amazon_sandbox of this PaymentsConfigurationAmazon.  # noqa: E501
-        :type: bool
-        """
-
-        self._amazon_sandbox = amazon_sandbox
-
-    @property
-    def amazon_secret_access_key(self):
-        """Gets the amazon_secret_access_key of this PaymentsConfigurationAmazon.  # noqa: E501
-
-
-        :return: The amazon_secret_access_key of this PaymentsConfigurationAmazon.  # noqa: E501
+        :return: The deposit_to_account of this PaymentsConfigurationAmazon.  # noqa: E501
         :rtype: str
         """
-        return self._amazon_secret_access_key
+        return self._deposit_to_account
 
-    @amazon_secret_access_key.setter
-    def amazon_secret_access_key(self, amazon_secret_access_key):
-        """Sets the amazon_secret_access_key of this PaymentsConfigurationAmazon.
+    @deposit_to_account.setter
+    def deposit_to_account(self, deposit_to_account):
+        """Sets the deposit_to_account of this PaymentsConfigurationAmazon.
 
+        Optional deposit to account field for use with Quickbooks integrations  # noqa: E501
 
-        :param amazon_secret_access_key: The amazon_secret_access_key of this PaymentsConfigurationAmazon.  # noqa: E501
+        :param deposit_to_account: The deposit_to_account of this PaymentsConfigurationAmazon.  # noqa: E501
         :type: str
         """
 
-        self._amazon_secret_access_key = amazon_secret_access_key
+        self._deposit_to_account = deposit_to_account
 
     @property
     def restrictions(self):
@@ -249,6 +217,52 @@ class PaymentsConfigurationAmazon(object):
         """
 
         self._restrictions = restrictions
+
+    @property
+    def sandbox(self):
+        """Gets the sandbox of this PaymentsConfigurationAmazon.  # noqa: E501
+
+        True if transactions should run against the Amazon sandbox.  Useful for testing not configurations  # noqa: E501
+
+        :return: The sandbox of this PaymentsConfigurationAmazon.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sandbox
+
+    @sandbox.setter
+    def sandbox(self, sandbox):
+        """Sets the sandbox of this PaymentsConfigurationAmazon.
+
+        True if transactions should run against the Amazon sandbox.  Useful for testing not configurations  # noqa: E501
+
+        :param sandbox: The sandbox of this PaymentsConfigurationAmazon.  # noqa: E501
+        :type: bool
+        """
+
+        self._sandbox = sandbox
+
+    @property
+    def secret_access_key(self):
+        """Gets the secret_access_key of this PaymentsConfigurationAmazon.  # noqa: E501
+
+        Amazon secret access key  # noqa: E501
+
+        :return: The secret_access_key of this PaymentsConfigurationAmazon.  # noqa: E501
+        :rtype: str
+        """
+        return self._secret_access_key
+
+    @secret_access_key.setter
+    def secret_access_key(self, secret_access_key):
+        """Sets the secret_access_key of this PaymentsConfigurationAmazon.
+
+        Amazon secret access key  # noqa: E501
+
+        :param secret_access_key: The secret_access_key of this PaymentsConfigurationAmazon.  # noqa: E501
+        :type: str
+        """
+
+        self._secret_access_key = secret_access_key
 
     def to_dict(self):
         """Returns the model properties as a dict"""

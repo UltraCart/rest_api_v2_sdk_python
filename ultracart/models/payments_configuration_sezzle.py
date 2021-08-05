@@ -32,60 +32,66 @@ class PaymentsConfigurationSezzle(object):
     """
     swagger_types = {
         'accept_sezzle': 'bool',
-        'restrictions': 'PaymentsConfigurationRestrictions',
-        'sezzle_accounting_code': 'str',
-        'sezzle_business_id': 'str',
-        'sezzle_deposit_to_account': 'str',
-        'sezzle_environment': 'str',
-        'sezzle_private_api_key': 'str',
-        'sezzle_public_api_key': 'str'
+        'accounting_code': 'str',
+        'business_id': 'str',
+        'deposit_to_account': 'str',
+        'environment': 'str',
+        'environments': 'object',
+        'private_api_key': 'str',
+        'public_api_key': 'str',
+        'restrictions': 'PaymentsConfigurationRestrictions'
     }
 
     attribute_map = {
-        'accept_sezzle': 'acceptSezzle',
-        'restrictions': 'restrictions',
-        'sezzle_accounting_code': 'sezzleAccountingCode',
-        'sezzle_business_id': 'sezzleBusinessId',
-        'sezzle_deposit_to_account': 'sezzleDepositToAccount',
-        'sezzle_environment': 'sezzleEnvironment',
-        'sezzle_private_api_key': 'sezzlePrivateApiKey',
-        'sezzle_public_api_key': 'sezzlePublicApiKey'
+        'accept_sezzle': 'accept_sezzle',
+        'accounting_code': 'accounting_code',
+        'business_id': 'business_id',
+        'deposit_to_account': 'deposit_to_account',
+        'environment': 'environment',
+        'environments': 'environments',
+        'private_api_key': 'private_api_key',
+        'public_api_key': 'public_api_key',
+        'restrictions': 'restrictions'
     }
 
-    def __init__(self, accept_sezzle=None, restrictions=None, sezzle_accounting_code=None, sezzle_business_id=None, sezzle_deposit_to_account=None, sezzle_environment=None, sezzle_private_api_key=None, sezzle_public_api_key=None):  # noqa: E501
+    def __init__(self, accept_sezzle=None, accounting_code=None, business_id=None, deposit_to_account=None, environment=None, environments=None, private_api_key=None, public_api_key=None, restrictions=None):  # noqa: E501
         """PaymentsConfigurationSezzle - a model defined in Swagger"""  # noqa: E501
 
         self._accept_sezzle = None
+        self._accounting_code = None
+        self._business_id = None
+        self._deposit_to_account = None
+        self._environment = None
+        self._environments = None
+        self._private_api_key = None
+        self._public_api_key = None
         self._restrictions = None
-        self._sezzle_accounting_code = None
-        self._sezzle_business_id = None
-        self._sezzle_deposit_to_account = None
-        self._sezzle_environment = None
-        self._sezzle_private_api_key = None
-        self._sezzle_public_api_key = None
         self.discriminator = None
 
         if accept_sezzle is not None:
             self.accept_sezzle = accept_sezzle
+        if accounting_code is not None:
+            self.accounting_code = accounting_code
+        if business_id is not None:
+            self.business_id = business_id
+        if deposit_to_account is not None:
+            self.deposit_to_account = deposit_to_account
+        if environment is not None:
+            self.environment = environment
+        if environments is not None:
+            self.environments = environments
+        if private_api_key is not None:
+            self.private_api_key = private_api_key
+        if public_api_key is not None:
+            self.public_api_key = public_api_key
         if restrictions is not None:
             self.restrictions = restrictions
-        if sezzle_accounting_code is not None:
-            self.sezzle_accounting_code = sezzle_accounting_code
-        if sezzle_business_id is not None:
-            self.sezzle_business_id = sezzle_business_id
-        if sezzle_deposit_to_account is not None:
-            self.sezzle_deposit_to_account = sezzle_deposit_to_account
-        if sezzle_environment is not None:
-            self.sezzle_environment = sezzle_environment
-        if sezzle_private_api_key is not None:
-            self.sezzle_private_api_key = sezzle_private_api_key
-        if sezzle_public_api_key is not None:
-            self.sezzle_public_api_key = sezzle_public_api_key
 
     @property
     def accept_sezzle(self):
         """Gets the accept_sezzle of this PaymentsConfigurationSezzle.  # noqa: E501
 
+        Master flag for this merchant accepting Sezzle payments  # noqa: E501
 
         :return: The accept_sezzle of this PaymentsConfigurationSezzle.  # noqa: E501
         :rtype: bool
@@ -96,12 +102,180 @@ class PaymentsConfigurationSezzle(object):
     def accept_sezzle(self, accept_sezzle):
         """Sets the accept_sezzle of this PaymentsConfigurationSezzle.
 
+        Master flag for this merchant accepting Sezzle payments  # noqa: E501
 
         :param accept_sezzle: The accept_sezzle of this PaymentsConfigurationSezzle.  # noqa: E501
         :type: bool
         """
 
         self._accept_sezzle = accept_sezzle
+
+    @property
+    def accounting_code(self):
+        """Gets the accounting_code of this PaymentsConfigurationSezzle.  # noqa: E501
+
+        Optional Quickbooks code for this payment method  # noqa: E501
+
+        :return: The accounting_code of this PaymentsConfigurationSezzle.  # noqa: E501
+        :rtype: str
+        """
+        return self._accounting_code
+
+    @accounting_code.setter
+    def accounting_code(self, accounting_code):
+        """Sets the accounting_code of this PaymentsConfigurationSezzle.
+
+        Optional Quickbooks code for this payment method  # noqa: E501
+
+        :param accounting_code: The accounting_code of this PaymentsConfigurationSezzle.  # noqa: E501
+        :type: str
+        """
+
+        self._accounting_code = accounting_code
+
+    @property
+    def business_id(self):
+        """Gets the business_id of this PaymentsConfigurationSezzle.  # noqa: E501
+
+        Business ID  # noqa: E501
+
+        :return: The business_id of this PaymentsConfigurationSezzle.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_id
+
+    @business_id.setter
+    def business_id(self, business_id):
+        """Sets the business_id of this PaymentsConfigurationSezzle.
+
+        Business ID  # noqa: E501
+
+        :param business_id: The business_id of this PaymentsConfigurationSezzle.  # noqa: E501
+        :type: str
+        """
+
+        self._business_id = business_id
+
+    @property
+    def deposit_to_account(self):
+        """Gets the deposit_to_account of this PaymentsConfigurationSezzle.  # noqa: E501
+
+        Optional Quickbooks Deposit to Account value  # noqa: E501
+
+        :return: The deposit_to_account of this PaymentsConfigurationSezzle.  # noqa: E501
+        :rtype: str
+        """
+        return self._deposit_to_account
+
+    @deposit_to_account.setter
+    def deposit_to_account(self, deposit_to_account):
+        """Sets the deposit_to_account of this PaymentsConfigurationSezzle.
+
+        Optional Quickbooks Deposit to Account value  # noqa: E501
+
+        :param deposit_to_account: The deposit_to_account of this PaymentsConfigurationSezzle.  # noqa: E501
+        :type: str
+        """
+
+        self._deposit_to_account = deposit_to_account
+
+    @property
+    def environment(self):
+        """Gets the environment of this PaymentsConfigurationSezzle.  # noqa: E501
+
+        Sezzle environment  # noqa: E501
+
+        :return: The environment of this PaymentsConfigurationSezzle.  # noqa: E501
+        :rtype: str
+        """
+        return self._environment
+
+    @environment.setter
+    def environment(self, environment):
+        """Sets the environment of this PaymentsConfigurationSezzle.
+
+        Sezzle environment  # noqa: E501
+
+        :param environment: The environment of this PaymentsConfigurationSezzle.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Live", "Sandbox"]  # noqa: E501
+        if environment not in allowed_values:
+            raise ValueError(
+                "Invalid value for `environment` ({0}), must be one of {1}"  # noqa: E501
+                .format(environment, allowed_values)
+            )
+
+        self._environment = environment
+
+    @property
+    def environments(self):
+        """Gets the environments of this PaymentsConfigurationSezzle.  # noqa: E501
+
+        List of environments possible  # noqa: E501
+
+        :return: The environments of this PaymentsConfigurationSezzle.  # noqa: E501
+        :rtype: object
+        """
+        return self._environments
+
+    @environments.setter
+    def environments(self, environments):
+        """Sets the environments of this PaymentsConfigurationSezzle.
+
+        List of environments possible  # noqa: E501
+
+        :param environments: The environments of this PaymentsConfigurationSezzle.  # noqa: E501
+        :type: object
+        """
+
+        self._environments = environments
+
+    @property
+    def private_api_key(self):
+        """Gets the private_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
+
+        Private API key  # noqa: E501
+
+        :return: The private_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_api_key
+
+    @private_api_key.setter
+    def private_api_key(self, private_api_key):
+        """Sets the private_api_key of this PaymentsConfigurationSezzle.
+
+        Private API key  # noqa: E501
+
+        :param private_api_key: The private_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
+        :type: str
+        """
+
+        self._private_api_key = private_api_key
+
+    @property
+    def public_api_key(self):
+        """Gets the public_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
+
+        Public API key  # noqa: E501
+
+        :return: The public_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
+        :rtype: str
+        """
+        return self._public_api_key
+
+    @public_api_key.setter
+    def public_api_key(self, public_api_key):
+        """Sets the public_api_key of this PaymentsConfigurationSezzle.
+
+        Public API key  # noqa: E501
+
+        :param public_api_key: The public_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
+        :type: str
+        """
+
+        self._public_api_key = public_api_key
 
     @property
     def restrictions(self):
@@ -123,132 +297,6 @@ class PaymentsConfigurationSezzle(object):
         """
 
         self._restrictions = restrictions
-
-    @property
-    def sezzle_accounting_code(self):
-        """Gets the sezzle_accounting_code of this PaymentsConfigurationSezzle.  # noqa: E501
-
-
-        :return: The sezzle_accounting_code of this PaymentsConfigurationSezzle.  # noqa: E501
-        :rtype: str
-        """
-        return self._sezzle_accounting_code
-
-    @sezzle_accounting_code.setter
-    def sezzle_accounting_code(self, sezzle_accounting_code):
-        """Sets the sezzle_accounting_code of this PaymentsConfigurationSezzle.
-
-
-        :param sezzle_accounting_code: The sezzle_accounting_code of this PaymentsConfigurationSezzle.  # noqa: E501
-        :type: str
-        """
-
-        self._sezzle_accounting_code = sezzle_accounting_code
-
-    @property
-    def sezzle_business_id(self):
-        """Gets the sezzle_business_id of this PaymentsConfigurationSezzle.  # noqa: E501
-
-
-        :return: The sezzle_business_id of this PaymentsConfigurationSezzle.  # noqa: E501
-        :rtype: str
-        """
-        return self._sezzle_business_id
-
-    @sezzle_business_id.setter
-    def sezzle_business_id(self, sezzle_business_id):
-        """Sets the sezzle_business_id of this PaymentsConfigurationSezzle.
-
-
-        :param sezzle_business_id: The sezzle_business_id of this PaymentsConfigurationSezzle.  # noqa: E501
-        :type: str
-        """
-
-        self._sezzle_business_id = sezzle_business_id
-
-    @property
-    def sezzle_deposit_to_account(self):
-        """Gets the sezzle_deposit_to_account of this PaymentsConfigurationSezzle.  # noqa: E501
-
-
-        :return: The sezzle_deposit_to_account of this PaymentsConfigurationSezzle.  # noqa: E501
-        :rtype: str
-        """
-        return self._sezzle_deposit_to_account
-
-    @sezzle_deposit_to_account.setter
-    def sezzle_deposit_to_account(self, sezzle_deposit_to_account):
-        """Sets the sezzle_deposit_to_account of this PaymentsConfigurationSezzle.
-
-
-        :param sezzle_deposit_to_account: The sezzle_deposit_to_account of this PaymentsConfigurationSezzle.  # noqa: E501
-        :type: str
-        """
-
-        self._sezzle_deposit_to_account = sezzle_deposit_to_account
-
-    @property
-    def sezzle_environment(self):
-        """Gets the sezzle_environment of this PaymentsConfigurationSezzle.  # noqa: E501
-
-
-        :return: The sezzle_environment of this PaymentsConfigurationSezzle.  # noqa: E501
-        :rtype: str
-        """
-        return self._sezzle_environment
-
-    @sezzle_environment.setter
-    def sezzle_environment(self, sezzle_environment):
-        """Sets the sezzle_environment of this PaymentsConfigurationSezzle.
-
-
-        :param sezzle_environment: The sezzle_environment of this PaymentsConfigurationSezzle.  # noqa: E501
-        :type: str
-        """
-
-        self._sezzle_environment = sezzle_environment
-
-    @property
-    def sezzle_private_api_key(self):
-        """Gets the sezzle_private_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
-
-
-        :return: The sezzle_private_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
-        :rtype: str
-        """
-        return self._sezzle_private_api_key
-
-    @sezzle_private_api_key.setter
-    def sezzle_private_api_key(self, sezzle_private_api_key):
-        """Sets the sezzle_private_api_key of this PaymentsConfigurationSezzle.
-
-
-        :param sezzle_private_api_key: The sezzle_private_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
-        :type: str
-        """
-
-        self._sezzle_private_api_key = sezzle_private_api_key
-
-    @property
-    def sezzle_public_api_key(self):
-        """Gets the sezzle_public_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
-
-
-        :return: The sezzle_public_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
-        :rtype: str
-        """
-        return self._sezzle_public_api_key
-
-    @sezzle_public_api_key.setter
-    def sezzle_public_api_key(self, sezzle_public_api_key):
-        """Sets the sezzle_public_api_key of this PaymentsConfigurationSezzle.
-
-
-        :param sezzle_public_api_key: The sezzle_public_api_key of this PaymentsConfigurationSezzle.  # noqa: E501
-        :type: str
-        """
-
-        self._sezzle_public_api_key = sezzle_public_api_key
 
     def to_dict(self):
         """Returns the model properties as a dict"""

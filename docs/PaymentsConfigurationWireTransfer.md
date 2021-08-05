@@ -3,17 +3,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accept_wire_transfer** | **bool** |  | [optional] 
+**accept_wire_transfer** | **bool** | Master flag indicating this merchant accepts wire transfers | [optional] 
+**account_number** | **str** | account_number | [optional] 
+**accounting_code** | **str** | Optional Quickbooks accounting code | [optional] 
+**bank_address** | **str** | Bank address | [optional] 
+**deposit_to_account** | **str** | Optional Quickbooks deposit to account | [optional] 
+**intermediate_routing_number** | **str** | Intermediate routing number | [optional] 
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
-**wire_transfer_accounting_code** | **str** |  | [optional] 
-**wire_transfer_account_number** | **str** |  | [optional] 
-**wire_transfer_bank_address** | **str** |  | [optional] 
-**wire_transfer_deposit_to_account** | **str** |  | [optional] 
-**wire_transfer_intermediate_routing_number** | **str** |  | [optional] 
-**wire_transfer_routing_number** | **str** |  | [optional] 
-**wire_transfer_surcharge_accounting_code** | **str** |  | [optional] 
-**wire_transfer_surcharge_fee** | **str** |  | [optional] 
-**wire_transfer_surcharge_perc** | **str** |  | [optional] 
+**routing_number** | **str** | Routing number | [optional] 
+**surcharge_accounting_code** | **str** | If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount | [optional] 
+**surcharge_fee** | **str** | surcharge_fee | [optional] 
+**surcharge_percentage** | **str** | surcharge_percentage | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

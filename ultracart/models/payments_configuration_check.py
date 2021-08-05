@@ -32,65 +32,62 @@ class PaymentsConfigurationCheck(object):
     """
     swagger_types = {
         'accept_check_orders': 'bool',
-        'check_accounting_code': 'str',
-        'check_deposit_to_account': 'str',
+        'accounting_code': 'str',
         'checks_payable_to': 'str',
+        'deposit_to_account': 'str',
         'mail_to_address1': 'str',
         'mail_to_address2': 'str',
         'mail_to_city': 'str',
         'mail_to_country': 'str',
         'mail_to_name': 'str',
-        'mail_to_state': 'str',
-        'mail_to_zip': 'str',
-        'money_order_accounting_code': 'str',
-        'money_order_deposit_to_account': 'str',
-        'restrictions': 'PaymentsConfigurationRestrictions'
+        'mail_to_postal_code': 'str',
+        'mail_to_store': 'str',
+        'restrictions': 'PaymentsConfigurationRestrictions',
+        'test_methods': 'object'
     }
 
     attribute_map = {
-        'accept_check_orders': 'acceptCheckOrders',
-        'check_accounting_code': 'checkAccountingCode',
-        'check_deposit_to_account': 'checkDepositToAccount',
-        'checks_payable_to': 'checksPayableTo',
-        'mail_to_address1': 'mailToAddress1',
-        'mail_to_address2': 'mailToAddress2',
-        'mail_to_city': 'mailToCity',
-        'mail_to_country': 'mailToCountry',
-        'mail_to_name': 'mailToName',
-        'mail_to_state': 'mailToState',
-        'mail_to_zip': 'mailToZip',
-        'money_order_accounting_code': 'moneyOrderAccountingCode',
-        'money_order_deposit_to_account': 'moneyOrderDepositToAccount',
-        'restrictions': 'restrictions'
+        'accept_check_orders': 'accept_check_orders',
+        'accounting_code': 'accounting_code',
+        'checks_payable_to': 'checks_payable_to',
+        'deposit_to_account': 'deposit_to_account',
+        'mail_to_address1': 'mail_to_address1',
+        'mail_to_address2': 'mail_to_address2',
+        'mail_to_city': 'mail_to_city',
+        'mail_to_country': 'mail_to_country',
+        'mail_to_name': 'mail_to_name',
+        'mail_to_postal_code': 'mail_to_postal_code',
+        'mail_to_store': 'mail_to_store',
+        'restrictions': 'restrictions',
+        'test_methods': 'test_methods'
     }
 
-    def __init__(self, accept_check_orders=None, check_accounting_code=None, check_deposit_to_account=None, checks_payable_to=None, mail_to_address1=None, mail_to_address2=None, mail_to_city=None, mail_to_country=None, mail_to_name=None, mail_to_state=None, mail_to_zip=None, money_order_accounting_code=None, money_order_deposit_to_account=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_check_orders=None, accounting_code=None, checks_payable_to=None, deposit_to_account=None, mail_to_address1=None, mail_to_address2=None, mail_to_city=None, mail_to_country=None, mail_to_name=None, mail_to_postal_code=None, mail_to_store=None, restrictions=None, test_methods=None):  # noqa: E501
         """PaymentsConfigurationCheck - a model defined in Swagger"""  # noqa: E501
 
         self._accept_check_orders = None
-        self._check_accounting_code = None
-        self._check_deposit_to_account = None
+        self._accounting_code = None
         self._checks_payable_to = None
+        self._deposit_to_account = None
         self._mail_to_address1 = None
         self._mail_to_address2 = None
         self._mail_to_city = None
         self._mail_to_country = None
         self._mail_to_name = None
-        self._mail_to_state = None
-        self._mail_to_zip = None
-        self._money_order_accounting_code = None
-        self._money_order_deposit_to_account = None
+        self._mail_to_postal_code = None
+        self._mail_to_store = None
         self._restrictions = None
+        self._test_methods = None
         self.discriminator = None
 
         if accept_check_orders is not None:
             self.accept_check_orders = accept_check_orders
-        if check_accounting_code is not None:
-            self.check_accounting_code = check_accounting_code
-        if check_deposit_to_account is not None:
-            self.check_deposit_to_account = check_deposit_to_account
+        if accounting_code is not None:
+            self.accounting_code = accounting_code
         if checks_payable_to is not None:
             self.checks_payable_to = checks_payable_to
+        if deposit_to_account is not None:
+            self.deposit_to_account = deposit_to_account
         if mail_to_address1 is not None:
             self.mail_to_address1 = mail_to_address1
         if mail_to_address2 is not None:
@@ -101,21 +98,20 @@ class PaymentsConfigurationCheck(object):
             self.mail_to_country = mail_to_country
         if mail_to_name is not None:
             self.mail_to_name = mail_to_name
-        if mail_to_state is not None:
-            self.mail_to_state = mail_to_state
-        if mail_to_zip is not None:
-            self.mail_to_zip = mail_to_zip
-        if money_order_accounting_code is not None:
-            self.money_order_accounting_code = money_order_accounting_code
-        if money_order_deposit_to_account is not None:
-            self.money_order_deposit_to_account = money_order_deposit_to_account
+        if mail_to_postal_code is not None:
+            self.mail_to_postal_code = mail_to_postal_code
+        if mail_to_store is not None:
+            self.mail_to_store = mail_to_store
         if restrictions is not None:
             self.restrictions = restrictions
+        if test_methods is not None:
+            self.test_methods = test_methods
 
     @property
     def accept_check_orders(self):
         """Gets the accept_check_orders of this PaymentsConfigurationCheck.  # noqa: E501
 
+        Master flag indicating this merchant accepts paper checks  # noqa: E501
 
         :return: The accept_check_orders of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: bool
@@ -126,6 +122,7 @@ class PaymentsConfigurationCheck(object):
     def accept_check_orders(self, accept_check_orders):
         """Sets the accept_check_orders of this PaymentsConfigurationCheck.
 
+        Master flag indicating this merchant accepts paper checks  # noqa: E501
 
         :param accept_check_orders: The accept_check_orders of this PaymentsConfigurationCheck.  # noqa: E501
         :type: bool
@@ -134,51 +131,33 @@ class PaymentsConfigurationCheck(object):
         self._accept_check_orders = accept_check_orders
 
     @property
-    def check_accounting_code(self):
-        """Gets the check_accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
+    def accounting_code(self):
+        """Gets the accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
 
+        Optional Quickbooks accounting code  # noqa: E501
 
-        :return: The check_accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
+        :return: The accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: str
         """
-        return self._check_accounting_code
+        return self._accounting_code
 
-    @check_accounting_code.setter
-    def check_accounting_code(self, check_accounting_code):
-        """Sets the check_accounting_code of this PaymentsConfigurationCheck.
+    @accounting_code.setter
+    def accounting_code(self, accounting_code):
+        """Sets the accounting_code of this PaymentsConfigurationCheck.
 
+        Optional Quickbooks accounting code  # noqa: E501
 
-        :param check_accounting_code: The check_accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
+        :param accounting_code: The accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
         :type: str
         """
 
-        self._check_accounting_code = check_accounting_code
-
-    @property
-    def check_deposit_to_account(self):
-        """Gets the check_deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
-
-
-        :return: The check_deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
-        :rtype: str
-        """
-        return self._check_deposit_to_account
-
-    @check_deposit_to_account.setter
-    def check_deposit_to_account(self, check_deposit_to_account):
-        """Sets the check_deposit_to_account of this PaymentsConfigurationCheck.
-
-
-        :param check_deposit_to_account: The check_deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
-        :type: str
-        """
-
-        self._check_deposit_to_account = check_deposit_to_account
+        self._accounting_code = accounting_code
 
     @property
     def checks_payable_to(self):
         """Gets the checks_payable_to of this PaymentsConfigurationCheck.  # noqa: E501
 
+        This is who the customer makes the check out to  # noqa: E501
 
         :return: The checks_payable_to of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: str
@@ -189,6 +168,7 @@ class PaymentsConfigurationCheck(object):
     def checks_payable_to(self, checks_payable_to):
         """Sets the checks_payable_to of this PaymentsConfigurationCheck.
 
+        This is who the customer makes the check out to  # noqa: E501
 
         :param checks_payable_to: The checks_payable_to of this PaymentsConfigurationCheck.  # noqa: E501
         :type: str
@@ -197,9 +177,33 @@ class PaymentsConfigurationCheck(object):
         self._checks_payable_to = checks_payable_to
 
     @property
+    def deposit_to_account(self):
+        """Gets the deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
+
+        Optional Quickbooks deposit to account  # noqa: E501
+
+        :return: The deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
+        :rtype: str
+        """
+        return self._deposit_to_account
+
+    @deposit_to_account.setter
+    def deposit_to_account(self, deposit_to_account):
+        """Sets the deposit_to_account of this PaymentsConfigurationCheck.
+
+        Optional Quickbooks deposit to account  # noqa: E501
+
+        :param deposit_to_account: The deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
+        :type: str
+        """
+
+        self._deposit_to_account = deposit_to_account
+
+    @property
     def mail_to_address1(self):
         """Gets the mail_to_address1 of this PaymentsConfigurationCheck.  # noqa: E501
 
+        MailTo address line 1  # noqa: E501
 
         :return: The mail_to_address1 of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: str
@@ -210,6 +214,7 @@ class PaymentsConfigurationCheck(object):
     def mail_to_address1(self, mail_to_address1):
         """Sets the mail_to_address1 of this PaymentsConfigurationCheck.
 
+        MailTo address line 1  # noqa: E501
 
         :param mail_to_address1: The mail_to_address1 of this PaymentsConfigurationCheck.  # noqa: E501
         :type: str
@@ -221,6 +226,7 @@ class PaymentsConfigurationCheck(object):
     def mail_to_address2(self):
         """Gets the mail_to_address2 of this PaymentsConfigurationCheck.  # noqa: E501
 
+        MailTo address line 2  # noqa: E501
 
         :return: The mail_to_address2 of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: str
@@ -231,6 +237,7 @@ class PaymentsConfigurationCheck(object):
     def mail_to_address2(self, mail_to_address2):
         """Sets the mail_to_address2 of this PaymentsConfigurationCheck.
 
+        MailTo address line 2  # noqa: E501
 
         :param mail_to_address2: The mail_to_address2 of this PaymentsConfigurationCheck.  # noqa: E501
         :type: str
@@ -242,6 +249,7 @@ class PaymentsConfigurationCheck(object):
     def mail_to_city(self):
         """Gets the mail_to_city of this PaymentsConfigurationCheck.  # noqa: E501
 
+        MailTo city  # noqa: E501
 
         :return: The mail_to_city of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: str
@@ -252,6 +260,7 @@ class PaymentsConfigurationCheck(object):
     def mail_to_city(self, mail_to_city):
         """Sets the mail_to_city of this PaymentsConfigurationCheck.
 
+        MailTo city  # noqa: E501
 
         :param mail_to_city: The mail_to_city of this PaymentsConfigurationCheck.  # noqa: E501
         :type: str
@@ -263,6 +272,7 @@ class PaymentsConfigurationCheck(object):
     def mail_to_country(self):
         """Gets the mail_to_country of this PaymentsConfigurationCheck.  # noqa: E501
 
+        MailTo country  # noqa: E501
 
         :return: The mail_to_country of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: str
@@ -273,6 +283,7 @@ class PaymentsConfigurationCheck(object):
     def mail_to_country(self, mail_to_country):
         """Sets the mail_to_country of this PaymentsConfigurationCheck.
 
+        MailTo country  # noqa: E501
 
         :param mail_to_country: The mail_to_country of this PaymentsConfigurationCheck.  # noqa: E501
         :type: str
@@ -284,6 +295,7 @@ class PaymentsConfigurationCheck(object):
     def mail_to_name(self):
         """Gets the mail_to_name of this PaymentsConfigurationCheck.  # noqa: E501
 
+        MailTo name  # noqa: E501
 
         :return: The mail_to_name of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: str
@@ -294,6 +306,7 @@ class PaymentsConfigurationCheck(object):
     def mail_to_name(self, mail_to_name):
         """Sets the mail_to_name of this PaymentsConfigurationCheck.
 
+        MailTo name  # noqa: E501
 
         :param mail_to_name: The mail_to_name of this PaymentsConfigurationCheck.  # noqa: E501
         :type: str
@@ -302,88 +315,50 @@ class PaymentsConfigurationCheck(object):
         self._mail_to_name = mail_to_name
 
     @property
-    def mail_to_state(self):
-        """Gets the mail_to_state of this PaymentsConfigurationCheck.  # noqa: E501
+    def mail_to_postal_code(self):
+        """Gets the mail_to_postal_code of this PaymentsConfigurationCheck.  # noqa: E501
 
+        MailTo postal code  # noqa: E501
 
-        :return: The mail_to_state of this PaymentsConfigurationCheck.  # noqa: E501
+        :return: The mail_to_postal_code of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: str
         """
-        return self._mail_to_state
+        return self._mail_to_postal_code
 
-    @mail_to_state.setter
-    def mail_to_state(self, mail_to_state):
-        """Sets the mail_to_state of this PaymentsConfigurationCheck.
+    @mail_to_postal_code.setter
+    def mail_to_postal_code(self, mail_to_postal_code):
+        """Sets the mail_to_postal_code of this PaymentsConfigurationCheck.
 
+        MailTo postal code  # noqa: E501
 
-        :param mail_to_state: The mail_to_state of this PaymentsConfigurationCheck.  # noqa: E501
+        :param mail_to_postal_code: The mail_to_postal_code of this PaymentsConfigurationCheck.  # noqa: E501
         :type: str
         """
 
-        self._mail_to_state = mail_to_state
+        self._mail_to_postal_code = mail_to_postal_code
 
     @property
-    def mail_to_zip(self):
-        """Gets the mail_to_zip of this PaymentsConfigurationCheck.  # noqa: E501
+    def mail_to_store(self):
+        """Gets the mail_to_store of this PaymentsConfigurationCheck.  # noqa: E501
 
+        MailTo store  # noqa: E501
 
-        :return: The mail_to_zip of this PaymentsConfigurationCheck.  # noqa: E501
+        :return: The mail_to_store of this PaymentsConfigurationCheck.  # noqa: E501
         :rtype: str
         """
-        return self._mail_to_zip
+        return self._mail_to_store
 
-    @mail_to_zip.setter
-    def mail_to_zip(self, mail_to_zip):
-        """Sets the mail_to_zip of this PaymentsConfigurationCheck.
+    @mail_to_store.setter
+    def mail_to_store(self, mail_to_store):
+        """Sets the mail_to_store of this PaymentsConfigurationCheck.
 
+        MailTo store  # noqa: E501
 
-        :param mail_to_zip: The mail_to_zip of this PaymentsConfigurationCheck.  # noqa: E501
+        :param mail_to_store: The mail_to_store of this PaymentsConfigurationCheck.  # noqa: E501
         :type: str
         """
 
-        self._mail_to_zip = mail_to_zip
-
-    @property
-    def money_order_accounting_code(self):
-        """Gets the money_order_accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
-
-
-        :return: The money_order_accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
-        :rtype: str
-        """
-        return self._money_order_accounting_code
-
-    @money_order_accounting_code.setter
-    def money_order_accounting_code(self, money_order_accounting_code):
-        """Sets the money_order_accounting_code of this PaymentsConfigurationCheck.
-
-
-        :param money_order_accounting_code: The money_order_accounting_code of this PaymentsConfigurationCheck.  # noqa: E501
-        :type: str
-        """
-
-        self._money_order_accounting_code = money_order_accounting_code
-
-    @property
-    def money_order_deposit_to_account(self):
-        """Gets the money_order_deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
-
-
-        :return: The money_order_deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
-        :rtype: str
-        """
-        return self._money_order_deposit_to_account
-
-    @money_order_deposit_to_account.setter
-    def money_order_deposit_to_account(self, money_order_deposit_to_account):
-        """Sets the money_order_deposit_to_account of this PaymentsConfigurationCheck.
-
-
-        :param money_order_deposit_to_account: The money_order_deposit_to_account of this PaymentsConfigurationCheck.  # noqa: E501
-        :type: str
-        """
-
-        self._money_order_deposit_to_account = money_order_deposit_to_account
+        self._mail_to_store = mail_to_store
 
     @property
     def restrictions(self):
@@ -405,6 +380,29 @@ class PaymentsConfigurationCheck(object):
         """
 
         self._restrictions = restrictions
+
+    @property
+    def test_methods(self):
+        """Gets the test_methods of this PaymentsConfigurationCheck.  # noqa: E501
+
+        Test methods for this payment method  # noqa: E501
+
+        :return: The test_methods of this PaymentsConfigurationCheck.  # noqa: E501
+        :rtype: object
+        """
+        return self._test_methods
+
+    @test_methods.setter
+    def test_methods(self, test_methods):
+        """Sets the test_methods of this PaymentsConfigurationCheck.
+
+        Test methods for this payment method  # noqa: E501
+
+        :param test_methods: The test_methods of this PaymentsConfigurationCheck.  # noqa: E501
+        :type: object
+        """
+
+        self._test_methods = test_methods
 
     def to_dict(self):
         """Returns the model properties as a dict"""

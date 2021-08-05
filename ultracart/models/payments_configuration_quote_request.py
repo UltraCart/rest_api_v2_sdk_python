@@ -32,28 +32,28 @@ class PaymentsConfigurationQuoteRequest(object):
     """
     swagger_types = {
         'accept_quote_requests': 'bool',
-        'quote_request_approved_customers_only': 'bool',
+        'approved_customers_only': 'bool',
         'restrictions': 'PaymentsConfigurationRestrictions'
     }
 
     attribute_map = {
-        'accept_quote_requests': 'acceptQuoteRequests',
-        'quote_request_approved_customers_only': 'quoteRequestApprovedCustomersOnly',
+        'accept_quote_requests': 'accept_quote_requests',
+        'approved_customers_only': 'approved_customers_only',
         'restrictions': 'restrictions'
     }
 
-    def __init__(self, accept_quote_requests=None, quote_request_approved_customers_only=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_quote_requests=None, approved_customers_only=None, restrictions=None):  # noqa: E501
         """PaymentsConfigurationQuoteRequest - a model defined in Swagger"""  # noqa: E501
 
         self._accept_quote_requests = None
-        self._quote_request_approved_customers_only = None
+        self._approved_customers_only = None
         self._restrictions = None
         self.discriminator = None
 
         if accept_quote_requests is not None:
             self.accept_quote_requests = accept_quote_requests
-        if quote_request_approved_customers_only is not None:
-            self.quote_request_approved_customers_only = quote_request_approved_customers_only
+        if approved_customers_only is not None:
+            self.approved_customers_only = approved_customers_only
         if restrictions is not None:
             self.restrictions = restrictions
 
@@ -61,6 +61,7 @@ class PaymentsConfigurationQuoteRequest(object):
     def accept_quote_requests(self):
         """Gets the accept_quote_requests of this PaymentsConfigurationQuoteRequest.  # noqa: E501
 
+        Master flag indicating this merchant accepts quote requests  # noqa: E501
 
         :return: The accept_quote_requests of this PaymentsConfigurationQuoteRequest.  # noqa: E501
         :rtype: bool
@@ -71,6 +72,7 @@ class PaymentsConfigurationQuoteRequest(object):
     def accept_quote_requests(self, accept_quote_requests):
         """Sets the accept_quote_requests of this PaymentsConfigurationQuoteRequest.
 
+        Master flag indicating this merchant accepts quote requests  # noqa: E501
 
         :param accept_quote_requests: The accept_quote_requests of this PaymentsConfigurationQuoteRequest.  # noqa: E501
         :type: bool
@@ -79,25 +81,27 @@ class PaymentsConfigurationQuoteRequest(object):
         self._accept_quote_requests = accept_quote_requests
 
     @property
-    def quote_request_approved_customers_only(self):
-        """Gets the quote_request_approved_customers_only of this PaymentsConfigurationQuoteRequest.  # noqa: E501
+    def approved_customers_only(self):
+        """Gets the approved_customers_only of this PaymentsConfigurationQuoteRequest.  # noqa: E501
 
+        If true, only approved customers may use quote requests  # noqa: E501
 
-        :return: The quote_request_approved_customers_only of this PaymentsConfigurationQuoteRequest.  # noqa: E501
+        :return: The approved_customers_only of this PaymentsConfigurationQuoteRequest.  # noqa: E501
         :rtype: bool
         """
-        return self._quote_request_approved_customers_only
+        return self._approved_customers_only
 
-    @quote_request_approved_customers_only.setter
-    def quote_request_approved_customers_only(self, quote_request_approved_customers_only):
-        """Sets the quote_request_approved_customers_only of this PaymentsConfigurationQuoteRequest.
+    @approved_customers_only.setter
+    def approved_customers_only(self, approved_customers_only):
+        """Sets the approved_customers_only of this PaymentsConfigurationQuoteRequest.
 
+        If true, only approved customers may use quote requests  # noqa: E501
 
-        :param quote_request_approved_customers_only: The quote_request_approved_customers_only of this PaymentsConfigurationQuoteRequest.  # noqa: E501
+        :param approved_customers_only: The approved_customers_only of this PaymentsConfigurationQuoteRequest.  # noqa: E501
         :type: bool
         """
 
-        self._quote_request_approved_customers_only = quote_request_approved_customers_only
+        self._approved_customers_only = approved_customers_only
 
     @property
     def restrictions(self):

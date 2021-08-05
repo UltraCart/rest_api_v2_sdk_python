@@ -37,17 +37,17 @@ class PaymentsConfiguration(object):
         'check': 'PaymentsConfigurationCheck',
         'cod': 'PaymentsConfigurationCOD',
         'credit_card': 'PaymentsConfigurationCreditCard',
-        'e_check': 'PaymentsConfigurationEcheck',
+        'echeck': 'PaymentsConfigurationEcheck',
         'loan_hero': 'PaymentsConfigurationLoanHero',
         'money_order': 'PaymentsConfigurationMoneyOrder',
-        'pay_pal': 'PaymentsConfigurationPayPal',
+        'paypal': 'PaymentsConfigurationPayPal',
         'purchase_order': 'PaymentsConfigurationPurchaseOrder',
         'quote_request': 'PaymentsConfigurationQuoteRequest',
         'sezzle': 'PaymentsConfigurationSezzle',
         'show_accounting_code': 'bool',
         'switch_to_sub_tab': 'str',
         'switch_to_tab': 'str',
-        'we_pay': 'PaymentsConfigurationWePay',
+        'ultracart_payments_wepay': 'PaymentsConfigurationWePay',
         'wire_transfer': 'PaymentsConfigurationWireTransfer'
     }
 
@@ -57,22 +57,22 @@ class PaymentsConfiguration(object):
         'cash': 'cash',
         'check': 'check',
         'cod': 'cod',
-        'credit_card': 'creditCard',
-        'e_check': 'eCheck',
-        'loan_hero': 'loanHero',
-        'money_order': 'moneyOrder',
-        'pay_pal': 'payPal',
-        'purchase_order': 'purchaseOrder',
-        'quote_request': 'quoteRequest',
+        'credit_card': 'credit_card',
+        'echeck': 'echeck',
+        'loan_hero': 'loan_hero',
+        'money_order': 'money_order',
+        'paypal': 'paypal',
+        'purchase_order': 'purchase_order',
+        'quote_request': 'quote_request',
         'sezzle': 'sezzle',
-        'show_accounting_code': 'showAccountingCode',
+        'show_accounting_code': 'show_accounting_code',
         'switch_to_sub_tab': 'switchToSubTab',
         'switch_to_tab': 'switchToTab',
-        'we_pay': 'wePay',
-        'wire_transfer': 'wireTransfer'
+        'ultracart_payments_wepay': 'ultracart_payments_wepay',
+        'wire_transfer': 'wire_transfer'
     }
 
-    def __init__(self, affirm=None, amazon=None, cash=None, check=None, cod=None, credit_card=None, e_check=None, loan_hero=None, money_order=None, pay_pal=None, purchase_order=None, quote_request=None, sezzle=None, show_accounting_code=None, switch_to_sub_tab=None, switch_to_tab=None, we_pay=None, wire_transfer=None):  # noqa: E501
+    def __init__(self, affirm=None, amazon=None, cash=None, check=None, cod=None, credit_card=None, echeck=None, loan_hero=None, money_order=None, paypal=None, purchase_order=None, quote_request=None, sezzle=None, show_accounting_code=None, switch_to_sub_tab=None, switch_to_tab=None, ultracart_payments_wepay=None, wire_transfer=None):  # noqa: E501
         """PaymentsConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._affirm = None
@@ -81,17 +81,17 @@ class PaymentsConfiguration(object):
         self._check = None
         self._cod = None
         self._credit_card = None
-        self._e_check = None
+        self._echeck = None
         self._loan_hero = None
         self._money_order = None
-        self._pay_pal = None
+        self._paypal = None
         self._purchase_order = None
         self._quote_request = None
         self._sezzle = None
         self._show_accounting_code = None
         self._switch_to_sub_tab = None
         self._switch_to_tab = None
-        self._we_pay = None
+        self._ultracart_payments_wepay = None
         self._wire_transfer = None
         self.discriminator = None
 
@@ -107,14 +107,14 @@ class PaymentsConfiguration(object):
             self.cod = cod
         if credit_card is not None:
             self.credit_card = credit_card
-        if e_check is not None:
-            self.e_check = e_check
+        if echeck is not None:
+            self.echeck = echeck
         if loan_hero is not None:
             self.loan_hero = loan_hero
         if money_order is not None:
             self.money_order = money_order
-        if pay_pal is not None:
-            self.pay_pal = pay_pal
+        if paypal is not None:
+            self.paypal = paypal
         if purchase_order is not None:
             self.purchase_order = purchase_order
         if quote_request is not None:
@@ -127,8 +127,8 @@ class PaymentsConfiguration(object):
             self.switch_to_sub_tab = switch_to_sub_tab
         if switch_to_tab is not None:
             self.switch_to_tab = switch_to_tab
-        if we_pay is not None:
-            self.we_pay = we_pay
+        if ultracart_payments_wepay is not None:
+            self.ultracart_payments_wepay = ultracart_payments_wepay
         if wire_transfer is not None:
             self.wire_transfer = wire_transfer
 
@@ -259,25 +259,25 @@ class PaymentsConfiguration(object):
         self._credit_card = credit_card
 
     @property
-    def e_check(self):
-        """Gets the e_check of this PaymentsConfiguration.  # noqa: E501
+    def echeck(self):
+        """Gets the echeck of this PaymentsConfiguration.  # noqa: E501
 
 
-        :return: The e_check of this PaymentsConfiguration.  # noqa: E501
+        :return: The echeck of this PaymentsConfiguration.  # noqa: E501
         :rtype: PaymentsConfigurationEcheck
         """
-        return self._e_check
+        return self._echeck
 
-    @e_check.setter
-    def e_check(self, e_check):
-        """Sets the e_check of this PaymentsConfiguration.
+    @echeck.setter
+    def echeck(self, echeck):
+        """Sets the echeck of this PaymentsConfiguration.
 
 
-        :param e_check: The e_check of this PaymentsConfiguration.  # noqa: E501
+        :param echeck: The echeck of this PaymentsConfiguration.  # noqa: E501
         :type: PaymentsConfigurationEcheck
         """
 
-        self._e_check = e_check
+        self._echeck = echeck
 
     @property
     def loan_hero(self):
@@ -322,25 +322,25 @@ class PaymentsConfiguration(object):
         self._money_order = money_order
 
     @property
-    def pay_pal(self):
-        """Gets the pay_pal of this PaymentsConfiguration.  # noqa: E501
+    def paypal(self):
+        """Gets the paypal of this PaymentsConfiguration.  # noqa: E501
 
 
-        :return: The pay_pal of this PaymentsConfiguration.  # noqa: E501
+        :return: The paypal of this PaymentsConfiguration.  # noqa: E501
         :rtype: PaymentsConfigurationPayPal
         """
-        return self._pay_pal
+        return self._paypal
 
-    @pay_pal.setter
-    def pay_pal(self, pay_pal):
-        """Sets the pay_pal of this PaymentsConfiguration.
+    @paypal.setter
+    def paypal(self, paypal):
+        """Sets the paypal of this PaymentsConfiguration.
 
 
-        :param pay_pal: The pay_pal of this PaymentsConfiguration.  # noqa: E501
+        :param paypal: The paypal of this PaymentsConfiguration.  # noqa: E501
         :type: PaymentsConfigurationPayPal
         """
 
-        self._pay_pal = pay_pal
+        self._paypal = paypal
 
     @property
     def purchase_order(self):
@@ -409,6 +409,7 @@ class PaymentsConfiguration(object):
     def show_accounting_code(self):
         """Gets the show_accounting_code of this PaymentsConfiguration.  # noqa: E501
 
+        Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured.  # noqa: E501
 
         :return: The show_accounting_code of this PaymentsConfiguration.  # noqa: E501
         :rtype: bool
@@ -419,6 +420,7 @@ class PaymentsConfiguration(object):
     def show_accounting_code(self, show_accounting_code):
         """Sets the show_accounting_code of this PaymentsConfiguration.
 
+        Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured.  # noqa: E501
 
         :param show_accounting_code: The show_accounting_code of this PaymentsConfiguration.  # noqa: E501
         :type: bool
@@ -469,25 +471,25 @@ class PaymentsConfiguration(object):
         self._switch_to_tab = switch_to_tab
 
     @property
-    def we_pay(self):
-        """Gets the we_pay of this PaymentsConfiguration.  # noqa: E501
+    def ultracart_payments_wepay(self):
+        """Gets the ultracart_payments_wepay of this PaymentsConfiguration.  # noqa: E501
 
 
-        :return: The we_pay of this PaymentsConfiguration.  # noqa: E501
+        :return: The ultracart_payments_wepay of this PaymentsConfiguration.  # noqa: E501
         :rtype: PaymentsConfigurationWePay
         """
-        return self._we_pay
+        return self._ultracart_payments_wepay
 
-    @we_pay.setter
-    def we_pay(self, we_pay):
-        """Sets the we_pay of this PaymentsConfiguration.
+    @ultracart_payments_wepay.setter
+    def ultracart_payments_wepay(self, ultracart_payments_wepay):
+        """Sets the ultracart_payments_wepay of this PaymentsConfiguration.
 
 
-        :param we_pay: The we_pay of this PaymentsConfiguration.  # noqa: E501
+        :param ultracart_payments_wepay: The ultracart_payments_wepay of this PaymentsConfiguration.  # noqa: E501
         :type: PaymentsConfigurationWePay
         """
 
-        self._we_pay = we_pay
+        self._ultracart_payments_wepay = ultracart_payments_wepay
 
     @property
     def wire_transfer(self):

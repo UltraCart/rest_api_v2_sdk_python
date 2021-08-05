@@ -31,99 +31,105 @@ class PaymentsConfigurationEcheck(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'accept_e_check': 'bool',
-        'e_check_accounting_code': 'str',
-        'e_check_deposit_to_account': 'str',
+        'accept_echeck': 'bool',
+        'accounting_code': 'str',
+        'deposit_to_account': 'str',
         'restrictions': 'PaymentsConfigurationRestrictions'
     }
 
     attribute_map = {
-        'accept_e_check': 'acceptECheck',
-        'e_check_accounting_code': 'eCheckAccountingCode',
-        'e_check_deposit_to_account': 'eCheckDepositToAccount',
+        'accept_echeck': 'accept_echeck',
+        'accounting_code': 'accounting_code',
+        'deposit_to_account': 'deposit_to_account',
         'restrictions': 'restrictions'
     }
 
-    def __init__(self, accept_e_check=None, e_check_accounting_code=None, e_check_deposit_to_account=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_echeck=None, accounting_code=None, deposit_to_account=None, restrictions=None):  # noqa: E501
         """PaymentsConfigurationEcheck - a model defined in Swagger"""  # noqa: E501
 
-        self._accept_e_check = None
-        self._e_check_accounting_code = None
-        self._e_check_deposit_to_account = None
+        self._accept_echeck = None
+        self._accounting_code = None
+        self._deposit_to_account = None
         self._restrictions = None
         self.discriminator = None
 
-        if accept_e_check is not None:
-            self.accept_e_check = accept_e_check
-        if e_check_accounting_code is not None:
-            self.e_check_accounting_code = e_check_accounting_code
-        if e_check_deposit_to_account is not None:
-            self.e_check_deposit_to_account = e_check_deposit_to_account
+        if accept_echeck is not None:
+            self.accept_echeck = accept_echeck
+        if accounting_code is not None:
+            self.accounting_code = accounting_code
+        if deposit_to_account is not None:
+            self.deposit_to_account = deposit_to_account
         if restrictions is not None:
             self.restrictions = restrictions
 
     @property
-    def accept_e_check(self):
-        """Gets the accept_e_check of this PaymentsConfigurationEcheck.  # noqa: E501
+    def accept_echeck(self):
+        """Gets the accept_echeck of this PaymentsConfigurationEcheck.  # noqa: E501
 
+        Master flag indicating this merchant accepts eChecks  # noqa: E501
 
-        :return: The accept_e_check of this PaymentsConfigurationEcheck.  # noqa: E501
+        :return: The accept_echeck of this PaymentsConfigurationEcheck.  # noqa: E501
         :rtype: bool
         """
-        return self._accept_e_check
+        return self._accept_echeck
 
-    @accept_e_check.setter
-    def accept_e_check(self, accept_e_check):
-        """Sets the accept_e_check of this PaymentsConfigurationEcheck.
+    @accept_echeck.setter
+    def accept_echeck(self, accept_echeck):
+        """Sets the accept_echeck of this PaymentsConfigurationEcheck.
 
+        Master flag indicating this merchant accepts eChecks  # noqa: E501
 
-        :param accept_e_check: The accept_e_check of this PaymentsConfigurationEcheck.  # noqa: E501
+        :param accept_echeck: The accept_echeck of this PaymentsConfigurationEcheck.  # noqa: E501
         :type: bool
         """
 
-        self._accept_e_check = accept_e_check
+        self._accept_echeck = accept_echeck
 
     @property
-    def e_check_accounting_code(self):
-        """Gets the e_check_accounting_code of this PaymentsConfigurationEcheck.  # noqa: E501
+    def accounting_code(self):
+        """Gets the accounting_code of this PaymentsConfigurationEcheck.  # noqa: E501
 
+        Optional Quickbooks accounting code  # noqa: E501
 
-        :return: The e_check_accounting_code of this PaymentsConfigurationEcheck.  # noqa: E501
+        :return: The accounting_code of this PaymentsConfigurationEcheck.  # noqa: E501
         :rtype: str
         """
-        return self._e_check_accounting_code
+        return self._accounting_code
 
-    @e_check_accounting_code.setter
-    def e_check_accounting_code(self, e_check_accounting_code):
-        """Sets the e_check_accounting_code of this PaymentsConfigurationEcheck.
+    @accounting_code.setter
+    def accounting_code(self, accounting_code):
+        """Sets the accounting_code of this PaymentsConfigurationEcheck.
 
+        Optional Quickbooks accounting code  # noqa: E501
 
-        :param e_check_accounting_code: The e_check_accounting_code of this PaymentsConfigurationEcheck.  # noqa: E501
+        :param accounting_code: The accounting_code of this PaymentsConfigurationEcheck.  # noqa: E501
         :type: str
         """
 
-        self._e_check_accounting_code = e_check_accounting_code
+        self._accounting_code = accounting_code
 
     @property
-    def e_check_deposit_to_account(self):
-        """Gets the e_check_deposit_to_account of this PaymentsConfigurationEcheck.  # noqa: E501
+    def deposit_to_account(self):
+        """Gets the deposit_to_account of this PaymentsConfigurationEcheck.  # noqa: E501
 
+        Optional Quickbooks deposit to account  # noqa: E501
 
-        :return: The e_check_deposit_to_account of this PaymentsConfigurationEcheck.  # noqa: E501
+        :return: The deposit_to_account of this PaymentsConfigurationEcheck.  # noqa: E501
         :rtype: str
         """
-        return self._e_check_deposit_to_account
+        return self._deposit_to_account
 
-    @e_check_deposit_to_account.setter
-    def e_check_deposit_to_account(self, e_check_deposit_to_account):
-        """Sets the e_check_deposit_to_account of this PaymentsConfigurationEcheck.
+    @deposit_to_account.setter
+    def deposit_to_account(self, deposit_to_account):
+        """Sets the deposit_to_account of this PaymentsConfigurationEcheck.
 
+        Optional Quickbooks deposit to account  # noqa: E501
 
-        :param e_check_deposit_to_account: The e_check_deposit_to_account of this PaymentsConfigurationEcheck.  # noqa: E501
+        :param deposit_to_account: The deposit_to_account of this PaymentsConfigurationEcheck.  # noqa: E501
         :type: str
         """
 
-        self._e_check_deposit_to_account = e_check_deposit_to_account
+        self._deposit_to_account = deposit_to_account
 
     @property
     def restrictions(self):

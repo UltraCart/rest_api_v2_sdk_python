@@ -3,14 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accept_sezzle** | **bool** |  | [optional] 
+**accept_sezzle** | **bool** | Master flag for this merchant accepting Sezzle payments | [optional] 
+**accounting_code** | **str** | Optional Quickbooks code for this payment method | [optional] 
+**business_id** | **str** | Business ID | [optional] 
+**deposit_to_account** | **str** | Optional Quickbooks Deposit to Account value | [optional] 
+**environment** | **str** | Sezzle environment | [optional] 
+**environments** | **object** | List of environments possible | [optional] 
+**private_api_key** | **str** | Private API key | [optional] 
+**public_api_key** | **str** | Public API key | [optional] 
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
-**sezzle_accounting_code** | **str** |  | [optional] 
-**sezzle_business_id** | **str** |  | [optional] 
-**sezzle_deposit_to_account** | **str** |  | [optional] 
-**sezzle_environment** | **str** |  | [optional] 
-**sezzle_private_api_key** | **str** |  | [optional] 
-**sezzle_public_api_key** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -32,75 +32,76 @@ class PaymentsConfigurationWireTransfer(object):
     """
     swagger_types = {
         'accept_wire_transfer': 'bool',
+        'account_number': 'str',
+        'accounting_code': 'str',
+        'bank_address': 'str',
+        'deposit_to_account': 'str',
+        'intermediate_routing_number': 'str',
         'restrictions': 'PaymentsConfigurationRestrictions',
-        'wire_transfer_accounting_code': 'str',
-        'wire_transfer_account_number': 'str',
-        'wire_transfer_bank_address': 'str',
-        'wire_transfer_deposit_to_account': 'str',
-        'wire_transfer_intermediate_routing_number': 'str',
-        'wire_transfer_routing_number': 'str',
-        'wire_transfer_surcharge_accounting_code': 'str',
-        'wire_transfer_surcharge_fee': 'str',
-        'wire_transfer_surcharge_perc': 'str'
+        'routing_number': 'str',
+        'surcharge_accounting_code': 'str',
+        'surcharge_fee': 'str',
+        'surcharge_percentage': 'str'
     }
 
     attribute_map = {
-        'accept_wire_transfer': 'acceptWireTransfer',
+        'accept_wire_transfer': 'accept_wire_transfer',
+        'account_number': 'account_number',
+        'accounting_code': 'accounting_code',
+        'bank_address': 'bank_address',
+        'deposit_to_account': 'deposit_to_account',
+        'intermediate_routing_number': 'intermediate_routing_number',
         'restrictions': 'restrictions',
-        'wire_transfer_accounting_code': 'wireTransferAccountingCode',
-        'wire_transfer_account_number': 'wireTransferAccountNumber',
-        'wire_transfer_bank_address': 'wireTransferBankAddress',
-        'wire_transfer_deposit_to_account': 'wireTransferDepositToAccount',
-        'wire_transfer_intermediate_routing_number': 'wireTransferIntermediateRoutingNumber',
-        'wire_transfer_routing_number': 'wireTransferRoutingNumber',
-        'wire_transfer_surcharge_accounting_code': 'wireTransferSurchargeAccountingCode',
-        'wire_transfer_surcharge_fee': 'wireTransferSurchargeFee',
-        'wire_transfer_surcharge_perc': 'wireTransferSurchargePerc'
+        'routing_number': 'routing_number',
+        'surcharge_accounting_code': 'surcharge_accounting_code',
+        'surcharge_fee': 'surcharge_fee',
+        'surcharge_percentage': 'surcharge_percentage'
     }
 
-    def __init__(self, accept_wire_transfer=None, restrictions=None, wire_transfer_accounting_code=None, wire_transfer_account_number=None, wire_transfer_bank_address=None, wire_transfer_deposit_to_account=None, wire_transfer_intermediate_routing_number=None, wire_transfer_routing_number=None, wire_transfer_surcharge_accounting_code=None, wire_transfer_surcharge_fee=None, wire_transfer_surcharge_perc=None):  # noqa: E501
+    def __init__(self, accept_wire_transfer=None, account_number=None, accounting_code=None, bank_address=None, deposit_to_account=None, intermediate_routing_number=None, restrictions=None, routing_number=None, surcharge_accounting_code=None, surcharge_fee=None, surcharge_percentage=None):  # noqa: E501
         """PaymentsConfigurationWireTransfer - a model defined in Swagger"""  # noqa: E501
 
         self._accept_wire_transfer = None
+        self._account_number = None
+        self._accounting_code = None
+        self._bank_address = None
+        self._deposit_to_account = None
+        self._intermediate_routing_number = None
         self._restrictions = None
-        self._wire_transfer_accounting_code = None
-        self._wire_transfer_account_number = None
-        self._wire_transfer_bank_address = None
-        self._wire_transfer_deposit_to_account = None
-        self._wire_transfer_intermediate_routing_number = None
-        self._wire_transfer_routing_number = None
-        self._wire_transfer_surcharge_accounting_code = None
-        self._wire_transfer_surcharge_fee = None
-        self._wire_transfer_surcharge_perc = None
+        self._routing_number = None
+        self._surcharge_accounting_code = None
+        self._surcharge_fee = None
+        self._surcharge_percentage = None
         self.discriminator = None
 
         if accept_wire_transfer is not None:
             self.accept_wire_transfer = accept_wire_transfer
+        if account_number is not None:
+            self.account_number = account_number
+        if accounting_code is not None:
+            self.accounting_code = accounting_code
+        if bank_address is not None:
+            self.bank_address = bank_address
+        if deposit_to_account is not None:
+            self.deposit_to_account = deposit_to_account
+        if intermediate_routing_number is not None:
+            self.intermediate_routing_number = intermediate_routing_number
         if restrictions is not None:
             self.restrictions = restrictions
-        if wire_transfer_accounting_code is not None:
-            self.wire_transfer_accounting_code = wire_transfer_accounting_code
-        if wire_transfer_account_number is not None:
-            self.wire_transfer_account_number = wire_transfer_account_number
-        if wire_transfer_bank_address is not None:
-            self.wire_transfer_bank_address = wire_transfer_bank_address
-        if wire_transfer_deposit_to_account is not None:
-            self.wire_transfer_deposit_to_account = wire_transfer_deposit_to_account
-        if wire_transfer_intermediate_routing_number is not None:
-            self.wire_transfer_intermediate_routing_number = wire_transfer_intermediate_routing_number
-        if wire_transfer_routing_number is not None:
-            self.wire_transfer_routing_number = wire_transfer_routing_number
-        if wire_transfer_surcharge_accounting_code is not None:
-            self.wire_transfer_surcharge_accounting_code = wire_transfer_surcharge_accounting_code
-        if wire_transfer_surcharge_fee is not None:
-            self.wire_transfer_surcharge_fee = wire_transfer_surcharge_fee
-        if wire_transfer_surcharge_perc is not None:
-            self.wire_transfer_surcharge_perc = wire_transfer_surcharge_perc
+        if routing_number is not None:
+            self.routing_number = routing_number
+        if surcharge_accounting_code is not None:
+            self.surcharge_accounting_code = surcharge_accounting_code
+        if surcharge_fee is not None:
+            self.surcharge_fee = surcharge_fee
+        if surcharge_percentage is not None:
+            self.surcharge_percentage = surcharge_percentage
 
     @property
     def accept_wire_transfer(self):
         """Gets the accept_wire_transfer of this PaymentsConfigurationWireTransfer.  # noqa: E501
 
+        Master flag indicating this merchant accepts wire transfers  # noqa: E501
 
         :return: The accept_wire_transfer of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :rtype: bool
@@ -111,12 +112,128 @@ class PaymentsConfigurationWireTransfer(object):
     def accept_wire_transfer(self, accept_wire_transfer):
         """Sets the accept_wire_transfer of this PaymentsConfigurationWireTransfer.
 
+        Master flag indicating this merchant accepts wire transfers  # noqa: E501
 
         :param accept_wire_transfer: The accept_wire_transfer of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :type: bool
         """
 
         self._accept_wire_transfer = accept_wire_transfer
+
+    @property
+    def account_number(self):
+        """Gets the account_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
+
+        account_number  # noqa: E501
+
+        :return: The account_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_number
+
+    @account_number.setter
+    def account_number(self, account_number):
+        """Sets the account_number of this PaymentsConfigurationWireTransfer.
+
+        account_number  # noqa: E501
+
+        :param account_number: The account_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :type: str
+        """
+
+        self._account_number = account_number
+
+    @property
+    def accounting_code(self):
+        """Gets the accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
+
+        Optional Quickbooks accounting code  # noqa: E501
+
+        :return: The accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :rtype: str
+        """
+        return self._accounting_code
+
+    @accounting_code.setter
+    def accounting_code(self, accounting_code):
+        """Sets the accounting_code of this PaymentsConfigurationWireTransfer.
+
+        Optional Quickbooks accounting code  # noqa: E501
+
+        :param accounting_code: The accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :type: str
+        """
+
+        self._accounting_code = accounting_code
+
+    @property
+    def bank_address(self):
+        """Gets the bank_address of this PaymentsConfigurationWireTransfer.  # noqa: E501
+
+        Bank address  # noqa: E501
+
+        :return: The bank_address of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :rtype: str
+        """
+        return self._bank_address
+
+    @bank_address.setter
+    def bank_address(self, bank_address):
+        """Sets the bank_address of this PaymentsConfigurationWireTransfer.
+
+        Bank address  # noqa: E501
+
+        :param bank_address: The bank_address of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :type: str
+        """
+
+        self._bank_address = bank_address
+
+    @property
+    def deposit_to_account(self):
+        """Gets the deposit_to_account of this PaymentsConfigurationWireTransfer.  # noqa: E501
+
+        Optional Quickbooks deposit to account  # noqa: E501
+
+        :return: The deposit_to_account of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :rtype: str
+        """
+        return self._deposit_to_account
+
+    @deposit_to_account.setter
+    def deposit_to_account(self, deposit_to_account):
+        """Sets the deposit_to_account of this PaymentsConfigurationWireTransfer.
+
+        Optional Quickbooks deposit to account  # noqa: E501
+
+        :param deposit_to_account: The deposit_to_account of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :type: str
+        """
+
+        self._deposit_to_account = deposit_to_account
+
+    @property
+    def intermediate_routing_number(self):
+        """Gets the intermediate_routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
+
+        Intermediate routing number  # noqa: E501
+
+        :return: The intermediate_routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :rtype: str
+        """
+        return self._intermediate_routing_number
+
+    @intermediate_routing_number.setter
+    def intermediate_routing_number(self, intermediate_routing_number):
+        """Sets the intermediate_routing_number of this PaymentsConfigurationWireTransfer.
+
+        Intermediate routing number  # noqa: E501
+
+        :param intermediate_routing_number: The intermediate_routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :type: str
+        """
+
+        self._intermediate_routing_number = intermediate_routing_number
 
     @property
     def restrictions(self):
@@ -140,193 +257,96 @@ class PaymentsConfigurationWireTransfer(object):
         self._restrictions = restrictions
 
     @property
-    def wire_transfer_accounting_code(self):
-        """Gets the wire_transfer_accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
+    def routing_number(self):
+        """Gets the routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
 
+        Routing number  # noqa: E501
 
-        :return: The wire_transfer_accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :return: The routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :rtype: str
         """
-        return self._wire_transfer_accounting_code
+        return self._routing_number
 
-    @wire_transfer_accounting_code.setter
-    def wire_transfer_accounting_code(self, wire_transfer_accounting_code):
-        """Sets the wire_transfer_accounting_code of this PaymentsConfigurationWireTransfer.
+    @routing_number.setter
+    def routing_number(self, routing_number):
+        """Sets the routing_number of this PaymentsConfigurationWireTransfer.
 
+        Routing number  # noqa: E501
 
-        :param wire_transfer_accounting_code: The wire_transfer_accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :param routing_number: The routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :type: str
         """
 
-        self._wire_transfer_accounting_code = wire_transfer_accounting_code
+        self._routing_number = routing_number
 
     @property
-    def wire_transfer_account_number(self):
-        """Gets the wire_transfer_account_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
+    def surcharge_accounting_code(self):
+        """Gets the surcharge_accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
 
+        If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount  # noqa: E501
 
-        :return: The wire_transfer_account_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :return: The surcharge_accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :rtype: str
         """
-        return self._wire_transfer_account_number
+        return self._surcharge_accounting_code
 
-    @wire_transfer_account_number.setter
-    def wire_transfer_account_number(self, wire_transfer_account_number):
-        """Sets the wire_transfer_account_number of this PaymentsConfigurationWireTransfer.
+    @surcharge_accounting_code.setter
+    def surcharge_accounting_code(self, surcharge_accounting_code):
+        """Sets the surcharge_accounting_code of this PaymentsConfigurationWireTransfer.
 
+        If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount  # noqa: E501
 
-        :param wire_transfer_account_number: The wire_transfer_account_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :param surcharge_accounting_code: The surcharge_accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :type: str
         """
 
-        self._wire_transfer_account_number = wire_transfer_account_number
+        self._surcharge_accounting_code = surcharge_accounting_code
 
     @property
-    def wire_transfer_bank_address(self):
-        """Gets the wire_transfer_bank_address of this PaymentsConfigurationWireTransfer.  # noqa: E501
+    def surcharge_fee(self):
+        """Gets the surcharge_fee of this PaymentsConfigurationWireTransfer.  # noqa: E501
 
+        surcharge_fee  # noqa: E501
 
-        :return: The wire_transfer_bank_address of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :return: The surcharge_fee of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :rtype: str
         """
-        return self._wire_transfer_bank_address
+        return self._surcharge_fee
 
-    @wire_transfer_bank_address.setter
-    def wire_transfer_bank_address(self, wire_transfer_bank_address):
-        """Sets the wire_transfer_bank_address of this PaymentsConfigurationWireTransfer.
+    @surcharge_fee.setter
+    def surcharge_fee(self, surcharge_fee):
+        """Sets the surcharge_fee of this PaymentsConfigurationWireTransfer.
 
+        surcharge_fee  # noqa: E501
 
-        :param wire_transfer_bank_address: The wire_transfer_bank_address of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :param surcharge_fee: The surcharge_fee of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :type: str
         """
 
-        self._wire_transfer_bank_address = wire_transfer_bank_address
+        self._surcharge_fee = surcharge_fee
 
     @property
-    def wire_transfer_deposit_to_account(self):
-        """Gets the wire_transfer_deposit_to_account of this PaymentsConfigurationWireTransfer.  # noqa: E501
+    def surcharge_percentage(self):
+        """Gets the surcharge_percentage of this PaymentsConfigurationWireTransfer.  # noqa: E501
 
+        surcharge_percentage  # noqa: E501
 
-        :return: The wire_transfer_deposit_to_account of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :return: The surcharge_percentage of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :rtype: str
         """
-        return self._wire_transfer_deposit_to_account
+        return self._surcharge_percentage
 
-    @wire_transfer_deposit_to_account.setter
-    def wire_transfer_deposit_to_account(self, wire_transfer_deposit_to_account):
-        """Sets the wire_transfer_deposit_to_account of this PaymentsConfigurationWireTransfer.
+    @surcharge_percentage.setter
+    def surcharge_percentage(self, surcharge_percentage):
+        """Sets the surcharge_percentage of this PaymentsConfigurationWireTransfer.
 
+        surcharge_percentage  # noqa: E501
 
-        :param wire_transfer_deposit_to_account: The wire_transfer_deposit_to_account of this PaymentsConfigurationWireTransfer.  # noqa: E501
+        :param surcharge_percentage: The surcharge_percentage of this PaymentsConfigurationWireTransfer.  # noqa: E501
         :type: str
         """
 
-        self._wire_transfer_deposit_to_account = wire_transfer_deposit_to_account
-
-    @property
-    def wire_transfer_intermediate_routing_number(self):
-        """Gets the wire_transfer_intermediate_routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
-
-
-        :return: The wire_transfer_intermediate_routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :rtype: str
-        """
-        return self._wire_transfer_intermediate_routing_number
-
-    @wire_transfer_intermediate_routing_number.setter
-    def wire_transfer_intermediate_routing_number(self, wire_transfer_intermediate_routing_number):
-        """Sets the wire_transfer_intermediate_routing_number of this PaymentsConfigurationWireTransfer.
-
-
-        :param wire_transfer_intermediate_routing_number: The wire_transfer_intermediate_routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :type: str
-        """
-
-        self._wire_transfer_intermediate_routing_number = wire_transfer_intermediate_routing_number
-
-    @property
-    def wire_transfer_routing_number(self):
-        """Gets the wire_transfer_routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
-
-
-        :return: The wire_transfer_routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :rtype: str
-        """
-        return self._wire_transfer_routing_number
-
-    @wire_transfer_routing_number.setter
-    def wire_transfer_routing_number(self, wire_transfer_routing_number):
-        """Sets the wire_transfer_routing_number of this PaymentsConfigurationWireTransfer.
-
-
-        :param wire_transfer_routing_number: The wire_transfer_routing_number of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :type: str
-        """
-
-        self._wire_transfer_routing_number = wire_transfer_routing_number
-
-    @property
-    def wire_transfer_surcharge_accounting_code(self):
-        """Gets the wire_transfer_surcharge_accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
-
-
-        :return: The wire_transfer_surcharge_accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :rtype: str
-        """
-        return self._wire_transfer_surcharge_accounting_code
-
-    @wire_transfer_surcharge_accounting_code.setter
-    def wire_transfer_surcharge_accounting_code(self, wire_transfer_surcharge_accounting_code):
-        """Sets the wire_transfer_surcharge_accounting_code of this PaymentsConfigurationWireTransfer.
-
-
-        :param wire_transfer_surcharge_accounting_code: The wire_transfer_surcharge_accounting_code of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :type: str
-        """
-
-        self._wire_transfer_surcharge_accounting_code = wire_transfer_surcharge_accounting_code
-
-    @property
-    def wire_transfer_surcharge_fee(self):
-        """Gets the wire_transfer_surcharge_fee of this PaymentsConfigurationWireTransfer.  # noqa: E501
-
-
-        :return: The wire_transfer_surcharge_fee of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :rtype: str
-        """
-        return self._wire_transfer_surcharge_fee
-
-    @wire_transfer_surcharge_fee.setter
-    def wire_transfer_surcharge_fee(self, wire_transfer_surcharge_fee):
-        """Sets the wire_transfer_surcharge_fee of this PaymentsConfigurationWireTransfer.
-
-
-        :param wire_transfer_surcharge_fee: The wire_transfer_surcharge_fee of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :type: str
-        """
-
-        self._wire_transfer_surcharge_fee = wire_transfer_surcharge_fee
-
-    @property
-    def wire_transfer_surcharge_perc(self):
-        """Gets the wire_transfer_surcharge_perc of this PaymentsConfigurationWireTransfer.  # noqa: E501
-
-
-        :return: The wire_transfer_surcharge_perc of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :rtype: str
-        """
-        return self._wire_transfer_surcharge_perc
-
-    @wire_transfer_surcharge_perc.setter
-    def wire_transfer_surcharge_perc(self, wire_transfer_surcharge_perc):
-        """Sets the wire_transfer_surcharge_perc of this PaymentsConfigurationWireTransfer.
-
-
-        :param wire_transfer_surcharge_perc: The wire_transfer_surcharge_perc of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :type: str
-        """
-
-        self._wire_transfer_surcharge_perc = wire_transfer_surcharge_perc
+        self._surcharge_percentage = surcharge_percentage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

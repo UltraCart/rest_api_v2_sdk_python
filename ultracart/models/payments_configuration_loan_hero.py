@@ -32,36 +32,36 @@ class PaymentsConfigurationLoanHero(object):
     """
     swagger_types = {
         'accept_loan_hero': 'bool',
-        'loan_hero_accounting_code': 'str',
-        'loan_hero_deposit_to_account': 'str',
+        'accounting_code': 'str',
+        'deposit_to_account': 'str',
         'restrictions': 'PaymentsConfigurationRestrictions',
         'show_loan_hero': 'bool'
     }
 
     attribute_map = {
-        'accept_loan_hero': 'acceptLoanHero',
-        'loan_hero_accounting_code': 'loanHeroAccountingCode',
-        'loan_hero_deposit_to_account': 'loanHeroDepositToAccount',
+        'accept_loan_hero': 'accept_loan_hero',
+        'accounting_code': 'accounting_code',
+        'deposit_to_account': 'deposit_to_account',
         'restrictions': 'restrictions',
-        'show_loan_hero': 'showLoanHero'
+        'show_loan_hero': 'show_loan_hero'
     }
 
-    def __init__(self, accept_loan_hero=None, loan_hero_accounting_code=None, loan_hero_deposit_to_account=None, restrictions=None, show_loan_hero=None):  # noqa: E501
+    def __init__(self, accept_loan_hero=None, accounting_code=None, deposit_to_account=None, restrictions=None, show_loan_hero=None):  # noqa: E501
         """PaymentsConfigurationLoanHero - a model defined in Swagger"""  # noqa: E501
 
         self._accept_loan_hero = None
-        self._loan_hero_accounting_code = None
-        self._loan_hero_deposit_to_account = None
+        self._accounting_code = None
+        self._deposit_to_account = None
         self._restrictions = None
         self._show_loan_hero = None
         self.discriminator = None
 
         if accept_loan_hero is not None:
             self.accept_loan_hero = accept_loan_hero
-        if loan_hero_accounting_code is not None:
-            self.loan_hero_accounting_code = loan_hero_accounting_code
-        if loan_hero_deposit_to_account is not None:
-            self.loan_hero_deposit_to_account = loan_hero_deposit_to_account
+        if accounting_code is not None:
+            self.accounting_code = accounting_code
+        if deposit_to_account is not None:
+            self.deposit_to_account = deposit_to_account
         if restrictions is not None:
             self.restrictions = restrictions
         if show_loan_hero is not None:
@@ -71,6 +71,7 @@ class PaymentsConfigurationLoanHero(object):
     def accept_loan_hero(self):
         """Gets the accept_loan_hero of this PaymentsConfigurationLoanHero.  # noqa: E501
 
+        Master flag indicating this merchant accepts Loan Hero  # noqa: E501
 
         :return: The accept_loan_hero of this PaymentsConfigurationLoanHero.  # noqa: E501
         :rtype: bool
@@ -81,6 +82,7 @@ class PaymentsConfigurationLoanHero(object):
     def accept_loan_hero(self, accept_loan_hero):
         """Sets the accept_loan_hero of this PaymentsConfigurationLoanHero.
 
+        Master flag indicating this merchant accepts Loan Hero  # noqa: E501
 
         :param accept_loan_hero: The accept_loan_hero of this PaymentsConfigurationLoanHero.  # noqa: E501
         :type: bool
@@ -89,46 +91,50 @@ class PaymentsConfigurationLoanHero(object):
         self._accept_loan_hero = accept_loan_hero
 
     @property
-    def loan_hero_accounting_code(self):
-        """Gets the loan_hero_accounting_code of this PaymentsConfigurationLoanHero.  # noqa: E501
+    def accounting_code(self):
+        """Gets the accounting_code of this PaymentsConfigurationLoanHero.  # noqa: E501
 
+        Optional Quickbooks accounting code  # noqa: E501
 
-        :return: The loan_hero_accounting_code of this PaymentsConfigurationLoanHero.  # noqa: E501
+        :return: The accounting_code of this PaymentsConfigurationLoanHero.  # noqa: E501
         :rtype: str
         """
-        return self._loan_hero_accounting_code
+        return self._accounting_code
 
-    @loan_hero_accounting_code.setter
-    def loan_hero_accounting_code(self, loan_hero_accounting_code):
-        """Sets the loan_hero_accounting_code of this PaymentsConfigurationLoanHero.
+    @accounting_code.setter
+    def accounting_code(self, accounting_code):
+        """Sets the accounting_code of this PaymentsConfigurationLoanHero.
 
+        Optional Quickbooks accounting code  # noqa: E501
 
-        :param loan_hero_accounting_code: The loan_hero_accounting_code of this PaymentsConfigurationLoanHero.  # noqa: E501
+        :param accounting_code: The accounting_code of this PaymentsConfigurationLoanHero.  # noqa: E501
         :type: str
         """
 
-        self._loan_hero_accounting_code = loan_hero_accounting_code
+        self._accounting_code = accounting_code
 
     @property
-    def loan_hero_deposit_to_account(self):
-        """Gets the loan_hero_deposit_to_account of this PaymentsConfigurationLoanHero.  # noqa: E501
+    def deposit_to_account(self):
+        """Gets the deposit_to_account of this PaymentsConfigurationLoanHero.  # noqa: E501
 
+        Optional Quickbooks deposit to account  # noqa: E501
 
-        :return: The loan_hero_deposit_to_account of this PaymentsConfigurationLoanHero.  # noqa: E501
+        :return: The deposit_to_account of this PaymentsConfigurationLoanHero.  # noqa: E501
         :rtype: str
         """
-        return self._loan_hero_deposit_to_account
+        return self._deposit_to_account
 
-    @loan_hero_deposit_to_account.setter
-    def loan_hero_deposit_to_account(self, loan_hero_deposit_to_account):
-        """Sets the loan_hero_deposit_to_account of this PaymentsConfigurationLoanHero.
+    @deposit_to_account.setter
+    def deposit_to_account(self, deposit_to_account):
+        """Sets the deposit_to_account of this PaymentsConfigurationLoanHero.
 
+        Optional Quickbooks deposit to account  # noqa: E501
 
-        :param loan_hero_deposit_to_account: The loan_hero_deposit_to_account of this PaymentsConfigurationLoanHero.  # noqa: E501
+        :param deposit_to_account: The deposit_to_account of this PaymentsConfigurationLoanHero.  # noqa: E501
         :type: str
         """
 
-        self._loan_hero_deposit_to_account = loan_hero_deposit_to_account
+        self._deposit_to_account = deposit_to_account
 
     @property
     def restrictions(self):
@@ -155,6 +161,7 @@ class PaymentsConfigurationLoanHero(object):
     def show_loan_hero(self):
         """Gets the show_loan_hero of this PaymentsConfigurationLoanHero.  # noqa: E501
 
+        Internal field to aid UI  # noqa: E501
 
         :return: The show_loan_hero of this PaymentsConfigurationLoanHero.  # noqa: E501
         :rtype: bool
@@ -165,6 +172,7 @@ class PaymentsConfigurationLoanHero(object):
     def show_loan_hero(self, show_loan_hero):
         """Sets the show_loan_hero of this PaymentsConfigurationLoanHero.
 
+        Internal field to aid UI  # noqa: E501
 
         :param show_loan_hero: The show_loan_hero of this PaymentsConfigurationLoanHero.  # noqa: E501
         :type: bool

@@ -32,50 +32,51 @@ class PaymentsConfigurationCOD(object):
     """
     swagger_types = {
         'accept_cod': 'bool',
-        'cod_approved_customers_only': 'bool',
-        'cod_surcharge_accounting_code': 'str',
-        'cod_surcharge_fee': 'str',
-        'cod_surcharge_perc': 'str',
-        'restrictions': 'PaymentsConfigurationRestrictions'
+        'approved_customers_only': 'bool',
+        'restrictions': 'PaymentsConfigurationRestrictions',
+        'surcharge_accounting_code': 'str',
+        'surcharge_fee': 'str',
+        'surcharge_percentage': 'str'
     }
 
     attribute_map = {
-        'accept_cod': 'acceptCod',
-        'cod_approved_customers_only': 'codApprovedCustomersOnly',
-        'cod_surcharge_accounting_code': 'codSurchargeAccountingCode',
-        'cod_surcharge_fee': 'codSurchargeFee',
-        'cod_surcharge_perc': 'codSurchargePerc',
-        'restrictions': 'restrictions'
+        'accept_cod': 'accept_cod',
+        'approved_customers_only': 'approved_customers_only',
+        'restrictions': 'restrictions',
+        'surcharge_accounting_code': 'surcharge_accounting_code',
+        'surcharge_fee': 'surcharge_fee',
+        'surcharge_percentage': 'surcharge_percentage'
     }
 
-    def __init__(self, accept_cod=None, cod_approved_customers_only=None, cod_surcharge_accounting_code=None, cod_surcharge_fee=None, cod_surcharge_perc=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_cod=None, approved_customers_only=None, restrictions=None, surcharge_accounting_code=None, surcharge_fee=None, surcharge_percentage=None):  # noqa: E501
         """PaymentsConfigurationCOD - a model defined in Swagger"""  # noqa: E501
 
         self._accept_cod = None
-        self._cod_approved_customers_only = None
-        self._cod_surcharge_accounting_code = None
-        self._cod_surcharge_fee = None
-        self._cod_surcharge_perc = None
+        self._approved_customers_only = None
         self._restrictions = None
+        self._surcharge_accounting_code = None
+        self._surcharge_fee = None
+        self._surcharge_percentage = None
         self.discriminator = None
 
         if accept_cod is not None:
             self.accept_cod = accept_cod
-        if cod_approved_customers_only is not None:
-            self.cod_approved_customers_only = cod_approved_customers_only
-        if cod_surcharge_accounting_code is not None:
-            self.cod_surcharge_accounting_code = cod_surcharge_accounting_code
-        if cod_surcharge_fee is not None:
-            self.cod_surcharge_fee = cod_surcharge_fee
-        if cod_surcharge_perc is not None:
-            self.cod_surcharge_perc = cod_surcharge_perc
+        if approved_customers_only is not None:
+            self.approved_customers_only = approved_customers_only
         if restrictions is not None:
             self.restrictions = restrictions
+        if surcharge_accounting_code is not None:
+            self.surcharge_accounting_code = surcharge_accounting_code
+        if surcharge_fee is not None:
+            self.surcharge_fee = surcharge_fee
+        if surcharge_percentage is not None:
+            self.surcharge_percentage = surcharge_percentage
 
     @property
     def accept_cod(self):
         """Gets the accept_cod of this PaymentsConfigurationCOD.  # noqa: E501
 
+        Master flag indicating this merchant accepts COD  # noqa: E501
 
         :return: The accept_cod of this PaymentsConfigurationCOD.  # noqa: E501
         :rtype: bool
@@ -86,6 +87,7 @@ class PaymentsConfigurationCOD(object):
     def accept_cod(self, accept_cod):
         """Sets the accept_cod of this PaymentsConfigurationCOD.
 
+        Master flag indicating this merchant accepts COD  # noqa: E501
 
         :param accept_cod: The accept_cod of this PaymentsConfigurationCOD.  # noqa: E501
         :type: bool
@@ -94,88 +96,27 @@ class PaymentsConfigurationCOD(object):
         self._accept_cod = accept_cod
 
     @property
-    def cod_approved_customers_only(self):
-        """Gets the cod_approved_customers_only of this PaymentsConfigurationCOD.  # noqa: E501
+    def approved_customers_only(self):
+        """Gets the approved_customers_only of this PaymentsConfigurationCOD.  # noqa: E501
 
+        If true, only approved customers may pay with COD  # noqa: E501
 
-        :return: The cod_approved_customers_only of this PaymentsConfigurationCOD.  # noqa: E501
+        :return: The approved_customers_only of this PaymentsConfigurationCOD.  # noqa: E501
         :rtype: bool
         """
-        return self._cod_approved_customers_only
+        return self._approved_customers_only
 
-    @cod_approved_customers_only.setter
-    def cod_approved_customers_only(self, cod_approved_customers_only):
-        """Sets the cod_approved_customers_only of this PaymentsConfigurationCOD.
+    @approved_customers_only.setter
+    def approved_customers_only(self, approved_customers_only):
+        """Sets the approved_customers_only of this PaymentsConfigurationCOD.
 
+        If true, only approved customers may pay with COD  # noqa: E501
 
-        :param cod_approved_customers_only: The cod_approved_customers_only of this PaymentsConfigurationCOD.  # noqa: E501
+        :param approved_customers_only: The approved_customers_only of this PaymentsConfigurationCOD.  # noqa: E501
         :type: bool
         """
 
-        self._cod_approved_customers_only = cod_approved_customers_only
-
-    @property
-    def cod_surcharge_accounting_code(self):
-        """Gets the cod_surcharge_accounting_code of this PaymentsConfigurationCOD.  # noqa: E501
-
-
-        :return: The cod_surcharge_accounting_code of this PaymentsConfigurationCOD.  # noqa: E501
-        :rtype: str
-        """
-        return self._cod_surcharge_accounting_code
-
-    @cod_surcharge_accounting_code.setter
-    def cod_surcharge_accounting_code(self, cod_surcharge_accounting_code):
-        """Sets the cod_surcharge_accounting_code of this PaymentsConfigurationCOD.
-
-
-        :param cod_surcharge_accounting_code: The cod_surcharge_accounting_code of this PaymentsConfigurationCOD.  # noqa: E501
-        :type: str
-        """
-
-        self._cod_surcharge_accounting_code = cod_surcharge_accounting_code
-
-    @property
-    def cod_surcharge_fee(self):
-        """Gets the cod_surcharge_fee of this PaymentsConfigurationCOD.  # noqa: E501
-
-
-        :return: The cod_surcharge_fee of this PaymentsConfigurationCOD.  # noqa: E501
-        :rtype: str
-        """
-        return self._cod_surcharge_fee
-
-    @cod_surcharge_fee.setter
-    def cod_surcharge_fee(self, cod_surcharge_fee):
-        """Sets the cod_surcharge_fee of this PaymentsConfigurationCOD.
-
-
-        :param cod_surcharge_fee: The cod_surcharge_fee of this PaymentsConfigurationCOD.  # noqa: E501
-        :type: str
-        """
-
-        self._cod_surcharge_fee = cod_surcharge_fee
-
-    @property
-    def cod_surcharge_perc(self):
-        """Gets the cod_surcharge_perc of this PaymentsConfigurationCOD.  # noqa: E501
-
-
-        :return: The cod_surcharge_perc of this PaymentsConfigurationCOD.  # noqa: E501
-        :rtype: str
-        """
-        return self._cod_surcharge_perc
-
-    @cod_surcharge_perc.setter
-    def cod_surcharge_perc(self, cod_surcharge_perc):
-        """Sets the cod_surcharge_perc of this PaymentsConfigurationCOD.
-
-
-        :param cod_surcharge_perc: The cod_surcharge_perc of this PaymentsConfigurationCOD.  # noqa: E501
-        :type: str
-        """
-
-        self._cod_surcharge_perc = cod_surcharge_perc
+        self._approved_customers_only = approved_customers_only
 
     @property
     def restrictions(self):
@@ -197,6 +138,75 @@ class PaymentsConfigurationCOD(object):
         """
 
         self._restrictions = restrictions
+
+    @property
+    def surcharge_accounting_code(self):
+        """Gets the surcharge_accounting_code of this PaymentsConfigurationCOD.  # noqa: E501
+
+        Optional field, if surcharge is set, this is the accounting code the surcharge is tagged with when sent to Quickbooks  # noqa: E501
+
+        :return: The surcharge_accounting_code of this PaymentsConfigurationCOD.  # noqa: E501
+        :rtype: str
+        """
+        return self._surcharge_accounting_code
+
+    @surcharge_accounting_code.setter
+    def surcharge_accounting_code(self, surcharge_accounting_code):
+        """Sets the surcharge_accounting_code of this PaymentsConfigurationCOD.
+
+        Optional field, if surcharge is set, this is the accounting code the surcharge is tagged with when sent to Quickbooks  # noqa: E501
+
+        :param surcharge_accounting_code: The surcharge_accounting_code of this PaymentsConfigurationCOD.  # noqa: E501
+        :type: str
+        """
+
+        self._surcharge_accounting_code = surcharge_accounting_code
+
+    @property
+    def surcharge_fee(self):
+        """Gets the surcharge_fee of this PaymentsConfigurationCOD.  # noqa: E501
+
+        Additional cost for using COD  # noqa: E501
+
+        :return: The surcharge_fee of this PaymentsConfigurationCOD.  # noqa: E501
+        :rtype: str
+        """
+        return self._surcharge_fee
+
+    @surcharge_fee.setter
+    def surcharge_fee(self, surcharge_fee):
+        """Sets the surcharge_fee of this PaymentsConfigurationCOD.
+
+        Additional cost for using COD  # noqa: E501
+
+        :param surcharge_fee: The surcharge_fee of this PaymentsConfigurationCOD.  # noqa: E501
+        :type: str
+        """
+
+        self._surcharge_fee = surcharge_fee
+
+    @property
+    def surcharge_percentage(self):
+        """Gets the surcharge_percentage of this PaymentsConfigurationCOD.  # noqa: E501
+
+        Additional percentage cost for using COD  # noqa: E501
+
+        :return: The surcharge_percentage of this PaymentsConfigurationCOD.  # noqa: E501
+        :rtype: str
+        """
+        return self._surcharge_percentage
+
+    @surcharge_percentage.setter
+    def surcharge_percentage(self, surcharge_percentage):
+        """Sets the surcharge_percentage of this PaymentsConfigurationCOD.
+
+        Additional percentage cost for using COD  # noqa: E501
+
+        :param surcharge_percentage: The surcharge_percentage of this PaymentsConfigurationCOD.  # noqa: E501
+        :type: str
+        """
+
+        self._surcharge_percentage = surcharge_percentage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,7 +36,7 @@ class PaymentsConfigurationCash(object):
     }
 
     attribute_map = {
-        'accept_cash': 'acceptCash',
+        'accept_cash': 'accept_cash',
         'restrictions': 'restrictions'
     }
 
@@ -56,6 +56,7 @@ class PaymentsConfigurationCash(object):
     def accept_cash(self):
         """Gets the accept_cash of this PaymentsConfigurationCash.  # noqa: E501
 
+        Master flag indicating this merchant accepts cash  # noqa: E501
 
         :return: The accept_cash of this PaymentsConfigurationCash.  # noqa: E501
         :rtype: bool
@@ -66,6 +67,7 @@ class PaymentsConfigurationCash(object):
     def accept_cash(self, accept_cash):
         """Sets the accept_cash of this PaymentsConfigurationCash.
 
+        Master flag indicating this merchant accepts cash  # noqa: E501
 
         :param accept_cash: The accept_cash of this PaymentsConfigurationCash.  # noqa: E501
         :type: bool

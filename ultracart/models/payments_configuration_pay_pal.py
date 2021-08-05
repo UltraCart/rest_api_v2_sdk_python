@@ -31,728 +31,616 @@ class PaymentsConfigurationPayPal(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'accept_pay_pal': 'bool',
-        'paypal_accounting_code': 'str',
-        'paypal_api_password': 'str',
-        'paypal_api_user_name': 'str',
-        'paypal_certificate_on_file': 'bool',
-        'paypal_deposit_to_account': 'str',
-        'paypal_email': 'str',
-        'paypal_environment': 'str',
-        'paypal_header_image_url': 'str',
-        'paypal_hide_bill_me_later': 'bool',
-        'paypal_hide_express_checkout_on_view_cart': 'bool',
-        'paypal_hide_for_unshipped_orders': 'bool',
-        'paypal_hold_in_ar': 'bool',
-        'paypal_landing_page': 'str',
-        'paypal_mode': 'str',
-        'paypal_private_key_password': 'str',
-        'paypal_processing_fee': 'str',
-        'paypal_processing_perc': 'str',
-        'paypal_send_recurring': 'str',
-        'paypal_show_card_logos_not_directly_supported': 'bool',
-        'paypal_show_signature': 'bool',
-        'paypal_signature': 'str',
-        'paypal_solution_type': 'str',
-        'paypal_summary_email': 'str',
-        'paypal_summary_mode': 'str',
-        'paypal_zero_dollar_penny': 'bool',
-        'push_pay_pal': 'bool',
+        'accept_paypal': 'bool',
+        'accounting_code': 'str',
+        'api_password': 'str',
+        'api_username': 'str',
+        'certificate_on_file': 'bool',
+        'deposit_to_account': 'str',
+        'email': 'str',
+        'environment': 'str',
+        'header_image_url': 'str',
+        'hide_bill_me_later': 'bool',
+        'hide_express_checkout_on_view_cart': 'bool',
+        'hide_for_unshipped_orders': 'bool',
+        'hold_in_ar': 'bool',
+        'landing_page': 'str',
+        'mode': 'str',
+        'private_key_password': 'str',
+        'processing_fee': 'str',
+        'processing_percentage': 'str',
+        'push_paypal': 'bool',
         'restrictions': 'PaymentsConfigurationRestrictions',
-        'short_pay_pal_marketing_text': 'bool'
+        'send_recurring': 'bool',
+        'short_paypal_marketing_text': 'bool',
+        'show_card_logos_not_directly_supported': 'bool',
+        'show_signature': 'bool',
+        'signature': 'str',
+        'solution_type': 'str',
+        'summary_email': 'str',
+        'summary_mode': 'str',
+        'zero_dollar_penny': 'bool'
     }
 
     attribute_map = {
-        'accept_pay_pal': 'acceptPayPal',
-        'paypal_accounting_code': 'paypalAccountingCode',
-        'paypal_api_password': 'paypalApiPassword',
-        'paypal_api_user_name': 'paypalApiUserName',
-        'paypal_certificate_on_file': 'paypalCertificateOnFile',
-        'paypal_deposit_to_account': 'paypalDepositToAccount',
-        'paypal_email': 'paypalEmail',
-        'paypal_environment': 'paypalEnvironment',
-        'paypal_header_image_url': 'paypalHeaderImageUrl',
-        'paypal_hide_bill_me_later': 'paypalHideBillMeLater',
-        'paypal_hide_express_checkout_on_view_cart': 'paypalHideExpressCheckoutOnViewCart',
-        'paypal_hide_for_unshipped_orders': 'paypalHideForUnshippedOrders',
-        'paypal_hold_in_ar': 'paypalHoldInAR',
-        'paypal_landing_page': 'paypalLandingPage',
-        'paypal_mode': 'paypalMode',
-        'paypal_private_key_password': 'paypalPrivateKeyPassword',
-        'paypal_processing_fee': 'paypalProcessingFee',
-        'paypal_processing_perc': 'paypalProcessingPerc',
-        'paypal_send_recurring': 'paypalSendRecurring',
-        'paypal_show_card_logos_not_directly_supported': 'paypalShowCardLogosNotDirectlySupported',
-        'paypal_show_signature': 'paypalShowSignature',
-        'paypal_signature': 'paypalSignature',
-        'paypal_solution_type': 'paypalSolutionType',
-        'paypal_summary_email': 'paypalSummaryEmail',
-        'paypal_summary_mode': 'paypalSummaryMode',
-        'paypal_zero_dollar_penny': 'paypalZeroDollarPenny',
-        'push_pay_pal': 'pushPayPal',
+        'accept_paypal': 'accept_paypal',
+        'accounting_code': 'accounting_code',
+        'api_password': 'api_password',
+        'api_username': 'api_username',
+        'certificate_on_file': 'certificate_on_file',
+        'deposit_to_account': 'deposit_to_account',
+        'email': 'email',
+        'environment': 'environment',
+        'header_image_url': 'header_image_url',
+        'hide_bill_me_later': 'hide_bill_me_later',
+        'hide_express_checkout_on_view_cart': 'hide_express_checkout_on_view_cart',
+        'hide_for_unshipped_orders': 'hide_for_unshipped_orders',
+        'hold_in_ar': 'hold_in_ar',
+        'landing_page': 'landing_page',
+        'mode': 'mode',
+        'private_key_password': 'private_key_password',
+        'processing_fee': 'processing_fee',
+        'processing_percentage': 'processing_percentage',
+        'push_paypal': 'push_paypal',
         'restrictions': 'restrictions',
-        'short_pay_pal_marketing_text': 'shortPayPalMarketingText'
+        'send_recurring': 'send_recurring',
+        'short_paypal_marketing_text': 'short_paypal_marketing_text',
+        'show_card_logos_not_directly_supported': 'show_card_logos_not_directly_supported',
+        'show_signature': 'show_signature',
+        'signature': 'signature',
+        'solution_type': 'solution_type',
+        'summary_email': 'summary_email',
+        'summary_mode': 'summary_mode',
+        'zero_dollar_penny': 'zero_dollar_penny'
     }
 
-    def __init__(self, accept_pay_pal=None, paypal_accounting_code=None, paypal_api_password=None, paypal_api_user_name=None, paypal_certificate_on_file=None, paypal_deposit_to_account=None, paypal_email=None, paypal_environment=None, paypal_header_image_url=None, paypal_hide_bill_me_later=None, paypal_hide_express_checkout_on_view_cart=None, paypal_hide_for_unshipped_orders=None, paypal_hold_in_ar=None, paypal_landing_page=None, paypal_mode=None, paypal_private_key_password=None, paypal_processing_fee=None, paypal_processing_perc=None, paypal_send_recurring=None, paypal_show_card_logos_not_directly_supported=None, paypal_show_signature=None, paypal_signature=None, paypal_solution_type=None, paypal_summary_email=None, paypal_summary_mode=None, paypal_zero_dollar_penny=None, push_pay_pal=None, restrictions=None, short_pay_pal_marketing_text=None):  # noqa: E501
+    def __init__(self, accept_paypal=None, accounting_code=None, api_password=None, api_username=None, certificate_on_file=None, deposit_to_account=None, email=None, environment=None, header_image_url=None, hide_bill_me_later=None, hide_express_checkout_on_view_cart=None, hide_for_unshipped_orders=None, hold_in_ar=None, landing_page=None, mode=None, private_key_password=None, processing_fee=None, processing_percentage=None, push_paypal=None, restrictions=None, send_recurring=None, short_paypal_marketing_text=None, show_card_logos_not_directly_supported=None, show_signature=None, signature=None, solution_type=None, summary_email=None, summary_mode=None, zero_dollar_penny=None):  # noqa: E501
         """PaymentsConfigurationPayPal - a model defined in Swagger"""  # noqa: E501
 
-        self._accept_pay_pal = None
-        self._paypal_accounting_code = None
-        self._paypal_api_password = None
-        self._paypal_api_user_name = None
-        self._paypal_certificate_on_file = None
-        self._paypal_deposit_to_account = None
-        self._paypal_email = None
-        self._paypal_environment = None
-        self._paypal_header_image_url = None
-        self._paypal_hide_bill_me_later = None
-        self._paypal_hide_express_checkout_on_view_cart = None
-        self._paypal_hide_for_unshipped_orders = None
-        self._paypal_hold_in_ar = None
-        self._paypal_landing_page = None
-        self._paypal_mode = None
-        self._paypal_private_key_password = None
-        self._paypal_processing_fee = None
-        self._paypal_processing_perc = None
-        self._paypal_send_recurring = None
-        self._paypal_show_card_logos_not_directly_supported = None
-        self._paypal_show_signature = None
-        self._paypal_signature = None
-        self._paypal_solution_type = None
-        self._paypal_summary_email = None
-        self._paypal_summary_mode = None
-        self._paypal_zero_dollar_penny = None
-        self._push_pay_pal = None
+        self._accept_paypal = None
+        self._accounting_code = None
+        self._api_password = None
+        self._api_username = None
+        self._certificate_on_file = None
+        self._deposit_to_account = None
+        self._email = None
+        self._environment = None
+        self._header_image_url = None
+        self._hide_bill_me_later = None
+        self._hide_express_checkout_on_view_cart = None
+        self._hide_for_unshipped_orders = None
+        self._hold_in_ar = None
+        self._landing_page = None
+        self._mode = None
+        self._private_key_password = None
+        self._processing_fee = None
+        self._processing_percentage = None
+        self._push_paypal = None
         self._restrictions = None
-        self._short_pay_pal_marketing_text = None
+        self._send_recurring = None
+        self._short_paypal_marketing_text = None
+        self._show_card_logos_not_directly_supported = None
+        self._show_signature = None
+        self._signature = None
+        self._solution_type = None
+        self._summary_email = None
+        self._summary_mode = None
+        self._zero_dollar_penny = None
         self.discriminator = None
 
-        if accept_pay_pal is not None:
-            self.accept_pay_pal = accept_pay_pal
-        if paypal_accounting_code is not None:
-            self.paypal_accounting_code = paypal_accounting_code
-        if paypal_api_password is not None:
-            self.paypal_api_password = paypal_api_password
-        if paypal_api_user_name is not None:
-            self.paypal_api_user_name = paypal_api_user_name
-        if paypal_certificate_on_file is not None:
-            self.paypal_certificate_on_file = paypal_certificate_on_file
-        if paypal_deposit_to_account is not None:
-            self.paypal_deposit_to_account = paypal_deposit_to_account
-        if paypal_email is not None:
-            self.paypal_email = paypal_email
-        if paypal_environment is not None:
-            self.paypal_environment = paypal_environment
-        if paypal_header_image_url is not None:
-            self.paypal_header_image_url = paypal_header_image_url
-        if paypal_hide_bill_me_later is not None:
-            self.paypal_hide_bill_me_later = paypal_hide_bill_me_later
-        if paypal_hide_express_checkout_on_view_cart is not None:
-            self.paypal_hide_express_checkout_on_view_cart = paypal_hide_express_checkout_on_view_cart
-        if paypal_hide_for_unshipped_orders is not None:
-            self.paypal_hide_for_unshipped_orders = paypal_hide_for_unshipped_orders
-        if paypal_hold_in_ar is not None:
-            self.paypal_hold_in_ar = paypal_hold_in_ar
-        if paypal_landing_page is not None:
-            self.paypal_landing_page = paypal_landing_page
-        if paypal_mode is not None:
-            self.paypal_mode = paypal_mode
-        if paypal_private_key_password is not None:
-            self.paypal_private_key_password = paypal_private_key_password
-        if paypal_processing_fee is not None:
-            self.paypal_processing_fee = paypal_processing_fee
-        if paypal_processing_perc is not None:
-            self.paypal_processing_perc = paypal_processing_perc
-        if paypal_send_recurring is not None:
-            self.paypal_send_recurring = paypal_send_recurring
-        if paypal_show_card_logos_not_directly_supported is not None:
-            self.paypal_show_card_logos_not_directly_supported = paypal_show_card_logos_not_directly_supported
-        if paypal_show_signature is not None:
-            self.paypal_show_signature = paypal_show_signature
-        if paypal_signature is not None:
-            self.paypal_signature = paypal_signature
-        if paypal_solution_type is not None:
-            self.paypal_solution_type = paypal_solution_type
-        if paypal_summary_email is not None:
-            self.paypal_summary_email = paypal_summary_email
-        if paypal_summary_mode is not None:
-            self.paypal_summary_mode = paypal_summary_mode
-        if paypal_zero_dollar_penny is not None:
-            self.paypal_zero_dollar_penny = paypal_zero_dollar_penny
-        if push_pay_pal is not None:
-            self.push_pay_pal = push_pay_pal
+        if accept_paypal is not None:
+            self.accept_paypal = accept_paypal
+        if accounting_code is not None:
+            self.accounting_code = accounting_code
+        if api_password is not None:
+            self.api_password = api_password
+        if api_username is not None:
+            self.api_username = api_username
+        if certificate_on_file is not None:
+            self.certificate_on_file = certificate_on_file
+        if deposit_to_account is not None:
+            self.deposit_to_account = deposit_to_account
+        if email is not None:
+            self.email = email
+        if environment is not None:
+            self.environment = environment
+        if header_image_url is not None:
+            self.header_image_url = header_image_url
+        if hide_bill_me_later is not None:
+            self.hide_bill_me_later = hide_bill_me_later
+        if hide_express_checkout_on_view_cart is not None:
+            self.hide_express_checkout_on_view_cart = hide_express_checkout_on_view_cart
+        if hide_for_unshipped_orders is not None:
+            self.hide_for_unshipped_orders = hide_for_unshipped_orders
+        if hold_in_ar is not None:
+            self.hold_in_ar = hold_in_ar
+        if landing_page is not None:
+            self.landing_page = landing_page
+        if mode is not None:
+            self.mode = mode
+        if private_key_password is not None:
+            self.private_key_password = private_key_password
+        if processing_fee is not None:
+            self.processing_fee = processing_fee
+        if processing_percentage is not None:
+            self.processing_percentage = processing_percentage
+        if push_paypal is not None:
+            self.push_paypal = push_paypal
         if restrictions is not None:
             self.restrictions = restrictions
-        if short_pay_pal_marketing_text is not None:
-            self.short_pay_pal_marketing_text = short_pay_pal_marketing_text
+        if send_recurring is not None:
+            self.send_recurring = send_recurring
+        if short_paypal_marketing_text is not None:
+            self.short_paypal_marketing_text = short_paypal_marketing_text
+        if show_card_logos_not_directly_supported is not None:
+            self.show_card_logos_not_directly_supported = show_card_logos_not_directly_supported
+        if show_signature is not None:
+            self.show_signature = show_signature
+        if signature is not None:
+            self.signature = signature
+        if solution_type is not None:
+            self.solution_type = solution_type
+        if summary_email is not None:
+            self.summary_email = summary_email
+        if summary_mode is not None:
+            self.summary_mode = summary_mode
+        if zero_dollar_penny is not None:
+            self.zero_dollar_penny = zero_dollar_penny
 
     @property
-    def accept_pay_pal(self):
-        """Gets the accept_pay_pal of this PaymentsConfigurationPayPal.  # noqa: E501
+    def accept_paypal(self):
+        """Gets the accept_paypal of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        Master flag that determine if PayPal is an active payment for this account  # noqa: E501
 
-        :return: The accept_pay_pal of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The accept_paypal of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: bool
         """
-        return self._accept_pay_pal
+        return self._accept_paypal
 
-    @accept_pay_pal.setter
-    def accept_pay_pal(self, accept_pay_pal):
-        """Sets the accept_pay_pal of this PaymentsConfigurationPayPal.
+    @accept_paypal.setter
+    def accept_paypal(self, accept_paypal):
+        """Sets the accept_paypal of this PaymentsConfigurationPayPal.
 
+        Master flag that determine if PayPal is an active payment for this account  # noqa: E501
 
-        :param accept_pay_pal: The accept_pay_pal of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param accept_paypal: The accept_paypal of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: bool
         """
 
-        self._accept_pay_pal = accept_pay_pal
+        self._accept_paypal = accept_paypal
 
     @property
-    def paypal_accounting_code(self):
-        """Gets the paypal_accounting_code of this PaymentsConfigurationPayPal.  # noqa: E501
+    def accounting_code(self):
+        """Gets the accounting_code of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        Optional accounting code that is set to Quickbooks when an order uses this payment method.  # noqa: E501
 
-        :return: The paypal_accounting_code of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The accounting_code of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: str
         """
-        return self._paypal_accounting_code
+        return self._accounting_code
 
-    @paypal_accounting_code.setter
-    def paypal_accounting_code(self, paypal_accounting_code):
-        """Sets the paypal_accounting_code of this PaymentsConfigurationPayPal.
+    @accounting_code.setter
+    def accounting_code(self, accounting_code):
+        """Sets the accounting_code of this PaymentsConfigurationPayPal.
 
+        Optional accounting code that is set to Quickbooks when an order uses this payment method.  # noqa: E501
 
-        :param paypal_accounting_code: The paypal_accounting_code of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param accounting_code: The accounting_code of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: str
         """
 
-        self._paypal_accounting_code = paypal_accounting_code
+        self._accounting_code = accounting_code
 
     @property
-    def paypal_api_password(self):
-        """Gets the paypal_api_password of this PaymentsConfigurationPayPal.  # noqa: E501
+    def api_password(self):
+        """Gets the api_password of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        PayPal API password  # noqa: E501
 
-        :return: The paypal_api_password of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The api_password of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: str
         """
-        return self._paypal_api_password
+        return self._api_password
 
-    @paypal_api_password.setter
-    def paypal_api_password(self, paypal_api_password):
-        """Sets the paypal_api_password of this PaymentsConfigurationPayPal.
+    @api_password.setter
+    def api_password(self, api_password):
+        """Sets the api_password of this PaymentsConfigurationPayPal.
 
+        PayPal API password  # noqa: E501
 
-        :param paypal_api_password: The paypal_api_password of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param api_password: The api_password of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: str
         """
 
-        self._paypal_api_password = paypal_api_password
+        self._api_password = api_password
 
     @property
-    def paypal_api_user_name(self):
-        """Gets the paypal_api_user_name of this PaymentsConfigurationPayPal.  # noqa: E501
+    def api_username(self):
+        """Gets the api_username of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        PayPal API username  # noqa: E501
 
-        :return: The paypal_api_user_name of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The api_username of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: str
         """
-        return self._paypal_api_user_name
+        return self._api_username
 
-    @paypal_api_user_name.setter
-    def paypal_api_user_name(self, paypal_api_user_name):
-        """Sets the paypal_api_user_name of this PaymentsConfigurationPayPal.
+    @api_username.setter
+    def api_username(self, api_username):
+        """Sets the api_username of this PaymentsConfigurationPayPal.
 
+        PayPal API username  # noqa: E501
 
-        :param paypal_api_user_name: The paypal_api_user_name of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param api_username: The api_username of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: str
         """
 
-        self._paypal_api_user_name = paypal_api_user_name
+        self._api_username = api_username
 
     @property
-    def paypal_certificate_on_file(self):
-        """Gets the paypal_certificate_on_file of this PaymentsConfigurationPayPal.  # noqa: E501
+    def certificate_on_file(self):
+        """Gets the certificate_on_file of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        (Legacy) true if there is a PayPal certificate already on file. Used to manage the internal UI  # noqa: E501
 
-        :return: The paypal_certificate_on_file of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The certificate_on_file of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: bool
         """
-        return self._paypal_certificate_on_file
+        return self._certificate_on_file
 
-    @paypal_certificate_on_file.setter
-    def paypal_certificate_on_file(self, paypal_certificate_on_file):
-        """Sets the paypal_certificate_on_file of this PaymentsConfigurationPayPal.
+    @certificate_on_file.setter
+    def certificate_on_file(self, certificate_on_file):
+        """Sets the certificate_on_file of this PaymentsConfigurationPayPal.
 
+        (Legacy) true if there is a PayPal certificate already on file. Used to manage the internal UI  # noqa: E501
 
-        :param paypal_certificate_on_file: The paypal_certificate_on_file of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param certificate_on_file: The certificate_on_file of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: bool
         """
 
-        self._paypal_certificate_on_file = paypal_certificate_on_file
+        self._certificate_on_file = certificate_on_file
 
     @property
-    def paypal_deposit_to_account(self):
-        """Gets the paypal_deposit_to_account of this PaymentsConfigurationPayPal.  # noqa: E501
+    def deposit_to_account(self):
+        """Gets the deposit_to_account of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        The account to deposit funds  # noqa: E501
 
-        :return: The paypal_deposit_to_account of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The deposit_to_account of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: str
         """
-        return self._paypal_deposit_to_account
+        return self._deposit_to_account
 
-    @paypal_deposit_to_account.setter
-    def paypal_deposit_to_account(self, paypal_deposit_to_account):
-        """Sets the paypal_deposit_to_account of this PaymentsConfigurationPayPal.
+    @deposit_to_account.setter
+    def deposit_to_account(self, deposit_to_account):
+        """Sets the deposit_to_account of this PaymentsConfigurationPayPal.
 
+        The account to deposit funds  # noqa: E501
 
-        :param paypal_deposit_to_account: The paypal_deposit_to_account of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param deposit_to_account: The deposit_to_account of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: str
         """
 
-        self._paypal_deposit_to_account = paypal_deposit_to_account
+        self._deposit_to_account = deposit_to_account
 
     @property
-    def paypal_email(self):
-        """Gets the paypal_email of this PaymentsConfigurationPayPal.  # noqa: E501
+    def email(self):
+        """Gets the email of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        The main PayPal email address  # noqa: E501
 
-        :return: The paypal_email of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The email of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: str
         """
-        return self._paypal_email
+        return self._email
 
-    @paypal_email.setter
-    def paypal_email(self, paypal_email):
-        """Sets the paypal_email of this PaymentsConfigurationPayPal.
+    @email.setter
+    def email(self, email):
+        """Sets the email of this PaymentsConfigurationPayPal.
 
+        The main PayPal email address  # noqa: E501
 
-        :param paypal_email: The paypal_email of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param email: The email of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: str
         """
 
-        self._paypal_email = paypal_email
+        self._email = email
 
     @property
-    def paypal_environment(self):
-        """Gets the paypal_environment of this PaymentsConfigurationPayPal.  # noqa: E501
+    def environment(self):
+        """Gets the environment of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        PayPal configuration, live or sandbox  # noqa: E501
 
-        :return: The paypal_environment of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The environment of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: str
         """
-        return self._paypal_environment
+        return self._environment
 
-    @paypal_environment.setter
-    def paypal_environment(self, paypal_environment):
-        """Sets the paypal_environment of this PaymentsConfigurationPayPal.
+    @environment.setter
+    def environment(self, environment):
+        """Sets the environment of this PaymentsConfigurationPayPal.
 
+        PayPal configuration, live or sandbox  # noqa: E501
 
-        :param paypal_environment: The paypal_environment of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param environment: The environment of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Live", "Sandbox"]  # noqa: E501
+        if environment not in allowed_values:
+            raise ValueError(
+                "Invalid value for `environment` ({0}), must be one of {1}"  # noqa: E501
+                .format(environment, allowed_values)
+            )
+
+        self._environment = environment
+
+    @property
+    def header_image_url(self):
+        """Gets the header_image_url of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        The URL for the PayPal header  # noqa: E501
+
+        :return: The header_image_url of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: str
+        """
+        return self._header_image_url
+
+    @header_image_url.setter
+    def header_image_url(self, header_image_url):
+        """Sets the header_image_url of this PaymentsConfigurationPayPal.
+
+        The URL for the PayPal header  # noqa: E501
+
+        :param header_image_url: The header_image_url of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: str
         """
 
-        self._paypal_environment = paypal_environment
+        self._header_image_url = header_image_url
 
     @property
-    def paypal_header_image_url(self):
-        """Gets the paypal_header_image_url of this PaymentsConfigurationPayPal.  # noqa: E501
+    def hide_bill_me_later(self):
+        """Gets the hide_bill_me_later of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        True if the Bill Me Later button should be hidden during checkout  # noqa: E501
 
-        :return: The paypal_header_image_url of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
-        """
-        return self._paypal_header_image_url
-
-    @paypal_header_image_url.setter
-    def paypal_header_image_url(self, paypal_header_image_url):
-        """Sets the paypal_header_image_url of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_header_image_url: The paypal_header_image_url of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
-        """
-
-        self._paypal_header_image_url = paypal_header_image_url
-
-    @property
-    def paypal_hide_bill_me_later(self):
-        """Gets the paypal_hide_bill_me_later of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_hide_bill_me_later of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The hide_bill_me_later of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: bool
         """
-        return self._paypal_hide_bill_me_later
+        return self._hide_bill_me_later
 
-    @paypal_hide_bill_me_later.setter
-    def paypal_hide_bill_me_later(self, paypal_hide_bill_me_later):
-        """Sets the paypal_hide_bill_me_later of this PaymentsConfigurationPayPal.
+    @hide_bill_me_later.setter
+    def hide_bill_me_later(self, hide_bill_me_later):
+        """Sets the hide_bill_me_later of this PaymentsConfigurationPayPal.
 
+        True if the Bill Me Later button should be hidden during checkout  # noqa: E501
 
-        :param paypal_hide_bill_me_later: The paypal_hide_bill_me_later of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param hide_bill_me_later: The hide_bill_me_later of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: bool
         """
 
-        self._paypal_hide_bill_me_later = paypal_hide_bill_me_later
+        self._hide_bill_me_later = hide_bill_me_later
 
     @property
-    def paypal_hide_express_checkout_on_view_cart(self):
-        """Gets the paypal_hide_express_checkout_on_view_cart of this PaymentsConfigurationPayPal.  # noqa: E501
+    def hide_express_checkout_on_view_cart(self):
+        """Gets the hide_express_checkout_on_view_cart of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        True if the PayPal express checkout button should be hidden on the view cart page.  This will force the customer to enter address information before being able to checkout with PayPal  # noqa: E501
 
-        :return: The paypal_hide_express_checkout_on_view_cart of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The hide_express_checkout_on_view_cart of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: bool
         """
-        return self._paypal_hide_express_checkout_on_view_cart
+        return self._hide_express_checkout_on_view_cart
 
-    @paypal_hide_express_checkout_on_view_cart.setter
-    def paypal_hide_express_checkout_on_view_cart(self, paypal_hide_express_checkout_on_view_cart):
-        """Sets the paypal_hide_express_checkout_on_view_cart of this PaymentsConfigurationPayPal.
+    @hide_express_checkout_on_view_cart.setter
+    def hide_express_checkout_on_view_cart(self, hide_express_checkout_on_view_cart):
+        """Sets the hide_express_checkout_on_view_cart of this PaymentsConfigurationPayPal.
 
+        True if the PayPal express checkout button should be hidden on the view cart page.  This will force the customer to enter address information before being able to checkout with PayPal  # noqa: E501
 
-        :param paypal_hide_express_checkout_on_view_cart: The paypal_hide_express_checkout_on_view_cart of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param hide_express_checkout_on_view_cart: The hide_express_checkout_on_view_cart of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: bool
         """
 
-        self._paypal_hide_express_checkout_on_view_cart = paypal_hide_express_checkout_on_view_cart
+        self._hide_express_checkout_on_view_cart = hide_express_checkout_on_view_cart
 
     @property
-    def paypal_hide_for_unshipped_orders(self):
-        """Gets the paypal_hide_for_unshipped_orders of this PaymentsConfigurationPayPal.  # noqa: E501
+    def hide_for_unshipped_orders(self):
+        """Gets the hide_for_unshipped_orders of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        True if PayPal should be hidden for orders with no shippable product, such as digital orders  # noqa: E501
 
-        :return: The paypal_hide_for_unshipped_orders of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The hide_for_unshipped_orders of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: bool
         """
-        return self._paypal_hide_for_unshipped_orders
+        return self._hide_for_unshipped_orders
 
-    @paypal_hide_for_unshipped_orders.setter
-    def paypal_hide_for_unshipped_orders(self, paypal_hide_for_unshipped_orders):
-        """Sets the paypal_hide_for_unshipped_orders of this PaymentsConfigurationPayPal.
+    @hide_for_unshipped_orders.setter
+    def hide_for_unshipped_orders(self, hide_for_unshipped_orders):
+        """Sets the hide_for_unshipped_orders of this PaymentsConfigurationPayPal.
 
+        True if PayPal should be hidden for orders with no shippable product, such as digital orders  # noqa: E501
 
-        :param paypal_hide_for_unshipped_orders: The paypal_hide_for_unshipped_orders of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param hide_for_unshipped_orders: The hide_for_unshipped_orders of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: bool
         """
 
-        self._paypal_hide_for_unshipped_orders = paypal_hide_for_unshipped_orders
+        self._hide_for_unshipped_orders = hide_for_unshipped_orders
 
     @property
-    def paypal_hold_in_ar(self):
-        """Gets the paypal_hold_in_ar of this PaymentsConfigurationPayPal.  # noqa: E501
+    def hold_in_ar(self):
+        """Gets the hold_in_ar of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        If true, PayPal orders are held in Accounts Receivable for review  # noqa: E501
 
-        :return: The paypal_hold_in_ar of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The hold_in_ar of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: bool
         """
-        return self._paypal_hold_in_ar
+        return self._hold_in_ar
 
-    @paypal_hold_in_ar.setter
-    def paypal_hold_in_ar(self, paypal_hold_in_ar):
-        """Sets the paypal_hold_in_ar of this PaymentsConfigurationPayPal.
+    @hold_in_ar.setter
+    def hold_in_ar(self, hold_in_ar):
+        """Sets the hold_in_ar of this PaymentsConfigurationPayPal.
 
+        If true, PayPal orders are held in Accounts Receivable for review  # noqa: E501
 
-        :param paypal_hold_in_ar: The paypal_hold_in_ar of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param hold_in_ar: The hold_in_ar of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: bool
         """
 
-        self._paypal_hold_in_ar = paypal_hold_in_ar
+        self._hold_in_ar = hold_in_ar
 
     @property
-    def paypal_landing_page(self):
-        """Gets the paypal_landing_page of this PaymentsConfigurationPayPal.  # noqa: E501
+    def landing_page(self):
+        """Gets the landing_page of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        PayPal landing page  # noqa: E501
 
-        :return: The paypal_landing_page of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The landing_page of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: str
         """
-        return self._paypal_landing_page
+        return self._landing_page
 
-    @paypal_landing_page.setter
-    def paypal_landing_page(self, paypal_landing_page):
-        """Sets the paypal_landing_page of this PaymentsConfigurationPayPal.
+    @landing_page.setter
+    def landing_page(self, landing_page):
+        """Sets the landing_page of this PaymentsConfigurationPayPal.
 
+        PayPal landing page  # noqa: E501
 
-        :param paypal_landing_page: The paypal_landing_page of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param landing_page: The landing_page of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Billing", "Login"]  # noqa: E501
+        if landing_page not in allowed_values:
+            raise ValueError(
+                "Invalid value for `landing_page` ({0}), must be one of {1}"  # noqa: E501
+                .format(landing_page, allowed_values)
+            )
+
+        self._landing_page = landing_page
+
+    @property
+    def mode(self):
+        """Gets the mode of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        The PayPal mode  # noqa: E501
+
+        :return: The mode of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: str
+        """
+        return self._mode
+
+    @mode.setter
+    def mode(self, mode):
+        """Sets the mode of this PaymentsConfigurationPayPal.
+
+        The PayPal mode  # noqa: E501
+
+        :param mode: The mode of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["WPPECO", "WPPECDP"]  # noqa: E501
+        if mode not in allowed_values:
+            raise ValueError(
+                "Invalid value for `mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(mode, allowed_values)
+            )
+
+        self._mode = mode
+
+    @property
+    def private_key_password(self):
+        """Gets the private_key_password of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        PayPal API private key password  # noqa: E501
+
+        :return: The private_key_password of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_key_password
+
+    @private_key_password.setter
+    def private_key_password(self, private_key_password):
+        """Sets the private_key_password of this PaymentsConfigurationPayPal.
+
+        PayPal API private key password  # noqa: E501
+
+        :param private_key_password: The private_key_password of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: str
         """
 
-        self._paypal_landing_page = paypal_landing_page
+        self._private_key_password = private_key_password
 
     @property
-    def paypal_mode(self):
-        """Gets the paypal_mode of this PaymentsConfigurationPayPal.  # noqa: E501
+    def processing_fee(self):
+        """Gets the processing_fee of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        Optional additional fee to charge if PayPal is used.  It is rare for this to be used.  # noqa: E501
 
-        :return: The paypal_mode of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The processing_fee of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: str
         """
-        return self._paypal_mode
+        return self._processing_fee
 
-    @paypal_mode.setter
-    def paypal_mode(self, paypal_mode):
-        """Sets the paypal_mode of this PaymentsConfigurationPayPal.
+    @processing_fee.setter
+    def processing_fee(self, processing_fee):
+        """Sets the processing_fee of this PaymentsConfigurationPayPal.
 
+        Optional additional fee to charge if PayPal is used.  It is rare for this to be used.  # noqa: E501
 
-        :param paypal_mode: The paypal_mode of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param processing_fee: The processing_fee of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: str
         """
 
-        self._paypal_mode = paypal_mode
+        self._processing_fee = processing_fee
 
     @property
-    def paypal_private_key_password(self):
-        """Gets the paypal_private_key_password of this PaymentsConfigurationPayPal.  # noqa: E501
+    def processing_percentage(self):
+        """Gets the processing_percentage of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        The processing percentage charged by PayPal  # noqa: E501
 
-        :return: The paypal_private_key_password of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The processing_percentage of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: str
         """
-        return self._paypal_private_key_password
+        return self._processing_percentage
 
-    @paypal_private_key_password.setter
-    def paypal_private_key_password(self, paypal_private_key_password):
-        """Sets the paypal_private_key_password of this PaymentsConfigurationPayPal.
+    @processing_percentage.setter
+    def processing_percentage(self, processing_percentage):
+        """Sets the processing_percentage of this PaymentsConfigurationPayPal.
 
+        The processing percentage charged by PayPal  # noqa: E501
 
-        :param paypal_private_key_password: The paypal_private_key_password of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param processing_percentage: The processing_percentage of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: str
         """
 
-        self._paypal_private_key_password = paypal_private_key_password
+        self._processing_percentage = processing_percentage
 
     @property
-    def paypal_processing_fee(self):
-        """Gets the paypal_processing_fee of this PaymentsConfigurationPayPal.  # noqa: E501
+    def push_paypal(self):
+        """Gets the push_paypal of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        True if the internal UI should recommend opening a PayPal account  # noqa: E501
 
-        :return: The paypal_processing_fee of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
-        """
-        return self._paypal_processing_fee
-
-    @paypal_processing_fee.setter
-    def paypal_processing_fee(self, paypal_processing_fee):
-        """Sets the paypal_processing_fee of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_processing_fee: The paypal_processing_fee of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
-        """
-
-        self._paypal_processing_fee = paypal_processing_fee
-
-    @property
-    def paypal_processing_perc(self):
-        """Gets the paypal_processing_perc of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_processing_perc of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
-        """
-        return self._paypal_processing_perc
-
-    @paypal_processing_perc.setter
-    def paypal_processing_perc(self, paypal_processing_perc):
-        """Sets the paypal_processing_perc of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_processing_perc: The paypal_processing_perc of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
-        """
-
-        self._paypal_processing_perc = paypal_processing_perc
-
-    @property
-    def paypal_send_recurring(self):
-        """Gets the paypal_send_recurring of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_send_recurring of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
-        """
-        return self._paypal_send_recurring
-
-    @paypal_send_recurring.setter
-    def paypal_send_recurring(self, paypal_send_recurring):
-        """Sets the paypal_send_recurring of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_send_recurring: The paypal_send_recurring of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
-        """
-
-        self._paypal_send_recurring = paypal_send_recurring
-
-    @property
-    def paypal_show_card_logos_not_directly_supported(self):
-        """Gets the paypal_show_card_logos_not_directly_supported of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_show_card_logos_not_directly_supported of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The push_paypal of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: bool
         """
-        return self._paypal_show_card_logos_not_directly_supported
+        return self._push_paypal
 
-    @paypal_show_card_logos_not_directly_supported.setter
-    def paypal_show_card_logos_not_directly_supported(self, paypal_show_card_logos_not_directly_supported):
-        """Sets the paypal_show_card_logos_not_directly_supported of this PaymentsConfigurationPayPal.
+    @push_paypal.setter
+    def push_paypal(self, push_paypal):
+        """Sets the push_paypal of this PaymentsConfigurationPayPal.
 
+        True if the internal UI should recommend opening a PayPal account  # noqa: E501
 
-        :param paypal_show_card_logos_not_directly_supported: The paypal_show_card_logos_not_directly_supported of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param push_paypal: The push_paypal of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: bool
         """
 
-        self._paypal_show_card_logos_not_directly_supported = paypal_show_card_logos_not_directly_supported
-
-    @property
-    def paypal_show_signature(self):
-        """Gets the paypal_show_signature of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_show_signature of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: bool
-        """
-        return self._paypal_show_signature
-
-    @paypal_show_signature.setter
-    def paypal_show_signature(self, paypal_show_signature):
-        """Sets the paypal_show_signature of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_show_signature: The paypal_show_signature of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: bool
-        """
-
-        self._paypal_show_signature = paypal_show_signature
-
-    @property
-    def paypal_signature(self):
-        """Gets the paypal_signature of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_signature of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
-        """
-        return self._paypal_signature
-
-    @paypal_signature.setter
-    def paypal_signature(self, paypal_signature):
-        """Sets the paypal_signature of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_signature: The paypal_signature of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
-        """
-
-        self._paypal_signature = paypal_signature
-
-    @property
-    def paypal_solution_type(self):
-        """Gets the paypal_solution_type of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_solution_type of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
-        """
-        return self._paypal_solution_type
-
-    @paypal_solution_type.setter
-    def paypal_solution_type(self, paypal_solution_type):
-        """Sets the paypal_solution_type of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_solution_type: The paypal_solution_type of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
-        """
-
-        self._paypal_solution_type = paypal_solution_type
-
-    @property
-    def paypal_summary_email(self):
-        """Gets the paypal_summary_email of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_summary_email of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
-        """
-        return self._paypal_summary_email
-
-    @paypal_summary_email.setter
-    def paypal_summary_email(self, paypal_summary_email):
-        """Sets the paypal_summary_email of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_summary_email: The paypal_summary_email of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
-        """
-
-        self._paypal_summary_email = paypal_summary_email
-
-    @property
-    def paypal_summary_mode(self):
-        """Gets the paypal_summary_mode of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_summary_mode of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
-        """
-        return self._paypal_summary_mode
-
-    @paypal_summary_mode.setter
-    def paypal_summary_mode(self, paypal_summary_mode):
-        """Sets the paypal_summary_mode of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_summary_mode: The paypal_summary_mode of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
-        """
-
-        self._paypal_summary_mode = paypal_summary_mode
-
-    @property
-    def paypal_zero_dollar_penny(self):
-        """Gets the paypal_zero_dollar_penny of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The paypal_zero_dollar_penny of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: bool
-        """
-        return self._paypal_zero_dollar_penny
-
-    @paypal_zero_dollar_penny.setter
-    def paypal_zero_dollar_penny(self, paypal_zero_dollar_penny):
-        """Sets the paypal_zero_dollar_penny of this PaymentsConfigurationPayPal.
-
-
-        :param paypal_zero_dollar_penny: The paypal_zero_dollar_penny of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: bool
-        """
-
-        self._paypal_zero_dollar_penny = paypal_zero_dollar_penny
-
-    @property
-    def push_pay_pal(self):
-        """Gets the push_pay_pal of this PaymentsConfigurationPayPal.  # noqa: E501
-
-
-        :return: The push_pay_pal of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: bool
-        """
-        return self._push_pay_pal
-
-    @push_pay_pal.setter
-    def push_pay_pal(self, push_pay_pal):
-        """Sets the push_pay_pal of this PaymentsConfigurationPayPal.
-
-
-        :param push_pay_pal: The push_pay_pal of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: bool
-        """
-
-        self._push_pay_pal = push_pay_pal
+        self._push_paypal = push_paypal
 
     @property
     def restrictions(self):
@@ -776,25 +664,217 @@ class PaymentsConfigurationPayPal(object):
         self._restrictions = restrictions
 
     @property
-    def short_pay_pal_marketing_text(self):
-        """Gets the short_pay_pal_marketing_text of this PaymentsConfigurationPayPal.  # noqa: E501
+    def send_recurring(self):
+        """Gets the send_recurring of this PaymentsConfigurationPayPal.  # noqa: E501
 
+        True if UltraCart should send recurring orders to PayPal.  There are restrictions to what PayPal will accept for recurring orders.  Be careful.  # noqa: E501
 
-        :return: The short_pay_pal_marketing_text of this PaymentsConfigurationPayPal.  # noqa: E501
+        :return: The send_recurring of this PaymentsConfigurationPayPal.  # noqa: E501
         :rtype: bool
         """
-        return self._short_pay_pal_marketing_text
+        return self._send_recurring
 
-    @short_pay_pal_marketing_text.setter
-    def short_pay_pal_marketing_text(self, short_pay_pal_marketing_text):
-        """Sets the short_pay_pal_marketing_text of this PaymentsConfigurationPayPal.
+    @send_recurring.setter
+    def send_recurring(self, send_recurring):
+        """Sets the send_recurring of this PaymentsConfigurationPayPal.
 
+        True if UltraCart should send recurring orders to PayPal.  There are restrictions to what PayPal will accept for recurring orders.  Be careful.  # noqa: E501
 
-        :param short_pay_pal_marketing_text: The short_pay_pal_marketing_text of this PaymentsConfigurationPayPal.  # noqa: E501
+        :param send_recurring: The send_recurring of this PaymentsConfigurationPayPal.  # noqa: E501
         :type: bool
         """
 
-        self._short_pay_pal_marketing_text = short_pay_pal_marketing_text
+        self._send_recurring = send_recurring
+
+    @property
+    def short_paypal_marketing_text(self):
+        """Gets the short_paypal_marketing_text of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        Short marketing text  # noqa: E501
+
+        :return: The short_paypal_marketing_text of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: bool
+        """
+        return self._short_paypal_marketing_text
+
+    @short_paypal_marketing_text.setter
+    def short_paypal_marketing_text(self, short_paypal_marketing_text):
+        """Sets the short_paypal_marketing_text of this PaymentsConfigurationPayPal.
+
+        Short marketing text  # noqa: E501
+
+        :param short_paypal_marketing_text: The short_paypal_marketing_text of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: bool
+        """
+
+        self._short_paypal_marketing_text = short_paypal_marketing_text
+
+    @property
+    def show_card_logos_not_directly_supported(self):
+        """Gets the show_card_logos_not_directly_supported of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        internal ui flag  # noqa: E501
+
+        :return: The show_card_logos_not_directly_supported of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_card_logos_not_directly_supported
+
+    @show_card_logos_not_directly_supported.setter
+    def show_card_logos_not_directly_supported(self, show_card_logos_not_directly_supported):
+        """Sets the show_card_logos_not_directly_supported of this PaymentsConfigurationPayPal.
+
+        internal ui flag  # noqa: E501
+
+        :param show_card_logos_not_directly_supported: The show_card_logos_not_directly_supported of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_card_logos_not_directly_supported = show_card_logos_not_directly_supported
+
+    @property
+    def show_signature(self):
+        """Gets the show_signature of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        Internal flag used to manage UI  # noqa: E501
+
+        :return: The show_signature of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_signature
+
+    @show_signature.setter
+    def show_signature(self, show_signature):
+        """Sets the show_signature of this PaymentsConfigurationPayPal.
+
+        Internal flag used to manage UI  # noqa: E501
+
+        :param show_signature: The show_signature of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_signature = show_signature
+
+    @property
+    def signature(self):
+        """Gets the signature of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        PayPal signature  # noqa: E501
+
+        :return: The signature of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: str
+        """
+        return self._signature
+
+    @signature.setter
+    def signature(self, signature):
+        """Sets the signature of this PaymentsConfigurationPayPal.
+
+        PayPal signature  # noqa: E501
+
+        :param signature: The signature of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: str
+        """
+
+        self._signature = signature
+
+    @property
+    def solution_type(self):
+        """Gets the solution_type of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        PayPal solution type  # noqa: E501
+
+        :return: The solution_type of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: str
+        """
+        return self._solution_type
+
+    @solution_type.setter
+    def solution_type(self, solution_type):
+        """Sets the solution_type of this PaymentsConfigurationPayPal.
+
+        PayPal solution type  # noqa: E501
+
+        :param solution_type: The solution_type of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Sole", "Mark"]  # noqa: E501
+        if solution_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `solution_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(solution_type, allowed_values)
+            )
+
+        self._solution_type = solution_type
+
+    @property
+    def summary_email(self):
+        """Gets the summary_email of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        The email where PayPal summaries should be sent  # noqa: E501
+
+        :return: The summary_email of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: str
+        """
+        return self._summary_email
+
+    @summary_email.setter
+    def summary_email(self, summary_email):
+        """Sets the summary_email of this PaymentsConfigurationPayPal.
+
+        The email where PayPal summaries should be sent  # noqa: E501
+
+        :param summary_email: The summary_email of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: str
+        """
+
+        self._summary_email = summary_email
+
+    @property
+    def summary_mode(self):
+        """Gets the summary_mode of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        Description of what mode PayPal is operating  # noqa: E501
+
+        :return: The summary_mode of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: str
+        """
+        return self._summary_mode
+
+    @summary_mode.setter
+    def summary_mode(self, summary_mode):
+        """Sets the summary_mode of this PaymentsConfigurationPayPal.
+
+        Description of what mode PayPal is operating  # noqa: E501
+
+        :param summary_mode: The summary_mode of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: str
+        """
+
+        self._summary_mode = summary_mode
+
+    @property
+    def zero_dollar_penny(self):
+        """Gets the zero_dollar_penny of this PaymentsConfigurationPayPal.  # noqa: E501
+
+        Send free items to PayPal as one cent items and subtract this penny from shipping.  PayPal does not allow the sale of free items.  # noqa: E501
+
+        :return: The zero_dollar_penny of this PaymentsConfigurationPayPal.  # noqa: E501
+        :rtype: bool
+        """
+        return self._zero_dollar_penny
+
+    @zero_dollar_penny.setter
+    def zero_dollar_penny(self, zero_dollar_penny):
+        """Sets the zero_dollar_penny of this PaymentsConfigurationPayPal.
+
+        Send free items to PayPal as one cent items and subtract this penny from shipping.  PayPal does not allow the sale of free items.  # noqa: E501
+
+        :param zero_dollar_penny: The zero_dollar_penny of this PaymentsConfigurationPayPal.  # noqa: E501
+        :type: bool
+        """
+
+        self._zero_dollar_penny = zero_dollar_penny
 
     def to_dict(self):
         """Returns the model properties as a dict"""

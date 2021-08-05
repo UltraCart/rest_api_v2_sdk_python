@@ -32,160 +32,161 @@ class PaymentsConfigurationWePay(object):
     """
     swagger_types = {
         'accept_wepay': 'bool',
-        'hide_credit_cards_non_ultra_cart_payments': 'bool',
-        'hide_surcharge_content': 'bool',
+        'account_update_uri': 'str',
+        'address1': 'str',
+        'address2': 'str',
+        'canada_accept_debit_cards': 'bool',
+        'city': 'str',
+        'company': 'str',
+        'company_description': 'str',
+        'console_hostname': 'str',
+        'country': 'str',
+        'currency': 'str',
+        'expected_revenue': 'str',
+        'hide_credit_card_non_ultracart_payments': 'bool',
+        'hide_surcharge_amount': 'bool',
+        'industry': 'str',
+        'owner_email': 'str',
+        'owner_name': 'str',
+        'owner_phone': 'str',
+        'postal_code': 'str',
         'remove_pay_pal_pro': 'bool',
         'restrictions': 'PaymentsConfigurationRestrictions',
-        'short_pay_pal_marketing_text': 'bool',
-        'show_ultra_cart_payments_disabled': 'bool',
-        'show_ultra_cart_payments_intro': 'bool',
-        'show_ultra_cart_payments_verification': 'bool',
-        'show_ultra_cart_payments_verified': 'bool',
-        'wepay_account_update_uri': 'str',
-        'wepay_address1': 'str',
-        'wepay_address2': 'str',
-        'wepay_canada_accept_debit_cards': 'bool',
-        'wepay_city': 'str',
-        'wepay_company': 'str',
-        'wepay_company_description': 'str',
-        'wepay_console_hostname': 'str',
-        'wepay_country': 'str',
-        'wepay_currency': 'str',
-        'wepay_expected_revenue': 'str',
-        'wepay_industry': 'str',
-        'wepay_owner_email': 'str',
-        'wepay_owner_name': 'str',
-        'wepay_owner_phone': 'str',
-        'wepay_state': 'str',
-        'wepay_website_url': 'str',
-        'wepay_zip': 'str'
+        'short_paypal_marketing_text': 'bool',
+        'show_ultracart_payments_disabled': 'bool',
+        'show_ultracart_payments_intro': 'bool',
+        'show_ultracart_payments_verification': 'bool',
+        'show_ultracart_payments_verified': 'bool',
+        'state': 'str',
+        'website_url': 'str'
     }
 
     attribute_map = {
-        'accept_wepay': 'acceptWepay',
-        'hide_credit_cards_non_ultra_cart_payments': 'hideCreditCardsNonUltraCartPayments',
-        'hide_surcharge_content': 'hideSurchargeContent',
+        'accept_wepay': 'accept_wepay',
+        'account_update_uri': 'account_update_uri',
+        'address1': 'address1',
+        'address2': 'address2',
+        'canada_accept_debit_cards': 'canada_accept_debit_cards',
+        'city': 'city',
+        'company': 'company',
+        'company_description': 'company_description',
+        'console_hostname': 'console_hostname',
+        'country': 'country',
+        'currency': 'currency',
+        'expected_revenue': 'expected_revenue',
+        'hide_credit_card_non_ultracart_payments': 'hide_credit_card_non_ultracart_payments',
+        'hide_surcharge_amount': 'hide_surcharge_amount',
+        'industry': 'industry',
+        'owner_email': 'owner_email',
+        'owner_name': 'owner_name',
+        'owner_phone': 'owner_phone',
+        'postal_code': 'postal_code',
         'remove_pay_pal_pro': 'removePayPalPro',
         'restrictions': 'restrictions',
-        'short_pay_pal_marketing_text': 'shortPayPalMarketingText',
-        'show_ultra_cart_payments_disabled': 'showUltraCartPaymentsDisabled',
-        'show_ultra_cart_payments_intro': 'showUltraCartPaymentsIntro',
-        'show_ultra_cart_payments_verification': 'showUltraCartPaymentsVerification',
-        'show_ultra_cart_payments_verified': 'showUltraCartPaymentsVerified',
-        'wepay_account_update_uri': 'wepayAccountUpdateUri',
-        'wepay_address1': 'wepayAddress1',
-        'wepay_address2': 'wepayAddress2',
-        'wepay_canada_accept_debit_cards': 'wepayCanadaAcceptDebitCards',
-        'wepay_city': 'wepayCity',
-        'wepay_company': 'wepayCompany',
-        'wepay_company_description': 'wepayCompanyDescription',
-        'wepay_console_hostname': 'wepayConsoleHostname',
-        'wepay_country': 'wepayCountry',
-        'wepay_currency': 'wepayCurrency',
-        'wepay_expected_revenue': 'wepayExpectedRevenue',
-        'wepay_industry': 'wepayIndustry',
-        'wepay_owner_email': 'wepayOwnerEmail',
-        'wepay_owner_name': 'wepayOwnerName',
-        'wepay_owner_phone': 'wepayOwnerPhone',
-        'wepay_state': 'wepayState',
-        'wepay_website_url': 'wepayWebsiteUrl',
-        'wepay_zip': 'wepayZip'
+        'short_paypal_marketing_text': 'short_paypal_marketing_text',
+        'show_ultracart_payments_disabled': 'show_ultracart_payments_disabled',
+        'show_ultracart_payments_intro': 'show_ultracart_payments_intro',
+        'show_ultracart_payments_verification': 'show_ultracart_payments_verification',
+        'show_ultracart_payments_verified': 'show_ultracart_payments_verified',
+        'state': 'state',
+        'website_url': 'website_url'
     }
 
-    def __init__(self, accept_wepay=None, hide_credit_cards_non_ultra_cart_payments=None, hide_surcharge_content=None, remove_pay_pal_pro=None, restrictions=None, short_pay_pal_marketing_text=None, show_ultra_cart_payments_disabled=None, show_ultra_cart_payments_intro=None, show_ultra_cart_payments_verification=None, show_ultra_cart_payments_verified=None, wepay_account_update_uri=None, wepay_address1=None, wepay_address2=None, wepay_canada_accept_debit_cards=None, wepay_city=None, wepay_company=None, wepay_company_description=None, wepay_console_hostname=None, wepay_country=None, wepay_currency=None, wepay_expected_revenue=None, wepay_industry=None, wepay_owner_email=None, wepay_owner_name=None, wepay_owner_phone=None, wepay_state=None, wepay_website_url=None, wepay_zip=None):  # noqa: E501
+    def __init__(self, accept_wepay=None, account_update_uri=None, address1=None, address2=None, canada_accept_debit_cards=None, city=None, company=None, company_description=None, console_hostname=None, country=None, currency=None, expected_revenue=None, hide_credit_card_non_ultracart_payments=None, hide_surcharge_amount=None, industry=None, owner_email=None, owner_name=None, owner_phone=None, postal_code=None, remove_pay_pal_pro=None, restrictions=None, short_paypal_marketing_text=None, show_ultracart_payments_disabled=None, show_ultracart_payments_intro=None, show_ultracart_payments_verification=None, show_ultracart_payments_verified=None, state=None, website_url=None):  # noqa: E501
         """PaymentsConfigurationWePay - a model defined in Swagger"""  # noqa: E501
 
         self._accept_wepay = None
-        self._hide_credit_cards_non_ultra_cart_payments = None
-        self._hide_surcharge_content = None
+        self._account_update_uri = None
+        self._address1 = None
+        self._address2 = None
+        self._canada_accept_debit_cards = None
+        self._city = None
+        self._company = None
+        self._company_description = None
+        self._console_hostname = None
+        self._country = None
+        self._currency = None
+        self._expected_revenue = None
+        self._hide_credit_card_non_ultracart_payments = None
+        self._hide_surcharge_amount = None
+        self._industry = None
+        self._owner_email = None
+        self._owner_name = None
+        self._owner_phone = None
+        self._postal_code = None
         self._remove_pay_pal_pro = None
         self._restrictions = None
-        self._short_pay_pal_marketing_text = None
-        self._show_ultra_cart_payments_disabled = None
-        self._show_ultra_cart_payments_intro = None
-        self._show_ultra_cart_payments_verification = None
-        self._show_ultra_cart_payments_verified = None
-        self._wepay_account_update_uri = None
-        self._wepay_address1 = None
-        self._wepay_address2 = None
-        self._wepay_canada_accept_debit_cards = None
-        self._wepay_city = None
-        self._wepay_company = None
-        self._wepay_company_description = None
-        self._wepay_console_hostname = None
-        self._wepay_country = None
-        self._wepay_currency = None
-        self._wepay_expected_revenue = None
-        self._wepay_industry = None
-        self._wepay_owner_email = None
-        self._wepay_owner_name = None
-        self._wepay_owner_phone = None
-        self._wepay_state = None
-        self._wepay_website_url = None
-        self._wepay_zip = None
+        self._short_paypal_marketing_text = None
+        self._show_ultracart_payments_disabled = None
+        self._show_ultracart_payments_intro = None
+        self._show_ultracart_payments_verification = None
+        self._show_ultracart_payments_verified = None
+        self._state = None
+        self._website_url = None
         self.discriminator = None
 
         if accept_wepay is not None:
             self.accept_wepay = accept_wepay
-        if hide_credit_cards_non_ultra_cart_payments is not None:
-            self.hide_credit_cards_non_ultra_cart_payments = hide_credit_cards_non_ultra_cart_payments
-        if hide_surcharge_content is not None:
-            self.hide_surcharge_content = hide_surcharge_content
+        if account_update_uri is not None:
+            self.account_update_uri = account_update_uri
+        if address1 is not None:
+            self.address1 = address1
+        if address2 is not None:
+            self.address2 = address2
+        if canada_accept_debit_cards is not None:
+            self.canada_accept_debit_cards = canada_accept_debit_cards
+        if city is not None:
+            self.city = city
+        if company is not None:
+            self.company = company
+        if company_description is not None:
+            self.company_description = company_description
+        if console_hostname is not None:
+            self.console_hostname = console_hostname
+        if country is not None:
+            self.country = country
+        if currency is not None:
+            self.currency = currency
+        if expected_revenue is not None:
+            self.expected_revenue = expected_revenue
+        if hide_credit_card_non_ultracart_payments is not None:
+            self.hide_credit_card_non_ultracart_payments = hide_credit_card_non_ultracart_payments
+        if hide_surcharge_amount is not None:
+            self.hide_surcharge_amount = hide_surcharge_amount
+        if industry is not None:
+            self.industry = industry
+        if owner_email is not None:
+            self.owner_email = owner_email
+        if owner_name is not None:
+            self.owner_name = owner_name
+        if owner_phone is not None:
+            self.owner_phone = owner_phone
+        if postal_code is not None:
+            self.postal_code = postal_code
         if remove_pay_pal_pro is not None:
             self.remove_pay_pal_pro = remove_pay_pal_pro
         if restrictions is not None:
             self.restrictions = restrictions
-        if short_pay_pal_marketing_text is not None:
-            self.short_pay_pal_marketing_text = short_pay_pal_marketing_text
-        if show_ultra_cart_payments_disabled is not None:
-            self.show_ultra_cart_payments_disabled = show_ultra_cart_payments_disabled
-        if show_ultra_cart_payments_intro is not None:
-            self.show_ultra_cart_payments_intro = show_ultra_cart_payments_intro
-        if show_ultra_cart_payments_verification is not None:
-            self.show_ultra_cart_payments_verification = show_ultra_cart_payments_verification
-        if show_ultra_cart_payments_verified is not None:
-            self.show_ultra_cart_payments_verified = show_ultra_cart_payments_verified
-        if wepay_account_update_uri is not None:
-            self.wepay_account_update_uri = wepay_account_update_uri
-        if wepay_address1 is not None:
-            self.wepay_address1 = wepay_address1
-        if wepay_address2 is not None:
-            self.wepay_address2 = wepay_address2
-        if wepay_canada_accept_debit_cards is not None:
-            self.wepay_canada_accept_debit_cards = wepay_canada_accept_debit_cards
-        if wepay_city is not None:
-            self.wepay_city = wepay_city
-        if wepay_company is not None:
-            self.wepay_company = wepay_company
-        if wepay_company_description is not None:
-            self.wepay_company_description = wepay_company_description
-        if wepay_console_hostname is not None:
-            self.wepay_console_hostname = wepay_console_hostname
-        if wepay_country is not None:
-            self.wepay_country = wepay_country
-        if wepay_currency is not None:
-            self.wepay_currency = wepay_currency
-        if wepay_expected_revenue is not None:
-            self.wepay_expected_revenue = wepay_expected_revenue
-        if wepay_industry is not None:
-            self.wepay_industry = wepay_industry
-        if wepay_owner_email is not None:
-            self.wepay_owner_email = wepay_owner_email
-        if wepay_owner_name is not None:
-            self.wepay_owner_name = wepay_owner_name
-        if wepay_owner_phone is not None:
-            self.wepay_owner_phone = wepay_owner_phone
-        if wepay_state is not None:
-            self.wepay_state = wepay_state
-        if wepay_website_url is not None:
-            self.wepay_website_url = wepay_website_url
-        if wepay_zip is not None:
-            self.wepay_zip = wepay_zip
+        if short_paypal_marketing_text is not None:
+            self.short_paypal_marketing_text = short_paypal_marketing_text
+        if show_ultracart_payments_disabled is not None:
+            self.show_ultracart_payments_disabled = show_ultracart_payments_disabled
+        if show_ultracart_payments_intro is not None:
+            self.show_ultracart_payments_intro = show_ultracart_payments_intro
+        if show_ultracart_payments_verification is not None:
+            self.show_ultracart_payments_verification = show_ultracart_payments_verification
+        if show_ultracart_payments_verified is not None:
+            self.show_ultracart_payments_verified = show_ultracart_payments_verified
+        if state is not None:
+            self.state = state
+        if website_url is not None:
+            self.website_url = website_url
 
     @property
     def accept_wepay(self):
         """Gets the accept_wepay of this PaymentsConfigurationWePay.  # noqa: E501
 
+        Master flag indicating this merchant accepts UltraCart Payments WePay  # noqa: E501
 
         :return: The accept_wepay of this PaymentsConfigurationWePay.  # noqa: E501
         :rtype: bool
@@ -196,6 +197,7 @@ class PaymentsConfigurationWePay(object):
     def accept_wepay(self, accept_wepay):
         """Sets the accept_wepay of this PaymentsConfigurationWePay.
 
+        Master flag indicating this merchant accepts UltraCart Payments WePay  # noqa: E501
 
         :param accept_wepay: The accept_wepay of this PaymentsConfigurationWePay.  # noqa: E501
         :type: bool
@@ -204,46 +206,418 @@ class PaymentsConfigurationWePay(object):
         self._accept_wepay = accept_wepay
 
     @property
-    def hide_credit_cards_non_ultra_cart_payments(self):
-        """Gets the hide_credit_cards_non_ultra_cart_payments of this PaymentsConfigurationWePay.  # noqa: E501
+    def account_update_uri(self):
+        """Gets the account_update_uri of this PaymentsConfigurationWePay.  # noqa: E501
 
+        URI for updating the WePay account  # noqa: E501
 
-        :return: The hide_credit_cards_non_ultra_cart_payments of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: bool
+        :return: The account_update_uri of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
         """
-        return self._hide_credit_cards_non_ultra_cart_payments
+        return self._account_update_uri
 
-    @hide_credit_cards_non_ultra_cart_payments.setter
-    def hide_credit_cards_non_ultra_cart_payments(self, hide_credit_cards_non_ultra_cart_payments):
-        """Sets the hide_credit_cards_non_ultra_cart_payments of this PaymentsConfigurationWePay.
+    @account_update_uri.setter
+    def account_update_uri(self, account_update_uri):
+        """Sets the account_update_uri of this PaymentsConfigurationWePay.
 
+        URI for updating the WePay account  # noqa: E501
 
-        :param hide_credit_cards_non_ultra_cart_payments: The hide_credit_cards_non_ultra_cart_payments of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: bool
+        :param account_update_uri: The account_update_uri of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
         """
 
-        self._hide_credit_cards_non_ultra_cart_payments = hide_credit_cards_non_ultra_cart_payments
+        self._account_update_uri = account_update_uri
 
     @property
-    def hide_surcharge_content(self):
-        """Gets the hide_surcharge_content of this PaymentsConfigurationWePay.  # noqa: E501
+    def address1(self):
+        """Gets the address1 of this PaymentsConfigurationWePay.  # noqa: E501
 
+        Address line 1  # noqa: E501
 
-        :return: The hide_surcharge_content of this PaymentsConfigurationWePay.  # noqa: E501
+        :return: The address1 of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._address1
+
+    @address1.setter
+    def address1(self, address1):
+        """Sets the address1 of this PaymentsConfigurationWePay.
+
+        Address line 1  # noqa: E501
+
+        :param address1: The address1 of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._address1 = address1
+
+    @property
+    def address2(self):
+        """Gets the address2 of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Address line 2  # noqa: E501
+
+        :return: The address2 of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._address2
+
+    @address2.setter
+    def address2(self, address2):
+        """Sets the address2 of this PaymentsConfigurationWePay.
+
+        Address line 2  # noqa: E501
+
+        :param address2: The address2 of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._address2 = address2
+
+    @property
+    def canada_accept_debit_cards(self):
+        """Gets the canada_accept_debit_cards of this PaymentsConfigurationWePay.  # noqa: E501
+
+        For Canadian merchants, true if they wish to accept debit cards  # noqa: E501
+
+        :return: The canada_accept_debit_cards of this PaymentsConfigurationWePay.  # noqa: E501
         :rtype: bool
         """
-        return self._hide_surcharge_content
+        return self._canada_accept_debit_cards
 
-    @hide_surcharge_content.setter
-    def hide_surcharge_content(self, hide_surcharge_content):
-        """Sets the hide_surcharge_content of this PaymentsConfigurationWePay.
+    @canada_accept_debit_cards.setter
+    def canada_accept_debit_cards(self, canada_accept_debit_cards):
+        """Sets the canada_accept_debit_cards of this PaymentsConfigurationWePay.
 
+        For Canadian merchants, true if they wish to accept debit cards  # noqa: E501
 
-        :param hide_surcharge_content: The hide_surcharge_content of this PaymentsConfigurationWePay.  # noqa: E501
+        :param canada_accept_debit_cards: The canada_accept_debit_cards of this PaymentsConfigurationWePay.  # noqa: E501
         :type: bool
         """
 
-        self._hide_surcharge_content = hide_surcharge_content
+        self._canada_accept_debit_cards = canada_accept_debit_cards
+
+    @property
+    def city(self):
+        """Gets the city of this PaymentsConfigurationWePay.  # noqa: E501
+
+        City  # noqa: E501
+
+        :return: The city of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._city
+
+    @city.setter
+    def city(self, city):
+        """Sets the city of this PaymentsConfigurationWePay.
+
+        City  # noqa: E501
+
+        :param city: The city of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._city = city
+
+    @property
+    def company(self):
+        """Gets the company of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Company  # noqa: E501
+
+        :return: The company of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._company
+
+    @company.setter
+    def company(self, company):
+        """Sets the company of this PaymentsConfigurationWePay.
+
+        Company  # noqa: E501
+
+        :param company: The company of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._company = company
+
+    @property
+    def company_description(self):
+        """Gets the company_description of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Company description  # noqa: E501
+
+        :return: The company_description of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._company_description
+
+    @company_description.setter
+    def company_description(self, company_description):
+        """Sets the company_description of this PaymentsConfigurationWePay.
+
+        Company description  # noqa: E501
+
+        :param company_description: The company_description of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._company_description = company_description
+
+    @property
+    def console_hostname(self):
+        """Gets the console_hostname of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Console hostname  # noqa: E501
+
+        :return: The console_hostname of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._console_hostname
+
+    @console_hostname.setter
+    def console_hostname(self, console_hostname):
+        """Sets the console_hostname of this PaymentsConfigurationWePay.
+
+        Console hostname  # noqa: E501
+
+        :param console_hostname: The console_hostname of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._console_hostname = console_hostname
+
+    @property
+    def country(self):
+        """Gets the country of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Country  # noqa: E501
+
+        :return: The country of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._country
+
+    @country.setter
+    def country(self, country):
+        """Sets the country of this PaymentsConfigurationWePay.
+
+        Country  # noqa: E501
+
+        :param country: The country of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._country = country
+
+    @property
+    def currency(self):
+        """Gets the currency of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Base currency for transactions  # noqa: E501
+
+        :return: The currency of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency
+
+    @currency.setter
+    def currency(self, currency):
+        """Sets the currency of this PaymentsConfigurationWePay.
+
+        Base currency for transactions  # noqa: E501
+
+        :param currency: The currency of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._currency = currency
+
+    @property
+    def expected_revenue(self):
+        """Gets the expected_revenue of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Expected Revenue  # noqa: E501
+
+        :return: The expected_revenue of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._expected_revenue
+
+    @expected_revenue.setter
+    def expected_revenue(self, expected_revenue):
+        """Sets the expected_revenue of this PaymentsConfigurationWePay.
+
+        Expected Revenue  # noqa: E501
+
+        :param expected_revenue: The expected_revenue of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._expected_revenue = expected_revenue
+
+    @property
+    def hide_credit_card_non_ultracart_payments(self):
+        """Gets the hide_credit_card_non_ultracart_payments of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Internal flag to aid UI  # noqa: E501
+
+        :return: The hide_credit_card_non_ultracart_payments of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hide_credit_card_non_ultracart_payments
+
+    @hide_credit_card_non_ultracart_payments.setter
+    def hide_credit_card_non_ultracart_payments(self, hide_credit_card_non_ultracart_payments):
+        """Sets the hide_credit_card_non_ultracart_payments of this PaymentsConfigurationWePay.
+
+        Internal flag to aid UI  # noqa: E501
+
+        :param hide_credit_card_non_ultracart_payments: The hide_credit_card_non_ultracart_payments of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: bool
+        """
+
+        self._hide_credit_card_non_ultracart_payments = hide_credit_card_non_ultracart_payments
+
+    @property
+    def hide_surcharge_amount(self):
+        """Gets the hide_surcharge_amount of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Internal flag to aid UI  # noqa: E501
+
+        :return: The hide_surcharge_amount of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hide_surcharge_amount
+
+    @hide_surcharge_amount.setter
+    def hide_surcharge_amount(self, hide_surcharge_amount):
+        """Sets the hide_surcharge_amount of this PaymentsConfigurationWePay.
+
+        Internal flag to aid UI  # noqa: E501
+
+        :param hide_surcharge_amount: The hide_surcharge_amount of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: bool
+        """
+
+        self._hide_surcharge_amount = hide_surcharge_amount
+
+    @property
+    def industry(self):
+        """Gets the industry of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Industry  # noqa: E501
+
+        :return: The industry of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._industry
+
+    @industry.setter
+    def industry(self, industry):
+        """Sets the industry of this PaymentsConfigurationWePay.
+
+        Industry  # noqa: E501
+
+        :param industry: The industry of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._industry = industry
+
+    @property
+    def owner_email(self):
+        """Gets the owner_email of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Owner email  # noqa: E501
+
+        :return: The owner_email of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._owner_email
+
+    @owner_email.setter
+    def owner_email(self, owner_email):
+        """Sets the owner_email of this PaymentsConfigurationWePay.
+
+        Owner email  # noqa: E501
+
+        :param owner_email: The owner_email of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._owner_email = owner_email
+
+    @property
+    def owner_name(self):
+        """Gets the owner_name of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Owner name  # noqa: E501
+
+        :return: The owner_name of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._owner_name
+
+    @owner_name.setter
+    def owner_name(self, owner_name):
+        """Sets the owner_name of this PaymentsConfigurationWePay.
+
+        Owner name  # noqa: E501
+
+        :param owner_name: The owner_name of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._owner_name = owner_name
+
+    @property
+    def owner_phone(self):
+        """Gets the owner_phone of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Owner phone  # noqa: E501
+
+        :return: The owner_phone of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._owner_phone
+
+    @owner_phone.setter
+    def owner_phone(self, owner_phone):
+        """Sets the owner_phone of this PaymentsConfigurationWePay.
+
+        Owner phone  # noqa: E501
+
+        :param owner_phone: The owner_phone of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._owner_phone = owner_phone
+
+    @property
+    def postal_code(self):
+        """Gets the postal_code of this PaymentsConfigurationWePay.  # noqa: E501
+
+        Postal code  # noqa: E501
+
+        :return: The postal_code of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._postal_code
+
+    @postal_code.setter
+    def postal_code(self, postal_code):
+        """Sets the postal_code of this PaymentsConfigurationWePay.
+
+        Postal code  # noqa: E501
+
+        :param postal_code: The postal_code of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._postal_code = postal_code
 
     @property
     def remove_pay_pal_pro(self):
@@ -288,487 +662,165 @@ class PaymentsConfigurationWePay(object):
         self._restrictions = restrictions
 
     @property
-    def short_pay_pal_marketing_text(self):
-        """Gets the short_pay_pal_marketing_text of this PaymentsConfigurationWePay.  # noqa: E501
+    def short_paypal_marketing_text(self):
+        """Gets the short_paypal_marketing_text of this PaymentsConfigurationWePay.  # noqa: E501
 
+        Internal UI aid  # noqa: E501
 
-        :return: The short_pay_pal_marketing_text of this PaymentsConfigurationWePay.  # noqa: E501
+        :return: The short_paypal_marketing_text of this PaymentsConfigurationWePay.  # noqa: E501
         :rtype: bool
         """
-        return self._short_pay_pal_marketing_text
+        return self._short_paypal_marketing_text
 
-    @short_pay_pal_marketing_text.setter
-    def short_pay_pal_marketing_text(self, short_pay_pal_marketing_text):
-        """Sets the short_pay_pal_marketing_text of this PaymentsConfigurationWePay.
+    @short_paypal_marketing_text.setter
+    def short_paypal_marketing_text(self, short_paypal_marketing_text):
+        """Sets the short_paypal_marketing_text of this PaymentsConfigurationWePay.
 
+        Internal UI aid  # noqa: E501
 
-        :param short_pay_pal_marketing_text: The short_pay_pal_marketing_text of this PaymentsConfigurationWePay.  # noqa: E501
+        :param short_paypal_marketing_text: The short_paypal_marketing_text of this PaymentsConfigurationWePay.  # noqa: E501
         :type: bool
         """
 
-        self._short_pay_pal_marketing_text = short_pay_pal_marketing_text
+        self._short_paypal_marketing_text = short_paypal_marketing_text
 
     @property
-    def show_ultra_cart_payments_disabled(self):
-        """Gets the show_ultra_cart_payments_disabled of this PaymentsConfigurationWePay.  # noqa: E501
+    def show_ultracart_payments_disabled(self):
+        """Gets the show_ultracart_payments_disabled of this PaymentsConfigurationWePay.  # noqa: E501
 
+        Internal flag to aid UI  # noqa: E501
 
-        :return: The show_ultra_cart_payments_disabled of this PaymentsConfigurationWePay.  # noqa: E501
+        :return: The show_ultracart_payments_disabled of this PaymentsConfigurationWePay.  # noqa: E501
         :rtype: bool
         """
-        return self._show_ultra_cart_payments_disabled
+        return self._show_ultracart_payments_disabled
 
-    @show_ultra_cart_payments_disabled.setter
-    def show_ultra_cart_payments_disabled(self, show_ultra_cart_payments_disabled):
-        """Sets the show_ultra_cart_payments_disabled of this PaymentsConfigurationWePay.
+    @show_ultracart_payments_disabled.setter
+    def show_ultracart_payments_disabled(self, show_ultracart_payments_disabled):
+        """Sets the show_ultracart_payments_disabled of this PaymentsConfigurationWePay.
 
+        Internal flag to aid UI  # noqa: E501
 
-        :param show_ultra_cart_payments_disabled: The show_ultra_cart_payments_disabled of this PaymentsConfigurationWePay.  # noqa: E501
+        :param show_ultracart_payments_disabled: The show_ultracart_payments_disabled of this PaymentsConfigurationWePay.  # noqa: E501
         :type: bool
         """
 
-        self._show_ultra_cart_payments_disabled = show_ultra_cart_payments_disabled
+        self._show_ultracart_payments_disabled = show_ultracart_payments_disabled
 
     @property
-    def show_ultra_cart_payments_intro(self):
-        """Gets the show_ultra_cart_payments_intro of this PaymentsConfigurationWePay.  # noqa: E501
+    def show_ultracart_payments_intro(self):
+        """Gets the show_ultracart_payments_intro of this PaymentsConfigurationWePay.  # noqa: E501
 
+        Internal flag to aid UI  # noqa: E501
 
-        :return: The show_ultra_cart_payments_intro of this PaymentsConfigurationWePay.  # noqa: E501
+        :return: The show_ultracart_payments_intro of this PaymentsConfigurationWePay.  # noqa: E501
         :rtype: bool
         """
-        return self._show_ultra_cart_payments_intro
+        return self._show_ultracart_payments_intro
 
-    @show_ultra_cart_payments_intro.setter
-    def show_ultra_cart_payments_intro(self, show_ultra_cart_payments_intro):
-        """Sets the show_ultra_cart_payments_intro of this PaymentsConfigurationWePay.
+    @show_ultracart_payments_intro.setter
+    def show_ultracart_payments_intro(self, show_ultracart_payments_intro):
+        """Sets the show_ultracart_payments_intro of this PaymentsConfigurationWePay.
 
+        Internal flag to aid UI  # noqa: E501
 
-        :param show_ultra_cart_payments_intro: The show_ultra_cart_payments_intro of this PaymentsConfigurationWePay.  # noqa: E501
+        :param show_ultracart_payments_intro: The show_ultracart_payments_intro of this PaymentsConfigurationWePay.  # noqa: E501
         :type: bool
         """
 
-        self._show_ultra_cart_payments_intro = show_ultra_cart_payments_intro
+        self._show_ultracart_payments_intro = show_ultracart_payments_intro
 
     @property
-    def show_ultra_cart_payments_verification(self):
-        """Gets the show_ultra_cart_payments_verification of this PaymentsConfigurationWePay.  # noqa: E501
+    def show_ultracart_payments_verification(self):
+        """Gets the show_ultracart_payments_verification of this PaymentsConfigurationWePay.  # noqa: E501
 
+        Internal flag to aid UI  # noqa: E501
 
-        :return: The show_ultra_cart_payments_verification of this PaymentsConfigurationWePay.  # noqa: E501
+        :return: The show_ultracart_payments_verification of this PaymentsConfigurationWePay.  # noqa: E501
         :rtype: bool
         """
-        return self._show_ultra_cart_payments_verification
+        return self._show_ultracart_payments_verification
 
-    @show_ultra_cart_payments_verification.setter
-    def show_ultra_cart_payments_verification(self, show_ultra_cart_payments_verification):
-        """Sets the show_ultra_cart_payments_verification of this PaymentsConfigurationWePay.
+    @show_ultracart_payments_verification.setter
+    def show_ultracart_payments_verification(self, show_ultracart_payments_verification):
+        """Sets the show_ultracart_payments_verification of this PaymentsConfigurationWePay.
 
+        Internal flag to aid UI  # noqa: E501
 
-        :param show_ultra_cart_payments_verification: The show_ultra_cart_payments_verification of this PaymentsConfigurationWePay.  # noqa: E501
+        :param show_ultracart_payments_verification: The show_ultracart_payments_verification of this PaymentsConfigurationWePay.  # noqa: E501
         :type: bool
         """
 
-        self._show_ultra_cart_payments_verification = show_ultra_cart_payments_verification
+        self._show_ultracart_payments_verification = show_ultracart_payments_verification
 
     @property
-    def show_ultra_cart_payments_verified(self):
-        """Gets the show_ultra_cart_payments_verified of this PaymentsConfigurationWePay.  # noqa: E501
+    def show_ultracart_payments_verified(self):
+        """Gets the show_ultracart_payments_verified of this PaymentsConfigurationWePay.  # noqa: E501
 
+        Internal flag to aid UI  # noqa: E501
 
-        :return: The show_ultra_cart_payments_verified of this PaymentsConfigurationWePay.  # noqa: E501
+        :return: The show_ultracart_payments_verified of this PaymentsConfigurationWePay.  # noqa: E501
         :rtype: bool
         """
-        return self._show_ultra_cart_payments_verified
+        return self._show_ultracart_payments_verified
 
-    @show_ultra_cart_payments_verified.setter
-    def show_ultra_cart_payments_verified(self, show_ultra_cart_payments_verified):
-        """Sets the show_ultra_cart_payments_verified of this PaymentsConfigurationWePay.
+    @show_ultracart_payments_verified.setter
+    def show_ultracart_payments_verified(self, show_ultracart_payments_verified):
+        """Sets the show_ultracart_payments_verified of this PaymentsConfigurationWePay.
 
+        Internal flag to aid UI  # noqa: E501
 
-        :param show_ultra_cart_payments_verified: The show_ultra_cart_payments_verified of this PaymentsConfigurationWePay.  # noqa: E501
+        :param show_ultracart_payments_verified: The show_ultracart_payments_verified of this PaymentsConfigurationWePay.  # noqa: E501
         :type: bool
         """
 
-        self._show_ultra_cart_payments_verified = show_ultra_cart_payments_verified
+        self._show_ultracart_payments_verified = show_ultracart_payments_verified
 
     @property
-    def wepay_account_update_uri(self):
-        """Gets the wepay_account_update_uri of this PaymentsConfigurationWePay.  # noqa: E501
+    def state(self):
+        """Gets the state of this PaymentsConfigurationWePay.  # noqa: E501
 
+        State  # noqa: E501
 
-        :return: The wepay_account_update_uri of this PaymentsConfigurationWePay.  # noqa: E501
+        :return: The state of this PaymentsConfigurationWePay.  # noqa: E501
         :rtype: str
         """
-        return self._wepay_account_update_uri
+        return self._state
 
-    @wepay_account_update_uri.setter
-    def wepay_account_update_uri(self, wepay_account_update_uri):
-        """Sets the wepay_account_update_uri of this PaymentsConfigurationWePay.
+    @state.setter
+    def state(self, state):
+        """Sets the state of this PaymentsConfigurationWePay.
 
+        State  # noqa: E501
 
-        :param wepay_account_update_uri: The wepay_account_update_uri of this PaymentsConfigurationWePay.  # noqa: E501
+        :param state: The state of this PaymentsConfigurationWePay.  # noqa: E501
         :type: str
         """
 
-        self._wepay_account_update_uri = wepay_account_update_uri
+        self._state = state
 
     @property
-    def wepay_address1(self):
-        """Gets the wepay_address1 of this PaymentsConfigurationWePay.  # noqa: E501
+    def website_url(self):
+        """Gets the website_url of this PaymentsConfigurationWePay.  # noqa: E501
 
+        Website URL  # noqa: E501
 
-        :return: The wepay_address1 of this PaymentsConfigurationWePay.  # noqa: E501
+        :return: The website_url of this PaymentsConfigurationWePay.  # noqa: E501
         :rtype: str
         """
-        return self._wepay_address1
+        return self._website_url
 
-    @wepay_address1.setter
-    def wepay_address1(self, wepay_address1):
-        """Sets the wepay_address1 of this PaymentsConfigurationWePay.
+    @website_url.setter
+    def website_url(self, website_url):
+        """Sets the website_url of this PaymentsConfigurationWePay.
 
+        Website URL  # noqa: E501
 
-        :param wepay_address1: The wepay_address1 of this PaymentsConfigurationWePay.  # noqa: E501
+        :param website_url: The website_url of this PaymentsConfigurationWePay.  # noqa: E501
         :type: str
         """
 
-        self._wepay_address1 = wepay_address1
-
-    @property
-    def wepay_address2(self):
-        """Gets the wepay_address2 of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_address2 of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_address2
-
-    @wepay_address2.setter
-    def wepay_address2(self, wepay_address2):
-        """Sets the wepay_address2 of this PaymentsConfigurationWePay.
-
-
-        :param wepay_address2: The wepay_address2 of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_address2 = wepay_address2
-
-    @property
-    def wepay_canada_accept_debit_cards(self):
-        """Gets the wepay_canada_accept_debit_cards of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_canada_accept_debit_cards of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: bool
-        """
-        return self._wepay_canada_accept_debit_cards
-
-    @wepay_canada_accept_debit_cards.setter
-    def wepay_canada_accept_debit_cards(self, wepay_canada_accept_debit_cards):
-        """Sets the wepay_canada_accept_debit_cards of this PaymentsConfigurationWePay.
-
-
-        :param wepay_canada_accept_debit_cards: The wepay_canada_accept_debit_cards of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: bool
-        """
-
-        self._wepay_canada_accept_debit_cards = wepay_canada_accept_debit_cards
-
-    @property
-    def wepay_city(self):
-        """Gets the wepay_city of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_city of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_city
-
-    @wepay_city.setter
-    def wepay_city(self, wepay_city):
-        """Sets the wepay_city of this PaymentsConfigurationWePay.
-
-
-        :param wepay_city: The wepay_city of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_city = wepay_city
-
-    @property
-    def wepay_company(self):
-        """Gets the wepay_company of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_company of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_company
-
-    @wepay_company.setter
-    def wepay_company(self, wepay_company):
-        """Sets the wepay_company of this PaymentsConfigurationWePay.
-
-
-        :param wepay_company: The wepay_company of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_company = wepay_company
-
-    @property
-    def wepay_company_description(self):
-        """Gets the wepay_company_description of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_company_description of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_company_description
-
-    @wepay_company_description.setter
-    def wepay_company_description(self, wepay_company_description):
-        """Sets the wepay_company_description of this PaymentsConfigurationWePay.
-
-
-        :param wepay_company_description: The wepay_company_description of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_company_description = wepay_company_description
-
-    @property
-    def wepay_console_hostname(self):
-        """Gets the wepay_console_hostname of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_console_hostname of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_console_hostname
-
-    @wepay_console_hostname.setter
-    def wepay_console_hostname(self, wepay_console_hostname):
-        """Sets the wepay_console_hostname of this PaymentsConfigurationWePay.
-
-
-        :param wepay_console_hostname: The wepay_console_hostname of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_console_hostname = wepay_console_hostname
-
-    @property
-    def wepay_country(self):
-        """Gets the wepay_country of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_country of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_country
-
-    @wepay_country.setter
-    def wepay_country(self, wepay_country):
-        """Sets the wepay_country of this PaymentsConfigurationWePay.
-
-
-        :param wepay_country: The wepay_country of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_country = wepay_country
-
-    @property
-    def wepay_currency(self):
-        """Gets the wepay_currency of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_currency of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_currency
-
-    @wepay_currency.setter
-    def wepay_currency(self, wepay_currency):
-        """Sets the wepay_currency of this PaymentsConfigurationWePay.
-
-
-        :param wepay_currency: The wepay_currency of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_currency = wepay_currency
-
-    @property
-    def wepay_expected_revenue(self):
-        """Gets the wepay_expected_revenue of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_expected_revenue of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_expected_revenue
-
-    @wepay_expected_revenue.setter
-    def wepay_expected_revenue(self, wepay_expected_revenue):
-        """Sets the wepay_expected_revenue of this PaymentsConfigurationWePay.
-
-
-        :param wepay_expected_revenue: The wepay_expected_revenue of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_expected_revenue = wepay_expected_revenue
-
-    @property
-    def wepay_industry(self):
-        """Gets the wepay_industry of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_industry of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_industry
-
-    @wepay_industry.setter
-    def wepay_industry(self, wepay_industry):
-        """Sets the wepay_industry of this PaymentsConfigurationWePay.
-
-
-        :param wepay_industry: The wepay_industry of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_industry = wepay_industry
-
-    @property
-    def wepay_owner_email(self):
-        """Gets the wepay_owner_email of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_owner_email of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_owner_email
-
-    @wepay_owner_email.setter
-    def wepay_owner_email(self, wepay_owner_email):
-        """Sets the wepay_owner_email of this PaymentsConfigurationWePay.
-
-
-        :param wepay_owner_email: The wepay_owner_email of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_owner_email = wepay_owner_email
-
-    @property
-    def wepay_owner_name(self):
-        """Gets the wepay_owner_name of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_owner_name of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_owner_name
-
-    @wepay_owner_name.setter
-    def wepay_owner_name(self, wepay_owner_name):
-        """Sets the wepay_owner_name of this PaymentsConfigurationWePay.
-
-
-        :param wepay_owner_name: The wepay_owner_name of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_owner_name = wepay_owner_name
-
-    @property
-    def wepay_owner_phone(self):
-        """Gets the wepay_owner_phone of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_owner_phone of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_owner_phone
-
-    @wepay_owner_phone.setter
-    def wepay_owner_phone(self, wepay_owner_phone):
-        """Sets the wepay_owner_phone of this PaymentsConfigurationWePay.
-
-
-        :param wepay_owner_phone: The wepay_owner_phone of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_owner_phone = wepay_owner_phone
-
-    @property
-    def wepay_state(self):
-        """Gets the wepay_state of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_state of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_state
-
-    @wepay_state.setter
-    def wepay_state(self, wepay_state):
-        """Sets the wepay_state of this PaymentsConfigurationWePay.
-
-
-        :param wepay_state: The wepay_state of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_state = wepay_state
-
-    @property
-    def wepay_website_url(self):
-        """Gets the wepay_website_url of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_website_url of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_website_url
-
-    @wepay_website_url.setter
-    def wepay_website_url(self, wepay_website_url):
-        """Sets the wepay_website_url of this PaymentsConfigurationWePay.
-
-
-        :param wepay_website_url: The wepay_website_url of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_website_url = wepay_website_url
-
-    @property
-    def wepay_zip(self):
-        """Gets the wepay_zip of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The wepay_zip of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: str
-        """
-        return self._wepay_zip
-
-    @wepay_zip.setter
-    def wepay_zip(self, wepay_zip):
-        """Sets the wepay_zip of this PaymentsConfigurationWePay.
-
-
-        :param wepay_zip: The wepay_zip of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: str
-        """
-
-        self._wepay_zip = wepay_zip
+        self._website_url = website_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""
