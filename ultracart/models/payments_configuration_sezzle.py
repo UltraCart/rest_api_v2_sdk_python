@@ -36,7 +36,7 @@ class PaymentsConfigurationSezzle(object):
         'business_id': 'str',
         'deposit_to_account': 'str',
         'environment': 'str',
-        'environments': 'object',
+        'environments': 'list[str]',
         'private_api_key': 'str',
         'public_api_key': 'str',
         'restrictions': 'PaymentsConfigurationRestrictions'
@@ -215,7 +215,7 @@ class PaymentsConfigurationSezzle(object):
         List of environments possible  # noqa: E501
 
         :return: The environments of this PaymentsConfigurationSezzle.  # noqa: E501
-        :rtype: object
+        :rtype: list[str]
         """
         return self._environments
 
@@ -226,7 +226,7 @@ class PaymentsConfigurationSezzle(object):
         List of environments possible  # noqa: E501
 
         :param environments: The environments of this PaymentsConfigurationSezzle.  # noqa: E501
-        :type: object
+        :type: list[str]
         """
 
         self._environments = environments

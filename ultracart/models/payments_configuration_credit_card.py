@@ -38,10 +38,10 @@ class PaymentsConfigurationCreditCard(object):
         'configured_gateway_details': 'str',
         'failed_attempts': 'str',
         'hide_connect_single_gateway': 'bool',
-        'restrictions': 'object',
+        'restrictions': 'list[PaymentsConfigurationRestrictions]',
         'send_customer_billing_update_on_decline': 'bool',
-        'supported_cards': 'object',
-        'test_methods': 'object'
+        'supported_cards': 'list[PaymentsConfigurationCreditCardType]',
+        'test_methods': 'list[PaymentsConfigurationTestMethod]'
     }
 
     attribute_map = {
@@ -265,7 +265,7 @@ class PaymentsConfigurationCreditCard(object):
         Restrictions for this payment method  # noqa: E501
 
         :return: The restrictions of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :rtype: object
+        :rtype: list[PaymentsConfigurationRestrictions]
         """
         return self._restrictions
 
@@ -276,7 +276,7 @@ class PaymentsConfigurationCreditCard(object):
         Restrictions for this payment method  # noqa: E501
 
         :param restrictions: The restrictions of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :type: object
+        :type: list[PaymentsConfigurationRestrictions]
         """
 
         self._restrictions = restrictions
@@ -311,7 +311,7 @@ class PaymentsConfigurationCreditCard(object):
         A list of credit cards the merchant wishes to accept.  # noqa: E501
 
         :return: The supported_cards of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :rtype: object
+        :rtype: list[PaymentsConfigurationCreditCardType]
         """
         return self._supported_cards
 
@@ -322,7 +322,7 @@ class PaymentsConfigurationCreditCard(object):
         A list of credit cards the merchant wishes to accept.  # noqa: E501
 
         :param supported_cards: The supported_cards of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :type: object
+        :type: list[PaymentsConfigurationCreditCardType]
         """
 
         self._supported_cards = supported_cards
@@ -334,7 +334,7 @@ class PaymentsConfigurationCreditCard(object):
         An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders  # noqa: E501
 
         :return: The test_methods of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :rtype: object
+        :rtype: list[PaymentsConfigurationTestMethod]
         """
         return self._test_methods
 
@@ -345,7 +345,7 @@ class PaymentsConfigurationCreditCard(object):
         An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders  # noqa: E501
 
         :param test_methods: The test_methods of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :type: object
+        :type: list[PaymentsConfigurationTestMethod]
         """
 
         self._test_methods = test_methods

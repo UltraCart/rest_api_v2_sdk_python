@@ -43,7 +43,7 @@ class PaymentsConfigurationCheck(object):
         'mail_to_postal_code': 'str',
         'mail_to_store': 'str',
         'restrictions': 'PaymentsConfigurationRestrictions',
-        'test_methods': 'object'
+        'test_methods': 'list[PaymentsConfigurationTestMethod]'
     }
 
     attribute_map = {
@@ -388,7 +388,7 @@ class PaymentsConfigurationCheck(object):
         Test methods for this payment method  # noqa: E501
 
         :return: The test_methods of this PaymentsConfigurationCheck.  # noqa: E501
-        :rtype: object
+        :rtype: list[PaymentsConfigurationTestMethod]
         """
         return self._test_methods
 
@@ -399,7 +399,7 @@ class PaymentsConfigurationCheck(object):
         Test methods for this payment method  # noqa: E501
 
         :param test_methods: The test_methods of this PaymentsConfigurationCheck.  # noqa: E501
-        :type: object
+        :type: list[PaymentsConfigurationTestMethod]
         """
 
         self._test_methods = test_methods

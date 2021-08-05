@@ -31,6 +31,7 @@ class PaymentsConfigurationRestrictions(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'descriptions': 'list[str]',
         'maximum_subtotal': 'str',
         'minimum_subtotal': 'str',
         'payment_method': 'str',
@@ -42,10 +43,12 @@ class PaymentsConfigurationRestrictions(object):
         'restriction_international_only': 'str',
         'restriction_po_box': 'str',
         'restriction_puerto_rico': 'str',
-        'restriction_us_territories': 'str'
+        'restriction_us_territories': 'str',
+        'themes': 'list[PaymentsConfigurationRestrictionsTheme]'
     }
 
     attribute_map = {
+        'descriptions': 'descriptions',
         'maximum_subtotal': 'maximum_subtotal',
         'minimum_subtotal': 'minimum_subtotal',
         'payment_method': 'payment_method',
@@ -57,12 +60,14 @@ class PaymentsConfigurationRestrictions(object):
         'restriction_international_only': 'restriction_international_only',
         'restriction_po_box': 'restriction_po_box',
         'restriction_puerto_rico': 'restriction_puerto_rico',
-        'restriction_us_territories': 'restriction_us_territories'
+        'restriction_us_territories': 'restriction_us_territories',
+        'themes': 'themes'
     }
 
-    def __init__(self, maximum_subtotal=None, minimum_subtotal=None, payment_method=None, restriction_alaska_hawaii=None, restriction_apo_fpo=None, restriction_canada=None, restriction_continental_us=None, restriction_domestic_only=None, restriction_international_only=None, restriction_po_box=None, restriction_puerto_rico=None, restriction_us_territories=None):  # noqa: E501
+    def __init__(self, descriptions=None, maximum_subtotal=None, minimum_subtotal=None, payment_method=None, restriction_alaska_hawaii=None, restriction_apo_fpo=None, restriction_canada=None, restriction_continental_us=None, restriction_domestic_only=None, restriction_international_only=None, restriction_po_box=None, restriction_puerto_rico=None, restriction_us_territories=None, themes=None):  # noqa: E501
         """PaymentsConfigurationRestrictions - a model defined in Swagger"""  # noqa: E501
 
+        self._descriptions = None
         self._maximum_subtotal = None
         self._minimum_subtotal = None
         self._payment_method = None
@@ -75,8 +80,11 @@ class PaymentsConfigurationRestrictions(object):
         self._restriction_po_box = None
         self._restriction_puerto_rico = None
         self._restriction_us_territories = None
+        self._themes = None
         self.discriminator = None
 
+        if descriptions is not None:
+            self.descriptions = descriptions
         if maximum_subtotal is not None:
             self.maximum_subtotal = maximum_subtotal
         if minimum_subtotal is not None:
@@ -101,6 +109,29 @@ class PaymentsConfigurationRestrictions(object):
             self.restriction_puerto_rico = restriction_puerto_rico
         if restriction_us_territories is not None:
             self.restriction_us_territories = restriction_us_territories
+        if themes is not None:
+            self.themes = themes
+
+    @property
+    def descriptions(self):
+        """Gets the descriptions of this PaymentsConfigurationRestrictions.  # noqa: E501
+
+
+        :return: The descriptions of this PaymentsConfigurationRestrictions.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._descriptions
+
+    @descriptions.setter
+    def descriptions(self, descriptions):
+        """Sets the descriptions of this PaymentsConfigurationRestrictions.
+
+
+        :param descriptions: The descriptions of this PaymentsConfigurationRestrictions.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._descriptions = descriptions
 
     @property
     def maximum_subtotal(self):
@@ -377,6 +408,27 @@ class PaymentsConfigurationRestrictions(object):
         """
 
         self._restriction_us_territories = restriction_us_territories
+
+    @property
+    def themes(self):
+        """Gets the themes of this PaymentsConfigurationRestrictions.  # noqa: E501
+
+
+        :return: The themes of this PaymentsConfigurationRestrictions.  # noqa: E501
+        :rtype: list[PaymentsConfigurationRestrictionsTheme]
+        """
+        return self._themes
+
+    @themes.setter
+    def themes(self, themes):
+        """Sets the themes of this PaymentsConfigurationRestrictions.
+
+
+        :param themes: The themes of this PaymentsConfigurationRestrictions.  # noqa: E501
+        :type: list[PaymentsConfigurationRestrictionsTheme]
+        """
+
+        self._themes = themes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

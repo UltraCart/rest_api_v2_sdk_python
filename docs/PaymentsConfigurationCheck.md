@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **mail_to_postal_code** | **str** | MailTo postal code | [optional] 
 **mail_to_store** | **str** | MailTo store | [optional] 
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
-**test_methods** | **object** | Test methods for this payment method | [optional] 
+**test_methods** | [**list[PaymentsConfigurationTestMethod]**](PaymentsConfigurationTestMethod.md) | Test methods for this payment method | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
