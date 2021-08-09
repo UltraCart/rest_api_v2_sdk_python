@@ -32,8 +32,8 @@ class PaymentsConfigurationRestrictions(object):
     """
     swagger_types = {
         'descriptions': 'list[str]',
-        'maximum_subtotal': 'str',
-        'minimum_subtotal': 'str',
+        'maximum_subtotal': 'float',
+        'minimum_subtotal': 'float',
         'payment_method': 'str',
         'restriction_alaska_hawaii': 'str',
         'restriction_apo_fpo': 'str',
@@ -140,7 +140,7 @@ class PaymentsConfigurationRestrictions(object):
         Maximum subtotal  # noqa: E501
 
         :return: The maximum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._maximum_subtotal
 
@@ -151,7 +151,7 @@ class PaymentsConfigurationRestrictions(object):
         Maximum subtotal  # noqa: E501
 
         :param maximum_subtotal: The maximum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._maximum_subtotal = maximum_subtotal
@@ -163,7 +163,7 @@ class PaymentsConfigurationRestrictions(object):
         Minimum subtotal  # noqa: E501
 
         :return: The minimum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._minimum_subtotal
 
@@ -174,7 +174,7 @@ class PaymentsConfigurationRestrictions(object):
         Minimum subtotal  # noqa: E501
 
         :param minimum_subtotal: The minimum_subtotal of this PaymentsConfigurationRestrictions.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._minimum_subtotal = minimum_subtotal

@@ -36,7 +36,7 @@ class PaymentsConfigurationCreditCard(object):
         'charge_during_checkout': 'bool',
         'collect_cvv2': 'bool',
         'configured_gateway_details': 'str',
-        'failed_attempts': 'str',
+        'failed_attempts': 'int',
         'hide_connect_single_gateway': 'bool',
         'restrictions': 'list[PaymentsConfigurationRestrictions]',
         'send_customer_billing_update_on_decline': 'bool',
@@ -219,7 +219,7 @@ class PaymentsConfigurationCreditCard(object):
         The number of failed attempts before the order is placed into Accounts Receivable for manual intervention  # noqa: E501
 
         :return: The failed_attempts of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._failed_attempts
 
@@ -230,7 +230,7 @@ class PaymentsConfigurationCreditCard(object):
         The number of failed attempts before the order is placed into Accounts Receivable for manual intervention  # noqa: E501
 
         :param failed_attempts: The failed_attempts of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._failed_attempts = failed_attempts
