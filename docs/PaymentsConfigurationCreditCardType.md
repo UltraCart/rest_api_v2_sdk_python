@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **credit_card** | **str** | Credit card type | [optional] 
 **deposit_to_account** | **str** | The name of the account to deposit funds | [optional] 
 **enabled** | **bool** | If true, this card type will be accepted during checkout | [optional] 
-**processing_fee** | **str** | Optional additional fee applied to order for this card | [optional] 
-**processing_percentage** | **str** | Optional additional fee applied to order for this card | [optional] 
+**processing_fee** | **float** | Optional additional fee applied to order for this card | [optional] 
+**processing_percentage** | **float** | Optional additional fee applied to order for this card | [optional] 
 **surcharge_accounting_code** | **str** | Optional field. If integrated with Quickbooks, this code will be used when informing Quickbooks about any surcharges applied to orders | [optional] 
-**transaction_fee** | **str** | An optional additional fee to charge the customer for using this card. | [optional] 
-**transaction_percentage** | **str** | An optional transaction percentage to charge the customer for using this card | [optional] 
+**transaction_fee** | **float** | An optional additional fee to charge the customer for using this card. | [optional] 
+**transaction_percentage** | **float** | An optional transaction percentage to charge the customer for using this card | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

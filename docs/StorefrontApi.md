@@ -44,6 +44,7 @@ Method | HTTP request | Description
 [**get_email_commseq_stat_overall**](StorefrontApi.md#get_email_commseq_stat_overall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 [**get_email_commseq_step_stats**](StorefrontApi.md#get_email_commseq_step_stats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 [**get_email_commseq_step_waiting**](StorefrontApi.md#get_email_commseq_step_waiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
+[**get_email_commseq_webhook_editor_values**](StorefrontApi.md#get_email_commseq_webhook_editor_values) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/webhookEditorValues | Get email webhook editor values
 [**get_email_commseqs**](StorefrontApi.md#get_email_commseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
 [**get_email_customer_editor_url**](StorefrontApi.md#get_email_customer_editor_url) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url | Get customers editor URL
 [**get_email_customers**](StorefrontApi.md#get_email_customers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
@@ -2142,6 +2143,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailStepWaitingResponse**](EmailStepWaitingResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_commseq_webhook_editor_values**
+> EmailWebhookEditorValuesResponse get_email_commseq_webhook_editor_values(storefront_oid, commseq_uuid)
+
+Get email webhook editor values
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+storefront_oid = 56 # int | 
+commseq_uuid = 'commseq_uuid_example' # str | 
+
+try:
+    # Get email webhook editor values
+    api_response = api_instance.get_email_commseq_webhook_editor_values(storefront_oid, commseq_uuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_email_commseq_webhook_editor_values: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  | 
+ **commseq_uuid** | **str**|  | 
+
+### Return type
+
+[**EmailWebhookEditorValuesResponse**](EmailWebhookEditorValuesResponse.md)
 
 ### Authorization
 

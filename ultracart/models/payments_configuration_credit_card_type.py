@@ -36,11 +36,11 @@ class PaymentsConfigurationCreditCardType(object):
         'credit_card': 'str',
         'deposit_to_account': 'str',
         'enabled': 'bool',
-        'processing_fee': 'str',
-        'processing_percentage': 'str',
+        'processing_fee': 'float',
+        'processing_percentage': 'float',
         'surcharge_accounting_code': 'str',
-        'transaction_fee': 'str',
-        'transaction_percentage': 'str'
+        'transaction_fee': 'float',
+        'transaction_percentage': 'float'
     }
 
     attribute_map = {
@@ -220,7 +220,7 @@ class PaymentsConfigurationCreditCardType(object):
         Optional additional fee applied to order for this card  # noqa: E501
 
         :return: The processing_fee of this PaymentsConfigurationCreditCardType.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._processing_fee
 
@@ -231,7 +231,7 @@ class PaymentsConfigurationCreditCardType(object):
         Optional additional fee applied to order for this card  # noqa: E501
 
         :param processing_fee: The processing_fee of this PaymentsConfigurationCreditCardType.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._processing_fee = processing_fee
@@ -243,7 +243,7 @@ class PaymentsConfigurationCreditCardType(object):
         Optional additional fee applied to order for this card  # noqa: E501
 
         :return: The processing_percentage of this PaymentsConfigurationCreditCardType.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._processing_percentage
 
@@ -254,7 +254,7 @@ class PaymentsConfigurationCreditCardType(object):
         Optional additional fee applied to order for this card  # noqa: E501
 
         :param processing_percentage: The processing_percentage of this PaymentsConfigurationCreditCardType.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._processing_percentage = processing_percentage
@@ -289,7 +289,7 @@ class PaymentsConfigurationCreditCardType(object):
         An optional additional fee to charge the customer for using this card.  # noqa: E501
 
         :return: The transaction_fee of this PaymentsConfigurationCreditCardType.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._transaction_fee
 
@@ -300,7 +300,7 @@ class PaymentsConfigurationCreditCardType(object):
         An optional additional fee to charge the customer for using this card.  # noqa: E501
 
         :param transaction_fee: The transaction_fee of this PaymentsConfigurationCreditCardType.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._transaction_fee = transaction_fee
@@ -312,7 +312,7 @@ class PaymentsConfigurationCreditCardType(object):
         An optional transaction percentage to charge the customer for using this card  # noqa: E501
 
         :return: The transaction_percentage of this PaymentsConfigurationCreditCardType.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._transaction_percentage
 
@@ -323,7 +323,7 @@ class PaymentsConfigurationCreditCardType(object):
         An optional transaction percentage to charge the customer for using this card  # noqa: E501
 
         :param transaction_percentage: The transaction_percentage of this PaymentsConfigurationCreditCardType.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._transaction_percentage = transaction_percentage

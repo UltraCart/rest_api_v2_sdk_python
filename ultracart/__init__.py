@@ -336,6 +336,7 @@ from ultracart.models.email_verify_token_request import EmailVerifyTokenRequest
 from ultracart.models.email_verify_token_response import EmailVerifyTokenResponse
 from ultracart.models.email_verify_token_validate_request import EmailVerifyTokenValidateRequest
 from ultracart.models.email_verify_token_validate_response import EmailVerifyTokenValidateResponse
+from ultracart.models.email_webhook_editor_values_response import EmailWebhookEditorValuesResponse
 from ultracart.models.error import Error
 from ultracart.models.error_response import ErrorResponse
 from ultracart.models.experiment import Experiment
