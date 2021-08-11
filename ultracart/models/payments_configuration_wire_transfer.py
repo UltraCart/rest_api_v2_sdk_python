@@ -40,8 +40,8 @@ class PaymentsConfigurationWireTransfer(object):
         'restrictions': 'PaymentsConfigurationRestrictions',
         'routing_number': 'str',
         'surcharge_accounting_code': 'str',
-        'surcharge_fee': 'str',
-        'surcharge_percentage': 'str'
+        'surcharge_fee': 'float',
+        'surcharge_percentage': 'float'
     }
 
     attribute_map = {
@@ -309,7 +309,7 @@ class PaymentsConfigurationWireTransfer(object):
         surcharge_fee  # noqa: E501
 
         :return: The surcharge_fee of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._surcharge_fee
 
@@ -320,7 +320,7 @@ class PaymentsConfigurationWireTransfer(object):
         surcharge_fee  # noqa: E501
 
         :param surcharge_fee: The surcharge_fee of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._surcharge_fee = surcharge_fee
@@ -332,7 +332,7 @@ class PaymentsConfigurationWireTransfer(object):
         surcharge_percentage  # noqa: E501
 
         :return: The surcharge_percentage of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._surcharge_percentage
 
@@ -343,7 +343,7 @@ class PaymentsConfigurationWireTransfer(object):
         surcharge_percentage  # noqa: E501
 
         :param surcharge_percentage: The surcharge_percentage of this PaymentsConfigurationWireTransfer.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._surcharge_percentage = surcharge_percentage

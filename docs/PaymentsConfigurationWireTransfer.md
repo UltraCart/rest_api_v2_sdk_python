@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
 **routing_number** | **str** | Routing number | [optional] 
 **surcharge_accounting_code** | **str** | If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount | [optional] 
-**surcharge_fee** | **str** | surcharge_fee | [optional] 
-**surcharge_percentage** | **str** | surcharge_percentage | [optional] 
+**surcharge_fee** | **float** | surcharge_fee | [optional] 
+**surcharge_percentage** | **float** | surcharge_percentage | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

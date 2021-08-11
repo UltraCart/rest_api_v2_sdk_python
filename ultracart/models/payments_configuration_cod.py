@@ -35,8 +35,8 @@ class PaymentsConfigurationCOD(object):
         'approved_customers_only': 'bool',
         'restrictions': 'PaymentsConfigurationRestrictions',
         'surcharge_accounting_code': 'str',
-        'surcharge_fee': 'str',
-        'surcharge_percentage': 'str'
+        'surcharge_fee': 'float',
+        'surcharge_percentage': 'float'
     }
 
     attribute_map = {
@@ -169,7 +169,7 @@ class PaymentsConfigurationCOD(object):
         Additional cost for using COD  # noqa: E501
 
         :return: The surcharge_fee of this PaymentsConfigurationCOD.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._surcharge_fee
 
@@ -180,7 +180,7 @@ class PaymentsConfigurationCOD(object):
         Additional cost for using COD  # noqa: E501
 
         :param surcharge_fee: The surcharge_fee of this PaymentsConfigurationCOD.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._surcharge_fee = surcharge_fee
@@ -192,7 +192,7 @@ class PaymentsConfigurationCOD(object):
         Additional percentage cost for using COD  # noqa: E501
 
         :return: The surcharge_percentage of this PaymentsConfigurationCOD.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._surcharge_percentage
 
@@ -203,7 +203,7 @@ class PaymentsConfigurationCOD(object):
         Additional percentage cost for using COD  # noqa: E501
 
         :param surcharge_percentage: The surcharge_percentage of this PaymentsConfigurationCOD.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._surcharge_percentage = surcharge_percentage

@@ -47,8 +47,8 @@ class PaymentsConfigurationPayPal(object):
         'landing_page': 'str',
         'mode': 'str',
         'private_key_password': 'str',
-        'processing_fee': 'str',
-        'processing_percentage': 'str',
+        'processing_fee': 'float',
+        'processing_percentage': 'float',
         'push_paypal': 'bool',
         'restrictions': 'PaymentsConfigurationRestrictions',
         'send_recurring': 'bool',
@@ -580,7 +580,7 @@ class PaymentsConfigurationPayPal(object):
         Optional additional fee to charge if PayPal is used.  It is rare for this to be used.  # noqa: E501
 
         :return: The processing_fee of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._processing_fee
 
@@ -591,7 +591,7 @@ class PaymentsConfigurationPayPal(object):
         Optional additional fee to charge if PayPal is used.  It is rare for this to be used.  # noqa: E501
 
         :param processing_fee: The processing_fee of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._processing_fee = processing_fee
@@ -603,7 +603,7 @@ class PaymentsConfigurationPayPal(object):
         The processing percentage charged by PayPal  # noqa: E501
 
         :return: The processing_percentage of this PaymentsConfigurationPayPal.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._processing_percentage
 
@@ -614,7 +614,7 @@ class PaymentsConfigurationPayPal(object):
         The processing percentage charged by PayPal  # noqa: E501
 
         :param processing_percentage: The processing_percentage of this PaymentsConfigurationPayPal.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._processing_percentage = processing_percentage

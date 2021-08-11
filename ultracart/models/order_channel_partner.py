@@ -285,7 +285,7 @@ class OrderChannelPartner(object):
     def store_completed(self):
         """Gets the store_completed of this OrderChannelPartner.  # noqa: E501
 
-        Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.  # noqa: E501
+        Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order.  # noqa: E501
 
         :return: The store_completed of this OrderChannelPartner.  # noqa: E501
         :rtype: bool
@@ -296,7 +296,7 @@ class OrderChannelPartner(object):
     def store_completed(self, store_completed):
         """Sets the store_completed of this OrderChannelPartner.
 
-        Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.  # noqa: E501
+        Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order.  # noqa: E501
 
         :param store_completed: The store_completed of this OrderChannelPartner.  # noqa: E501
         :type: bool
