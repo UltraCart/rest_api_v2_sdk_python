@@ -222,6 +222,12 @@ class PaymentsConfigurationRestrictions(object):
         :param restriction_alaska_hawaii: The restriction_alaska_hawaii of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
         """
+        allowed_values = ["invalid", "invalidOnly", "valid"]  # noqa: E501
+        if restriction_alaska_hawaii not in allowed_values:
+            raise ValueError(
+                "Invalid value for `restriction_alaska_hawaii` ({0}), must be one of {1}"  # noqa: E501
+                .format(restriction_alaska_hawaii, allowed_values)
+            )
 
         self._restriction_alaska_hawaii = restriction_alaska_hawaii
 
@@ -245,6 +251,12 @@ class PaymentsConfigurationRestrictions(object):
         :param restriction_apo_fpo: The restriction_apo_fpo of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
         """
+        allowed_values = ["invalid", "invalidOnly", "valid"]  # noqa: E501
+        if restriction_apo_fpo not in allowed_values:
+            raise ValueError(
+                "Invalid value for `restriction_apo_fpo` ({0}), must be one of {1}"  # noqa: E501
+                .format(restriction_apo_fpo, allowed_values)
+            )
 
         self._restriction_apo_fpo = restriction_apo_fpo
 
@@ -268,6 +280,12 @@ class PaymentsConfigurationRestrictions(object):
         :param restriction_canada: The restriction_canada of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
         """
+        allowed_values = ["invalid", "invalidOnly", "valid"]  # noqa: E501
+        if restriction_canada not in allowed_values:
+            raise ValueError(
+                "Invalid value for `restriction_canada` ({0}), must be one of {1}"  # noqa: E501
+                .format(restriction_canada, allowed_values)
+            )
 
         self._restriction_canada = restriction_canada
 
@@ -291,6 +309,12 @@ class PaymentsConfigurationRestrictions(object):
         :param restriction_continental_us: The restriction_continental_us of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
         """
+        allowed_values = ["invalid", "invalidOnly", "valid"]  # noqa: E501
+        if restriction_continental_us not in allowed_values:
+            raise ValueError(
+                "Invalid value for `restriction_continental_us` ({0}), must be one of {1}"  # noqa: E501
+                .format(restriction_continental_us, allowed_values)
+            )
 
         self._restriction_continental_us = restriction_continental_us
 
@@ -314,6 +338,12 @@ class PaymentsConfigurationRestrictions(object):
         :param restriction_domestic_only: The restriction_domestic_only of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
         """
+        allowed_values = ["invalid", "invalidOnly", "valid"]  # noqa: E501
+        if restriction_domestic_only not in allowed_values:
+            raise ValueError(
+                "Invalid value for `restriction_domestic_only` ({0}), must be one of {1}"  # noqa: E501
+                .format(restriction_domestic_only, allowed_values)
+            )
 
         self._restriction_domestic_only = restriction_domestic_only
 
@@ -337,6 +367,12 @@ class PaymentsConfigurationRestrictions(object):
         :param restriction_international_only: The restriction_international_only of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
         """
+        allowed_values = ["invalid", "invalidOnly", "valid"]  # noqa: E501
+        if restriction_international_only not in allowed_values:
+            raise ValueError(
+                "Invalid value for `restriction_international_only` ({0}), must be one of {1}"  # noqa: E501
+                .format(restriction_international_only, allowed_values)
+            )
 
         self._restriction_international_only = restriction_international_only
 
@@ -360,6 +396,12 @@ class PaymentsConfigurationRestrictions(object):
         :param restriction_po_box: The restriction_po_box of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
         """
+        allowed_values = ["invalid", "invalidOnly", "valid"]  # noqa: E501
+        if restriction_po_box not in allowed_values:
+            raise ValueError(
+                "Invalid value for `restriction_po_box` ({0}), must be one of {1}"  # noqa: E501
+                .format(restriction_po_box, allowed_values)
+            )
 
         self._restriction_po_box = restriction_po_box
 
@@ -383,6 +425,12 @@ class PaymentsConfigurationRestrictions(object):
         :param restriction_puerto_rico: The restriction_puerto_rico of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
         """
+        allowed_values = ["invalid", "invalidOnly", "valid"]  # noqa: E501
+        if restriction_puerto_rico not in allowed_values:
+            raise ValueError(
+                "Invalid value for `restriction_puerto_rico` ({0}), must be one of {1}"  # noqa: E501
+                .format(restriction_puerto_rico, allowed_values)
+            )
 
         self._restriction_puerto_rico = restriction_puerto_rico
 
@@ -406,6 +454,12 @@ class PaymentsConfigurationRestrictions(object):
         :param restriction_us_territories: The restriction_us_territories of this PaymentsConfigurationRestrictions.  # noqa: E501
         :type: str
         """
+        allowed_values = ["invalid", "invalidOnly", "valid"]  # noqa: E501
+        if restriction_us_territories not in allowed_values:
+            raise ValueError(
+                "Invalid value for `restriction_us_territories` ({0}), must be one of {1}"  # noqa: E501
+                .format(restriction_us_territories, allowed_values)
+            )
 
         self._restriction_us_territories = restriction_us_territories
 

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **configured_gateway_details** | **str** | Human readable description of the credit card gateway currently configured | [optional] 
 **failed_attempts** | **int** | The number of failed attempts before the order is placed into Accounts Receivable for manual intervention | [optional] 
 **hide_connect_single_gateway** | **bool** | This internal flag aids the UI in determining which buttons to show. | [optional] 
-**restrictions** | [**list[PaymentsConfigurationRestrictions]**](PaymentsConfigurationRestrictions.md) | Restrictions for this payment method | [optional] 
 **send_customer_billing_update_on_decline** | **bool** | UltraCart will send customers emails to update their credit card if the card is declined | [optional] 
 **supported_cards** | [**list[PaymentsConfigurationCreditCardType]**](PaymentsConfigurationCreditCardType.md) | A list of credit cards the merchant wishes to accept. | [optional] 
 **test_methods** | [**list[PaymentsConfigurationTestMethod]**](PaymentsConfigurationTestMethod.md) | An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders | [optional] 

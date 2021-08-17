@@ -38,7 +38,6 @@ class PaymentsConfigurationCreditCard(object):
         'configured_gateway_details': 'str',
         'failed_attempts': 'int',
         'hide_connect_single_gateway': 'bool',
-        'restrictions': 'list[PaymentsConfigurationRestrictions]',
         'send_customer_billing_update_on_decline': 'bool',
         'supported_cards': 'list[PaymentsConfigurationCreditCardType]',
         'test_methods': 'list[PaymentsConfigurationTestMethod]'
@@ -52,13 +51,12 @@ class PaymentsConfigurationCreditCard(object):
         'configured_gateway_details': 'configured_gateway_details',
         'failed_attempts': 'failed_attempts',
         'hide_connect_single_gateway': 'hide_connect_single_gateway',
-        'restrictions': 'restrictions',
         'send_customer_billing_update_on_decline': 'send_customer_billing_update_on_decline',
         'supported_cards': 'supported_cards',
         'test_methods': 'test_methods'
     }
 
-    def __init__(self, accept_credit_card=None, billed_by=None, charge_during_checkout=None, collect_cvv2=None, configured_gateway_details=None, failed_attempts=None, hide_connect_single_gateway=None, restrictions=None, send_customer_billing_update_on_decline=None, supported_cards=None, test_methods=None):  # noqa: E501
+    def __init__(self, accept_credit_card=None, billed_by=None, charge_during_checkout=None, collect_cvv2=None, configured_gateway_details=None, failed_attempts=None, hide_connect_single_gateway=None, send_customer_billing_update_on_decline=None, supported_cards=None, test_methods=None):  # noqa: E501
         """PaymentsConfigurationCreditCard - a model defined in Swagger"""  # noqa: E501
 
         self._accept_credit_card = None
@@ -68,7 +66,6 @@ class PaymentsConfigurationCreditCard(object):
         self._configured_gateway_details = None
         self._failed_attempts = None
         self._hide_connect_single_gateway = None
-        self._restrictions = None
         self._send_customer_billing_update_on_decline = None
         self._supported_cards = None
         self._test_methods = None
@@ -88,8 +85,6 @@ class PaymentsConfigurationCreditCard(object):
             self.failed_attempts = failed_attempts
         if hide_connect_single_gateway is not None:
             self.hide_connect_single_gateway = hide_connect_single_gateway
-        if restrictions is not None:
-            self.restrictions = restrictions
         if send_customer_billing_update_on_decline is not None:
             self.send_customer_billing_update_on_decline = send_customer_billing_update_on_decline
         if supported_cards is not None:
@@ -257,29 +252,6 @@ class PaymentsConfigurationCreditCard(object):
         """
 
         self._hide_connect_single_gateway = hide_connect_single_gateway
-
-    @property
-    def restrictions(self):
-        """Gets the restrictions of this PaymentsConfigurationCreditCard.  # noqa: E501
-
-        Restrictions for this payment method  # noqa: E501
-
-        :return: The restrictions of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :rtype: list[PaymentsConfigurationRestrictions]
-        """
-        return self._restrictions
-
-    @restrictions.setter
-    def restrictions(self, restrictions):
-        """Sets the restrictions of this PaymentsConfigurationCreditCard.
-
-        Restrictions for this payment method  # noqa: E501
-
-        :param restrictions: The restrictions of this PaymentsConfigurationCreditCard.  # noqa: E501
-        :type: list[PaymentsConfigurationRestrictions]
-        """
-
-        self._restrictions = restrictions
 
     @property
     def send_customer_billing_update_on_decline(self):

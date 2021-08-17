@@ -38,6 +38,7 @@ class PaymentsConfigurationCreditCardType(object):
         'enabled': 'bool',
         'processing_fee': 'float',
         'processing_percentage': 'float',
+        'restrictions': 'PaymentsConfigurationRestrictions',
         'surcharge_accounting_code': 'str',
         'transaction_fee': 'float',
         'transaction_percentage': 'float'
@@ -51,12 +52,13 @@ class PaymentsConfigurationCreditCardType(object):
         'enabled': 'enabled',
         'processing_fee': 'processing_fee',
         'processing_percentage': 'processing_percentage',
+        'restrictions': 'restrictions',
         'surcharge_accounting_code': 'surcharge_accounting_code',
         'transaction_fee': 'transaction_fee',
         'transaction_percentage': 'transaction_percentage'
     }
 
-    def __init__(self, accounting_code=None, card_type_icon=None, credit_card=None, deposit_to_account=None, enabled=None, processing_fee=None, processing_percentage=None, surcharge_accounting_code=None, transaction_fee=None, transaction_percentage=None):  # noqa: E501
+    def __init__(self, accounting_code=None, card_type_icon=None, credit_card=None, deposit_to_account=None, enabled=None, processing_fee=None, processing_percentage=None, restrictions=None, surcharge_accounting_code=None, transaction_fee=None, transaction_percentage=None):  # noqa: E501
         """PaymentsConfigurationCreditCardType - a model defined in Swagger"""  # noqa: E501
 
         self._accounting_code = None
@@ -66,6 +68,7 @@ class PaymentsConfigurationCreditCardType(object):
         self._enabled = None
         self._processing_fee = None
         self._processing_percentage = None
+        self._restrictions = None
         self._surcharge_accounting_code = None
         self._transaction_fee = None
         self._transaction_percentage = None
@@ -85,6 +88,8 @@ class PaymentsConfigurationCreditCardType(object):
             self.processing_fee = processing_fee
         if processing_percentage is not None:
             self.processing_percentage = processing_percentage
+        if restrictions is not None:
+            self.restrictions = restrictions
         if surcharge_accounting_code is not None:
             self.surcharge_accounting_code = surcharge_accounting_code
         if transaction_fee is not None:
@@ -258,6 +263,27 @@ class PaymentsConfigurationCreditCardType(object):
         """
 
         self._processing_percentage = processing_percentage
+
+    @property
+    def restrictions(self):
+        """Gets the restrictions of this PaymentsConfigurationCreditCardType.  # noqa: E501
+
+
+        :return: The restrictions of this PaymentsConfigurationCreditCardType.  # noqa: E501
+        :rtype: PaymentsConfigurationRestrictions
+        """
+        return self._restrictions
+
+    @restrictions.setter
+    def restrictions(self, restrictions):
+        """Sets the restrictions of this PaymentsConfigurationCreditCardType.
+
+
+        :param restrictions: The restrictions of this PaymentsConfigurationCreditCardType.  # noqa: E501
+        :type: PaymentsConfigurationRestrictions
+        """
+
+        self._restrictions = restrictions
 
     @property
     def surcharge_accounting_code(self):

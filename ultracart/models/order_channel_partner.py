@@ -193,7 +193,7 @@ class OrderChannelPartner(object):
     def channel_partner_order_id(self):
         """Gets the channel_partner_order_id of this OrderChannelPartner.  # noqa: E501
 
-        The order ID assigned by the channel partner for this order  # noqa: E501
+        The order ID assigned by the channel partner for this order.  # noqa: E501
 
         :return: The channel_partner_order_id of this OrderChannelPartner.  # noqa: E501
         :rtype: str
@@ -204,11 +204,13 @@ class OrderChannelPartner(object):
     def channel_partner_order_id(self, channel_partner_order_id):
         """Sets the channel_partner_order_id of this OrderChannelPartner.
 
-        The order ID assigned by the channel partner for this order  # noqa: E501
+        The order ID assigned by the channel partner for this order.  # noqa: E501
 
         :param channel_partner_order_id: The channel_partner_order_id of this OrderChannelPartner.  # noqa: E501
         :type: str
         """
+        if channel_partner_order_id is not None and len(channel_partner_order_id) > 50:
+            raise ValueError("Invalid value for `channel_partner_order_id`, length must be less than or equal to `50`")  # noqa: E501
 
         self._channel_partner_order_id = channel_partner_order_id
 
