@@ -41,6 +41,7 @@ class PaymentsConfigurationWePay(object):
         'company_description': 'str',
         'console_hostname': 'str',
         'country': 'str',
+        'credit_card_rate': 'str',
         'currency': 'str',
         'expected_revenue': 'str',
         'hide_credit_card_non_ultracart_payments': 'bool',
@@ -72,6 +73,7 @@ class PaymentsConfigurationWePay(object):
         'company_description': 'company_description',
         'console_hostname': 'console_hostname',
         'country': 'country',
+        'credit_card_rate': 'credit_card_rate',
         'currency': 'currency',
         'expected_revenue': 'expected_revenue',
         'hide_credit_card_non_ultracart_payments': 'hide_credit_card_non_ultracart_payments',
@@ -92,7 +94,7 @@ class PaymentsConfigurationWePay(object):
         'website_url': 'website_url'
     }
 
-    def __init__(self, accept_wepay=None, account_update_uri=None, address1=None, address2=None, canada_accept_debit_cards=None, city=None, company=None, company_description=None, console_hostname=None, country=None, currency=None, expected_revenue=None, hide_credit_card_non_ultracart_payments=None, hide_surcharge_amount=None, industry=None, owner_email=None, owner_name=None, owner_phone=None, postal_code=None, remove_pay_pal_pro=None, restrictions=None, short_paypal_marketing_text=None, show_ultracart_payments_disabled=None, show_ultracart_payments_intro=None, show_ultracart_payments_verification=None, show_ultracart_payments_verified=None, state=None, website_url=None):  # noqa: E501
+    def __init__(self, accept_wepay=None, account_update_uri=None, address1=None, address2=None, canada_accept_debit_cards=None, city=None, company=None, company_description=None, console_hostname=None, country=None, credit_card_rate=None, currency=None, expected_revenue=None, hide_credit_card_non_ultracart_payments=None, hide_surcharge_amount=None, industry=None, owner_email=None, owner_name=None, owner_phone=None, postal_code=None, remove_pay_pal_pro=None, restrictions=None, short_paypal_marketing_text=None, show_ultracart_payments_disabled=None, show_ultracart_payments_intro=None, show_ultracart_payments_verification=None, show_ultracart_payments_verified=None, state=None, website_url=None):  # noqa: E501
         """PaymentsConfigurationWePay - a model defined in Swagger"""  # noqa: E501
 
         self._accept_wepay = None
@@ -105,6 +107,7 @@ class PaymentsConfigurationWePay(object):
         self._company_description = None
         self._console_hostname = None
         self._country = None
+        self._credit_card_rate = None
         self._currency = None
         self._expected_revenue = None
         self._hide_credit_card_non_ultracart_payments = None
@@ -145,6 +148,8 @@ class PaymentsConfigurationWePay(object):
             self.console_hostname = console_hostname
         if country is not None:
             self.country = country
+        if credit_card_rate is not None:
+            self.credit_card_rate = credit_card_rate
         if currency is not None:
             self.currency = currency
         if expected_revenue is not None:
@@ -411,6 +416,29 @@ class PaymentsConfigurationWePay(object):
         """
 
         self._country = country
+
+    @property
+    def credit_card_rate(self):
+        """Gets the credit_card_rate of this PaymentsConfigurationWePay.  # noqa: E501
+
+        WePay credit card rate  # noqa: E501
+
+        :return: The credit_card_rate of this PaymentsConfigurationWePay.  # noqa: E501
+        :rtype: str
+        """
+        return self._credit_card_rate
+
+    @credit_card_rate.setter
+    def credit_card_rate(self, credit_card_rate):
+        """Sets the credit_card_rate of this PaymentsConfigurationWePay.
+
+        WePay credit card rate  # noqa: E501
+
+        :param credit_card_rate: The credit_card_rate of this PaymentsConfigurationWePay.  # noqa: E501
+        :type: str
+        """
+
+        self._credit_card_rate = credit_card_rate
 
     @property
     def currency(self):
