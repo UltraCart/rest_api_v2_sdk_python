@@ -84,7 +84,7 @@ class Coupon(object):
         'restrict_by_storefronts': 'list[CouponRestriction]',
         'start_dts': 'str',
         'super_coupon': 'bool',
-        'tiered_amount_off_item': 'CouponTieredAmountOffItem',
+        'tiered_amount_off_items': 'CouponTieredAmountOffItems',
         'tiered_amount_off_subtotal': 'CouponTieredAmountOffSubtotal',
         'tiered_percent_off_items': 'CouponTieredPercentOffItems',
         'tiered_percent_off_shipping': 'CouponTieredPercentOffShipping',
@@ -146,7 +146,7 @@ class Coupon(object):
         'restrict_by_storefronts': 'restrict_by_storefronts',
         'start_dts': 'start_dts',
         'super_coupon': 'super_coupon',
-        'tiered_amount_off_item': 'tiered_amount_off_item',
+        'tiered_amount_off_items': 'tiered_amount_off_items',
         'tiered_amount_off_subtotal': 'tiered_amount_off_subtotal',
         'tiered_percent_off_items': 'tiered_percent_off_items',
         'tiered_percent_off_shipping': 'tiered_percent_off_shipping',
@@ -154,7 +154,7 @@ class Coupon(object):
         'usable_by': 'usable_by'
     }
 
-    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, hide_from_customer=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_item=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):  # noqa: E501
+    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, hide_from_customer=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_items=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):  # noqa: E501
         """Coupon - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_oid = None
@@ -210,7 +210,7 @@ class Coupon(object):
         self._restrict_by_storefronts = None
         self._start_dts = None
         self._super_coupon = None
-        self._tiered_amount_off_item = None
+        self._tiered_amount_off_items = None
         self._tiered_amount_off_subtotal = None
         self._tiered_percent_off_items = None
         self._tiered_percent_off_shipping = None
@@ -324,8 +324,8 @@ class Coupon(object):
             self.start_dts = start_dts
         if super_coupon is not None:
             self.super_coupon = super_coupon
-        if tiered_amount_off_item is not None:
-            self.tiered_amount_off_item = tiered_amount_off_item
+        if tiered_amount_off_items is not None:
+            self.tiered_amount_off_items = tiered_amount_off_items
         if tiered_amount_off_subtotal is not None:
             self.tiered_amount_off_subtotal = tiered_amount_off_subtotal
         if tiered_percent_off_items is not None:
@@ -1495,25 +1495,25 @@ class Coupon(object):
         self._super_coupon = super_coupon
 
     @property
-    def tiered_amount_off_item(self):
-        """Gets the tiered_amount_off_item of this Coupon.  # noqa: E501
+    def tiered_amount_off_items(self):
+        """Gets the tiered_amount_off_items of this Coupon.  # noqa: E501
 
 
-        :return: The tiered_amount_off_item of this Coupon.  # noqa: E501
-        :rtype: CouponTieredAmountOffItem
+        :return: The tiered_amount_off_items of this Coupon.  # noqa: E501
+        :rtype: CouponTieredAmountOffItems
         """
-        return self._tiered_amount_off_item
+        return self._tiered_amount_off_items
 
-    @tiered_amount_off_item.setter
-    def tiered_amount_off_item(self, tiered_amount_off_item):
-        """Sets the tiered_amount_off_item of this Coupon.
+    @tiered_amount_off_items.setter
+    def tiered_amount_off_items(self, tiered_amount_off_items):
+        """Sets the tiered_amount_off_items of this Coupon.
 
 
-        :param tiered_amount_off_item: The tiered_amount_off_item of this Coupon.  # noqa: E501
-        :type: CouponTieredAmountOffItem
+        :param tiered_amount_off_items: The tiered_amount_off_items of this Coupon.  # noqa: E501
+        :type: CouponTieredAmountOffItems
         """
 
-        self._tiered_amount_off_item = tiered_amount_off_item
+        self._tiered_amount_off_items = tiered_amount_off_items
 
     @property
     def tiered_amount_off_subtotal(self):

@@ -1,9 +1,9 @@
-# CouponTieredAmountOffItem
+# CouponTieredAmountOffItems
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**item** | **str** | The item being discounted by this coupon. | [optional] 
+**items** | **list[str]** | The items being discounted by this coupon. | [optional] 
 **limit** | **float** | The maximum number of discounted items. | [optional] 
 **tiers** | [**list[CouponTierQuantityAmount]**](CouponTierQuantityAmount.md) | A list of discount tiers. | [optional] 
 

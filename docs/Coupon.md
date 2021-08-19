@@ -56,7 +56,7 @@ Name | Type | Description | Notes
 **restrict_by_storefronts** | [**list[CouponRestriction]**](CouponRestriction.md) | Optional list of storefronts to limit coupon use to only those storefronts. | [optional] 
 **start_dts** | **str** | Date/time when coupon is valid | [optional] 
 **super_coupon** | **bool** | If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration | [optional] 
-**tiered_amount_off_item** | [**CouponTieredAmountOffItem**](CouponTieredAmountOffItem.md) |  | [optional] 
+**tiered_amount_off_items** | [**CouponTieredAmountOffItems**](CouponTieredAmountOffItems.md) |  | [optional] 
 **tiered_amount_off_subtotal** | [**CouponTieredAmountOffSubtotal**](CouponTieredAmountOffSubtotal.md) |  | [optional] 
 **tiered_percent_off_items** | [**CouponTieredPercentOffItems**](CouponTieredPercentOffItems.md) |  | [optional] 
 **tiered_percent_off_shipping** | [**CouponTieredPercentOffShipping**](CouponTieredPercentOffShipping.md) |  | [optional] 
