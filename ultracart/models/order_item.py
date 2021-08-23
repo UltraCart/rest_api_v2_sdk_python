@@ -80,6 +80,7 @@ class OrderItem(object):
         'taxable_cost': 'Currency',
         'total_cost_with_discount': 'Currency',
         'total_refunded': 'Currency',
+        'tracking_number': 'str',
         'transmitted_to_distribution_center_dts': 'str',
         'unit_cost_with_discount': 'Currency',
         'upsell': 'bool',
@@ -137,6 +138,7 @@ class OrderItem(object):
         'taxable_cost': 'taxable_cost',
         'total_cost_with_discount': 'total_cost_with_discount',
         'total_refunded': 'total_refunded',
+        'tracking_number': 'tracking_number',
         'transmitted_to_distribution_center_dts': 'transmitted_to_distribution_center_dts',
         'unit_cost_with_discount': 'unit_cost_with_discount',
         'upsell': 'upsell',
@@ -144,7 +146,7 @@ class OrderItem(object):
         'width': 'width'
     }
 
-    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, special_product_type=None, tags=None, tax_free=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
+    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, special_product_type=None, tags=None, tax_free=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, tracking_number=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
         """OrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._accounting_code = None
@@ -196,6 +198,7 @@ class OrderItem(object):
         self._taxable_cost = None
         self._total_cost_with_discount = None
         self._total_refunded = None
+        self._tracking_number = None
         self._transmitted_to_distribution_center_dts = None
         self._unit_cost_with_discount = None
         self._upsell = None
@@ -301,6 +304,8 @@ class OrderItem(object):
             self.total_cost_with_discount = total_cost_with_discount
         if total_refunded is not None:
             self.total_refunded = total_refunded
+        if tracking_number is not None:
+            self.tracking_number = tracking_number
         if transmitted_to_distribution_center_dts is not None:
             self.transmitted_to_distribution_center_dts = transmitted_to_distribution_center_dts
         if unit_cost_with_discount is not None:
@@ -1430,6 +1435,29 @@ class OrderItem(object):
         """
 
         self._total_refunded = total_refunded
+
+    @property
+    def tracking_number(self):
+        """Gets the tracking_number of this OrderItem.  # noqa: E501
+
+        Tracking number, if null or missing, use order level tracking number(s). Used if there are multiple shipments for one order  # noqa: E501
+
+        :return: The tracking_number of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._tracking_number
+
+    @tracking_number.setter
+    def tracking_number(self, tracking_number):
+        """Sets the tracking_number of this OrderItem.
+
+        Tracking number, if null or missing, use order level tracking number(s). Used if there are multiple shipments for one order  # noqa: E501
+
+        :param tracking_number: The tracking_number of this OrderItem.  # noqa: E501
+        :type: str
+        """
+
+        self._tracking_number = tracking_number
 
     @property
     def transmitted_to_distribution_center_dts(self):
