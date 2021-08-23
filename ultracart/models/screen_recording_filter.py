@@ -54,6 +54,7 @@ class ScreenRecordingFilter(object):
         'placed_order': 'bool',
         'preferred_language': 'ScreenRecordingFilterStringSearch',
         'referrer_domain': 'str',
+        'return_filter_values': 'list[str]',
         'screen_recording_uuids': 'list[str]',
         'screen_sizes': 'list[str]',
         'skip_filter_values': 'bool',
@@ -97,6 +98,7 @@ class ScreenRecordingFilter(object):
         'placed_order': 'placed_order',
         'preferred_language': 'preferred_language',
         'referrer_domain': 'referrer_domain',
+        'return_filter_values': 'return_filter_values',
         'screen_recording_uuids': 'screen_recording_uuids',
         'screen_sizes': 'screen_sizes',
         'skip_filter_values': 'skip_filter_values',
@@ -116,7 +118,7 @@ class ScreenRecordingFilter(object):
         'watched': 'watched'
     }
 
-    def __init__(self, affiliate_email=None, affiliate_id=None, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_domain=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, last_x_days=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, preferred_language=None, referrer_domain=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, utm_campaign=None, utm_source=None, visitor_number=None, watched=None):  # noqa: E501
+    def __init__(self, affiliate_email=None, affiliate_id=None, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_domain=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, last_x_days=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, preferred_language=None, referrer_domain=None, return_filter_values=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, utm_campaign=None, utm_source=None, visitor_number=None, watched=None):  # noqa: E501
         """ScreenRecordingFilter - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_email = None
@@ -142,6 +144,7 @@ class ScreenRecordingFilter(object):
         self._placed_order = None
         self._preferred_language = None
         self._referrer_domain = None
+        self._return_filter_values = None
         self._screen_recording_uuids = None
         self._screen_sizes = None
         self._skip_filter_values = None
@@ -207,6 +210,8 @@ class ScreenRecordingFilter(object):
             self.preferred_language = preferred_language
         if referrer_domain is not None:
             self.referrer_domain = referrer_domain
+        if return_filter_values is not None:
+            self.return_filter_values = return_filter_values
         if screen_recording_uuids is not None:
             self.screen_recording_uuids = screen_recording_uuids
         if screen_sizes is not None:
@@ -724,6 +729,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._referrer_domain = referrer_domain
+
+    @property
+    def return_filter_values(self):
+        """Gets the return_filter_values of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The return_filter_values of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._return_filter_values
+
+    @return_filter_values.setter
+    def return_filter_values(self, return_filter_values):
+        """Sets the return_filter_values of this ScreenRecordingFilter.
+
+
+        :param return_filter_values: The return_filter_values of this ScreenRecordingFilter.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._return_filter_values = return_filter_values
 
     @property
     def screen_recording_uuids(self):

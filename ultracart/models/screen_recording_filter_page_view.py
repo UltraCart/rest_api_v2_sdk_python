@@ -37,6 +37,7 @@ class ScreenRecordingFilterPageView(object):
         'referrer': 'ScreenRecordingFilterStringSearch',
         'referrer_params': 'list[ScreenRecordingFilterPageViewReferrerParam]',
         'referrer_raw': 'ScreenRecordingFilterStringSearch',
+        'return_filter_values': 'list[str]',
         'time_on_page': 'ScreenRecordingFilterRangeInteger',
         'url': 'ScreenRecordingFilterStringSearch'
     }
@@ -48,11 +49,12 @@ class ScreenRecordingFilterPageView(object):
         'referrer': 'referrer',
         'referrer_params': 'referrer_params',
         'referrer_raw': 'referrer_raw',
+        'return_filter_values': 'return_filter_values',
         'time_on_page': 'time_on_page',
         'url': 'url'
     }
 
-    def __init__(self, domain=None, events=None, params=None, referrer=None, referrer_params=None, referrer_raw=None, time_on_page=None, url=None):  # noqa: E501
+    def __init__(self, domain=None, events=None, params=None, referrer=None, referrer_params=None, referrer_raw=None, return_filter_values=None, time_on_page=None, url=None):  # noqa: E501
         """ScreenRecordingFilterPageView - a model defined in Swagger"""  # noqa: E501
 
         self._domain = None
@@ -61,6 +63,7 @@ class ScreenRecordingFilterPageView(object):
         self._referrer = None
         self._referrer_params = None
         self._referrer_raw = None
+        self._return_filter_values = None
         self._time_on_page = None
         self._url = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class ScreenRecordingFilterPageView(object):
             self.referrer_params = referrer_params
         if referrer_raw is not None:
             self.referrer_raw = referrer_raw
+        if return_filter_values is not None:
+            self.return_filter_values = return_filter_values
         if time_on_page is not None:
             self.time_on_page = time_on_page
         if url is not None:
@@ -207,6 +212,27 @@ class ScreenRecordingFilterPageView(object):
         """
 
         self._referrer_raw = referrer_raw
+
+    @property
+    def return_filter_values(self):
+        """Gets the return_filter_values of this ScreenRecordingFilterPageView.  # noqa: E501
+
+
+        :return: The return_filter_values of this ScreenRecordingFilterPageView.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._return_filter_values
+
+    @return_filter_values.setter
+    def return_filter_values(self, return_filter_values):
+        """Sets the return_filter_values of this ScreenRecordingFilterPageView.
+
+
+        :param return_filter_values: The return_filter_values of this ScreenRecordingFilterPageView.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._return_filter_values = return_filter_values
 
     @property
     def time_on_page(self):

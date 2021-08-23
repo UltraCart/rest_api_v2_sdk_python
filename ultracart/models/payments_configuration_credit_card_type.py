@@ -163,7 +163,7 @@ class PaymentsConfigurationCreditCardType(object):
         :param credit_card: The credit_card of this PaymentsConfigurationCreditCardType.  # noqa: E501
         :type: str
         """
-        allowed_values = ["AMEX", "Visa", "Diners Club", "Discover", "JCB", "MasterCard"]  # noqa: E501
+        allowed_values = ["AMEX", "Diners Club", "Discover", "MasterCard", "JCB", "VISA"]  # noqa: E501
         if credit_card not in allowed_values:
             raise ValueError(
                 "Invalid value for `credit_card` ({0}), must be one of {1}"  # noqa: E501
