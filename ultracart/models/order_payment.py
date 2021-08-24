@@ -35,6 +35,7 @@ class OrderPayment(object):
         'credit_card': 'OrderPaymentCreditCard',
         'echeck': 'OrderPaymentECheck',
         'hold_for_fraud_review': 'bool',
+        'insurance': 'OrderPaymentInsurance',
         'payment_dts': 'str',
         'payment_method': 'str',
         'payment_method_accounting_code': 'str',
@@ -55,6 +56,7 @@ class OrderPayment(object):
         'credit_card': 'credit_card',
         'echeck': 'echeck',
         'hold_for_fraud_review': 'hold_for_fraud_review',
+        'insurance': 'insurance',
         'payment_dts': 'payment_dts',
         'payment_method': 'payment_method',
         'payment_method_accounting_code': 'payment_method_accounting_code',
@@ -70,13 +72,14 @@ class OrderPayment(object):
         'transactions': 'transactions'
     }
 
-    def __init__(self, check=None, credit_card=None, echeck=None, hold_for_fraud_review=None, payment_dts=None, payment_method=None, payment_method_accounting_code=None, payment_method_deposit_to_account=None, payment_status=None, purchase_order=None, rotating_transaction_gateway_code=None, surcharge=None, surcharge_accounting_code=None, surcharge_transaction_fee=None, surcharge_transaction_percentage=None, test_order=None, transactions=None):  # noqa: E501
+    def __init__(self, check=None, credit_card=None, echeck=None, hold_for_fraud_review=None, insurance=None, payment_dts=None, payment_method=None, payment_method_accounting_code=None, payment_method_deposit_to_account=None, payment_status=None, purchase_order=None, rotating_transaction_gateway_code=None, surcharge=None, surcharge_accounting_code=None, surcharge_transaction_fee=None, surcharge_transaction_percentage=None, test_order=None, transactions=None):  # noqa: E501
         """OrderPayment - a model defined in Swagger"""  # noqa: E501
 
         self._check = None
         self._credit_card = None
         self._echeck = None
         self._hold_for_fraud_review = None
+        self._insurance = None
         self._payment_dts = None
         self._payment_method = None
         self._payment_method_accounting_code = None
@@ -100,6 +103,8 @@ class OrderPayment(object):
             self.echeck = echeck
         if hold_for_fraud_review is not None:
             self.hold_for_fraud_review = hold_for_fraud_review
+        if insurance is not None:
+            self.insurance = insurance
         if payment_dts is not None:
             self.payment_dts = payment_dts
         if payment_method is not None:
@@ -214,6 +219,27 @@ class OrderPayment(object):
         self._hold_for_fraud_review = hold_for_fraud_review
 
     @property
+    def insurance(self):
+        """Gets the insurance of this OrderPayment.  # noqa: E501
+
+
+        :return: The insurance of this OrderPayment.  # noqa: E501
+        :rtype: OrderPaymentInsurance
+        """
+        return self._insurance
+
+    @insurance.setter
+    def insurance(self, insurance):
+        """Sets the insurance of this OrderPayment.
+
+
+        :param insurance: The insurance of this OrderPayment.  # noqa: E501
+        :type: OrderPaymentInsurance
+        """
+
+        self._insurance = insurance
+
+    @property
     def payment_dts(self):
         """Gets the payment_dts of this OrderPayment.  # noqa: E501
 
@@ -256,7 +282,7 @@ class OrderPayment(object):
         :param payment_method: The payment_method of this OrderPayment.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Credit Card", "eBay", "eCheck", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer", "Walmart"]  # noqa: E501
+        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Credit Card", "eBay", "eCheck", "Insurance", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer", "Walmart"]  # noqa: E501
         if payment_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `payment_method` ({0}), must be one of {1}"  # noqa: E501

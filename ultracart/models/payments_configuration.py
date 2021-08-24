@@ -38,6 +38,7 @@ class PaymentsConfiguration(object):
         'cod': 'PaymentsConfigurationCOD',
         'credit_card': 'PaymentsConfigurationCreditCard',
         'echeck': 'PaymentsConfigurationEcheck',
+        'insurance': 'PaymentsConfigurationInsurance',
         'loan_hero': 'PaymentsConfigurationLoanHero',
         'money_order': 'PaymentsConfigurationMoneyOrder',
         'paypal': 'PaymentsConfigurationPayPal',
@@ -59,6 +60,7 @@ class PaymentsConfiguration(object):
         'cod': 'cod',
         'credit_card': 'credit_card',
         'echeck': 'echeck',
+        'insurance': 'insurance',
         'loan_hero': 'loan_hero',
         'money_order': 'money_order',
         'paypal': 'paypal',
@@ -72,7 +74,7 @@ class PaymentsConfiguration(object):
         'wire_transfer': 'wire_transfer'
     }
 
-    def __init__(self, affirm=None, amazon=None, cash=None, check=None, cod=None, credit_card=None, echeck=None, loan_hero=None, money_order=None, paypal=None, purchase_order=None, quote_request=None, sezzle=None, show_accounting_code=None, switch_to_sub_tab=None, switch_to_tab=None, ultracart_payments_wepay=None, wire_transfer=None):  # noqa: E501
+    def __init__(self, affirm=None, amazon=None, cash=None, check=None, cod=None, credit_card=None, echeck=None, insurance=None, loan_hero=None, money_order=None, paypal=None, purchase_order=None, quote_request=None, sezzle=None, show_accounting_code=None, switch_to_sub_tab=None, switch_to_tab=None, ultracart_payments_wepay=None, wire_transfer=None):  # noqa: E501
         """PaymentsConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._affirm = None
@@ -82,6 +84,7 @@ class PaymentsConfiguration(object):
         self._cod = None
         self._credit_card = None
         self._echeck = None
+        self._insurance = None
         self._loan_hero = None
         self._money_order = None
         self._paypal = None
@@ -109,6 +112,8 @@ class PaymentsConfiguration(object):
             self.credit_card = credit_card
         if echeck is not None:
             self.echeck = echeck
+        if insurance is not None:
+            self.insurance = insurance
         if loan_hero is not None:
             self.loan_hero = loan_hero
         if money_order is not None:
@@ -278,6 +283,27 @@ class PaymentsConfiguration(object):
         """
 
         self._echeck = echeck
+
+    @property
+    def insurance(self):
+        """Gets the insurance of this PaymentsConfiguration.  # noqa: E501
+
+
+        :return: The insurance of this PaymentsConfiguration.  # noqa: E501
+        :rtype: PaymentsConfigurationInsurance
+        """
+        return self._insurance
+
+    @insurance.setter
+    def insurance(self, insurance):
+        """Sets the insurance of this PaymentsConfiguration.
+
+
+        :param insurance: The insurance of this PaymentsConfiguration.  # noqa: E501
+        :type: PaymentsConfigurationInsurance
+        """
+
+        self._insurance = insurance
 
     @property
     def loan_hero(self):

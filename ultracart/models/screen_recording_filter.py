@@ -34,18 +34,25 @@ class ScreenRecordingFilter(object):
         'affiliate_email': 'str',
         'affiliate_id': 'int',
         'communications_campaign_name': 'str',
+        'communications_campaign_name_filter': 'bool',
         'communications_email_subject': 'str',
+        'communications_email_subject_filter': 'bool',
         'communications_flow_name': 'str',
+        'communications_flow_name_filter': 'bool',
         'email': 'ScreenRecordingFilterStringSearch',
         'email_domain': 'str',
+        'email_domain_filter': 'bool',
         'email_identified': 'bool',
         'end_timestamp': 'ScreenRecordingFilterRangeDate',
         'esp_customer_uuid': 'str',
         'favorite': 'bool',
         'geolocation': 'ScreenRecordingFilterGeoDistance',
         'geolocation_country': 'ScreenRecordingFilterStringSearch',
+        'geolocation_country_filter': 'bool',
         'geolocation_state': 'ScreenRecordingFilterStringSearch',
+        'geolocation_state_filter': 'bool',
         'language_iso_code': 'ScreenRecordingFilterStringSearch',
+        'language_iso_code_filter': 'bool',
         'last_x_days': 'int',
         'max_filter_values': 'int',
         'order_id': 'ScreenRecordingFilterStringSearch',
@@ -53,23 +60,35 @@ class ScreenRecordingFilter(object):
         'page_views': 'list[ScreenRecordingFilterPageView]',
         'placed_order': 'bool',
         'preferred_language': 'ScreenRecordingFilterStringSearch',
+        'preferred_language_filter': 'bool',
         'referrer_domain': 'str',
-        'return_filter_values': 'list[str]',
+        'referrer_domain_filter': 'bool',
         'screen_recording_uuids': 'list[str]',
         'screen_sizes': 'list[str]',
         'skip_filter_values': 'bool',
+        'skip_histogram': 'bool',
         'skip_hits': 'bool',
         'start_timestamp': 'ScreenRecordingFilterRangeDate',
         'tags': 'list[str]',
         'time_on_site': 'ScreenRecordingFilterRangeInteger',
+        'time_on_site_max_filter': 'bool',
+        'time_on_site_min_filter': 'bool',
+        'url_filter': 'bool',
         'user_agent_device_name': 'str',
+        'user_agent_device_name_filter': 'bool',
+        'user_agent_device_os_name_filter': 'bool',
+        'user_agent_device_os_version_filter': 'bool',
         'user_agent_name': 'str',
+        'user_agent_name_filter': 'bool',
         'user_agent_original': 'ScreenRecordingFilterStringSearch',
+        'user_agent_original_filter': 'bool',
         'user_agent_os_name': 'str',
         'user_agent_os_version': 'str',
         'user_ip': 'ScreenRecordingFilterIpSearch',
         'utm_campaign': 'str',
+        'utm_campaign_filter': 'bool',
         'utm_source': 'str',
+        'utm_source_filter': 'bool',
         'visitor_number': 'int',
         'watched': 'bool'
     }
@@ -78,18 +97,25 @@ class ScreenRecordingFilter(object):
         'affiliate_email': 'affiliate_email',
         'affiliate_id': 'affiliate_id',
         'communications_campaign_name': 'communications_campaign_name',
+        'communications_campaign_name_filter': 'communications_campaign_name_filter',
         'communications_email_subject': 'communications_email_subject',
+        'communications_email_subject_filter': 'communications_email_subject_filter',
         'communications_flow_name': 'communications_flow_name',
+        'communications_flow_name_filter': 'communications_flow_name_filter',
         'email': 'email',
         'email_domain': 'email_domain',
+        'email_domain_filter': 'email_domain_filter',
         'email_identified': 'email_identified',
         'end_timestamp': 'end_timestamp',
         'esp_customer_uuid': 'esp_customer_uuid',
         'favorite': 'favorite',
         'geolocation': 'geolocation',
         'geolocation_country': 'geolocation_country',
+        'geolocation_country_filter': 'geolocation_country_filter',
         'geolocation_state': 'geolocation_state',
+        'geolocation_state_filter': 'geolocation_state_filter',
         'language_iso_code': 'language_iso_code',
+        'language_iso_code_filter': 'language_iso_code_filter',
         'last_x_days': 'last_x_days',
         'max_filter_values': 'max_filter_values',
         'order_id': 'order_id',
@@ -97,45 +123,64 @@ class ScreenRecordingFilter(object):
         'page_views': 'page_views',
         'placed_order': 'placed_order',
         'preferred_language': 'preferred_language',
+        'preferred_language_filter': 'preferred_language_filter',
         'referrer_domain': 'referrer_domain',
-        'return_filter_values': 'return_filter_values',
+        'referrer_domain_filter': 'referrer_domain_filter',
         'screen_recording_uuids': 'screen_recording_uuids',
         'screen_sizes': 'screen_sizes',
         'skip_filter_values': 'skip_filter_values',
+        'skip_histogram': 'skip_histogram',
         'skip_hits': 'skip_hits',
         'start_timestamp': 'start_timestamp',
         'tags': 'tags',
         'time_on_site': 'time_on_site',
+        'time_on_site_max_filter': 'time_on_site_max_filter',
+        'time_on_site_min_filter': 'time_on_site_min_filter',
+        'url_filter': 'url_filter',
         'user_agent_device_name': 'user_agent_device_name',
+        'user_agent_device_name_filter': 'user_agent_device_name_filter',
+        'user_agent_device_os_name_filter': 'user_agent_device_os_name_filter',
+        'user_agent_device_os_version_filter': 'user_agent_device_os_version_filter',
         'user_agent_name': 'user_agent_name',
+        'user_agent_name_filter': 'user_agent_name_filter',
         'user_agent_original': 'user_agent_original',
+        'user_agent_original_filter': 'user_agent_original_filter',
         'user_agent_os_name': 'user_agent_os_name',
         'user_agent_os_version': 'user_agent_os_version',
         'user_ip': 'user_ip',
         'utm_campaign': 'utm_campaign',
+        'utm_campaign_filter': 'utm_campaign_filter',
         'utm_source': 'utm_source',
+        'utm_source_filter': 'utm_source_filter',
         'visitor_number': 'visitor_number',
         'watched': 'watched'
     }
 
-    def __init__(self, affiliate_email=None, affiliate_id=None, communications_campaign_name=None, communications_email_subject=None, communications_flow_name=None, email=None, email_domain=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_state=None, language_iso_code=None, last_x_days=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, preferred_language=None, referrer_domain=None, return_filter_values=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, user_agent_device_name=None, user_agent_name=None, user_agent_original=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, utm_campaign=None, utm_source=None, visitor_number=None, watched=None):  # noqa: E501
+    def __init__(self, affiliate_email=None, affiliate_id=None, communications_campaign_name=None, communications_campaign_name_filter=None, communications_email_subject=None, communications_email_subject_filter=None, communications_flow_name=None, communications_flow_name_filter=None, email=None, email_domain=None, email_domain_filter=None, email_identified=None, end_timestamp=None, esp_customer_uuid=None, favorite=None, geolocation=None, geolocation_country=None, geolocation_country_filter=None, geolocation_state=None, geolocation_state_filter=None, language_iso_code=None, language_iso_code_filter=None, last_x_days=None, max_filter_values=None, order_id=None, page_view_count=None, page_views=None, placed_order=None, preferred_language=None, preferred_language_filter=None, referrer_domain=None, referrer_domain_filter=None, screen_recording_uuids=None, screen_sizes=None, skip_filter_values=None, skip_histogram=None, skip_hits=None, start_timestamp=None, tags=None, time_on_site=None, time_on_site_max_filter=None, time_on_site_min_filter=None, url_filter=None, user_agent_device_name=None, user_agent_device_name_filter=None, user_agent_device_os_name_filter=None, user_agent_device_os_version_filter=None, user_agent_name=None, user_agent_name_filter=None, user_agent_original=None, user_agent_original_filter=None, user_agent_os_name=None, user_agent_os_version=None, user_ip=None, utm_campaign=None, utm_campaign_filter=None, utm_source=None, utm_source_filter=None, visitor_number=None, watched=None):  # noqa: E501
         """ScreenRecordingFilter - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_email = None
         self._affiliate_id = None
         self._communications_campaign_name = None
+        self._communications_campaign_name_filter = None
         self._communications_email_subject = None
+        self._communications_email_subject_filter = None
         self._communications_flow_name = None
+        self._communications_flow_name_filter = None
         self._email = None
         self._email_domain = None
+        self._email_domain_filter = None
         self._email_identified = None
         self._end_timestamp = None
         self._esp_customer_uuid = None
         self._favorite = None
         self._geolocation = None
         self._geolocation_country = None
+        self._geolocation_country_filter = None
         self._geolocation_state = None
+        self._geolocation_state_filter = None
         self._language_iso_code = None
+        self._language_iso_code_filter = None
         self._last_x_days = None
         self._max_filter_values = None
         self._order_id = None
@@ -143,23 +188,35 @@ class ScreenRecordingFilter(object):
         self._page_views = None
         self._placed_order = None
         self._preferred_language = None
+        self._preferred_language_filter = None
         self._referrer_domain = None
-        self._return_filter_values = None
+        self._referrer_domain_filter = None
         self._screen_recording_uuids = None
         self._screen_sizes = None
         self._skip_filter_values = None
+        self._skip_histogram = None
         self._skip_hits = None
         self._start_timestamp = None
         self._tags = None
         self._time_on_site = None
+        self._time_on_site_max_filter = None
+        self._time_on_site_min_filter = None
+        self._url_filter = None
         self._user_agent_device_name = None
+        self._user_agent_device_name_filter = None
+        self._user_agent_device_os_name_filter = None
+        self._user_agent_device_os_version_filter = None
         self._user_agent_name = None
+        self._user_agent_name_filter = None
         self._user_agent_original = None
+        self._user_agent_original_filter = None
         self._user_agent_os_name = None
         self._user_agent_os_version = None
         self._user_ip = None
         self._utm_campaign = None
+        self._utm_campaign_filter = None
         self._utm_source = None
+        self._utm_source_filter = None
         self._visitor_number = None
         self._watched = None
         self.discriminator = None
@@ -170,14 +227,22 @@ class ScreenRecordingFilter(object):
             self.affiliate_id = affiliate_id
         if communications_campaign_name is not None:
             self.communications_campaign_name = communications_campaign_name
+        if communications_campaign_name_filter is not None:
+            self.communications_campaign_name_filter = communications_campaign_name_filter
         if communications_email_subject is not None:
             self.communications_email_subject = communications_email_subject
+        if communications_email_subject_filter is not None:
+            self.communications_email_subject_filter = communications_email_subject_filter
         if communications_flow_name is not None:
             self.communications_flow_name = communications_flow_name
+        if communications_flow_name_filter is not None:
+            self.communications_flow_name_filter = communications_flow_name_filter
         if email is not None:
             self.email = email
         if email_domain is not None:
             self.email_domain = email_domain
+        if email_domain_filter is not None:
+            self.email_domain_filter = email_domain_filter
         if email_identified is not None:
             self.email_identified = email_identified
         if end_timestamp is not None:
@@ -190,10 +255,16 @@ class ScreenRecordingFilter(object):
             self.geolocation = geolocation
         if geolocation_country is not None:
             self.geolocation_country = geolocation_country
+        if geolocation_country_filter is not None:
+            self.geolocation_country_filter = geolocation_country_filter
         if geolocation_state is not None:
             self.geolocation_state = geolocation_state
+        if geolocation_state_filter is not None:
+            self.geolocation_state_filter = geolocation_state_filter
         if language_iso_code is not None:
             self.language_iso_code = language_iso_code
+        if language_iso_code_filter is not None:
+            self.language_iso_code_filter = language_iso_code_filter
         if last_x_days is not None:
             self.last_x_days = last_x_days
         if max_filter_values is not None:
@@ -208,16 +279,20 @@ class ScreenRecordingFilter(object):
             self.placed_order = placed_order
         if preferred_language is not None:
             self.preferred_language = preferred_language
+        if preferred_language_filter is not None:
+            self.preferred_language_filter = preferred_language_filter
         if referrer_domain is not None:
             self.referrer_domain = referrer_domain
-        if return_filter_values is not None:
-            self.return_filter_values = return_filter_values
+        if referrer_domain_filter is not None:
+            self.referrer_domain_filter = referrer_domain_filter
         if screen_recording_uuids is not None:
             self.screen_recording_uuids = screen_recording_uuids
         if screen_sizes is not None:
             self.screen_sizes = screen_sizes
         if skip_filter_values is not None:
             self.skip_filter_values = skip_filter_values
+        if skip_histogram is not None:
+            self.skip_histogram = skip_histogram
         if skip_hits is not None:
             self.skip_hits = skip_hits
         if start_timestamp is not None:
@@ -226,12 +301,28 @@ class ScreenRecordingFilter(object):
             self.tags = tags
         if time_on_site is not None:
             self.time_on_site = time_on_site
+        if time_on_site_max_filter is not None:
+            self.time_on_site_max_filter = time_on_site_max_filter
+        if time_on_site_min_filter is not None:
+            self.time_on_site_min_filter = time_on_site_min_filter
+        if url_filter is not None:
+            self.url_filter = url_filter
         if user_agent_device_name is not None:
             self.user_agent_device_name = user_agent_device_name
+        if user_agent_device_name_filter is not None:
+            self.user_agent_device_name_filter = user_agent_device_name_filter
+        if user_agent_device_os_name_filter is not None:
+            self.user_agent_device_os_name_filter = user_agent_device_os_name_filter
+        if user_agent_device_os_version_filter is not None:
+            self.user_agent_device_os_version_filter = user_agent_device_os_version_filter
         if user_agent_name is not None:
             self.user_agent_name = user_agent_name
+        if user_agent_name_filter is not None:
+            self.user_agent_name_filter = user_agent_name_filter
         if user_agent_original is not None:
             self.user_agent_original = user_agent_original
+        if user_agent_original_filter is not None:
+            self.user_agent_original_filter = user_agent_original_filter
         if user_agent_os_name is not None:
             self.user_agent_os_name = user_agent_os_name
         if user_agent_os_version is not None:
@@ -240,8 +331,12 @@ class ScreenRecordingFilter(object):
             self.user_ip = user_ip
         if utm_campaign is not None:
             self.utm_campaign = utm_campaign
+        if utm_campaign_filter is not None:
+            self.utm_campaign_filter = utm_campaign_filter
         if utm_source is not None:
             self.utm_source = utm_source
+        if utm_source_filter is not None:
+            self.utm_source_filter = utm_source_filter
         if visitor_number is not None:
             self.visitor_number = visitor_number
         if watched is not None:
@@ -311,6 +406,27 @@ class ScreenRecordingFilter(object):
         self._communications_campaign_name = communications_campaign_name
 
     @property
+    def communications_campaign_name_filter(self):
+        """Gets the communications_campaign_name_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The communications_campaign_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._communications_campaign_name_filter
+
+    @communications_campaign_name_filter.setter
+    def communications_campaign_name_filter(self, communications_campaign_name_filter):
+        """Sets the communications_campaign_name_filter of this ScreenRecordingFilter.
+
+
+        :param communications_campaign_name_filter: The communications_campaign_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._communications_campaign_name_filter = communications_campaign_name_filter
+
+    @property
     def communications_email_subject(self):
         """Gets the communications_email_subject of this ScreenRecordingFilter.  # noqa: E501
 
@@ -332,6 +448,27 @@ class ScreenRecordingFilter(object):
         self._communications_email_subject = communications_email_subject
 
     @property
+    def communications_email_subject_filter(self):
+        """Gets the communications_email_subject_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The communications_email_subject_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._communications_email_subject_filter
+
+    @communications_email_subject_filter.setter
+    def communications_email_subject_filter(self, communications_email_subject_filter):
+        """Sets the communications_email_subject_filter of this ScreenRecordingFilter.
+
+
+        :param communications_email_subject_filter: The communications_email_subject_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._communications_email_subject_filter = communications_email_subject_filter
+
+    @property
     def communications_flow_name(self):
         """Gets the communications_flow_name of this ScreenRecordingFilter.  # noqa: E501
 
@@ -351,6 +488,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._communications_flow_name = communications_flow_name
+
+    @property
+    def communications_flow_name_filter(self):
+        """Gets the communications_flow_name_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The communications_flow_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._communications_flow_name_filter
+
+    @communications_flow_name_filter.setter
+    def communications_flow_name_filter(self, communications_flow_name_filter):
+        """Sets the communications_flow_name_filter of this ScreenRecordingFilter.
+
+
+        :param communications_flow_name_filter: The communications_flow_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._communications_flow_name_filter = communications_flow_name_filter
 
     @property
     def email(self):
@@ -393,6 +551,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._email_domain = email_domain
+
+    @property
+    def email_domain_filter(self):
+        """Gets the email_domain_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The email_domain_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._email_domain_filter
+
+    @email_domain_filter.setter
+    def email_domain_filter(self, email_domain_filter):
+        """Sets the email_domain_filter of this ScreenRecordingFilter.
+
+
+        :param email_domain_filter: The email_domain_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._email_domain_filter = email_domain_filter
 
     @property
     def email_identified(self):
@@ -521,6 +700,27 @@ class ScreenRecordingFilter(object):
         self._geolocation_country = geolocation_country
 
     @property
+    def geolocation_country_filter(self):
+        """Gets the geolocation_country_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The geolocation_country_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._geolocation_country_filter
+
+    @geolocation_country_filter.setter
+    def geolocation_country_filter(self, geolocation_country_filter):
+        """Sets the geolocation_country_filter of this ScreenRecordingFilter.
+
+
+        :param geolocation_country_filter: The geolocation_country_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._geolocation_country_filter = geolocation_country_filter
+
+    @property
     def geolocation_state(self):
         """Gets the geolocation_state of this ScreenRecordingFilter.  # noqa: E501
 
@@ -542,6 +742,27 @@ class ScreenRecordingFilter(object):
         self._geolocation_state = geolocation_state
 
     @property
+    def geolocation_state_filter(self):
+        """Gets the geolocation_state_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The geolocation_state_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._geolocation_state_filter
+
+    @geolocation_state_filter.setter
+    def geolocation_state_filter(self, geolocation_state_filter):
+        """Sets the geolocation_state_filter of this ScreenRecordingFilter.
+
+
+        :param geolocation_state_filter: The geolocation_state_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._geolocation_state_filter = geolocation_state_filter
+
+    @property
     def language_iso_code(self):
         """Gets the language_iso_code of this ScreenRecordingFilter.  # noqa: E501
 
@@ -561,6 +782,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._language_iso_code = language_iso_code
+
+    @property
+    def language_iso_code_filter(self):
+        """Gets the language_iso_code_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The language_iso_code_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._language_iso_code_filter
+
+    @language_iso_code_filter.setter
+    def language_iso_code_filter(self, language_iso_code_filter):
+        """Sets the language_iso_code_filter of this ScreenRecordingFilter.
+
+
+        :param language_iso_code_filter: The language_iso_code_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._language_iso_code_filter = language_iso_code_filter
 
     @property
     def last_x_days(self):
@@ -710,6 +952,27 @@ class ScreenRecordingFilter(object):
         self._preferred_language = preferred_language
 
     @property
+    def preferred_language_filter(self):
+        """Gets the preferred_language_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The preferred_language_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._preferred_language_filter
+
+    @preferred_language_filter.setter
+    def preferred_language_filter(self, preferred_language_filter):
+        """Sets the preferred_language_filter of this ScreenRecordingFilter.
+
+
+        :param preferred_language_filter: The preferred_language_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._preferred_language_filter = preferred_language_filter
+
+    @property
     def referrer_domain(self):
         """Gets the referrer_domain of this ScreenRecordingFilter.  # noqa: E501
 
@@ -731,25 +994,25 @@ class ScreenRecordingFilter(object):
         self._referrer_domain = referrer_domain
 
     @property
-    def return_filter_values(self):
-        """Gets the return_filter_values of this ScreenRecordingFilter.  # noqa: E501
+    def referrer_domain_filter(self):
+        """Gets the referrer_domain_filter of this ScreenRecordingFilter.  # noqa: E501
 
 
-        :return: The return_filter_values of this ScreenRecordingFilter.  # noqa: E501
-        :rtype: list[str]
+        :return: The referrer_domain_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
         """
-        return self._return_filter_values
+        return self._referrer_domain_filter
 
-    @return_filter_values.setter
-    def return_filter_values(self, return_filter_values):
-        """Sets the return_filter_values of this ScreenRecordingFilter.
+    @referrer_domain_filter.setter
+    def referrer_domain_filter(self, referrer_domain_filter):
+        """Sets the referrer_domain_filter of this ScreenRecordingFilter.
 
 
-        :param return_filter_values: The return_filter_values of this ScreenRecordingFilter.  # noqa: E501
-        :type: list[str]
+        :param referrer_domain_filter: The referrer_domain_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
         """
 
-        self._return_filter_values = return_filter_values
+        self._referrer_domain_filter = referrer_domain_filter
 
     @property
     def screen_recording_uuids(self):
@@ -813,6 +1076,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._skip_filter_values = skip_filter_values
+
+    @property
+    def skip_histogram(self):
+        """Gets the skip_histogram of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The skip_histogram of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_histogram
+
+    @skip_histogram.setter
+    def skip_histogram(self, skip_histogram):
+        """Sets the skip_histogram of this ScreenRecordingFilter.
+
+
+        :param skip_histogram: The skip_histogram of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_histogram = skip_histogram
 
     @property
     def skip_hits(self):
@@ -899,6 +1183,69 @@ class ScreenRecordingFilter(object):
         self._time_on_site = time_on_site
 
     @property
+    def time_on_site_max_filter(self):
+        """Gets the time_on_site_max_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The time_on_site_max_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._time_on_site_max_filter
+
+    @time_on_site_max_filter.setter
+    def time_on_site_max_filter(self, time_on_site_max_filter):
+        """Sets the time_on_site_max_filter of this ScreenRecordingFilter.
+
+
+        :param time_on_site_max_filter: The time_on_site_max_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._time_on_site_max_filter = time_on_site_max_filter
+
+    @property
+    def time_on_site_min_filter(self):
+        """Gets the time_on_site_min_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The time_on_site_min_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._time_on_site_min_filter
+
+    @time_on_site_min_filter.setter
+    def time_on_site_min_filter(self, time_on_site_min_filter):
+        """Sets the time_on_site_min_filter of this ScreenRecordingFilter.
+
+
+        :param time_on_site_min_filter: The time_on_site_min_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._time_on_site_min_filter = time_on_site_min_filter
+
+    @property
+    def url_filter(self):
+        """Gets the url_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The url_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._url_filter
+
+    @url_filter.setter
+    def url_filter(self, url_filter):
+        """Sets the url_filter of this ScreenRecordingFilter.
+
+
+        :param url_filter: The url_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._url_filter = url_filter
+
+    @property
     def user_agent_device_name(self):
         """Gets the user_agent_device_name of this ScreenRecordingFilter.  # noqa: E501
 
@@ -918,6 +1265,69 @@ class ScreenRecordingFilter(object):
         """
 
         self._user_agent_device_name = user_agent_device_name
+
+    @property
+    def user_agent_device_name_filter(self):
+        """Gets the user_agent_device_name_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The user_agent_device_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._user_agent_device_name_filter
+
+    @user_agent_device_name_filter.setter
+    def user_agent_device_name_filter(self, user_agent_device_name_filter):
+        """Sets the user_agent_device_name_filter of this ScreenRecordingFilter.
+
+
+        :param user_agent_device_name_filter: The user_agent_device_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._user_agent_device_name_filter = user_agent_device_name_filter
+
+    @property
+    def user_agent_device_os_name_filter(self):
+        """Gets the user_agent_device_os_name_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The user_agent_device_os_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._user_agent_device_os_name_filter
+
+    @user_agent_device_os_name_filter.setter
+    def user_agent_device_os_name_filter(self, user_agent_device_os_name_filter):
+        """Sets the user_agent_device_os_name_filter of this ScreenRecordingFilter.
+
+
+        :param user_agent_device_os_name_filter: The user_agent_device_os_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._user_agent_device_os_name_filter = user_agent_device_os_name_filter
+
+    @property
+    def user_agent_device_os_version_filter(self):
+        """Gets the user_agent_device_os_version_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The user_agent_device_os_version_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._user_agent_device_os_version_filter
+
+    @user_agent_device_os_version_filter.setter
+    def user_agent_device_os_version_filter(self, user_agent_device_os_version_filter):
+        """Sets the user_agent_device_os_version_filter of this ScreenRecordingFilter.
+
+
+        :param user_agent_device_os_version_filter: The user_agent_device_os_version_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._user_agent_device_os_version_filter = user_agent_device_os_version_filter
 
     @property
     def user_agent_name(self):
@@ -941,6 +1351,27 @@ class ScreenRecordingFilter(object):
         self._user_agent_name = user_agent_name
 
     @property
+    def user_agent_name_filter(self):
+        """Gets the user_agent_name_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The user_agent_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._user_agent_name_filter
+
+    @user_agent_name_filter.setter
+    def user_agent_name_filter(self, user_agent_name_filter):
+        """Sets the user_agent_name_filter of this ScreenRecordingFilter.
+
+
+        :param user_agent_name_filter: The user_agent_name_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._user_agent_name_filter = user_agent_name_filter
+
+    @property
     def user_agent_original(self):
         """Gets the user_agent_original of this ScreenRecordingFilter.  # noqa: E501
 
@@ -960,6 +1391,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._user_agent_original = user_agent_original
+
+    @property
+    def user_agent_original_filter(self):
+        """Gets the user_agent_original_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The user_agent_original_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._user_agent_original_filter
+
+    @user_agent_original_filter.setter
+    def user_agent_original_filter(self, user_agent_original_filter):
+        """Sets the user_agent_original_filter of this ScreenRecordingFilter.
+
+
+        :param user_agent_original_filter: The user_agent_original_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._user_agent_original_filter = user_agent_original_filter
 
     @property
     def user_agent_os_name(self):
@@ -1046,6 +1498,27 @@ class ScreenRecordingFilter(object):
         self._utm_campaign = utm_campaign
 
     @property
+    def utm_campaign_filter(self):
+        """Gets the utm_campaign_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The utm_campaign_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._utm_campaign_filter
+
+    @utm_campaign_filter.setter
+    def utm_campaign_filter(self, utm_campaign_filter):
+        """Sets the utm_campaign_filter of this ScreenRecordingFilter.
+
+
+        :param utm_campaign_filter: The utm_campaign_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._utm_campaign_filter = utm_campaign_filter
+
+    @property
     def utm_source(self):
         """Gets the utm_source of this ScreenRecordingFilter.  # noqa: E501
 
@@ -1065,6 +1538,27 @@ class ScreenRecordingFilter(object):
         """
 
         self._utm_source = utm_source
+
+    @property
+    def utm_source_filter(self):
+        """Gets the utm_source_filter of this ScreenRecordingFilter.  # noqa: E501
+
+
+        :return: The utm_source_filter of this ScreenRecordingFilter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._utm_source_filter
+
+    @utm_source_filter.setter
+    def utm_source_filter(self, utm_source_filter):
+        """Sets the utm_source_filter of this ScreenRecordingFilter.
+
+
+        :param utm_source_filter: The utm_source_filter of this ScreenRecordingFilter.  # noqa: E501
+        :type: bool
+        """
+
+        self._utm_source_filter = utm_source_filter
 
     @property
     def visitor_number(self):
