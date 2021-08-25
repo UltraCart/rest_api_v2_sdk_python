@@ -51,7 +51,6 @@ class PaymentsConfigurationWePay(object):
         'owner_name': 'str',
         'owner_phone': 'str',
         'postal_code': 'str',
-        'remove_pay_pal_pro': 'bool',
         'restrictions': 'PaymentsConfigurationRestrictions',
         'short_paypal_marketing_text': 'bool',
         'show_ultracart_payments_disabled': 'bool',
@@ -83,7 +82,6 @@ class PaymentsConfigurationWePay(object):
         'owner_name': 'owner_name',
         'owner_phone': 'owner_phone',
         'postal_code': 'postal_code',
-        'remove_pay_pal_pro': 'removePayPalPro',
         'restrictions': 'restrictions',
         'short_paypal_marketing_text': 'short_paypal_marketing_text',
         'show_ultracart_payments_disabled': 'show_ultracart_payments_disabled',
@@ -94,7 +92,7 @@ class PaymentsConfigurationWePay(object):
         'website_url': 'website_url'
     }
 
-    def __init__(self, accept_wepay=None, account_update_uri=None, address1=None, address2=None, canada_accept_debit_cards=None, city=None, company=None, company_description=None, console_hostname=None, country=None, credit_card_rate=None, currency=None, expected_revenue=None, hide_credit_card_non_ultracart_payments=None, hide_surcharge_amount=None, industry=None, owner_email=None, owner_name=None, owner_phone=None, postal_code=None, remove_pay_pal_pro=None, restrictions=None, short_paypal_marketing_text=None, show_ultracart_payments_disabled=None, show_ultracart_payments_intro=None, show_ultracart_payments_verification=None, show_ultracart_payments_verified=None, state=None, website_url=None):  # noqa: E501
+    def __init__(self, accept_wepay=None, account_update_uri=None, address1=None, address2=None, canada_accept_debit_cards=None, city=None, company=None, company_description=None, console_hostname=None, country=None, credit_card_rate=None, currency=None, expected_revenue=None, hide_credit_card_non_ultracart_payments=None, hide_surcharge_amount=None, industry=None, owner_email=None, owner_name=None, owner_phone=None, postal_code=None, restrictions=None, short_paypal_marketing_text=None, show_ultracart_payments_disabled=None, show_ultracart_payments_intro=None, show_ultracart_payments_verification=None, show_ultracart_payments_verified=None, state=None, website_url=None):  # noqa: E501
         """PaymentsConfigurationWePay - a model defined in Swagger"""  # noqa: E501
 
         self._accept_wepay = None
@@ -117,7 +115,6 @@ class PaymentsConfigurationWePay(object):
         self._owner_name = None
         self._owner_phone = None
         self._postal_code = None
-        self._remove_pay_pal_pro = None
         self._restrictions = None
         self._short_paypal_marketing_text = None
         self._show_ultracart_payments_disabled = None
@@ -168,8 +165,6 @@ class PaymentsConfigurationWePay(object):
             self.owner_phone = owner_phone
         if postal_code is not None:
             self.postal_code = postal_code
-        if remove_pay_pal_pro is not None:
-            self.remove_pay_pal_pro = remove_pay_pal_pro
         if restrictions is not None:
             self.restrictions = restrictions
         if short_paypal_marketing_text is not None:
@@ -646,27 +641,6 @@ class PaymentsConfigurationWePay(object):
         """
 
         self._postal_code = postal_code
-
-    @property
-    def remove_pay_pal_pro(self):
-        """Gets the remove_pay_pal_pro of this PaymentsConfigurationWePay.  # noqa: E501
-
-
-        :return: The remove_pay_pal_pro of this PaymentsConfigurationWePay.  # noqa: E501
-        :rtype: bool
-        """
-        return self._remove_pay_pal_pro
-
-    @remove_pay_pal_pro.setter
-    def remove_pay_pal_pro(self, remove_pay_pal_pro):
-        """Sets the remove_pay_pal_pro of this PaymentsConfigurationWePay.
-
-
-        :param remove_pay_pal_pro: The remove_pay_pal_pro of this PaymentsConfigurationWePay.  # noqa: E501
-        :type: bool
-        """
-
-        self._remove_pay_pal_pro = remove_pay_pal_pro
 
     @property
     def restrictions(self):

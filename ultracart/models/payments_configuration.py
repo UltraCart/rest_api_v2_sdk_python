@@ -46,8 +46,6 @@ class PaymentsConfiguration(object):
         'quote_request': 'PaymentsConfigurationQuoteRequest',
         'sezzle': 'PaymentsConfigurationSezzle',
         'show_accounting_code': 'bool',
-        'switch_to_sub_tab': 'str',
-        'switch_to_tab': 'str',
         'ultracart_payments_wepay': 'PaymentsConfigurationWePay',
         'wire_transfer': 'PaymentsConfigurationWireTransfer'
     }
@@ -68,13 +66,11 @@ class PaymentsConfiguration(object):
         'quote_request': 'quote_request',
         'sezzle': 'sezzle',
         'show_accounting_code': 'show_accounting_code',
-        'switch_to_sub_tab': 'switchToSubTab',
-        'switch_to_tab': 'switchToTab',
         'ultracart_payments_wepay': 'ultracart_payments_wepay',
         'wire_transfer': 'wire_transfer'
     }
 
-    def __init__(self, affirm=None, amazon=None, cash=None, check=None, cod=None, credit_card=None, echeck=None, insurance=None, loan_hero=None, money_order=None, paypal=None, purchase_order=None, quote_request=None, sezzle=None, show_accounting_code=None, switch_to_sub_tab=None, switch_to_tab=None, ultracart_payments_wepay=None, wire_transfer=None):  # noqa: E501
+    def __init__(self, affirm=None, amazon=None, cash=None, check=None, cod=None, credit_card=None, echeck=None, insurance=None, loan_hero=None, money_order=None, paypal=None, purchase_order=None, quote_request=None, sezzle=None, show_accounting_code=None, ultracart_payments_wepay=None, wire_transfer=None):  # noqa: E501
         """PaymentsConfiguration - a model defined in Swagger"""  # noqa: E501
 
         self._affirm = None
@@ -92,8 +88,6 @@ class PaymentsConfiguration(object):
         self._quote_request = None
         self._sezzle = None
         self._show_accounting_code = None
-        self._switch_to_sub_tab = None
-        self._switch_to_tab = None
         self._ultracart_payments_wepay = None
         self._wire_transfer = None
         self.discriminator = None
@@ -128,10 +122,6 @@ class PaymentsConfiguration(object):
             self.sezzle = sezzle
         if show_accounting_code is not None:
             self.show_accounting_code = show_accounting_code
-        if switch_to_sub_tab is not None:
-            self.switch_to_sub_tab = switch_to_sub_tab
-        if switch_to_tab is not None:
-            self.switch_to_tab = switch_to_tab
         if ultracart_payments_wepay is not None:
             self.ultracart_payments_wepay = ultracart_payments_wepay
         if wire_transfer is not None:
@@ -453,48 +443,6 @@ class PaymentsConfiguration(object):
         """
 
         self._show_accounting_code = show_accounting_code
-
-    @property
-    def switch_to_sub_tab(self):
-        """Gets the switch_to_sub_tab of this PaymentsConfiguration.  # noqa: E501
-
-
-        :return: The switch_to_sub_tab of this PaymentsConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._switch_to_sub_tab
-
-    @switch_to_sub_tab.setter
-    def switch_to_sub_tab(self, switch_to_sub_tab):
-        """Sets the switch_to_sub_tab of this PaymentsConfiguration.
-
-
-        :param switch_to_sub_tab: The switch_to_sub_tab of this PaymentsConfiguration.  # noqa: E501
-        :type: str
-        """
-
-        self._switch_to_sub_tab = switch_to_sub_tab
-
-    @property
-    def switch_to_tab(self):
-        """Gets the switch_to_tab of this PaymentsConfiguration.  # noqa: E501
-
-
-        :return: The switch_to_tab of this PaymentsConfiguration.  # noqa: E501
-        :rtype: str
-        """
-        return self._switch_to_tab
-
-    @switch_to_tab.setter
-    def switch_to_tab(self, switch_to_tab):
-        """Sets the switch_to_tab of this PaymentsConfiguration.
-
-
-        :param switch_to_tab: The switch_to_tab of this PaymentsConfiguration.  # noqa: E501
-        :type: str
-        """
-
-        self._switch_to_tab = switch_to_tab
 
     @property
     def ultracart_payments_wepay(self):
