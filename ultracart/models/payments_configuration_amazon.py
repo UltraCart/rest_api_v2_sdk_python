@@ -36,8 +36,8 @@ class PaymentsConfigurationAmazon(object):
         'accounting_code': 'str',
         'amazon_merchant_id': 'str',
         'deposit_to_account': 'str',
+        'environment': 'str',
         'restrictions': 'PaymentsConfigurationRestrictions',
-        'sandbox': 'bool',
         'secret_access_key': 'str'
     }
 
@@ -47,12 +47,12 @@ class PaymentsConfigurationAmazon(object):
         'accounting_code': 'accounting_code',
         'amazon_merchant_id': 'amazon_merchant_id',
         'deposit_to_account': 'deposit_to_account',
+        'environment': 'environment',
         'restrictions': 'restrictions',
-        'sandbox': 'sandbox',
         'secret_access_key': 'secret_access_key'
     }
 
-    def __init__(self, accept_amazon=None, access_key_id=None, accounting_code=None, amazon_merchant_id=None, deposit_to_account=None, restrictions=None, sandbox=None, secret_access_key=None):  # noqa: E501
+    def __init__(self, accept_amazon=None, access_key_id=None, accounting_code=None, amazon_merchant_id=None, deposit_to_account=None, environment=None, restrictions=None, secret_access_key=None):  # noqa: E501
         """PaymentsConfigurationAmazon - a model defined in Swagger"""  # noqa: E501
 
         self._accept_amazon = None
@@ -60,8 +60,8 @@ class PaymentsConfigurationAmazon(object):
         self._accounting_code = None
         self._amazon_merchant_id = None
         self._deposit_to_account = None
+        self._environment = None
         self._restrictions = None
-        self._sandbox = None
         self._secret_access_key = None
         self.discriminator = None
 
@@ -75,10 +75,10 @@ class PaymentsConfigurationAmazon(object):
             self.amazon_merchant_id = amazon_merchant_id
         if deposit_to_account is not None:
             self.deposit_to_account = deposit_to_account
+        if environment is not None:
+            self.environment = environment
         if restrictions is not None:
             self.restrictions = restrictions
-        if sandbox is not None:
-            self.sandbox = sandbox
         if secret_access_key is not None:
             self.secret_access_key = secret_access_key
 
@@ -198,6 +198,35 @@ class PaymentsConfigurationAmazon(object):
         self._deposit_to_account = deposit_to_account
 
     @property
+    def environment(self):
+        """Gets the environment of this PaymentsConfigurationAmazon.  # noqa: E501
+
+        Environment  # noqa: E501
+
+        :return: The environment of this PaymentsConfigurationAmazon.  # noqa: E501
+        :rtype: str
+        """
+        return self._environment
+
+    @environment.setter
+    def environment(self, environment):
+        """Sets the environment of this PaymentsConfigurationAmazon.
+
+        Environment  # noqa: E501
+
+        :param environment: The environment of this PaymentsConfigurationAmazon.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Live", "Sandbox"]  # noqa: E501
+        if environment not in allowed_values:
+            raise ValueError(
+                "Invalid value for `environment` ({0}), must be one of {1}"  # noqa: E501
+                .format(environment, allowed_values)
+            )
+
+        self._environment = environment
+
+    @property
     def restrictions(self):
         """Gets the restrictions of this PaymentsConfigurationAmazon.  # noqa: E501
 
@@ -217,29 +246,6 @@ class PaymentsConfigurationAmazon(object):
         """
 
         self._restrictions = restrictions
-
-    @property
-    def sandbox(self):
-        """Gets the sandbox of this PaymentsConfigurationAmazon.  # noqa: E501
-
-        True if transactions should run against the Amazon sandbox.  Useful for testing not configurations  # noqa: E501
-
-        :return: The sandbox of this PaymentsConfigurationAmazon.  # noqa: E501
-        :rtype: bool
-        """
-        return self._sandbox
-
-    @sandbox.setter
-    def sandbox(self, sandbox):
-        """Sets the sandbox of this PaymentsConfigurationAmazon.
-
-        True if transactions should run against the Amazon sandbox.  Useful for testing not configurations  # noqa: E501
-
-        :param sandbox: The sandbox of this PaymentsConfigurationAmazon.  # noqa: E501
-        :type: bool
-        """
-
-        self._sandbox = sandbox
 
     @property
     def secret_access_key(self):

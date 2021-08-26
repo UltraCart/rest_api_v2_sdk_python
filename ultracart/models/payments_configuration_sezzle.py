@@ -36,7 +36,6 @@ class PaymentsConfigurationSezzle(object):
         'business_id': 'str',
         'deposit_to_account': 'str',
         'environment': 'str',
-        'environments': 'list[str]',
         'private_api_key': 'str',
         'public_api_key': 'str',
         'restrictions': 'PaymentsConfigurationRestrictions'
@@ -48,13 +47,12 @@ class PaymentsConfigurationSezzle(object):
         'business_id': 'business_id',
         'deposit_to_account': 'deposit_to_account',
         'environment': 'environment',
-        'environments': 'environments',
         'private_api_key': 'private_api_key',
         'public_api_key': 'public_api_key',
         'restrictions': 'restrictions'
     }
 
-    def __init__(self, accept_sezzle=None, accounting_code=None, business_id=None, deposit_to_account=None, environment=None, environments=None, private_api_key=None, public_api_key=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_sezzle=None, accounting_code=None, business_id=None, deposit_to_account=None, environment=None, private_api_key=None, public_api_key=None, restrictions=None):  # noqa: E501
         """PaymentsConfigurationSezzle - a model defined in Swagger"""  # noqa: E501
 
         self._accept_sezzle = None
@@ -62,7 +60,6 @@ class PaymentsConfigurationSezzle(object):
         self._business_id = None
         self._deposit_to_account = None
         self._environment = None
-        self._environments = None
         self._private_api_key = None
         self._public_api_key = None
         self._restrictions = None
@@ -78,8 +75,6 @@ class PaymentsConfigurationSezzle(object):
             self.deposit_to_account = deposit_to_account
         if environment is not None:
             self.environment = environment
-        if environments is not None:
-            self.environments = environments
         if private_api_key is not None:
             self.private_api_key = private_api_key
         if public_api_key is not None:
@@ -207,29 +202,6 @@ class PaymentsConfigurationSezzle(object):
             )
 
         self._environment = environment
-
-    @property
-    def environments(self):
-        """Gets the environments of this PaymentsConfigurationSezzle.  # noqa: E501
-
-        List of environments possible  # noqa: E501
-
-        :return: The environments of this PaymentsConfigurationSezzle.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._environments
-
-    @environments.setter
-    def environments(self, environments):
-        """Sets the environments of this PaymentsConfigurationSezzle.
-
-        List of environments possible  # noqa: E501
-
-        :param environments: The environments of this PaymentsConfigurationSezzle.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._environments = environments
 
     @property
     def private_api_key(self):

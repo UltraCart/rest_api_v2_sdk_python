@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **business_id** | **str** | Business ID | [optional] 
 **deposit_to_account** | **str** | Optional Quickbooks Deposit to Account value | [optional] 
 **environment** | **str** | Sezzle environment | [optional] 
-**environments** | **list[str]** | List of environments possible | [optional] 
 **private_api_key** | **str** | Private API key | [optional] 
 **public_api_key** | **str** | Public API key | [optional] 
 **restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
