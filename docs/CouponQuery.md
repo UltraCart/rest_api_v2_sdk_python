@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **expiration_dts_begin** | **str** | Expiration date begin | [optional] 
 **expiration_dts_end** | **str** | Expiration date begin | [optional] 
 **merchant_code** | **str** | Merchant code is a unique character string for this coupon. | [optional] 
+**merchant_code_or_description** | **str** | Merchant code description used for searching | [optional] 
 **start_dts_begin** | **str** | Start date begin | [optional] 
 **start_dts_end** | **str** | Start date end | [optional] 
 

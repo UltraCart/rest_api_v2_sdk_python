@@ -38,6 +38,7 @@ class CouponQuery(object):
         'expiration_dts_begin': 'str',
         'expiration_dts_end': 'str',
         'merchant_code': 'str',
+        'merchant_code_or_description': 'str',
         'start_dts_begin': 'str',
         'start_dts_end': 'str'
     }
@@ -50,11 +51,12 @@ class CouponQuery(object):
         'expiration_dts_begin': 'expiration_dts_begin',
         'expiration_dts_end': 'expiration_dts_end',
         'merchant_code': 'merchant_code',
+        'merchant_code_or_description': 'merchant_code_or_description',
         'start_dts_begin': 'start_dts_begin',
         'start_dts_end': 'start_dts_end'
     }
 
-    def __init__(self, affiliate_oid=None, coupon_type=None, description=None, exclude_expired=None, expiration_dts_begin=None, expiration_dts_end=None, merchant_code=None, start_dts_begin=None, start_dts_end=None):  # noqa: E501
+    def __init__(self, affiliate_oid=None, coupon_type=None, description=None, exclude_expired=None, expiration_dts_begin=None, expiration_dts_end=None, merchant_code=None, merchant_code_or_description=None, start_dts_begin=None, start_dts_end=None):  # noqa: E501
         """CouponQuery - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_oid = None
@@ -64,6 +66,7 @@ class CouponQuery(object):
         self._expiration_dts_begin = None
         self._expiration_dts_end = None
         self._merchant_code = None
+        self._merchant_code_or_description = None
         self._start_dts_begin = None
         self._start_dts_end = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class CouponQuery(object):
             self.expiration_dts_end = expiration_dts_end
         if merchant_code is not None:
             self.merchant_code = merchant_code
+        if merchant_code_or_description is not None:
+            self.merchant_code_or_description = merchant_code_or_description
         if start_dts_begin is not None:
             self.start_dts_begin = start_dts_begin
         if start_dts_end is not None:
@@ -247,6 +252,29 @@ class CouponQuery(object):
         """
 
         self._merchant_code = merchant_code
+
+    @property
+    def merchant_code_or_description(self):
+        """Gets the merchant_code_or_description of this CouponQuery.  # noqa: E501
+
+        Merchant code description used for searching  # noqa: E501
+
+        :return: The merchant_code_or_description of this CouponQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._merchant_code_or_description
+
+    @merchant_code_or_description.setter
+    def merchant_code_or_description(self, merchant_code_or_description):
+        """Sets the merchant_code_or_description of this CouponQuery.
+
+        Merchant code description used for searching  # noqa: E501
+
+        :param merchant_code_or_description: The merchant_code_or_description of this CouponQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._merchant_code_or_description = merchant_code_or_description
 
     @property
     def start_dts_begin(self):

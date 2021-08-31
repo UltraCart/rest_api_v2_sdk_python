@@ -477,7 +477,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_coupons**
-> CouponsResponse get_coupons(merchant_code=merchant_code, description=description, coupon_type=coupon_type, start_date_begin=start_date_begin, start_date_end=start_date_end, expiration_date_begin=expiration_date_begin, expiration_date_end=expiration_date_end, affiliate_oid=affiliate_oid, exclude_expired=exclude_expired, limit=limit, offset=offset, sort=sort, expand=expand)
+> CouponsResponse get_coupons(merchant_code=merchant_code, description=description, coupon_type=coupon_type, start_date_begin=start_date_begin, start_date_end=start_date_end, expiration_date_begin=expiration_date_begin, expiration_date_end=expiration_date_end, affiliate_oid=affiliate_oid, exclude_expired=exclude_expired, merchant_code_or_description=merchant_code_or_description, limit=limit, offset=offset, sort=sort, expand=expand)
 
 Retrieve coupons
 
@@ -504,6 +504,7 @@ expiration_date_begin = 'expiration_date_begin_example' # str | Expiration date 
 expiration_date_end = 'expiration_date_end_example' # str | Expiration date end (optional)
 affiliate_oid = 56 # int | Affiliate oid (optional)
 exclude_expired = true # bool | Exclude expired (optional)
+merchant_code_or_description = 'merchant_code_or_description_example' # str | Merchant code or description (optional)
 limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 sort = 'sort_example' # str | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -511,7 +512,7 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try:
     # Retrieve coupons
-    api_response = api_instance.get_coupons(merchant_code=merchant_code, description=description, coupon_type=coupon_type, start_date_begin=start_date_begin, start_date_end=start_date_end, expiration_date_begin=expiration_date_begin, expiration_date_end=expiration_date_end, affiliate_oid=affiliate_oid, exclude_expired=exclude_expired, limit=limit, offset=offset, sort=sort, expand=expand)
+    api_response = api_instance.get_coupons(merchant_code=merchant_code, description=description, coupon_type=coupon_type, start_date_begin=start_date_begin, start_date_end=start_date_end, expiration_date_begin=expiration_date_begin, expiration_date_end=expiration_date_end, affiliate_oid=affiliate_oid, exclude_expired=exclude_expired, merchant_code_or_description=merchant_code_or_description, limit=limit, offset=offset, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CouponApi->get_coupons: %s\n" % e)
@@ -530,6 +531,7 @@ Name | Type | Description  | Notes
  **expiration_date_end** | **str**| Expiration date end | [optional] 
  **affiliate_oid** | **int**| Affiliate oid | [optional] 
  **exclude_expired** | **bool**| Exclude expired | [optional] 
+ **merchant_code_or_description** | **str**| Merchant code or description | [optional] 
  **limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **sort** | **str**| The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
