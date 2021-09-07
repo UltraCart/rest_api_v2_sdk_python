@@ -38,6 +38,7 @@ class CustomerEditorValues(object):
         'countries': 'list[Country]',
         'qb_classes': 'list[str]',
         'sales_rep_codes': 'list[str]',
+        'state_optional_countries': 'list[Country]',
         'terms': 'list[str]'
     }
 
@@ -49,10 +50,11 @@ class CustomerEditorValues(object):
         'countries': 'countries',
         'qb_classes': 'qb_classes',
         'sales_rep_codes': 'sales_rep_codes',
+        'state_optional_countries': 'state_optional_countries',
         'terms': 'terms'
     }
 
-    def __init__(self, affiliates=None, card_exp_months=None, card_exp_years=None, card_types=None, countries=None, qb_classes=None, sales_rep_codes=None, terms=None):  # noqa: E501
+    def __init__(self, affiliates=None, card_exp_months=None, card_exp_years=None, card_types=None, countries=None, qb_classes=None, sales_rep_codes=None, state_optional_countries=None, terms=None):  # noqa: E501
         """CustomerEditorValues - a model defined in Swagger"""  # noqa: E501
 
         self._affiliates = None
@@ -62,6 +64,7 @@ class CustomerEditorValues(object):
         self._countries = None
         self._qb_classes = None
         self._sales_rep_codes = None
+        self._state_optional_countries = None
         self._terms = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class CustomerEditorValues(object):
             self.qb_classes = qb_classes
         if sales_rep_codes is not None:
             self.sales_rep_codes = sales_rep_codes
+        if state_optional_countries is not None:
+            self.state_optional_countries = state_optional_countries
         if terms is not None:
             self.terms = terms
 
@@ -242,6 +247,29 @@ class CustomerEditorValues(object):
         """
 
         self._sales_rep_codes = sales_rep_codes
+
+    @property
+    def state_optional_countries(self):
+        """Gets the state_optional_countries of this CustomerEditorValues.  # noqa: E501
+
+        state_optional_countries  # noqa: E501
+
+        :return: The state_optional_countries of this CustomerEditorValues.  # noqa: E501
+        :rtype: list[Country]
+        """
+        return self._state_optional_countries
+
+    @state_optional_countries.setter
+    def state_optional_countries(self, state_optional_countries):
+        """Sets the state_optional_countries of this CustomerEditorValues.
+
+        state_optional_countries  # noqa: E501
+
+        :param state_optional_countries: The state_optional_countries of this CustomerEditorValues.  # noqa: E501
+        :type: list[Country]
+        """
+
+        self._state_optional_countries = state_optional_countries
 
     @property
     def terms(self):

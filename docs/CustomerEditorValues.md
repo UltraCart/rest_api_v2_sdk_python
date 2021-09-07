@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **countries** | [**list[Country]**](Country.md) | countries | [optional] 
 **qb_classes** | **list[str]** | qb_classes | [optional] 
 **sales_rep_codes** | **list[str]** | sales_rep_codes | [optional] 
+**state_optional_countries** | [**list[Country]**](Country.md) | state_optional_countries | [optional] 
 **terms** | **list[str]** | terms | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
