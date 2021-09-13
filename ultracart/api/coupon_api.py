@@ -971,7 +971,6 @@ class CouponApi(object):
         :param str expiration_date_end: Expiration date end
         :param int affiliate_oid: Affiliate oid
         :param bool exclude_expired: Exclude expired
-        :param str merchant_code_or_description: Merchant code or description
         :param int limit: The maximum number of records to return on this one API call. (Max 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str sort: The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -1006,7 +1005,6 @@ class CouponApi(object):
         :param str expiration_date_end: Expiration date end
         :param int affiliate_oid: Affiliate oid
         :param bool exclude_expired: Exclude expired
-        :param str merchant_code_or_description: Merchant code or description
         :param int limit: The maximum number of records to return on this one API call. (Max 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str sort: The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -1016,7 +1014,7 @@ class CouponApi(object):
                  returns the request thread.
         """
 
-        all_params = ['merchant_code', 'description', 'coupon_type', 'start_date_begin', 'start_date_end', 'expiration_date_begin', 'expiration_date_end', 'affiliate_oid', 'exclude_expired', 'merchant_code_or_description', 'limit', 'offset', 'sort', 'expand']  # noqa: E501
+        all_params = ['merchant_code', 'description', 'coupon_type', 'start_date_begin', 'start_date_end', 'expiration_date_begin', 'expiration_date_end', 'affiliate_oid', 'exclude_expired', 'limit', 'offset', 'sort', 'expand']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1055,8 +1053,6 @@ class CouponApi(object):
             query_params.append(('affiliate_oid', params['affiliate_oid']))  # noqa: E501
         if 'exclude_expired' in params:
             query_params.append(('exclude_expired', params['exclude_expired']))  # noqa: E501
-        if 'merchant_code_or_description' in params:
-            query_params.append(('merchant_code_or_description', params['merchant_code_or_description']))  # noqa: E501
         if 'limit' in params:
             query_params.append(('_limit', params['limit']))  # noqa: E501
         if 'offset' in params:
