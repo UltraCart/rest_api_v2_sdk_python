@@ -34,6 +34,7 @@ class OrderTrackingNumberDetails(object):
         'actual_delivery_date': 'str',
         'actual_delivery_date_formatted': 'str',
         'details': 'list[OrderTrackingNumberDetail]',
+        'easypost_tracker_id': 'str',
         'expected_delivery_date': 'str',
         'expected_delivery_date_formatted': 'str',
         'map_url': 'str',
@@ -54,6 +55,7 @@ class OrderTrackingNumberDetails(object):
         'actual_delivery_date': 'actual_delivery_date',
         'actual_delivery_date_formatted': 'actual_delivery_date_formatted',
         'details': 'details',
+        'easypost_tracker_id': 'easypost_tracker_id',
         'expected_delivery_date': 'expected_delivery_date',
         'expected_delivery_date_formatted': 'expected_delivery_date_formatted',
         'map_url': 'map_url',
@@ -70,12 +72,13 @@ class OrderTrackingNumberDetails(object):
         'tracking_url': 'tracking_url'
     }
 
-    def __init__(self, actual_delivery_date=None, actual_delivery_date_formatted=None, details=None, expected_delivery_date=None, expected_delivery_date_formatted=None, map_url=None, order_placed_date=None, order_placed_date_formatted=None, payment_processed_date=None, payment_processed_date_formatted=None, shipped_date=None, shipped_date_formatted=None, shipping_method=None, status=None, status_description=None, tracking_number=None, tracking_url=None):  # noqa: E501
+    def __init__(self, actual_delivery_date=None, actual_delivery_date_formatted=None, details=None, easypost_tracker_id=None, expected_delivery_date=None, expected_delivery_date_formatted=None, map_url=None, order_placed_date=None, order_placed_date_formatted=None, payment_processed_date=None, payment_processed_date_formatted=None, shipped_date=None, shipped_date_formatted=None, shipping_method=None, status=None, status_description=None, tracking_number=None, tracking_url=None):  # noqa: E501
         """OrderTrackingNumberDetails - a model defined in Swagger"""  # noqa: E501
 
         self._actual_delivery_date = None
         self._actual_delivery_date_formatted = None
         self._details = None
+        self._easypost_tracker_id = None
         self._expected_delivery_date = None
         self._expected_delivery_date_formatted = None
         self._map_url = None
@@ -98,6 +101,8 @@ class OrderTrackingNumberDetails(object):
             self.actual_delivery_date_formatted = actual_delivery_date_formatted
         if details is not None:
             self.details = details
+        if easypost_tracker_id is not None:
+            self.easypost_tracker_id = easypost_tracker_id
         if expected_delivery_date is not None:
             self.expected_delivery_date = expected_delivery_date
         if expected_delivery_date_formatted is not None:
@@ -189,6 +194,27 @@ class OrderTrackingNumberDetails(object):
         """
 
         self._details = details
+
+    @property
+    def easypost_tracker_id(self):
+        """Gets the easypost_tracker_id of this OrderTrackingNumberDetails.  # noqa: E501
+
+
+        :return: The easypost_tracker_id of this OrderTrackingNumberDetails.  # noqa: E501
+        :rtype: str
+        """
+        return self._easypost_tracker_id
+
+    @easypost_tracker_id.setter
+    def easypost_tracker_id(self, easypost_tracker_id):
+        """Sets the easypost_tracker_id of this OrderTrackingNumberDetails.
+
+
+        :param easypost_tracker_id: The easypost_tracker_id of this OrderTrackingNumberDetails.  # noqa: E501
+        :type: str
+        """
+
+        self._easypost_tracker_id = easypost_tracker_id
 
     @property
     def expected_delivery_date(self):

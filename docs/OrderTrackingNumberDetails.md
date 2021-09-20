@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **actual_delivery_date** | **str** |  | [optional] 
 **actual_delivery_date_formatted** | **str** |  | [optional] 
 **details** | [**list[OrderTrackingNumberDetail]**](OrderTrackingNumberDetail.md) |  | [optional] 
+**easypost_tracker_id** | **str** |  | [optional] 
 **expected_delivery_date** | **str** |  | [optional] 
 **expected_delivery_date_formatted** | **str** |  | [optional] 
 **map_url** | **str** |  | [optional] 
