@@ -1195,7 +1195,7 @@ class CouponApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/coupon/coupons/query', 'GET',
+            '/coupon/coupons/query', 'POST',
             path_params,
             query_params,
             header_params,
