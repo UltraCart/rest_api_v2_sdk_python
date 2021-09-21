@@ -42,8 +42,7 @@ class PaymentsConfigurationCheck(object):
         'mail_to_name': 'str',
         'mail_to_postal_code': 'str',
         'mail_to_store': 'str',
-        'restrictions': 'PaymentsConfigurationRestrictions',
-        'test_methods': 'list[PaymentsConfigurationTestMethod]'
+        'restrictions': 'PaymentsConfigurationRestrictions'
     }
 
     attribute_map = {
@@ -58,11 +57,10 @@ class PaymentsConfigurationCheck(object):
         'mail_to_name': 'mail_to_name',
         'mail_to_postal_code': 'mail_to_postal_code',
         'mail_to_store': 'mail_to_store',
-        'restrictions': 'restrictions',
-        'test_methods': 'test_methods'
+        'restrictions': 'restrictions'
     }
 
-    def __init__(self, accept_check_orders=None, accounting_code=None, checks_payable_to=None, deposit_to_account=None, mail_to_address1=None, mail_to_address2=None, mail_to_city=None, mail_to_country=None, mail_to_name=None, mail_to_postal_code=None, mail_to_store=None, restrictions=None, test_methods=None):  # noqa: E501
+    def __init__(self, accept_check_orders=None, accounting_code=None, checks_payable_to=None, deposit_to_account=None, mail_to_address1=None, mail_to_address2=None, mail_to_city=None, mail_to_country=None, mail_to_name=None, mail_to_postal_code=None, mail_to_store=None, restrictions=None):  # noqa: E501
         """PaymentsConfigurationCheck - a model defined in Swagger"""  # noqa: E501
 
         self._accept_check_orders = None
@@ -77,7 +75,6 @@ class PaymentsConfigurationCheck(object):
         self._mail_to_postal_code = None
         self._mail_to_store = None
         self._restrictions = None
-        self._test_methods = None
         self.discriminator = None
 
         if accept_check_orders is not None:
@@ -104,8 +101,6 @@ class PaymentsConfigurationCheck(object):
             self.mail_to_store = mail_to_store
         if restrictions is not None:
             self.restrictions = restrictions
-        if test_methods is not None:
-            self.test_methods = test_methods
 
     @property
     def accept_check_orders(self):
@@ -380,29 +375,6 @@ class PaymentsConfigurationCheck(object):
         """
 
         self._restrictions = restrictions
-
-    @property
-    def test_methods(self):
-        """Gets the test_methods of this PaymentsConfigurationCheck.  # noqa: E501
-
-        Test methods for this payment method  # noqa: E501
-
-        :return: The test_methods of this PaymentsConfigurationCheck.  # noqa: E501
-        :rtype: list[PaymentsConfigurationTestMethod]
-        """
-        return self._test_methods
-
-    @test_methods.setter
-    def test_methods(self, test_methods):
-        """Sets the test_methods of this PaymentsConfigurationCheck.
-
-        Test methods for this payment method  # noqa: E501
-
-        :param test_methods: The test_methods of this PaymentsConfigurationCheck.  # noqa: E501
-        :type: list[PaymentsConfigurationTestMethod]
-        """
-
-        self._test_methods = test_methods
 
     def to_dict(self):
         """Returns the model properties as a dict"""

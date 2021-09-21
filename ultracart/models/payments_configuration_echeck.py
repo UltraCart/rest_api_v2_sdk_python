@@ -34,23 +34,26 @@ class PaymentsConfigurationEcheck(object):
         'accept_echeck': 'bool',
         'accounting_code': 'str',
         'deposit_to_account': 'str',
-        'restrictions': 'PaymentsConfigurationRestrictions'
+        'restrictions': 'PaymentsConfigurationRestrictions',
+        'test_methods': 'list[PaymentsConfigurationTestMethod]'
     }
 
     attribute_map = {
         'accept_echeck': 'accept_echeck',
         'accounting_code': 'accounting_code',
         'deposit_to_account': 'deposit_to_account',
-        'restrictions': 'restrictions'
+        'restrictions': 'restrictions',
+        'test_methods': 'test_methods'
     }
 
-    def __init__(self, accept_echeck=None, accounting_code=None, deposit_to_account=None, restrictions=None):  # noqa: E501
+    def __init__(self, accept_echeck=None, accounting_code=None, deposit_to_account=None, restrictions=None, test_methods=None):  # noqa: E501
         """PaymentsConfigurationEcheck - a model defined in Swagger"""  # noqa: E501
 
         self._accept_echeck = None
         self._accounting_code = None
         self._deposit_to_account = None
         self._restrictions = None
+        self._test_methods = None
         self.discriminator = None
 
         if accept_echeck is not None:
@@ -61,6 +64,8 @@ class PaymentsConfigurationEcheck(object):
             self.deposit_to_account = deposit_to_account
         if restrictions is not None:
             self.restrictions = restrictions
+        if test_methods is not None:
+            self.test_methods = test_methods
 
     @property
     def accept_echeck(self):
@@ -151,6 +156,29 @@ class PaymentsConfigurationEcheck(object):
         """
 
         self._restrictions = restrictions
+
+    @property
+    def test_methods(self):
+        """Gets the test_methods of this PaymentsConfigurationEcheck.  # noqa: E501
+
+        Test methods for this payment method  # noqa: E501
+
+        :return: The test_methods of this PaymentsConfigurationEcheck.  # noqa: E501
+        :rtype: list[PaymentsConfigurationTestMethod]
+        """
+        return self._test_methods
+
+    @test_methods.setter
+    def test_methods(self, test_methods):
+        """Sets the test_methods of this PaymentsConfigurationEcheck.
+
+        Test methods for this payment method  # noqa: E501
+
+        :param test_methods: The test_methods of this PaymentsConfigurationEcheck.  # noqa: E501
+        :type: list[PaymentsConfigurationTestMethod]
+        """
+
+        self._test_methods = test_methods
 
     def to_dict(self):
         """Returns the model properties as a dict"""
