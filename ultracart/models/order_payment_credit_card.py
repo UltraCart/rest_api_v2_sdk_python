@@ -262,7 +262,7 @@ class OrderPaymentCreditCard(object):
     def card_number_token(self):
         """Gets the card_number_token of this OrderPaymentCreditCard.  # noqa: E501
 
-        Card number token from hosted fields used to update the cart number  # noqa: E501
+        Card number token from hosted fields used to update the card number  # noqa: E501
 
         :return: The card_number_token of this OrderPaymentCreditCard.  # noqa: E501
         :rtype: str
@@ -273,7 +273,7 @@ class OrderPaymentCreditCard(object):
     def card_number_token(self, card_number_token):
         """Sets the card_number_token of this OrderPaymentCreditCard.
 
-        Card number token from hosted fields used to update the cart number  # noqa: E501
+        Card number token from hosted fields used to update the card number  # noqa: E501
 
         :param card_number_token: The card_number_token of this OrderPaymentCreditCard.  # noqa: E501
         :type: str

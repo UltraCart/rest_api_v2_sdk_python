@@ -32,25 +32,30 @@ class OrderPaymentInsurance(object):
     """
     swagger_types = {
         'application_id': 'str',
-        'claim_id': 'str'
+        'claim_id': 'str',
+        'refund_claim_id': 'str'
     }
 
     attribute_map = {
         'application_id': 'application_id',
-        'claim_id': 'claim_id'
+        'claim_id': 'claim_id',
+        'refund_claim_id': 'refund_claim_id'
     }
 
-    def __init__(self, application_id=None, claim_id=None):  # noqa: E501
+    def __init__(self, application_id=None, claim_id=None, refund_claim_id=None):  # noqa: E501
         """OrderPaymentInsurance - a model defined in Swagger"""  # noqa: E501
 
         self._application_id = None
         self._claim_id = None
+        self._refund_claim_id = None
         self.discriminator = None
 
         if application_id is not None:
             self.application_id = application_id
         if claim_id is not None:
             self.claim_id = claim_id
+        if refund_claim_id is not None:
+            self.refund_claim_id = refund_claim_id
 
     @property
     def application_id(self):
@@ -97,6 +102,29 @@ class OrderPaymentInsurance(object):
         """
 
         self._claim_id = claim_id
+
+    @property
+    def refund_claim_id(self):
+        """Gets the refund_claim_id of this OrderPaymentInsurance.  # noqa: E501
+
+        refund claim id  # noqa: E501
+
+        :return: The refund_claim_id of this OrderPaymentInsurance.  # noqa: E501
+        :rtype: str
+        """
+        return self._refund_claim_id
+
+    @refund_claim_id.setter
+    def refund_claim_id(self, refund_claim_id):
+        """Sets the refund_claim_id of this OrderPaymentInsurance.
+
+        refund claim id  # noqa: E501
+
+        :param refund_claim_id: The refund_claim_id of this OrderPaymentInsurance.  # noqa: E501
+        :type: str
+        """
+
+        self._refund_claim_id = refund_claim_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
