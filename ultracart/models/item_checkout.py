@@ -33,20 +33,23 @@ class ItemCheckout(object):
     swagger_types = {
         'suppress_buysafe': 'bool',
         'terms': 'str',
+        'terms_if_auto_order': 'bool',
         'terms_translated_text_instance_oid': 'int'
     }
 
     attribute_map = {
         'suppress_buysafe': 'suppress_buysafe',
         'terms': 'terms',
+        'terms_if_auto_order': 'terms_if_auto_order',
         'terms_translated_text_instance_oid': 'terms_translated_text_instance_oid'
     }
 
-    def __init__(self, suppress_buysafe=None, terms=None, terms_translated_text_instance_oid=None):  # noqa: E501
+    def __init__(self, suppress_buysafe=None, terms=None, terms_if_auto_order=None, terms_translated_text_instance_oid=None):  # noqa: E501
         """ItemCheckout - a model defined in Swagger"""  # noqa: E501
 
         self._suppress_buysafe = None
         self._terms = None
+        self._terms_if_auto_order = None
         self._terms_translated_text_instance_oid = None
         self.discriminator = None
 
@@ -54,6 +57,8 @@ class ItemCheckout(object):
             self.suppress_buysafe = suppress_buysafe
         if terms is not None:
             self.terms = terms
+        if terms_if_auto_order is not None:
+            self.terms_if_auto_order = terms_if_auto_order
         if terms_translated_text_instance_oid is not None:
             self.terms_translated_text_instance_oid = terms_translated_text_instance_oid
 
@@ -104,6 +109,29 @@ class ItemCheckout(object):
             raise ValueError("Invalid value for `terms`, length must be less than or equal to `10000`")  # noqa: E501
 
         self._terms = terms
+
+    @property
+    def terms_if_auto_order(self):
+        """Gets the terms_if_auto_order of this ItemCheckout.  # noqa: E501
+
+        Terms only apply if the item is on auto order  # noqa: E501
+
+        :return: The terms_if_auto_order of this ItemCheckout.  # noqa: E501
+        :rtype: bool
+        """
+        return self._terms_if_auto_order
+
+    @terms_if_auto_order.setter
+    def terms_if_auto_order(self, terms_if_auto_order):
+        """Sets the terms_if_auto_order of this ItemCheckout.
+
+        Terms only apply if the item is on auto order  # noqa: E501
+
+        :param terms_if_auto_order: The terms_if_auto_order of this ItemCheckout.  # noqa: E501
+        :type: bool
+        """
+
+        self._terms_if_auto_order = terms_if_auto_order
 
     @property
     def terms_translated_text_instance_oid(self):
