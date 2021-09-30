@@ -35,6 +35,7 @@ class ItemContent(object):
         'attributes': 'list[ItemContentAttribute]',
         'custom_thank_you_url': 'str',
         'exclude_from_search': 'bool',
+        'exclude_from_sitemap': 'bool',
         'exclude_from_top_sellers': 'bool',
         'extended_description': 'str',
         'extended_description_translated_text_instance_oid': 'int',
@@ -50,6 +51,7 @@ class ItemContent(object):
         'attributes': 'attributes',
         'custom_thank_you_url': 'custom_thank_you_url',
         'exclude_from_search': 'exclude_from_search',
+        'exclude_from_sitemap': 'exclude_from_sitemap',
         'exclude_from_top_sellers': 'exclude_from_top_sellers',
         'extended_description': 'extended_description',
         'extended_description_translated_text_instance_oid': 'extended_description_translated_text_instance_oid',
@@ -60,13 +62,14 @@ class ItemContent(object):
         'view_url': 'view_url'
     }
 
-    def __init__(self, assignments=None, attributes=None, custom_thank_you_url=None, exclude_from_search=None, exclude_from_top_sellers=None, extended_description=None, extended_description_translated_text_instance_oid=None, multimedia=None, new_item=None, new_item_end=None, new_item_start=None, view_url=None):  # noqa: E501
+    def __init__(self, assignments=None, attributes=None, custom_thank_you_url=None, exclude_from_search=None, exclude_from_sitemap=None, exclude_from_top_sellers=None, extended_description=None, extended_description_translated_text_instance_oid=None, multimedia=None, new_item=None, new_item_end=None, new_item_start=None, view_url=None):  # noqa: E501
         """ItemContent - a model defined in Swagger"""  # noqa: E501
 
         self._assignments = None
         self._attributes = None
         self._custom_thank_you_url = None
         self._exclude_from_search = None
+        self._exclude_from_sitemap = None
         self._exclude_from_top_sellers = None
         self._extended_description = None
         self._extended_description_translated_text_instance_oid = None
@@ -85,6 +88,8 @@ class ItemContent(object):
             self.custom_thank_you_url = custom_thank_you_url
         if exclude_from_search is not None:
             self.exclude_from_search = exclude_from_search
+        if exclude_from_sitemap is not None:
+            self.exclude_from_sitemap = exclude_from_sitemap
         if exclude_from_top_sellers is not None:
             self.exclude_from_top_sellers = exclude_from_top_sellers
         if extended_description is not None:
@@ -193,6 +198,29 @@ class ItemContent(object):
         """
 
         self._exclude_from_search = exclude_from_search
+
+    @property
+    def exclude_from_sitemap(self):
+        """Gets the exclude_from_sitemap of this ItemContent.  # noqa: E501
+
+        Exclude from the sitemap for the StoreFront  # noqa: E501
+
+        :return: The exclude_from_sitemap of this ItemContent.  # noqa: E501
+        :rtype: bool
+        """
+        return self._exclude_from_sitemap
+
+    @exclude_from_sitemap.setter
+    def exclude_from_sitemap(self, exclude_from_sitemap):
+        """Sets the exclude_from_sitemap of this ItemContent.
+
+        Exclude from the sitemap for the StoreFront  # noqa: E501
+
+        :param exclude_from_sitemap: The exclude_from_sitemap of this ItemContent.  # noqa: E501
+        :type: bool
+        """
+
+        self._exclude_from_sitemap = exclude_from_sitemap
 
     @property
     def exclude_from_top_sellers(self):
