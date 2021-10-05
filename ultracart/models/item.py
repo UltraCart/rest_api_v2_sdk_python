@@ -46,6 +46,7 @@ class Item(object):
         'ebay': 'ItemEbay',
         'email_notifications': 'ItemEmailNotifications',
         'enrollment123': 'ItemEnrollment123',
+        'fulfillment_addons': 'list[ItemFulfillmentAddon]',
         'gift_certificate': 'ItemGiftCertificate',
         'google_product_search': 'ItemGoogleProductSearch',
         'identifiers': 'ItemIdentifiers',
@@ -99,6 +100,7 @@ class Item(object):
         'ebay': 'ebay',
         'email_notifications': 'email_notifications',
         'enrollment123': 'enrollment123',
+        'fulfillment_addons': 'fulfillment_addons',
         'gift_certificate': 'gift_certificate',
         'google_product_search': 'google_product_search',
         'identifiers': 'identifiers',
@@ -136,7 +138,7 @@ class Item(object):
         'wishlist_member': 'wishlist_member'
     }
 
-    def __init__(self, accounting=None, amember=None, auto_order=None, ccbill=None, channel_partner_item_mappings=None, chargeback=None, checkout=None, content=None, creation_dts=None, description=None, description_translated_text_instance_oid=None, digital_delivery=None, ebay=None, email_notifications=None, enrollment123=None, gift_certificate=None, google_product_search=None, identifiers=None, inactive=None, instant_payment_notifications=None, internal=None, kit=None, kit_component_only=None, kit_definition=None, last_modified_dts=None, merchant_id=None, merchant_item_id=None, merchant_item_oid=None, options=None, parent_category_id=None, parent_category_path=None, payment_processing=None, physical=None, pricing=None, properties=None, realtime_pricing=None, recommend_replenishment_days=None, related=None, reporting=None, restriction=None, revguard=None, reviews=None, salesforce=None, shipping=None, tags=None, tax=None, third_party_email_marketing=None, variant_items=None, variations=None, wishlist_member=None):  # noqa: E501
+    def __init__(self, accounting=None, amember=None, auto_order=None, ccbill=None, channel_partner_item_mappings=None, chargeback=None, checkout=None, content=None, creation_dts=None, description=None, description_translated_text_instance_oid=None, digital_delivery=None, ebay=None, email_notifications=None, enrollment123=None, fulfillment_addons=None, gift_certificate=None, google_product_search=None, identifiers=None, inactive=None, instant_payment_notifications=None, internal=None, kit=None, kit_component_only=None, kit_definition=None, last_modified_dts=None, merchant_id=None, merchant_item_id=None, merchant_item_oid=None, options=None, parent_category_id=None, parent_category_path=None, payment_processing=None, physical=None, pricing=None, properties=None, realtime_pricing=None, recommend_replenishment_days=None, related=None, reporting=None, restriction=None, revguard=None, reviews=None, salesforce=None, shipping=None, tags=None, tax=None, third_party_email_marketing=None, variant_items=None, variations=None, wishlist_member=None):  # noqa: E501
         """Item - a model defined in Swagger"""  # noqa: E501
 
         self._accounting = None
@@ -154,6 +156,7 @@ class Item(object):
         self._ebay = None
         self._email_notifications = None
         self._enrollment123 = None
+        self._fulfillment_addons = None
         self._gift_certificate = None
         self._google_product_search = None
         self._identifiers = None
@@ -221,6 +224,8 @@ class Item(object):
             self.email_notifications = email_notifications
         if enrollment123 is not None:
             self.enrollment123 = enrollment123
+        if fulfillment_addons is not None:
+            self.fulfillment_addons = fulfillment_addons
         if gift_certificate is not None:
             self.gift_certificate = gift_certificate
         if google_product_search is not None:
@@ -616,6 +621,29 @@ class Item(object):
         """
 
         self._enrollment123 = enrollment123
+
+    @property
+    def fulfillment_addons(self):
+        """Gets the fulfillment_addons of this Item.  # noqa: E501
+
+        Fulfillment Add-ons  # noqa: E501
+
+        :return: The fulfillment_addons of this Item.  # noqa: E501
+        :rtype: list[ItemFulfillmentAddon]
+        """
+        return self._fulfillment_addons
+
+    @fulfillment_addons.setter
+    def fulfillment_addons(self, fulfillment_addons):
+        """Sets the fulfillment_addons of this Item.
+
+        Fulfillment Add-ons  # noqa: E501
+
+        :param fulfillment_addons: The fulfillment_addons of this Item.  # noqa: E501
+        :type: list[ItemFulfillmentAddon]
+        """
+
+        self._fulfillment_addons = fulfillment_addons
 
     @property
     def gift_certificate(self):

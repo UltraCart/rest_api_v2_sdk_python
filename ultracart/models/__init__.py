@@ -367,6 +367,7 @@ from ultracart.models.item_ebay_market_listing import ItemEbayMarketListing
 from ultracart.models.item_ebay_market_place_analysis import ItemEbayMarketPlaceAnalysis
 from ultracart.models.item_email_notifications import ItemEmailNotifications
 from ultracart.models.item_enrollment123 import ItemEnrollment123
+from ultracart.models.item_fulfillment_addon import ItemFulfillmentAddon
 from ultracart.models.item_gift_certificate import ItemGiftCertificate
 from ultracart.models.item_google_product_search import ItemGoogleProductSearch
 from ultracart.models.item_identifiers import ItemIdentifiers
