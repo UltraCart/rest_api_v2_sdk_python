@@ -33,20 +33,23 @@ class ApplyLibraryItemRequest(object):
     swagger_types = {
         'email_uuid': 'str',
         'library_item_oid': 'int',
+        'postcard_uuid': 'str',
         'storefront_oid': 'int'
     }
 
     attribute_map = {
         'email_uuid': 'email_uuid',
         'library_item_oid': 'library_item_oid',
+        'postcard_uuid': 'postcard_uuid',
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, email_uuid=None, library_item_oid=None, storefront_oid=None):  # noqa: E501
+    def __init__(self, email_uuid=None, library_item_oid=None, postcard_uuid=None, storefront_oid=None):  # noqa: E501
         """ApplyLibraryItemRequest - a model defined in Swagger"""  # noqa: E501
 
         self._email_uuid = None
         self._library_item_oid = None
+        self._postcard_uuid = None
         self._storefront_oid = None
         self.discriminator = None
 
@@ -54,6 +57,8 @@ class ApplyLibraryItemRequest(object):
             self.email_uuid = email_uuid
         if library_item_oid is not None:
             self.library_item_oid = library_item_oid
+        if postcard_uuid is not None:
+            self.postcard_uuid = postcard_uuid
         if storefront_oid is not None:
             self.storefront_oid = storefront_oid
 
@@ -102,6 +107,29 @@ class ApplyLibraryItemRequest(object):
         """
 
         self._library_item_oid = library_item_oid
+
+    @property
+    def postcard_uuid(self):
+        """Gets the postcard_uuid of this ApplyLibraryItemRequest.  # noqa: E501
+
+        The postcard uuid you wish to apply to a given StoreFront.  # noqa: E501
+
+        :return: The postcard_uuid of this ApplyLibraryItemRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._postcard_uuid
+
+    @postcard_uuid.setter
+    def postcard_uuid(self, postcard_uuid):
+        """Sets the postcard_uuid of this ApplyLibraryItemRequest.
+
+        The postcard uuid you wish to apply to a given StoreFront.  # noqa: E501
+
+        :param postcard_uuid: The postcard_uuid of this ApplyLibraryItemRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._postcard_uuid = postcard_uuid
 
     @property
     def storefront_oid(self):

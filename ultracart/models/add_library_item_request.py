@@ -147,7 +147,7 @@ class AddLibraryItemRequest(object):
     def content_type(self):
         """Gets the content_type of this AddLibraryItemRequest.  # noqa: E501
 
-        flow, campaign, cjson, email, transactional_email or upsell  # noqa: E501
+        flow, campaign, cjson, email, transactional_email, postcard or upsell  # noqa: E501
 
         :return: The content_type of this AddLibraryItemRequest.  # noqa: E501
         :rtype: str
@@ -158,7 +158,7 @@ class AddLibraryItemRequest(object):
     def content_type(self, content_type):
         """Sets the content_type of this AddLibraryItemRequest.
 
-        flow, campaign, cjson, email, transactional_email or upsell  # noqa: E501
+        flow, campaign, cjson, email, transactional_email, postcard or upsell  # noqa: E501
 
         :param content_type: The content_type of this AddLibraryItemRequest.  # noqa: E501
         :type: str
@@ -331,7 +331,7 @@ class AddLibraryItemRequest(object):
     def uuid(self):
         """Gets the uuid of this AddLibraryItemRequest.  # noqa: E501
 
-        UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name  # noqa: E501
+        UUID of communication flow, campaign, email, postcard, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name  # noqa: E501
 
         :return: The uuid of this AddLibraryItemRequest.  # noqa: E501
         :rtype: str
@@ -342,7 +342,7 @@ class AddLibraryItemRequest(object):
     def uuid(self, uuid):
         """Sets the uuid of this AddLibraryItemRequest.
 
-        UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name  # noqa: E501
+        UUID of communication flow, campaign, email, postcard, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name  # noqa: E501
 
         :param uuid: The uuid of this AddLibraryItemRequest.  # noqa: E501
         :type: str

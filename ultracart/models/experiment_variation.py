@@ -37,10 +37,12 @@ class ExperimentVariation(object):
         'average_order_value': 'float',
         'bounce_count': 'int',
         'conversion_rate': 'float',
+        'daily_statistics': 'list[ExperimentVariationStat]',
         'duration_seconds_sum': 'int',
         'event_count': 'int',
         'initiate_checkout_count': 'int',
         'order_count': 'int',
+        'order_item_count': 'int',
         'original_traffic_percentage': 'float',
         'page_view_count': 'int',
         'revenue': 'float',
@@ -59,10 +61,12 @@ class ExperimentVariation(object):
         'average_order_value': 'average_order_value',
         'bounce_count': 'bounce_count',
         'conversion_rate': 'conversion_rate',
+        'daily_statistics': 'daily_statistics',
         'duration_seconds_sum': 'duration_seconds_sum',
         'event_count': 'event_count',
         'initiate_checkout_count': 'initiate_checkout_count',
         'order_count': 'order_count',
+        'order_item_count': 'order_item_count',
         'original_traffic_percentage': 'original_traffic_percentage',
         'page_view_count': 'page_view_count',
         'revenue': 'revenue',
@@ -74,7 +78,7 @@ class ExperimentVariation(object):
         'winner': 'winner'
     }
 
-    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, average_order_value=None, bounce_count=None, conversion_rate=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, original_traffic_percentage=None, page_view_count=None, revenue=None, session_count=None, traffic_percentage=None, url=None, variation_name=None, variation_number=None, winner=None):  # noqa: E501
+    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, average_order_value=None, bounce_count=None, conversion_rate=None, daily_statistics=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, order_item_count=None, original_traffic_percentage=None, page_view_count=None, revenue=None, session_count=None, traffic_percentage=None, url=None, variation_name=None, variation_number=None, winner=None):  # noqa: E501
         """ExperimentVariation - a model defined in Swagger"""  # noqa: E501
 
         self._add_to_cart_count = None
@@ -83,10 +87,12 @@ class ExperimentVariation(object):
         self._average_order_value = None
         self._bounce_count = None
         self._conversion_rate = None
+        self._daily_statistics = None
         self._duration_seconds_sum = None
         self._event_count = None
         self._initiate_checkout_count = None
         self._order_count = None
+        self._order_item_count = None
         self._original_traffic_percentage = None
         self._page_view_count = None
         self._revenue = None
@@ -110,6 +116,8 @@ class ExperimentVariation(object):
             self.bounce_count = bounce_count
         if conversion_rate is not None:
             self.conversion_rate = conversion_rate
+        if daily_statistics is not None:
+            self.daily_statistics = daily_statistics
         if duration_seconds_sum is not None:
             self.duration_seconds_sum = duration_seconds_sum
         if event_count is not None:
@@ -118,6 +126,8 @@ class ExperimentVariation(object):
             self.initiate_checkout_count = initiate_checkout_count
         if order_count is not None:
             self.order_count = order_count
+        if order_item_count is not None:
+            self.order_item_count = order_item_count
         if original_traffic_percentage is not None:
             self.original_traffic_percentage = original_traffic_percentage
         if page_view_count is not None:
@@ -276,6 +286,29 @@ class ExperimentVariation(object):
         self._conversion_rate = conversion_rate
 
     @property
+    def daily_statistics(self):
+        """Gets the daily_statistics of this ExperimentVariation.  # noqa: E501
+
+        Array of daily statistics for this variation  # noqa: E501
+
+        :return: The daily_statistics of this ExperimentVariation.  # noqa: E501
+        :rtype: list[ExperimentVariationStat]
+        """
+        return self._daily_statistics
+
+    @daily_statistics.setter
+    def daily_statistics(self, daily_statistics):
+        """Sets the daily_statistics of this ExperimentVariation.
+
+        Array of daily statistics for this variation  # noqa: E501
+
+        :param daily_statistics: The daily_statistics of this ExperimentVariation.  # noqa: E501
+        :type: list[ExperimentVariationStat]
+        """
+
+        self._daily_statistics = daily_statistics
+
+    @property
     def duration_seconds_sum(self):
         """Gets the duration_seconds_sum of this ExperimentVariation.  # noqa: E501
 
@@ -366,6 +399,29 @@ class ExperimentVariation(object):
         """
 
         self._order_count = order_count
+
+    @property
+    def order_item_count(self):
+        """Gets the order_item_count of this ExperimentVariation.  # noqa: E501
+
+        Total order item count for this variation  # noqa: E501
+
+        :return: The order_item_count of this ExperimentVariation.  # noqa: E501
+        :rtype: int
+        """
+        return self._order_item_count
+
+    @order_item_count.setter
+    def order_item_count(self, order_item_count):
+        """Sets the order_item_count of this ExperimentVariation.
+
+        Total order item count for this variation  # noqa: E501
+
+        :param order_item_count: The order_item_count of this ExperimentVariation.  # noqa: E501
+        :type: int
+        """
+
+        self._order_item_count = order_item_count
 
     @property
     def original_traffic_percentage(self):

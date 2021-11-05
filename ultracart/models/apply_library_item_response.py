@@ -147,7 +147,7 @@ class ApplyLibraryItemResponse(object):
     def content_type(self):
         """Gets the content_type of this ApplyLibraryItemResponse.  # noqa: E501
 
-        flow, campaign, cjson, upsell, transactional_email or email  # noqa: E501
+        flow, campaign, cjson, upsell, postcard, transactional_email or email  # noqa: E501
 
         :return: The content_type of this ApplyLibraryItemResponse.  # noqa: E501
         :rtype: str
@@ -158,7 +158,7 @@ class ApplyLibraryItemResponse(object):
     def content_type(self, content_type):
         """Sets the content_type of this ApplyLibraryItemResponse.
 
-        flow, campaign, cjson, upsell, transactional_email or email  # noqa: E501
+        flow, campaign, cjson, upsell, postcard, transactional_email or email  # noqa: E501
 
         :param content_type: The content_type of this ApplyLibraryItemResponse.  # noqa: E501
         :type: str

@@ -32,6 +32,7 @@ class AffiliateLedger(object):
     """
     swagger_types = {
         'affiliate_click_oid': 'int',
+        'affiliate_ledger_oid': 'int',
         'affiliate_link_oid': 'int',
         'affiliate_oid': 'int',
         'assigned_by_user': 'str',
@@ -42,17 +43,18 @@ class AffiliateLedger(object):
         'order_id': 'str',
         'original_transaction_dts': 'str',
         'sub_id': 'str',
-        'tier_number': 'str',
+        'tier_number': 'int',
         'transaction_amount': 'float',
         'transaction_amount_paid': 'float',
         'transaction_dts': 'str',
         'transaction_memo': 'str',
-        'transaction_percentage': 'str',
+        'transaction_percentage': 'float',
         'transaction_state': 'str'
     }
 
     attribute_map = {
         'affiliate_click_oid': 'affiliate_click_oid',
+        'affiliate_ledger_oid': 'affiliate_ledger_oid',
         'affiliate_link_oid': 'affiliate_link_oid',
         'affiliate_oid': 'affiliate_oid',
         'assigned_by_user': 'assigned_by_user',
@@ -72,10 +74,11 @@ class AffiliateLedger(object):
         'transaction_state': 'transaction_state'
     }
 
-    def __init__(self, affiliate_click_oid=None, affiliate_link_oid=None, affiliate_oid=None, assigned_by_user=None, click=None, item_id=None, link=None, order=None, order_id=None, original_transaction_dts=None, sub_id=None, tier_number=None, transaction_amount=None, transaction_amount_paid=None, transaction_dts=None, transaction_memo=None, transaction_percentage=None, transaction_state=None):  # noqa: E501
+    def __init__(self, affiliate_click_oid=None, affiliate_ledger_oid=None, affiliate_link_oid=None, affiliate_oid=None, assigned_by_user=None, click=None, item_id=None, link=None, order=None, order_id=None, original_transaction_dts=None, sub_id=None, tier_number=None, transaction_amount=None, transaction_amount_paid=None, transaction_dts=None, transaction_memo=None, transaction_percentage=None, transaction_state=None):  # noqa: E501
         """AffiliateLedger - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_click_oid = None
+        self._affiliate_ledger_oid = None
         self._affiliate_link_oid = None
         self._affiliate_oid = None
         self._assigned_by_user = None
@@ -97,6 +100,8 @@ class AffiliateLedger(object):
 
         if affiliate_click_oid is not None:
             self.affiliate_click_oid = affiliate_click_oid
+        if affiliate_ledger_oid is not None:
+            self.affiliate_ledger_oid = affiliate_ledger_oid
         if affiliate_link_oid is not None:
             self.affiliate_link_oid = affiliate_link_oid
         if affiliate_oid is not None:
@@ -154,6 +159,29 @@ class AffiliateLedger(object):
         """
 
         self._affiliate_click_oid = affiliate_click_oid
+
+    @property
+    def affiliate_ledger_oid(self):
+        """Gets the affiliate_ledger_oid of this AffiliateLedger.  # noqa: E501
+
+        Affiliate ledger object ID associated with this ledger  # noqa: E501
+
+        :return: The affiliate_ledger_oid of this AffiliateLedger.  # noqa: E501
+        :rtype: int
+        """
+        return self._affiliate_ledger_oid
+
+    @affiliate_ledger_oid.setter
+    def affiliate_ledger_oid(self, affiliate_ledger_oid):
+        """Sets the affiliate_ledger_oid of this AffiliateLedger.
+
+        Affiliate ledger object ID associated with this ledger  # noqa: E501
+
+        :param affiliate_ledger_oid: The affiliate_ledger_oid of this AffiliateLedger.  # noqa: E501
+        :type: int
+        """
+
+        self._affiliate_ledger_oid = affiliate_ledger_oid
 
     @property
     def affiliate_link_oid(self):
@@ -386,7 +414,7 @@ class AffiliateLedger(object):
         Tier number that this transaction earned  # noqa: E501
 
         :return: The tier_number of this AffiliateLedger.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._tier_number
 
@@ -397,7 +425,7 @@ class AffiliateLedger(object):
         Tier number that this transaction earned  # noqa: E501
 
         :param tier_number: The tier_number of this AffiliateLedger.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._tier_number = tier_number
@@ -501,7 +529,7 @@ class AffiliateLedger(object):
         Percentage associated with this transaction  # noqa: E501
 
         :return: The transaction_percentage of this AffiliateLedger.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._transaction_percentage
 
@@ -512,7 +540,7 @@ class AffiliateLedger(object):
         Percentage associated with this transaction  # noqa: E501
 
         :param transaction_percentage: The transaction_percentage of this AffiliateLedger.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._transaction_percentage = transaction_percentage
