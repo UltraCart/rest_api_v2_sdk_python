@@ -34,6 +34,7 @@ class ItemShippingDistributionCenter(object):
         'allocated_to_placed_orders': 'float',
         'allocated_to_shopping_carts': 'float',
         'available_to_allocate': 'float',
+        'cogs': 'float',
         'desired_inventory_level': 'float',
         'distribution_center_code': 'str',
         'distribution_center_oid': 'int',
@@ -50,6 +51,7 @@ class ItemShippingDistributionCenter(object):
         'allocated_to_placed_orders': 'allocated_to_placed_orders',
         'allocated_to_shopping_carts': 'allocated_to_shopping_carts',
         'available_to_allocate': 'available_to_allocate',
+        'cogs': 'cogs',
         'desired_inventory_level': 'desired_inventory_level',
         'distribution_center_code': 'distribution_center_code',
         'distribution_center_oid': 'distribution_center_oid',
@@ -62,12 +64,13 @@ class ItemShippingDistributionCenter(object):
         'stock_picking_location': 'stock_picking_location'
     }
 
-    def __init__(self, allocated_to_placed_orders=None, allocated_to_shopping_carts=None, available_to_allocate=None, desired_inventory_level=None, distribution_center_code=None, distribution_center_oid=None, eta=None, handles=None, inventory_level=None, maximum_backorder=None, reorder_inventory_level=None, sku=None, stock_picking_location=None):  # noqa: E501
+    def __init__(self, allocated_to_placed_orders=None, allocated_to_shopping_carts=None, available_to_allocate=None, cogs=None, desired_inventory_level=None, distribution_center_code=None, distribution_center_oid=None, eta=None, handles=None, inventory_level=None, maximum_backorder=None, reorder_inventory_level=None, sku=None, stock_picking_location=None):  # noqa: E501
         """ItemShippingDistributionCenter - a model defined in Swagger"""  # noqa: E501
 
         self._allocated_to_placed_orders = None
         self._allocated_to_shopping_carts = None
         self._available_to_allocate = None
+        self._cogs = None
         self._desired_inventory_level = None
         self._distribution_center_code = None
         self._distribution_center_oid = None
@@ -86,6 +89,8 @@ class ItemShippingDistributionCenter(object):
             self.allocated_to_shopping_carts = allocated_to_shopping_carts
         if available_to_allocate is not None:
             self.available_to_allocate = available_to_allocate
+        if cogs is not None:
+            self.cogs = cogs
         if desired_inventory_level is not None:
             self.desired_inventory_level = desired_inventory_level
         if distribution_center_code is not None:
@@ -175,6 +180,29 @@ class ItemShippingDistributionCenter(object):
         """
 
         self._available_to_allocate = available_to_allocate
+
+    @property
+    def cogs(self):
+        """Gets the cogs of this ItemShippingDistributionCenter.  # noqa: E501
+
+        Cost of goods sold override at the distribution center level  # noqa: E501
+
+        :return: The cogs of this ItemShippingDistributionCenter.  # noqa: E501
+        :rtype: float
+        """
+        return self._cogs
+
+    @cogs.setter
+    def cogs(self, cogs):
+        """Sets the cogs of this ItemShippingDistributionCenter.
+
+        Cost of goods sold override at the distribution center level  # noqa: E501
+
+        :param cogs: The cogs of this ItemShippingDistributionCenter.  # noqa: E501
+        :type: float
+        """
+
+        self._cogs = cogs
 
     @property
     def desired_inventory_level(self):
