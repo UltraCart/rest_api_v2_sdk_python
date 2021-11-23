@@ -651,6 +651,9 @@ from ultracart.models.transaction_email_response import TransactionEmailResponse
 from ultracart.models.transaction_gateway import TransactionGateway
 from ultracart.models.transaction_gateways_request import TransactionGatewaysRequest
 from ultracart.models.transaction_gateways_response import TransactionGatewaysResponse
+from ultracart.models.twilio import Twilio
+from ultracart.models.twilio_response import TwilioResponse
+from ultracart.models.twilios_response import TwiliosResponse
 from ultracart.models.ultra_cart_config import UltraCartConfig
 from ultracart.models.upload_coupon_codes_request import UploadCouponCodesRequest
 from ultracart.models.upload_coupon_codes_response import UploadCouponCodesResponse

@@ -990,6 +990,103 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_twilio_account(self, twilio, **kwargs):  # noqa: E501
+        """Create Twilio account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_twilio_account(twilio, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Twilio twilio: Twilio (required)
+        :return: TwilioResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_twilio_account_with_http_info(twilio, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_twilio_account_with_http_info(twilio, **kwargs)  # noqa: E501
+            return data
+
+    def create_twilio_account_with_http_info(self, twilio, **kwargs):  # noqa: E501
+        """Create Twilio account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_twilio_account_with_http_info(twilio, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Twilio twilio: Twilio (required)
+        :return: TwilioResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['twilio']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_twilio_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'twilio' is set
+        if ('twilio' not in params or
+                params['twilio'] is None):
+            raise ValueError("Missing the required parameter `twilio` when calling `create_twilio_account`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'twilio' in params:
+            body_params = params['twilio']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/twilio/accounts', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='TwilioResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_email_campaign_folder(self, storefront_oid, email_campaign_folder_uuid, **kwargs):  # noqa: E501
         """Delete email campaignFolder  # noqa: E501
 
@@ -2334,6 +2431,103 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_twilio_account(self, esp_twilio_uuid, **kwargs):  # noqa: E501
+        """delete Twilio account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_twilio_account(esp_twilio_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str esp_twilio_uuid: (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_twilio_account_with_http_info(esp_twilio_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_twilio_account_with_http_info(esp_twilio_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_twilio_account_with_http_info(self, esp_twilio_uuid, **kwargs):  # noqa: E501
+        """delete Twilio account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_twilio_account_with_http_info(esp_twilio_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str esp_twilio_uuid: (required)
+        :return: BaseResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['esp_twilio_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_twilio_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'esp_twilio_uuid' is set
+        if ('esp_twilio_uuid' not in params or
+                params['esp_twilio_uuid'] is None):
+            raise ValueError("Missing the required parameter `esp_twilio_uuid` when calling `delete_twilio_account`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'esp_twilio_uuid' in params:
+            path_params['esp_twilio_uuid'] = params['esp_twilio_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/twilio/accounts/{esp_twilio_uuid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BaseResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -10643,6 +10837,192 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_twilio_account(self, esp_twilio_uuid, **kwargs):  # noqa: E501
+        """Get Twilio account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_twilio_account(esp_twilio_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str esp_twilio_uuid: (required)
+        :return: TwilioResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_twilio_account_with_http_info(esp_twilio_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_twilio_account_with_http_info(esp_twilio_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_twilio_account_with_http_info(self, esp_twilio_uuid, **kwargs):  # noqa: E501
+        """Get Twilio account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_twilio_account_with_http_info(esp_twilio_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str esp_twilio_uuid: (required)
+        :return: TwilioResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['esp_twilio_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_twilio_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'esp_twilio_uuid' is set
+        if ('esp_twilio_uuid' not in params or
+                params['esp_twilio_uuid'] is None):
+            raise ValueError("Missing the required parameter `esp_twilio_uuid` when calling `get_twilio_account`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'esp_twilio_uuid' in params:
+            path_params['esp_twilio_uuid'] = params['esp_twilio_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/twilio/accounts/{esp_twilio_uuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='TwilioResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_twilio_accounts(self, **kwargs):  # noqa: E501
+        """Get all Twilio accounts  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_twilio_accounts(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: TwiliosResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_twilio_accounts_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_twilio_accounts_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_twilio_accounts_with_http_info(self, **kwargs):  # noqa: E501
+        """Get all Twilio accounts  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_twilio_accounts_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: TwiliosResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_twilio_accounts" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/twilio/accounts', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='TwiliosResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def global_unsubscribe(self, storefront_oid, unsubscribe, **kwargs):  # noqa: E501
         """Globally unsubscribe a customer  # noqa: E501
 
@@ -16393,6 +16773,111 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='TransactionEmailResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_twilio_account(self, esp_twilio_uuid, twilio, **kwargs):  # noqa: E501
+        """Update Twilio account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_twilio_account(esp_twilio_uuid, twilio, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str esp_twilio_uuid: (required)
+        :param Twilio twilio: Twilio (required)
+        :return: TwilioResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_twilio_account_with_http_info(esp_twilio_uuid, twilio, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_twilio_account_with_http_info(esp_twilio_uuid, twilio, **kwargs)  # noqa: E501
+            return data
+
+    def update_twilio_account_with_http_info(self, esp_twilio_uuid, twilio, **kwargs):  # noqa: E501
+        """Update Twilio account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_twilio_account_with_http_info(esp_twilio_uuid, twilio, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str esp_twilio_uuid: (required)
+        :param Twilio twilio: Twilio (required)
+        :return: TwilioResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['esp_twilio_uuid', 'twilio']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_twilio_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'esp_twilio_uuid' is set
+        if ('esp_twilio_uuid' not in params or
+                params['esp_twilio_uuid'] is None):
+            raise ValueError("Missing the required parameter `esp_twilio_uuid` when calling `update_twilio_account`")  # noqa: E501
+        # verify the required parameter 'twilio' is set
+        if ('twilio' not in params or
+                params['twilio'] is None):
+            raise ValueError("Missing the required parameter `twilio` when calling `update_twilio_account`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'esp_twilio_uuid' in params:
+            path_params['esp_twilio_uuid'] = params['esp_twilio_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'twilio' in params:
+            body_params = params['twilio']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/twilio/accounts/{esp_twilio_uuid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='TwilioResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

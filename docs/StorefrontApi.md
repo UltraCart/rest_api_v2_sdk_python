@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**clone_email_campaign**](StorefrontApi.md#clone_email_campaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**clone_email_flow**](StorefrontApi.md#clone_email_flow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
 [**create_email_sending_domain**](StorefrontApi.md#create_email_sending_domain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
+[**create_twilio_account**](StorefrontApi.md#create_twilio_account) | **POST** /storefront/twilio/accounts | Create Twilio account
 [**delete_email_campaign_folder**](StorefrontApi.md#delete_email_campaign_folder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 [**delete_email_commseq_stat**](StorefrontApi.md#delete_email_commseq_stat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 [**delete_email_email**](StorefrontApi.md#delete_email_email) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -26,6 +27,7 @@ Method | HTTP request | Description
 [**delete_library_item**](StorefrontApi.md#delete_library_item) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
 [**delete_library_item_published_versions**](StorefrontApi.md#delete_library_item_published_versions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
 [**delete_screen_recording_segment**](StorefrontApi.md#delete_screen_recording_segment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
+[**delete_twilio_account**](StorefrontApi.md#delete_twilio_account) | **DELETE** /storefront/twilio/accounts/{esp_twilio_uuid} | delete Twilio account
 [**duplicate_library_item**](StorefrontApi.md#duplicate_library_item) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 [**favorite_screen_recording**](StorefrontApi.md#favorite_screen_recording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 [**geocode_address**](StorefrontApi.md#geocode_address) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
@@ -106,6 +108,8 @@ Method | HTTP request | Description
 [**get_transaction_email**](StorefrontApi.md#get_transaction_email) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 [**get_transaction_email_list**](StorefrontApi.md#get_transaction_email_list) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
 [**get_transaction_email_screenshots**](StorefrontApi.md#get_transaction_email_screenshots) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id}/screenshots | Get transactional email screenshots
+[**get_twilio_account**](StorefrontApi.md#get_twilio_account) | **GET** /storefront/twilio/accounts/{esp_twilio_uuid} | Get Twilio account
+[**get_twilio_accounts**](StorefrontApi.md#get_twilio_accounts) | **GET** /storefront/twilio/accounts | Get all Twilio accounts
 [**global_unsubscribe**](StorefrontApi.md#global_unsubscribe) | **POST** /storefront/{storefront_oid}/email/globalUnsubscribe | Globally unsubscribe a customer
 [**import_email_third_party_provider_list**](StorefrontApi.md#import_email_third_party_provider_list) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 [**insert_email_campaign**](StorefrontApi.md#insert_email_campaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
@@ -159,6 +163,7 @@ Method | HTTP request | Description
 [**update_screen_recording_settings**](StorefrontApi.md#update_screen_recording_settings) | **POST** /storefront/{storefront_oid}/screen_recordings/settings | Update screen recording settings
 [**update_screen_recording_tags**](StorefrontApi.md#update_screen_recording_tags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 [**update_transaction_email**](StorefrontApi.md#update_transaction_email) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
+[**update_twilio_account**](StorefrontApi.md#update_twilio_account) | **PUT** /storefront/twilio/accounts/{esp_twilio_uuid} | Update Twilio account
 
 
 # **add_to_library**
@@ -601,6 +606,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailSendingDomainResponse**](EmailSendingDomainResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_twilio_account**
+> TwilioResponse create_twilio_account(twilio)
+
+Create Twilio account
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+twilio = ultracart.Twilio() # Twilio | Twilio
+
+try:
+    # Create Twilio account
+    api_response = api_instance.create_twilio_account(twilio)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->create_twilio_account: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **twilio** | [**Twilio**](Twilio.md)| Twilio | 
+
+### Return type
+
+[**TwilioResponse**](TwilioResponse.md)
 
 ### Authorization
 
@@ -1243,6 +1296,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_twilio_account**
+> BaseResponse delete_twilio_account(esp_twilio_uuid)
+
+delete Twilio account
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+esp_twilio_uuid = 'esp_twilio_uuid_example' # str | 
+
+try:
+    # delete Twilio account
+    api_response = api_instance.delete_twilio_account(esp_twilio_uuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->delete_twilio_account: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **esp_twilio_uuid** | **str**|  | 
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
 
 ### Authorization
 
@@ -5272,6 +5373,98 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_twilio_account**
+> TwilioResponse get_twilio_account(esp_twilio_uuid)
+
+Get Twilio account
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+esp_twilio_uuid = 'esp_twilio_uuid_example' # str | 
+
+try:
+    # Get Twilio account
+    api_response = api_instance.get_twilio_account(esp_twilio_uuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_twilio_account: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **esp_twilio_uuid** | **str**|  | 
+
+### Return type
+
+[**TwilioResponse**](TwilioResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_twilio_accounts**
+> TwiliosResponse get_twilio_accounts()
+
+Get all Twilio accounts
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+
+try:
+    # Get all Twilio accounts
+    api_response = api_instance.get_twilio_accounts()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_twilio_accounts: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TwiliosResponse**](TwiliosResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **global_unsubscribe**
 > EmailGlobalUnsubscribeResponse global_unsubscribe(storefront_oid, unsubscribe)
 
@@ -7984,6 +8177,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TransactionEmailResponse**](TransactionEmailResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_twilio_account**
+> TwilioResponse update_twilio_account(esp_twilio_uuid, twilio)
+
+Update Twilio account
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+esp_twilio_uuid = 'esp_twilio_uuid_example' # str | 
+twilio = ultracart.Twilio() # Twilio | Twilio
+
+try:
+    # Update Twilio account
+    api_response = api_instance.update_twilio_account(esp_twilio_uuid, twilio)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->update_twilio_account: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **esp_twilio_uuid** | **str**|  | 
+ **twilio** | [**Twilio**](Twilio.md)| Twilio | 
+
+### Return type
+
+[**TwilioResponse**](TwilioResponse.md)
 
 ### Authorization
 
