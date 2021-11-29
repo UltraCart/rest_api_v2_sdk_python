@@ -37,6 +37,7 @@ class ItemAutoOrder(object):
         'auto_order_cancel_item_oid': 'int',
         'auto_order_downgrade_items': 'list[str]',
         'auto_order_paused': 'bool',
+        'auto_order_prohibit_expiring_cards': 'int',
         'auto_order_schedules': 'list[str]',
         'auto_order_upgrade_items': 'list[str]',
         'auto_order_upsell': 'bool',
@@ -56,6 +57,7 @@ class ItemAutoOrder(object):
         'auto_order_cancel_item_oid': 'auto_order_cancel_item_oid',
         'auto_order_downgrade_items': 'auto_order_downgrade_items',
         'auto_order_paused': 'auto_order_paused',
+        'auto_order_prohibit_expiring_cards': 'auto_order_prohibit_expiring_cards',
         'auto_order_schedules': 'auto_order_schedules',
         'auto_order_upgrade_items': 'auto_order_upgrade_items',
         'auto_order_upsell': 'auto_order_upsell',
@@ -68,7 +70,7 @@ class ItemAutoOrder(object):
         'steps': 'steps'
     }
 
-    def __init__(self, auth_future_amount=None, auth_test_amount=None, auto_order_cancel_item_id=None, auto_order_cancel_item_oid=None, auto_order_downgrade_items=None, auto_order_paused=None, auto_order_schedules=None, auto_order_upgrade_items=None, auto_order_upsell=None, auto_order_upsell_no_easy_cancel=None, auto_order_upsell_one_per_customer=None, auto_orderable=None, cancel_other_auto_orders=None, free_shipping_auto_order=None, refund_other_auto_orders=None, steps=None):  # noqa: E501
+    def __init__(self, auth_future_amount=None, auth_test_amount=None, auto_order_cancel_item_id=None, auto_order_cancel_item_oid=None, auto_order_downgrade_items=None, auto_order_paused=None, auto_order_prohibit_expiring_cards=None, auto_order_schedules=None, auto_order_upgrade_items=None, auto_order_upsell=None, auto_order_upsell_no_easy_cancel=None, auto_order_upsell_one_per_customer=None, auto_orderable=None, cancel_other_auto_orders=None, free_shipping_auto_order=None, refund_other_auto_orders=None, steps=None):  # noqa: E501
         """ItemAutoOrder - a model defined in Swagger"""  # noqa: E501
 
         self._auth_future_amount = None
@@ -77,6 +79,7 @@ class ItemAutoOrder(object):
         self._auto_order_cancel_item_oid = None
         self._auto_order_downgrade_items = None
         self._auto_order_paused = None
+        self._auto_order_prohibit_expiring_cards = None
         self._auto_order_schedules = None
         self._auto_order_upgrade_items = None
         self._auto_order_upsell = None
@@ -101,6 +104,8 @@ class ItemAutoOrder(object):
             self.auto_order_downgrade_items = auto_order_downgrade_items
         if auto_order_paused is not None:
             self.auto_order_paused = auto_order_paused
+        if auto_order_prohibit_expiring_cards is not None:
+            self.auto_order_prohibit_expiring_cards = auto_order_prohibit_expiring_cards
         if auto_order_schedules is not None:
             self.auto_order_schedules = auto_order_schedules
         if auto_order_upgrade_items is not None:
@@ -261,6 +266,29 @@ class ItemAutoOrder(object):
         """
 
         self._auto_order_paused = auto_order_paused
+
+    @property
+    def auto_order_prohibit_expiring_cards(self):
+        """Gets the auto_order_prohibit_expiring_cards of this ItemAutoOrder.  # noqa: E501
+
+        Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable.  # noqa: E501
+
+        :return: The auto_order_prohibit_expiring_cards of this ItemAutoOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_order_prohibit_expiring_cards
+
+    @auto_order_prohibit_expiring_cards.setter
+    def auto_order_prohibit_expiring_cards(self, auto_order_prohibit_expiring_cards):
+        """Sets the auto_order_prohibit_expiring_cards of this ItemAutoOrder.
+
+        Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable.  # noqa: E501
+
+        :param auto_order_prohibit_expiring_cards: The auto_order_prohibit_expiring_cards of this ItemAutoOrder.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_order_prohibit_expiring_cards = auto_order_prohibit_expiring_cards
 
     @property
     def auto_order_schedules(self):
