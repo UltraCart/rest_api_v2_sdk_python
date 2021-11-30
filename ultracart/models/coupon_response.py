@@ -33,6 +33,7 @@ class CouponResponse(object):
     swagger_types = {
         'coupon': 'Coupon',
         'error': 'Error',
+        'items_invalid_for_coupons': 'list[str]',
         'metadata': 'ResponseMetadata',
         'success': 'bool',
         'warning': 'Warning'
@@ -41,16 +42,18 @@ class CouponResponse(object):
     attribute_map = {
         'coupon': 'coupon',
         'error': 'error',
+        'items_invalid_for_coupons': 'items_invalid_for_coupons',
         'metadata': 'metadata',
         'success': 'success',
         'warning': 'warning'
     }
 
-    def __init__(self, coupon=None, error=None, metadata=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, coupon=None, error=None, items_invalid_for_coupons=None, metadata=None, success=None, warning=None):  # noqa: E501
         """CouponResponse - a model defined in Swagger"""  # noqa: E501
 
         self._coupon = None
         self._error = None
+        self._items_invalid_for_coupons = None
         self._metadata = None
         self._success = None
         self._warning = None
@@ -60,6 +63,8 @@ class CouponResponse(object):
             self.coupon = coupon
         if error is not None:
             self.error = error
+        if items_invalid_for_coupons is not None:
+            self.items_invalid_for_coupons = items_invalid_for_coupons
         if metadata is not None:
             self.metadata = metadata
         if success is not None:
@@ -108,6 +113,29 @@ class CouponResponse(object):
         """
 
         self._error = error
+
+    @property
+    def items_invalid_for_coupons(self):
+        """Gets the items_invalid_for_coupons of this CouponResponse.  # noqa: E501
+
+        Items invalid for coupons.  These will display as warnings within the UI.  # noqa: E501
+
+        :return: The items_invalid_for_coupons of this CouponResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._items_invalid_for_coupons
+
+    @items_invalid_for_coupons.setter
+    def items_invalid_for_coupons(self, items_invalid_for_coupons):
+        """Sets the items_invalid_for_coupons of this CouponResponse.
+
+        Items invalid for coupons.  These will display as warnings within the UI.  # noqa: E501
+
+        :param items_invalid_for_coupons: The items_invalid_for_coupons of this CouponResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._items_invalid_for_coupons = items_invalid_for_coupons
 
     @property
     def metadata(self):
