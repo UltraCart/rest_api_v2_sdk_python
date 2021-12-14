@@ -41,6 +41,7 @@ class OrderBilling(object):
         'day_phone_e164': 'str',
         'email': 'str',
         'evening_phone': 'str',
+        'evening_phone_e164': 'str',
         'first_name': 'str',
         'last_name': 'str',
         'postal_code': 'str',
@@ -59,6 +60,7 @@ class OrderBilling(object):
         'day_phone_e164': 'day_phone_e164',
         'email': 'email',
         'evening_phone': 'evening_phone',
+        'evening_phone_e164': 'evening_phone_e164',
         'first_name': 'first_name',
         'last_name': 'last_name',
         'postal_code': 'postal_code',
@@ -66,7 +68,7 @@ class OrderBilling(object):
         'title': 'title'
     }
 
-    def __init__(self, address1=None, address2=None, cc_emails=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, email=None, evening_phone=None, first_name=None, last_name=None, postal_code=None, state_region=None, title=None):  # noqa: E501
+    def __init__(self, address1=None, address2=None, cc_emails=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, email=None, evening_phone=None, evening_phone_e164=None, first_name=None, last_name=None, postal_code=None, state_region=None, title=None):  # noqa: E501
         """OrderBilling - a model defined in Swagger"""  # noqa: E501
 
         self._address1 = None
@@ -79,6 +81,7 @@ class OrderBilling(object):
         self._day_phone_e164 = None
         self._email = None
         self._evening_phone = None
+        self._evening_phone_e164 = None
         self._first_name = None
         self._last_name = None
         self._postal_code = None
@@ -106,6 +109,8 @@ class OrderBilling(object):
             self.email = email
         if evening_phone is not None:
             self.evening_phone = evening_phone
+        if evening_phone_e164 is not None:
+            self.evening_phone_e164 = evening_phone_e164
         if first_name is not None:
             self.first_name = first_name
         if last_name is not None:
@@ -364,6 +369,31 @@ class OrderBilling(object):
             raise ValueError("Invalid value for `evening_phone`, length must be less than or equal to `25`")  # noqa: E501
 
         self._evening_phone = evening_phone
+
+    @property
+    def evening_phone_e164(self):
+        """Gets the evening_phone_e164 of this OrderBilling.  # noqa: E501
+
+        Evening phone (E164 format)  # noqa: E501
+
+        :return: The evening_phone_e164 of this OrderBilling.  # noqa: E501
+        :rtype: str
+        """
+        return self._evening_phone_e164
+
+    @evening_phone_e164.setter
+    def evening_phone_e164(self, evening_phone_e164):
+        """Sets the evening_phone_e164 of this OrderBilling.
+
+        Evening phone (E164 format)  # noqa: E501
+
+        :param evening_phone_e164: The evening_phone_e164 of this OrderBilling.  # noqa: E501
+        :type: str
+        """
+        if evening_phone_e164 is not None and len(evening_phone_e164) > 25:
+            raise ValueError("Invalid value for `evening_phone_e164`, length must be less than or equal to `25`")  # noqa: E501
+
+        self._evening_phone_e164 = evening_phone_e164
 
     @property
     def first_name(self):

@@ -40,6 +40,7 @@ class OrderShipping(object):
         'day_phone_e164': 'str',
         'delivery_date': 'str',
         'evening_phone': 'str',
+        'evening_phone_e164': 'str',
         'first_name': 'str',
         'last_name': 'str',
         'least_cost_route': 'bool',
@@ -72,6 +73,7 @@ class OrderShipping(object):
         'day_phone_e164': 'day_phone_e164',
         'delivery_date': 'delivery_date',
         'evening_phone': 'evening_phone',
+        'evening_phone_e164': 'evening_phone_e164',
         'first_name': 'first_name',
         'last_name': 'last_name',
         'least_cost_route': 'least_cost_route',
@@ -94,7 +96,7 @@ class OrderShipping(object):
         'weight': 'weight'
     }
 
-    def __init__(self, address1=None, address2=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, delivery_date=None, evening_phone=None, first_name=None, last_name=None, least_cost_route=None, least_cost_route_shipping_methods=None, lift_gate=None, postal_code=None, rma=None, ship_on_date=None, ship_to_residential=None, shipping_3rd_party_account_number=None, shipping_date=None, shipping_department_status=None, shipping_method=None, shipping_method_accounting_code=None, special_instructions=None, state_region=None, title=None, tracking_number_details=None, tracking_numbers=None, weight=None):  # noqa: E501
+    def __init__(self, address1=None, address2=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, delivery_date=None, evening_phone=None, evening_phone_e164=None, first_name=None, last_name=None, least_cost_route=None, least_cost_route_shipping_methods=None, lift_gate=None, postal_code=None, rma=None, ship_on_date=None, ship_to_residential=None, shipping_3rd_party_account_number=None, shipping_date=None, shipping_department_status=None, shipping_method=None, shipping_method_accounting_code=None, special_instructions=None, state_region=None, title=None, tracking_number_details=None, tracking_numbers=None, weight=None):  # noqa: E501
         """OrderShipping - a model defined in Swagger"""  # noqa: E501
 
         self._address1 = None
@@ -106,6 +108,7 @@ class OrderShipping(object):
         self._day_phone_e164 = None
         self._delivery_date = None
         self._evening_phone = None
+        self._evening_phone_e164 = None
         self._first_name = None
         self._last_name = None
         self._least_cost_route = None
@@ -146,6 +149,8 @@ class OrderShipping(object):
             self.delivery_date = delivery_date
         if evening_phone is not None:
             self.evening_phone = evening_phone
+        if evening_phone_e164 is not None:
+            self.evening_phone_e164 = evening_phone_e164
         if first_name is not None:
             self.first_name = first_name
         if last_name is not None:
@@ -409,6 +414,31 @@ class OrderShipping(object):
             raise ValueError("Invalid value for `evening_phone`, length must be less than or equal to `25`")  # noqa: E501
 
         self._evening_phone = evening_phone
+
+    @property
+    def evening_phone_e164(self):
+        """Gets the evening_phone_e164 of this OrderShipping.  # noqa: E501
+
+        Evening phone (E164 format)  # noqa: E501
+
+        :return: The evening_phone_e164 of this OrderShipping.  # noqa: E501
+        :rtype: str
+        """
+        return self._evening_phone_e164
+
+    @evening_phone_e164.setter
+    def evening_phone_e164(self, evening_phone_e164):
+        """Sets the evening_phone_e164 of this OrderShipping.
+
+        Evening phone (E164 format)  # noqa: E501
+
+        :param evening_phone_e164: The evening_phone_e164 of this OrderShipping.  # noqa: E501
+        :type: str
+        """
+        if evening_phone_e164 is not None and len(evening_phone_e164) > 25:
+            raise ValueError("Invalid value for `evening_phone_e164`, length must be less than or equal to `25`")  # noqa: E501
+
+        self._evening_phone_e164 = evening_phone_e164
 
     @property
     def first_name(self):
