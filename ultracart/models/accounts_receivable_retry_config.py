@@ -33,6 +33,7 @@ class AccountsReceivableRetryConfig(object):
     swagger_types = {
         'active': 'bool',
         'allow_process_linked_accounts': 'bool',
+        'cancel_auto_order': 'bool',
         'current_service_plan': 'str',
         'daily_activity_list': 'list[AccountsReceivableRetryDayActivity]',
         'managed_by_linked_account_merchant_id': 'bool',
@@ -50,6 +51,7 @@ class AccountsReceivableRetryConfig(object):
     attribute_map = {
         'active': 'active',
         'allow_process_linked_accounts': 'allow_process_linked_accounts',
+        'cancel_auto_order': 'cancel_auto_order',
         'current_service_plan': 'current_service_plan',
         'daily_activity_list': 'daily_activity_list',
         'managed_by_linked_account_merchant_id': 'managed_by_linked_account_merchant_id',
@@ -64,11 +66,12 @@ class AccountsReceivableRetryConfig(object):
         'trial_mode_expiration_dts': 'trial_mode_expiration_dts'
     }
 
-    def __init__(self, active=None, allow_process_linked_accounts=None, current_service_plan=None, daily_activity_list=None, managed_by_linked_account_merchant_id=None, merchant_id=None, notify_emails=None, notify_rejections=None, notify_successes=None, process_linked_accounts=None, processing_percentage=None, reject_at_end=None, trial_mode=None, trial_mode_expiration_dts=None):  # noqa: E501
+    def __init__(self, active=None, allow_process_linked_accounts=None, cancel_auto_order=None, current_service_plan=None, daily_activity_list=None, managed_by_linked_account_merchant_id=None, merchant_id=None, notify_emails=None, notify_rejections=None, notify_successes=None, process_linked_accounts=None, processing_percentage=None, reject_at_end=None, trial_mode=None, trial_mode_expiration_dts=None):  # noqa: E501
         """AccountsReceivableRetryConfig - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
         self._allow_process_linked_accounts = None
+        self._cancel_auto_order = None
         self._current_service_plan = None
         self._daily_activity_list = None
         self._managed_by_linked_account_merchant_id = None
@@ -87,6 +90,8 @@ class AccountsReceivableRetryConfig(object):
             self.active = active
         if allow_process_linked_accounts is not None:
             self.allow_process_linked_accounts = allow_process_linked_accounts
+        if cancel_auto_order is not None:
+            self.cancel_auto_order = cancel_auto_order
         if current_service_plan is not None:
             self.current_service_plan = current_service_plan
         if daily_activity_list is not None:
@@ -157,6 +162,29 @@ class AccountsReceivableRetryConfig(object):
         """
 
         self._allow_process_linked_accounts = allow_process_linked_accounts
+
+    @property
+    def cancel_auto_order(self):
+        """Gets the cancel_auto_order of this AccountsReceivableRetryConfig.  # noqa: E501
+
+        If true also cancel the auto order if the order is rejected at the end  # noqa: E501
+
+        :return: The cancel_auto_order of this AccountsReceivableRetryConfig.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cancel_auto_order
+
+    @cancel_auto_order.setter
+    def cancel_auto_order(self, cancel_auto_order):
+        """Sets the cancel_auto_order of this AccountsReceivableRetryConfig.
+
+        If true also cancel the auto order if the order is rejected at the end  # noqa: E501
+
+        :param cancel_auto_order: The cancel_auto_order of this AccountsReceivableRetryConfig.  # noqa: E501
+        :type: bool
+        """
+
+        self._cancel_auto_order = cancel_auto_order
 
     @property
     def current_service_plan(self):
