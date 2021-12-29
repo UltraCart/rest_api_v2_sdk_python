@@ -39,6 +39,7 @@ class EmailCommseqPostcardSendTestRequest(object):
         'esp_commseq_postcard_uuid': 'str',
         'esp_commseq_step_uuid': 'str',
         'esp_commseq_uuid': 'str',
+        'mail_card': 'bool',
         'name': 'str',
         'order_id': 'str',
         'postal_code': 'str',
@@ -54,13 +55,14 @@ class EmailCommseqPostcardSendTestRequest(object):
         'esp_commseq_postcard_uuid': 'esp_commseq_postcard_uuid',
         'esp_commseq_step_uuid': 'esp_commseq_step_uuid',
         'esp_commseq_uuid': 'esp_commseq_uuid',
+        'mail_card': 'mail_card',
         'name': 'name',
         'order_id': 'order_id',
         'postal_code': 'postal_code',
         'state': 'state'
     }
 
-    def __init__(self, address_1=None, address_2=None, cart_id=None, cart_item_ids=None, city=None, esp_commseq_postcard_uuid=None, esp_commseq_step_uuid=None, esp_commseq_uuid=None, name=None, order_id=None, postal_code=None, state=None):  # noqa: E501
+    def __init__(self, address_1=None, address_2=None, cart_id=None, cart_item_ids=None, city=None, esp_commseq_postcard_uuid=None, esp_commseq_step_uuid=None, esp_commseq_uuid=None, mail_card=None, name=None, order_id=None, postal_code=None, state=None):  # noqa: E501
         """EmailCommseqPostcardSendTestRequest - a model defined in Swagger"""  # noqa: E501
 
         self._address_1 = None
@@ -71,6 +73,7 @@ class EmailCommseqPostcardSendTestRequest(object):
         self._esp_commseq_postcard_uuid = None
         self._esp_commseq_step_uuid = None
         self._esp_commseq_uuid = None
+        self._mail_card = None
         self._name = None
         self._order_id = None
         self._postal_code = None
@@ -93,6 +96,8 @@ class EmailCommseqPostcardSendTestRequest(object):
             self.esp_commseq_step_uuid = esp_commseq_step_uuid
         if esp_commseq_uuid is not None:
             self.esp_commseq_uuid = esp_commseq_uuid
+        if mail_card is not None:
+            self.mail_card = mail_card
         if name is not None:
             self.name = name
         if order_id is not None:
@@ -269,6 +274,27 @@ class EmailCommseqPostcardSendTestRequest(object):
         """
 
         self._esp_commseq_uuid = esp_commseq_uuid
+
+    @property
+    def mail_card(self):
+        """Gets the mail_card of this EmailCommseqPostcardSendTestRequest.  # noqa: E501
+
+
+        :return: The mail_card of this EmailCommseqPostcardSendTestRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._mail_card
+
+    @mail_card.setter
+    def mail_card(self, mail_card):
+        """Sets the mail_card of this EmailCommseqPostcardSendTestRequest.
+
+
+        :param mail_card: The mail_card of this EmailCommseqPostcardSendTestRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._mail_card = mail_card
 
     @property
     def name(self):
