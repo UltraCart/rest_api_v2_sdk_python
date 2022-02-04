@@ -36,7 +36,8 @@ class ScreenRecordingAdPlatform(object):
         'fbp': 'str',
         'gacid': 'str',
         'glcid': 'str',
-        'msclkid': 'str'
+        'msclkid': 'str',
+        'ttclid': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ScreenRecordingAdPlatform(object):
         'fbp': 'fbp',
         'gacid': 'gacid',
         'glcid': 'glcid',
-        'msclkid': 'msclkid'
+        'msclkid': 'msclkid',
+        'ttclid': 'ttclid'
     }
 
-    def __init__(self, fbc=None, fbclid=None, fbp=None, gacid=None, glcid=None, msclkid=None):  # noqa: E501
+    def __init__(self, fbc=None, fbclid=None, fbp=None, gacid=None, glcid=None, msclkid=None, ttclid=None):  # noqa: E501
         """ScreenRecordingAdPlatform - a model defined in Swagger"""  # noqa: E501
 
         self._fbc = None
@@ -57,6 +59,7 @@ class ScreenRecordingAdPlatform(object):
         self._gacid = None
         self._glcid = None
         self._msclkid = None
+        self._ttclid = None
         self.discriminator = None
 
         if fbc is not None:
@@ -71,6 +74,8 @@ class ScreenRecordingAdPlatform(object):
             self.glcid = glcid
         if msclkid is not None:
             self.msclkid = msclkid
+        if ttclid is not None:
+            self.ttclid = ttclid
 
     @property
     def fbc(self):
@@ -209,6 +214,29 @@ class ScreenRecordingAdPlatform(object):
         """
 
         self._msclkid = msclkid
+
+    @property
+    def ttclid(self):
+        """Gets the ttclid of this ScreenRecordingAdPlatform.  # noqa: E501
+
+        TikTok Click Id (Parameter  # noqa: E501
+
+        :return: The ttclid of this ScreenRecordingAdPlatform.  # noqa: E501
+        :rtype: str
+        """
+        return self._ttclid
+
+    @ttclid.setter
+    def ttclid(self, ttclid):
+        """Sets the ttclid of this ScreenRecordingAdPlatform.
+
+        TikTok Click Id (Parameter  # noqa: E501
+
+        :param ttclid: The ttclid of this ScreenRecordingAdPlatform.  # noqa: E501
+        :type: str
+        """
+
+        self._ttclid = ttclid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

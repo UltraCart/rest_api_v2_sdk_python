@@ -33,20 +33,23 @@ class OrderPaymentInsurance(object):
     swagger_types = {
         'application_id': 'str',
         'claim_id': 'str',
+        'insurance_type': 'str',
         'refund_claim_id': 'str'
     }
 
     attribute_map = {
         'application_id': 'application_id',
         'claim_id': 'claim_id',
+        'insurance_type': 'insurance_type',
         'refund_claim_id': 'refund_claim_id'
     }
 
-    def __init__(self, application_id=None, claim_id=None, refund_claim_id=None):  # noqa: E501
+    def __init__(self, application_id=None, claim_id=None, insurance_type=None, refund_claim_id=None):  # noqa: E501
         """OrderPaymentInsurance - a model defined in Swagger"""  # noqa: E501
 
         self._application_id = None
         self._claim_id = None
+        self._insurance_type = None
         self._refund_claim_id = None
         self.discriminator = None
 
@@ -54,6 +57,8 @@ class OrderPaymentInsurance(object):
             self.application_id = application_id
         if claim_id is not None:
             self.claim_id = claim_id
+        if insurance_type is not None:
+            self.insurance_type = insurance_type
         if refund_claim_id is not None:
             self.refund_claim_id = refund_claim_id
 
@@ -102,6 +107,29 @@ class OrderPaymentInsurance(object):
         """
 
         self._claim_id = claim_id
+
+    @property
+    def insurance_type(self):
+        """Gets the insurance_type of this OrderPaymentInsurance.  # noqa: E501
+
+        insurance type  # noqa: E501
+
+        :return: The insurance_type of this OrderPaymentInsurance.  # noqa: E501
+        :rtype: str
+        """
+        return self._insurance_type
+
+    @insurance_type.setter
+    def insurance_type(self, insurance_type):
+        """Sets the insurance_type of this OrderPaymentInsurance.
+
+        insurance type  # noqa: E501
+
+        :param insurance_type: The insurance_type of this OrderPaymentInsurance.  # noqa: E501
+        :type: str
+        """
+
+        self._insurance_type = insurance_type
 
     @property
     def refund_claim_id(self):
