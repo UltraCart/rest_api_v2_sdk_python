@@ -39,6 +39,7 @@ from ultracart.models.auto_order_item import AutoOrderItem
 from ultracart.models.auto_order_item_future_schedule import AutoOrderItemFutureSchedule
 from ultracart.models.auto_order_item_option import AutoOrderItemOption
 from ultracart.models.auto_order_item_simple_schedule import AutoOrderItemSimpleSchedule
+from ultracart.models.auto_order_log import AutoOrderLog
 from ultracart.models.auto_order_query import AutoOrderQuery
 from ultracart.models.auto_order_query_batch import AutoOrderQueryBatch
 from ultracart.models.auto_order_response import AutoOrderResponse

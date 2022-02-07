@@ -44,6 +44,7 @@ class AutoOrder(object):
         'enabled': 'bool',
         'failure_reason': 'str',
         'items': 'list[AutoOrderItem]',
+        'logs': 'list[AutoOrderLog]',
         'next_attempt': 'str',
         'original_order': 'Order',
         'original_order_id': 'str',
@@ -67,6 +68,7 @@ class AutoOrder(object):
         'enabled': 'enabled',
         'failure_reason': 'failure_reason',
         'items': 'items',
+        'logs': 'logs',
         'next_attempt': 'next_attempt',
         'original_order': 'original_order',
         'original_order_id': 'original_order_id',
@@ -76,7 +78,7 @@ class AutoOrder(object):
         'status': 'status'
     }
 
-    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
+    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, logs=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
         """AutoOrder - a model defined in Swagger"""  # noqa: E501
 
         self._auto_order_code = None
@@ -92,6 +94,7 @@ class AutoOrder(object):
         self._enabled = None
         self._failure_reason = None
         self._items = None
+        self._logs = None
         self._next_attempt = None
         self._original_order = None
         self._original_order_id = None
@@ -127,6 +130,8 @@ class AutoOrder(object):
             self.failure_reason = failure_reason
         if items is not None:
             self.items = items
+        if logs is not None:
+            self.logs = logs
         if next_attempt is not None:
             self.next_attempt = next_attempt
         if original_order is not None:
@@ -440,6 +445,29 @@ class AutoOrder(object):
         """
 
         self._items = items
+
+    @property
+    def logs(self):
+        """Gets the logs of this AutoOrder.  # noqa: E501
+
+        Logs associated with this auto order  # noqa: E501
+
+        :return: The logs of this AutoOrder.  # noqa: E501
+        :rtype: list[AutoOrderLog]
+        """
+        return self._logs
+
+    @logs.setter
+    def logs(self, logs):
+        """Sets the logs of this AutoOrder.
+
+        Logs associated with this auto order  # noqa: E501
+
+        :param logs: The logs of this AutoOrder.  # noqa: E501
+        :type: list[AutoOrderLog]
+        """
+
+        self._logs = logs
 
     @property
     def next_attempt(self):
