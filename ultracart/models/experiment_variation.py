@@ -45,6 +45,7 @@ class ExperimentVariation(object):
         'order_item_count': 'int',
         'original_traffic_percentage': 'float',
         'page_view_count': 'int',
+        'paused': 'bool',
         'revenue': 'float',
         'session_count': 'int',
         'traffic_percentage': 'float',
@@ -69,6 +70,7 @@ class ExperimentVariation(object):
         'order_item_count': 'order_item_count',
         'original_traffic_percentage': 'original_traffic_percentage',
         'page_view_count': 'page_view_count',
+        'paused': 'paused',
         'revenue': 'revenue',
         'session_count': 'session_count',
         'traffic_percentage': 'traffic_percentage',
@@ -78,7 +80,7 @@ class ExperimentVariation(object):
         'winner': 'winner'
     }
 
-    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, average_order_value=None, bounce_count=None, conversion_rate=None, daily_statistics=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, order_item_count=None, original_traffic_percentage=None, page_view_count=None, revenue=None, session_count=None, traffic_percentage=None, url=None, variation_name=None, variation_number=None, winner=None):  # noqa: E501
+    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, average_order_value=None, bounce_count=None, conversion_rate=None, daily_statistics=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, order_item_count=None, original_traffic_percentage=None, page_view_count=None, paused=None, revenue=None, session_count=None, traffic_percentage=None, url=None, variation_name=None, variation_number=None, winner=None):  # noqa: E501
         """ExperimentVariation - a model defined in Swagger"""  # noqa: E501
 
         self._add_to_cart_count = None
@@ -95,6 +97,7 @@ class ExperimentVariation(object):
         self._order_item_count = None
         self._original_traffic_percentage = None
         self._page_view_count = None
+        self._paused = None
         self._revenue = None
         self._session_count = None
         self._traffic_percentage = None
@@ -132,6 +135,8 @@ class ExperimentVariation(object):
             self.original_traffic_percentage = original_traffic_percentage
         if page_view_count is not None:
             self.page_view_count = page_view_count
+        if paused is not None:
+            self.paused = paused
         if revenue is not None:
             self.revenue = revenue
         if session_count is not None:
@@ -468,6 +473,29 @@ class ExperimentVariation(object):
         """
 
         self._page_view_count = page_view_count
+
+    @property
+    def paused(self):
+        """Gets the paused of this ExperimentVariation.  # noqa: E501
+
+        True if traffic should be paused to this variation  # noqa: E501
+
+        :return: The paused of this ExperimentVariation.  # noqa: E501
+        :rtype: bool
+        """
+        return self._paused
+
+    @paused.setter
+    def paused(self, paused):
+        """Sets the paused of this ExperimentVariation.
+
+        True if traffic should be paused to this variation  # noqa: E501
+
+        :param paused: The paused of this ExperimentVariation.  # noqa: E501
+        :type: bool
+        """
+
+        self._paused = paused
 
     @property
     def revenue(self):

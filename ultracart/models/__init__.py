@@ -328,6 +328,12 @@ from ultracart.models.fulfillment_shipment import FulfillmentShipment
 from ultracart.models.geo_point import GeoPoint
 from ultracart.models.geocode_request import GeocodeRequest
 from ultracart.models.geocode_response import GeocodeResponse
+from ultracart.models.gift_certificate import GiftCertificate
+from ultracart.models.gift_certificate_create_request import GiftCertificateCreateRequest
+from ultracart.models.gift_certificate_ledger_entry import GiftCertificateLedgerEntry
+from ultracart.models.gift_certificate_query import GiftCertificateQuery
+from ultracart.models.gift_certificate_response import GiftCertificateResponse
+from ultracart.models.gift_certificates_response import GiftCertificatesResponse
 from ultracart.models.group import Group
 from ultracart.models.group_response import GroupResponse
 from ultracart.models.group_user_membership import GroupUserMembership

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **delete_customer**
-> CustomerResponse delete_customer(customer_profile_oid)
+> delete_customer(customer_profile_oid)
 
 Delete a customer
 
@@ -42,8 +42,7 @@ customer_profile_oid = 56 # int | The customer_profile_oid to delete.
 
 try:
     # Delete a customer
-    api_response = api_instance.delete_customer(customer_profile_oid)
-    pprint(api_response)
+    api_instance.delete_customer(customer_profile_oid)
 except ApiException as e:
     print("Exception when calling CustomerApi->delete_customer: %s\n" % e)
 ```
@@ -56,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerResponse**](CustomerResponse.md)
+void (empty response body)
 
 ### Authorization
 
