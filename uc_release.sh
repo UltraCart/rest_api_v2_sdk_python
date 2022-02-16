@@ -1,2 +1,2 @@
 #!/bin/sh
-git tag 3.8.0
+git tag 3.8.1
