@@ -32,6 +32,7 @@ class GiftCertificateCreateRequest(object):
     """
     swagger_types = {
         'amount': 'float',
+        'email': 'str',
         'expiration_dts': 'str',
         'initial_ledger_description': 'str',
         'merchant_note': 'str'
@@ -39,15 +40,17 @@ class GiftCertificateCreateRequest(object):
 
     attribute_map = {
         'amount': 'amount',
+        'email': 'email',
         'expiration_dts': 'expiration_dts',
         'initial_ledger_description': 'initial_ledger_description',
         'merchant_note': 'merchant_note'
     }
 
-    def __init__(self, amount=None, expiration_dts=None, initial_ledger_description=None, merchant_note=None):  # noqa: E501
+    def __init__(self, amount=None, email=None, expiration_dts=None, initial_ledger_description=None, merchant_note=None):  # noqa: E501
         """GiftCertificateCreateRequest - a model defined in Swagger"""  # noqa: E501
 
         self._amount = None
+        self._email = None
         self._expiration_dts = None
         self._initial_ledger_description = None
         self._merchant_note = None
@@ -55,6 +58,8 @@ class GiftCertificateCreateRequest(object):
 
         if amount is not None:
             self.amount = amount
+        if email is not None:
+            self.email = email
         if expiration_dts is not None:
             self.expiration_dts = expiration_dts
         if initial_ledger_description is not None:
@@ -84,6 +89,29 @@ class GiftCertificateCreateRequest(object):
         """
 
         self._amount = amount
+
+    @property
+    def email(self):
+        """Gets the email of this GiftCertificateCreateRequest.  # noqa: E501
+
+        The email address (customer/owner) associated with this gift certificate.  # noqa: E501
+
+        :return: The email of this GiftCertificateCreateRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._email
+
+    @email.setter
+    def email(self, email):
+        """Sets the email of this GiftCertificateCreateRequest.
+
+        The email address (customer/owner) associated with this gift certificate.  # noqa: E501
+
+        :param email: The email of this GiftCertificateCreateRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._email = email
 
     @property
     def expiration_dts(self):
