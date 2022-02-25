@@ -42,6 +42,7 @@ class Coupon(object):
         'amount_off_subtotal_with_block_purchase': 'CouponAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase': 'CouponAmountOffSubtotalWithItemsPurchase',
         'amount_off_subtotal_with_purchase': 'CouponAmountOffSubtotalWithPurchase',
+        'amount_shipping_with_subtotal': 'CouponAmountShippingWithSubtotal',
         'automatically_apply_coupon_codes': 'CouponAutomaticallyApplyCouponCodes',
         'buy_one_get_one': 'CouponBuyOneGetOneLimit',
         'calculated_description': 'str',
@@ -104,6 +105,7 @@ class Coupon(object):
         'amount_off_subtotal_with_block_purchase': 'amount_off_subtotal_with_block_purchase',
         'amount_off_subtotal_with_items_purchase': 'amount_off_subtotal_with_items_purchase',
         'amount_off_subtotal_with_purchase': 'amount_off_subtotal_with_purchase',
+        'amount_shipping_with_subtotal': 'amount_shipping_with_subtotal',
         'automatically_apply_coupon_codes': 'automatically_apply_coupon_codes',
         'buy_one_get_one': 'buy_one_get_one',
         'calculated_description': 'calculated_description',
@@ -154,7 +156,7 @@ class Coupon(object):
         'usable_by': 'usable_by'
     }
 
-    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, hide_from_customer=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_items=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):  # noqa: E501
+    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, amount_shipping_with_subtotal=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, hide_from_customer=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_items=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, usable_by=None):  # noqa: E501
         """Coupon - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_oid = None
@@ -168,6 +170,7 @@ class Coupon(object):
         self._amount_off_subtotal_with_block_purchase = None
         self._amount_off_subtotal_with_items_purchase = None
         self._amount_off_subtotal_with_purchase = None
+        self._amount_shipping_with_subtotal = None
         self._automatically_apply_coupon_codes = None
         self._buy_one_get_one = None
         self._calculated_description = None
@@ -240,6 +243,8 @@ class Coupon(object):
             self.amount_off_subtotal_with_items_purchase = amount_off_subtotal_with_items_purchase
         if amount_off_subtotal_with_purchase is not None:
             self.amount_off_subtotal_with_purchase = amount_off_subtotal_with_purchase
+        if amount_shipping_with_subtotal is not None:
+            self.amount_shipping_with_subtotal = amount_shipping_with_subtotal
         if automatically_apply_coupon_codes is not None:
             self.automatically_apply_coupon_codes = automatically_apply_coupon_codes
         if buy_one_get_one is not None:
@@ -571,6 +576,27 @@ class Coupon(object):
         """
 
         self._amount_off_subtotal_with_purchase = amount_off_subtotal_with_purchase
+
+    @property
+    def amount_shipping_with_subtotal(self):
+        """Gets the amount_shipping_with_subtotal of this Coupon.  # noqa: E501
+
+
+        :return: The amount_shipping_with_subtotal of this Coupon.  # noqa: E501
+        :rtype: CouponAmountShippingWithSubtotal
+        """
+        return self._amount_shipping_with_subtotal
+
+    @amount_shipping_with_subtotal.setter
+    def amount_shipping_with_subtotal(self, amount_shipping_with_subtotal):
+        """Sets the amount_shipping_with_subtotal of this Coupon.
+
+
+        :param amount_shipping_with_subtotal: The amount_shipping_with_subtotal of this Coupon.  # noqa: E501
+        :type: CouponAmountShippingWithSubtotal
+        """
+
+        self._amount_shipping_with_subtotal = amount_shipping_with_subtotal
 
     @property
     def automatically_apply_coupon_codes(self):

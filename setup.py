@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "ultracart_rest_sdk"
-VERSION = "3.8.2"
+VERSION = "3.8.5"
 # To install the library, run the following
 #
 # python setup.py install
