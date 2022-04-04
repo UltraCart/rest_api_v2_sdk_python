@@ -201,6 +201,8 @@ class User(object):
         :param email: The email of this User.  # noqa: E501
         :type: str
         """
+        if email is not None and len(email) > 150:
+            raise ValueError("Invalid value for `email`, length must be less than or equal to `150`")  # noqa: E501
 
         self._email = email
 

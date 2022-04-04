@@ -47,6 +47,10 @@ from ultracart.models.auto_orders_request import AutoOrdersRequest
 from ultracart.models.auto_orders_response import AutoOrdersResponse
 from ultracart.models.avalara_config import AvalaraConfig
 from ultracart.models.base_response import BaseResponse
+from ultracart.models.browser import Browser
+from ultracart.models.browser_device import BrowserDevice
+from ultracart.models.browser_os import BrowserOS
+from ultracart.models.browser_user_agent import BrowserUserAgent
 from ultracart.models.cart import Cart
 from ultracart.models.cart_affiliate import CartAffiliate
 from ultracart.models.cart_affirm_checkout_response import CartAffirmCheckoutResponse

@@ -77,6 +77,7 @@ class OrderItem(object):
         'special_product_type': 'str',
         'tags': 'list[OrderItemTag]',
         'tax_free': 'bool',
+        'tax_product_type': 'str',
         'taxable_cost': 'Currency',
         'total_cost_with_discount': 'Currency',
         'total_refunded': 'Currency',
@@ -134,6 +135,7 @@ class OrderItem(object):
         'special_product_type': 'special_product_type',
         'tags': 'tags',
         'tax_free': 'tax_free',
+        'tax_product_type': 'tax_product_type',
         'taxable_cost': 'taxable_cost',
         'total_cost_with_discount': 'total_cost_with_discount',
         'total_refunded': 'total_refunded',
@@ -144,7 +146,7 @@ class OrderItem(object):
         'width': 'width'
     }
 
-    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, special_product_type=None, tags=None, tax_free=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
+    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
         """OrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._accounting_code = None
@@ -193,6 +195,7 @@ class OrderItem(object):
         self._special_product_type = None
         self._tags = None
         self._tax_free = None
+        self._tax_product_type = None
         self._taxable_cost = None
         self._total_cost_with_discount = None
         self._total_refunded = None
@@ -295,6 +298,8 @@ class OrderItem(object):
             self.tags = tags
         if tax_free is not None:
             self.tax_free = tax_free
+        if tax_product_type is not None:
+            self.tax_product_type = tax_product_type
         if taxable_cost is not None:
             self.taxable_cost = taxable_cost
         if total_cost_with_discount is not None:
@@ -1367,6 +1372,35 @@ class OrderItem(object):
         """
 
         self._tax_free = tax_free
+
+    @property
+    def tax_product_type(self):
+        """Gets the tax_product_type of this OrderItem.  # noqa: E501
+
+        Type of product for tax purposes (self or UltraCart Managed taxes)  # noqa: E501
+
+        :return: The tax_product_type of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax_product_type
+
+    @tax_product_type.setter
+    def tax_product_type(self, tax_product_type):
+        """Sets the tax_product_type of this OrderItem.
+
+        Type of product for tax purposes (self or UltraCart Managed taxes)  # noqa: E501
+
+        :param tax_product_type: The tax_product_type of this OrderItem.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["", "digital", "physical", "service"]  # noqa: E501
+        if tax_product_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `tax_product_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(tax_product_type, allowed_values)
+            )
+
+        self._tax_product_type = tax_product_type
 
     @property
     def taxable_cost(self):

@@ -49,6 +49,7 @@ Name | Type | Description | Notes
 **special_product_type** | **str** | Special product type (USPS Media Mail) | [optional] 
 **tags** | [**list[OrderItemTag]**](OrderItemTag.md) | Tags | [optional] 
 **tax_free** | **bool** | True if the item is tax free | [optional] 
+**tax_product_type** | **str** | Type of product for tax purposes (self or UltraCart Managed taxes) | [optional] 
 **taxable_cost** | [**Currency**](Currency.md) |  | [optional] 
 **total_cost_with_discount** | [**Currency**](Currency.md) |  | [optional] 
 **total_refunded** | [**Currency**](Currency.md) |  | [optional] 

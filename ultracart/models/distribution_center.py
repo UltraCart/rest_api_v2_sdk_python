@@ -64,6 +64,7 @@ class DistributionCenter(object):
         'shipment_cutoff_time_tuesday': 'str',
         'shipment_cutoff_time_wednesday': 'str',
         'state': 'str',
+        'transmit_blank_costs': 'bool',
         'transport': 'str'
     }
 
@@ -101,10 +102,11 @@ class DistributionCenter(object):
         'shipment_cutoff_time_tuesday': 'shipment_cutoff_time_tuesday',
         'shipment_cutoff_time_wednesday': 'shipment_cutoff_time_wednesday',
         'state': 'state',
+        'transmit_blank_costs': 'transmit_blank_costs',
         'transport': 'transport'
     }
 
-    def __init__(self, address1=None, address2=None, city=None, code=None, country_code=None, default_center=None, default_handles_all_items=None, distribution_center_oid=None, duns=None, estimate_from_distribution_center_oid=None, ftp_password=None, hold_before_shipment_minutes=None, hold_before_transmission=None, hold_auto_order_before_shipment_minutes=None, latitude=None, longitude=None, name=None, no_customer_direct_shipments=None, no_split_shipment=None, postal_code=None, process_days=None, process_inventory_start_time=None, process_inventory_stop_time=None, require_asn=None, send_kit_instead_of_components=None, shipment_cutoff_time_friday=None, shipment_cutoff_time_monday=None, shipment_cutoff_time_saturday=None, shipment_cutoff_time_sunday=None, shipment_cutoff_time_thursday=None, shipment_cutoff_time_tuesday=None, shipment_cutoff_time_wednesday=None, state=None, transport=None):  # noqa: E501
+    def __init__(self, address1=None, address2=None, city=None, code=None, country_code=None, default_center=None, default_handles_all_items=None, distribution_center_oid=None, duns=None, estimate_from_distribution_center_oid=None, ftp_password=None, hold_before_shipment_minutes=None, hold_before_transmission=None, hold_auto_order_before_shipment_minutes=None, latitude=None, longitude=None, name=None, no_customer_direct_shipments=None, no_split_shipment=None, postal_code=None, process_days=None, process_inventory_start_time=None, process_inventory_stop_time=None, require_asn=None, send_kit_instead_of_components=None, shipment_cutoff_time_friday=None, shipment_cutoff_time_monday=None, shipment_cutoff_time_saturday=None, shipment_cutoff_time_sunday=None, shipment_cutoff_time_thursday=None, shipment_cutoff_time_tuesday=None, shipment_cutoff_time_wednesday=None, state=None, transmit_blank_costs=None, transport=None):  # noqa: E501
         """DistributionCenter - a model defined in Swagger"""  # noqa: E501
 
         self._address1 = None
@@ -140,6 +142,7 @@ class DistributionCenter(object):
         self._shipment_cutoff_time_tuesday = None
         self._shipment_cutoff_time_wednesday = None
         self._state = None
+        self._transmit_blank_costs = None
         self._transport = None
         self.discriminator = None
 
@@ -209,6 +212,8 @@ class DistributionCenter(object):
             self.shipment_cutoff_time_wednesday = shipment_cutoff_time_wednesday
         if state is not None:
             self.state = state
+        if transmit_blank_costs is not None:
+            self.transmit_blank_costs = transmit_blank_costs
         if transport is not None:
             self.transport = transport
 
@@ -968,6 +973,29 @@ class DistributionCenter(object):
         """
 
         self._state = state
+
+    @property
+    def transmit_blank_costs(self):
+        """Gets the transmit_blank_costs of this DistributionCenter.  # noqa: E501
+
+        True if monetary amounts should be zeroed before transmission  # noqa: E501
+
+        :return: The transmit_blank_costs of this DistributionCenter.  # noqa: E501
+        :rtype: bool
+        """
+        return self._transmit_blank_costs
+
+    @transmit_blank_costs.setter
+    def transmit_blank_costs(self, transmit_blank_costs):
+        """Sets the transmit_blank_costs of this DistributionCenter.
+
+        True if monetary amounts should be zeroed before transmission  # noqa: E501
+
+        :param transmit_blank_costs: The transmit_blank_costs of this DistributionCenter.  # noqa: E501
+        :type: bool
+        """
+
+        self._transmit_blank_costs = transmit_blank_costs
 
     @property
     def transport(self):

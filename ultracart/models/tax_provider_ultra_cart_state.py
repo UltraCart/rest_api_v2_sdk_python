@@ -32,6 +32,9 @@ class TaxProviderUltraCartState(object):
     """
     swagger_types = {
         'enabled': 'bool',
+        'exempt_digital_items': 'bool',
+        'exempt_physical_items': 'bool',
+        'exempt_service_items': 'bool',
         'state_code': 'str',
         'state_name': 'str',
         'tax_gift_charge': 'bool',
@@ -42,6 +45,9 @@ class TaxProviderUltraCartState(object):
 
     attribute_map = {
         'enabled': 'enabled',
+        'exempt_digital_items': 'exempt_digital_items',
+        'exempt_physical_items': 'exempt_physical_items',
+        'exempt_service_items': 'exempt_service_items',
         'state_code': 'state_code',
         'state_name': 'state_name',
         'tax_gift_charge': 'tax_gift_charge',
@@ -50,10 +56,13 @@ class TaxProviderUltraCartState(object):
         'tax_shipping': 'tax_shipping'
     }
 
-    def __init__(self, enabled=None, state_code=None, state_name=None, tax_gift_charge=None, tax_gift_wrap=None, tax_rate_formatted=None, tax_shipping=None):  # noqa: E501
+    def __init__(self, enabled=None, exempt_digital_items=None, exempt_physical_items=None, exempt_service_items=None, state_code=None, state_name=None, tax_gift_charge=None, tax_gift_wrap=None, tax_rate_formatted=None, tax_shipping=None):  # noqa: E501
         """TaxProviderUltraCartState - a model defined in Swagger"""  # noqa: E501
 
         self._enabled = None
+        self._exempt_digital_items = None
+        self._exempt_physical_items = None
+        self._exempt_service_items = None
         self._state_code = None
         self._state_name = None
         self._tax_gift_charge = None
@@ -64,6 +73,12 @@ class TaxProviderUltraCartState(object):
 
         if enabled is not None:
             self.enabled = enabled
+        if exempt_digital_items is not None:
+            self.exempt_digital_items = exempt_digital_items
+        if exempt_physical_items is not None:
+            self.exempt_physical_items = exempt_physical_items
+        if exempt_service_items is not None:
+            self.exempt_service_items = exempt_service_items
         if state_code is not None:
             self.state_code = state_code
         if state_name is not None:
@@ -99,6 +114,75 @@ class TaxProviderUltraCartState(object):
         """
 
         self._enabled = enabled
+
+    @property
+    def exempt_digital_items(self):
+        """Gets the exempt_digital_items of this TaxProviderUltraCartState.  # noqa: E501
+
+        True if digital items are exempt from sales tax in this state.  # noqa: E501
+
+        :return: The exempt_digital_items of this TaxProviderUltraCartState.  # noqa: E501
+        :rtype: bool
+        """
+        return self._exempt_digital_items
+
+    @exempt_digital_items.setter
+    def exempt_digital_items(self, exempt_digital_items):
+        """Sets the exempt_digital_items of this TaxProviderUltraCartState.
+
+        True if digital items are exempt from sales tax in this state.  # noqa: E501
+
+        :param exempt_digital_items: The exempt_digital_items of this TaxProviderUltraCartState.  # noqa: E501
+        :type: bool
+        """
+
+        self._exempt_digital_items = exempt_digital_items
+
+    @property
+    def exempt_physical_items(self):
+        """Gets the exempt_physical_items of this TaxProviderUltraCartState.  # noqa: E501
+
+        True if physical items are exempt from sales tax in this state.  # noqa: E501
+
+        :return: The exempt_physical_items of this TaxProviderUltraCartState.  # noqa: E501
+        :rtype: bool
+        """
+        return self._exempt_physical_items
+
+    @exempt_physical_items.setter
+    def exempt_physical_items(self, exempt_physical_items):
+        """Sets the exempt_physical_items of this TaxProviderUltraCartState.
+
+        True if physical items are exempt from sales tax in this state.  # noqa: E501
+
+        :param exempt_physical_items: The exempt_physical_items of this TaxProviderUltraCartState.  # noqa: E501
+        :type: bool
+        """
+
+        self._exempt_physical_items = exempt_physical_items
+
+    @property
+    def exempt_service_items(self):
+        """Gets the exempt_service_items of this TaxProviderUltraCartState.  # noqa: E501
+
+        True if service items are exempt from sales tax in this state.  # noqa: E501
+
+        :return: The exempt_service_items of this TaxProviderUltraCartState.  # noqa: E501
+        :rtype: bool
+        """
+        return self._exempt_service_items
+
+    @exempt_service_items.setter
+    def exempt_service_items(self, exempt_service_items):
+        """Sets the exempt_service_items of this TaxProviderUltraCartState.
+
+        True if service items are exempt from sales tax in this state.  # noqa: E501
+
+        :param exempt_service_items: The exempt_service_items of this TaxProviderUltraCartState.  # noqa: E501
+        :type: bool
+        """
+
+        self._exempt_service_items = exempt_service_items
 
     @property
     def state_code(self):

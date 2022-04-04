@@ -31,6 +31,7 @@ class OrderCheckout(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'browser': 'Browser',
         'comments': 'str',
         'custom_field1': 'str',
         'custom_field2': 'str',
@@ -41,11 +42,13 @@ class OrderCheckout(object):
         'custom_field7': 'str',
         'customer_ip_address': 'str',
         'screen_branding_theme_code': 'str',
+        'screen_size': 'str',
         'storefront_host_name': 'str',
         'upsell_path_code': 'str'
     }
 
     attribute_map = {
+        'browser': 'browser',
         'comments': 'comments',
         'custom_field1': 'custom_field1',
         'custom_field2': 'custom_field2',
@@ -56,13 +59,15 @@ class OrderCheckout(object):
         'custom_field7': 'custom_field7',
         'customer_ip_address': 'customer_ip_address',
         'screen_branding_theme_code': 'screen_branding_theme_code',
+        'screen_size': 'screen_size',
         'storefront_host_name': 'storefront_host_name',
         'upsell_path_code': 'upsell_path_code'
     }
 
-    def __init__(self, comments=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, customer_ip_address=None, screen_branding_theme_code=None, storefront_host_name=None, upsell_path_code=None):  # noqa: E501
+    def __init__(self, browser=None, comments=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, customer_ip_address=None, screen_branding_theme_code=None, screen_size=None, storefront_host_name=None, upsell_path_code=None):  # noqa: E501
         """OrderCheckout - a model defined in Swagger"""  # noqa: E501
 
+        self._browser = None
         self._comments = None
         self._custom_field1 = None
         self._custom_field2 = None
@@ -73,10 +78,13 @@ class OrderCheckout(object):
         self._custom_field7 = None
         self._customer_ip_address = None
         self._screen_branding_theme_code = None
+        self._screen_size = None
         self._storefront_host_name = None
         self._upsell_path_code = None
         self.discriminator = None
 
+        if browser is not None:
+            self.browser = browser
         if comments is not None:
             self.comments = comments
         if custom_field1 is not None:
@@ -97,10 +105,33 @@ class OrderCheckout(object):
             self.customer_ip_address = customer_ip_address
         if screen_branding_theme_code is not None:
             self.screen_branding_theme_code = screen_branding_theme_code
+        if screen_size is not None:
+            self.screen_size = screen_size
         if storefront_host_name is not None:
             self.storefront_host_name = storefront_host_name
         if upsell_path_code is not None:
             self.upsell_path_code = upsell_path_code
+
+    @property
+    def browser(self):
+        """Gets the browser of this OrderCheckout.  # noqa: E501
+
+
+        :return: The browser of this OrderCheckout.  # noqa: E501
+        :rtype: Browser
+        """
+        return self._browser
+
+    @browser.setter
+    def browser(self, browser):
+        """Sets the browser of this OrderCheckout.
+
+
+        :param browser: The browser of this OrderCheckout.  # noqa: E501
+        :type: Browser
+        """
+
+        self._browser = browser
 
     @property
     def comments(self):
@@ -347,6 +378,29 @@ class OrderCheckout(object):
             raise ValueError("Invalid value for `screen_branding_theme_code`, length must be less than or equal to `10`")  # noqa: E501
 
         self._screen_branding_theme_code = screen_branding_theme_code
+
+    @property
+    def screen_size(self):
+        """Gets the screen_size of this OrderCheckout.  # noqa: E501
+
+        Screen size small, medium or large  # noqa: E501
+
+        :return: The screen_size of this OrderCheckout.  # noqa: E501
+        :rtype: str
+        """
+        return self._screen_size
+
+    @screen_size.setter
+    def screen_size(self, screen_size):
+        """Sets the screen_size of this OrderCheckout.
+
+        Screen size small, medium or large  # noqa: E501
+
+        :param screen_size: The screen_size of this OrderCheckout.  # noqa: E501
+        :type: str
+        """
+
+        self._screen_size = screen_size
 
     @property
     def storefront_host_name(self):

@@ -33,20 +33,23 @@ class ItemTax(object):
     swagger_types = {
         'exemptions': 'list[ItemTaxExemption]',
         'tax_free': 'bool',
+        'tax_product_type': 'str',
         'taxable_cost': 'float'
     }
 
     attribute_map = {
         'exemptions': 'exemptions',
         'tax_free': 'tax_free',
+        'tax_product_type': 'tax_product_type',
         'taxable_cost': 'taxable_cost'
     }
 
-    def __init__(self, exemptions=None, tax_free=None, taxable_cost=None):  # noqa: E501
+    def __init__(self, exemptions=None, tax_free=None, tax_product_type=None, taxable_cost=None):  # noqa: E501
         """ItemTax - a model defined in Swagger"""  # noqa: E501
 
         self._exemptions = None
         self._tax_free = None
+        self._tax_product_type = None
         self._taxable_cost = None
         self.discriminator = None
 
@@ -54,6 +57,8 @@ class ItemTax(object):
             self.exemptions = exemptions
         if tax_free is not None:
             self.tax_free = tax_free
+        if tax_product_type is not None:
+            self.tax_product_type = tax_product_type
         if taxable_cost is not None:
             self.taxable_cost = taxable_cost
 
@@ -102,6 +107,35 @@ class ItemTax(object):
         """
 
         self._tax_free = tax_free
+
+    @property
+    def tax_product_type(self):
+        """Gets the tax_product_type of this ItemTax.  # noqa: E501
+
+        Tax product type  # noqa: E501
+
+        :return: The tax_product_type of this ItemTax.  # noqa: E501
+        :rtype: str
+        """
+        return self._tax_product_type
+
+    @tax_product_type.setter
+    def tax_product_type(self, tax_product_type):
+        """Sets the tax_product_type of this ItemTax.
+
+        Tax product type  # noqa: E501
+
+        :param tax_product_type: The tax_product_type of this ItemTax.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["", "digital", "physical", "service"]  # noqa: E501
+        if tax_product_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `tax_product_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(tax_product_type, allowed_values)
+            )
+
+        self._tax_product_type = tax_product_type
 
     @property
     def taxable_cost(self):

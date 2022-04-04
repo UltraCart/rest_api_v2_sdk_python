@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**list[LibraryItemAttribute]**](LibraryItemAttribute.md) | Attributes associated with the library item to contain additional configuration. | [optional] 
 **cjson** | **str** | Cjson to be added to library | [optional] 
+**cjson2** | **str** | Additional Cjson to be added to library, notably for the postcard which has a front and back. | [optional] 
 **content_type** | **str** | flow, campaign, cjson, email, transactional_email, postcard or upsell | [optional] 
 **description** | **str** | description of library item | [optional] 
 **email_name** | **str** | Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm | [optional] 

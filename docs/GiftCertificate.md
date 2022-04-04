@@ -5,10 +5,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **activated** | **bool** | True if this gift certificate is activated and ready to apply to purchases. | [optional] 
 **code** | **str** | The code used by the customer to purchase against this gift certificate. | [optional] 
+**customer_profile_oid** | **int** | This is the customer profile oid associated with this internally managed gift certificate. | [optional] 
 **deleted** | **bool** | True if this gift certificate was deleted. | [optional] 
 **email** | **str** | Email of the customer associated with this gift certificate. | [optional] 
 **expiration_dts** | **str** | Expiration date time. | [optional] 
 **gift_certificate_oid** | **int** | Gift certificate oid. | [optional] 
+**internal** | **bool** | This is an internally managed gift certificate associated with the loyalty cash rewards program. | [optional] 
 **ledger_entries** | [**list[GiftCertificateLedgerEntry]**](GiftCertificateLedgerEntry.md) | A list of all ledger activity for this gift certificate. | [optional] 
 **merchant_id** | **str** | Merchant Id | [optional] 
 **merchant_note** | **str** | A list of all ledger activity for this gift certificate. | [optional] 

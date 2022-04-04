@@ -32,6 +32,7 @@ class Cart(object):
     """
     swagger_types = {
         'affiliate': 'CartAffiliate',
+        'affiliate_network_pixel_oid': 'int',
         'base_currency_code': 'str',
         'billing': 'CartBilling',
         'buysafe': 'CartBuysafe',
@@ -60,6 +61,7 @@ class Cart(object):
 
     attribute_map = {
         'affiliate': 'affiliate',
+        'affiliate_network_pixel_oid': 'affiliate_network_pixel_oid',
         'base_currency_code': 'base_currency_code',
         'billing': 'billing',
         'buysafe': 'buysafe',
@@ -86,10 +88,11 @@ class Cart(object):
         'upsell_after': 'upsell_after'
     }
 
-    def __init__(self, affiliate=None, base_currency_code=None, billing=None, buysafe=None, cart_id=None, checkout=None, coupons=None, currency_code=None, currency_conversion=None, customer_profile=None, exchange_rate=None, gift=None, gift_certificate=None, items=None, language_iso_code=None, logged_in=None, marketing=None, merchant_id=None, payment=None, properties=None, settings=None, shipping=None, summary=None, taxes=None, upsell_after=None):  # noqa: E501
+    def __init__(self, affiliate=None, affiliate_network_pixel_oid=None, base_currency_code=None, billing=None, buysafe=None, cart_id=None, checkout=None, coupons=None, currency_code=None, currency_conversion=None, customer_profile=None, exchange_rate=None, gift=None, gift_certificate=None, items=None, language_iso_code=None, logged_in=None, marketing=None, merchant_id=None, payment=None, properties=None, settings=None, shipping=None, summary=None, taxes=None, upsell_after=None):  # noqa: E501
         """Cart - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate = None
+        self._affiliate_network_pixel_oid = None
         self._base_currency_code = None
         self._billing = None
         self._buysafe = None
@@ -118,6 +121,8 @@ class Cart(object):
 
         if affiliate is not None:
             self.affiliate = affiliate
+        if affiliate_network_pixel_oid is not None:
+            self.affiliate_network_pixel_oid = affiliate_network_pixel_oid
         if base_currency_code is not None:
             self.base_currency_code = base_currency_code
         if billing is not None:
@@ -187,6 +192,29 @@ class Cart(object):
         """
 
         self._affiliate = affiliate
+
+    @property
+    def affiliate_network_pixel_oid(self):
+        """Gets the affiliate_network_pixel_oid of this Cart.  # noqa: E501
+
+        The affiliate network pixel identifier associated with the cart  # noqa: E501
+
+        :return: The affiliate_network_pixel_oid of this Cart.  # noqa: E501
+        :rtype: int
+        """
+        return self._affiliate_network_pixel_oid
+
+    @affiliate_network_pixel_oid.setter
+    def affiliate_network_pixel_oid(self, affiliate_network_pixel_oid):
+        """Sets the affiliate_network_pixel_oid of this Cart.
+
+        The affiliate network pixel identifier associated with the cart  # noqa: E501
+
+        :param affiliate_network_pixel_oid: The affiliate_network_pixel_oid of this Cart.  # noqa: E501
+        :type: int
+        """
+
+        self._affiliate_network_pixel_oid = affiliate_network_pixel_oid
 
     @property
     def base_currency_code(self):

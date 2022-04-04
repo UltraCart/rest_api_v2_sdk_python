@@ -41,6 +41,14 @@ class EmailCommseqPostcard(object):
         'postcard_container_cjson_last_modified_dts': 'str',
         'postcard_front_container_cjson': 'str',
         'postcard_front_container_uuid': 'str',
+        'screenshot_back_large_full_url': 'str',
+        'screenshot_back_large_viewport_url': 'str',
+        'screenshot_back_small_full_url': 'str',
+        'screenshot_back_small_viewport_url': 'str',
+        'screenshot_large_full_url': 'str',
+        'screenshot_large_viewport_url': 'str',
+        'screenshot_small_full_url': 'str',
+        'screenshot_small_viewport_url': 'str',
         'storefront_oid': 'int'
     }
 
@@ -55,10 +63,18 @@ class EmailCommseqPostcard(object):
         'postcard_container_cjson_last_modified_dts': 'postcard_container_cjson_last_modified_dts',
         'postcard_front_container_cjson': 'postcard_front_container_cjson',
         'postcard_front_container_uuid': 'postcard_front_container_uuid',
+        'screenshot_back_large_full_url': 'screenshot_back_large_full_url',
+        'screenshot_back_large_viewport_url': 'screenshot_back_large_viewport_url',
+        'screenshot_back_small_full_url': 'screenshot_back_small_full_url',
+        'screenshot_back_small_viewport_url': 'screenshot_back_small_viewport_url',
+        'screenshot_large_full_url': 'screenshot_large_full_url',
+        'screenshot_large_viewport_url': 'screenshot_large_viewport_url',
+        'screenshot_small_full_url': 'screenshot_small_full_url',
+        'screenshot_small_viewport_url': 'screenshot_small_viewport_url',
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_postcard_uuid=None, filter_profile_equation_json=None, merchant_id=None, postcard_back_container_cjson=None, postcard_back_container_uuid=None, postcard_container_cjson_last_modified_dts=None, postcard_front_container_cjson=None, postcard_front_container_uuid=None, storefront_oid=None):  # noqa: E501
+    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_postcard_uuid=None, filter_profile_equation_json=None, merchant_id=None, postcard_back_container_cjson=None, postcard_back_container_uuid=None, postcard_container_cjson_last_modified_dts=None, postcard_front_container_cjson=None, postcard_front_container_uuid=None, screenshot_back_large_full_url=None, screenshot_back_large_viewport_url=None, screenshot_back_small_full_url=None, screenshot_back_small_viewport_url=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, storefront_oid=None):  # noqa: E501
         """EmailCommseqPostcard - a model defined in Swagger"""  # noqa: E501
 
         self._deleted = None
@@ -71,6 +87,14 @@ class EmailCommseqPostcard(object):
         self._postcard_container_cjson_last_modified_dts = None
         self._postcard_front_container_cjson = None
         self._postcard_front_container_uuid = None
+        self._screenshot_back_large_full_url = None
+        self._screenshot_back_large_viewport_url = None
+        self._screenshot_back_small_full_url = None
+        self._screenshot_back_small_viewport_url = None
+        self._screenshot_large_full_url = None
+        self._screenshot_large_viewport_url = None
+        self._screenshot_small_full_url = None
+        self._screenshot_small_viewport_url = None
         self._storefront_oid = None
         self.discriminator = None
 
@@ -94,6 +118,22 @@ class EmailCommseqPostcard(object):
             self.postcard_front_container_cjson = postcard_front_container_cjson
         if postcard_front_container_uuid is not None:
             self.postcard_front_container_uuid = postcard_front_container_uuid
+        if screenshot_back_large_full_url is not None:
+            self.screenshot_back_large_full_url = screenshot_back_large_full_url
+        if screenshot_back_large_viewport_url is not None:
+            self.screenshot_back_large_viewport_url = screenshot_back_large_viewport_url
+        if screenshot_back_small_full_url is not None:
+            self.screenshot_back_small_full_url = screenshot_back_small_full_url
+        if screenshot_back_small_viewport_url is not None:
+            self.screenshot_back_small_viewport_url = screenshot_back_small_viewport_url
+        if screenshot_large_full_url is not None:
+            self.screenshot_large_full_url = screenshot_large_full_url
+        if screenshot_large_viewport_url is not None:
+            self.screenshot_large_viewport_url = screenshot_large_viewport_url
+        if screenshot_small_full_url is not None:
+            self.screenshot_small_full_url = screenshot_small_full_url
+        if screenshot_small_viewport_url is not None:
+            self.screenshot_small_viewport_url = screenshot_small_viewport_url
         if storefront_oid is not None:
             self.storefront_oid = storefront_oid
 
@@ -326,6 +366,190 @@ class EmailCommseqPostcard(object):
         """
 
         self._postcard_front_container_uuid = postcard_front_container_uuid
+
+    @property
+    def screenshot_back_large_full_url(self):
+        """Gets the screenshot_back_large_full_url of this EmailCommseqPostcard.  # noqa: E501
+
+        URL to screenshot (back) in large form factor full page  # noqa: E501
+
+        :return: The screenshot_back_large_full_url of this EmailCommseqPostcard.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_back_large_full_url
+
+    @screenshot_back_large_full_url.setter
+    def screenshot_back_large_full_url(self, screenshot_back_large_full_url):
+        """Sets the screenshot_back_large_full_url of this EmailCommseqPostcard.
+
+        URL to screenshot (back) in large form factor full page  # noqa: E501
+
+        :param screenshot_back_large_full_url: The screenshot_back_large_full_url of this EmailCommseqPostcard.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_back_large_full_url = screenshot_back_large_full_url
+
+    @property
+    def screenshot_back_large_viewport_url(self):
+        """Gets the screenshot_back_large_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+
+        URL to screenshot (back) in large form factor viewport  # noqa: E501
+
+        :return: The screenshot_back_large_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_back_large_viewport_url
+
+    @screenshot_back_large_viewport_url.setter
+    def screenshot_back_large_viewport_url(self, screenshot_back_large_viewport_url):
+        """Sets the screenshot_back_large_viewport_url of this EmailCommseqPostcard.
+
+        URL to screenshot (back) in large form factor viewport  # noqa: E501
+
+        :param screenshot_back_large_viewport_url: The screenshot_back_large_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_back_large_viewport_url = screenshot_back_large_viewport_url
+
+    @property
+    def screenshot_back_small_full_url(self):
+        """Gets the screenshot_back_small_full_url of this EmailCommseqPostcard.  # noqa: E501
+
+        URL to screenshot (back) in small form factor full page  # noqa: E501
+
+        :return: The screenshot_back_small_full_url of this EmailCommseqPostcard.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_back_small_full_url
+
+    @screenshot_back_small_full_url.setter
+    def screenshot_back_small_full_url(self, screenshot_back_small_full_url):
+        """Sets the screenshot_back_small_full_url of this EmailCommseqPostcard.
+
+        URL to screenshot (back) in small form factor full page  # noqa: E501
+
+        :param screenshot_back_small_full_url: The screenshot_back_small_full_url of this EmailCommseqPostcard.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_back_small_full_url = screenshot_back_small_full_url
+
+    @property
+    def screenshot_back_small_viewport_url(self):
+        """Gets the screenshot_back_small_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+
+        URL to screenshot (back) in small form factor viewport  # noqa: E501
+
+        :return: The screenshot_back_small_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_back_small_viewport_url
+
+    @screenshot_back_small_viewport_url.setter
+    def screenshot_back_small_viewport_url(self, screenshot_back_small_viewport_url):
+        """Sets the screenshot_back_small_viewport_url of this EmailCommseqPostcard.
+
+        URL to screenshot (back) in small form factor viewport  # noqa: E501
+
+        :param screenshot_back_small_viewport_url: The screenshot_back_small_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_back_small_viewport_url = screenshot_back_small_viewport_url
+
+    @property
+    def screenshot_large_full_url(self):
+        """Gets the screenshot_large_full_url of this EmailCommseqPostcard.  # noqa: E501
+
+        URL to screenshot in large form factor full page  # noqa: E501
+
+        :return: The screenshot_large_full_url of this EmailCommseqPostcard.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_large_full_url
+
+    @screenshot_large_full_url.setter
+    def screenshot_large_full_url(self, screenshot_large_full_url):
+        """Sets the screenshot_large_full_url of this EmailCommseqPostcard.
+
+        URL to screenshot in large form factor full page  # noqa: E501
+
+        :param screenshot_large_full_url: The screenshot_large_full_url of this EmailCommseqPostcard.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_large_full_url = screenshot_large_full_url
+
+    @property
+    def screenshot_large_viewport_url(self):
+        """Gets the screenshot_large_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+
+        URL to screenshot in large form factor viewport  # noqa: E501
+
+        :return: The screenshot_large_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_large_viewport_url
+
+    @screenshot_large_viewport_url.setter
+    def screenshot_large_viewport_url(self, screenshot_large_viewport_url):
+        """Sets the screenshot_large_viewport_url of this EmailCommseqPostcard.
+
+        URL to screenshot in large form factor viewport  # noqa: E501
+
+        :param screenshot_large_viewport_url: The screenshot_large_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_large_viewport_url = screenshot_large_viewport_url
+
+    @property
+    def screenshot_small_full_url(self):
+        """Gets the screenshot_small_full_url of this EmailCommseqPostcard.  # noqa: E501
+
+        URL to screenshot in small form factor full page  # noqa: E501
+
+        :return: The screenshot_small_full_url of this EmailCommseqPostcard.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_small_full_url
+
+    @screenshot_small_full_url.setter
+    def screenshot_small_full_url(self, screenshot_small_full_url):
+        """Sets the screenshot_small_full_url of this EmailCommseqPostcard.
+
+        URL to screenshot in small form factor full page  # noqa: E501
+
+        :param screenshot_small_full_url: The screenshot_small_full_url of this EmailCommseqPostcard.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_small_full_url = screenshot_small_full_url
+
+    @property
+    def screenshot_small_viewport_url(self):
+        """Gets the screenshot_small_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+
+        URL to screenshot in small form factor viewport  # noqa: E501
+
+        :return: The screenshot_small_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_small_viewport_url
+
+    @screenshot_small_viewport_url.setter
+    def screenshot_small_viewport_url(self, screenshot_small_viewport_url):
+        """Sets the screenshot_small_viewport_url of this EmailCommseqPostcard.
+
+        URL to screenshot in small form factor viewport  # noqa: E501
+
+        :param screenshot_small_viewport_url: The screenshot_small_viewport_url of this EmailCommseqPostcard.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_small_viewport_url = screenshot_small_viewport_url
 
     @property
     def storefront_oid(self):

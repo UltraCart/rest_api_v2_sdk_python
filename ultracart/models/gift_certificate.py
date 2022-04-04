@@ -33,10 +33,12 @@ class GiftCertificate(object):
     swagger_types = {
         'activated': 'bool',
         'code': 'str',
+        'customer_profile_oid': 'int',
         'deleted': 'bool',
         'email': 'str',
         'expiration_dts': 'str',
         'gift_certificate_oid': 'int',
+        'internal': 'bool',
         'ledger_entries': 'list[GiftCertificateLedgerEntry]',
         'merchant_id': 'str',
         'merchant_note': 'str',
@@ -48,10 +50,12 @@ class GiftCertificate(object):
     attribute_map = {
         'activated': 'activated',
         'code': 'code',
+        'customer_profile_oid': 'customer_profile_oid',
         'deleted': 'deleted',
         'email': 'email',
         'expiration_dts': 'expiration_dts',
         'gift_certificate_oid': 'gift_certificate_oid',
+        'internal': 'internal',
         'ledger_entries': 'ledger_entries',
         'merchant_id': 'merchant_id',
         'merchant_note': 'merchant_note',
@@ -60,15 +64,17 @@ class GiftCertificate(object):
         'remaining_balance': 'remaining_balance'
     }
 
-    def __init__(self, activated=None, code=None, deleted=None, email=None, expiration_dts=None, gift_certificate_oid=None, ledger_entries=None, merchant_id=None, merchant_note=None, original_balance=None, reference_order_id=None, remaining_balance=None):  # noqa: E501
+    def __init__(self, activated=None, code=None, customer_profile_oid=None, deleted=None, email=None, expiration_dts=None, gift_certificate_oid=None, internal=None, ledger_entries=None, merchant_id=None, merchant_note=None, original_balance=None, reference_order_id=None, remaining_balance=None):  # noqa: E501
         """GiftCertificate - a model defined in Swagger"""  # noqa: E501
 
         self._activated = None
         self._code = None
+        self._customer_profile_oid = None
         self._deleted = None
         self._email = None
         self._expiration_dts = None
         self._gift_certificate_oid = None
+        self._internal = None
         self._ledger_entries = None
         self._merchant_id = None
         self._merchant_note = None
@@ -81,6 +87,8 @@ class GiftCertificate(object):
             self.activated = activated
         if code is not None:
             self.code = code
+        if customer_profile_oid is not None:
+            self.customer_profile_oid = customer_profile_oid
         if deleted is not None:
             self.deleted = deleted
         if email is not None:
@@ -89,6 +97,8 @@ class GiftCertificate(object):
             self.expiration_dts = expiration_dts
         if gift_certificate_oid is not None:
             self.gift_certificate_oid = gift_certificate_oid
+        if internal is not None:
+            self.internal = internal
         if ledger_entries is not None:
             self.ledger_entries = ledger_entries
         if merchant_id is not None:
@@ -149,6 +159,29 @@ class GiftCertificate(object):
         self._code = code
 
     @property
+    def customer_profile_oid(self):
+        """Gets the customer_profile_oid of this GiftCertificate.  # noqa: E501
+
+        This is the customer profile oid associated with this internally managed gift certificate.  # noqa: E501
+
+        :return: The customer_profile_oid of this GiftCertificate.  # noqa: E501
+        :rtype: int
+        """
+        return self._customer_profile_oid
+
+    @customer_profile_oid.setter
+    def customer_profile_oid(self, customer_profile_oid):
+        """Sets the customer_profile_oid of this GiftCertificate.
+
+        This is the customer profile oid associated with this internally managed gift certificate.  # noqa: E501
+
+        :param customer_profile_oid: The customer_profile_oid of this GiftCertificate.  # noqa: E501
+        :type: int
+        """
+
+        self._customer_profile_oid = customer_profile_oid
+
+    @property
     def deleted(self):
         """Gets the deleted of this GiftCertificate.  # noqa: E501
 
@@ -191,6 +224,8 @@ class GiftCertificate(object):
         :param email: The email of this GiftCertificate.  # noqa: E501
         :type: str
         """
+        if email is not None and len(email) > 100:
+            raise ValueError("Invalid value for `email`, length must be less than or equal to `100`")  # noqa: E501
 
         self._email = email
 
@@ -239,6 +274,29 @@ class GiftCertificate(object):
         """
 
         self._gift_certificate_oid = gift_certificate_oid
+
+    @property
+    def internal(self):
+        """Gets the internal of this GiftCertificate.  # noqa: E501
+
+        This is an internally managed gift certificate associated with the loyalty cash rewards program.  # noqa: E501
+
+        :return: The internal of this GiftCertificate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._internal
+
+    @internal.setter
+    def internal(self, internal):
+        """Sets the internal of this GiftCertificate.
+
+        This is an internally managed gift certificate associated with the loyalty cash rewards program.  # noqa: E501
+
+        :param internal: The internal of this GiftCertificate.  # noqa: E501
+        :type: bool
+        """
+
+        self._internal = internal
 
     @property
     def ledger_entries(self):
