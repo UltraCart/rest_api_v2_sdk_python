@@ -33,7 +33,6 @@ class AddLibraryItemRequest(object):
     swagger_types = {
         'attributes': 'list[LibraryItemAttribute]',
         'cjson': 'str',
-        'cjson2': 'str',
         'content_type': 'str',
         'description': 'str',
         'email_name': 'str',
@@ -48,7 +47,6 @@ class AddLibraryItemRequest(object):
     attribute_map = {
         'attributes': 'attributes',
         'cjson': 'cjson',
-        'cjson2': 'cjson2',
         'content_type': 'content_type',
         'description': 'description',
         'email_name': 'email_name',
@@ -60,12 +58,11 @@ class AddLibraryItemRequest(object):
         'uuid': 'uuid'
     }
 
-    def __init__(self, attributes=None, cjson=None, cjson2=None, content_type=None, description=None, email_name=None, email_path=None, screenshots=None, storefront_oid=None, title=None, upsell_offer_oid=None, uuid=None):  # noqa: E501
+    def __init__(self, attributes=None, cjson=None, content_type=None, description=None, email_name=None, email_path=None, screenshots=None, storefront_oid=None, title=None, upsell_offer_oid=None, uuid=None):  # noqa: E501
         """AddLibraryItemRequest - a model defined in Swagger"""  # noqa: E501
 
         self._attributes = None
         self._cjson = None
-        self._cjson2 = None
         self._content_type = None
         self._description = None
         self._email_name = None
@@ -81,8 +78,6 @@ class AddLibraryItemRequest(object):
             self.attributes = attributes
         if cjson is not None:
             self.cjson = cjson
-        if cjson2 is not None:
-            self.cjson2 = cjson2
         if content_type is not None:
             self.content_type = content_type
         if description is not None:
@@ -147,29 +142,6 @@ class AddLibraryItemRequest(object):
         """
 
         self._cjson = cjson
-
-    @property
-    def cjson2(self):
-        """Gets the cjson2 of this AddLibraryItemRequest.  # noqa: E501
-
-        Additional Cjson to be added to library, notably for the postcard which has a front and back.  # noqa: E501
-
-        :return: The cjson2 of this AddLibraryItemRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._cjson2
-
-    @cjson2.setter
-    def cjson2(self, cjson2):
-        """Sets the cjson2 of this AddLibraryItemRequest.
-
-        Additional Cjson to be added to library, notably for the postcard which has a front and back.  # noqa: E501
-
-        :param cjson2: The cjson2 of this AddLibraryItemRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._cjson2 = cjson2
 
     @property
     def content_type(self):
