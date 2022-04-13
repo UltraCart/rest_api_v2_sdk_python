@@ -39,6 +39,7 @@ class EmailDomain(object):
         'identity_status': 'str',
         'merchant_id': 'str',
         'provider': 'str',
+        'spf': 'VerificationRecord',
         'start_dkim_dts': 'str',
         'start_identity_dts': 'str',
         'verification': 'VerificationRecord'
@@ -53,12 +54,13 @@ class EmailDomain(object):
         'identity_status': 'identity_status',
         'merchant_id': 'merchant_id',
         'provider': 'provider',
+        'spf': 'spf',
         'start_dkim_dts': 'start_dkim_dts',
         'start_identity_dts': 'start_identity_dts',
         'verification': 'verification'
     }
 
-    def __init__(self, comment=None, dkim=None, dkim_status=None, domain=None, esp_domain_uuid=None, identity_status=None, merchant_id=None, provider=None, start_dkim_dts=None, start_identity_dts=None, verification=None):  # noqa: E501
+    def __init__(self, comment=None, dkim=None, dkim_status=None, domain=None, esp_domain_uuid=None, identity_status=None, merchant_id=None, provider=None, spf=None, start_dkim_dts=None, start_identity_dts=None, verification=None):  # noqa: E501
         """EmailDomain - a model defined in Swagger"""  # noqa: E501
 
         self._comment = None
@@ -69,6 +71,7 @@ class EmailDomain(object):
         self._identity_status = None
         self._merchant_id = None
         self._provider = None
+        self._spf = None
         self._start_dkim_dts = None
         self._start_identity_dts = None
         self._verification = None
@@ -90,6 +93,8 @@ class EmailDomain(object):
             self.merchant_id = merchant_id
         if provider is not None:
             self.provider = provider
+        if spf is not None:
+            self.spf = spf
         if start_dkim_dts is not None:
             self.start_dkim_dts = start_dkim_dts
         if start_identity_dts is not None:
@@ -264,6 +269,27 @@ class EmailDomain(object):
         """
 
         self._provider = provider
+
+    @property
+    def spf(self):
+        """Gets the spf of this EmailDomain.  # noqa: E501
+
+
+        :return: The spf of this EmailDomain.  # noqa: E501
+        :rtype: VerificationRecord
+        """
+        return self._spf
+
+    @spf.setter
+    def spf(self, spf):
+        """Sets the spf of this EmailDomain.
+
+
+        :param spf: The spf of this EmailDomain.  # noqa: E501
+        :type: VerificationRecord
+        """
+
+        self._spf = spf
 
     @property
     def start_dkim_dts(self):

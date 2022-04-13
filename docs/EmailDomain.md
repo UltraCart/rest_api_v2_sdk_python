@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **identity_status** | **str** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **provider** | **str** |  | [optional] 
+**spf** | [**VerificationRecord**](VerificationRecord.md) |  | [optional] 
 **start_dkim_dts** | **str** |  | [optional] 
 **start_identity_dts** | **str** |  | [optional] 
 **verification** | [**VerificationRecord**](VerificationRecord.md) |  | [optional] 
