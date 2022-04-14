@@ -41,8 +41,8 @@ class EmailCommseqPostcard(object):
         'postcard_container_cjson_last_modified_dts': 'str',
         'postcard_front_container_cjson': 'str',
         'postcard_front_container_uuid': 'str',
+        'screenshot_back_url': 'str',
         'screenshot_front_url': 'str',
-        'screenshot_small_full_url': 'str',
         'storefront_oid': 'int'
     }
 
@@ -57,12 +57,12 @@ class EmailCommseqPostcard(object):
         'postcard_container_cjson_last_modified_dts': 'postcard_container_cjson_last_modified_dts',
         'postcard_front_container_cjson': 'postcard_front_container_cjson',
         'postcard_front_container_uuid': 'postcard_front_container_uuid',
+        'screenshot_back_url': 'screenshot_back_url',
         'screenshot_front_url': 'screenshot_front_url',
-        'screenshot_small_full_url': 'screenshot_small_full_url',
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_postcard_uuid=None, filter_profile_equation_json=None, merchant_id=None, postcard_back_container_cjson=None, postcard_back_container_uuid=None, postcard_container_cjson_last_modified_dts=None, postcard_front_container_cjson=None, postcard_front_container_uuid=None, screenshot_front_url=None, screenshot_small_full_url=None, storefront_oid=None):  # noqa: E501
+    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_postcard_uuid=None, filter_profile_equation_json=None, merchant_id=None, postcard_back_container_cjson=None, postcard_back_container_uuid=None, postcard_container_cjson_last_modified_dts=None, postcard_front_container_cjson=None, postcard_front_container_uuid=None, screenshot_back_url=None, screenshot_front_url=None, storefront_oid=None):  # noqa: E501
         """EmailCommseqPostcard - a model defined in Swagger"""  # noqa: E501
 
         self._deleted = None
@@ -75,8 +75,8 @@ class EmailCommseqPostcard(object):
         self._postcard_container_cjson_last_modified_dts = None
         self._postcard_front_container_cjson = None
         self._postcard_front_container_uuid = None
+        self._screenshot_back_url = None
         self._screenshot_front_url = None
-        self._screenshot_small_full_url = None
         self._storefront_oid = None
         self.discriminator = None
 
@@ -100,10 +100,10 @@ class EmailCommseqPostcard(object):
             self.postcard_front_container_cjson = postcard_front_container_cjson
         if postcard_front_container_uuid is not None:
             self.postcard_front_container_uuid = postcard_front_container_uuid
+        if screenshot_back_url is not None:
+            self.screenshot_back_url = screenshot_back_url
         if screenshot_front_url is not None:
             self.screenshot_front_url = screenshot_front_url
-        if screenshot_small_full_url is not None:
-            self.screenshot_small_full_url = screenshot_small_full_url
         if storefront_oid is not None:
             self.storefront_oid = storefront_oid
 
@@ -338,10 +338,33 @@ class EmailCommseqPostcard(object):
         self._postcard_front_container_uuid = postcard_front_container_uuid
 
     @property
+    def screenshot_back_url(self):
+        """Gets the screenshot_back_url of this EmailCommseqPostcard.  # noqa: E501
+
+        URL to screenshot of the back of the postcard  # noqa: E501
+
+        :return: The screenshot_back_url of this EmailCommseqPostcard.  # noqa: E501
+        :rtype: str
+        """
+        return self._screenshot_back_url
+
+    @screenshot_back_url.setter
+    def screenshot_back_url(self, screenshot_back_url):
+        """Sets the screenshot_back_url of this EmailCommseqPostcard.
+
+        URL to screenshot of the back of the postcard  # noqa: E501
+
+        :param screenshot_back_url: The screenshot_back_url of this EmailCommseqPostcard.  # noqa: E501
+        :type: str
+        """
+
+        self._screenshot_back_url = screenshot_back_url
+
+    @property
     def screenshot_front_url(self):
         """Gets the screenshot_front_url of this EmailCommseqPostcard.  # noqa: E501
 
-        URL for front screenshot  # noqa: E501
+        URL to screenshot of the front of the postcard  # noqa: E501
 
         :return: The screenshot_front_url of this EmailCommseqPostcard.  # noqa: E501
         :rtype: str
@@ -352,36 +375,13 @@ class EmailCommseqPostcard(object):
     def screenshot_front_url(self, screenshot_front_url):
         """Sets the screenshot_front_url of this EmailCommseqPostcard.
 
-        URL for front screenshot  # noqa: E501
+        URL to screenshot of the front of the postcard  # noqa: E501
 
         :param screenshot_front_url: The screenshot_front_url of this EmailCommseqPostcard.  # noqa: E501
         :type: str
         """
 
         self._screenshot_front_url = screenshot_front_url
-
-    @property
-    def screenshot_small_full_url(self):
-        """Gets the screenshot_small_full_url of this EmailCommseqPostcard.  # noqa: E501
-
-        URL for back screenshot  # noqa: E501
-
-        :return: The screenshot_small_full_url of this EmailCommseqPostcard.  # noqa: E501
-        :rtype: str
-        """
-        return self._screenshot_small_full_url
-
-    @screenshot_small_full_url.setter
-    def screenshot_small_full_url(self, screenshot_small_full_url):
-        """Sets the screenshot_small_full_url of this EmailCommseqPostcard.
-
-        URL for back screenshot  # noqa: E501
-
-        :param screenshot_small_full_url: The screenshot_small_full_url of this EmailCommseqPostcard.  # noqa: E501
-        :type: str
-        """
-
-        self._screenshot_small_full_url = screenshot_small_full_url
 
     @property
     def storefront_oid(self):
