@@ -35,6 +35,7 @@ class OrderAutoOrder(object):
         'auto_order_oid': 'int',
         'cancel_after_next_x_orders': 'int',
         'cancel_downgrade': 'bool',
+        'cancel_reason': 'str',
         'cancel_upgrade': 'bool',
         'canceled_by_user': 'str',
         'canceled_dts': 'str',
@@ -57,6 +58,7 @@ class OrderAutoOrder(object):
         'auto_order_oid': 'auto_order_oid',
         'cancel_after_next_x_orders': 'cancel_after_next_x_orders',
         'cancel_downgrade': 'cancel_downgrade',
+        'cancel_reason': 'cancel_reason',
         'cancel_upgrade': 'cancel_upgrade',
         'canceled_by_user': 'canceled_by_user',
         'canceled_dts': 'canceled_dts',
@@ -74,13 +76,14 @@ class OrderAutoOrder(object):
         'status': 'status'
     }
 
-    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, next_attempt=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
+    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_reason=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, next_attempt=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
         """OrderAutoOrder - a model defined in Swagger"""  # noqa: E501
 
         self._auto_order_code = None
         self._auto_order_oid = None
         self._cancel_after_next_x_orders = None
         self._cancel_downgrade = None
+        self._cancel_reason = None
         self._cancel_upgrade = None
         self._canceled_by_user = None
         self._canceled_dts = None
@@ -106,6 +109,8 @@ class OrderAutoOrder(object):
             self.cancel_after_next_x_orders = cancel_after_next_x_orders
         if cancel_downgrade is not None:
             self.cancel_downgrade = cancel_downgrade
+        if cancel_reason is not None:
+            self.cancel_reason = cancel_reason
         if cancel_upgrade is not None:
             self.cancel_upgrade = cancel_upgrade
         if canceled_by_user is not None:
@@ -228,6 +233,29 @@ class OrderAutoOrder(object):
         """
 
         self._cancel_downgrade = cancel_downgrade
+
+    @property
+    def cancel_reason(self):
+        """Gets the cancel_reason of this OrderAutoOrder.  # noqa: E501
+
+        The reason this auto order was canceled by either merchant or customer  # noqa: E501
+
+        :return: The cancel_reason of this OrderAutoOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._cancel_reason
+
+    @cancel_reason.setter
+    def cancel_reason(self, cancel_reason):
+        """Sets the cancel_reason of this OrderAutoOrder.
+
+        The reason this auto order was canceled by either merchant or customer  # noqa: E501
+
+        :param cancel_reason: The cancel_reason of this OrderAutoOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._cancel_reason = cancel_reason
 
     @property
     def cancel_upgrade(self):

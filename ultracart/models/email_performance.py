@@ -39,6 +39,7 @@ class EmailPerformance(object):
         'customer_histogram': 'EmailPerformanceCustomerHistogram',
         'daily_stats': 'list[EmailPerformanceDaily]',
         'delivered_count': 'int',
+        'loyalty_program_type': 'str',
         'max_active_customers': 'int',
         'max_emails_per_day': 'int',
         'max_emails_per_hour': 'int',
@@ -64,6 +65,7 @@ class EmailPerformance(object):
         'customer_histogram': 'customer_histogram',
         'daily_stats': 'daily_stats',
         'delivered_count': 'delivered_count',
+        'loyalty_program_type': 'loyalty_program_type',
         'max_active_customers': 'max_active_customers',
         'max_emails_per_day': 'max_emails_per_day',
         'max_emails_per_hour': 'max_emails_per_hour',
@@ -80,7 +82,7 @@ class EmailPerformance(object):
         'transactional_send_count': 'transactional_send_count'
     }
 
-    def __init__(self, active_customers=None, actual_customers=None, bounce_count=None, bounce_percentage=None, bounce_percentage_formatted=None, customer_histogram=None, daily_stats=None, delivered_count=None, max_active_customers=None, max_emails_per_day=None, max_emails_per_hour=None, max_emails_per_month=None, paused_for_spam=None, revenue=None, sent_emails_per_day=None, sent_emails_per_hour=None, sent_emails_per_month=None, sequence_send_count=None, spam_count=None, spam_percentage=None, spam_percentage_formatted=None, transactional_send_count=None):  # noqa: E501
+    def __init__(self, active_customers=None, actual_customers=None, bounce_count=None, bounce_percentage=None, bounce_percentage_formatted=None, customer_histogram=None, daily_stats=None, delivered_count=None, loyalty_program_type=None, max_active_customers=None, max_emails_per_day=None, max_emails_per_hour=None, max_emails_per_month=None, paused_for_spam=None, revenue=None, sent_emails_per_day=None, sent_emails_per_hour=None, sent_emails_per_month=None, sequence_send_count=None, spam_count=None, spam_percentage=None, spam_percentage_formatted=None, transactional_send_count=None):  # noqa: E501
         """EmailPerformance - a model defined in Swagger"""  # noqa: E501
 
         self._active_customers = None
@@ -91,6 +93,7 @@ class EmailPerformance(object):
         self._customer_histogram = None
         self._daily_stats = None
         self._delivered_count = None
+        self._loyalty_program_type = None
         self._max_active_customers = None
         self._max_emails_per_day = None
         self._max_emails_per_hour = None
@@ -123,6 +126,8 @@ class EmailPerformance(object):
             self.daily_stats = daily_stats
         if delivered_count is not None:
             self.delivered_count = delivered_count
+        if loyalty_program_type is not None:
+            self.loyalty_program_type = loyalty_program_type
         if max_active_customers is not None:
             self.max_active_customers = max_active_customers
         if max_emails_per_day is not None:
@@ -333,6 +338,35 @@ class EmailPerformance(object):
         """
 
         self._delivered_count = delivered_count
+
+    @property
+    def loyalty_program_type(self):
+        """Gets the loyalty_program_type of this EmailPerformance.  # noqa: E501
+
+        Loyalty Program Type  # noqa: E501
+
+        :return: The loyalty_program_type of this EmailPerformance.  # noqa: E501
+        :rtype: str
+        """
+        return self._loyalty_program_type
+
+    @loyalty_program_type.setter
+    def loyalty_program_type(self, loyalty_program_type):
+        """Sets the loyalty_program_type of this EmailPerformance.
+
+        Loyalty Program Type  # noqa: E501
+
+        :param loyalty_program_type: The loyalty_program_type of this EmailPerformance.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["disabled", "points", "cashback"]  # noqa: E501
+        if loyalty_program_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `loyalty_program_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(loyalty_program_type, allowed_values)
+            )
+
+        self._loyalty_program_type = loyalty_program_type
 
     @property
     def max_active_customers(self):

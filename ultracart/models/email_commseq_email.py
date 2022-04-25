@@ -41,6 +41,7 @@ class EmailCommseqEmail(object):
         'filter_profile_equation_json': 'str',
         'individually_render': 'bool',
         'library_item_oid': 'int',
+        'magic_link': 'bool',
         'merchant_id': 'str',
         'pending_review': 'bool',
         'preview_text': 'str',
@@ -69,6 +70,7 @@ class EmailCommseqEmail(object):
         'filter_profile_equation_json': 'filter_profile_equation_json',
         'individually_render': 'individually_render',
         'library_item_oid': 'library_item_oid',
+        'magic_link': 'magic_link',
         'merchant_id': 'merchant_id',
         'pending_review': 'pending_review',
         'preview_text': 'preview_text',
@@ -86,7 +88,7 @@ class EmailCommseqEmail(object):
         'version': 'version'
     }
 
-    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, filter_profile_equation_json=None, individually_render=None, library_item_oid=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, smart_sending=None, storefront_oid=None, subject=None, suspended_for_spam=None, transactional_email=None, version=None):  # noqa: E501
+    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, filter_profile_equation_json=None, individually_render=None, library_item_oid=None, magic_link=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, smart_sending=None, storefront_oid=None, subject=None, suspended_for_spam=None, transactional_email=None, version=None):  # noqa: E501
         """EmailCommseqEmail - a model defined in Swagger"""  # noqa: E501
 
         self._deleted = None
@@ -99,6 +101,7 @@ class EmailCommseqEmail(object):
         self._filter_profile_equation_json = None
         self._individually_render = None
         self._library_item_oid = None
+        self._magic_link = None
         self._merchant_id = None
         self._pending_review = None
         self._preview_text = None
@@ -136,6 +139,8 @@ class EmailCommseqEmail(object):
             self.individually_render = individually_render
         if library_item_oid is not None:
             self.library_item_oid = library_item_oid
+        if magic_link is not None:
+            self.magic_link = magic_link
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if pending_review is not None:
@@ -396,6 +401,29 @@ class EmailCommseqEmail(object):
         """
 
         self._library_item_oid = library_item_oid
+
+    @property
+    def magic_link(self):
+        """Gets the magic_link of this EmailCommseqEmail.  # noqa: E501
+
+        True if email links should contain magic link tokens to log the customer in automatically  # noqa: E501
+
+        :return: The magic_link of this EmailCommseqEmail.  # noqa: E501
+        :rtype: bool
+        """
+        return self._magic_link
+
+    @magic_link.setter
+    def magic_link(self, magic_link):
+        """Sets the magic_link of this EmailCommseqEmail.
+
+        True if email links should contain magic link tokens to log the customer in automatically  # noqa: E501
+
+        :param magic_link: The magic_link of this EmailCommseqEmail.  # noqa: E501
+        :type: bool
+        """
+
+        self._magic_link = magic_link
 
     @property
     def merchant_id(self):
