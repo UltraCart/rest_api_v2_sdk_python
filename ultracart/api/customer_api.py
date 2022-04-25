@@ -45,6 +45,113 @@ class CustomerApi(object):
 
 
 
+    def adjust_internal_certificate(self, customer_profile_oid, adjust_internal_certificate_request, **kwargs):  # noqa: E501
+        """Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.  # noqa: E501
+
+        Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.adjust_internal_certificate(customer_profile_oid, adjust_internal_certificate_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int customer_profile_oid: The customer profile oid (required)
+        :param AdjustInternalCertificateRequest adjust_internal_certificate_request: adjustInternalCertificateRequest (required)
+        :return: AdjustInternalCertificateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.adjust_internal_certificate_with_http_info(customer_profile_oid, adjust_internal_certificate_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.adjust_internal_certificate_with_http_info(customer_profile_oid, adjust_internal_certificate_request, **kwargs)  # noqa: E501
+            return data
+
+    def adjust_internal_certificate_with_http_info(self, customer_profile_oid, adjust_internal_certificate_request, **kwargs):  # noqa: E501
+        """Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.  # noqa: E501
+
+        Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.adjust_internal_certificate_with_http_info(customer_profile_oid, adjust_internal_certificate_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int customer_profile_oid: The customer profile oid (required)
+        :param AdjustInternalCertificateRequest adjust_internal_certificate_request: adjustInternalCertificateRequest (required)
+        :return: AdjustInternalCertificateResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['customer_profile_oid', 'adjust_internal_certificate_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method adjust_internal_certificate" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'customer_profile_oid' is set
+        if ('customer_profile_oid' not in params or
+                params['customer_profile_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `adjust_internal_certificate`")  # noqa: E501
+        # verify the required parameter 'adjust_internal_certificate_request' is set
+        if ('adjust_internal_certificate_request' not in params or
+                params['adjust_internal_certificate_request'] is None):
+            raise ValueError("Missing the required parameter `adjust_internal_certificate_request` when calling `adjust_internal_certificate`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'customer_profile_oid' in params:
+            path_params['customer_profile_oid'] = params['customer_profile_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'adjust_internal_certificate_request' in params:
+            body_params = params['adjust_internal_certificate_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/customer/customers/{customer_profile_oid}/adjust_cashback_balance', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AdjustInternalCertificateResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_customer(self, customer_profile_oid, **kwargs):  # noqa: E501
         """Delete a customer  # noqa: E501
 

@@ -3,7 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**current_points** | **int** | Current Points | [optional] 
+**current_points** | **int** | Current points | [optional] 
+**internal_gift_certificate** | [**GiftCertificate**](GiftCertificate.md) |  | [optional] 
 **internal_gift_certificate_balance** | **str** | Loyalty Cashback / Store credit balance (internal gift certificate balance) | [optional] 
 **internal_gift_certificate_oid** | **int** | Internal gift certificate oid used to tracking loyalty cashback / store credit. | [optional] 
 **ledger_entries** | [**list[CustomerLoyaltyLedger]**](CustomerLoyaltyLedger.md) | Ledger entries | [optional] 

@@ -32,6 +32,7 @@ class CustomerLoyalty(object):
     """
     swagger_types = {
         'current_points': 'int',
+        'internal_gift_certificate': 'GiftCertificate',
         'internal_gift_certificate_balance': 'str',
         'internal_gift_certificate_oid': 'int',
         'ledger_entries': 'list[CustomerLoyaltyLedger]',
@@ -41,6 +42,7 @@ class CustomerLoyalty(object):
 
     attribute_map = {
         'current_points': 'current_points',
+        'internal_gift_certificate': 'internal_gift_certificate',
         'internal_gift_certificate_balance': 'internal_gift_certificate_balance',
         'internal_gift_certificate_oid': 'internal_gift_certificate_oid',
         'ledger_entries': 'ledger_entries',
@@ -48,10 +50,11 @@ class CustomerLoyalty(object):
         'redemptions': 'redemptions'
     }
 
-    def __init__(self, current_points=None, internal_gift_certificate_balance=None, internal_gift_certificate_oid=None, ledger_entries=None, pending_points=None, redemptions=None):  # noqa: E501
+    def __init__(self, current_points=None, internal_gift_certificate=None, internal_gift_certificate_balance=None, internal_gift_certificate_oid=None, ledger_entries=None, pending_points=None, redemptions=None):  # noqa: E501
         """CustomerLoyalty - a model defined in Swagger"""  # noqa: E501
 
         self._current_points = None
+        self._internal_gift_certificate = None
         self._internal_gift_certificate_balance = None
         self._internal_gift_certificate_oid = None
         self._ledger_entries = None
@@ -61,6 +64,8 @@ class CustomerLoyalty(object):
 
         if current_points is not None:
             self.current_points = current_points
+        if internal_gift_certificate is not None:
+            self.internal_gift_certificate = internal_gift_certificate
         if internal_gift_certificate_balance is not None:
             self.internal_gift_certificate_balance = internal_gift_certificate_balance
         if internal_gift_certificate_oid is not None:
@@ -76,7 +81,7 @@ class CustomerLoyalty(object):
     def current_points(self):
         """Gets the current_points of this CustomerLoyalty.  # noqa: E501
 
-        Current Points  # noqa: E501
+        Current points  # noqa: E501
 
         :return: The current_points of this CustomerLoyalty.  # noqa: E501
         :rtype: int
@@ -87,13 +92,34 @@ class CustomerLoyalty(object):
     def current_points(self, current_points):
         """Sets the current_points of this CustomerLoyalty.
 
-        Current Points  # noqa: E501
+        Current points  # noqa: E501
 
         :param current_points: The current_points of this CustomerLoyalty.  # noqa: E501
         :type: int
         """
 
         self._current_points = current_points
+
+    @property
+    def internal_gift_certificate(self):
+        """Gets the internal_gift_certificate of this CustomerLoyalty.  # noqa: E501
+
+
+        :return: The internal_gift_certificate of this CustomerLoyalty.  # noqa: E501
+        :rtype: GiftCertificate
+        """
+        return self._internal_gift_certificate
+
+    @internal_gift_certificate.setter
+    def internal_gift_certificate(self, internal_gift_certificate):
+        """Sets the internal_gift_certificate of this CustomerLoyalty.
+
+
+        :param internal_gift_certificate: The internal_gift_certificate of this CustomerLoyalty.  # noqa: E501
+        :type: GiftCertificate
+        """
+
+        self._internal_gift_certificate = internal_gift_certificate
 
     @property
     def internal_gift_certificate_balance(self):
