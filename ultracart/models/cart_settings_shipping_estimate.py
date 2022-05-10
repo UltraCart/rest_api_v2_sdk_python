@@ -42,6 +42,7 @@ class CartSettingsShippingEstimate(object):
         'estimated_delivery': 'str',
         'lift_gate_option': 'bool',
         'name': 'str',
+        'pickup': 'bool',
         'tax': 'Currency',
         'total_tax': 'Currency'
     }
@@ -58,11 +59,12 @@ class CartSettingsShippingEstimate(object):
         'estimated_delivery': 'estimated_delivery',
         'lift_gate_option': 'lift_gate_option',
         'name': 'name',
+        'pickup': 'pickup',
         'tax': 'tax',
         'total_tax': 'total_tax'
     }
 
-    def __init__(self, allow_3rd_party_billing=None, comment=None, cost=None, cost_before_discount=None, default_method=None, discount=None, discounted=None, display_name=None, estimated_delivery=None, lift_gate_option=None, name=None, tax=None, total_tax=None):  # noqa: E501
+    def __init__(self, allow_3rd_party_billing=None, comment=None, cost=None, cost_before_discount=None, default_method=None, discount=None, discounted=None, display_name=None, estimated_delivery=None, lift_gate_option=None, name=None, pickup=None, tax=None, total_tax=None):  # noqa: E501
         """CartSettingsShippingEstimate - a model defined in Swagger"""  # noqa: E501
 
         self._allow_3rd_party_billing = None
@@ -76,6 +78,7 @@ class CartSettingsShippingEstimate(object):
         self._estimated_delivery = None
         self._lift_gate_option = None
         self._name = None
+        self._pickup = None
         self._tax = None
         self._total_tax = None
         self.discriminator = None
@@ -102,6 +105,8 @@ class CartSettingsShippingEstimate(object):
             self.lift_gate_option = lift_gate_option
         if name is not None:
             self.name = name
+        if pickup is not None:
+            self.pickup = pickup
         if tax is not None:
             self.tax = tax
         if total_tax is not None:
@@ -353,6 +358,29 @@ class CartSettingsShippingEstimate(object):
         """
 
         self._name = name
+
+    @property
+    def pickup(self):
+        """Gets the pickup of this CartSettingsShippingEstimate.  # noqa: E501
+
+        True if this shipping method requires customers to physically pickup product themselves  # noqa: E501
+
+        :return: The pickup of this CartSettingsShippingEstimate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._pickup
+
+    @pickup.setter
+    def pickup(self, pickup):
+        """Sets the pickup of this CartSettingsShippingEstimate.
+
+        True if this shipping method requires customers to physically pickup product themselves  # noqa: E501
+
+        :param pickup: The pickup of this CartSettingsShippingEstimate.  # noqa: E501
+        :type: bool
+        """
+
+        self._pickup = pickup
 
     @property
     def tax(self):

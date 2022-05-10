@@ -18,6 +18,7 @@ from __future__ import absolute_import
 # import apis into sdk package
 from ultracart.api.affiliate_api import AffiliateApi
 from ultracart.api.auto_order_api import AutoOrderApi
+from ultracart.api.channel_partner_api import ChannelPartnerApi
 from ultracart.api.chargeback_api import ChargebackApi
 from ultracart.api.checkout_api import CheckoutApi
 from ultracart.api.configuration_api import ConfigurationApi
@@ -135,6 +136,15 @@ from ultracart.models.cart_taxes import CartTaxes
 from ultracart.models.cart_upsell_after import CartUpsellAfter
 from ultracart.models.cart_validation_request import CartValidationRequest
 from ultracart.models.cart_validation_response import CartValidationResponse
+from ultracart.models.channel_partner_cancel_response import ChannelPartnerCancelResponse
+from ultracart.models.channel_partner_estimate_shipping_response import ChannelPartnerEstimateShippingResponse
+from ultracart.models.channel_partner_import_response import ChannelPartnerImportResponse
+from ultracart.models.channel_partner_order import ChannelPartnerOrder
+from ultracart.models.channel_partner_order_item import ChannelPartnerOrderItem
+from ultracart.models.channel_partner_order_item_option import ChannelPartnerOrderItemOption
+from ultracart.models.channel_partner_order_transaction import ChannelPartnerOrderTransaction
+from ultracart.models.channel_partner_order_transaction_detail import ChannelPartnerOrderTransactionDetail
+from ultracart.models.channel_partner_shipping_estimate import ChannelPartnerShippingEstimate
 from ultracart.models.chargeback_dispute import ChargebackDispute
 from ultracart.models.chargeback_dispute_response import ChargebackDisputeResponse
 from ultracart.models.chargeback_disputes_response import ChargebackDisputesResponse
