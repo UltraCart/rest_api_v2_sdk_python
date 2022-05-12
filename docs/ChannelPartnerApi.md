@@ -5,7 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel_order_by_channel_partner_order_id**](ChannelPartnerApi.md#cancel_order_by_channel_partner_order_id) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
-[**cancel_order_by_channel_ultra_cart_order_id**](ChannelPartnerApi.md#cancel_order_by_channel_ultra_cart_order_id) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
+[**cancel_order_by_ultra_cart_order_id**](ChannelPartnerApi.md#cancel_order_by_ultra_cart_order_id) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
 [**estimate_shipping_for_channel_partner_order**](ChannelPartnerApi.md#estimate_shipping_for_channel_partner_order) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
 [**import_channel_partner_order**](ChannelPartnerApi.md#import_channel_partner_order) | **POST** /channel_partner/import | Insert channel partner order
 
@@ -60,8 +60,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **cancel_order_by_channel_ultra_cart_order_id**
-> ChannelPartnerCancelResponse cancel_order_by_channel_ultra_cart_order_id(order_id)
+# **cancel_order_by_ultra_cart_order_id**
+> ChannelPartnerCancelResponse cancel_order_by_ultra_cart_order_id(order_id)
 
 Cancel channel partner order by UltraCart order id
 
@@ -83,10 +83,10 @@ order_id = 'order_id_example' # str | The UltraCart order id to delete.
 
 try:
     # Cancel channel partner order by UltraCart order id
-    api_response = api_instance.cancel_order_by_channel_ultra_cart_order_id(order_id)
+    api_response = api_instance.cancel_order_by_ultra_cart_order_id(order_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ChannelPartnerApi->cancel_order_by_channel_ultra_cart_order_id: %s\n" % e)
+    print("Exception when calling ChannelPartnerApi->cancel_order_by_ultra_cart_order_id: %s\n" % e)
 ```
 
 ### Parameters

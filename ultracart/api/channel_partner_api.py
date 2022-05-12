@@ -144,13 +144,13 @@ class ChannelPartnerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cancel_order_by_channel_ultra_cart_order_id(self, order_id, **kwargs):  # noqa: E501
+    def cancel_order_by_ultra_cart_order_id(self, order_id, **kwargs):  # noqa: E501
         """Cancel channel partner order by UltraCart order id  # noqa: E501
 
         Cancel channel partner order by UltraCart order id   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cancel_order_by_channel_ultra_cart_order_id(order_id, async_req=True)
+        >>> thread = api.cancel_order_by_ultra_cart_order_id(order_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -161,18 +161,18 @@ class ChannelPartnerApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.cancel_order_by_channel_ultra_cart_order_id_with_http_info(order_id, **kwargs)  # noqa: E501
+            return self.cancel_order_by_ultra_cart_order_id_with_http_info(order_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.cancel_order_by_channel_ultra_cart_order_id_with_http_info(order_id, **kwargs)  # noqa: E501
+            (data) = self.cancel_order_by_ultra_cart_order_id_with_http_info(order_id, **kwargs)  # noqa: E501
             return data
 
-    def cancel_order_by_channel_ultra_cart_order_id_with_http_info(self, order_id, **kwargs):  # noqa: E501
+    def cancel_order_by_ultra_cart_order_id_with_http_info(self, order_id, **kwargs):  # noqa: E501
         """Cancel channel partner order by UltraCart order id  # noqa: E501
 
         Cancel channel partner order by UltraCart order id   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cancel_order_by_channel_ultra_cart_order_id_with_http_info(order_id, async_req=True)
+        >>> thread = api.cancel_order_by_ultra_cart_order_id_with_http_info(order_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -193,14 +193,14 @@ class ChannelPartnerApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method cancel_order_by_channel_ultra_cart_order_id" % key
+                    " to method cancel_order_by_ultra_cart_order_id" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'order_id' is set
         if ('order_id' not in params or
                 params['order_id'] is None):
-            raise ValueError("Missing the required parameter `order_id` when calling `cancel_order_by_channel_ultra_cart_order_id`")  # noqa: E501
+            raise ValueError("Missing the required parameter `order_id` when calling `cancel_order_by_ultra_cart_order_id`")  # noqa: E501
 
         collection_formats = {}
 
