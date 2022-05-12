@@ -35,6 +35,7 @@ class ChannelPartnerImportResponse(object):
         'import_errors': 'list[str]',
         'import_warnings': 'list[str]',
         'metadata': 'ResponseMetadata',
+        'order_id': 'str',
         'success': 'bool',
         'warning': 'Warning'
     }
@@ -44,17 +45,19 @@ class ChannelPartnerImportResponse(object):
         'import_errors': 'import_errors',
         'import_warnings': 'import_warnings',
         'metadata': 'metadata',
+        'order_id': 'order_id',
         'success': 'success',
         'warning': 'warning'
     }
 
-    def __init__(self, error=None, import_errors=None, import_warnings=None, metadata=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, error=None, import_errors=None, import_warnings=None, metadata=None, order_id=None, success=None, warning=None):  # noqa: E501
         """ChannelPartnerImportResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._import_errors = None
         self._import_warnings = None
         self._metadata = None
+        self._order_id = None
         self._success = None
         self._warning = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class ChannelPartnerImportResponse(object):
             self.import_warnings = import_warnings
         if metadata is not None:
             self.metadata = metadata
+        if order_id is not None:
+            self.order_id = order_id
         if success is not None:
             self.success = success
         if warning is not None:
@@ -159,6 +164,29 @@ class ChannelPartnerImportResponse(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def order_id(self):
+        """Gets the order_id of this ChannelPartnerImportResponse.  # noqa: E501
+
+        The order id of the newly imported order if successful  # noqa: E501
+
+        :return: The order_id of this ChannelPartnerImportResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_id
+
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this ChannelPartnerImportResponse.
+
+        The order id of the newly imported order if successful  # noqa: E501
+
+        :param order_id: The order_id of this ChannelPartnerImportResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._order_id = order_id
 
     @property
     def success(self):
