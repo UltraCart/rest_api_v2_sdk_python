@@ -670,7 +670,7 @@ class OrderApi(object):
 
         :param async_req bool
         :param str order_id: Order ID (required)
-        :return: OrdersResponse
+        :return: OrderPackingSlipResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -692,7 +692,7 @@ class OrderApi(object):
 
         :param async_req bool
         :param str order_id: Order ID (required)
-        :return: OrdersResponse
+        :return: OrderPackingSlipResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -750,7 +750,7 @@ class OrderApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrdersResponse',  # noqa: E501
+            response_type='OrderPackingSlipResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -770,7 +770,7 @@ class OrderApi(object):
         :param async_req bool
         :param str distribution_center_code: Distribution center code (required)
         :param str order_id: Order ID (required)
-        :return: OrdersResponse
+        :return: OrderPackingSlipResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -793,7 +793,7 @@ class OrderApi(object):
         :param async_req bool
         :param str distribution_center_code: Distribution center code (required)
         :param str order_id: Order ID (required)
-        :return: OrdersResponse
+        :return: OrderPackingSlipResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -857,7 +857,7 @@ class OrderApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrdersResponse',  # noqa: E501
+            response_type='OrderPackingSlipResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

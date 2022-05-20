@@ -35,7 +35,7 @@ class OrderFormat(object):
         'dont_link_email_to_search': 'bool',
         'email_as_link': 'bool',
         'filter_distribution_center_oid': 'int',
-        'filter_to_items_in_contact_oid': 'int',
+        'filter_to_items_in_container_oid': 'int',
         'format': 'str',
         'hide_bill_to_address': 'bool',
         'hide_price_information': 'bool',
@@ -54,7 +54,7 @@ class OrderFormat(object):
         'dont_link_email_to_search': 'dont_link_email_to_search',
         'email_as_link': 'email_as_link',
         'filter_distribution_center_oid': 'filter_distribution_center_oid',
-        'filter_to_items_in_contact_oid': 'filter_to_items_in_contact_oid',
+        'filter_to_items_in_container_oid': 'filter_to_items_in_container_oid',
         'format': 'format',
         'hide_bill_to_address': 'hide_bill_to_address',
         'hide_price_information': 'hide_price_information',
@@ -68,14 +68,14 @@ class OrderFormat(object):
         'translate': 'translate'
     }
 
-    def __init__(self, context=None, dont_link_email_to_search=None, email_as_link=None, filter_distribution_center_oid=None, filter_to_items_in_contact_oid=None, format=None, hide_bill_to_address=None, hide_price_information=None, link_file_attachments=None, show_contact_info=None, show_in_merchant_currency=None, show_internal_information=None, show_merchant_notes=None, show_non_sensitive_payment_info=None, show_payment_info=None, translate=None):  # noqa: E501
+    def __init__(self, context=None, dont_link_email_to_search=None, email_as_link=None, filter_distribution_center_oid=None, filter_to_items_in_container_oid=None, format=None, hide_bill_to_address=None, hide_price_information=None, link_file_attachments=None, show_contact_info=None, show_in_merchant_currency=None, show_internal_information=None, show_merchant_notes=None, show_non_sensitive_payment_info=None, show_payment_info=None, translate=None):  # noqa: E501
         """OrderFormat - a model defined in Swagger"""  # noqa: E501
 
         self._context = None
         self._dont_link_email_to_search = None
         self._email_as_link = None
         self._filter_distribution_center_oid = None
-        self._filter_to_items_in_contact_oid = None
+        self._filter_to_items_in_container_oid = None
         self._format = None
         self._hide_bill_to_address = None
         self._hide_price_information = None
@@ -97,8 +97,8 @@ class OrderFormat(object):
             self.email_as_link = email_as_link
         if filter_distribution_center_oid is not None:
             self.filter_distribution_center_oid = filter_distribution_center_oid
-        if filter_to_items_in_contact_oid is not None:
-            self.filter_to_items_in_contact_oid = filter_to_items_in_contact_oid
+        if filter_to_items_in_container_oid is not None:
+            self.filter_to_items_in_container_oid = filter_to_items_in_container_oid
         if format is not None:
             self.format = format
         if hide_bill_to_address is not None:
@@ -215,27 +215,27 @@ class OrderFormat(object):
         self._filter_distribution_center_oid = filter_distribution_center_oid
 
     @property
-    def filter_to_items_in_contact_oid(self):
-        """Gets the filter_to_items_in_contact_oid of this OrderFormat.  # noqa: E501
+    def filter_to_items_in_container_oid(self):
+        """Gets the filter_to_items_in_container_oid of this OrderFormat.  # noqa: E501
 
         The container oid to filter items to.  # noqa: E501
 
-        :return: The filter_to_items_in_contact_oid of this OrderFormat.  # noqa: E501
+        :return: The filter_to_items_in_container_oid of this OrderFormat.  # noqa: E501
         :rtype: int
         """
-        return self._filter_to_items_in_contact_oid
+        return self._filter_to_items_in_container_oid
 
-    @filter_to_items_in_contact_oid.setter
-    def filter_to_items_in_contact_oid(self, filter_to_items_in_contact_oid):
-        """Sets the filter_to_items_in_contact_oid of this OrderFormat.
+    @filter_to_items_in_container_oid.setter
+    def filter_to_items_in_container_oid(self, filter_to_items_in_container_oid):
+        """Sets the filter_to_items_in_container_oid of this OrderFormat.
 
         The container oid to filter items to.  # noqa: E501
 
-        :param filter_to_items_in_contact_oid: The filter_to_items_in_contact_oid of this OrderFormat.  # noqa: E501
+        :param filter_to_items_in_container_oid: The filter_to_items_in_container_oid of this OrderFormat.  # noqa: E501
         :type: int
         """
 
-        self._filter_to_items_in_contact_oid = filter_to_items_in_contact_oid
+        self._filter_to_items_in_container_oid = filter_to_items_in_container_oid
 
     @property
     def format(self):

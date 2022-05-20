@@ -74,6 +74,7 @@ class OrderItem(object):
         'ship_separately': 'bool',
         'shipped_by_user': 'str',
         'shipped_dts': 'str',
+        'shipping_status': 'str',
         'special_product_type': 'str',
         'tags': 'list[OrderItemTag]',
         'tax_free': 'bool',
@@ -132,6 +133,7 @@ class OrderItem(object):
         'ship_separately': 'ship_separately',
         'shipped_by_user': 'shipped_by_user',
         'shipped_dts': 'shipped_dts',
+        'shipping_status': 'shipping_status',
         'special_product_type': 'special_product_type',
         'tags': 'tags',
         'tax_free': 'tax_free',
@@ -146,7 +148,7 @@ class OrderItem(object):
         'width': 'width'
     }
 
-    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
+    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, shipping_status=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
         """OrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._accounting_code = None
@@ -192,6 +194,7 @@ class OrderItem(object):
         self._ship_separately = None
         self._shipped_by_user = None
         self._shipped_dts = None
+        self._shipping_status = None
         self._special_product_type = None
         self._tags = None
         self._tax_free = None
@@ -292,6 +295,8 @@ class OrderItem(object):
             self.shipped_by_user = shipped_by_user
         if shipped_dts is not None:
             self.shipped_dts = shipped_dts
+        if shipping_status is not None:
+            self.shipping_status = shipping_status
         if special_product_type is not None:
             self.special_product_type = special_product_type
         if tags is not None:
@@ -1303,6 +1308,29 @@ class OrderItem(object):
         """
 
         self._shipped_dts = shipped_dts
+
+    @property
+    def shipping_status(self):
+        """Gets the shipping_status of this OrderItem.  # noqa: E501
+
+        Shipping status for this item.  This is the replacement for the old order level shipping status.  # noqa: E501
+
+        :return: The shipping_status of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._shipping_status
+
+    @shipping_status.setter
+    def shipping_status(self, shipping_status):
+        """Sets the shipping_status of this OrderItem.
+
+        Shipping status for this item.  This is the replacement for the old order level shipping status.  # noqa: E501
+
+        :param shipping_status: The shipping_status of this OrderItem.  # noqa: E501
+        :type: str
+        """
+
+        self._shipping_status = shipping_status
 
     @property
     def special_product_type(self):
