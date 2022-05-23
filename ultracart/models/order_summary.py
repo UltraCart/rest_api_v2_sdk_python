@@ -35,6 +35,8 @@ class OrderSummary(object):
         'actual_payment_processing': 'Currency',
         'actual_shipping': 'Currency',
         'arbitrary_shipping_handling_total': 'Currency',
+        'internal_gift_certificate_amount': 'Currency',
+        'internal_gift_certificate_refunded': 'Currency',
         'other_refunded': 'Currency',
         'shipping_handling_refunded': 'Currency',
         'shipping_handling_total': 'Currency',
@@ -56,6 +58,8 @@ class OrderSummary(object):
         'actual_payment_processing': 'actual_payment_processing',
         'actual_shipping': 'actual_shipping',
         'arbitrary_shipping_handling_total': 'arbitrary_shipping_handling_total',
+        'internal_gift_certificate_amount': 'internal_gift_certificate_amount',
+        'internal_gift_certificate_refunded': 'internal_gift_certificate_refunded',
         'other_refunded': 'other_refunded',
         'shipping_handling_refunded': 'shipping_handling_refunded',
         'shipping_handling_total': 'shipping_handling_total',
@@ -72,13 +76,15 @@ class OrderSummary(object):
         'total_refunded': 'total_refunded'
     }
 
-    def __init__(self, actual_fulfillment=None, actual_payment_processing=None, actual_shipping=None, arbitrary_shipping_handling_total=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
+    def __init__(self, actual_fulfillment=None, actual_payment_processing=None, actual_shipping=None, arbitrary_shipping_handling_total=None, internal_gift_certificate_amount=None, internal_gift_certificate_refunded=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
         """OrderSummary - a model defined in Swagger"""  # noqa: E501
 
         self._actual_fulfillment = None
         self._actual_payment_processing = None
         self._actual_shipping = None
         self._arbitrary_shipping_handling_total = None
+        self._internal_gift_certificate_amount = None
+        self._internal_gift_certificate_refunded = None
         self._other_refunded = None
         self._shipping_handling_refunded = None
         self._shipping_handling_total = None
@@ -103,6 +109,10 @@ class OrderSummary(object):
             self.actual_shipping = actual_shipping
         if arbitrary_shipping_handling_total is not None:
             self.arbitrary_shipping_handling_total = arbitrary_shipping_handling_total
+        if internal_gift_certificate_amount is not None:
+            self.internal_gift_certificate_amount = internal_gift_certificate_amount
+        if internal_gift_certificate_refunded is not None:
+            self.internal_gift_certificate_refunded = internal_gift_certificate_refunded
         if other_refunded is not None:
             self.other_refunded = other_refunded
         if shipping_handling_refunded is not None:
@@ -215,6 +225,48 @@ class OrderSummary(object):
         """
 
         self._arbitrary_shipping_handling_total = arbitrary_shipping_handling_total
+
+    @property
+    def internal_gift_certificate_amount(self):
+        """Gets the internal_gift_certificate_amount of this OrderSummary.  # noqa: E501
+
+
+        :return: The internal_gift_certificate_amount of this OrderSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._internal_gift_certificate_amount
+
+    @internal_gift_certificate_amount.setter
+    def internal_gift_certificate_amount(self, internal_gift_certificate_amount):
+        """Sets the internal_gift_certificate_amount of this OrderSummary.
+
+
+        :param internal_gift_certificate_amount: The internal_gift_certificate_amount of this OrderSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._internal_gift_certificate_amount = internal_gift_certificate_amount
+
+    @property
+    def internal_gift_certificate_refunded(self):
+        """Gets the internal_gift_certificate_refunded of this OrderSummary.  # noqa: E501
+
+
+        :return: The internal_gift_certificate_refunded of this OrderSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._internal_gift_certificate_refunded
+
+    @internal_gift_certificate_refunded.setter
+    def internal_gift_certificate_refunded(self, internal_gift_certificate_refunded):
+        """Sets the internal_gift_certificate_refunded of this OrderSummary.
+
+
+        :param internal_gift_certificate_refunded: The internal_gift_certificate_refunded of this OrderSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._internal_gift_certificate_refunded = internal_gift_certificate_refunded
 
     @property
     def other_refunded(self):

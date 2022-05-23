@@ -39,7 +39,9 @@ class EmailThirdPartyProvider(object):
         'supports_add_tags': 'bool',
         'supports_list_subscribe': 'bool',
         'supports_list_unsubscribe': 'bool',
-        'supports_remove_tags': 'bool'
+        'supports_remove_tags': 'bool',
+        'tag_count': 'int',
+        'tags': 'list[EmailThirdPartyTag]'
     }
 
     attribute_map = {
@@ -51,10 +53,12 @@ class EmailThirdPartyProvider(object):
         'supports_add_tags': 'supports_add_tags',
         'supports_list_subscribe': 'supports_list_subscribe',
         'supports_list_unsubscribe': 'supports_list_unsubscribe',
-        'supports_remove_tags': 'supports_remove_tags'
+        'supports_remove_tags': 'supports_remove_tags',
+        'tag_count': 'tag_count',
+        'tags': 'tags'
     }
 
-    def __init__(self, connect_url=None, list_count=None, lists=None, logo_url=None, name=None, supports_add_tags=None, supports_list_subscribe=None, supports_list_unsubscribe=None, supports_remove_tags=None):  # noqa: E501
+    def __init__(self, connect_url=None, list_count=None, lists=None, logo_url=None, name=None, supports_add_tags=None, supports_list_subscribe=None, supports_list_unsubscribe=None, supports_remove_tags=None, tag_count=None, tags=None):  # noqa: E501
         """EmailThirdPartyProvider - a model defined in Swagger"""  # noqa: E501
 
         self._connect_url = None
@@ -66,6 +70,8 @@ class EmailThirdPartyProvider(object):
         self._supports_list_subscribe = None
         self._supports_list_unsubscribe = None
         self._supports_remove_tags = None
+        self._tag_count = None
+        self._tags = None
         self.discriminator = None
 
         if connect_url is not None:
@@ -86,6 +92,10 @@ class EmailThirdPartyProvider(object):
             self.supports_list_unsubscribe = supports_list_unsubscribe
         if supports_remove_tags is not None:
             self.supports_remove_tags = supports_remove_tags
+        if tag_count is not None:
+            self.tag_count = tag_count
+        if tags is not None:
+            self.tags = tags
 
     @property
     def connect_url(self):
@@ -293,6 +303,52 @@ class EmailThirdPartyProvider(object):
         """
 
         self._supports_remove_tags = supports_remove_tags
+
+    @property
+    def tag_count(self):
+        """Gets the tag_count of this EmailThirdPartyProvider.  # noqa: E501
+
+        tag_count  # noqa: E501
+
+        :return: The tag_count of this EmailThirdPartyProvider.  # noqa: E501
+        :rtype: int
+        """
+        return self._tag_count
+
+    @tag_count.setter
+    def tag_count(self, tag_count):
+        """Sets the tag_count of this EmailThirdPartyProvider.
+
+        tag_count  # noqa: E501
+
+        :param tag_count: The tag_count of this EmailThirdPartyProvider.  # noqa: E501
+        :type: int
+        """
+
+        self._tag_count = tag_count
+
+    @property
+    def tags(self):
+        """Gets the tags of this EmailThirdPartyProvider.  # noqa: E501
+
+        tags  # noqa: E501
+
+        :return: The tags of this EmailThirdPartyProvider.  # noqa: E501
+        :rtype: list[EmailThirdPartyTag]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this EmailThirdPartyProvider.
+
+        tags  # noqa: E501
+
+        :param tags: The tags of this EmailThirdPartyProvider.  # noqa: E501
+        :type: list[EmailThirdPartyTag]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
