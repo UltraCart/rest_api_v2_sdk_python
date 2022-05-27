@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **card_exp_years** | **list[str]** | card_exp_years | [optional] 
 **card_types** | **list[str]** | card_types | [optional] 
 **countries** | [**list[Country]**](Country.md) | countries | [optional] 
+**loyalty_program_type** | **str** | loyalty_program_type | [optional] 
 **qb_classes** | **list[str]** | qb_classes | [optional] 
 **sales_rep_codes** | **list[str]** | sales_rep_codes | [optional] 
 **state_optional_countries** | [**list[Country]**](Country.md) | state_optional_countries | [optional] 

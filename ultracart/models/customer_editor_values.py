@@ -36,6 +36,7 @@ class CustomerEditorValues(object):
         'card_exp_years': 'list[str]',
         'card_types': 'list[str]',
         'countries': 'list[Country]',
+        'loyalty_program_type': 'str',
         'qb_classes': 'list[str]',
         'sales_rep_codes': 'list[str]',
         'state_optional_countries': 'list[Country]',
@@ -48,13 +49,14 @@ class CustomerEditorValues(object):
         'card_exp_years': 'card_exp_years',
         'card_types': 'card_types',
         'countries': 'countries',
+        'loyalty_program_type': 'loyalty_program_type',
         'qb_classes': 'qb_classes',
         'sales_rep_codes': 'sales_rep_codes',
         'state_optional_countries': 'state_optional_countries',
         'terms': 'terms'
     }
 
-    def __init__(self, affiliates=None, card_exp_months=None, card_exp_years=None, card_types=None, countries=None, qb_classes=None, sales_rep_codes=None, state_optional_countries=None, terms=None):  # noqa: E501
+    def __init__(self, affiliates=None, card_exp_months=None, card_exp_years=None, card_types=None, countries=None, loyalty_program_type=None, qb_classes=None, sales_rep_codes=None, state_optional_countries=None, terms=None):  # noqa: E501
         """CustomerEditorValues - a model defined in Swagger"""  # noqa: E501
 
         self._affiliates = None
@@ -62,6 +64,7 @@ class CustomerEditorValues(object):
         self._card_exp_years = None
         self._card_types = None
         self._countries = None
+        self._loyalty_program_type = None
         self._qb_classes = None
         self._sales_rep_codes = None
         self._state_optional_countries = None
@@ -78,6 +81,8 @@ class CustomerEditorValues(object):
             self.card_types = card_types
         if countries is not None:
             self.countries = countries
+        if loyalty_program_type is not None:
+            self.loyalty_program_type = loyalty_program_type
         if qb_classes is not None:
             self.qb_classes = qb_classes
         if sales_rep_codes is not None:
@@ -201,6 +206,29 @@ class CustomerEditorValues(object):
         """
 
         self._countries = countries
+
+    @property
+    def loyalty_program_type(self):
+        """Gets the loyalty_program_type of this CustomerEditorValues.  # noqa: E501
+
+        loyalty_program_type  # noqa: E501
+
+        :return: The loyalty_program_type of this CustomerEditorValues.  # noqa: E501
+        :rtype: str
+        """
+        return self._loyalty_program_type
+
+    @loyalty_program_type.setter
+    def loyalty_program_type(self, loyalty_program_type):
+        """Sets the loyalty_program_type of this CustomerEditorValues.
+
+        loyalty_program_type  # noqa: E501
+
+        :param loyalty_program_type: The loyalty_program_type of this CustomerEditorValues.  # noqa: E501
+        :type: str
+        """
+
+        self._loyalty_program_type = loyalty_program_type
 
     @property
     def qb_classes(self):

@@ -242,6 +242,10 @@ from ultracart.models.customer_response import CustomerResponse
 from ultracart.models.customer_reviewer import CustomerReviewer
 from ultracart.models.customer_shipping import CustomerShipping
 from ultracart.models.customer_software_entitlement import CustomerSoftwareEntitlement
+from ultracart.models.customer_store_credit import CustomerStoreCredit
+from ultracart.models.customer_store_credit_add_request import CustomerStoreCreditAddRequest
+from ultracart.models.customer_store_credit_ledger_entry import CustomerStoreCreditLedgerEntry
+from ultracart.models.customer_store_credit_response import CustomerStoreCreditResponse
 from ultracart.models.customer_tag import CustomerTag
 from ultracart.models.customer_tax_codes import CustomerTaxCodes
 from ultracart.models.customers_response import CustomersResponse
