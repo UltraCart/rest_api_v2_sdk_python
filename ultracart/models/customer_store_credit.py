@@ -42,8 +42,8 @@ class CustomerStoreCredit(object):
     attribute_map = {
         'available': 'available',
         'expiring': 'expiring',
-        'future_ledgers': 'futureLedgers',
-        'past_ledgers': 'pastLedgers',
+        'future_ledgers': 'future_ledgers',
+        'past_ledgers': 'past_ledgers',
         'total': 'total',
         'vesting': 'vesting'
     }
@@ -76,6 +76,7 @@ class CustomerStoreCredit(object):
     def available(self):
         """Gets the available of this CustomerStoreCredit.  # noqa: E501
 
+        Available store credit which is defined as unused and vested  # noqa: E501
 
         :return: The available of this CustomerStoreCredit.  # noqa: E501
         :rtype: float
@@ -86,6 +87,7 @@ class CustomerStoreCredit(object):
     def available(self, available):
         """Sets the available of this CustomerStoreCredit.
 
+        Available store credit which is defined as unused and vested  # noqa: E501
 
         :param available: The available of this CustomerStoreCredit.  # noqa: E501
         :type: float
@@ -97,6 +99,7 @@ class CustomerStoreCredit(object):
     def expiring(self):
         """Gets the expiring of this CustomerStoreCredit.  # noqa: E501
 
+        Amount of store credit expiring within 30 days  # noqa: E501
 
         :return: The expiring of this CustomerStoreCredit.  # noqa: E501
         :rtype: float
@@ -107,6 +110,7 @@ class CustomerStoreCredit(object):
     def expiring(self, expiring):
         """Sets the expiring of this CustomerStoreCredit.
 
+        Amount of store credit expiring within 30 days  # noqa: E501
 
         :param expiring: The expiring of this CustomerStoreCredit.  # noqa: E501
         :type: float
@@ -118,6 +122,7 @@ class CustomerStoreCredit(object):
     def future_ledgers(self):
         """Gets the future_ledgers of this CustomerStoreCredit.  # noqa: E501
 
+        Array of future ledger entries including expiring entries  # noqa: E501
 
         :return: The future_ledgers of this CustomerStoreCredit.  # noqa: E501
         :rtype: list[CustomerStoreCreditLedgerEntry]
@@ -128,6 +133,7 @@ class CustomerStoreCredit(object):
     def future_ledgers(self, future_ledgers):
         """Sets the future_ledgers of this CustomerStoreCredit.
 
+        Array of future ledger entries including expiring entries  # noqa: E501
 
         :param future_ledgers: The future_ledgers of this CustomerStoreCredit.  # noqa: E501
         :type: list[CustomerStoreCreditLedgerEntry]
@@ -139,6 +145,7 @@ class CustomerStoreCredit(object):
     def past_ledgers(self):
         """Gets the past_ledgers of this CustomerStoreCredit.  # noqa: E501
 
+        Array of past ledger entries including accrual, usage, and expiring entries  # noqa: E501
 
         :return: The past_ledgers of this CustomerStoreCredit.  # noqa: E501
         :rtype: list[CustomerStoreCreditLedgerEntry]
@@ -149,6 +156,7 @@ class CustomerStoreCredit(object):
     def past_ledgers(self, past_ledgers):
         """Sets the past_ledgers of this CustomerStoreCredit.
 
+        Array of past ledger entries including accrual, usage, and expiring entries  # noqa: E501
 
         :param past_ledgers: The past_ledgers of this CustomerStoreCredit.  # noqa: E501
         :type: list[CustomerStoreCreditLedgerEntry]
@@ -160,6 +168,7 @@ class CustomerStoreCredit(object):
     def total(self):
         """Gets the total of this CustomerStoreCredit.  # noqa: E501
 
+        Total lifetime store credit for this customer.  # noqa: E501
 
         :return: The total of this CustomerStoreCredit.  # noqa: E501
         :rtype: float
@@ -170,6 +179,7 @@ class CustomerStoreCredit(object):
     def total(self, total):
         """Sets the total of this CustomerStoreCredit.
 
+        Total lifetime store credit for this customer.  # noqa: E501
 
         :param total: The total of this CustomerStoreCredit.  # noqa: E501
         :type: float
@@ -181,6 +191,7 @@ class CustomerStoreCredit(object):
     def vesting(self):
         """Gets the vesting of this CustomerStoreCredit.  # noqa: E501
 
+        Amount of store credit vesting  # noqa: E501
 
         :return: The vesting of this CustomerStoreCredit.  # noqa: E501
         :rtype: float
@@ -191,6 +202,7 @@ class CustomerStoreCredit(object):
     def vesting(self, vesting):
         """Sets the vesting of this CustomerStoreCredit.
 
+        Amount of store credit vesting  # noqa: E501
 
         :param vesting: The vesting of this CustomerStoreCredit.  # noqa: E501
         :type: float
