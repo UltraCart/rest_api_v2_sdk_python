@@ -45,6 +45,8 @@ class EmailSegment(object):
         'rank_json': 'str',
         'rebuild_required': 'bool',
         'storefront_oid': 'int',
+        'thirdparty_list_id': 'str',
+        'thirdparty_provider_name': 'str',
         'used_by': 'list[EmailListSegmentUsedBy]'
     }
 
@@ -63,10 +65,12 @@ class EmailSegment(object):
         'rank_json': 'rank_json',
         'rebuild_required': 'rebuild_required',
         'storefront_oid': 'storefront_oid',
+        'thirdparty_list_id': 'thirdparty_list_id',
+        'thirdparty_provider_name': 'thirdparty_provider_name',
         'used_by': 'used_by'
     }
 
-    def __init__(self, allow_csv_download=None, allow_facebook_audiences=None, created_dts=None, deleted=None, email_segment_uuid=None, esp_list_segment_folder_uuid=None, facebook_custom_audience=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rank_json=None, rebuild_required=None, storefront_oid=None, used_by=None):  # noqa: E501
+    def __init__(self, allow_csv_download=None, allow_facebook_audiences=None, created_dts=None, deleted=None, email_segment_uuid=None, esp_list_segment_folder_uuid=None, facebook_custom_audience=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rank_json=None, rebuild_required=None, storefront_oid=None, thirdparty_list_id=None, thirdparty_provider_name=None, used_by=None):  # noqa: E501
         """EmailSegment - a model defined in Swagger"""  # noqa: E501
 
         self._allow_csv_download = None
@@ -83,6 +87,8 @@ class EmailSegment(object):
         self._rank_json = None
         self._rebuild_required = None
         self._storefront_oid = None
+        self._thirdparty_list_id = None
+        self._thirdparty_provider_name = None
         self._used_by = None
         self.discriminator = None
 
@@ -114,6 +120,10 @@ class EmailSegment(object):
             self.rebuild_required = rebuild_required
         if storefront_oid is not None:
             self.storefront_oid = storefront_oid
+        if thirdparty_list_id is not None:
+            self.thirdparty_list_id = thirdparty_list_id
+        if thirdparty_provider_name is not None:
+            self.thirdparty_provider_name = thirdparty_provider_name
         if used_by is not None:
             self.used_by = used_by
 
@@ -440,6 +450,52 @@ class EmailSegment(object):
         """
 
         self._storefront_oid = storefront_oid
+
+    @property
+    def thirdparty_list_id(self):
+        """Gets the thirdparty_list_id of this EmailSegment.  # noqa: E501
+
+        List id of third party provider to sync with.  # noqa: E501
+
+        :return: The thirdparty_list_id of this EmailSegment.  # noqa: E501
+        :rtype: str
+        """
+        return self._thirdparty_list_id
+
+    @thirdparty_list_id.setter
+    def thirdparty_list_id(self, thirdparty_list_id):
+        """Sets the thirdparty_list_id of this EmailSegment.
+
+        List id of third party provider to sync with.  # noqa: E501
+
+        :param thirdparty_list_id: The thirdparty_list_id of this EmailSegment.  # noqa: E501
+        :type: str
+        """
+
+        self._thirdparty_list_id = thirdparty_list_id
+
+    @property
+    def thirdparty_provider_name(self):
+        """Gets the thirdparty_provider_name of this EmailSegment.  # noqa: E501
+
+        Name of third party provider to sync segment to a list with.  # noqa: E501
+
+        :return: The thirdparty_provider_name of this EmailSegment.  # noqa: E501
+        :rtype: str
+        """
+        return self._thirdparty_provider_name
+
+    @thirdparty_provider_name.setter
+    def thirdparty_provider_name(self, thirdparty_provider_name):
+        """Sets the thirdparty_provider_name of this EmailSegment.
+
+        Name of third party provider to sync segment to a list with.  # noqa: E501
+
+        :param thirdparty_provider_name: The thirdparty_provider_name of this EmailSegment.  # noqa: E501
+        :type: str
+        """
+
+        self._thirdparty_provider_name = thirdparty_provider_name
 
     @property
     def used_by(self):
