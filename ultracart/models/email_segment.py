@@ -45,6 +45,10 @@ class EmailSegment(object):
         'rank_json': 'str',
         'rebuild_required': 'bool',
         'storefront_oid': 'int',
+        'thirdparty_join_add_tags': 'list[str]',
+        'thirdparty_join_remove_tags': 'list[str]',
+        'thirdparty_leave_add_tags': 'list[str]',
+        'thirdparty_leave_remove_tags': 'list[str]',
         'thirdparty_list_id': 'str',
         'thirdparty_provider_name': 'str',
         'used_by': 'list[EmailListSegmentUsedBy]'
@@ -65,12 +69,16 @@ class EmailSegment(object):
         'rank_json': 'rank_json',
         'rebuild_required': 'rebuild_required',
         'storefront_oid': 'storefront_oid',
+        'thirdparty_join_add_tags': 'thirdparty_join_add_tags',
+        'thirdparty_join_remove_tags': 'thirdparty_join_remove_tags',
+        'thirdparty_leave_add_tags': 'thirdparty_leave_add_tags',
+        'thirdparty_leave_remove_tags': 'thirdparty_leave_remove_tags',
         'thirdparty_list_id': 'thirdparty_list_id',
         'thirdparty_provider_name': 'thirdparty_provider_name',
         'used_by': 'used_by'
     }
 
-    def __init__(self, allow_csv_download=None, allow_facebook_audiences=None, created_dts=None, deleted=None, email_segment_uuid=None, esp_list_segment_folder_uuid=None, facebook_custom_audience=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rank_json=None, rebuild_required=None, storefront_oid=None, thirdparty_list_id=None, thirdparty_provider_name=None, used_by=None):  # noqa: E501
+    def __init__(self, allow_csv_download=None, allow_facebook_audiences=None, created_dts=None, deleted=None, email_segment_uuid=None, esp_list_segment_folder_uuid=None, facebook_custom_audience=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rank_json=None, rebuild_required=None, storefront_oid=None, thirdparty_join_add_tags=None, thirdparty_join_remove_tags=None, thirdparty_leave_add_tags=None, thirdparty_leave_remove_tags=None, thirdparty_list_id=None, thirdparty_provider_name=None, used_by=None):  # noqa: E501
         """EmailSegment - a model defined in Swagger"""  # noqa: E501
 
         self._allow_csv_download = None
@@ -87,6 +95,10 @@ class EmailSegment(object):
         self._rank_json = None
         self._rebuild_required = None
         self._storefront_oid = None
+        self._thirdparty_join_add_tags = None
+        self._thirdparty_join_remove_tags = None
+        self._thirdparty_leave_add_tags = None
+        self._thirdparty_leave_remove_tags = None
         self._thirdparty_list_id = None
         self._thirdparty_provider_name = None
         self._used_by = None
@@ -120,6 +132,14 @@ class EmailSegment(object):
             self.rebuild_required = rebuild_required
         if storefront_oid is not None:
             self.storefront_oid = storefront_oid
+        if thirdparty_join_add_tags is not None:
+            self.thirdparty_join_add_tags = thirdparty_join_add_tags
+        if thirdparty_join_remove_tags is not None:
+            self.thirdparty_join_remove_tags = thirdparty_join_remove_tags
+        if thirdparty_leave_add_tags is not None:
+            self.thirdparty_leave_add_tags = thirdparty_leave_add_tags
+        if thirdparty_leave_remove_tags is not None:
+            self.thirdparty_leave_remove_tags = thirdparty_leave_remove_tags
         if thirdparty_list_id is not None:
             self.thirdparty_list_id = thirdparty_list_id
         if thirdparty_provider_name is not None:
@@ -450,6 +470,98 @@ class EmailSegment(object):
         """
 
         self._storefront_oid = storefront_oid
+
+    @property
+    def thirdparty_join_add_tags(self):
+        """Gets the thirdparty_join_add_tags of this EmailSegment.  # noqa: E501
+
+        Third party provider tags to add when a customer joins the segment.  # noqa: E501
+
+        :return: The thirdparty_join_add_tags of this EmailSegment.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._thirdparty_join_add_tags
+
+    @thirdparty_join_add_tags.setter
+    def thirdparty_join_add_tags(self, thirdparty_join_add_tags):
+        """Sets the thirdparty_join_add_tags of this EmailSegment.
+
+        Third party provider tags to add when a customer joins the segment.  # noqa: E501
+
+        :param thirdparty_join_add_tags: The thirdparty_join_add_tags of this EmailSegment.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._thirdparty_join_add_tags = thirdparty_join_add_tags
+
+    @property
+    def thirdparty_join_remove_tags(self):
+        """Gets the thirdparty_join_remove_tags of this EmailSegment.  # noqa: E501
+
+        Third party provider tags to remove when a customer joins the segment.  # noqa: E501
+
+        :return: The thirdparty_join_remove_tags of this EmailSegment.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._thirdparty_join_remove_tags
+
+    @thirdparty_join_remove_tags.setter
+    def thirdparty_join_remove_tags(self, thirdparty_join_remove_tags):
+        """Sets the thirdparty_join_remove_tags of this EmailSegment.
+
+        Third party provider tags to remove when a customer joins the segment.  # noqa: E501
+
+        :param thirdparty_join_remove_tags: The thirdparty_join_remove_tags of this EmailSegment.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._thirdparty_join_remove_tags = thirdparty_join_remove_tags
+
+    @property
+    def thirdparty_leave_add_tags(self):
+        """Gets the thirdparty_leave_add_tags of this EmailSegment.  # noqa: E501
+
+        Third party provider tags to add when a customer leaves the segment.  # noqa: E501
+
+        :return: The thirdparty_leave_add_tags of this EmailSegment.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._thirdparty_leave_add_tags
+
+    @thirdparty_leave_add_tags.setter
+    def thirdparty_leave_add_tags(self, thirdparty_leave_add_tags):
+        """Sets the thirdparty_leave_add_tags of this EmailSegment.
+
+        Third party provider tags to add when a customer leaves the segment.  # noqa: E501
+
+        :param thirdparty_leave_add_tags: The thirdparty_leave_add_tags of this EmailSegment.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._thirdparty_leave_add_tags = thirdparty_leave_add_tags
+
+    @property
+    def thirdparty_leave_remove_tags(self):
+        """Gets the thirdparty_leave_remove_tags of this EmailSegment.  # noqa: E501
+
+        Third party provider tags to remove when a customer leaves the segment.  # noqa: E501
+
+        :return: The thirdparty_leave_remove_tags of this EmailSegment.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._thirdparty_leave_remove_tags
+
+    @thirdparty_leave_remove_tags.setter
+    def thirdparty_leave_remove_tags(self, thirdparty_leave_remove_tags):
+        """Sets the thirdparty_leave_remove_tags of this EmailSegment.
+
+        Third party provider tags to remove when a customer leaves the segment.  # noqa: E501
+
+        :param thirdparty_leave_remove_tags: The thirdparty_leave_remove_tags of this EmailSegment.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._thirdparty_leave_remove_tags = thirdparty_leave_remove_tags
 
     @property
     def thirdparty_list_id(self):
