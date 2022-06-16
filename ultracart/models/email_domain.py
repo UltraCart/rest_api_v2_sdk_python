@@ -37,6 +37,7 @@ class EmailDomain(object):
         'domain': 'str',
         'esp_domain_uuid': 'str',
         'identity_status': 'str',
+        'mailgun': 'Mailgun',
         'merchant_id': 'str',
         'provider': 'str',
         'spf': 'VerificationRecord',
@@ -52,6 +53,7 @@ class EmailDomain(object):
         'domain': 'domain',
         'esp_domain_uuid': 'esp_domain_uuid',
         'identity_status': 'identity_status',
+        'mailgun': 'mailgun',
         'merchant_id': 'merchant_id',
         'provider': 'provider',
         'spf': 'spf',
@@ -60,7 +62,7 @@ class EmailDomain(object):
         'verification': 'verification'
     }
 
-    def __init__(self, comment=None, dkim=None, dkim_status=None, domain=None, esp_domain_uuid=None, identity_status=None, merchant_id=None, provider=None, spf=None, start_dkim_dts=None, start_identity_dts=None, verification=None):  # noqa: E501
+    def __init__(self, comment=None, dkim=None, dkim_status=None, domain=None, esp_domain_uuid=None, identity_status=None, mailgun=None, merchant_id=None, provider=None, spf=None, start_dkim_dts=None, start_identity_dts=None, verification=None):  # noqa: E501
         """EmailDomain - a model defined in Swagger"""  # noqa: E501
 
         self._comment = None
@@ -69,6 +71,7 @@ class EmailDomain(object):
         self._domain = None
         self._esp_domain_uuid = None
         self._identity_status = None
+        self._mailgun = None
         self._merchant_id = None
         self._provider = None
         self._spf = None
@@ -89,6 +92,8 @@ class EmailDomain(object):
             self.esp_domain_uuid = esp_domain_uuid
         if identity_status is not None:
             self.identity_status = identity_status
+        if mailgun is not None:
+            self.mailgun = mailgun
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if provider is not None:
@@ -227,6 +232,27 @@ class EmailDomain(object):
         """
 
         self._identity_status = identity_status
+
+    @property
+    def mailgun(self):
+        """Gets the mailgun of this EmailDomain.  # noqa: E501
+
+
+        :return: The mailgun of this EmailDomain.  # noqa: E501
+        :rtype: Mailgun
+        """
+        return self._mailgun
+
+    @mailgun.setter
+    def mailgun(self, mailgun):
+        """Sets the mailgun of this EmailDomain.
+
+
+        :param mailgun: The mailgun of this EmailDomain.  # noqa: E501
+        :type: Mailgun
+        """
+
+        self._mailgun = mailgun
 
     @property
     def merchant_id(self):

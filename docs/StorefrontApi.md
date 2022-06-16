@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**clone_email_campaign**](StorefrontApi.md#clone_email_campaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**clone_email_flow**](StorefrontApi.md#clone_email_flow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
 [**create_email_sending_domain**](StorefrontApi.md#create_email_sending_domain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
+[**create_email_sending_domain2**](StorefrontApi.md#create_email_sending_domain2) | **POST** /storefront/email/sending_domains | Create email sending domain for various providers
 [**create_twilio_account**](StorefrontApi.md#create_twilio_account) | **POST** /storefront/twilio/accounts | Create Twilio account
 [**delete_email_campaign_folder**](StorefrontApi.md#delete_email_campaign_folder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 [**delete_email_commseq_stat**](StorefrontApi.md#delete_email_commseq_stat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
@@ -155,6 +156,7 @@ Method | HTTP request | Description
 [**update_email_plan**](StorefrontApi.md#update_email_plan) | **POST** /storefront/{storefront_oid}/email/plan | Update email plan
 [**update_email_postcard**](StorefrontApi.md#update_email_postcard) | **PUT** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Update email postcard
 [**update_email_segment**](StorefrontApi.md#update_email_segment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
+[**update_email_sending_domain**](StorefrontApi.md#update_email_sending_domain) | **PUT** /storefront/email/sending_domains/{domain} | Update email sending domain
 [**update_email_settings**](StorefrontApi.md#update_email_settings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
 [**update_experiment**](StorefrontApi.md#update_experiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
 [**update_library_item**](StorefrontApi.md#update_library_item) | **PUT** /storefront/code_library/{library_item_oid} | Update library item. Note that only certain fields may be updated via this method.
@@ -602,6 +604,54 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **domain** | **str**|  | 
+
+### Return type
+
+[**EmailSendingDomainResponse**](EmailSendingDomainResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_email_sending_domain2**
+> EmailSendingDomainResponse create_email_sending_domain2(email_domain)
+
+Create email sending domain for various providers
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+email_domain = ultracart.EmailDomain() # EmailDomain | EmailDomain
+
+try:
+    # Create email sending domain for various providers
+    api_response = api_instance.create_email_sending_domain2(email_domain)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->create_email_sending_domain2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email_domain** | [**EmailDomain**](EmailDomain.md)| EmailDomain | 
 
 ### Return type
 
@@ -7763,6 +7813,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailSegmentResponse**](EmailSegmentResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_email_sending_domain**
+> EmailSendingDomainResponse update_email_sending_domain(domain, email_domain)
+
+Update email sending domain
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+domain = 'domain_example' # str | 
+email_domain = ultracart.EmailDomain() # EmailDomain | EmailDomain
+
+try:
+    # Update email sending domain
+    api_response = api_instance.update_email_sending_domain(domain, email_domain)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->update_email_sending_domain: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **str**|  | 
+ **email_domain** | [**EmailDomain**](EmailDomain.md)| EmailDomain | 
+
+### Return type
+
+[**EmailSendingDomainResponse**](EmailSendingDomainResponse.md)
 
 ### Authorization
 

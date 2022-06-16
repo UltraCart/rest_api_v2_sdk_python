@@ -463,6 +463,7 @@ from ultracart.models.linked_account import LinkedAccount
 from ultracart.models.list_segment_membership import ListSegmentMembership
 from ultracart.models.lookup_request import LookupRequest
 from ultracart.models.lookup_response import LookupResponse
+from ultracart.models.mailgun import Mailgun
 from ultracart.models.metric import Metric
 from ultracart.models.model_property import ModelProperty
 from ultracart.models.notification import Notification
