@@ -1480,12 +1480,12 @@ class CustomerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def search(self, lookup_request, **kwargs):  # noqa: E501
+    def search_customer_profile_values(self, lookup_request, **kwargs):  # noqa: E501
         """Searches for all matching values (using POST)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search(lookup_request, async_req=True)
+        >>> thread = api.search_customer_profile_values(lookup_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1496,17 +1496,17 @@ class CustomerApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.search_with_http_info(lookup_request, **kwargs)  # noqa: E501
+            return self.search_customer_profile_values_with_http_info(lookup_request, **kwargs)  # noqa: E501
         else:
-            (data) = self.search_with_http_info(lookup_request, **kwargs)  # noqa: E501
+            (data) = self.search_customer_profile_values_with_http_info(lookup_request, **kwargs)  # noqa: E501
             return data
 
-    def search_with_http_info(self, lookup_request, **kwargs):  # noqa: E501
+    def search_customer_profile_values_with_http_info(self, lookup_request, **kwargs):  # noqa: E501
         """Searches for all matching values (using POST)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search_with_http_info(lookup_request, async_req=True)
+        >>> thread = api.search_customer_profile_values_with_http_info(lookup_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1527,14 +1527,14 @@ class CustomerApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method search" % key
+                    " to method search_customer_profile_values" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'lookup_request' is set
         if ('lookup_request' not in params or
                 params['lookup_request'] is None):
-            raise ValueError("Missing the required parameter `lookup_request` when calling `search`")  # noqa: E501
+            raise ValueError("Missing the required parameter `lookup_request` when calling `search_customer_profile_values`")  # noqa: E501
 
         collection_formats = {}
 
