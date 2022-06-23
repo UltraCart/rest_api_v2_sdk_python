@@ -1,5 +1,6 @@
 # EmailList
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -14,7 +15,8 @@ Name | Type | Description | Notes
 **public_description** | **str** | Description of list shown to customer. | [optional] 
 **public_list** | **bool** | True if this list is public | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
-**used_by** | [**list[EmailListSegmentUsedBy]**](EmailListSegmentUsedBy.md) | Details on the flows or campaigns that use this list. | [optional] 
+**used_by** | [**[EmailListSegmentUsedBy]**](EmailListSegmentUsedBy.md) | Details on the flows or campaigns that use this list. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # EmailCommseqPostcard
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **screenshot_back_url** | **str** | URL to screenshot of the back of the postcard | [optional] 
 **screenshot_front_url** | **str** | URL to screenshot of the front of the postcard | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

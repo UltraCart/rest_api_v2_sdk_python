@@ -1,5 +1,6 @@
 # EmailPostcardStat
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -28,13 +29,14 @@ Name | Type | Description | Notes
 **stat_type** | **str** | Campaign, Flow or None (for anything else) | [optional] 
 **status** | **str** | Status of campaign or flow | [optional] 
 **status_dts** | **str** | Status dts of campaign or flow | [optional] 
-**steps** | [**list[EmailPostcardStat]**](EmailPostcardStat.md) |  | [optional] 
+**steps** | [**[EmailPostcardStat]**](EmailPostcardStat.md) |  | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
 **unsubscribe_count** | **int** | Count of emails classified as unsubscribe | [optional] 
 **unsubscribe_count_formatted** | **str** | Count of emails classified as unsubscribe, formatted | [optional] 
 **uuid** | **str** | List or segment uuid | [optional] 
 **view_count** | **int** | Count of views | [optional] 
 **view_count_formatted** | **str** | Count of views, formatted | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

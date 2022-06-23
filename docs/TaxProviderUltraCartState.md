@@ -1,5 +1,6 @@
 # TaxProviderUltraCartState
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **tax_gift_wrap** | **bool** | True if gift wrap should be taxed in this state. | [optional] 
 **tax_rate_formatted** | **str** | State tax rate formatted for display | [optional] 
 **tax_shipping** | **bool** | True if shipping should be taxed in this state. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

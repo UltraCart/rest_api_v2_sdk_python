@@ -1,5 +1,6 @@
 # DistributionCenter
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -38,6 +39,7 @@ Name | Type | Description | Notes
 **state** | **str** | State of the distribution center | [optional] 
 **transmit_blank_costs** | **bool** | True if monetary amounts should be zeroed before transmission | [optional] 
 **transport** | **str** | Transport mechanism for this distribution center | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

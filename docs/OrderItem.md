@@ -1,10 +1,11 @@
 # OrderItem
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accounting_code** | **str** | QuickBooks code | [optional] 
-**activation_codes** | **list[str]** | Activation codes assigned to this item | [optional] 
+**activation_codes** | **[str]** | Activation codes assigned to this item | [optional] 
 **arbitrary_unit_cost** | [**Currency**](Currency.md) |  | [optional] 
 **auto_order_last_rebill_dts** | **str** | Date/time of the last rebill, used only during order insert to help project future rebills | [optional] 
 **auto_order_schedule** | **str** | Auto order schedule, used only during inserts supplying the recurring schedule | [optional] 
@@ -35,11 +36,11 @@ Name | Type | Description | Notes
 **mix_and_match_group_name** | **str** | Mix and match group name | [optional] 
 **mix_and_match_group_oid** | **int** | Mix and match group object identifier | [optional] 
 **no_shipping_discount** | **bool** | True if this item is excluded from shipping discounts | [optional] 
-**options** | [**list[OrderItemOption]**](OrderItemOption.md) | Options | [optional] 
+**options** | [**[OrderItemOption]**](OrderItemOption.md) | Options | [optional] 
 **packed_by_user** | **str** | Packed by user | [optional] 
 **perishable_class** | **str** | Perishable class of the item | [optional] 
 **pricing_tier_name** | **str** | Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned | [optional] 
-**properties** | [**list[OrderItemProperty]**](OrderItemProperty.md) | Properties | [optional] 
+**properties** | [**[OrderItemProperty]**](OrderItemProperty.md) | Properties | [optional] 
 **quantity** | **float** | Quantity | [optional] 
 **quantity_refunded** | **float** | Quantity refunded on this item (read only except refund operation) | [optional] 
 **quickbooks_class** | **str** | QuickBooks class | [optional] 
@@ -48,7 +49,7 @@ Name | Type | Description | Notes
 **shipped_dts** | **str** | Date/time that this item was marked shipped | [optional] 
 **shipping_status** | **str** | Shipping status for this item.  This is the replacement for the old order level shipping status. | [optional] 
 **special_product_type** | **str** | Special product type (USPS Media Mail) | [optional] 
-**tags** | [**list[OrderItemTag]**](OrderItemTag.md) | Tags | [optional] 
+**tags** | [**[OrderItemTag]**](OrderItemTag.md) | Tags | [optional] 
 **tax_free** | **bool** | True if the item is tax free | [optional] 
 **tax_product_type** | **str** | Type of product for tax purposes (self or UltraCart Managed taxes) | [optional] 
 **taxable_cost** | [**Currency**](Currency.md) |  | [optional] 
@@ -59,6 +60,7 @@ Name | Type | Description | Notes
 **upsell** | **bool** | True if this item was added to the order as part of an upsell | [optional] 
 **weight** | [**Weight**](Weight.md) |  | [optional] 
 **width** | [**Distance**](Distance.md) |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

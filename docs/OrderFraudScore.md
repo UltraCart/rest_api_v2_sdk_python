@@ -1,5 +1,6 @@
 # OrderFraudScore
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -23,6 +24,7 @@ Name | Type | Description | Notes
 **ship_forwarder** | **bool** | True if the address is a known ship forwarding company | [optional] 
 **spam_score** | **float** | Likelihood of the email address being associated with a spammer | [optional] 
 **transparent_proxy** | **bool** | True if the IP address that placed the order is a transparent proxy server | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

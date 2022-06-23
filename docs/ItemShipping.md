@@ -1,5 +1,6 @@
 # ItemShipping
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -7,7 +8,7 @@ Name | Type | Description | Notes
 **amazon_fba** | **bool** | Fulfillment by Amazon.com | [optional] 
 **case_inner_packs** | **int** | Case inner packs | [optional] 
 **case_units** | **int** | Case units | [optional] 
-**cases** | [**list[ItemShippingCase]**](ItemShippingCase.md) | Cases | [optional] 
+**cases** | [**[ItemShippingCase]**](ItemShippingCase.md) | Cases | [optional] 
 **collect_serial_numbers** | **bool** | This item is on pre-order | [optional] 
 **country_code_of_origin** | **str** | Country code of origin for customs forms.  (ISO-3166 two letter code) | [optional] 
 **customs_description** | **str** | Customs description | [optional] 
@@ -19,9 +20,9 @@ Name | Type | Description | Notes
 **delivery_on_thursday** | **bool** | Delivery on Thursday | [optional] 
 **delivery_on_tuesday** | **bool** | Delivery on Tuesday | [optional] 
 **delivery_on_wednesday** | **bool** | Delivery on Wednesday | [optional] 
-**destination_markups** | [**list[ItemShippingDestinationMarkup]**](ItemShippingDestinationMarkup.md) | Destination markups | [optional] 
-**destination_restrictions** | [**list[ItemShippingDestinationRestriction]**](ItemShippingDestinationRestriction.md) | Destination restrictions | [optional] 
-**distribution_centers** | [**list[ItemShippingDistributionCenter]**](ItemShippingDistributionCenter.md) | Distribution centers | [optional] 
+**destination_markups** | [**[ItemShippingDestinationMarkup]**](ItemShippingDestinationMarkup.md) | Destination markups | [optional] 
+**destination_restrictions** | [**[ItemShippingDestinationRestriction]**](ItemShippingDestinationRestriction.md) | Destination restrictions | [optional] 
+**distribution_centers** | [**[ItemShippingDistributionCenter]**](ItemShippingDistributionCenter.md) | Distribution centers | [optional] 
 **eta** | **str** | Estimated time of arrival | [optional] 
 **free_shipping** | **bool** | Qualifies for free shipping | [optional] 
 **freight_class** | **str** | Freight class | [optional] 
@@ -29,9 +30,9 @@ Name | Type | Description | Notes
 **made_to_order** | **bool** | True if this item is made to order | [optional] 
 **made_to_order_lead_time** | **int** | Number of days lead time it takes to make the item before ite can ship | [optional] 
 **max_days_time_in_transit** | **int** | Maximum days allowed in transit | [optional] 
-**methods** | [**list[ItemShippingMethod]**](ItemShippingMethod.md) | Methods | [optional] 
+**methods** | [**[ItemShippingMethod]**](ItemShippingMethod.md) | Methods | [optional] 
 **no_shipping_discount** | **bool** | No shipping discounts | [optional] 
-**package_requirements** | [**list[ItemShippingPackageRequirement]**](ItemShippingPackageRequirement.md) | Package requirements | [optional] 
+**package_requirements** | [**[ItemShippingPackageRequirement]**](ItemShippingPackageRequirement.md) | Package requirements | [optional] 
 **perishable_class_name** | **str** | Perishable class name | [optional] 
 **perishable_class_oid** | **int** | Perishable class object identifier | [optional] 
 **preorder** | **bool** | This item is on pre-order | [optional] 
@@ -51,6 +52,7 @@ Name | Type | Description | Notes
 **ship_separately_width** | [**Distance**](Distance.md) |  | [optional] 
 **special_product_type** | **str** | Special product type (USPS Media Mail) | [optional] 
 **track_inventory** | **bool** | Track inventory | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

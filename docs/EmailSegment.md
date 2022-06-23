@@ -1,5 +1,6 @@
 # EmailSegment
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -17,13 +18,14 @@ Name | Type | Description | Notes
 **rank_json** | **str** | Rank settings json | [optional] 
 **rebuild_required** | **bool** | True if a rebuild is required because some part of the segment has changed | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
-**thirdparty_join_add_tags** | **list[str]** | Third party provider tags to add when a customer joins the segment. | [optional] 
-**thirdparty_join_remove_tags** | **list[str]** | Third party provider tags to remove when a customer joins the segment. | [optional] 
-**thirdparty_leave_add_tags** | **list[str]** | Third party provider tags to add when a customer leaves the segment. | [optional] 
-**thirdparty_leave_remove_tags** | **list[str]** | Third party provider tags to remove when a customer leaves the segment. | [optional] 
+**thirdparty_join_add_tags** | **[str]** | Third party provider tags to add when a customer joins the segment. | [optional] 
+**thirdparty_join_remove_tags** | **[str]** | Third party provider tags to remove when a customer joins the segment. | [optional] 
+**thirdparty_leave_add_tags** | **[str]** | Third party provider tags to add when a customer leaves the segment. | [optional] 
+**thirdparty_leave_remove_tags** | **[str]** | Third party provider tags to remove when a customer leaves the segment. | [optional] 
 **thirdparty_list_id** | **str** | List id of third party provider to sync with. | [optional] 
 **thirdparty_provider_name** | **str** | Name of third party provider to sync segment to a list with. | [optional] 
-**used_by** | [**list[EmailListSegmentUsedBy]**](EmailListSegmentUsedBy.md) | Details on the flows or campaigns that use this list. | [optional] 
+**used_by** | [**[EmailListSegmentUsedBy]**](EmailListSegmentUsedBy.md) | Details on the flows or campaigns that use this list. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

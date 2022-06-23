@@ -1,5 +1,6 @@
 # Customer
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -11,14 +12,14 @@ Name | Type | Description | Notes
 **allow_purchase_order** | **bool** | Allow purchase orders by this customer | [optional] 
 **allow_quote_request** | **bool** | Allow quote request | [optional] 
 **allow_selection_of_address_type** | **bool** | Allow selection of residential or business address type | [optional] 
-**attachments** | [**list[CustomerAttachment]**](CustomerAttachment.md) | Attachments | [optional] 
+**attachments** | [**[CustomerAttachment]**](CustomerAttachment.md) | Attachments | [optional] 
 **auto_approve_cod** | **bool** | Auto approve COD | [optional] 
 **auto_approve_purchase_order** | **bool** | Auto approve purchase orders by this customer | [optional] 
 **automatic_merchant_notes** | **str** | Automatic merchant notes are added to every order placed | [optional] 
-**billing** | [**list[CustomerBilling]**](CustomerBilling.md) | Billing addresses for this customer | [optional] 
+**billing** | [**[CustomerBilling]**](CustomerBilling.md) | Billing addresses for this customer | [optional] 
 **business_notes** | **str** | Business notes (internally visible only) | [optional] 
-**cards** | [**list[CustomerCard]**](CustomerCard.md) | Credit Cards for this customer | [optional] 
-**cc_emails** | [**list[CustomerEmail]**](CustomerEmail.md) | Additional emails to CC notification | [optional] 
+**cards** | [**[CustomerCard]**](CustomerCard.md) | Credit Cards for this customer | [optional] 
+**cc_emails** | [**[CustomerEmail]**](CustomerEmail.md) | Additional emails to CC notification | [optional] 
 **customer_profile_oid** | **int** | Customer profile object identifier | [optional] 
 **dhl_account_number** | **str** | DHL account number | [optional] 
 **dhl_duty_account_number** | **str** | DHL duty account number | [optional] 
@@ -36,24 +37,24 @@ Name | Type | Description | Notes
 **no_coupons** | **bool** | No coupons | [optional] 
 **no_free_shipping** | **bool** | No free shipping regardless of coupons or item level settings | [optional] 
 **no_realtime_charge** | **bool** | No realtime charge | [optional] 
-**orders** | [**list[Order]**](Order.md) | Orders associated with this customer profile | [optional] 
+**orders** | [**[Order]**](Order.md) | Orders associated with this customer profile | [optional] 
 **orders_summary** | [**CustomerOrdersSummary**](CustomerOrdersSummary.md) |  | [optional] 
 **password** | **str** | Password (may only be set, never read) | [optional] 
-**pricing_tiers** | [**list[CustomerPricingTier]**](CustomerPricingTier.md) | Pricing tiers for this customer | [optional] 
+**pricing_tiers** | [**[CustomerPricingTier]**](CustomerPricingTier.md) | Pricing tiers for this customer | [optional] 
 **privacy** | [**CustomerPrivacy**](CustomerPrivacy.md) |  | [optional] 
 **qb_class** | **str** | QuickBooks class to import this customer as | [optional] 
 **qb_code** | **str** | QuickBooks name to import this customer as | [optional] 
-**quotes** | [**list[Order]**](Order.md) | Quotes associated with this customer profile | [optional] 
+**quotes** | [**[Order]**](Order.md) | Quotes associated with this customer profile | [optional] 
 **quotes_summary** | [**CustomerQuotesSummary**](CustomerQuotesSummary.md) |  | [optional] 
 **referral_source** | **str** | Referral Source | [optional] 
 **reviewer** | [**CustomerReviewer**](CustomerReviewer.md) |  | [optional] 
 **sales_rep_code** | **str** | Sales rep code | [optional] 
 **send_signup_notification** | **bool** | Send signup notification, if true during customer creation, will send a notification. | [optional] 
-**shipping** | [**list[CustomerShipping]**](CustomerShipping.md) | Shipping addresses for this customer | [optional] 
+**shipping** | [**[CustomerShipping]**](CustomerShipping.md) | Shipping addresses for this customer | [optional] 
 **signup_dts** | **str** | Signup date | [optional] 
-**software_entitlements** | [**list[CustomerSoftwareEntitlement]**](CustomerSoftwareEntitlement.md) | Software entitlements owned by this customer | [optional] 
+**software_entitlements** | [**[CustomerSoftwareEntitlement]**](CustomerSoftwareEntitlement.md) | Software entitlements owned by this customer | [optional] 
 **suppress_buysafe** | **bool** | Suppress buySAFE (deprecated) | [optional] 
-**tags** | [**list[CustomerTag]**](CustomerTag.md) | Tags for this customer | [optional] 
+**tags** | [**[CustomerTag]**](CustomerTag.md) | Tags for this customer | [optional] 
 **tax_codes** | [**CustomerTaxCodes**](CustomerTaxCodes.md) |  | [optional] 
 **tax_exempt** | **bool** | True if the customer is tax exempt | [optional] 
 **tax_id** | **str** | Tax ID | [optional] 
@@ -62,6 +63,7 @@ Name | Type | Description | Notes
 **unapproved** | **bool** | Unapproved | [optional] 
 **ups_account_number** | **str** | UPS account number | [optional] 
 **website_url** | **str** | Website url | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

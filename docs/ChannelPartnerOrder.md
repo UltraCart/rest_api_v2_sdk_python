@@ -1,5 +1,6 @@
 # ChannelPartnerOrder
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -27,7 +28,7 @@ Name | Type | Description | Notes
 **cc_email** | **str** | CC email. | [optional] 
 **channel_partner_order_id** | **str** | The id for this order within the channel partner system. | [optional] 
 **consider_recurring** | **bool** | If true this order is marked as an auto order (recurring) | [optional] 
-**coupons** | **list[str]** | Array of coupon codes | [optional] 
+**coupons** | **[str]** | Array of coupon codes | [optional] 
 **credit_card_authorization_amount** | **float** | The amount authorized externally | [optional] 
 **credit_card_authorization_dts** | **str** | Date/Time of credit card authorization in ISO8601 format | [optional] 
 **credit_card_authorization_number** | **str** | The reference number provided by an externally processed transaction | [optional] 
@@ -51,9 +52,9 @@ Name | Type | Description | Notes
 **insurance_application_id** | **str** | Insurance application id | [optional] 
 **insurance_claim_id** | **str** | Insurance claim id | [optional] 
 **ip_address** | **str** | IP Address of the customer | [optional] 
-**items** | [**list[ChannelPartnerOrderItem]**](ChannelPartnerOrderItem.md) | Items | [optional] 
+**items** | [**[ChannelPartnerOrderItem]**](ChannelPartnerOrderItem.md) | Items | [optional] 
 **least_cost_route** | **bool** | If true the least expensive shipping method is automatically chosen during the order import | [optional] 
-**least_cost_route_shipping_methods** | **list[str]** | An optional array of shipping methods to restict choices if least_cost_route is true | [optional] 
+**least_cost_route_shipping_methods** | **[str]** | An optional array of shipping methods to restict choices if least_cost_route is true | [optional] 
 **mailing_list_opt_in** | **bool** | If true the customer is subscribed to any configured mailing lists | [optional] 
 **no_realtime_payment_processing** | **bool** | If true no payment processing is done and the order is placed into Accounts Receivable | [optional] 
 **payment_method** | **str** | Payment method | [optional] 
@@ -83,6 +84,7 @@ Name | Type | Description | Notes
 **tax_exempt** | **bool** | If true this order is marked as being tax exempt | [optional] 
 **transaction** | [**ChannelPartnerOrderTransaction**](ChannelPartnerOrderTransaction.md) |  | [optional] 
 **treat_warnings_as_errors** | **bool** | If true all warnings are considered errors, this is true by default | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

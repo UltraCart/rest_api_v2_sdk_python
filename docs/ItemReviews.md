@@ -1,5 +1,6 @@
 # ItemReviews
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 **reviewable** | **bool** | True if the item is reviewable | [optional] 
 **share_reviews_with_merchant_item_id** | **str** | Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field. | [optional] 
 **share_reviews_with_merchant_item_oid** | **int** | Share reviews with item oid.  To null out this field, set teh value to zero. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

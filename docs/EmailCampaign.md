@@ -1,5 +1,6 @@
 # EmailCampaign
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 **esp_domain_uuid** | **str** | UUID of the sending domain | [optional] 
 **esp_friendly_name** | **str** | Friendly name of the sending email | [optional] 
 **library_item_oid** | **int** | If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated. | [optional] 
-**memberships** | [**list[EmailListSegmentMembership]**](EmailListSegmentMembership.md) | List and segment memberships | [optional] 
+**memberships** | [**[EmailListSegmentMembership]**](EmailListSegmentMembership.md) | List and segment memberships | [optional] 
 **merchant_id** | **str** | Merchant ID | [optional] 
 **name** | **str** | Name of email campaign | [optional] 
 **open_rate_formatted** | **str** | Open rate of emails | [optional] 
@@ -27,6 +28,7 @@ Name | Type | Description | Notes
 **status** | **str** | Status of the campaign of draft, archived, and sent | [optional] 
 **status_dts** | **str** | Timestamp when the last status change happened | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,12 +1,14 @@
 # LibraryFilterValues
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**categories** | **list[str]** |  | [optional] 
-**industries** | **list[str]** |  | [optional] 
-**styles** | **list[str]** |  | [optional] 
-**types** | **list[str]** |  | [optional] 
+**categories** | **[str]** |  | [optional] 
+**industries** | **[str]** |  | [optional] 
+**styles** | **[str]** |  | [optional] 
+**types** | **[str]** |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

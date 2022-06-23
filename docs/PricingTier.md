@@ -1,5 +1,6 @@
 # PricingTier
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -34,6 +35,7 @@ Name | Type | Description | Notes
 **suppress_mailing_list** | **bool** | Suppress mailing list | [optional] 
 **tax_exempt** | **bool** | Tax Exempt | [optional] 
 **track_separately** | **bool** | Track separately | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

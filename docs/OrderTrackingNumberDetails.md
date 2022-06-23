@@ -1,11 +1,12 @@
 # OrderTrackingNumberDetails
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actual_delivery_date** | **str** |  | [optional] 
 **actual_delivery_date_formatted** | **str** |  | [optional] 
-**details** | [**list[OrderTrackingNumberDetail]**](OrderTrackingNumberDetail.md) |  | [optional] 
+**details** | [**[OrderTrackingNumberDetail]**](OrderTrackingNumberDetail.md) |  | [optional] 
 **easypost_tracker_id** | **str** |  | [optional] 
 **expected_delivery_date** | **str** |  | [optional] 
 **expected_delivery_date_formatted** | **str** |  | [optional] 
@@ -21,6 +22,7 @@ Name | Type | Description | Notes
 **status_description** | **str** |  | [optional] 
 **tracking_number** | **str** |  | [optional] 
 **tracking_url** | **str** |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # OrderCheckout
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 **screen_size** | **str** | Screen size small, medium or large | [optional] 
 **storefront_host_name** | **str** | StoreFront host name associated with the order | [optional] 
 **upsell_path_code** | **str** | Upsell path code assigned during the checkout that the customer went through | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

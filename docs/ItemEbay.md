@@ -1,11 +1,12 @@
 # ItemEbay
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **bool** | True if the item is active for listing | [optional] 
 **category_id** | **int** | e-Bay category ID | [optional] 
-**category_specifics** | [**list[ItemEbayCategorySpecific]**](ItemEbayCategorySpecific.md) | Answers to category specific questions | [optional] 
+**category_specifics** | [**[ItemEbayCategorySpecific]**](ItemEbayCategorySpecific.md) | Answers to category specific questions | [optional] 
 **condition_description** | **str** | Description of the condition (e-Bay constant) | [optional] 
 **condition_id** | **int** | Numerical ID of the condition (e-Bay constant) | [optional] 
 **consecutive_failures** | **int** | Number of consecutive failures trying to list this item | [optional] 
@@ -72,6 +73,7 @@ Name | Type | Description | Notes
 **start_time** | **str** | Date/time of the auction start | [optional] 
 **status** | **str** | Status of the item&#39;s listing | [optional] 
 **target_dispatch_time_max** | **int** | Typical number of days it will take to ship the item | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

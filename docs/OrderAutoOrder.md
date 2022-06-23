@@ -1,5 +1,6 @@
 # OrderAutoOrder
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -16,13 +17,14 @@ Name | Type | Description | Notes
 **disabled_dts** | **str** | The date/time the auto order was disabled due to failed rebills | [optional] 
 **enabled** | **bool** | True if this auto order is enabled | [optional] 
 **failure_reason** | **str** | The reason this auto order failed during the last rebill attempt | [optional] 
-**items** | [**list[AutoOrderItem]**](AutoOrderItem.md) | The items that are setup to rebill | [optional] 
+**items** | [**[AutoOrderItem]**](AutoOrderItem.md) | The items that are setup to rebill | [optional] 
 **next_attempt** | **str** | The next time that the auto order will be attempted for processing | [optional] 
 **original_order_id** | **str** | The original order id that this auto order is associated with. | [optional] 
 **override_affiliate_id** | **int** | Override the affiliate id given credit for rebills of this auto order | [optional] 
-**rebill_orders** | [**list[Order]**](Order.md) | Rebill orders that have taken place on this auto order | [optional] 
+**rebill_orders** | [**[Order]**](Order.md) | Rebill orders that have taken place on this auto order | [optional] 
 **rotating_transaction_gateway_code** | **str** | The RTG code associated with this order for future rebills | [optional] 
 **status** | **str** | The status of the auto order | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

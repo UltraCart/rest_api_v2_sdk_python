@@ -1,5 +1,6 @@
 # ScreenRecordingFilter
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -29,19 +30,19 @@ Name | Type | Description | Notes
 **max_filter_values** | **int** |  | [optional] 
 **order_id** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **page_view_count** | [**ScreenRecordingFilterRangeInteger**](ScreenRecordingFilterRangeInteger.md) |  | [optional] 
-**page_views** | [**list[ScreenRecordingFilterPageView]**](ScreenRecordingFilterPageView.md) |  | [optional] 
+**page_views** | [**[ScreenRecordingFilterPageView]**](ScreenRecordingFilterPageView.md) |  | [optional] 
 **placed_order** | **bool** |  | [optional] 
 **preferred_language** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **preferred_language_filter** | **bool** |  | [optional] 
 **referrer_domain** | **str** |  | [optional] 
 **referrer_domain_filter** | **bool** |  | [optional] 
-**screen_recording_uuids** | **list[str]** |  | [optional] 
-**screen_sizes** | **list[str]** |  | [optional] 
+**screen_recording_uuids** | **[str]** |  | [optional] 
+**screen_sizes** | **[str]** |  | [optional] 
 **skip_filter_values** | **bool** |  | [optional] 
 **skip_histogram** | **bool** |  | [optional] 
 **skip_hits** | **bool** |  | [optional] 
 **start_timestamp** | [**ScreenRecordingFilterRangeDate**](ScreenRecordingFilterRangeDate.md) |  | [optional] 
-**tags** | **list[str]** |  | [optional] 
+**tags** | **[str]** |  | [optional] 
 **time_on_site** | [**ScreenRecordingFilterRangeInteger**](ScreenRecordingFilterRangeInteger.md) |  | [optional] 
 **time_on_site_max_filter** | **bool** |  | [optional] 
 **time_on_site_min_filter** | **bool** |  | [optional] 
@@ -63,6 +64,7 @@ Name | Type | Description | Notes
 **utm_source_filter** | **bool** |  | [optional] 
 **visitor_number** | **int** |  | [optional] 
 **watched** | **bool** |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

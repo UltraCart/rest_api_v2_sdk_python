@@ -1,5 +1,6 @@
 # OrderInternal
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -8,6 +9,7 @@ Name | Type | Description | Notes
 **placed_by_user** | **str** | If placed via the BEOE, this is the user that placed the order | [optional] 
 **refund_by_user** | **str** | User that issued the refund | [optional] 
 **sales_rep_code** | **str** | Sales rep code associated with the order | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # CheckoutHandoffRequest
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -11,6 +12,7 @@ Name | Type | Description | Notes
 **paypal_return_url** | **str** | The URl to return the customers browser to after they have completed the PayPal process. | [optional] 
 **secure_host_name** | **str** | The desired secure host name to perform the handoff on.  This should match the desired StoreFront. | [optional] 
 **ucacid** | **str** | The UltraCart Analytics cookie value.  Populate this if you&#39;re handing off from a different domain than the checkout. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

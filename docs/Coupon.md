@@ -1,5 +1,6 @@
 # Coupon
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -38,7 +39,7 @@ Name | Type | Description | Notes
 **merchant_code** | **str** | Merchant code of coupon up to 20 characters. | [optional] 
 **merchant_notes** | **str** | Internal notes about this coupon.  These are not visible to customer. | [optional] 
 **multiple_amounts_off_items** | [**CouponMultipleAmountsOffItems**](CouponMultipleAmountsOffItems.md) |  | [optional] 
-**no_discount** | [**CouponNoDiscount**](CouponNoDiscount.md) |  | [optional] 
+**no_discount** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **percent_off_item_with_items_quantity_purchase** | [**CouponPercentOffItemWithItemsQuantityPurchase**](CouponPercentOffItemWithItemsQuantityPurchase.md) |  | [optional] 
 **percent_off_items** | [**CouponPercentOffItems**](CouponPercentOffItems.md) |  | [optional] 
 **percent_off_items_and_free_shipping** | [**CouponPercentOffItemsAndFreeShipping**](CouponPercentOffItemsAndFreeShipping.md) |  | [optional] 
@@ -52,9 +53,9 @@ Name | Type | Description | Notes
 **percent_off_subtotal_with_items_purchase** | [**CouponPercentOffSubtotalWithItemsPurchase**](CouponPercentOffSubtotalWithItemsPurchase.md) |  | [optional] 
 **percent_off_subtotal_with_subtotal** | [**CouponPercentOffSubtotalWithSubtotal**](CouponPercentOffSubtotalWithSubtotal.md) |  | [optional] 
 **quickbooks_code** | **str** | Quickbooks accounting code. | [optional] 
-**restrict_by_postal_codes** | **list[str]** | Optional list of postal codes which restrict a coupon to within these postal codes. | [optional] 
-**restrict_by_screen_branding_theme_codes** | [**list[CouponRestriction]**](CouponRestriction.md) | Optional list of legacy screen branding theme codes to limit coupon use to only those themes. | [optional] 
-**restrict_by_storefronts** | [**list[CouponRestriction]**](CouponRestriction.md) | Optional list of storefronts to limit coupon use to only those storefronts. | [optional] 
+**restrict_by_postal_codes** | **[str]** | Optional list of postal codes which restrict a coupon to within these postal codes. | [optional] 
+**restrict_by_screen_branding_theme_codes** | [**[CouponRestriction]**](CouponRestriction.md) | Optional list of legacy screen branding theme codes to limit coupon use to only those themes. | [optional] 
+**restrict_by_storefronts** | [**[CouponRestriction]**](CouponRestriction.md) | Optional list of storefronts to limit coupon use to only those storefronts. | [optional] 
 **start_dts** | **str** | Date/time when coupon is valid | [optional] 
 **super_coupon** | **bool** | If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration | [optional] 
 **tiered_amount_off_items** | [**CouponTieredAmountOffItems**](CouponTieredAmountOffItems.md) |  | [optional] 
@@ -63,6 +64,7 @@ Name | Type | Description | Notes
 **tiered_percent_off_shipping** | [**CouponTieredPercentOffShipping**](CouponTieredPercentOffShipping.md) |  | [optional] 
 **tiered_percent_off_subtotal** | [**CouponTieredPercentOffSubtotal**](CouponTieredPercentOffSubtotal.md) |  | [optional] 
 **usable_by** | **str** | Who may use this coupon. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # ItemRevguard
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -10,6 +11,7 @@ Name | Type | Description | Notes
 **revguard_csr_prompt_group** | **int** | CSR prompt group | [optional] 
 **revguard_ivr_prompt_group** | **int** | IVR prompt group | [optional] 
 **revguard_web_prompt_group** | **int** | Web prompt group | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

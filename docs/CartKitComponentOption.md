@@ -1,5 +1,6 @@
 # CartKitComponentOption
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -16,7 +17,8 @@ Name | Type | Description | Notes
 **required** | **bool** | True if the customer is required to select a value | [optional] 
 **selected_value** | **str** | The value of the option specified by the customer | [optional] 
 **type** | **str** | Type of option | [optional] 
-**values** | [**list[CartItemOptionValue]**](CartItemOptionValue.md) | Values that the customer can select from for radio or select type options | [optional] 
+**values** | [**[CartItemOptionValue]**](CartItemOptionValue.md) | Values that the customer can select from for radio or select type options | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

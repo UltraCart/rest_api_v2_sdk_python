@@ -25,31 +25,59 @@ Delete a group
 Delete a group on the UltraCart account. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-group_oid = 56 # int | The group_oid to delete.
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Delete a group
-    api_instance.delete_group(group_oid)
-except ApiException as e:
-    print("Exception when calling UserApi->delete_group: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+    group_oid = 1 # int | The group_oid to delete.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete a group
+        api_instance.delete_group(group_oid)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->delete_group: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_oid** | **int**| The group_oid to delete. | 
+ **group_oid** | **int**| The group_oid to delete. |
 
 ### Return type
 
@@ -61,8 +89,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -74,31 +113,59 @@ Delete a user
 Delete a user on the UltraCart account. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-user_id = 56 # int | The user_id to delete.
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Delete a user
-    api_instance.delete_user(user_id)
-except ApiException as e:
-    print("Exception when calling UserApi->delete_user: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+    user_id = 1 # int | The user_id to delete.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete a user
+        api_instance.delete_user(user_id)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->delete_user: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The user_id to delete. | 
+ **user_id** | **int**| The user_id to delete. |
 
 ### Return type
 
@@ -110,8 +177,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -123,31 +201,59 @@ Retrieve a group
 Retrieves a single group using the specified group id. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-group_oid = 56 # int | The group id to retrieve.
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Retrieve a group
-    api_instance.get_group(group_oid)
-except ApiException as e:
-    print("Exception when calling UserApi->get_group: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+    group_oid = 1 # int | The group id to retrieve.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve a group
+        api_instance.get_group(group_oid)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->get_group: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_oid** | **int**| The group id to retrieve. | 
+ **group_oid** | **int**| The group id to retrieve. |
 
 ### Return type
 
@@ -159,8 +265,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -170,25 +287,54 @@ void (empty response body)
 Get groups
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.groups_response import GroupsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Get groups
-    api_response = api_instance.get_groups()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->get_groups: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get groups
+        api_response = api_instance.get_groups()
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->get_groups: %s\n" % e)
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -203,8 +349,20 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -216,32 +374,61 @@ Retrieve a user
 Retrieves a single user using the specified user id. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.user_response import UserResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-user_id = 56 # int | The user id to retrieve.
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Retrieve a user
-    api_response = api_instance.get_user(user_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->get_user: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+    user_id = 1 # int | The user id to retrieve.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve a user
+        api_response = api_instance.get_user(user_id)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->get_user: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The user id to retrieve. | 
+ **user_id** | **int**| The user id to retrieve. |
 
 ### Return type
 
@@ -253,8 +440,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -266,32 +465,61 @@ Retrieve a user's login history
 Retrieves logins for a single user using the specified user id. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.user_logins_response import UserLoginsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-user_id = 56 # int | The user id to retrieve.
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Retrieve a user's login history
-    api_response = api_instance.get_user_logins(user_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->get_user_logins: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+    user_id = 1 # int | The user id to retrieve.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve a user's login history
+        api_response = api_instance.get_user_logins(user_id)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->get_user_logins: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The user id to retrieve. | 
+ **user_id** | **int**| The user id to retrieve. |
 
 ### Return type
 
@@ -303,8 +531,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -314,25 +554,54 @@ Name | Type | Description  | Notes
 Get users
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.users_response import UsersResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Get users
-    api_response = api_instance.get_users()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->get_users: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get users
+        api_response = api_instance.get_users()
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->get_users: %s\n" % e)
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -347,8 +616,20 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -360,32 +641,98 @@ Insert a group
 Insert a group on the UltraCart account. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.group import Group
+from ultracart.model.group_response import GroupResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-group = ultracart.Group() # Group | Group to insert
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Insert a group
-    api_response = api_instance.insert_group(group)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->insert_group: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+    group = Group(
+        group_oid=1,
+        name="name_example",
+        notifications=[
+            Notification(
+                can_filter_by_distribution_centers=True,
+                can_include_affiliate=True,
+                can_include_order=True,
+                can_include_order_plain_text=True,
+                distribution_center_filters=[
+                    "distribution_center_filters_example",
+                ],
+                include_affiliate=True,
+                include_order=True,
+                include_order_plain_text=True,
+                name="name_example",
+                notification_group="notification_group_example",
+                selected=True,
+            ),
+        ],
+        permissions=[
+            Permission(
+                permission_group="permission_group_example",
+                permission_name="permission_name_example",
+                selected=True,
+            ),
+        ],
+        users=[
+            GroupUserMembership(
+                email="email_example",
+                full_name="full_name_example",
+                login="login_example",
+                member=True,
+                user_id=1,
+            ),
+        ],
+    ) # Group | Group to insert
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert a group
+        api_response = api_instance.insert_group(group)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->insert_group: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group** | [**Group**](Group.md)| Group to insert | 
+ **group** | [**Group**](Group.md)| Group to insert |
 
 ### Return type
 
@@ -399,6 +746,18 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -410,32 +769,120 @@ Insert a user
 Insert a user on the UltraCart account. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.user import User
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.user_response import UserResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-user = ultracart.User() # User | User to insert
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Insert a user
-    api_response = api_instance.insert_user(user)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->insert_user: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+    user = User(
+        api_ip_address_masks=[
+            "api_ip_address_masks_example",
+        ],
+        change_ftp_password_to="change_ftp_password_to_example",
+        change_password_to="change_password_to_example",
+        email="email_example",
+        full_name="full_name_example",
+        groups=[
+            UserGroupMembership(
+                group_oid=1,
+                member=True,
+                name="name_example",
+            ),
+        ],
+        linked_accounts=[
+            LinkedAccount(
+                company="company_example",
+                merchant_id="merchant_id_example",
+                selected=True,
+            ),
+        ],
+        login="login_example",
+        login_histories=[
+            UserLogin(
+                ip_address="ip_address_example",
+                login="login_example",
+                login_dts="login_dts_example",
+                user_agent="user_agent_example",
+            ),
+        ],
+        notifications=[
+            Notification(
+                can_filter_by_distribution_centers=True,
+                can_include_affiliate=True,
+                can_include_order=True,
+                can_include_order_plain_text=True,
+                distribution_center_filters=[
+                    "distribution_center_filters_example",
+                ],
+                include_affiliate=True,
+                include_order=True,
+                include_order_plain_text=True,
+                name="name_example",
+                notification_group="notification_group_example",
+                selected=True,
+            ),
+        ],
+        otp_serial_number="otp_serial_number_example",
+        permissions=[
+            Permission(
+                permission_group="permission_group_example",
+                permission_name="permission_name_example",
+                selected=True,
+            ),
+        ],
+        phone="phone_example",
+        user_id=1,
+    ) # User | User to insert
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert a user
+        api_response = api_instance.insert_user(user)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->insert_user: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)| User to insert | 
+ **user** | [**User**](User.md)| User to insert |
 
 ### Return type
 
@@ -450,44 +897,122 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_group**
-> GroupResponse update_group(group, group_oid)
+> GroupResponse update_group(group_oid, group)
 
 Update a group
 
 Update a group on the UltraCart account. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.group import Group
+from ultracart.model.group_response import GroupResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-group = ultracart.Group() # Group | Group to update
-group_oid = 56 # int | The group_oid to update.
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Update a group
-    api_response = api_instance.update_group(group, group_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->update_group: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+    group_oid = 1 # int | The group_oid to update.
+    group = Group(
+        group_oid=1,
+        name="name_example",
+        notifications=[
+            Notification(
+                can_filter_by_distribution_centers=True,
+                can_include_affiliate=True,
+                can_include_order=True,
+                can_include_order_plain_text=True,
+                distribution_center_filters=[
+                    "distribution_center_filters_example",
+                ],
+                include_affiliate=True,
+                include_order=True,
+                include_order_plain_text=True,
+                name="name_example",
+                notification_group="notification_group_example",
+                selected=True,
+            ),
+        ],
+        permissions=[
+            Permission(
+                permission_group="permission_group_example",
+                permission_name="permission_name_example",
+                selected=True,
+            ),
+        ],
+        users=[
+            GroupUserMembership(
+                email="email_example",
+                full_name="full_name_example",
+                login="login_example",
+                member=True,
+                user_id=1,
+            ),
+        ],
+    ) # Group | Group to update
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update a group
+        api_response = api_instance.update_group(group_oid, group)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->update_group: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group** | [**Group**](Group.md)| Group to update | 
- **group_oid** | **int**| The group_oid to update. | 
+ **group_oid** | **int**| The group_oid to update. |
+ **group** | [**Group**](Group.md)| Group to update |
 
 ### Return type
 
@@ -502,44 +1027,144 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user**
-> UserResponse update_user(user, user_id)
+> UserResponse update_user(user_id, user)
 
 Update a user
 
 Update a user on the UltraCart account. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import user_api
+from ultracart.model.user import User
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.user_response import UserResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.UserApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-user = ultracart.User() # User | User to update
-user_id = 56 # int | The user_id to update.
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Update a user
-    api_response = api_instance.update_user(user, user_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->update_user: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+    user_id = 1 # int | The user_id to update.
+    user = User(
+        api_ip_address_masks=[
+            "api_ip_address_masks_example",
+        ],
+        change_ftp_password_to="change_ftp_password_to_example",
+        change_password_to="change_password_to_example",
+        email="email_example",
+        full_name="full_name_example",
+        groups=[
+            UserGroupMembership(
+                group_oid=1,
+                member=True,
+                name="name_example",
+            ),
+        ],
+        linked_accounts=[
+            LinkedAccount(
+                company="company_example",
+                merchant_id="merchant_id_example",
+                selected=True,
+            ),
+        ],
+        login="login_example",
+        login_histories=[
+            UserLogin(
+                ip_address="ip_address_example",
+                login="login_example",
+                login_dts="login_dts_example",
+                user_agent="user_agent_example",
+            ),
+        ],
+        notifications=[
+            Notification(
+                can_filter_by_distribution_centers=True,
+                can_include_affiliate=True,
+                can_include_order=True,
+                can_include_order_plain_text=True,
+                distribution_center_filters=[
+                    "distribution_center_filters_example",
+                ],
+                include_affiliate=True,
+                include_order=True,
+                include_order_plain_text=True,
+                name="name_example",
+                notification_group="notification_group_example",
+                selected=True,
+            ),
+        ],
+        otp_serial_number="otp_serial_number_example",
+        permissions=[
+            Permission(
+                permission_group="permission_group_example",
+                permission_name="permission_name_example",
+                selected=True,
+            ),
+        ],
+        phone="phone_example",
+        user_id=1,
+    ) # User | User to update
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update a user
+        api_response = api_instance.update_user(user_id, user)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling UserApi->update_user: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)| User to update | 
- **user_id** | **int**| The user_id to update. | 
+ **user_id** | **int**| The user_id to update. |
+ **user** | [**User**](User.md)| User to update |
 
 ### Return type
 
@@ -553,6 +1178,18 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # OrderAffiliateLedger
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 **transaction_memo** | **str** | Details of the transaction suitable for display to the affiliate | [optional] 
 **transaction_percentage** | **float** | The percentage earned on the transaction | [optional] 
 **transaction_state** | **str** | The state of the transaction | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

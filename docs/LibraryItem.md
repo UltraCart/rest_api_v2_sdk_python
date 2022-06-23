@@ -1,15 +1,16 @@
 # LibraryItem
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assets** | [**list[LibraryItemAsset]**](LibraryItemAsset.md) |  | [optional] 
-**attributes** | [**list[LibraryItemAttribute]**](LibraryItemAttribute.md) |  | [optional] 
-**categories** | **list[str]** |  | [optional] 
+**assets** | [**[LibraryItemAsset]**](LibraryItemAsset.md) |  | [optional] 
+**attributes** | [**[LibraryItemAttribute]**](LibraryItemAttribute.md) |  | [optional] 
+**categories** | **[str]** |  | [optional] 
 **content** | **str** |  | [optional] 
 **content_type** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**industries** | **list[str]** |  | [optional] 
+**industries** | **[str]** |  | [optional] 
 **library_item_oid** | **int** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **my_purchased_version** | **int** | If this is a public item and the merchant has already purchased it, this is their version.  If not yet purchased, this will be zero.  This value will only be populated during a searchPublicItems() call. | [optional] 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 **price** | **float** | The price of the published item.  Null for any private library items. | [optional] 
 **price_formatted** | **str** | The formatted price of the published item.  Null for any private library items. | [optional] 
 **published** | **bool** | True if this library item is a published item (not source) | [optional] 
-**published_dts** | **object** | The timestamp of the last published version | [optional] 
+**published_dts** | **bool, date, datetime, dict, float, int, list, str, none_type** | The timestamp of the last published version | [optional] 
 **published_from_library_item_oid** | **int** | The source item used to publish this item.  This allows for comparisons between source and published | [optional] 
 **published_meta** | [**LibraryItemPublishedMeta**](LibraryItemPublishedMeta.md) |  | [optional] 
 **published_version** | **int** | The source version when this item was published.  This allows for out-of-date alerts to be shown when there is a difference between source and published | [optional] 
@@ -30,10 +31,10 @@ Name | Type | Description | Notes
 **release_notes** | **str** | Release notes specific to each published version and only appearing on public items. | [optional] 
 **release_version** | **int** | This counter records how many times a library item has been published.  This is used to show version history. | [optional] 
 **reviewed** | **bool** | Any published library items must be reviewed by UltraCart staff for malicious content.  This flag shows the status of that review.  This is always false for non-published items | [optional] 
-**reviewed_dts** | **object** | This is the timestamp for a published items formal review by UltraCart staff for malicious content. | [optional] 
-**screenshots** | [**list[LibraryItemScreenshot]**](LibraryItemScreenshot.md) |  | [optional] 
-**share_with_accounts** | [**list[LibraryItemAccount]**](LibraryItemAccount.md) |  | [optional] 
-**share_with_other_emails** | [**list[LibraryItemEmail]**](LibraryItemEmail.md) |  | [optional] 
+**reviewed_dts** | **bool, date, datetime, dict, float, int, list, str, none_type** | This is the timestamp for a published items formal review by UltraCart staff for malicious content. | [optional] 
+**screenshots** | [**[LibraryItemScreenshot]**](LibraryItemScreenshot.md) |  | [optional] 
+**share_with_accounts** | [**[LibraryItemAccount]**](LibraryItemAccount.md) |  | [optional] 
+**share_with_other_emails** | [**[LibraryItemEmail]**](LibraryItemEmail.md) |  | [optional] 
 **shared** | **bool** | True if this item is shared from another merchant account | [optional] 
 **source** | **bool** | True if this library item has been published | [optional] 
 **source_to_library_item_oid** | **int** | This oid points to the published library item, if there is one. | [optional] 
@@ -43,6 +44,7 @@ Name | Type | Description | Notes
 **title** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
 **under_review** | **bool** | True if this library item was published but is awaiting review from UltraCart staff. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

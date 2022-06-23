@@ -1,5 +1,6 @@
 # LibraryItemPublishedMeta
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -11,6 +12,7 @@ Name | Type | Description | Notes
 **release_version** | **int** | If this library item is a source item and it is published, this is the most recent release version number | [optional] 
 **review_version** | **int** | If this library item is a source item and has a published item currently under review, this is that version number | [optional] 
 **under_review** | **bool** | True if this library item is a source item and is currently under review | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

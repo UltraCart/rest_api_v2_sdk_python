@@ -1,5 +1,6 @@
 # EmailStat
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -34,13 +35,14 @@ Name | Type | Description | Notes
 **status** | **str** | Status of campaign or flow | [optional] 
 **status_dts** | **str** | Status dts of campaign or flow | [optional] 
 **step_uuid** | **str** | Step UUID if the statistics are at the step/email level | [optional] 
-**steps** | [**list[EmailStat]**](EmailStat.md) |  | [optional] 
+**steps** | [**[EmailStat]**](EmailStat.md) |  | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
 **unsubscribe_count** | **int** | Count of emails classified as unsubscribe | [optional] 
 **unsubscribe_count_formatted** | **str** | Count of emails classified as unsubscribe, formatted | [optional] 
 **uuid** | **str** | List/Segment uuid, or Flow/Campaign uuid depending on level of stat aggregation. | [optional] 
 **view_count** | **int** | Count of views | [optional] 
 **view_count_formatted** | **str** | Count of views, formatted | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

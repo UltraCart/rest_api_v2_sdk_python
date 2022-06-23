@@ -1,5 +1,6 @@
 # ExperimentVariation
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -9,7 +10,7 @@ Name | Type | Description | Notes
 **average_order_value** | **float** | Average order value for this variation | [optional] 
 **bounce_count** | **int** | Total bounce count for this variation | [optional] 
 **conversion_rate** | **float** | Conversion rate for this variation | [optional] 
-**daily_statistics** | [**list[ExperimentVariationStat]**](ExperimentVariationStat.md) | Array of daily statistics for this variation | [optional] 
+**daily_statistics** | [**[ExperimentVariationStat]**](ExperimentVariationStat.md) | Array of daily statistics for this variation | [optional] 
 **duration_seconds_sum** | **int** | Total number of seconds spent on the site for this variation | [optional] 
 **event_count** | **int** | Total event ocunt for this variation | [optional] 
 **initiate_checkout_count** | **int** | Total initiate checkout count for this variation | [optional] 
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **variation_name** | **str** | Name of the variation | [optional] 
 **variation_number** | **int** | Variation number | [optional] 
 **winner** | **bool** | True if this variation has been declared the winner | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

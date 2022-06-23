@@ -1,5 +1,6 @@
 # Item
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -7,7 +8,7 @@ Name | Type | Description | Notes
 **amember** | [**ItemAmember**](ItemAmember.md) |  | [optional] 
 **auto_order** | [**ItemAutoOrder**](ItemAutoOrder.md) |  | [optional] 
 **ccbill** | [**ItemCCBill**](ItemCCBill.md) |  | [optional] 
-**channel_partner_item_mappings** | [**list[ItemChannelPartnerMapping]**](ItemChannelPartnerMapping.md) | Channel Partner Item Mapping | [optional] 
+**channel_partner_item_mappings** | [**[ItemChannelPartnerMapping]**](ItemChannelPartnerMapping.md) | Channel Partner Item Mapping | [optional] 
 **chargeback** | [**ItemChargeback**](ItemChargeback.md) |  | [optional] 
 **checkout** | [**ItemCheckout**](ItemCheckout.md) |  | [optional] 
 **content** | [**ItemContent**](ItemContent.md) |  | [optional] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 **ebay** | [**ItemEbay**](ItemEbay.md) |  | [optional] 
 **email_notifications** | [**ItemEmailNotifications**](ItemEmailNotifications.md) |  | [optional] 
 **enrollment123** | [**ItemEnrollment123**](ItemEnrollment123.md) |  | [optional] 
-**fulfillment_addons** | [**list[ItemFulfillmentAddon]**](ItemFulfillmentAddon.md) | Fulfillment Add-ons | [optional] 
+**fulfillment_addons** | [**[ItemFulfillmentAddon]**](ItemFulfillmentAddon.md) | Fulfillment Add-ons | [optional] 
 **gift_certificate** | [**ItemGiftCertificate**](ItemGiftCertificate.md) |  | [optional] 
 **google_product_search** | [**ItemGoogleProductSearch**](ItemGoogleProductSearch.md) |  | [optional] 
 **identifiers** | [**ItemIdentifiers**](ItemIdentifiers.md) |  | [optional] 
@@ -32,13 +33,13 @@ Name | Type | Description | Notes
 **merchant_id** | **str** | UltraCart merchant ID owning item | [optional] 
 **merchant_item_id** | **str** | Unique item id assigned to this item | [optional] 
 **merchant_item_oid** | **int** | Unique object identifier for this item | [optional] 
-**options** | [**list[ItemOption]**](ItemOption.md) | Options | [optional] 
+**options** | [**[ItemOption]**](ItemOption.md) | Options | [optional] 
 **parent_category_id** | **int** | Parent category of the item.  Zero indicates the root folder. | [optional] 
 **parent_category_path** | **str** | Parent category path.  / indicates the root folder. | [optional] 
 **payment_processing** | [**ItemPaymentProcessing**](ItemPaymentProcessing.md) |  | [optional] 
 **physical** | [**ItemPhysical**](ItemPhysical.md) |  | [optional] 
 **pricing** | [**ItemPricing**](ItemPricing.md) |  | [optional] 
-**properties** | [**list[ItemProperty]**](ItemProperty.md) | Properties | [optional] 
+**properties** | [**[ItemProperty]**](ItemProperty.md) | Properties | [optional] 
 **realtime_pricing** | [**ItemRealtimePricing**](ItemRealtimePricing.md) |  | [optional] 
 **recommend_replenishment_days** | **int** | Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable. | [optional] 
 **related** | [**ItemRelated**](ItemRelated.md) |  | [optional] 
@@ -50,10 +51,11 @@ Name | Type | Description | Notes
 **shipping** | [**ItemShipping**](ItemShipping.md) |  | [optional] 
 **tags** | [**ItemTags**](ItemTags.md) |  | [optional] 
 **tax** | [**ItemTax**](ItemTax.md) |  | [optional] 
-**third_party_email_marketing** | [**list[ItemThirdPartyEmailMarketing]**](ItemThirdPartyEmailMarketing.md) | 3rd Party Email Marketing | [optional] 
-**variant_items** | [**list[ItemVariantItem]**](ItemVariantItem.md) | Variant Items | [optional] 
-**variations** | [**list[ItemVariation]**](ItemVariation.md) | Variations | [optional] 
+**third_party_email_marketing** | [**[ItemThirdPartyEmailMarketing]**](ItemThirdPartyEmailMarketing.md) | 3rd Party Email Marketing | [optional] 
+**variant_items** | [**[ItemVariantItem]**](ItemVariantItem.md) | Variant Items | [optional] 
+**variations** | [**[ItemVariation]**](ItemVariation.md) | Variations | [optional] 
 **wishlist_member** | [**ItemWishlistMember**](ItemWishlistMember.md) |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

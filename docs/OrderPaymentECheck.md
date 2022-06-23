@@ -1,5 +1,6 @@
 # OrderPaymentECheck
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **drivers_license_dob** | **str** | Driver license date of birth | [optional] 
 **drivers_license_number** | **str** | Driver license number (masked to last 4) | [optional] 
 **drivers_license_state** | **str** | Driver license state | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

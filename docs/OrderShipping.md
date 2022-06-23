@@ -1,5 +1,6 @@
 # OrderShipping
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 **first_name** | **str** | First name | [optional] 
 **last_name** | **str** | Last name | [optional] 
 **least_cost_route** | **bool** | If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts. | [optional] 
-**least_cost_route_shipping_methods** | **list[str]** | List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts. | [optional] 
+**least_cost_route_shipping_methods** | **[str]** | List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts. | [optional] 
 **lift_gate** | **bool** | Lift gate requested (LTL shipping methods only) | [optional] 
 **postal_code** | **str** | Postal code | [optional] 
 **rma** | **str** | RMA number | [optional] 
@@ -30,9 +31,10 @@ Name | Type | Description | Notes
 **special_instructions** | **str** | Special instructions from the customer regarding shipping | [optional] 
 **state_region** | **str** | State | [optional] 
 **title** | **str** | Title | [optional] 
-**tracking_number_details** | [**list[OrderTrackingNumberDetails]**](OrderTrackingNumberDetails.md) | Tracking number details | [optional] 
-**tracking_numbers** | **list[str]** | Tracking numbers | [optional] 
+**tracking_number_details** | [**[OrderTrackingNumberDetails]**](OrderTrackingNumberDetails.md) | Tracking number details | [optional] 
+**tracking_numbers** | **[str]** | Tracking numbers | [optional] 
 **weight** | [**Weight**](Weight.md) |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # GiftCertificateQuery
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 **reference_order_id** | **str** | Gift certificate reference order id | [optional] 
 **remaining_balance_end** | **float** | Remaining balance end | [optional] 
 **remaining_balance_start** | **float** | Remaining balance start | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

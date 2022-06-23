@@ -1,5 +1,6 @@
 # AffiliateClickQuery
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -9,6 +10,7 @@ Name | Type | Description | Notes
 **click_dts_end** | **str** | Maximum click date/time to return | [optional] 
 **ip_address** | **str** | IP address that generated the click | [optional] 
 **sub_id** | **str** | Sub ID value passed on the click | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

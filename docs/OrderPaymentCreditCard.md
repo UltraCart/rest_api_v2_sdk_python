@@ -1,5 +1,6 @@
 # OrderPaymentCreditCard
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **card_number_truncated** | **bool** | True if the card has been truncated | [optional] 
 **card_type** | **str** | Card type | [optional] 
 **card_verification_number_token** | **str** | Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

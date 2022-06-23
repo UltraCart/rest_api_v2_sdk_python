@@ -1,5 +1,6 @@
 # WebhookEventSubscription
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 **subscribed** | **bool** | True if this is event is subscribed to | [optional] 
 **supports_reflow** | **bool** | True if the event can be triggered to reflow existing records | [optional] 
 **webhook_event_oid** | **int** | The webhook event object identifier | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

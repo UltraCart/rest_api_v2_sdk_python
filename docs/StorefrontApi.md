@@ -174,32 +174,91 @@ Method | HTTP request | Description
 Add to library
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.library_item_response import LibraryItemResponse
+from ultracart.model.add_library_item_request import AddLibraryItemRequest
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-add_library_request = ultracart.AddLibraryItemRequest() # AddLibraryItemRequest | New library item request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Add to library
-    api_response = api_instance.add_to_library(add_library_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->add_to_library: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    add_library_request = AddLibraryItemRequest(
+        attributes=[
+            LibraryItemAttribute(
+                name="name_example",
+                value="value_example",
+            ),
+        ],
+        cjson="cjson_example",
+        content_type="content_type_example",
+        description="description_example",
+        email_name="email_name_example",
+        email_path="email_path_example",
+        screenshots=[
+            LibraryItemScreenshot(
+                default_url=True,
+                screenshot_url="screenshot_url_example",
+            ),
+        ],
+        storefront_oid=1,
+        title="title_example",
+        upsell_offer_oid=1,
+        uuid="uuid_example",
+    ) # AddLibraryItemRequest | New library item request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Add to library
+        api_response = api_instance.add_to_library(add_library_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->add_to_library: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **add_library_request** | [**AddLibraryItemRequest**](AddLibraryItemRequest.md)| New library item request | 
+ **add_library_request** | [**AddLibraryItemRequest**](AddLibraryItemRequest.md)| New library item request |
 
 ### Return type
 
@@ -214,6 +273,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apply_to_store_front**
@@ -222,32 +293,74 @@ Name | Type | Description  | Notes
 Apply library item to storefront.
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.apply_library_item_request import ApplyLibraryItemRequest
+from ultracart.model.apply_library_item_response import ApplyLibraryItemResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-apply_library_request = ultracart.ApplyLibraryItemRequest() # ApplyLibraryItemRequest | New library item
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Apply library item to storefront.
-    api_response = api_instance.apply_to_store_front(apply_library_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->apply_to_store_front: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    apply_library_request = ApplyLibraryItemRequest(
+        email_uuid="email_uuid_example",
+        library_item_oid=1,
+        postcard_uuid="postcard_uuid_example",
+        storefront_oid=1,
+    ) # ApplyLibraryItemRequest | New library item
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Apply library item to storefront.
+        api_response = api_instance.apply_to_store_front(apply_library_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->apply_to_store_front: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apply_library_request** | [**ApplyLibraryItemRequest**](ApplyLibraryItemRequest.md)| New library item | 
+ **apply_library_request** | [**ApplyLibraryItemRequest**](ApplyLibraryItemRequest.md)| New library item |
 
 ### Return type
 
@@ -262,6 +375,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **archive_email_list**
@@ -270,34 +395,70 @@ Name | Type | Description  | Notes
 Archive email list
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_list_archive_response import EmailListArchiveResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_uuid = 'email_list_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Archive email list
-    api_response = api_instance.archive_email_list(storefront_oid, email_list_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->archive_email_list: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_uuid = "email_list_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Archive email list
+        api_response = api_instance.archive_email_list(storefront_oid, email_list_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->archive_email_list: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_list_uuid** | **str**|  |
 
 ### Return type
 
@@ -309,8 +470,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -320,34 +493,70 @@ Name | Type | Description  | Notes
 Archive email segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_segment_archive_response import EmailSegmentArchiveResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_segment_uuid = 'email_segment_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Archive email segment
-    api_response = api_instance.archive_email_segment(storefront_oid, email_segment_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->archive_email_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_segment_uuid = "email_segment_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Archive email segment
+        api_response = api_instance.archive_email_segment(storefront_oid, email_segment_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->archive_email_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_segment_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_segment_uuid** | **str**|  |
 
 ### Return type
 
@@ -359,8 +568,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -370,36 +591,76 @@ Name | Type | Description  | Notes
 Back populate email flow
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flow_back_populate_response import EmailFlowBackPopulateResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_flow_back_populate_request import EmailFlowBackPopulateRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow_uuid = 'email_flow_uuid_example' # str | 
-back_populate_request = ultracart.EmailFlowBackPopulateRequest() # EmailFlowBackPopulateRequest | The request to back populate
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Back populate email flow
-    api_response = api_instance.back_populate_email_flow(storefront_oid, email_flow_uuid, back_populate_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->back_populate_email_flow: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow_uuid = "email_flow_uuid_example" # str | 
+    back_populate_request = EmailFlowBackPopulateRequest(
+        order_days_old=1,
+        relative_to_event=True,
+    ) # EmailFlowBackPopulateRequest | The request to back populate
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Back populate email flow
+        api_response = api_instance.back_populate_email_flow(storefront_oid, email_flow_uuid, back_populate_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->back_populate_email_flow: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow_uuid** | **str**|  | 
- **back_populate_request** | [**EmailFlowBackPopulateRequest**](EmailFlowBackPopulateRequest.md)| The request to back populate | 
+ **storefront_oid** | **int**|  |
+ **email_flow_uuid** | **str**|  |
+ **back_populate_request** | [**EmailFlowBackPopulateRequest**](EmailFlowBackPopulateRequest.md)| The request to back populate |
 
 ### Return type
 
@@ -414,6 +675,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **check_download_email_segment**
@@ -422,36 +695,72 @@ Name | Type | Description  | Notes
 Check download of email segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_segment_download_prepare_response import EmailSegmentDownloadPrepareResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_segment_uuid = 'email_segment_uuid_example' # str | 
-email_segment_rebuild_uuid = 'email_segment_rebuild_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Check download of email segment
-    api_response = api_instance.check_download_email_segment(storefront_oid, email_segment_uuid, email_segment_rebuild_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->check_download_email_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_segment_uuid = "email_segment_uuid_example" # str | 
+    email_segment_rebuild_uuid = "email_segment_rebuild_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Check download of email segment
+        api_response = api_instance.check_download_email_segment(storefront_oid, email_segment_uuid, email_segment_rebuild_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->check_download_email_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_segment_uuid** | **str**|  | 
- **email_segment_rebuild_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_segment_uuid** | **str**|  |
+ **email_segment_rebuild_uuid** | **str**|  |
 
 ### Return type
 
@@ -463,47 +772,104 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clone_email_campaign**
-> EmailCampaignResponse clone_email_campaign(storefront_oid, email_campaign_uuid, target_storefront_oid=target_storefront_oid)
+> EmailCampaignResponse clone_email_campaign(storefront_oid, email_campaign_uuid)
 
 Clone email campaign
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_campaign_response import EmailCampaignResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign_uuid = 'email_campaign_uuid_example' # str | 
-target_storefront_oid = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Clone email campaign
-    api_response = api_instance.clone_email_campaign(storefront_oid, email_campaign_uuid, target_storefront_oid=target_storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->clone_email_campaign: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign_uuid = "email_campaign_uuid_example" # str | 
+    target_storefront_oid = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Clone email campaign
+        api_response = api_instance.clone_email_campaign(storefront_oid, email_campaign_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->clone_email_campaign: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Clone email campaign
+        api_response = api_instance.clone_email_campaign(storefront_oid, email_campaign_uuid, target_storefront_oid=target_storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->clone_email_campaign: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign_uuid** | **str**|  | 
- **target_storefront_oid** | **int**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **email_campaign_uuid** | **str**|  |
+ **target_storefront_oid** | **int**|  | [optional]
 
 ### Return type
 
@@ -515,47 +881,104 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clone_email_flow**
-> EmailFlowResponse clone_email_flow(storefront_oid, email_flow_uuid, target_storefront_oid=target_storefront_oid)
+> EmailFlowResponse clone_email_flow(storefront_oid, email_flow_uuid)
 
 Clone email flow
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flow_response import EmailFlowResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow_uuid = 'email_flow_uuid_example' # str | 
-target_storefront_oid = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Clone email flow
-    api_response = api_instance.clone_email_flow(storefront_oid, email_flow_uuid, target_storefront_oid=target_storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->clone_email_flow: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow_uuid = "email_flow_uuid_example" # str | 
+    target_storefront_oid = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Clone email flow
+        api_response = api_instance.clone_email_flow(storefront_oid, email_flow_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->clone_email_flow: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Clone email flow
+        api_response = api_instance.clone_email_flow(storefront_oid, email_flow_uuid, target_storefront_oid=target_storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->clone_email_flow: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow_uuid** | **str**|  | 
- **target_storefront_oid** | **int**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **email_flow_uuid** | **str**|  |
+ **target_storefront_oid** | **int**|  | [optional]
 
 ### Return type
 
@@ -567,8 +990,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -578,32 +1013,68 @@ Name | Type | Description  | Notes
 Create email campaign
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-domain = 'domain_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Create email campaign
-    api_response = api_instance.create_email_sending_domain(domain)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->create_email_sending_domain: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    domain = "domain_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Create email campaign
+        api_response = api_instance.create_email_sending_domain(domain)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->create_email_sending_domain: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **str**|  | 
+ **domain** | **str**|  |
 
 ### Return type
 
@@ -615,8 +1086,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -626,32 +1109,99 @@ Name | Type | Description  | Notes
 Create email sending domain for various providers
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_domain import EmailDomain
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-email_domain = ultracart.EmailDomain() # EmailDomain | EmailDomain
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Create email sending domain for various providers
-    api_response = api_instance.create_email_sending_domain2(email_domain)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->create_email_sending_domain2: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    email_domain = EmailDomain(
+        comment="comment_example",
+        dkim=[
+            VerificationRecord(
+                name="name_example",
+                type="type_example",
+                value="value_example",
+            ),
+        ],
+        dkim_status="dkim_status_example",
+        domain="domain_example",
+        esp_domain_uuid="esp_domain_uuid_example",
+        identity_status="identity_status_example",
+        mailgun=Mailgun(
+            api_key="api_key_example",
+        ),
+        merchant_id="merchant_id_example",
+        provider="provider_example",
+        spf=VerificationRecord(
+            name="name_example",
+            type="type_example",
+            value="value_example",
+        ),
+        start_dkim_dts="start_dkim_dts_example",
+        start_identity_dts="start_identity_dts_example",
+        verification=VerificationRecord(
+            name="name_example",
+            type="type_example",
+            value="value_example",
+        ),
+    ) # EmailDomain | EmailDomain
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Create email sending domain for various providers
+        api_response = api_instance.create_email_sending_domain2(email_domain)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->create_email_sending_domain2: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email_domain** | [**EmailDomain**](EmailDomain.md)| EmailDomain | 
+ **email_domain** | [**EmailDomain**](EmailDomain.md)| EmailDomain |
 
 ### Return type
 
@@ -666,6 +1216,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_twilio_account**
@@ -674,32 +1236,76 @@ Name | Type | Description  | Notes
 Create Twilio account
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.twilio_response import TwilioResponse
+from ultracart.model.twilio import Twilio
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-twilio = ultracart.Twilio() # Twilio | Twilio
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Create Twilio account
-    api_response = api_instance.create_twilio_account(twilio)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->create_twilio_account: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    twilio = Twilio(
+        account_sid="account_sid_example",
+        auth_token="auth_token_example",
+        esp_twilio_uuid="esp_twilio_uuid_example",
+        phone_numbers=[
+            "phone_numbers_example",
+        ],
+    ) # Twilio | Twilio
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Create Twilio account
+        api_response = api_instance.create_twilio_account(twilio)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->create_twilio_account: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **twilio** | [**Twilio**](Twilio.md)| Twilio | 
+ **twilio** | [**Twilio**](Twilio.md)| Twilio |
 
 ### Return type
 
@@ -714,6 +1320,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_email_campaign_folder**
@@ -722,34 +1340,70 @@ Name | Type | Description  | Notes
 Delete email campaignFolder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.base_response import BaseResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign_folder_uuid = 'email_campaign_folder_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete email campaignFolder
-    api_response = api_instance.delete_email_campaign_folder(storefront_oid, email_campaign_folder_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_email_campaign_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign_folder_uuid = "email_campaign_folder_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete email campaignFolder
+        api_response = api_instance.delete_email_campaign_folder(storefront_oid, email_campaign_folder_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_email_campaign_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign_folder_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_campaign_folder_uuid** | **str**|  |
 
 ### Return type
 
@@ -761,8 +1415,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -772,33 +1438,68 @@ Name | Type | Description  | Notes
 Delete communication sequence stats
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete communication sequence stats
-    api_instance.delete_email_commseq_stat(storefront_oid, commseq_uuid)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_email_commseq_stat: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete communication sequence stats
+        api_instance.delete_email_commseq_stat(storefront_oid, commseq_uuid)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_email_commseq_stat: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
 
 ### Return type
 
@@ -810,8 +1511,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -821,34 +1533,70 @@ void (empty response body)
 Delete email email
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.base_response import BaseResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_email_uuid = 'commseq_email_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete email email
-    api_response = api_instance.delete_email_email(storefront_oid, commseq_email_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_email_email: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_email_uuid = "commseq_email_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete email email
+        api_response = api_instance.delete_email_email(storefront_oid, commseq_email_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_email_email: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_email_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_email_uuid** | **str**|  |
 
 ### Return type
 
@@ -860,8 +1608,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -871,34 +1631,70 @@ Name | Type | Description  | Notes
 Delete email flowFolder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.base_response import BaseResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow_folder_uuid = 'email_flow_folder_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete email flowFolder
-    api_response = api_instance.delete_email_flow_folder(storefront_oid, email_flow_folder_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_email_flow_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow_folder_uuid = "email_flow_folder_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete email flowFolder
+        api_response = api_instance.delete_email_flow_folder(storefront_oid, email_flow_folder_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_email_flow_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow_folder_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_flow_folder_uuid** | **str**|  |
 
 ### Return type
 
@@ -910,8 +1706,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -921,36 +1729,72 @@ Name | Type | Description  | Notes
 Delete email list customer
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.base_response import BaseResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_uuid = 'email_list_uuid_example' # str | 
-email_customer_uuid = 'email_customer_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete email list customer
-    api_response = api_instance.delete_email_list_customer(storefront_oid, email_list_uuid, email_customer_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_email_list_customer: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_uuid = "email_list_uuid_example" # str | 
+    email_customer_uuid = "email_customer_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete email list customer
+        api_response = api_instance.delete_email_list_customer(storefront_oid, email_list_uuid, email_customer_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_email_list_customer: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_uuid** | **str**|  | 
- **email_customer_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_list_uuid** | **str**|  |
+ **email_customer_uuid** | **str**|  |
 
 ### Return type
 
@@ -962,8 +1806,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -973,34 +1829,70 @@ Name | Type | Description  | Notes
 Delete email ListSegmentFolder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.base_response import BaseResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_segment_folder_uuid = 'email_list_segment_folder_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete email ListSegmentFolder
-    api_response = api_instance.delete_email_list_segment_folder(storefront_oid, email_list_segment_folder_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_email_list_segment_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_segment_folder_uuid = "email_list_segment_folder_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete email ListSegmentFolder
+        api_response = api_instance.delete_email_list_segment_folder(storefront_oid, email_list_segment_folder_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_email_list_segment_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_segment_folder_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_list_segment_folder_uuid** | **str**|  |
 
 ### Return type
 
@@ -1012,8 +1904,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1023,34 +1927,70 @@ Name | Type | Description  | Notes
 Delete email postcard
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.base_response import BaseResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete email postcard
-    api_response = api_instance.delete_email_postcard(storefront_oid, commseq_postcard_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_email_postcard: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete email postcard
+        api_response = api_instance.delete_email_postcard(storefront_oid, commseq_postcard_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_email_postcard: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_postcard_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_postcard_uuid** | **str**|  |
 
 ### Return type
 
@@ -1062,8 +2002,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1073,32 +2025,68 @@ Name | Type | Description  | Notes
 delete email campaign
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.base_response import BaseResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-domain = 'domain_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # delete email campaign
-    api_response = api_instance.delete_email_sending_domain(domain)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_email_sending_domain: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    domain = "domain_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # delete email campaign
+        api_response = api_instance.delete_email_sending_domain(domain)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_email_sending_domain: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **str**|  | 
+ **domain** | **str**|  |
 
 ### Return type
 
@@ -1110,8 +2098,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1121,33 +2121,68 @@ Name | Type | Description  | Notes
 Delete experiment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-storefront_experiment_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete experiment
-    api_instance.delete_experiment(storefront_oid, storefront_experiment_oid)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_experiment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    storefront_experiment_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete experiment
+        api_instance.delete_experiment(storefront_oid, storefront_experiment_oid)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_experiment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **storefront_experiment_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
+ **storefront_experiment_oid** | **int**|  |
 
 ### Return type
 
@@ -1159,8 +2194,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1172,33 +2218,64 @@ Delete screen recording heatmap
 Delete screen recording heatmap 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_heatmap_reset import ScreenRecordingHeatmapReset
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-query = ultracart.ScreenRecordingHeatmapReset() # ScreenRecordingHeatmapReset | Query
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Delete screen recording heatmap
-    api_instance.delete_heatmap(storefront_oid, query)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_heatmap: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    query = ScreenRecordingHeatmapReset(
+        url="url_example",
+    ) # ScreenRecordingHeatmapReset | Query
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete screen recording heatmap
+        api_instance.delete_heatmap(storefront_oid, query)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_heatmap: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **query** | [**ScreenRecordingHeatmapReset**](ScreenRecordingHeatmapReset.md)| Query | 
+ **storefront_oid** | **int**|  |
+ **query** | [**ScreenRecordingHeatmapReset**](ScreenRecordingHeatmapReset.md)| Query |
 
 ### Return type
 
@@ -1213,6 +2290,17 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_library_item**
@@ -1221,31 +2309,66 @@ void (empty response body)
 Delete library item
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-library_item_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete library item
-    api_instance.delete_library_item(library_item_oid)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_library_item: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    library_item_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete library item
+        api_instance.delete_library_item(library_item_oid)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_library_item: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**|  | 
+ **library_item_oid** | **int**|  |
 
 ### Return type
 
@@ -1257,8 +2380,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1268,31 +2402,66 @@ void (empty response body)
 Delete all published versions for a library item, including anything in review.
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-library_item_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete all published versions for a library item, including anything in review.
-    api_instance.delete_library_item_published_versions(library_item_oid)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_library_item_published_versions: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    library_item_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete all published versions for a library item, including anything in review.
+        api_instance.delete_library_item_published_versions(library_item_oid)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_library_item_published_versions: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**|  | 
+ **library_item_oid** | **int**|  |
 
 ### Return type
 
@@ -1304,8 +2473,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1315,33 +2495,68 @@ void (empty response body)
 Delete screen recording segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_segment_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Delete screen recording segment
-    api_instance.delete_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_screen_recording_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_segment_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete screen recording segment
+        api_instance.delete_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_screen_recording_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_segment_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
+ **screen_recording_segment_oid** | **int**|  |
 
 ### Return type
 
@@ -1353,8 +2568,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1364,32 +2590,68 @@ void (empty response body)
 delete Twilio account
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.base_response import BaseResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-esp_twilio_uuid = 'esp_twilio_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # delete Twilio account
-    api_response = api_instance.delete_twilio_account(esp_twilio_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->delete_twilio_account: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    esp_twilio_uuid = "esp_twilio_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # delete Twilio account
+        api_response = api_instance.delete_twilio_account(esp_twilio_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->delete_twilio_account: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **esp_twilio_uuid** | **str**|  | 
+ **esp_twilio_uuid** | **str**|  |
 
 ### Return type
 
@@ -1401,8 +2663,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1412,32 +2686,68 @@ Name | Type | Description  | Notes
 Duplicate library item.
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.library_item_response import LibraryItemResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-library_item_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Duplicate library item.
-    api_response = api_instance.duplicate_library_item(library_item_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->duplicate_library_item: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    library_item_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Duplicate library item.
+        api_response = api_instance.duplicate_library_item(library_item_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->duplicate_library_item: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**|  | 
+ **library_item_oid** | **int**|  |
 
 ### Return type
 
@@ -1449,8 +2759,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1462,33 +2784,61 @@ Update favorite flag on screen recording
 Update favorite flag on screen recording 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_uuid = 'screen_recording_uuid_example' # str | 
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Update favorite flag on screen recording
-    api_instance.favorite_screen_recording(storefront_oid, screen_recording_uuid)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->favorite_screen_recording: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_uuid = "screen_recording_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update favorite flag on screen recording
+        api_instance.favorite_screen_recording(storefront_oid, screen_recording_uuid)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->favorite_screen_recording: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **screen_recording_uuid** | **str**|  |
 
 ### Return type
 
@@ -1500,8 +2850,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1511,34 +2872,77 @@ void (empty response body)
 Obtain lat/long for an address
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.geocode_response import GeocodeResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.geocode_request import GeocodeRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-geocode_request = ultracart.GeocodeRequest() # GeocodeRequest | geocode request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Obtain lat/long for an address
-    api_response = api_instance.geocode_address(storefront_oid, geocode_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->geocode_address: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    geocode_request = GeocodeRequest(
+        address="address_example",
+        city="city_example",
+        country_code="country_code_example",
+        postal_code="postal_code_example",
+        state="state_example",
+    ) # GeocodeRequest | geocode request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Obtain lat/long for an address
+        api_response = api_instance.geocode_address(storefront_oid, geocode_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->geocode_address: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **geocode_request** | [**GeocodeRequest**](GeocodeRequest.md)| geocode request | 
+ **storefront_oid** | **int**|  |
+ **geocode_request** | [**GeocodeRequest**](GeocodeRequest.md)| geocode request |
 
 ### Return type
 
@@ -1553,6 +2957,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_countries**
@@ -1563,32 +2979,68 @@ Get countries
 Obtain a list of all the countries 
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.countries_response import CountriesResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get countries
-    api_response = api_instance.get_countries(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_countries: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get countries
+        api_response = api_instance.get_countries(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_countries: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -1600,8 +3052,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1613,32 +3077,68 @@ Gets editor token
 Fetches a temporary authentication token for the editor 
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_editor_token_response import EmailEditorTokenResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Gets editor token
-    api_response = api_instance.get_editor_token(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_editor_token: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Gets editor token
+        api_response = api_instance.get_editor_token(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_editor_token: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -1650,8 +3150,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1661,32 +3173,68 @@ Name | Type | Description  | Notes
 Get email communication base templates
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_base_template_list_response import EmailBaseTemplateListResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email communication base templates
-    api_response = api_instance.get_email_base_templates(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_base_templates: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email communication base templates
+        api_response = api_instance.get_email_base_templates(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_base_templates: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -1698,8 +3246,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1709,34 +3269,70 @@ Name | Type | Description  | Notes
 Get email campaign
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_campaign_response import EmailCampaignResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign_uuid = 'email_campaign_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email campaign
-    api_response = api_instance.get_email_campaign(storefront_oid, email_campaign_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_campaign: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign_uuid = "email_campaign_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email campaign
+        api_response = api_instance.get_email_campaign(storefront_oid, email_campaign_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_campaign: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_campaign_uuid** | **str**|  |
 
 ### Return type
 
@@ -1748,8 +3344,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1759,34 +3367,70 @@ Name | Type | Description  | Notes
 Get email campaign folder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_campaign_folder_response import EmailCampaignFolderResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign_folder_uuid = 'email_campaign_folder_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email campaign folder
-    api_response = api_instance.get_email_campaign_folder(storefront_oid, email_campaign_folder_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_campaign_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign_folder_uuid = "email_campaign_folder_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email campaign folder
+        api_response = api_instance.get_email_campaign_folder(storefront_oid, email_campaign_folder_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_campaign_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign_folder_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_campaign_folder_uuid** | **str**|  |
 
 ### Return type
 
@@ -1798,8 +3442,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1809,32 +3465,68 @@ Name | Type | Description  | Notes
 Get email campaign folders
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_campaign_folders_response import EmailCampaignFoldersResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email campaign folders
-    api_response = api_instance.get_email_campaign_folders(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_campaign_folders: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email campaign folders
+        api_response = api_instance.get_email_campaign_folders(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_campaign_folders: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -1846,8 +3538,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1857,34 +3561,70 @@ Name | Type | Description  | Notes
 Get email campaign screenshots
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screenshots_response import ScreenshotsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign_uuid = 'email_campaign_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email campaign screenshots
-    api_response = api_instance.get_email_campaign_screenshots(storefront_oid, email_campaign_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_campaign_screenshots: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign_uuid = "email_campaign_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email campaign screenshots
+        api_response = api_instance.get_email_campaign_screenshots(storefront_oid, email_campaign_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_campaign_screenshots: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_campaign_uuid** | **str**|  |
 
 ### Return type
 
@@ -1896,8 +3636,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1907,32 +3659,68 @@ Name | Type | Description  | Notes
 Get email campaigns
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_campaigns_response import EmailCampaignsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email campaigns
-    api_response = api_instance.get_email_campaigns(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_campaigns: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email campaigns
+        api_response = api_instance.get_email_campaigns(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_campaigns: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -1944,8 +3732,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1955,34 +3755,70 @@ Name | Type | Description  | Notes
 Get email campaigns with stats
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_campaigns_response import EmailCampaignsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-stat_days = 'stat_days_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email campaigns with stats
-    api_response = api_instance.get_email_campaigns_with_stats(storefront_oid, stat_days)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_campaigns_with_stats: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    stat_days = "stat_days_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email campaigns with stats
+        api_response = api_instance.get_email_campaigns_with_stats(storefront_oid, stat_days)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_campaigns_with_stats: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **stat_days** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **stat_days** | **str**|  |
 
 ### Return type
 
@@ -1994,8 +3830,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2005,34 +3853,70 @@ Name | Type | Description  | Notes
 Get email commseq
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_response import EmailCommseqResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email commseq
-    api_response = api_instance.get_email_commseq(storefront_oid, commseq_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_commseq: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email commseq
+        api_response = api_instance.get_email_commseq(storefront_oid, commseq_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_commseq: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
 
 ### Return type
 
@@ -2044,8 +3928,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2055,36 +3951,81 @@ Name | Type | Description  | Notes
 Get email communication sequence emails stats
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_stat_summary_response import EmailStatSummaryResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_stat_summary_request import EmailStatSummaryRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
-stats_request = ultracart.EmailStatSummaryRequest() # EmailStatSummaryRequest | StatsRequest
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email communication sequence emails stats
-    api_response = api_instance.get_email_commseq_email_stats(storefront_oid, commseq_uuid, stats_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_commseq_email_stats: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    stats_request = EmailStatSummaryRequest(
+        commseq_email_uuids=[
+            "commseq_email_uuids_example",
+        ],
+        commseq_step_uuids=[
+            "commseq_step_uuids_example",
+        ],
+        days=1,
+    ) # EmailStatSummaryRequest | StatsRequest
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email communication sequence emails stats
+        api_response = api_instance.get_email_commseq_email_stats(storefront_oid, commseq_uuid, stats_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_commseq_email_stats: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
- **stats_request** | [**EmailStatSummaryRequest**](EmailStatSummaryRequest.md)| StatsRequest | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **stats_request** | [**EmailStatSummaryRequest**](EmailStatSummaryRequest.md)| StatsRequest |
 
 ### Return type
 
@@ -2099,6 +4040,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_commseq_postcard_stats**
@@ -2107,36 +4060,78 @@ Name | Type | Description  | Notes
 Get email communication sequence postcard stats
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_stat_postcard_summary_request import EmailStatPostcardSummaryRequest
+from ultracart.model.email_stat_postcard_summary_response import EmailStatPostcardSummaryResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
-stats_request = ultracart.EmailStatPostcardSummaryRequest() # EmailStatPostcardSummaryRequest | StatsRequest
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email communication sequence postcard stats
-    api_response = api_instance.get_email_commseq_postcard_stats(storefront_oid, commseq_uuid, stats_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_commseq_postcard_stats: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    stats_request = EmailStatPostcardSummaryRequest(
+        commseq_postcard_uuids=[
+            "commseq_postcard_uuids_example",
+        ],
+        days=1,
+    ) # EmailStatPostcardSummaryRequest | StatsRequest
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email communication sequence postcard stats
+        api_response = api_instance.get_email_commseq_postcard_stats(storefront_oid, commseq_uuid, stats_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_commseq_postcard_stats: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
- **stats_request** | [**EmailStatPostcardSummaryRequest**](EmailStatPostcardSummaryRequest.md)| StatsRequest | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **stats_request** | [**EmailStatPostcardSummaryRequest**](EmailStatPostcardSummaryRequest.md)| StatsRequest |
 
 ### Return type
 
@@ -2151,6 +4146,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_commseq_stat_overall**
@@ -2159,34 +4166,70 @@ Name | Type | Description  | Notes
 Get communication sequence stats overall
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_stat_response import EmailCommseqStatResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get communication sequence stats overall
-    api_response = api_instance.get_email_commseq_stat_overall(storefront_oid, commseq_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_commseq_stat_overall: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get communication sequence stats overall
+        api_response = api_instance.get_email_commseq_stat_overall(storefront_oid, commseq_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_commseq_stat_overall: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
 
 ### Return type
 
@@ -2198,8 +4241,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2209,36 +4264,78 @@ Name | Type | Description  | Notes
 Get email communication sequence step stats
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_step_stat_response import EmailStepStatResponse
+from ultracart.model.email_step_stat_request import EmailStepStatRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
-stats_request = ultracart.EmailStepStatRequest() # EmailStepStatRequest | StatsRequest
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email communication sequence step stats
-    api_response = api_instance.get_email_commseq_step_stats(storefront_oid, commseq_uuid, stats_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_commseq_step_stats: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    stats_request = EmailStepStatRequest(
+        commseq_step_uuids=[
+            "commseq_step_uuids_example",
+        ],
+        days=1,
+    ) # EmailStepStatRequest | StatsRequest
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email communication sequence step stats
+        api_response = api_instance.get_email_commseq_step_stats(storefront_oid, commseq_uuid, stats_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_commseq_step_stats: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
- **stats_request** | [**EmailStepStatRequest**](EmailStepStatRequest.md)| StatsRequest | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **stats_request** | [**EmailStepStatRequest**](EmailStepStatRequest.md)| StatsRequest |
 
 ### Return type
 
@@ -2253,6 +4350,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_commseq_step_waiting**
@@ -2261,36 +4370,77 @@ Name | Type | Description  | Notes
 Get email communication sequence customers waiting at each requested step
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_step_waiting_request import EmailStepWaitingRequest
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_step_waiting_response import EmailStepWaitingResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
-waiting_request = ultracart.EmailStepWaitingRequest() # EmailStepWaitingRequest | WaitingRequest
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email communication sequence customers waiting at each requested step
-    api_response = api_instance.get_email_commseq_step_waiting(storefront_oid, commseq_uuid, waiting_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_commseq_step_waiting: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    waiting_request = EmailStepWaitingRequest(
+        commseq_step_uuids=[
+            "commseq_step_uuids_example",
+        ],
+    ) # EmailStepWaitingRequest | WaitingRequest
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email communication sequence customers waiting at each requested step
+        api_response = api_instance.get_email_commseq_step_waiting(storefront_oid, commseq_uuid, waiting_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_commseq_step_waiting: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
- **waiting_request** | [**EmailStepWaitingRequest**](EmailStepWaitingRequest.md)| WaitingRequest | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **waiting_request** | [**EmailStepWaitingRequest**](EmailStepWaitingRequest.md)| WaitingRequest |
 
 ### Return type
 
@@ -2305,6 +4455,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_commseq_webhook_editor_values**
@@ -2313,34 +4475,70 @@ Name | Type | Description  | Notes
 Get email webhook editor values
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_webhook_editor_values_response import EmailWebhookEditorValuesResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email webhook editor values
-    api_response = api_instance.get_email_commseq_webhook_editor_values(storefront_oid, commseq_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_commseq_webhook_editor_values: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email webhook editor values
+        api_response = api_instance.get_email_commseq_webhook_editor_values(storefront_oid, commseq_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_commseq_webhook_editor_values: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
 
 ### Return type
 
@@ -2352,8 +4550,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2363,32 +4573,68 @@ Name | Type | Description  | Notes
 Get email commseqs
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseqs_response import EmailCommseqsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email commseqs
-    api_response = api_instance.get_email_commseqs(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_commseqs: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email commseqs
+        api_response = api_instance.get_email_commseqs(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_commseqs: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -2400,8 +4646,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2411,34 +4669,70 @@ Name | Type | Description  | Notes
 Get customers editor URL
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_customer_editor_url_response import EmailCustomerEditorUrlResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_customer_uuid = 'email_customer_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get customers editor URL
-    api_response = api_instance.get_email_customer_editor_url(storefront_oid, email_customer_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_customer_editor_url: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_customer_uuid = "email_customer_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get customers editor URL
+        api_response = api_instance.get_email_customer_editor_url(storefront_oid, email_customer_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_customer_editor_url: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_customer_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_customer_uuid** | **str**|  |
 
 ### Return type
 
@@ -2450,49 +4744,106 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_customers**
-> EmailCustomersResponse get_email_customers(storefront_oid, page_number=page_number, page_size=page_size, search_email_prefix=search_email_prefix)
+> EmailCustomersResponse get_email_customers(storefront_oid)
 
 Get email customers
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_customers_response import EmailCustomersResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-page_number = 56 # int |  (optional)
-page_size = 56 # int |  (optional)
-search_email_prefix = 'search_email_prefix_example' # str |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email customers
-    api_response = api_instance.get_email_customers(storefront_oid, page_number=page_number, page_size=page_size, search_email_prefix=search_email_prefix)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_customers: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    page_number = 1 # int |  (optional)
+    page_size = 1 # int |  (optional)
+    search_email_prefix = "searchEmailPrefix_example" # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email customers
+        api_response = api_instance.get_email_customers(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_customers: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get email customers
+        api_response = api_instance.get_email_customers(storefront_oid, page_number=page_number, page_size=page_size, search_email_prefix=search_email_prefix)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_customers: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **page_number** | **int**|  | [optional] 
- **page_size** | **int**|  | [optional] 
- **search_email_prefix** | **str**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **page_number** | **int**|  | [optional]
+ **page_size** | **int**|  | [optional]
+ **search_email_prefix** | **str**|  | [optional]
 
 ### Return type
 
@@ -2504,45 +4855,102 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_dashboard_activity**
-> EmailDashboardActivityResponse get_email_dashboard_activity(storefront_oid, last_records=last_records)
+> EmailDashboardActivityResponse get_email_dashboard_activity(storefront_oid)
 
 Get email dashboard activity
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_dashboard_activity_response import EmailDashboardActivityResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-last_records = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email dashboard activity
-    api_response = api_instance.get_email_dashboard_activity(storefront_oid, last_records=last_records)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_dashboard_activity: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    last_records = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email dashboard activity
+        api_response = api_instance.get_email_dashboard_activity(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_dashboard_activity: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get email dashboard activity
+        api_response = api_instance.get_email_dashboard_activity(storefront_oid, last_records=last_records)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_dashboard_activity: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **last_records** | **int**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **last_records** | **int**|  | [optional]
 
 ### Return type
 
@@ -2554,45 +4962,102 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_dashboard_stats**
-> EmailDashboardStatsResponse get_email_dashboard_stats(storefront_oid, days=days)
+> EmailDashboardStatsResponse get_email_dashboard_stats(storefront_oid)
 
 Get dashboard stats
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_dashboard_stats_response import EmailDashboardStatsResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-days = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get dashboard stats
-    api_response = api_instance.get_email_dashboard_stats(storefront_oid, days=days)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_dashboard_stats: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    days = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get dashboard stats
+        api_response = api_instance.get_email_dashboard_stats(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_dashboard_stats: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get dashboard stats
+        api_response = api_instance.get_email_dashboard_stats(storefront_oid, days=days)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_dashboard_stats: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **days** | **int**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **days** | **int**|  | [optional]
 
 ### Return type
 
@@ -2604,8 +5069,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2615,36 +5092,72 @@ Name | Type | Description  | Notes
 Get email dispatch logs
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_step_logs_response import EmailCommseqStepLogsResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
-commseq_step_uuid = 'commseq_step_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email dispatch logs
-    api_response = api_instance.get_email_dispatch_logs(storefront_oid, commseq_uuid, commseq_step_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_dispatch_logs: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    commseq_step_uuid = "commseq_step_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email dispatch logs
+        api_response = api_instance.get_email_dispatch_logs(storefront_oid, commseq_uuid, commseq_step_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_dispatch_logs: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
- **commseq_step_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **commseq_step_uuid** | **str**|  |
 
 ### Return type
 
@@ -2656,8 +5169,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2667,34 +5192,70 @@ Name | Type | Description  | Notes
 Get email email
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_email_response import EmailCommseqEmailResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_email_uuid = 'commseq_email_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email email
-    api_response = api_instance.get_email_email(storefront_oid, commseq_email_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_email: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_email_uuid = "commseq_email_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email email
+        api_response = api_instance.get_email_email(storefront_oid, commseq_email_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_email: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_email_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_email_uuid** | **str**|  |
 
 ### Return type
 
@@ -2706,51 +5267,108 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_email_clicks**
-> EmailClicksResponse get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
+> EmailClicksResponse get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid)
 
 Get email email clicks
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_clicks_response import EmailClicksResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
-commseq_step_uuid = 'commseq_step_uuid_example' # str | 
-commseq_email_uuid = 'commseq_email_uuid_example' # str | 
-days = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email email clicks
-    api_response = api_instance.get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_email_clicks: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    commseq_step_uuid = "commseq_step_uuid_example" # str | 
+    commseq_email_uuid = "commseq_email_uuid_example" # str | 
+    days = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email email clicks
+        api_response = api_instance.get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_email_clicks: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get email email clicks
+        api_response = api_instance.get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_email_clicks: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
- **commseq_step_uuid** | **str**|  | 
- **commseq_email_uuid** | **str**|  | 
- **days** | **int**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **commseq_step_uuid** | **str**|  |
+ **commseq_email_uuid** | **str**|  |
+ **days** | **int**|  | [optional]
 
 ### Return type
 
@@ -2762,8 +5380,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2773,36 +5403,72 @@ Name | Type | Description  | Notes
 Get email order customer editor url
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_customer_editor_url_response import EmailCustomerEditorUrlResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_email_uuid = 'commseq_email_uuid_example' # str | 
-order_id = 'order_id_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email order customer editor url
-    api_response = api_instance.get_email_email_customer_editor_url(storefront_oid, commseq_email_uuid, order_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_email_customer_editor_url: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_email_uuid = "commseq_email_uuid_example" # str | 
+    order_id = "order_id_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email order customer editor url
+        api_response = api_instance.get_email_email_customer_editor_url(storefront_oid, commseq_email_uuid, order_id)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_email_customer_editor_url: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_email_uuid** | **str**|  | 
- **order_id** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_email_uuid** | **str**|  |
+ **order_id** | **str**|  |
 
 ### Return type
 
@@ -2814,51 +5480,108 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_email_orders**
-> EmailOrdersResponse get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
+> EmailOrdersResponse get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid)
 
 Get email email orders
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_orders_response import EmailOrdersResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
-commseq_step_uuid = 'commseq_step_uuid_example' # str | 
-commseq_email_uuid = 'commseq_email_uuid_example' # str | 
-days = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email email orders
-    api_response = api_instance.get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_email_orders: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    commseq_step_uuid = "commseq_step_uuid_example" # str | 
+    commseq_email_uuid = "commseq_email_uuid_example" # str | 
+    days = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email email orders
+        api_response = api_instance.get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_email_orders: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get email email orders
+        api_response = api_instance.get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_email_orders: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
- **commseq_step_uuid** | **str**|  | 
- **commseq_email_uuid** | **str**|  | 
- **days** | **int**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **commseq_step_uuid** | **str**|  |
+ **commseq_email_uuid** | **str**|  |
+ **days** | **int**|  | [optional]
 
 ### Return type
 
@@ -2870,8 +5593,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2881,32 +5616,68 @@ Name | Type | Description  | Notes
 Get email emails
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_emails_response import EmailCommseqEmailsResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email emails
-    api_response = api_instance.get_email_emails(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_emails: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email emails
+        api_response = api_instance.get_email_emails(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_emails: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -2918,8 +5689,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2929,34 +5712,98 @@ Name | Type | Description  | Notes
 Get email emails multiple
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_emails_request import EmailCommseqEmailsRequest
+from ultracart.model.email_commseq_emails_response import EmailCommseqEmailsResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_commseq_emails_request = ultracart.EmailCommseqEmailsRequest() # EmailCommseqEmailsRequest | Request of email uuids
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email emails multiple
-    api_response = api_instance.get_email_emails_multiple(storefront_oid, email_commseq_emails_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_emails_multiple: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_commseq_emails_request = EmailCommseqEmailsRequest(
+        error=Error(
+            developer_message="developer_message_example",
+            error_code="error_code_example",
+            more_info="more_info_example",
+            object_id="object_id_example",
+            user_message="user_message_example",
+        ),
+        esp_commseq_email_uuids=[
+            "esp_commseq_email_uuids_example",
+        ],
+        metadata=ResponseMetadata(
+            payload_name="payload_name_example",
+            result_set=ResultSet(
+                count=1,
+                limit=1,
+                more=True,
+                next_offset=1,
+                offset=1,
+                total_records=1,
+            ),
+        ),
+        success=True,
+        warning=Warning(
+            more_info="more_info_example",
+            warning_message="warning_message_example",
+        ),
+    ) # EmailCommseqEmailsRequest | Request of email uuids
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email emails multiple
+        api_response = api_instance.get_email_emails_multiple(storefront_oid, email_commseq_emails_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_emails_multiple: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_commseq_emails_request** | [**EmailCommseqEmailsRequest**](EmailCommseqEmailsRequest.md)| Request of email uuids | 
+ **storefront_oid** | **int**|  |
+ **email_commseq_emails_request** | [**EmailCommseqEmailsRequest**](EmailCommseqEmailsRequest.md)| Request of email uuids |
 
 ### Return type
 
@@ -2971,6 +5818,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_flow**
@@ -2979,34 +5838,70 @@ Name | Type | Description  | Notes
 Get email flow
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flow_response import EmailFlowResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow_uuid = 'email_flow_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email flow
-    api_response = api_instance.get_email_flow(storefront_oid, email_flow_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_flow: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow_uuid = "email_flow_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email flow
+        api_response = api_instance.get_email_flow(storefront_oid, email_flow_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_flow: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_flow_uuid** | **str**|  |
 
 ### Return type
 
@@ -3018,8 +5913,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3029,34 +5936,70 @@ Name | Type | Description  | Notes
 Get email flow folder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flow_folder_response import EmailFlowFolderResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow_folder_uuid = 'email_flow_folder_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email flow folder
-    api_response = api_instance.get_email_flow_folder(storefront_oid, email_flow_folder_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_flow_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow_folder_uuid = "email_flow_folder_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email flow folder
+        api_response = api_instance.get_email_flow_folder(storefront_oid, email_flow_folder_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_flow_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow_folder_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_flow_folder_uuid** | **str**|  |
 
 ### Return type
 
@@ -3068,8 +6011,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3079,32 +6034,68 @@ Name | Type | Description  | Notes
 Get email flow folders
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flow_folders_response import EmailFlowFoldersResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email flow folders
-    api_response = api_instance.get_email_flow_folders(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_flow_folders: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email flow folders
+        api_response = api_instance.get_email_flow_folders(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_flow_folders: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -3116,8 +6107,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3127,34 +6130,70 @@ Name | Type | Description  | Notes
 Get email flow screenshots
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screenshots_response import ScreenshotsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow_uuid = 'email_flow_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email flow screenshots
-    api_response = api_instance.get_email_flow_screenshots(storefront_oid, email_flow_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_flow_screenshots: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow_uuid = "email_flow_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email flow screenshots
+        api_response = api_instance.get_email_flow_screenshots(storefront_oid, email_flow_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_flow_screenshots: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_flow_uuid** | **str**|  |
 
 ### Return type
 
@@ -3166,8 +6205,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3177,32 +6228,68 @@ Name | Type | Description  | Notes
 Get email flows
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flows_response import EmailFlowsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email flows
-    api_response = api_instance.get_email_flows(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_flows: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email flows
+        api_response = api_instance.get_email_flows(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_flows: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -3214,8 +6301,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3225,25 +6324,61 @@ Name | Type | Description  | Notes
 Get email globalsettings
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_global_settings_response import EmailGlobalSettingsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email globalsettings
-    api_response = api_instance.get_email_global_settings()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_global_settings: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get email globalsettings
+        api_response = api_instance.get_email_global_settings()
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_global_settings: %s\n" % e)
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -3258,8 +6393,20 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3269,34 +6416,70 @@ This endpoint does not need any parameter.
 Get email list
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_list_response import EmailListResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_uuid = 'email_list_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email list
-    api_response = api_instance.get_email_list(storefront_oid, email_list_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_list: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_uuid = "email_list_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email list
+        api_response = api_instance.get_email_list(storefront_oid, email_list_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_list: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_list_uuid** | **str**|  |
 
 ### Return type
 
@@ -3308,8 +6491,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3319,36 +6514,72 @@ Name | Type | Description  | Notes
 Get email list customer editor url
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_customer_editor_url_response import EmailCustomerEditorUrlResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_uuid = 'email_list_uuid_example' # str | 
-email_customer_uuid = 'email_customer_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email list customer editor url
-    api_response = api_instance.get_email_list_customer_editor_url(storefront_oid, email_list_uuid, email_customer_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_list_customer_editor_url: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_uuid = "email_list_uuid_example" # str | 
+    email_customer_uuid = "email_customer_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email list customer editor url
+        api_response = api_instance.get_email_list_customer_editor_url(storefront_oid, email_list_uuid, email_customer_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_list_customer_editor_url: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_uuid** | **str**|  | 
- **email_customer_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_list_uuid** | **str**|  |
+ **email_customer_uuid** | **str**|  |
 
 ### Return type
 
@@ -3360,49 +6591,106 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_list_customers**
-> EmailListCustomersResponse get_email_list_customers(storefront_oid, email_list_uuid, page_number=page_number, page_size=page_size)
+> EmailListCustomersResponse get_email_list_customers(storefront_oid, email_list_uuid)
 
 Get email list customers
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_list_customers_response import EmailListCustomersResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_uuid = 'email_list_uuid_example' # str | 
-page_number = 56 # int |  (optional)
-page_size = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email list customers
-    api_response = api_instance.get_email_list_customers(storefront_oid, email_list_uuid, page_number=page_number, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_list_customers: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_uuid = "email_list_uuid_example" # str | 
+    page_number = 1 # int |  (optional)
+    page_size = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email list customers
+        api_response = api_instance.get_email_list_customers(storefront_oid, email_list_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_list_customers: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get email list customers
+        api_response = api_instance.get_email_list_customers(storefront_oid, email_list_uuid, page_number=page_number, page_size=page_size)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_list_customers: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_uuid** | **str**|  | 
- **page_number** | **int**|  | [optional] 
- **page_size** | **int**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **email_list_uuid** | **str**|  |
+ **page_number** | **int**|  | [optional]
+ **page_size** | **int**|  | [optional]
 
 ### Return type
 
@@ -3414,8 +6702,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3425,34 +6725,70 @@ Name | Type | Description  | Notes
 Get email campaign folder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_list_segment_folder_response import EmailListSegmentFolderResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_segment_folder_uuid = 'email_list_segment_folder_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email campaign folder
-    api_response = api_instance.get_email_list_segment_folder(storefront_oid, email_list_segment_folder_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_list_segment_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_segment_folder_uuid = "email_list_segment_folder_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email campaign folder
+        api_response = api_instance.get_email_list_segment_folder(storefront_oid, email_list_segment_folder_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_list_segment_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_segment_folder_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_list_segment_folder_uuid** | **str**|  |
 
 ### Return type
 
@@ -3464,8 +6800,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3475,32 +6823,68 @@ Name | Type | Description  | Notes
 Get email campaign folders
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_list_segment_folders_response import EmailListSegmentFoldersResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email campaign folders
-    api_response = api_instance.get_email_list_segment_folders(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_list_segment_folders: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email campaign folders
+        api_response = api_instance.get_email_list_segment_folders(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_list_segment_folders: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -3512,8 +6896,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3523,32 +6919,68 @@ Name | Type | Description  | Notes
 Get email lists
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_lists_response import EmailListsResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email lists
-    api_response = api_instance.get_email_lists(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_lists: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email lists
+        api_response = api_instance.get_email_lists(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_lists: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -3560,8 +6992,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3571,32 +7015,68 @@ Name | Type | Description  | Notes
 Get email performance
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_performance_response import EmailPerformanceResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email performance
-    api_response = api_instance.get_email_performance(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_performance: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email performance
+        api_response = api_instance.get_email_performance(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_performance: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -3608,8 +7088,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3619,32 +7111,68 @@ Name | Type | Description  | Notes
 Get email plan
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_plan_response import EmailPlanResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email plan
-    api_response = api_instance.get_email_plan(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_plan: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email plan
+        api_response = api_instance.get_email_plan(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_plan: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -3656,8 +7184,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3667,34 +7207,70 @@ Name | Type | Description  | Notes
 Get email postcard
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_postcard_response import EmailCommseqPostcardResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email postcard
-    api_response = api_instance.get_email_postcard(storefront_oid, commseq_postcard_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_postcard: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email postcard
+        api_response = api_instance.get_email_postcard(storefront_oid, commseq_postcard_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_postcard: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_postcard_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_postcard_uuid** | **str**|  |
 
 ### Return type
 
@@ -3706,8 +7282,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3717,32 +7305,68 @@ Name | Type | Description  | Notes
 Get email postcards
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_postcards_response import EmailCommseqPostcardsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email postcards
-    api_response = api_instance.get_email_postcards(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_postcards: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email postcards
+        api_response = api_instance.get_email_postcards(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_postcards: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -3754,8 +7378,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3765,34 +7401,75 @@ Name | Type | Description  | Notes
 Get email postcards multiple
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_postcards_response import EmailCommseqPostcardsResponse
+from ultracart.model.email_commseq_postcards_request import EmailCommseqPostcardsRequest
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_commseq_postcards_request = ultracart.EmailCommseqPostcardsRequest() # EmailCommseqPostcardsRequest | Request of postcard uuids
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email postcards multiple
-    api_response = api_instance.get_email_postcards_multiple(storefront_oid, email_commseq_postcards_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_postcards_multiple: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_commseq_postcards_request = EmailCommseqPostcardsRequest(
+        esp_commseq_postcard_uuids=[
+            "esp_commseq_postcard_uuids_example",
+        ],
+    ) # EmailCommseqPostcardsRequest | Request of postcard uuids
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email postcards multiple
+        api_response = api_instance.get_email_postcards_multiple(storefront_oid, email_commseq_postcards_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_postcards_multiple: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_commseq_postcards_request** | [**EmailCommseqPostcardsRequest**](EmailCommseqPostcardsRequest.md)| Request of postcard uuids | 
+ **storefront_oid** | **int**|  |
+ **email_commseq_postcards_request** | [**EmailCommseqPostcardsRequest**](EmailCommseqPostcardsRequest.md)| Request of postcard uuids |
 
 ### Return type
 
@@ -3807,6 +7484,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_segment**
@@ -3815,34 +7504,70 @@ Name | Type | Description  | Notes
 Get email segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_segment_response import EmailSegmentResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_segment_uuid = 'email_segment_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email segment
-    api_response = api_instance.get_email_segment(storefront_oid, email_segment_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_segment_uuid = "email_segment_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email segment
+        api_response = api_instance.get_email_segment(storefront_oid, email_segment_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_segment_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_segment_uuid** | **str**|  |
 
 ### Return type
 
@@ -3854,8 +7579,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3865,36 +7602,72 @@ Name | Type | Description  | Notes
 Get email segment customers editor URL
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_customer_editor_url_response import EmailCustomerEditorUrlResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_segment_uuid = 'email_segment_uuid_example' # str | 
-email_customer_uuid = 'email_customer_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email segment customers editor URL
-    api_response = api_instance.get_email_segment_customer_editor_url(storefront_oid, email_segment_uuid, email_customer_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_segment_customer_editor_url: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_segment_uuid = "email_segment_uuid_example" # str | 
+    email_customer_uuid = "email_customer_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email segment customers editor URL
+        api_response = api_instance.get_email_segment_customer_editor_url(storefront_oid, email_segment_uuid, email_customer_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_segment_customer_editor_url: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_segment_uuid** | **str**|  | 
- **email_customer_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_segment_uuid** | **str**|  |
+ **email_customer_uuid** | **str**|  |
 
 ### Return type
 
@@ -3906,49 +7679,106 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_segment_customers**
-> EmailSegmentCustomersResponse get_email_segment_customers(storefront_oid, email_segment_uuid, page_number=page_number, page_size=page_size)
+> EmailSegmentCustomersResponse get_email_segment_customers(storefront_oid, email_segment_uuid)
 
 Get email segment customers
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_segment_customers_response import EmailSegmentCustomersResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_segment_uuid = 'email_segment_uuid_example' # str | 
-page_number = 56 # int |  (optional)
-page_size = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email segment customers
-    api_response = api_instance.get_email_segment_customers(storefront_oid, email_segment_uuid, page_number=page_number, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_segment_customers: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_segment_uuid = "email_segment_uuid_example" # str | 
+    page_number = 1 # int |  (optional)
+    page_size = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email segment customers
+        api_response = api_instance.get_email_segment_customers(storefront_oid, email_segment_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_segment_customers: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get email segment customers
+        api_response = api_instance.get_email_segment_customers(storefront_oid, email_segment_uuid, page_number=page_number, page_size=page_size)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_segment_customers: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_segment_uuid** | **str**|  | 
- **page_number** | **int**|  | [optional] 
- **page_size** | **int**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **email_segment_uuid** | **str**|  |
+ **page_number** | **int**|  | [optional]
+ **page_size** | **int**|  | [optional]
 
 ### Return type
 
@@ -3960,8 +7790,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3971,32 +7813,68 @@ Name | Type | Description  | Notes
 Get email segments
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_segments_response import EmailSegmentsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email segments
-    api_response = api_instance.get_email_segments(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_segments: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email segments
+        api_response = api_instance.get_email_segments(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_segments: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -4008,8 +7886,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4019,32 +7909,68 @@ Name | Type | Description  | Notes
 Get email sending domain
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-domain = 'domain_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email sending domain
-    api_response = api_instance.get_email_sending_domain(domain)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_sending_domain: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    domain = "domain_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email sending domain
+        api_response = api_instance.get_email_sending_domain(domain)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_sending_domain: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **str**|  | 
+ **domain** | **str**|  |
 
 ### Return type
 
@@ -4056,8 +7982,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4067,32 +8005,68 @@ Name | Type | Description  | Notes
 Get email sending domain status
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-domain = 'domain_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email sending domain status
-    api_response = api_instance.get_email_sending_domain_status(domain)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_sending_domain_status: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    domain = "domain_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email sending domain status
+        api_response = api_instance.get_email_sending_domain_status(domain)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_sending_domain_status: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **str**|  | 
+ **domain** | **str**|  |
 
 ### Return type
 
@@ -4104,8 +8078,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4115,25 +8101,61 @@ Name | Type | Description  | Notes
 Get email sending domains
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_sending_domains_response import EmailSendingDomainsResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email sending domains
-    api_response = api_instance.get_email_sending_domains()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_sending_domains: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get email sending domains
+        api_response = api_instance.get_email_sending_domains()
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_sending_domains: %s\n" % e)
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -4148,8 +8170,20 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4159,32 +8193,68 @@ This endpoint does not need any parameter.
 Get email settings
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_settings_response import EmailSettingsResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email settings
-    api_response = api_instance.get_email_settings(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_settings: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email settings
+        api_response = api_instance.get_email_settings(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_settings: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -4196,8 +8266,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4207,34 +8289,70 @@ Name | Type | Description  | Notes
 Get email template
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_template import EmailTemplate
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_template_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email template
-    api_response = api_instance.get_email_template(storefront_oid, email_template_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_template: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_template_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email template
+        api_response = api_instance.get_email_template(storefront_oid, email_template_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_template: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_template_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
+ **email_template_oid** | **int**|  |
 
 ### Return type
 
@@ -4246,45 +8364,102 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_templates**
-> EmailTemplatesResponse get_email_templates(storefront_oid, trigger_type=trigger_type)
+> EmailTemplatesResponse get_email_templates(storefront_oid)
 
 Get email templates
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_templates_response import EmailTemplatesResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-trigger_type = 'trigger_type_example' # str |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get email templates
-    api_response = api_instance.get_email_templates(storefront_oid, trigger_type=trigger_type)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_templates: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    trigger_type = "trigger_type_example" # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email templates
+        api_response = api_instance.get_email_templates(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_templates: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get email templates
+        api_response = api_instance.get_email_templates(storefront_oid, trigger_type=trigger_type)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_templates: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **trigger_type** | **str**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **trigger_type** | **str**|  | [optional]
 
 ### Return type
 
@@ -4296,8 +8471,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4307,32 +8494,68 @@ Name | Type | Description  | Notes
 Get a list of third party email providers
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_third_party_providers_response import EmailThirdPartyProvidersResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get a list of third party email providers
-    api_response = api_instance.get_email_third_party_providers(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_email_third_party_providers: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get a list of third party email providers
+        api_response = api_instance.get_email_third_party_providers(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_third_party_providers: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -4344,8 +8567,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4355,32 +8590,68 @@ Name | Type | Description  | Notes
 Get experiments
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.experiments_response import ExperimentsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get experiments
-    api_response = api_instance.get_experiments(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_experiments: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get experiments
+        api_response = api_instance.get_experiments(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_experiments: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -4392,8 +8663,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4405,34 +8688,73 @@ Get screen recording heatmap
 Get screen recording heatmap 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_heatmap_response import ScreenRecordingHeatmapResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.screen_recording_heatmap_request import ScreenRecordingHeatmapRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-query = ultracart.ScreenRecordingHeatmapRequest() # ScreenRecordingHeatmapRequest | Query
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Get screen recording heatmap
-    api_response = api_instance.get_heatmap(storefront_oid, query)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_heatmap: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    query = ScreenRecordingHeatmapRequest(
+        range=ScreenRecordingFilterRangeDate(
+            end="end_example",
+            start="start_example",
+        ),
+        screen_sizes=[
+            "screen_sizes_example",
+        ],
+        url="url_example",
+    ) # ScreenRecordingHeatmapRequest | Query
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get screen recording heatmap
+        api_response = api_instance.get_heatmap(storefront_oid, query)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_heatmap: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **query** | [**ScreenRecordingHeatmapRequest**](ScreenRecordingHeatmapRequest.md)| Query | 
+ **storefront_oid** | **int**|  |
+ **query** | [**ScreenRecordingHeatmapRequest**](ScreenRecordingHeatmapRequest.md)| Query |
 
 ### Return type
 
@@ -4447,50 +8769,103 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_heatmap_index**
-> ScreenRecordingHeatmapIndexResponse get_heatmap_index(storefront_oid, query, limit=limit, offset=offset, sort=sort)
+> ScreenRecordingHeatmapIndexResponse get_heatmap_index(storefront_oid, query)
 
 Get screen recording heatmap index
 
 Get screen recording heatmap index 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.screen_recording_heatmap_index_response import ScreenRecordingHeatmapIndexResponse
+from ultracart.model.screen_recording_heatmap_index_request import ScreenRecordingHeatmapIndexRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-query = ultracart.ScreenRecordingHeatmapIndexRequest() # ScreenRecordingHeatmapIndexRequest | Query
-limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) (default to 100)
-offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
-sort = 'sort_example' # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Get screen recording heatmap index
-    api_response = api_instance.get_heatmap_index(storefront_oid, query, limit=limit, offset=offset, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_heatmap_index: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    query = ScreenRecordingHeatmapIndexRequest(
+        url_contains="url_contains_example",
+    ) # ScreenRecordingHeatmapIndexRequest | Query
+    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) if omitted the server will use the default value of 100
+    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
+    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get screen recording heatmap index
+        api_response = api_instance.get_heatmap_index(storefront_oid, query)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_heatmap_index: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get screen recording heatmap index
+        api_response = api_instance.get_heatmap_index(storefront_oid, query, limit=limit, offset=offset, sort=sort)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_heatmap_index: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **query** | [**ScreenRecordingHeatmapIndexRequest**](ScreenRecordingHeatmapIndexRequest.md)| Query | 
- **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] [default to 100]
- **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **storefront_oid** | **int**|  |
+ **query** | [**ScreenRecordingHeatmapIndexRequest**](ScreenRecordingHeatmapIndexRequest.md)| Query |
+ **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] if omitted the server will use the default value of 100
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
+ **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
 
 ### Return type
 
@@ -4505,44 +8880,101 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_histogram_property_names**
-> EmailHistogramPropertyNamesResponse get_histogram_property_names(storefront_oid, property_type=property_type)
+> EmailHistogramPropertyNamesResponse get_histogram_property_names(storefront_oid)
 
 Get histogram property names
 
 Obtain a list of property names for a given property type 
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_histogram_property_names_response import EmailHistogramPropertyNamesResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-property_type = 'property_type_example' # str |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get histogram property names
-    api_response = api_instance.get_histogram_property_names(storefront_oid, property_type=property_type)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_histogram_property_names: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    property_type = "property_type_example" # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get histogram property names
+        api_response = api_instance.get_histogram_property_names(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_histogram_property_names: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get histogram property names
+        api_response = api_instance.get_histogram_property_names(storefront_oid, property_type=property_type)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_histogram_property_names: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **property_type** | **str**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **property_type** | **str**|  | [optional]
 
 ### Return type
 
@@ -4554,51 +8986,108 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_histogram_property_values**
-> EmailHistogramPropertyValuesResponse get_histogram_property_values(storefront_oid, property_name=property_name, property_type=property_type, limit=limit)
+> EmailHistogramPropertyValuesResponse get_histogram_property_values(storefront_oid)
 
 Get histogram property values
 
 Obtain a list of property values for a given property name and type 
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_histogram_property_values_response import EmailHistogramPropertyValuesResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-property_name = 'property_name_example' # str |  (optional)
-property_type = 'property_type_example' # str |  (optional)
-limit = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get histogram property values
-    api_response = api_instance.get_histogram_property_values(storefront_oid, property_name=property_name, property_type=property_type, limit=limit)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_histogram_property_values: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    property_name = "property_name_example" # str |  (optional)
+    property_type = "property_type_example" # str |  (optional)
+    limit = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get histogram property values
+        api_response = api_instance.get_histogram_property_values(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_histogram_property_values: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get histogram property values
+        api_response = api_instance.get_histogram_property_values(storefront_oid, property_name=property_name, property_type=property_type, limit=limit)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_histogram_property_values: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **property_name** | **str**|  | [optional] 
- **property_type** | **str**|  | [optional] 
- **limit** | **int**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **property_name** | **str**|  | [optional]
+ **property_type** | **str**|  | [optional]
+ **limit** | **int**|  | [optional]
 
 ### Return type
 
@@ -4610,8 +9099,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4621,25 +9122,61 @@ Name | Type | Description  | Notes
 Get library values used to populate drop down boxes for filtering.
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.library_filter_values_response import LibraryFilterValuesResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get library values used to populate drop down boxes for filtering.
-    api_response = api_instance.get_library_filter_values()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_library_filter_values: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get library values used to populate drop down boxes for filtering.
+        api_response = api_instance.get_library_filter_values()
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_library_filter_values: %s\n" % e)
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -4654,8 +9191,20 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4665,32 +9214,68 @@ This endpoint does not need any parameter.
 Get library item.
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.library_item_response import LibraryItemResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-library_item_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get library item.
-    api_response = api_instance.get_library_item(library_item_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_library_item: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    library_item_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get library item.
+        api_response = api_instance.get_library_item(library_item_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_library_item: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**|  | 
+ **library_item_oid** | **int**|  |
 
 ### Return type
 
@@ -4702,8 +9287,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4713,32 +9310,68 @@ Name | Type | Description  | Notes
 Get all published versions for a library item.
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.library_items_response import LibraryItemsResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-library_item_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get all published versions for a library item.
-    api_response = api_instance.get_library_item_published_versions(library_item_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_library_item_published_versions: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    library_item_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get all published versions for a library item.
+        api_response = api_instance.get_library_item_published_versions(library_item_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_library_item_published_versions: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**|  | 
+ **library_item_oid** | **int**|  |
 
 ### Return type
 
@@ -4750,8 +9383,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4763,34 +9408,63 @@ Get screen recording
 Get screen recording 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_response import ScreenRecordingResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_uuid = 'screen_recording_uuid_example' # str | 
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Get screen recording
-    api_response = api_instance.get_screen_recording(storefront_oid, screen_recording_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_screen_recording: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_uuid = "screen_recording_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get screen recording
+        api_response = api_instance.get_screen_recording(storefront_oid, screen_recording_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recording: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **screen_recording_uuid** | **str**|  |
 
 ### Return type
 
@@ -4802,8 +9476,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4815,36 +9501,65 @@ Get screen recording page view data
 Get screen recording page view data 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_page_view_data_response import ScreenRecordingPageViewDataResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_uuid = 'screen_recording_uuid_example' # str | 
-screen_recording_page_view_uuid = 'screen_recording_page_view_uuid_example' # str | 
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Get screen recording page view data
-    api_response = api_instance.get_screen_recording_page_view_data(storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_screen_recording_page_view_data: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_uuid = "screen_recording_uuid_example" # str | 
+    screen_recording_page_view_uuid = "screen_recording_page_view_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get screen recording page view data
+        api_response = api_instance.get_screen_recording_page_view_data(storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recording_page_view_data: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_uuid** | **str**|  | 
- **screen_recording_page_view_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **screen_recording_uuid** | **str**|  |
+ **screen_recording_page_view_uuid** | **str**|  |
 
 ### Return type
 
@@ -4856,8 +9571,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4867,34 +9594,70 @@ Name | Type | Description  | Notes
 Get screen recording segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.screen_recording_segment_response import ScreenRecordingSegmentResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_segment_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get screen recording segment
-    api_response = api_instance.get_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_screen_recording_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_segment_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get screen recording segment
+        api_response = api_instance.get_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recording_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_segment_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
+ **screen_recording_segment_oid** | **int**|  |
 
 ### Return type
 
@@ -4906,8 +9669,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4917,32 +9692,68 @@ Name | Type | Description  | Notes
 Get screen recording segments
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_segments_response import ScreenRecordingSegmentsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get screen recording segments
-    api_response = api_instance.get_screen_recording_segments(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_screen_recording_segments: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get screen recording segments
+        api_response = api_instance.get_screen_recording_segments(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recording_segments: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -4954,8 +9765,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4965,32 +9788,68 @@ Name | Type | Description  | Notes
 Get screen recording settings
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_settings_response import ScreenRecordingSettingsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get screen recording settings
-    api_response = api_instance.get_screen_recording_settings(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_screen_recording_settings: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get screen recording settings
+        api_response = api_instance.get_screen_recording_settings(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recording_settings: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -5002,8 +9861,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5015,32 +9886,61 @@ Get tags used by screen recording
 Get tags used by screen recording 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_tags_response import ScreenRecordingTagsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Get tags used by screen recording
-    api_response = api_instance.get_screen_recording_tags(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_screen_recording_tags: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get tags used by screen recording
+        api_response = api_instance.get_screen_recording_tags(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recording_tags: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -5052,53 +9952,347 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_screen_recordings_by_query**
-> ScreenRecordingQueryResponse get_screen_recordings_by_query(storefront_oid, query, limit=limit, offset=offset, sort=sort)
+> ScreenRecordingQueryResponse get_screen_recordings_by_query(storefront_oid, query)
 
 Query screen recordings
 
 Query screen recordings 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_query_response import ScreenRecordingQueryResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.screen_recording_query_request import ScreenRecordingQueryRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-query = ultracart.ScreenRecordingQueryRequest() # ScreenRecordingQueryRequest | Query
-limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) (default to 100)
-offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
-sort = 'sort_example' # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Query screen recordings
-    api_response = api_instance.get_screen_recordings_by_query(storefront_oid, query, limit=limit, offset=offset, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_screen_recordings_by_query: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    query = ScreenRecordingQueryRequest(
+        filter=ScreenRecordingFilter(
+            affiliate_email="affiliate_email_example",
+            affiliate_id=1,
+            communications_campaign_name="communications_campaign_name_example",
+            communications_campaign_name_filter=True,
+            communications_email_subject="communications_email_subject_example",
+            communications_email_subject_filter=True,
+            communications_flow_name="communications_flow_name_example",
+            communications_flow_name_filter=True,
+            email=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            email_domain="email_domain_example",
+            email_domain_filter=True,
+            email_identified=True,
+            end_timestamp=ScreenRecordingFilterRangeDate(
+                end="end_example",
+                start="start_example",
+            ),
+            esp_customer_uuid="esp_customer_uuid_example",
+            favorite=True,
+            geolocation=ScreenRecordingFilterGeoDistance(
+                distance=1,
+                distance_uom="distance_uom_example",
+                from_address="from_address_example",
+                lat=3.14,
+                lon=3.14,
+            ),
+            geolocation_country=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            geolocation_country_filter=True,
+            geolocation_state=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            geolocation_state_filter=True,
+            language_iso_code=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            language_iso_code_filter=True,
+            last_x_days=1,
+            max_filter_values=1,
+            order_id=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            page_view_count=ScreenRecordingFilterRangeInteger(
+                eq=1,
+                gt=1,
+                gte=1,
+                lt=1,
+                lte=1,
+            ),
+            page_views=[
+                ScreenRecordingFilterPageView(
+                    domain=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    domain_filter=True,
+                    event_name_filter=True,
+                    event_param_name_filter=True,
+                    event_param_value_filter=True,
+                    events=[
+                        ScreenRecordingFilterPageViewEvent(
+                            event_name="event_name_example",
+                            event_params=[
+                                ScreenRecordingFilterPageViewEventParam(
+                                    name="name_example",
+                                    value_bd=ScreenRecordingFilterRangeBigDecimal(
+                                        eq=3.14,
+                                        gt=3.14,
+                                        gte=3.14,
+                                        lt=3.14,
+                                        lte=3.14,
+                                    ),
+                                    value_bool=True,
+                                    value_num=ScreenRecordingFilterRangeInteger(
+                                        eq=1,
+                                        gt=1,
+                                        gte=1,
+                                        lt=1,
+                                        lte=1,
+                                    ),
+                                    value_text=ScreenRecordingFilterStringSearch(
+                                        does_not_exist=True,
+                                        exists=True,
+                                        _is="_is_example",
+                                        is_not="is_not_example",
+                                        starts_with="starts_with_example",
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ],
+                    param_name_filter=True,
+                    param_value_filter=True,
+                    params=[
+                        ScreenRecordingFilterPageViewParam(
+                            name="name_example",
+                            value=ScreenRecordingFilterStringSearch(
+                                does_not_exist=True,
+                                exists=True,
+                                _is="_is_example",
+                                is_not="is_not_example",
+                                starts_with="starts_with_example",
+                            ),
+                        ),
+                    ],
+                    referrer=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    referrer_params=[
+                        ScreenRecordingFilterPageViewReferrerParam(
+                            name="name_example",
+                            value=ScreenRecordingFilterStringSearch(
+                                does_not_exist=True,
+                                exists=True,
+                                _is="_is_example",
+                                is_not="is_not_example",
+                                starts_with="starts_with_example",
+                            ),
+                        ),
+                    ],
+                    referrer_raw=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    time_on_page=ScreenRecordingFilterRangeInteger(
+                        eq=1,
+                        gt=1,
+                        gte=1,
+                        lt=1,
+                        lte=1,
+                    ),
+                    time_on_page_max_filter=True,
+                    time_on_page_min_filter=True,
+                    url=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    url_filter=True,
+                ),
+            ],
+            placed_order=True,
+            preferred_language=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            preferred_language_filter=True,
+            referrer_domain="referrer_domain_example",
+            referrer_domain_filter=True,
+            screen_recording_uuids=[
+                "screen_recording_uuids_example",
+            ],
+            screen_sizes=[
+                "screen_sizes_example",
+            ],
+            skip_filter_values=True,
+            skip_histogram=True,
+            skip_hits=True,
+            start_timestamp=ScreenRecordingFilterRangeDate(
+                end="end_example",
+                start="start_example",
+            ),
+            tags=[
+                "tags_example",
+            ],
+            time_on_site=ScreenRecordingFilterRangeInteger(
+                eq=1,
+                gt=1,
+                gte=1,
+                lt=1,
+                lte=1,
+            ),
+            time_on_site_max_filter=True,
+            time_on_site_min_filter=True,
+            url_filter=True,
+            user_agent_device_name="user_agent_device_name_example",
+            user_agent_device_name_filter=True,
+            user_agent_device_os_name_filter=True,
+            user_agent_device_os_version_filter=True,
+            user_agent_name="user_agent_name_example",
+            user_agent_name_filter=True,
+            user_agent_original=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            user_agent_original_filter=True,
+            user_agent_os_name="user_agent_os_name_example",
+            user_agent_os_version="user_agent_os_version_example",
+            user_ip=ScreenRecordingFilterIpSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+            ),
+            utm_campaign="utm_campaign_example",
+            utm_campaign_filter=True,
+            utm_source="utm_source_example",
+            utm_source_filter=True,
+            visitor_number=1,
+            watched=True,
+        ),
+    ) # ScreenRecordingQueryRequest | Query
+    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) if omitted the server will use the default value of 100
+    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
+    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Query screen recordings
+        api_response = api_instance.get_screen_recordings_by_query(storefront_oid, query)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recordings_by_query: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Query screen recordings
+        api_response = api_instance.get_screen_recordings_by_query(storefront_oid, query, limit=limit, offset=offset, sort=sort)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recordings_by_query: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **query** | [**ScreenRecordingQueryRequest**](ScreenRecordingQueryRequest.md)| Query | 
- **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] [default to 100]
- **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **storefront_oid** | **int**|  |
+ **query** | [**ScreenRecordingQueryRequest**](ScreenRecordingQueryRequest.md)| Query |
+ **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] if omitted the server will use the default value of 100
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
+ **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
 
 ### Return type
 
@@ -5113,50 +10307,100 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_screen_recordings_by_segment**
-> ScreenRecordingQueryResponse get_screen_recordings_by_segment(storefront_oid, screen_recording_segment_oid, limit=limit, offset=offset, sort=sort)
+> ScreenRecordingQueryResponse get_screen_recordings_by_segment(storefront_oid, screen_recording_segment_oid)
 
 Get screen recordings by segment
 
 Get screen recordings by segment 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_query_response import ScreenRecordingQueryResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_segment_oid = 56 # int | 
-limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) (default to 100)
-offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
-sort = 'sort_example' # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Get screen recordings by segment
-    api_response = api_instance.get_screen_recordings_by_segment(storefront_oid, screen_recording_segment_oid, limit=limit, offset=offset, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_screen_recordings_by_segment: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_segment_oid = 1 # int | 
+    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) if omitted the server will use the default value of 100
+    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
+    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get screen recordings by segment
+        api_response = api_instance.get_screen_recordings_by_segment(storefront_oid, screen_recording_segment_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recordings_by_segment: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get screen recordings by segment
+        api_response = api_instance.get_screen_recordings_by_segment(storefront_oid, screen_recording_segment_oid, limit=limit, offset=offset, sort=sort)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_screen_recordings_by_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_segment_oid** | **int**|  | 
- **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] [default to 100]
- **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **storefront_oid** | **int**|  |
+ **screen_recording_segment_oid** | **int**|  |
+ **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] if omitted the server will use the default value of 100
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
+ **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
 
 ### Return type
 
@@ -5168,45 +10412,87 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_store_front_pricing_tiers**
-> PricingTiersResponse get_store_front_pricing_tiers(expand=expand)
+> PricingTiersResponse get_store_front_pricing_tiers()
 
 Retrieve pricing tiers
 
 Retrieves the pricing tiers 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.pricing_tiers_response import PricingTiersResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Retrieve pricing tiers
-    api_response = api_instance.get_store_front_pricing_tiers(expand=expand)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_store_front_pricing_tiers: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Retrieve pricing tiers
+        api_response = api_instance.get_store_front_pricing_tiers(expand=expand)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_store_front_pricing_tiers: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
@@ -5218,8 +10504,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5229,32 +10527,75 @@ Name | Type | Description  | Notes
 Get thumbnail parameters
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.thumbnail_parameters_response import ThumbnailParametersResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.thumbnail_parameters_request import ThumbnailParametersRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-thumbnail_parameters = ultracart.ThumbnailParametersRequest() # ThumbnailParametersRequest | Thumbnail Parameters
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get thumbnail parameters
-    api_response = api_instance.get_thumbnail_parameters(thumbnail_parameters)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_thumbnail_parameters: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    thumbnail_parameters = ThumbnailParametersRequest(
+        height=1,
+        png_format=True,
+        square_thumbnail=True,
+        webp=True,
+        width=1,
+    ) # ThumbnailParametersRequest | Thumbnail Parameters
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get thumbnail parameters
+        api_response = api_instance.get_thumbnail_parameters(thumbnail_parameters)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_thumbnail_parameters: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **thumbnail_parameters** | [**ThumbnailParametersRequest**](ThumbnailParametersRequest.md)| Thumbnail Parameters | 
+ **thumbnail_parameters** | [**ThumbnailParametersRequest**](ThumbnailParametersRequest.md)| Thumbnail Parameters |
 
 ### Return type
 
@@ -5269,6 +10610,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transaction_email**
@@ -5279,34 +10632,70 @@ Gets a transaction email object
 Fetch a transactional email 
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.transaction_email_response import TransactionEmailResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_id = 'email_id_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Gets a transaction email object
-    api_response = api_instance.get_transaction_email(storefront_oid, email_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_transaction_email: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_id = "email_id_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Gets a transaction email object
+        api_response = api_instance.get_transaction_email(storefront_oid, email_id)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_transaction_email: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_id** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_id** | **str**|  |
 
 ### Return type
 
@@ -5318,8 +10707,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5331,32 +10732,68 @@ Gets a list of transaction email names
 Obtain a list of all transactional emails and return back just their names 
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.transaction_email_list_response import TransactionEmailListResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Gets a list of transaction email names
-    api_response = api_instance.get_transaction_email_list(storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_transaction_email_list: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Gets a list of transaction email names
+        api_response = api_instance.get_transaction_email_list(storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_transaction_email_list: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
+ **storefront_oid** | **int**|  |
 
 ### Return type
 
@@ -5368,8 +10805,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5379,34 +10828,70 @@ Name | Type | Description  | Notes
 Get transactional email screenshots
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screenshots_response import ScreenshotsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_id = 'email_id_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get transactional email screenshots
-    api_response = api_instance.get_transaction_email_screenshots(storefront_oid, email_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_transaction_email_screenshots: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_id = "email_id_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get transactional email screenshots
+        api_response = api_instance.get_transaction_email_screenshots(storefront_oid, email_id)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_transaction_email_screenshots: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_id** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_id** | **str**|  |
 
 ### Return type
 
@@ -5418,8 +10903,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5429,32 +10926,68 @@ Name | Type | Description  | Notes
 Get Twilio account
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.twilio_response import TwilioResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-esp_twilio_uuid = 'esp_twilio_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get Twilio account
-    api_response = api_instance.get_twilio_account(esp_twilio_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_twilio_account: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    esp_twilio_uuid = "esp_twilio_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get Twilio account
+        api_response = api_instance.get_twilio_account(esp_twilio_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_twilio_account: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **esp_twilio_uuid** | **str**|  | 
+ **esp_twilio_uuid** | **str**|  |
 
 ### Return type
 
@@ -5466,8 +10999,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5477,25 +11022,61 @@ Name | Type | Description  | Notes
 Get all Twilio accounts
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.twilios_response import TwiliosResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Get all Twilio accounts
-    api_response = api_instance.get_twilio_accounts()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->get_twilio_accounts: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get all Twilio accounts
+        api_response = api_instance.get_twilio_accounts()
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_twilio_accounts: %s\n" % e)
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -5510,8 +11091,20 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5521,34 +11114,73 @@ This endpoint does not need any parameter.
 Globally unsubscribe a customer
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_global_unsubscribe_request import EmailGlobalUnsubscribeRequest
+from ultracart.model.email_global_unsubscribe_response import EmailGlobalUnsubscribeResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-unsubscribe = ultracart.EmailGlobalUnsubscribeRequest() # EmailGlobalUnsubscribeRequest | Unsubscribe
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Globally unsubscribe a customer
-    api_response = api_instance.global_unsubscribe(storefront_oid, unsubscribe)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->global_unsubscribe: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    unsubscribe = EmailGlobalUnsubscribeRequest(
+        email="email_example",
+    ) # EmailGlobalUnsubscribeRequest | Unsubscribe
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Globally unsubscribe a customer
+        api_response = api_instance.global_unsubscribe(storefront_oid, unsubscribe)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->global_unsubscribe: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **unsubscribe** | [**EmailGlobalUnsubscribeRequest**](EmailGlobalUnsubscribeRequest.md)| Unsubscribe | 
+ **storefront_oid** | **int**|  |
+ **unsubscribe** | [**EmailGlobalUnsubscribeRequest**](EmailGlobalUnsubscribeRequest.md)| Unsubscribe |
 
 ### Return type
 
@@ -5563,6 +11195,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_email_third_party_provider_list**
@@ -5571,33 +11215,95 @@ Name | Type | Description  | Notes
 Import a third party provider list
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_third_party_list_import_request import EmailThirdPartyListImportRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-import_request = ultracart.EmailThirdPartyListImportRequest() # EmailThirdPartyListImportRequest | lists to import
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Import a third party provider list
-    api_instance.import_email_third_party_provider_list(storefront_oid, import_request)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->import_email_third_party_provider_list: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    import_request = EmailThirdPartyListImportRequest(
+        providers=[
+            EmailThirdPartyProvider(
+                connect_url="connect_url_example",
+                list_count=1,
+                lists=[
+                    EmailThirdPartyList(
+                        id="id_example",
+                        name="name_example",
+                    ),
+                ],
+                logo_url="logo_url_example",
+                name="name_example",
+                supports_add_tags=True,
+                supports_list_subscribe=True,
+                supports_list_unsubscribe=True,
+                supports_remove_tags=True,
+                tag_count=1,
+                tags=[
+                    EmailThirdPartyTag(
+                        id="id_example",
+                        name="name_example",
+                    ),
+                ],
+            ),
+        ],
+    ) # EmailThirdPartyListImportRequest | lists to import
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Import a third party provider list
+        api_instance.import_email_third_party_provider_list(storefront_oid, import_request)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->import_email_third_party_provider_list: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **import_request** | [**EmailThirdPartyListImportRequest**](EmailThirdPartyListImportRequest.md)| lists to import | 
+ **storefront_oid** | **int**|  |
+ **import_request** | [**EmailThirdPartyListImportRequest**](EmailThirdPartyListImportRequest.md)| lists to import |
 
 ### Return type
 
@@ -5612,6 +11318,17 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_campaign**
@@ -5620,34 +11337,103 @@ void (empty response body)
 Insert email campaign
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_campaign_response import EmailCampaignResponse
+from ultracart.model.email_campaign import EmailCampaign
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign = ultracart.EmailCampaign() # EmailCampaign | Email campaign
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email campaign
-    api_response = api_instance.insert_email_campaign(storefront_oid, email_campaign)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_campaign: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign = EmailCampaign(
+        click_rate_formatted="click_rate_formatted_example",
+        created_dts="created_dts_example",
+        deleted=True,
+        email_campaign_uuid="email_campaign_uuid_example",
+        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
+        end_once_customer_purchases=True,
+        end_once_customer_purchases_anywhere=True,
+        esp_campaign_folder_uuid="esp_campaign_folder_uuid_example",
+        esp_domain_user="esp_domain_user_example",
+        esp_domain_uuid="esp_domain_uuid_example",
+        esp_friendly_name="esp_friendly_name_example",
+        library_item_oid=1,
+        memberships=[
+            EmailListSegmentMembership(
+                email_list_uuid="email_list_uuid_example",
+                email_segment_uuid="email_segment_uuid_example",
+                exclude=True,
+                name="name_example",
+            ),
+        ],
+        merchant_id="merchant_id_example",
+        name="name_example",
+        open_rate_formatted="open_rate_formatted_example",
+        prevent_sending_due_to_spam=True,
+        revenue_formatted="revenue_formatted_example",
+        revenue_per_customer_formatted="revenue_per_customer_formatted_example",
+        scheduled_dts="scheduled_dts_example",
+        screenshot_large_full_url="screenshot_large_full_url_example",
+        status="status_example",
+        status_dts="status_dts_example",
+        storefront_oid=1,
+    ) # EmailCampaign | Email campaign
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email campaign
+        api_response = api_instance.insert_email_campaign(storefront_oid, email_campaign)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_campaign: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign** | [**EmailCampaign**](EmailCampaign.md)| Email campaign | 
+ **storefront_oid** | **int**|  |
+ **email_campaign** | [**EmailCampaign**](EmailCampaign.md)| Email campaign |
 
 ### Return type
 
@@ -5662,6 +11448,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_campaign_folder**
@@ -5670,34 +11468,77 @@ Name | Type | Description  | Notes
 Insert email campaign folder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_campaign_folder import EmailCampaignFolder
+from ultracart.model.email_campaign_folder_response import EmailCampaignFolderResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign_folder = ultracart.EmailCampaignFolder() # EmailCampaignFolder | Email campaign folder
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email campaign folder
-    api_response = api_instance.insert_email_campaign_folder(storefront_oid, email_campaign_folder)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_campaign_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign_folder = EmailCampaignFolder(
+        esp_campaign_folder_uuid="esp_campaign_folder_uuid_example",
+        merchant_id="merchant_id_example",
+        name="name_example",
+        storefront_oid=1,
+        system_generated=True,
+    ) # EmailCampaignFolder | Email campaign folder
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email campaign folder
+        api_response = api_instance.insert_email_campaign_folder(storefront_oid, email_campaign_folder)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_campaign_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign_folder** | [**EmailCampaignFolder**](EmailCampaignFolder.md)| Email campaign folder | 
+ **storefront_oid** | **int**|  |
+ **email_campaign_folder** | [**EmailCampaignFolder**](EmailCampaignFolder.md)| Email campaign folder |
 
 ### Return type
 
@@ -5712,6 +11553,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_commseq**
@@ -5720,34 +11573,93 @@ Name | Type | Description  | Notes
 Insert email commseq
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq import EmailCommseq
+from ultracart.model.email_commseq_response import EmailCommseqResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_commseq = ultracart.EmailCommseq() # EmailCommseq | Email commseq
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email commseq
-    api_response = api_instance.insert_email_commseq(storefront_oid, email_commseq)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_commseq: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_commseq = EmailCommseq(
+        email_communication_sequence_steps=[
+            EmailCommseqStep(
+                alt_child_email_communication_sequence_steps=[
+                    EmailCommseqStep(),
+                ],
+                child_email_communication_sequence_steps=[
+                    EmailCommseqStep(),
+                ],
+                email_communication_sequence_step_uuid="email_communication_sequence_step_uuid_example",
+                email_pending_review=True,
+                email_rejected=True,
+                email_requires_review=True,
+                filter_profile_equation_json="filter_profile_equation_json_example",
+                merchant_notes="merchant_notes_example",
+                step_config_json="step_config_json_example",
+                type="begin",
+            ),
+        ],
+        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
+        merchant_id="merchant_id_example",
+        storefront_oid=1,
+    ) # EmailCommseq | Email commseq
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email commseq
+        api_response = api_instance.insert_email_commseq(storefront_oid, email_commseq)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_commseq: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_commseq** | [**EmailCommseq**](EmailCommseq.md)| Email commseq | 
+ **storefront_oid** | **int**|  |
+ **email_commseq** | [**EmailCommseq**](EmailCommseq.md)| Email commseq |
 
 ### Return type
 
@@ -5762,6 +11674,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_email**
@@ -5770,34 +11694,98 @@ Name | Type | Description  | Notes
 Insert email email
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_email_response import EmailCommseqEmailResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_email import EmailCommseqEmail
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_commseq_email = ultracart.EmailCommseqEmail() # EmailCommseqEmail | Email email
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email email
-    api_response = api_instance.insert_email_email(storefront_oid, email_commseq_email)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_email: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_commseq_email = EmailCommseqEmail(
+        deleted=True,
+        edited_by_user="edited_by_user_example",
+        email_communication_sequence_email_uuid="email_communication_sequence_email_uuid_example",
+        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
+        email_container_cjson="email_container_cjson_example",
+        email_container_cjson_last_modified_dts="email_container_cjson_last_modified_dts_example",
+        email_template_vm_path="email_template_vm_path_example",
+        filter_profile_equation_json="filter_profile_equation_json_example",
+        individually_render=True,
+        library_item_oid=1,
+        magic_link=True,
+        merchant_id="merchant_id_example",
+        pending_review=True,
+        preview_text="preview_text_example",
+        rejected=True,
+        requires_review=True,
+        screenshot_large_full_url="screenshot_large_full_url_example",
+        screenshot_large_viewport_url="screenshot_large_viewport_url_example",
+        screenshot_small_full_url="screenshot_small_full_url_example",
+        screenshot_small_viewport_url="screenshot_small_viewport_url_example",
+        smart_sending=True,
+        storefront_oid=1,
+        subject="subject_example",
+        suspended_for_spam=True,
+        transactional_email=True,
+        version=1,
+    ) # EmailCommseqEmail | Email email
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email email
+        api_response = api_instance.insert_email_email(storefront_oid, email_commseq_email)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_email: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_commseq_email** | [**EmailCommseqEmail**](EmailCommseqEmail.md)| Email email | 
+ **storefront_oid** | **int**|  |
+ **email_commseq_email** | [**EmailCommseqEmail**](EmailCommseqEmail.md)| Email email |
 
 ### Return type
 
@@ -5812,6 +11800,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_flow**
@@ -5820,34 +11820,100 @@ Name | Type | Description  | Notes
 Insert email flow
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flow import EmailFlow
+from ultracart.model.email_flow_response import EmailFlowResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow = ultracart.EmailFlow() # EmailFlow | Email flow
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email flow
-    api_response = api_instance.insert_email_flow(storefront_oid, email_flow)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_flow: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow = EmailFlow(
+        allow_multiple_concurrent_enrollments=True,
+        back_populating=True,
+        click_rate_formatted="click_rate_formatted_example",
+        created_dts="created_dts_example",
+        deleted=True,
+        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
+        email_flow_uuid="email_flow_uuid_example",
+        end_once_customer_purchases=True,
+        end_once_customer_purchases_anywhere=True,
+        enrolled_customers=1,
+        esp_domain_user="esp_domain_user_example",
+        esp_domain_uuid="esp_domain_uuid_example",
+        esp_flow_folder_uuid="esp_flow_folder_uuid_example",
+        esp_friendly_name="esp_friendly_name_example",
+        filter_profile_equation_json="filter_profile_equation_json_example",
+        library_item_oid=1,
+        merchant_id="merchant_id_example",
+        name="name_example",
+        open_rate_formatted="open_rate_formatted_example",
+        revenue_formatted="revenue_formatted_example",
+        revenue_per_customer_formatted="revenue_per_customer_formatted_example",
+        screenshot_large_full_url="screenshot_large_full_url_example",
+        status="status_example",
+        status_dts="status_dts_example",
+        storefront_oid=1,
+        trigger_parameter="trigger_parameter_example",
+        trigger_parameter_name="trigger_parameter_name_example",
+        trigger_type="trigger_type_example",
+    ) # EmailFlow | Email flow
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email flow
+        api_response = api_instance.insert_email_flow(storefront_oid, email_flow)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_flow: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow** | [**EmailFlow**](EmailFlow.md)| Email flow | 
+ **storefront_oid** | **int**|  |
+ **email_flow** | [**EmailFlow**](EmailFlow.md)| Email flow |
 
 ### Return type
 
@@ -5862,6 +11928,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_flow_folder**
@@ -5870,34 +11948,77 @@ Name | Type | Description  | Notes
 Insert email flow folder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flow_folder_response import EmailFlowFolderResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_flow_folder import EmailFlowFolder
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow_folder = ultracart.EmailFlowFolder() # EmailFlowFolder | Email flow folder
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email flow folder
-    api_response = api_instance.insert_email_flow_folder(storefront_oid, email_flow_folder)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_flow_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow_folder = EmailFlowFolder(
+        esp_flow_folder_uuid="esp_flow_folder_uuid_example",
+        merchant_id="merchant_id_example",
+        name="name_example",
+        storefront_oid=1,
+        system_generated=True,
+    ) # EmailFlowFolder | Email flow folder
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email flow folder
+        api_response = api_instance.insert_email_flow_folder(storefront_oid, email_flow_folder)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_flow_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow_folder** | [**EmailFlowFolder**](EmailFlowFolder.md)| Email flow folder | 
+ **storefront_oid** | **int**|  |
+ **email_flow_folder** | [**EmailFlowFolder**](EmailFlowFolder.md)| Email flow folder |
 
 ### Return type
 
@@ -5912,6 +12033,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_list**
@@ -5920,34 +12053,90 @@ Name | Type | Description  | Notes
 Insert email list
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_list_response import EmailListResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_list import EmailList
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list = ultracart.EmailList() # EmailList | Email list
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email list
-    api_response = api_instance.insert_email_list(storefront_oid, email_list)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_list: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list = EmailList(
+        allow_csv_download=True,
+        created_dts="created_dts_example",
+        deleted=True,
+        email_list_uuid="email_list_uuid_example",
+        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
+        member_count=1,
+        merchant_id="merchant_id_example",
+        name="name_example",
+        public_description="public_description_example",
+        public_list=True,
+        storefront_oid=1,
+        used_by=[
+            EmailListSegmentUsedBy(
+                email_campaign_uuid="email_campaign_uuid_example",
+                email_flow_uuid="email_flow_uuid_example",
+                name="name_example",
+            ),
+        ],
+    ) # EmailList | Email list
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email list
+        api_response = api_instance.insert_email_list(storefront_oid, email_list)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_list: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list** | [**EmailList**](EmailList.md)| Email list | 
+ **storefront_oid** | **int**|  |
+ **email_list** | [**EmailList**](EmailList.md)| Email list |
 
 ### Return type
 
@@ -5962,6 +12151,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_list_segment_folder**
@@ -5970,34 +12171,77 @@ Name | Type | Description  | Notes
 Insert email campaign folder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_list_segment_folder_response import EmailListSegmentFolderResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_list_segment_folder import EmailListSegmentFolder
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_segment_folder = ultracart.EmailListSegmentFolder() # EmailListSegmentFolder | Email campaign folder
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email campaign folder
-    api_response = api_instance.insert_email_list_segment_folder(storefront_oid, email_list_segment_folder)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_list_segment_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_segment_folder = EmailListSegmentFolder(
+        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
+        merchant_id="merchant_id_example",
+        name="name_example",
+        storefront_oid=1,
+        system_generated=True,
+    ) # EmailListSegmentFolder | Email campaign folder
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email campaign folder
+        api_response = api_instance.insert_email_list_segment_folder(storefront_oid, email_list_segment_folder)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_list_segment_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_segment_folder** | [**EmailListSegmentFolder**](EmailListSegmentFolder.md)| Email campaign folder | 
+ **storefront_oid** | **int**|  |
+ **email_list_segment_folder** | [**EmailListSegmentFolder**](EmailListSegmentFolder.md)| Email campaign folder |
 
 ### Return type
 
@@ -6012,6 +12256,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_postcard**
@@ -6020,34 +12276,85 @@ Name | Type | Description  | Notes
 Insert email postcard
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_postcard import EmailCommseqPostcard
+from ultracart.model.email_commseq_postcard_response import EmailCommseqPostcardResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_commseq_postcard = ultracart.EmailCommseqPostcard() # EmailCommseqPostcard | Email postcard
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email postcard
-    api_response = api_instance.insert_email_postcard(storefront_oid, email_commseq_postcard)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_postcard: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_commseq_postcard = EmailCommseqPostcard(
+        deleted=True,
+        edited_by_user="edited_by_user_example",
+        email_communication_sequence_postcard_uuid="email_communication_sequence_postcard_uuid_example",
+        filter_profile_equation_json="filter_profile_equation_json_example",
+        merchant_id="merchant_id_example",
+        postcard_back_container_cjson="postcard_back_container_cjson_example",
+        postcard_back_container_uuid="postcard_back_container_uuid_example",
+        postcard_container_cjson_last_modified_dts="postcard_container_cjson_last_modified_dts_example",
+        postcard_front_container_cjson="postcard_front_container_cjson_example",
+        postcard_front_container_uuid="postcard_front_container_uuid_example",
+        screenshot_back_url="screenshot_back_url_example",
+        screenshot_front_url="screenshot_front_url_example",
+        storefront_oid=1,
+    ) # EmailCommseqPostcard | Email postcard
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email postcard
+        api_response = api_instance.insert_email_postcard(storefront_oid, email_commseq_postcard)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_postcard: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_commseq_postcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email postcard | 
+ **storefront_oid** | **int**|  |
+ **email_commseq_postcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email postcard |
 
 ### Return type
 
@@ -6062,6 +12369,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_email_segment**
@@ -6070,34 +12389,107 @@ Name | Type | Description  | Notes
 Insert email segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_segment import EmailSegment
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_segment_response import EmailSegmentResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_segment = ultracart.EmailSegment() # EmailSegment | Email segment
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert email segment
-    api_response = api_instance.insert_email_segment(storefront_oid, email_segment)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_email_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_segment = EmailSegment(
+        allow_csv_download=True,
+        allow_facebook_audiences=True,
+        created_dts="created_dts_example",
+        deleted=True,
+        email_segment_uuid="email_segment_uuid_example",
+        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
+        facebook_custom_audience=True,
+        filter_profile_equation_json="filter_profile_equation_json_example",
+        member_count=1,
+        merchant_id="merchant_id_example",
+        name="name_example",
+        rank_json="rank_json_example",
+        rebuild_required=True,
+        storefront_oid=1,
+        thirdparty_join_add_tags=[
+            "thirdparty_join_add_tags_example",
+        ],
+        thirdparty_join_remove_tags=[
+            "thirdparty_join_remove_tags_example",
+        ],
+        thirdparty_leave_add_tags=[
+            "thirdparty_leave_add_tags_example",
+        ],
+        thirdparty_leave_remove_tags=[
+            "thirdparty_leave_remove_tags_example",
+        ],
+        thirdparty_list_id="thirdparty_list_id_example",
+        thirdparty_provider_name="thirdparty_provider_name_example",
+        used_by=[
+            EmailListSegmentUsedBy(
+                email_campaign_uuid="email_campaign_uuid_example",
+                email_flow_uuid="email_flow_uuid_example",
+                name="name_example",
+            ),
+        ],
+    ) # EmailSegment | Email segment
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert email segment
+        api_response = api_instance.insert_email_segment(storefront_oid, email_segment)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_email_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_segment** | [**EmailSegment**](EmailSegment.md)| Email segment | 
+ **storefront_oid** | **int**|  |
+ **email_segment** | [**EmailSegment**](EmailSegment.md)| Email segment |
 
 ### Return type
 
@@ -6112,6 +12504,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_screen_recording_segment**
@@ -6120,34 +12524,325 @@ Name | Type | Description  | Notes
 Insert screen recording segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_segment import ScreenRecordingSegment
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.screen_recording_segment_response import ScreenRecordingSegmentResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-segment = ultracart.ScreenRecordingSegment() # ScreenRecordingSegment | Segment
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Insert screen recording segment
-    api_response = api_instance.insert_screen_recording_segment(storefront_oid, segment)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->insert_screen_recording_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    segment = ScreenRecordingSegment(
+        create_dts="create_dts_example",
+        description="description_example",
+        filter=ScreenRecordingFilter(
+            affiliate_email="affiliate_email_example",
+            affiliate_id=1,
+            communications_campaign_name="communications_campaign_name_example",
+            communications_campaign_name_filter=True,
+            communications_email_subject="communications_email_subject_example",
+            communications_email_subject_filter=True,
+            communications_flow_name="communications_flow_name_example",
+            communications_flow_name_filter=True,
+            email=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            email_domain="email_domain_example",
+            email_domain_filter=True,
+            email_identified=True,
+            end_timestamp=ScreenRecordingFilterRangeDate(
+                end="end_example",
+                start="start_example",
+            ),
+            esp_customer_uuid="esp_customer_uuid_example",
+            favorite=True,
+            geolocation=ScreenRecordingFilterGeoDistance(
+                distance=1,
+                distance_uom="distance_uom_example",
+                from_address="from_address_example",
+                lat=3.14,
+                lon=3.14,
+            ),
+            geolocation_country=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            geolocation_country_filter=True,
+            geolocation_state=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            geolocation_state_filter=True,
+            language_iso_code=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            language_iso_code_filter=True,
+            last_x_days=1,
+            max_filter_values=1,
+            order_id=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            page_view_count=ScreenRecordingFilterRangeInteger(
+                eq=1,
+                gt=1,
+                gte=1,
+                lt=1,
+                lte=1,
+            ),
+            page_views=[
+                ScreenRecordingFilterPageView(
+                    domain=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    domain_filter=True,
+                    event_name_filter=True,
+                    event_param_name_filter=True,
+                    event_param_value_filter=True,
+                    events=[
+                        ScreenRecordingFilterPageViewEvent(
+                            event_name="event_name_example",
+                            event_params=[
+                                ScreenRecordingFilterPageViewEventParam(
+                                    name="name_example",
+                                    value_bd=ScreenRecordingFilterRangeBigDecimal(
+                                        eq=3.14,
+                                        gt=3.14,
+                                        gte=3.14,
+                                        lt=3.14,
+                                        lte=3.14,
+                                    ),
+                                    value_bool=True,
+                                    value_num=ScreenRecordingFilterRangeInteger(
+                                        eq=1,
+                                        gt=1,
+                                        gte=1,
+                                        lt=1,
+                                        lte=1,
+                                    ),
+                                    value_text=ScreenRecordingFilterStringSearch(
+                                        does_not_exist=True,
+                                        exists=True,
+                                        _is="_is_example",
+                                        is_not="is_not_example",
+                                        starts_with="starts_with_example",
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ],
+                    param_name_filter=True,
+                    param_value_filter=True,
+                    params=[
+                        ScreenRecordingFilterPageViewParam(
+                            name="name_example",
+                            value=ScreenRecordingFilterStringSearch(
+                                does_not_exist=True,
+                                exists=True,
+                                _is="_is_example",
+                                is_not="is_not_example",
+                                starts_with="starts_with_example",
+                            ),
+                        ),
+                    ],
+                    referrer=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    referrer_params=[
+                        ScreenRecordingFilterPageViewReferrerParam(
+                            name="name_example",
+                            value=ScreenRecordingFilterStringSearch(
+                                does_not_exist=True,
+                                exists=True,
+                                _is="_is_example",
+                                is_not="is_not_example",
+                                starts_with="starts_with_example",
+                            ),
+                        ),
+                    ],
+                    referrer_raw=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    time_on_page=ScreenRecordingFilterRangeInteger(
+                        eq=1,
+                        gt=1,
+                        gte=1,
+                        lt=1,
+                        lte=1,
+                    ),
+                    time_on_page_max_filter=True,
+                    time_on_page_min_filter=True,
+                    url=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    url_filter=True,
+                ),
+            ],
+            placed_order=True,
+            preferred_language=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            preferred_language_filter=True,
+            referrer_domain="referrer_domain_example",
+            referrer_domain_filter=True,
+            screen_recording_uuids=[
+                "screen_recording_uuids_example",
+            ],
+            screen_sizes=[
+                "screen_sizes_example",
+            ],
+            skip_filter_values=True,
+            skip_histogram=True,
+            skip_hits=True,
+            start_timestamp=ScreenRecordingFilterRangeDate(
+                end="end_example",
+                start="start_example",
+            ),
+            tags=[
+                "tags_example",
+            ],
+            time_on_site=ScreenRecordingFilterRangeInteger(
+                eq=1,
+                gt=1,
+                gte=1,
+                lt=1,
+                lte=1,
+            ),
+            time_on_site_max_filter=True,
+            time_on_site_min_filter=True,
+            url_filter=True,
+            user_agent_device_name="user_agent_device_name_example",
+            user_agent_device_name_filter=True,
+            user_agent_device_os_name_filter=True,
+            user_agent_device_os_version_filter=True,
+            user_agent_name="user_agent_name_example",
+            user_agent_name_filter=True,
+            user_agent_original=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            user_agent_original_filter=True,
+            user_agent_os_name="user_agent_os_name_example",
+            user_agent_os_version="user_agent_os_version_example",
+            user_ip=ScreenRecordingFilterIpSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+            ),
+            utm_campaign="utm_campaign_example",
+            utm_campaign_filter=True,
+            utm_source="utm_source_example",
+            utm_source_filter=True,
+            visitor_number=1,
+            watched=True,
+        ),
+        histogram_data=[
+            1,
+        ],
+        histogram_interval="histogram_interval_example",
+        histogram_start_dts="histogram_start_dts_example",
+        name="name_example",
+        screen_recording_segment_oid=1,
+        session_count=1,
+        session_count_last_update_dts="session_count_last_update_dts_example",
+    ) # ScreenRecordingSegment | Segment
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert screen recording segment
+        api_response = api_instance.insert_screen_recording_segment(storefront_oid, segment)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->insert_screen_recording_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **segment** | [**ScreenRecordingSegment**](ScreenRecordingSegment.md)| Segment | 
+ **storefront_oid** | **int**|  |
+ **segment** | [**ScreenRecordingSegment**](ScreenRecordingSegment.md)| Segment |
 
 ### Return type
 
@@ -6162,6 +12857,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **prepare_download_email_segment**
@@ -6170,34 +12877,70 @@ Name | Type | Description  | Notes
 Prepare download of email segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_segment_download_prepare_response import EmailSegmentDownloadPrepareResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_segment_uuid = 'email_segment_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Prepare download of email segment
-    api_response = api_instance.prepare_download_email_segment(storefront_oid, email_segment_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->prepare_download_email_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_segment_uuid = "email_segment_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Prepare download of email segment
+        api_response = api_instance.prepare_download_email_segment(storefront_oid, email_segment_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->prepare_download_email_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_segment_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_segment_uuid** | **str**|  |
 
 ### Return type
 
@@ -6209,8 +12952,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6220,34 +12975,73 @@ Name | Type | Description  | Notes
 Publish library item.
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.library_item_response import LibraryItemResponse
+from ultracart.model.publish_library_item_request import PublishLibraryItemRequest
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-library_item_oid = 56 # int | 
-publish_library_request = ultracart.PublishLibraryItemRequest() # PublishLibraryItemRequest | Publish library item request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Publish library item.
-    api_response = api_instance.publish_library_item(library_item_oid, publish_library_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->publish_library_item: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    library_item_oid = 1 # int | 
+    publish_library_request = PublishLibraryItemRequest(
+        release_notes="release_notes_example",
+    ) # PublishLibraryItemRequest | Publish library item request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Publish library item.
+        api_response = api_instance.publish_library_item(library_item_oid, publish_library_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->publish_library_item: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**|  | 
- **publish_library_request** | [**PublishLibraryItemRequest**](PublishLibraryItemRequest.md)| Publish library item request | 
+ **library_item_oid** | **int**|  |
+ **publish_library_request** | [**PublishLibraryItemRequest**](PublishLibraryItemRequest.md)| Publish library item request |
 
 ### Return type
 
@@ -6261,43 +13055,100 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **purchase_library_item**
-> LibraryItemResponse purchase_library_item(library_item_oid, storefront_oid=storefront_oid)
+> LibraryItemResponse purchase_library_item(library_item_oid)
 
 Purchase public library item, which creates a copy of the item in your personal code library
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.library_item_response import LibraryItemResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-library_item_oid = 56 # int | 
-storefront_oid = 56 # int |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Purchase public library item, which creates a copy of the item in your personal code library
-    api_response = api_instance.purchase_library_item(library_item_oid, storefront_oid=storefront_oid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->purchase_library_item: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    library_item_oid = 1 # int | 
+    storefront_oid = 1 # int |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Purchase public library item, which creates a copy of the item in your personal code library
+        api_response = api_instance.purchase_library_item(library_item_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->purchase_library_item: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Purchase public library item, which creates a copy of the item in your personal code library
+        api_response = api_instance.purchase_library_item(library_item_oid, storefront_oid=storefront_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->purchase_library_item: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**|  | 
- **storefront_oid** | **int**|  | [optional] 
+ **library_item_oid** | **int**|  |
+ **storefront_oid** | **int**|  | [optional]
 
 ### Return type
 
@@ -6309,8 +13160,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6320,35 +13183,70 @@ Name | Type | Description  | Notes
 Release email communication sequence customers waiting at the specified step
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
-commseq_step_uuid = 'commseq_step_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Release email communication sequence customers waiting at the specified step
-    api_instance.release_email_commseq_step_waiting(storefront_oid, commseq_uuid, commseq_step_uuid)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->release_email_commseq_step_waiting: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    commseq_step_uuid = "commseq_step_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Release email communication sequence customers waiting at the specified step
+        api_instance.release_email_commseq_step_waiting(storefront_oid, commseq_uuid, commseq_step_uuid)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->release_email_commseq_step_waiting: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
- **commseq_step_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **commseq_step_uuid** | **str**|  |
 
 ### Return type
 
@@ -6360,8 +13258,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6371,36 +13280,88 @@ void (empty response body)
 Request a review of an email
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_email_send_test_response import EmailCommseqEmailSendTestResponse
+from ultracart.model.email_commseq_email_send_test_request import EmailCommseqEmailSendTestRequest
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_email_uuid = 'commseq_email_uuid_example' # str | 
-email_commseq_email_review_request = ultracart.EmailCommseqEmailSendTestRequest() # EmailCommseqEmailSendTestRequest | Email commseq email review request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Request a review of an email
-    api_response = api_instance.review(storefront_oid, commseq_email_uuid, email_commseq_email_review_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->review: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_email_uuid = "commseq_email_uuid_example" # str | 
+    email_commseq_email_review_request = EmailCommseqEmailSendTestRequest(
+        cart_id="cart_id_example",
+        cart_item_ids=[
+            "cart_item_ids_example",
+        ],
+        esp_commseq_email_uuid="esp_commseq_email_uuid_example",
+        esp_commseq_step_uuid="esp_commseq_step_uuid_example",
+        esp_commseq_uuid="esp_commseq_uuid_example",
+        name="name_example",
+        order_id="order_id_example",
+        please_review=True,
+        send_to_additional_emails=[
+            "send_to_additional_emails_example",
+        ],
+        send_to_logged_in_user=True,
+    ) # EmailCommseqEmailSendTestRequest | Email commseq email review request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Request a review of an email
+        api_response = api_instance.review(storefront_oid, commseq_email_uuid, email_commseq_email_review_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->review: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_email_uuid** | **str**|  | 
- **email_commseq_email_review_request** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email review request | 
+ **storefront_oid** | **int**|  |
+ **commseq_email_uuid** | **str**|  |
+ **email_commseq_email_review_request** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email review request |
 
 ### Return type
 
@@ -6415,48 +13376,97 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search**
-> LookupResponse search(category=category, matches=matches, storefront_oid=storefront_oid, max_hits=max_hits, subcategory=subcategory)
+> LookupResponse search()
 
 Searches for all matching values
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.lookup_response import LookupResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-category = 'category_example' # str |  (optional)
-matches = 'matches_example' # str |  (optional)
-storefront_oid = 'storefront_oid_example' # str |  (optional)
-max_hits = 56 # int |  (optional)
-subcategory = 'subcategory_example' # str |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Searches for all matching values
-    api_response = api_instance.search(category=category, matches=matches, storefront_oid=storefront_oid, max_hits=max_hits, subcategory=subcategory)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->search: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    category = "category_example" # str |  (optional)
+    matches = "matches_example" # str |  (optional)
+    storefront_oid = "storefront_oid_example" # str |  (optional)
+    max_hits = 1 # int |  (optional)
+    subcategory = "subcategory_example" # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Searches for all matching values
+        api_response = api_instance.search(category=category, matches=matches, storefront_oid=storefront_oid, max_hits=max_hits, subcategory=subcategory)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **str**|  | [optional] 
- **matches** | **str**|  | [optional] 
- **storefront_oid** | **str**|  | [optional] 
- **max_hits** | **int**|  | [optional] 
- **subcategory** | **str**|  | [optional] 
+ **category** | **str**|  | [optional]
+ **matches** | **str**|  | [optional]
+ **storefront_oid** | **str**|  | [optional]
+ **max_hits** | **int**|  | [optional]
+ **subcategory** | **str**|  | [optional]
 
 ### Return type
 
@@ -6468,8 +13478,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6479,32 +13501,75 @@ Name | Type | Description  | Notes
 Searches for all matching values (using POST)
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.lookup_response import LookupResponse
+from ultracart.model.lookup_request import LookupRequest
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-lookup_request = ultracart.LookupRequest() # LookupRequest | LookupRequest
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Searches for all matching values (using POST)
-    api_response = api_instance.search2(lookup_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->search2: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    lookup_request = LookupRequest(
+        category="category_example",
+        matches="matches_example",
+        max_hits=1,
+        storefront_oid=1,
+        subcategory="subcategory_example",
+    ) # LookupRequest | LookupRequest
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Searches for all matching values (using POST)
+        api_response = api_instance.search2(lookup_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search2: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lookup_request** | [**LookupRequest**](LookupRequest.md)| LookupRequest | 
+ **lookup_request** | [**LookupRequest**](LookupRequest.md)| LookupRequest |
 
 ### Return type
 
@@ -6519,44 +13584,101 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_email_list_customers**
-> EmailListCustomersResponse search_email_list_customers(storefront_oid, email_list_uuid, starts_with=starts_with)
+> EmailListCustomersResponse search_email_list_customers(storefront_oid, email_list_uuid)
 
 Search email list customers
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_list_customers_response import EmailListCustomersResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_uuid = 'email_list_uuid_example' # str | 
-starts_with = 'starts_with_example' # str |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Search email list customers
-    api_response = api_instance.search_email_list_customers(storefront_oid, email_list_uuid, starts_with=starts_with)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->search_email_list_customers: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_uuid = "email_list_uuid_example" # str | 
+    starts_with = "startsWith_example" # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Search email list customers
+        api_response = api_instance.search_email_list_customers(storefront_oid, email_list_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_email_list_customers: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Search email list customers
+        api_response = api_instance.search_email_list_customers(storefront_oid, email_list_uuid, starts_with=starts_with)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_email_list_customers: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_uuid** | **str**|  | 
- **starts_with** | **str**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **email_list_uuid** | **str**|  |
+ **starts_with** | **str**|  | [optional]
 
 ### Return type
 
@@ -6568,47 +13690,104 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_email_segment_customers**
-> EmailSegmentCustomersResponse search_email_segment_customers(storefront_oid, email_segment_uuid, starts_with=starts_with)
+> EmailSegmentCustomersResponse search_email_segment_customers(storefront_oid, email_segment_uuid)
 
 Search email segment customers
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_segment_customers_response import EmailSegmentCustomersResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_segment_uuid = 'email_segment_uuid_example' # str | 
-starts_with = 'starts_with_example' # str |  (optional)
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Search email segment customers
-    api_response = api_instance.search_email_segment_customers(storefront_oid, email_segment_uuid, starts_with=starts_with)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->search_email_segment_customers: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_segment_uuid = "email_segment_uuid_example" # str | 
+    starts_with = "startsWith_example" # str |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Search email segment customers
+        api_response = api_instance.search_email_segment_customers(storefront_oid, email_segment_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_email_segment_customers: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Search email segment customers
+        api_response = api_instance.search_email_segment_customers(storefront_oid, email_segment_uuid, starts_with=starts_with)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_email_segment_customers: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_segment_uuid** | **str**|  | 
- **starts_with** | **str**|  | [optional] 
+ **storefront_oid** | **int**|  |
+ **email_segment_uuid** | **str**|  |
+ **starts_with** | **str**|  | [optional]
 
 ### Return type
 
@@ -6620,51 +13799,115 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_library_items**
-> LibraryItemsResponse search_library_items(item_query, limit=limit, offset=offset, sort=sort)
+> LibraryItemsResponse search_library_items(item_query)
 
 Retrieve library items
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.library_items_response import LibraryItemsResponse
+from ultracart.model.library_item_query import LibraryItemQuery
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-item_query = ultracart.LibraryItemQuery() # LibraryItemQuery | Item query
-limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) (default to 10000)
-offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
-sort = 'sort_example' # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Retrieve library items
-    api_response = api_instance.search_library_items(item_query, limit=limit, offset=offset, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->search_library_items: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    item_query = LibraryItemQuery(
+        category="category_example",
+        content_type="content_type_example",
+        description="description_example",
+        industry="industry_example",
+        price_high=3.14,
+        price_low=3.14,
+        published_dts_begin="published_dts_begin_example",
+        published_dts_end="published_dts_end_example",
+        source_of_published=True,
+        style="style_example",
+        title="title_example",
+        type="type_example",
+    ) # LibraryItemQuery | Item query
+    limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) if omitted the server will use the default value of 10000
+    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
+    sort = "_sort_example" # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve library items
+        api_response = api_instance.search_library_items(item_query)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_library_items: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Retrieve library items
+        api_response = api_instance.search_library_items(item_query, limit=limit, offset=offset, sort=sort)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_library_items: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item_query** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
- **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
- **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **str**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **item_query** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query |
+ **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] if omitted the server will use the default value of 10000
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
+ **sort** | **str**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
 
 ### Return type
 
@@ -6678,49 +13921,113 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_published_items**
-> LibraryItemsResponse search_published_items(item_query, limit=limit, offset=offset, sort=sort)
+> LibraryItemsResponse search_published_items(item_query)
 
 Retrieve library items
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.library_items_response import LibraryItemsResponse
+from ultracart.model.library_item_query import LibraryItemQuery
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-item_query = ultracart.LibraryItemQuery() # LibraryItemQuery | Item query
-limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) (default to 10000)
-offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
-sort = 'sort_example' # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Retrieve library items
-    api_response = api_instance.search_published_items(item_query, limit=limit, offset=offset, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->search_published_items: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    item_query = LibraryItemQuery(
+        category="category_example",
+        content_type="content_type_example",
+        description="description_example",
+        industry="industry_example",
+        price_high=3.14,
+        price_low=3.14,
+        published_dts_begin="published_dts_begin_example",
+        published_dts_end="published_dts_end_example",
+        source_of_published=True,
+        style="style_example",
+        title="title_example",
+        type="type_example",
+    ) # LibraryItemQuery | Item query
+    limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) if omitted the server will use the default value of 10000
+    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
+    sort = "_sort_example" # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve library items
+        api_response = api_instance.search_published_items(item_query)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_published_items: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Retrieve library items
+        api_response = api_instance.search_published_items(item_query, limit=limit, offset=offset, sort=sort)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_published_items: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item_query** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
- **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
- **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **str**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **item_query** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query |
+ **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] if omitted the server will use the default value of 10000
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
+ **sort** | **str**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
 
 ### Return type
 
@@ -6735,48 +14042,112 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_review_items**
-> LibraryItemsResponse search_review_items(item_query, limit=limit, offset=offset, sort=sort)
+> LibraryItemsResponse search_review_items(item_query)
 
 Retrieve library items needing review or rejected
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.library_items_response import LibraryItemsResponse
+from ultracart.model.library_item_query import LibraryItemQuery
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-item_query = ultracart.LibraryItemQuery() # LibraryItemQuery | Item query
-limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) (default to 10000)
-offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
-sort = 'sort_example' # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Retrieve library items needing review or rejected
-    api_response = api_instance.search_review_items(item_query, limit=limit, offset=offset, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->search_review_items: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    item_query = LibraryItemQuery(
+        category="category_example",
+        content_type="content_type_example",
+        description="description_example",
+        industry="industry_example",
+        price_high=3.14,
+        price_low=3.14,
+        published_dts_begin="published_dts_begin_example",
+        published_dts_end="published_dts_end_example",
+        source_of_published=True,
+        style="style_example",
+        title="title_example",
+        type="type_example",
+    ) # LibraryItemQuery | Item query
+    limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) if omitted the server will use the default value of 10000
+    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
+    sort = "_sort_example" # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve library items needing review or rejected
+        api_response = api_instance.search_review_items(item_query)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_review_items: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Retrieve library items needing review or rejected
+        api_response = api_instance.search_review_items(item_query, limit=limit, offset=offset, sort=sort)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_review_items: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item_query** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
- **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
- **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **str**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **item_query** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query |
+ **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] if omitted the server will use the default value of 10000
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
+ **sort** | **str**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
 
 ### Return type
 
@@ -6791,48 +14162,112 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_shared_items**
-> LibraryItemsResponse search_shared_items(item_query, limit=limit, offset=offset, sort=sort)
+> LibraryItemsResponse search_shared_items(item_query)
 
 Retrieve library items
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.library_items_response import LibraryItemsResponse
+from ultracart.model.library_item_query import LibraryItemQuery
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-item_query = ultracart.LibraryItemQuery() # LibraryItemQuery | Item query
-limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) (default to 10000)
-offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
-sort = 'sort_example' # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Retrieve library items
-    api_response = api_instance.search_shared_items(item_query, limit=limit, offset=offset, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->search_shared_items: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    item_query = LibraryItemQuery(
+        category="category_example",
+        content_type="content_type_example",
+        description="description_example",
+        industry="industry_example",
+        price_high=3.14,
+        price_low=3.14,
+        published_dts_begin="published_dts_begin_example",
+        published_dts_end="published_dts_end_example",
+        source_of_published=True,
+        style="style_example",
+        title="title_example",
+        type="type_example",
+    ) # LibraryItemQuery | Item query
+    limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) if omitted the server will use the default value of 10000
+    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
+    sort = "_sort_example" # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve library items
+        api_response = api_instance.search_shared_items(item_query)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_shared_items: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Retrieve library items
+        api_response = api_instance.search_shared_items(item_query, limit=limit, offset=offset, sort=sort)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->search_shared_items: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item_query** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
- **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
- **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **str**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **item_query** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query |
+ **limit** | **int**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] if omitted the server will use the default value of 10000
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
+ **sort** | **str**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
 
 ### Return type
 
@@ -6846,6 +14281,18 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6855,36 +14302,88 @@ Name | Type | Description  | Notes
 Send email test
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_email_send_test_response import EmailCommseqEmailSendTestResponse
+from ultracart.model.email_commseq_email_send_test_request import EmailCommseqEmailSendTestRequest
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_email_uuid = 'commseq_email_uuid_example' # str | 
-email_commseq_email_test_request = ultracart.EmailCommseqEmailSendTestRequest() # EmailCommseqEmailSendTestRequest | Email commseq email test request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Send email test
-    api_response = api_instance.send_email_test(storefront_oid, commseq_email_uuid, email_commseq_email_test_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->send_email_test: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_email_uuid = "commseq_email_uuid_example" # str | 
+    email_commseq_email_test_request = EmailCommseqEmailSendTestRequest(
+        cart_id="cart_id_example",
+        cart_item_ids=[
+            "cart_item_ids_example",
+        ],
+        esp_commseq_email_uuid="esp_commseq_email_uuid_example",
+        esp_commseq_step_uuid="esp_commseq_step_uuid_example",
+        esp_commseq_uuid="esp_commseq_uuid_example",
+        name="name_example",
+        order_id="order_id_example",
+        please_review=True,
+        send_to_additional_emails=[
+            "send_to_additional_emails_example",
+        ],
+        send_to_logged_in_user=True,
+    ) # EmailCommseqEmailSendTestRequest | Email commseq email test request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Send email test
+        api_response = api_instance.send_email_test(storefront_oid, commseq_email_uuid, email_commseq_email_test_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->send_email_test: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_email_uuid** | **str**|  | 
- **email_commseq_email_test_request** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email test request | 
+ **storefront_oid** | **int**|  |
+ **commseq_email_uuid** | **str**|  |
+ **email_commseq_email_test_request** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email test request |
 
 ### Return type
 
@@ -6899,6 +14398,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **send_postcard_test**
@@ -6907,36 +14418,89 @@ Name | Type | Description  | Notes
 Send postcard test
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_postcard_send_test_response import EmailCommseqPostcardSendTestResponse
+from ultracart.model.email_commseq_postcard_send_test_request import EmailCommseqPostcardSendTestRequest
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | 
-email_commseq_postcard_test_request = ultracart.EmailCommseqPostcardSendTestRequest() # EmailCommseqPostcardSendTestRequest | Email commseq email test request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Send postcard test
-    api_response = api_instance.send_postcard_test(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->send_postcard_test: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
+    email_commseq_postcard_test_request = EmailCommseqPostcardSendTestRequest(
+        address_1="address_1_example",
+        address_2="address_2_example",
+        cart_id="cart_id_example",
+        cart_item_ids=[
+            "cart_item_ids_example",
+        ],
+        city="city_example",
+        esp_commseq_postcard_uuid="esp_commseq_postcard_uuid_example",
+        esp_commseq_step_uuid="esp_commseq_step_uuid_example",
+        esp_commseq_uuid="esp_commseq_uuid_example",
+        mail_card=True,
+        name="name_example",
+        order_id="order_id_example",
+        postal_code="postal_code_example",
+        state="state_example",
+    ) # EmailCommseqPostcardSendTestRequest | Email commseq email test request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Send postcard test
+        api_response = api_instance.send_postcard_test(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->send_postcard_test: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_postcard_uuid** | **str**|  | 
- **email_commseq_postcard_test_request** | [**EmailCommseqPostcardSendTestRequest**](EmailCommseqPostcardSendTestRequest.md)| Email commseq email test request | 
+ **storefront_oid** | **int**|  |
+ **commseq_postcard_uuid** | **str**|  |
+ **email_commseq_postcard_test_request** | [**EmailCommseqPostcardSendTestRequest**](EmailCommseqPostcardSendTestRequest.md)| Email commseq email test request |
 
 ### Return type
 
@@ -6951,6 +14515,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **send_webhook_test**
@@ -6959,34 +14535,81 @@ Name | Type | Description  | Notes
 Send webhook test
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_webhook_send_test_request import EmailCommseqWebhookSendTestRequest
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_webhook_send_test_response import EmailCommseqWebhookSendTestResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_commseq_webhook_test_request = ultracart.EmailCommseqWebhookSendTestRequest() # EmailCommseqWebhookSendTestRequest | Email commseq webhook test request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Send webhook test
-    api_response = api_instance.send_webhook_test(storefront_oid, email_commseq_webhook_test_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->send_webhook_test: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_commseq_webhook_test_request = EmailCommseqWebhookSendTestRequest(
+        cart_id="cart_id_example",
+        cart_item_ids=[
+            "cart_item_ids_example",
+        ],
+        email="email_example",
+        esp_commseq_step_uuid="esp_commseq_step_uuid_example",
+        esp_commseq_uuid="esp_commseq_uuid_example",
+        name="name_example",
+        order_id="order_id_example",
+    ) # EmailCommseqWebhookSendTestRequest | Email commseq webhook test request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Send webhook test
+        api_response = api_instance.send_webhook_test(storefront_oid, email_commseq_webhook_test_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->send_webhook_test: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_commseq_webhook_test_request** | [**EmailCommseqWebhookSendTestRequest**](EmailCommseqWebhookSendTestRequest.md)| Email commseq webhook test request | 
+ **storefront_oid** | **int**|  |
+ **email_commseq_webhook_test_request** | [**EmailCommseqWebhookSendTestRequest**](EmailCommseqWebhookSendTestRequest.md)| Email commseq webhook test request |
 
 ### Return type
 
@@ -7001,6 +14624,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_email_campaign**
@@ -7009,34 +14644,70 @@ Name | Type | Description  | Notes
 Start email campaign
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.base_response import BaseResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign_uuid = 'email_campaign_uuid_example' # str | 
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Start email campaign
-    api_response = api_instance.start_email_campaign(storefront_oid, email_campaign_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->start_email_campaign: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign_uuid = "email_campaign_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Start email campaign
+        api_response = api_instance.start_email_campaign(storefront_oid, email_campaign_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->start_email_campaign: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **email_campaign_uuid** | **str**|  |
 
 ### Return type
 
@@ -7048,8 +14719,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7059,36 +14742,86 @@ Name | Type | Description  | Notes
 Subscribe customers to email list
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_list_subscribe_response import EmailListSubscribeResponse
+from ultracart.model.email_customer import EmailCustomer
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_uuid = 'email_list_uuid_example' # str | 
-customers = [ultracart.EmailCustomer()] # list[EmailCustomer] | Customers
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Subscribe customers to email list
-    api_response = api_instance.subscribe_to_email_list(storefront_oid, email_list_uuid, customers)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->subscribe_to_email_list: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_uuid = "email_list_uuid_example" # str | 
+    customers = [
+        EmailCustomer(
+            active=True,
+            email="email_example",
+            email_customer_uuid="email_customer_uuid_example",
+            first_name="first_name_example",
+            global_unsubscribe=True,
+            last_interaction_dts="last_interaction_dts_example",
+            last_name="last_name_example",
+            list_uuids=[
+                "list_uuids_example",
+            ],
+        ),
+    ] # [EmailCustomer] | Customers
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Subscribe customers to email list
+        api_response = api_instance.subscribe_to_email_list(storefront_oid, email_list_uuid, customers)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->subscribe_to_email_list: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_uuid** | **str**|  | 
- **customers** | [**list[EmailCustomer]**](EmailCustomer.md)| Customers | 
+ **storefront_oid** | **int**|  |
+ **email_list_uuid** | **str**|  |
+ **customers** | [**[EmailCustomer]**](EmailCustomer.md)| Customers |
 
 ### Return type
 
@@ -7103,6 +14836,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unfavorite_screen_recording**
@@ -7113,33 +14858,61 @@ Remove favorite flag on screen recording
 Remove favorite flag on screen recording 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_uuid = 'screen_recording_uuid_example' # str | 
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Remove favorite flag on screen recording
-    api_instance.unfavorite_screen_recording(storefront_oid, screen_recording_uuid)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->unfavorite_screen_recording: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_uuid = "screen_recording_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Remove favorite flag on screen recording
+        api_instance.unfavorite_screen_recording(storefront_oid, screen_recording_uuid)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->unfavorite_screen_recording: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_uuid** | **str**|  | 
+ **storefront_oid** | **int**|  |
+ **screen_recording_uuid** | **str**|  |
 
 ### Return type
 
@@ -7151,8 +14924,19 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7162,36 +14946,105 @@ void (empty response body)
 Update email campaign
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_campaign_response import EmailCampaignResponse
+from ultracart.model.email_campaign import EmailCampaign
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign_uuid = 'email_campaign_uuid_example' # str | 
-email_campaign = ultracart.EmailCampaign() # EmailCampaign | Email campaign
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email campaign
-    api_response = api_instance.update_email_campaign(storefront_oid, email_campaign_uuid, email_campaign)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_campaign: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign_uuid = "email_campaign_uuid_example" # str | 
+    email_campaign = EmailCampaign(
+        click_rate_formatted="click_rate_formatted_example",
+        created_dts="created_dts_example",
+        deleted=True,
+        email_campaign_uuid="email_campaign_uuid_example",
+        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
+        end_once_customer_purchases=True,
+        end_once_customer_purchases_anywhere=True,
+        esp_campaign_folder_uuid="esp_campaign_folder_uuid_example",
+        esp_domain_user="esp_domain_user_example",
+        esp_domain_uuid="esp_domain_uuid_example",
+        esp_friendly_name="esp_friendly_name_example",
+        library_item_oid=1,
+        memberships=[
+            EmailListSegmentMembership(
+                email_list_uuid="email_list_uuid_example",
+                email_segment_uuid="email_segment_uuid_example",
+                exclude=True,
+                name="name_example",
+            ),
+        ],
+        merchant_id="merchant_id_example",
+        name="name_example",
+        open_rate_formatted="open_rate_formatted_example",
+        prevent_sending_due_to_spam=True,
+        revenue_formatted="revenue_formatted_example",
+        revenue_per_customer_formatted="revenue_per_customer_formatted_example",
+        scheduled_dts="scheduled_dts_example",
+        screenshot_large_full_url="screenshot_large_full_url_example",
+        status="status_example",
+        status_dts="status_dts_example",
+        storefront_oid=1,
+    ) # EmailCampaign | Email campaign
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email campaign
+        api_response = api_instance.update_email_campaign(storefront_oid, email_campaign_uuid, email_campaign)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_campaign: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign_uuid** | **str**|  | 
- **email_campaign** | [**EmailCampaign**](EmailCampaign.md)| Email campaign | 
+ **storefront_oid** | **int**|  |
+ **email_campaign_uuid** | **str**|  |
+ **email_campaign** | [**EmailCampaign**](EmailCampaign.md)| Email campaign |
 
 ### Return type
 
@@ -7206,6 +15059,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_campaign_folder**
@@ -7214,36 +15079,79 @@ Name | Type | Description  | Notes
 Update email campaign folder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_campaign_folder import EmailCampaignFolder
+from ultracart.model.email_campaign_folder_response import EmailCampaignFolderResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_campaign_folder_uuid = 'email_campaign_folder_uuid_example' # str | 
-email_campaign_folder = ultracart.EmailCampaignFolder() # EmailCampaignFolder | Email campaign folder
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email campaign folder
-    api_response = api_instance.update_email_campaign_folder(storefront_oid, email_campaign_folder_uuid, email_campaign_folder)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_campaign_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_campaign_folder_uuid = "email_campaign_folder_uuid_example" # str | 
+    email_campaign_folder = EmailCampaignFolder(
+        esp_campaign_folder_uuid="esp_campaign_folder_uuid_example",
+        merchant_id="merchant_id_example",
+        name="name_example",
+        storefront_oid=1,
+        system_generated=True,
+    ) # EmailCampaignFolder | Email campaign folder
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email campaign folder
+        api_response = api_instance.update_email_campaign_folder(storefront_oid, email_campaign_folder_uuid, email_campaign_folder)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_campaign_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_campaign_folder_uuid** | **str**|  | 
- **email_campaign_folder** | [**EmailCampaignFolder**](EmailCampaignFolder.md)| Email campaign folder | 
+ **storefront_oid** | **int**|  |
+ **email_campaign_folder_uuid** | **str**|  |
+ **email_campaign_folder** | [**EmailCampaignFolder**](EmailCampaignFolder.md)| Email campaign folder |
 
 ### Return type
 
@@ -7258,6 +15166,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_commseq**
@@ -7266,36 +15186,95 @@ Name | Type | Description  | Notes
 Update email commseq
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq import EmailCommseq
+from ultracart.model.email_commseq_response import EmailCommseqResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_uuid = 'commseq_uuid_example' # str | 
-email_commseq = ultracart.EmailCommseq() # EmailCommseq | Email commseq
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email commseq
-    api_response = api_instance.update_email_commseq(storefront_oid, commseq_uuid, email_commseq)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_commseq: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    email_commseq = EmailCommseq(
+        email_communication_sequence_steps=[
+            EmailCommseqStep(
+                alt_child_email_communication_sequence_steps=[
+                    EmailCommseqStep(),
+                ],
+                child_email_communication_sequence_steps=[
+                    EmailCommseqStep(),
+                ],
+                email_communication_sequence_step_uuid="email_communication_sequence_step_uuid_example",
+                email_pending_review=True,
+                email_rejected=True,
+                email_requires_review=True,
+                filter_profile_equation_json="filter_profile_equation_json_example",
+                merchant_notes="merchant_notes_example",
+                step_config_json="step_config_json_example",
+                type="begin",
+            ),
+        ],
+        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
+        merchant_id="merchant_id_example",
+        storefront_oid=1,
+    ) # EmailCommseq | Email commseq
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email commseq
+        api_response = api_instance.update_email_commseq(storefront_oid, commseq_uuid, email_commseq)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_commseq: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_uuid** | **str**|  | 
- **email_commseq** | [**EmailCommseq**](EmailCommseq.md)| Email commseq | 
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **email_commseq** | [**EmailCommseq**](EmailCommseq.md)| Email commseq |
 
 ### Return type
 
@@ -7310,6 +15289,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_customer**
@@ -7318,35 +15309,82 @@ Name | Type | Description  | Notes
 Update email customer
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_customer import EmailCustomer
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_customer_uuid = 'email_customer_uuid_example' # str | 
-email_customer = ultracart.EmailCustomer() # EmailCustomer | Email customer
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email customer
-    api_instance.update_email_customer(storefront_oid, email_customer_uuid, email_customer)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_customer: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_customer_uuid = "email_customer_uuid_example" # str | 
+    email_customer = EmailCustomer(
+        active=True,
+        email="email_example",
+        email_customer_uuid="email_customer_uuid_example",
+        first_name="first_name_example",
+        global_unsubscribe=True,
+        last_interaction_dts="last_interaction_dts_example",
+        last_name="last_name_example",
+        list_uuids=[
+            "list_uuids_example",
+        ],
+    ) # EmailCustomer | Email customer
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email customer
+        api_instance.update_email_customer(storefront_oid, email_customer_uuid, email_customer)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_customer: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_customer_uuid** | **str**|  | 
- **email_customer** | [**EmailCustomer**](EmailCustomer.md)| Email customer | 
+ **storefront_oid** | **int**|  |
+ **email_customer_uuid** | **str**|  |
+ **email_customer** | [**EmailCustomer**](EmailCustomer.md)| Email customer |
 
 ### Return type
 
@@ -7361,6 +15399,17 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_email**
@@ -7369,36 +15418,100 @@ void (empty response body)
 Update email email
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_email_response import EmailCommseqEmailResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_email import EmailCommseqEmail
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_email_uuid = 'commseq_email_uuid_example' # str | 
-email_commseq_email = ultracart.EmailCommseqEmail() # EmailCommseqEmail | Email commseq email
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email email
-    api_response = api_instance.update_email_email(storefront_oid, commseq_email_uuid, email_commseq_email)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_email: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_email_uuid = "commseq_email_uuid_example" # str | 
+    email_commseq_email = EmailCommseqEmail(
+        deleted=True,
+        edited_by_user="edited_by_user_example",
+        email_communication_sequence_email_uuid="email_communication_sequence_email_uuid_example",
+        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
+        email_container_cjson="email_container_cjson_example",
+        email_container_cjson_last_modified_dts="email_container_cjson_last_modified_dts_example",
+        email_template_vm_path="email_template_vm_path_example",
+        filter_profile_equation_json="filter_profile_equation_json_example",
+        individually_render=True,
+        library_item_oid=1,
+        magic_link=True,
+        merchant_id="merchant_id_example",
+        pending_review=True,
+        preview_text="preview_text_example",
+        rejected=True,
+        requires_review=True,
+        screenshot_large_full_url="screenshot_large_full_url_example",
+        screenshot_large_viewport_url="screenshot_large_viewport_url_example",
+        screenshot_small_full_url="screenshot_small_full_url_example",
+        screenshot_small_viewport_url="screenshot_small_viewport_url_example",
+        smart_sending=True,
+        storefront_oid=1,
+        subject="subject_example",
+        suspended_for_spam=True,
+        transactional_email=True,
+        version=1,
+    ) # EmailCommseqEmail | Email commseq email
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email email
+        api_response = api_instance.update_email_email(storefront_oid, commseq_email_uuid, email_commseq_email)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_email: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_email_uuid** | **str**|  | 
- **email_commseq_email** | [**EmailCommseqEmail**](EmailCommseqEmail.md)| Email commseq email | 
+ **storefront_oid** | **int**|  |
+ **commseq_email_uuid** | **str**|  |
+ **email_commseq_email** | [**EmailCommseqEmail**](EmailCommseqEmail.md)| Email commseq email |
 
 ### Return type
 
@@ -7413,6 +15526,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_flow**
@@ -7421,36 +15546,102 @@ Name | Type | Description  | Notes
 Update email flow
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flow import EmailFlow
+from ultracart.model.email_flow_response import EmailFlowResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow_uuid = 'email_flow_uuid_example' # str | 
-email_flow = ultracart.EmailFlow() # EmailFlow | Email flow
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email flow
-    api_response = api_instance.update_email_flow(storefront_oid, email_flow_uuid, email_flow)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_flow: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow_uuid = "email_flow_uuid_example" # str | 
+    email_flow = EmailFlow(
+        allow_multiple_concurrent_enrollments=True,
+        back_populating=True,
+        click_rate_formatted="click_rate_formatted_example",
+        created_dts="created_dts_example",
+        deleted=True,
+        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
+        email_flow_uuid="email_flow_uuid_example",
+        end_once_customer_purchases=True,
+        end_once_customer_purchases_anywhere=True,
+        enrolled_customers=1,
+        esp_domain_user="esp_domain_user_example",
+        esp_domain_uuid="esp_domain_uuid_example",
+        esp_flow_folder_uuid="esp_flow_folder_uuid_example",
+        esp_friendly_name="esp_friendly_name_example",
+        filter_profile_equation_json="filter_profile_equation_json_example",
+        library_item_oid=1,
+        merchant_id="merchant_id_example",
+        name="name_example",
+        open_rate_formatted="open_rate_formatted_example",
+        revenue_formatted="revenue_formatted_example",
+        revenue_per_customer_formatted="revenue_per_customer_formatted_example",
+        screenshot_large_full_url="screenshot_large_full_url_example",
+        status="status_example",
+        status_dts="status_dts_example",
+        storefront_oid=1,
+        trigger_parameter="trigger_parameter_example",
+        trigger_parameter_name="trigger_parameter_name_example",
+        trigger_type="trigger_type_example",
+    ) # EmailFlow | Email flow
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email flow
+        api_response = api_instance.update_email_flow(storefront_oid, email_flow_uuid, email_flow)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_flow: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow_uuid** | **str**|  | 
- **email_flow** | [**EmailFlow**](EmailFlow.md)| Email flow | 
+ **storefront_oid** | **int**|  |
+ **email_flow_uuid** | **str**|  |
+ **email_flow** | [**EmailFlow**](EmailFlow.md)| Email flow |
 
 ### Return type
 
@@ -7465,6 +15656,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_flow_folder**
@@ -7473,36 +15676,79 @@ Name | Type | Description  | Notes
 Update email flow folder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_flow_folder_response import EmailFlowFolderResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_flow_folder import EmailFlowFolder
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_flow_folder_uuid = 'email_flow_folder_uuid_example' # str | 
-email_flow_folder = ultracart.EmailFlowFolder() # EmailFlowFolder | Email flow folder
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email flow folder
-    api_response = api_instance.update_email_flow_folder(storefront_oid, email_flow_folder_uuid, email_flow_folder)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_flow_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_flow_folder_uuid = "email_flow_folder_uuid_example" # str | 
+    email_flow_folder = EmailFlowFolder(
+        esp_flow_folder_uuid="esp_flow_folder_uuid_example",
+        merchant_id="merchant_id_example",
+        name="name_example",
+        storefront_oid=1,
+        system_generated=True,
+    ) # EmailFlowFolder | Email flow folder
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email flow folder
+        api_response = api_instance.update_email_flow_folder(storefront_oid, email_flow_folder_uuid, email_flow_folder)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_flow_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_flow_folder_uuid** | **str**|  | 
- **email_flow_folder** | [**EmailFlowFolder**](EmailFlowFolder.md)| Email flow folder | 
+ **storefront_oid** | **int**|  |
+ **email_flow_folder_uuid** | **str**|  |
+ **email_flow_folder** | [**EmailFlowFolder**](EmailFlowFolder.md)| Email flow folder |
 
 ### Return type
 
@@ -7517,6 +15763,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_global_settings**
@@ -7525,32 +15783,71 @@ Name | Type | Description  | Notes
 Update email global settings
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_global_settings import EmailGlobalSettings
+from ultracart.model.email_global_settings_response import EmailGlobalSettingsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-global_settings = ultracart.EmailGlobalSettings() # EmailGlobalSettings | global settings request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email global settings
-    api_response = api_instance.update_email_global_settings(global_settings)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_global_settings: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    global_settings = EmailGlobalSettings(
+        dedicated_ip=True,
+    ) # EmailGlobalSettings | global settings request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email global settings
+        api_response = api_instance.update_email_global_settings(global_settings)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_global_settings: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **global_settings** | [**EmailGlobalSettings**](EmailGlobalSettings.md)| global settings request | 
+ **global_settings** | [**EmailGlobalSettings**](EmailGlobalSettings.md)| global settings request |
 
 ### Return type
 
@@ -7565,6 +15862,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_list**
@@ -7573,36 +15882,92 @@ Name | Type | Description  | Notes
 Update email list
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_list_response import EmailListResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_list import EmailList
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_uuid = 'email_list_uuid_example' # str | 
-email_list = ultracart.EmailList() # EmailList | Email list
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email list
-    api_response = api_instance.update_email_list(storefront_oid, email_list_uuid, email_list)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_list: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_uuid = "email_list_uuid_example" # str | 
+    email_list = EmailList(
+        allow_csv_download=True,
+        created_dts="created_dts_example",
+        deleted=True,
+        email_list_uuid="email_list_uuid_example",
+        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
+        member_count=1,
+        merchant_id="merchant_id_example",
+        name="name_example",
+        public_description="public_description_example",
+        public_list=True,
+        storefront_oid=1,
+        used_by=[
+            EmailListSegmentUsedBy(
+                email_campaign_uuid="email_campaign_uuid_example",
+                email_flow_uuid="email_flow_uuid_example",
+                name="name_example",
+            ),
+        ],
+    ) # EmailList | Email list
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email list
+        api_response = api_instance.update_email_list(storefront_oid, email_list_uuid, email_list)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_list: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_uuid** | **str**|  | 
- **email_list** | [**EmailList**](EmailList.md)| Email list | 
+ **storefront_oid** | **int**|  |
+ **email_list_uuid** | **str**|  |
+ **email_list** | [**EmailList**](EmailList.md)| Email list |
 
 ### Return type
 
@@ -7617,6 +15982,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_list_segment_folder**
@@ -7625,36 +16002,79 @@ Name | Type | Description  | Notes
 Update email campaign folder
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_list_segment_folder_response import EmailListSegmentFolderResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_list_segment_folder import EmailListSegmentFolder
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_list_segment_folder_uuid = 'email_list_segment_folder_uuid_example' # str | 
-email_list_segment_folder = ultracart.EmailListSegmentFolder() # EmailListSegmentFolder | Email campaign folder
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email campaign folder
-    api_response = api_instance.update_email_list_segment_folder(storefront_oid, email_list_segment_folder_uuid, email_list_segment_folder)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_list_segment_folder: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_list_segment_folder_uuid = "email_list_segment_folder_uuid_example" # str | 
+    email_list_segment_folder = EmailListSegmentFolder(
+        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
+        merchant_id="merchant_id_example",
+        name="name_example",
+        storefront_oid=1,
+        system_generated=True,
+    ) # EmailListSegmentFolder | Email campaign folder
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email campaign folder
+        api_response = api_instance.update_email_list_segment_folder(storefront_oid, email_list_segment_folder_uuid, email_list_segment_folder)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_list_segment_folder: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_list_segment_folder_uuid** | **str**|  | 
- **email_list_segment_folder** | [**EmailListSegmentFolder**](EmailListSegmentFolder.md)| Email campaign folder | 
+ **storefront_oid** | **int**|  |
+ **email_list_segment_folder_uuid** | **str**|  |
+ **email_list_segment_folder** | [**EmailListSegmentFolder**](EmailListSegmentFolder.md)| Email campaign folder |
 
 ### Return type
 
@@ -7669,6 +16089,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_plan**
@@ -7677,34 +16109,101 @@ Name | Type | Description  | Notes
 Update email plan
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_plan import EmailPlan
+from ultracart.model.email_plan_response import EmailPlanResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-settings = ultracart.EmailPlan() # EmailPlan | plan request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email plan
-    api_response = api_instance.update_email_plan(storefront_oid, settings)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_plan: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    settings = EmailPlan(
+        additional_customers=1,
+        additional_emails=1,
+        additional_fee=3.14,
+        allow_list_import=True,
+        allow_tracking_emails=True,
+        customer_tiers=[
+            EmailPlanAdditional(
+                active=True,
+                can_downgrade=True,
+                can_upgrade=True,
+                cost=3.14,
+                cost_change=3.14,
+                cost_change_formatted="cost_change_formatted_example",
+                cost_formatted="cost_formatted_example",
+                customers=1,
+                emails=1,
+            ),
+        ],
+        initial_sending_limits=1,
+        plan_customers=1,
+        plan_emails=1,
+        plan_name="plan_name_example",
+        plan_name_formatted="plan_name_formatted_example",
+        require_order_within_last_days=1,
+        revenue_percent=1,
+        spam_percent_limit=1,
+        total_customers=1,
+        total_emails=1,
+        upgrade_to=1,
+    ) # EmailPlan | plan request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email plan
+        api_response = api_instance.update_email_plan(storefront_oid, settings)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_plan: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **settings** | [**EmailPlan**](EmailPlan.md)| plan request | 
+ **storefront_oid** | **int**|  |
+ **settings** | [**EmailPlan**](EmailPlan.md)| plan request |
 
 ### Return type
 
@@ -7719,6 +16218,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_postcard**
@@ -7727,36 +16238,87 @@ Name | Type | Description  | Notes
 Update email postcard
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_commseq_postcard import EmailCommseqPostcard
+from ultracart.model.email_commseq_postcard_response import EmailCommseqPostcardResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-commseq_postcard_uuid = 'commseq_postcard_uuid_example' # str | 
-email_commseq_postcard = ultracart.EmailCommseqPostcard() # EmailCommseqPostcard | Email commseq postcard
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email postcard
-    api_response = api_instance.update_email_postcard(storefront_oid, commseq_postcard_uuid, email_commseq_postcard)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_postcard: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
+    email_commseq_postcard = EmailCommseqPostcard(
+        deleted=True,
+        edited_by_user="edited_by_user_example",
+        email_communication_sequence_postcard_uuid="email_communication_sequence_postcard_uuid_example",
+        filter_profile_equation_json="filter_profile_equation_json_example",
+        merchant_id="merchant_id_example",
+        postcard_back_container_cjson="postcard_back_container_cjson_example",
+        postcard_back_container_uuid="postcard_back_container_uuid_example",
+        postcard_container_cjson_last_modified_dts="postcard_container_cjson_last_modified_dts_example",
+        postcard_front_container_cjson="postcard_front_container_cjson_example",
+        postcard_front_container_uuid="postcard_front_container_uuid_example",
+        screenshot_back_url="screenshot_back_url_example",
+        screenshot_front_url="screenshot_front_url_example",
+        storefront_oid=1,
+    ) # EmailCommseqPostcard | Email commseq postcard
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email postcard
+        api_response = api_instance.update_email_postcard(storefront_oid, commseq_postcard_uuid, email_commseq_postcard)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_postcard: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **commseq_postcard_uuid** | **str**|  | 
- **email_commseq_postcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email commseq postcard | 
+ **storefront_oid** | **int**|  |
+ **commseq_postcard_uuid** | **str**|  |
+ **email_commseq_postcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email commseq postcard |
 
 ### Return type
 
@@ -7771,6 +16333,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_segment**
@@ -7779,36 +16353,109 @@ Name | Type | Description  | Notes
 Update email segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_segment import EmailSegment
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_segment_response import EmailSegmentResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_segment_uuid = 'email_segment_uuid_example' # str | 
-email_segment = ultracart.EmailSegment() # EmailSegment | Email segment
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email segment
-    api_response = api_instance.update_email_segment(storefront_oid, email_segment_uuid, email_segment)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_segment_uuid = "email_segment_uuid_example" # str | 
+    email_segment = EmailSegment(
+        allow_csv_download=True,
+        allow_facebook_audiences=True,
+        created_dts="created_dts_example",
+        deleted=True,
+        email_segment_uuid="email_segment_uuid_example",
+        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
+        facebook_custom_audience=True,
+        filter_profile_equation_json="filter_profile_equation_json_example",
+        member_count=1,
+        merchant_id="merchant_id_example",
+        name="name_example",
+        rank_json="rank_json_example",
+        rebuild_required=True,
+        storefront_oid=1,
+        thirdparty_join_add_tags=[
+            "thirdparty_join_add_tags_example",
+        ],
+        thirdparty_join_remove_tags=[
+            "thirdparty_join_remove_tags_example",
+        ],
+        thirdparty_leave_add_tags=[
+            "thirdparty_leave_add_tags_example",
+        ],
+        thirdparty_leave_remove_tags=[
+            "thirdparty_leave_remove_tags_example",
+        ],
+        thirdparty_list_id="thirdparty_list_id_example",
+        thirdparty_provider_name="thirdparty_provider_name_example",
+        used_by=[
+            EmailListSegmentUsedBy(
+                email_campaign_uuid="email_campaign_uuid_example",
+                email_flow_uuid="email_flow_uuid_example",
+                name="name_example",
+            ),
+        ],
+    ) # EmailSegment | Email segment
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email segment
+        api_response = api_instance.update_email_segment(storefront_oid, email_segment_uuid, email_segment)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_segment_uuid** | **str**|  | 
- **email_segment** | [**EmailSegment**](EmailSegment.md)| Email segment | 
+ **storefront_oid** | **int**|  |
+ **email_segment_uuid** | **str**|  |
+ **email_segment** | [**EmailSegment**](EmailSegment.md)| Email segment |
 
 ### Return type
 
@@ -7823,6 +16470,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_sending_domain**
@@ -7831,34 +16490,101 @@ Name | Type | Description  | Notes
 Update email sending domain
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.email_domain import EmailDomain
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-domain = 'domain_example' # str | 
-email_domain = ultracart.EmailDomain() # EmailDomain | EmailDomain
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email sending domain
-    api_response = api_instance.update_email_sending_domain(domain, email_domain)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_sending_domain: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    domain = "domain_example" # str | 
+    email_domain = EmailDomain(
+        comment="comment_example",
+        dkim=[
+            VerificationRecord(
+                name="name_example",
+                type="type_example",
+                value="value_example",
+            ),
+        ],
+        dkim_status="dkim_status_example",
+        domain="domain_example",
+        esp_domain_uuid="esp_domain_uuid_example",
+        identity_status="identity_status_example",
+        mailgun=Mailgun(
+            api_key="api_key_example",
+        ),
+        merchant_id="merchant_id_example",
+        provider="provider_example",
+        spf=VerificationRecord(
+            name="name_example",
+            type="type_example",
+            value="value_example",
+        ),
+        start_dkim_dts="start_dkim_dts_example",
+        start_identity_dts="start_identity_dts_example",
+        verification=VerificationRecord(
+            name="name_example",
+            type="type_example",
+            value="value_example",
+        ),
+    ) # EmailDomain | EmailDomain
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email sending domain
+        api_response = api_instance.update_email_sending_domain(domain, email_domain)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_sending_domain: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **str**|  | 
- **email_domain** | [**EmailDomain**](EmailDomain.md)| EmailDomain | 
+ **domain** | **str**|  |
+ **email_domain** | [**EmailDomain**](EmailDomain.md)| EmailDomain |
 
 ### Return type
 
@@ -7873,6 +16599,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_settings**
@@ -7881,34 +16619,84 @@ Name | Type | Description  | Notes
 Update email settings
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_settings import EmailSettings
+from ultracart.model.email_settings_response import EmailSettingsResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-settings = ultracart.EmailSettings() # EmailSettings | settings request
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update email settings
-    api_response = api_instance.update_email_settings(storefront_oid, settings)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_email_settings: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    settings = EmailSettings(
+        marketing_esp_domain_user="marketing_esp_domain_user_example",
+        marketing_esp_domain_uuid="marketing_esp_domain_uuid_example",
+        marketing_esp_friendly_name="marketing_esp_friendly_name_example",
+        postcard_from_address1="postcard_from_address1_example",
+        postcard_from_address2="postcard_from_address2_example",
+        postcard_from_city="postcard_from_city_example",
+        postcard_from_name="postcard_from_name_example",
+        postcard_from_postal_code="postcard_from_postal_code_example",
+        postcard_from_state="postcard_from_state_example",
+        transactional_esp_domain_user="transactional_esp_domain_user_example",
+        transactional_esp_domain_uuid="transactional_esp_domain_uuid_example",
+        transactional_esp_friendly_name="transactional_esp_friendly_name_example",
+    ) # EmailSettings | settings request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update email settings
+        api_response = api_instance.update_email_settings(storefront_oid, settings)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_email_settings: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **settings** | [**EmailSettings**](EmailSettings.md)| settings request | 
+ **storefront_oid** | **int**|  |
+ **settings** | [**EmailSettings**](EmailSettings.md)| settings request |
 
 ### Return type
 
@@ -7923,6 +16711,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_experiment**
@@ -7931,36 +16731,131 @@ Name | Type | Description  | Notes
 Update experiment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.experiment_response import ExperimentResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.experiment import Experiment
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-storefront_experiment_oid = 56 # int | 
-experiment = ultracart.Experiment() # Experiment | Experiment
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update experiment
-    api_response = api_instance.update_experiment(storefront_oid, storefront_experiment_oid, experiment)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_experiment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    storefront_experiment_oid = 1 # int | 
+    experiment = Experiment(
+        container_id="container_id_example",
+        duration_days=1,
+        end_dts="end_dts_example",
+        equal_weighting=True,
+        experiment_type="experiment_type_example",
+        id="id_example",
+        name="name_example",
+        notes="notes_example",
+        objective="objective_example",
+        objective_parameter="objective_parameter_example",
+        optimization_type="optimization_type_example",
+        session_count=1,
+        start_dts="start_dts_example",
+        status="Running",
+        storefront_experiment_oid=1,
+        storefront_oid=1,
+        uri="uri_example",
+        variations=[
+            ExperimentVariation(
+                add_to_cart_count=1,
+                average_duration_seconds=1,
+                average_objective_per_session=3.14,
+                average_order_value=3.14,
+                bounce_count=1,
+                conversion_rate=3.14,
+                daily_statistics=[
+                    ExperimentVariationStat(
+                        add_to_cart_count=1,
+                        bounce_count=1,
+                        duration_seconds_sum=1,
+                        event_count=1,
+                        initiate_checkout_count=1,
+                        order_count=1,
+                        order_item_count=1,
+                        page_view_count=1,
+                        revenue=3.14,
+                        session_count=1,
+                        stat_dts="stat_dts_example",
+                    ),
+                ],
+                duration_seconds_sum=1,
+                event_count=1,
+                initiate_checkout_count=1,
+                order_count=1,
+                order_item_count=1,
+                original_traffic_percentage=3.14,
+                page_view_count=1,
+                paused=True,
+                revenue=3.14,
+                session_count=1,
+                traffic_percentage=3.14,
+                url="url_example",
+                variation_name="variation_name_example",
+                variation_number=1,
+                winner=True,
+            ),
+        ],
+    ) # Experiment | Experiment
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update experiment
+        api_response = api_instance.update_experiment(storefront_oid, storefront_experiment_oid, experiment)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_experiment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **storefront_experiment_oid** | **int**|  | 
- **experiment** | [**Experiment**](Experiment.md)| Experiment | 
+ **storefront_oid** | **int**|  |
+ **storefront_experiment_oid** | **int**|  |
+ **experiment** | [**Experiment**](Experiment.md)| Experiment |
 
 ### Return type
 
@@ -7975,6 +16870,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_library_item**
@@ -7983,34 +16890,156 @@ Name | Type | Description  | Notes
 Update library item. Note that only certain fields may be updated via this method.
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.library_item_response import LibraryItemResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.library_item import LibraryItem
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-library_item_oid = 56 # int | 
-library_item = ultracart.LibraryItem() # LibraryItem | Library item
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update library item. Note that only certain fields may be updated via this method.
-    api_response = api_instance.update_library_item(library_item_oid, library_item)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_library_item: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    library_item_oid = 1 # int | 
+    library_item = LibraryItem(
+        assets=[
+            LibraryItemAsset(
+                mime_type="mime_type_example",
+                url="url_example",
+            ),
+        ],
+        attributes=[
+            LibraryItemAttribute(
+                name="name_example",
+                value="value_example",
+            ),
+        ],
+        categories=[
+            "categories_example",
+        ],
+        content="content_example",
+        content_type="content_type_example",
+        description="description_example",
+        industries=[
+            "industries_example",
+        ],
+        library_item_oid=1,
+        merchant_id="merchant_id_example",
+        my_purchased_version=1,
+        original_object_id="original_object_id_example",
+        price=3.14,
+        price_formatted="price_formatted_example",
+        published=True,
+        published_dts={},
+        published_from_library_item_oid=1,
+        published_meta=LibraryItemPublishedMeta(
+            count_of_versions=1,
+            library_item_published_oid=1,
+            library_item_review_oid=1,
+            rejected=True,
+            rejected_reason="rejected_reason_example",
+            release_version=1,
+            review_version=1,
+            under_review=True,
+        ),
+        published_version=1,
+        purchased=True,
+        purchased_from_library_item_oid=1,
+        purchased_meta=LibraryItemPurchasedMeta(
+            most_recent_version=1,
+            my_purchased_version=1,
+            upgrade_available=True,
+        ),
+        purchased_version=1,
+        rejected=True,
+        rejected_reason="rejected_reason_example",
+        release_notes="release_notes_example",
+        release_version=1,
+        reviewed=True,
+        reviewed_dts={},
+        screenshots=[
+            LibraryItemScreenshot(
+                default_url=True,
+                screenshot_url="screenshot_url_example",
+            ),
+        ],
+        share_with_accounts=[
+            LibraryItemAccount(
+                library_item_account_oid=1,
+                library_item_oid=1,
+                other_merchant_id="other_merchant_id_example",
+            ),
+        ],
+        share_with_other_emails=[
+            LibraryItemEmail(
+                email="email_example",
+                library_item_email_oid=1,
+                library_item_oid=1,
+            ),
+        ],
+        shared=True,
+        source=True,
+        source_to_library_item_oid=1,
+        source_version=1,
+        style="style_example",
+        times_purchased=1,
+        title="title_example",
+        type="type_example",
+        under_review=True,
+    ) # LibraryItem | Library item
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update library item. Note that only certain fields may be updated via this method.
+        api_response = api_instance.update_library_item(library_item_oid, library_item)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_library_item: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**|  | 
- **library_item** | [**LibraryItem**](LibraryItem.md)| Library item | 
+ **library_item_oid** | **int**|  |
+ **library_item** | [**LibraryItem**](LibraryItem.md)| Library item |
 
 ### Return type
 
@@ -8025,6 +17054,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_screen_recording_merchant_notes**
@@ -8035,35 +17076,66 @@ Update merchant notes on a screen recording
 Update merchant notes on a screen recording 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_merchant_notes_request import ScreenRecordingMerchantNotesRequest
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_uuid = 'screen_recording_uuid_example' # str | 
-merchant_notes_request = ultracart.ScreenRecordingMerchantNotesRequest() # ScreenRecordingMerchantNotesRequest | Merchant Notes
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Update merchant notes on a screen recording
-    api_instance.update_screen_recording_merchant_notes(storefront_oid, screen_recording_uuid, merchant_notes_request)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_screen_recording_merchant_notes: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_uuid = "screen_recording_uuid_example" # str | 
+    merchant_notes_request = ScreenRecordingMerchantNotesRequest(
+        merchant_notes="merchant_notes_example",
+    ) # ScreenRecordingMerchantNotesRequest | Merchant Notes
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update merchant notes on a screen recording
+        api_instance.update_screen_recording_merchant_notes(storefront_oid, screen_recording_uuid, merchant_notes_request)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_screen_recording_merchant_notes: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_uuid** | **str**|  | 
- **merchant_notes_request** | [**ScreenRecordingMerchantNotesRequest**](ScreenRecordingMerchantNotesRequest.md)| Merchant Notes | 
+ **storefront_oid** | **int**|  |
+ **screen_recording_uuid** | **str**|  |
+ **merchant_notes_request** | [**ScreenRecordingMerchantNotesRequest**](ScreenRecordingMerchantNotesRequest.md)| Merchant Notes |
 
 ### Return type
 
@@ -8078,6 +17150,17 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_screen_recording_segment**
@@ -8086,36 +17169,327 @@ void (empty response body)
 Update screen recording segment
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_segment import ScreenRecordingSegment
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.screen_recording_segment_response import ScreenRecordingSegmentResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_segment_oid = 56 # int | 
-segment = ultracart.ScreenRecordingSegment() # ScreenRecordingSegment | Segment
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update screen recording segment
-    api_response = api_instance.update_screen_recording_segment(storefront_oid, screen_recording_segment_oid, segment)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_screen_recording_segment: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_segment_oid = 1 # int | 
+    segment = ScreenRecordingSegment(
+        create_dts="create_dts_example",
+        description="description_example",
+        filter=ScreenRecordingFilter(
+            affiliate_email="affiliate_email_example",
+            affiliate_id=1,
+            communications_campaign_name="communications_campaign_name_example",
+            communications_campaign_name_filter=True,
+            communications_email_subject="communications_email_subject_example",
+            communications_email_subject_filter=True,
+            communications_flow_name="communications_flow_name_example",
+            communications_flow_name_filter=True,
+            email=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            email_domain="email_domain_example",
+            email_domain_filter=True,
+            email_identified=True,
+            end_timestamp=ScreenRecordingFilterRangeDate(
+                end="end_example",
+                start="start_example",
+            ),
+            esp_customer_uuid="esp_customer_uuid_example",
+            favorite=True,
+            geolocation=ScreenRecordingFilterGeoDistance(
+                distance=1,
+                distance_uom="distance_uom_example",
+                from_address="from_address_example",
+                lat=3.14,
+                lon=3.14,
+            ),
+            geolocation_country=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            geolocation_country_filter=True,
+            geolocation_state=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            geolocation_state_filter=True,
+            language_iso_code=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            language_iso_code_filter=True,
+            last_x_days=1,
+            max_filter_values=1,
+            order_id=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            page_view_count=ScreenRecordingFilterRangeInteger(
+                eq=1,
+                gt=1,
+                gte=1,
+                lt=1,
+                lte=1,
+            ),
+            page_views=[
+                ScreenRecordingFilterPageView(
+                    domain=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    domain_filter=True,
+                    event_name_filter=True,
+                    event_param_name_filter=True,
+                    event_param_value_filter=True,
+                    events=[
+                        ScreenRecordingFilterPageViewEvent(
+                            event_name="event_name_example",
+                            event_params=[
+                                ScreenRecordingFilterPageViewEventParam(
+                                    name="name_example",
+                                    value_bd=ScreenRecordingFilterRangeBigDecimal(
+                                        eq=3.14,
+                                        gt=3.14,
+                                        gte=3.14,
+                                        lt=3.14,
+                                        lte=3.14,
+                                    ),
+                                    value_bool=True,
+                                    value_num=ScreenRecordingFilterRangeInteger(
+                                        eq=1,
+                                        gt=1,
+                                        gte=1,
+                                        lt=1,
+                                        lte=1,
+                                    ),
+                                    value_text=ScreenRecordingFilterStringSearch(
+                                        does_not_exist=True,
+                                        exists=True,
+                                        _is="_is_example",
+                                        is_not="is_not_example",
+                                        starts_with="starts_with_example",
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ],
+                    param_name_filter=True,
+                    param_value_filter=True,
+                    params=[
+                        ScreenRecordingFilterPageViewParam(
+                            name="name_example",
+                            value=ScreenRecordingFilterStringSearch(
+                                does_not_exist=True,
+                                exists=True,
+                                _is="_is_example",
+                                is_not="is_not_example",
+                                starts_with="starts_with_example",
+                            ),
+                        ),
+                    ],
+                    referrer=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    referrer_params=[
+                        ScreenRecordingFilterPageViewReferrerParam(
+                            name="name_example",
+                            value=ScreenRecordingFilterStringSearch(
+                                does_not_exist=True,
+                                exists=True,
+                                _is="_is_example",
+                                is_not="is_not_example",
+                                starts_with="starts_with_example",
+                            ),
+                        ),
+                    ],
+                    referrer_raw=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    time_on_page=ScreenRecordingFilterRangeInteger(
+                        eq=1,
+                        gt=1,
+                        gte=1,
+                        lt=1,
+                        lte=1,
+                    ),
+                    time_on_page_max_filter=True,
+                    time_on_page_min_filter=True,
+                    url=ScreenRecordingFilterStringSearch(
+                        does_not_exist=True,
+                        exists=True,
+                        _is="_is_example",
+                        is_not="is_not_example",
+                        starts_with="starts_with_example",
+                    ),
+                    url_filter=True,
+                ),
+            ],
+            placed_order=True,
+            preferred_language=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            preferred_language_filter=True,
+            referrer_domain="referrer_domain_example",
+            referrer_domain_filter=True,
+            screen_recording_uuids=[
+                "screen_recording_uuids_example",
+            ],
+            screen_sizes=[
+                "screen_sizes_example",
+            ],
+            skip_filter_values=True,
+            skip_histogram=True,
+            skip_hits=True,
+            start_timestamp=ScreenRecordingFilterRangeDate(
+                end="end_example",
+                start="start_example",
+            ),
+            tags=[
+                "tags_example",
+            ],
+            time_on_site=ScreenRecordingFilterRangeInteger(
+                eq=1,
+                gt=1,
+                gte=1,
+                lt=1,
+                lte=1,
+            ),
+            time_on_site_max_filter=True,
+            time_on_site_min_filter=True,
+            url_filter=True,
+            user_agent_device_name="user_agent_device_name_example",
+            user_agent_device_name_filter=True,
+            user_agent_device_os_name_filter=True,
+            user_agent_device_os_version_filter=True,
+            user_agent_name="user_agent_name_example",
+            user_agent_name_filter=True,
+            user_agent_original=ScreenRecordingFilterStringSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+                starts_with="starts_with_example",
+            ),
+            user_agent_original_filter=True,
+            user_agent_os_name="user_agent_os_name_example",
+            user_agent_os_version="user_agent_os_version_example",
+            user_ip=ScreenRecordingFilterIpSearch(
+                does_not_exist=True,
+                exists=True,
+                _is="_is_example",
+                is_not="is_not_example",
+            ),
+            utm_campaign="utm_campaign_example",
+            utm_campaign_filter=True,
+            utm_source="utm_source_example",
+            utm_source_filter=True,
+            visitor_number=1,
+            watched=True,
+        ),
+        histogram_data=[
+            1,
+        ],
+        histogram_interval="histogram_interval_example",
+        histogram_start_dts="histogram_start_dts_example",
+        name="name_example",
+        screen_recording_segment_oid=1,
+        session_count=1,
+        session_count_last_update_dts="session_count_last_update_dts_example",
+    ) # ScreenRecordingSegment | Segment
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update screen recording segment
+        api_response = api_instance.update_screen_recording_segment(storefront_oid, screen_recording_segment_oid, segment)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_screen_recording_segment: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_segment_oid** | **int**|  | 
- **segment** | [**ScreenRecordingSegment**](ScreenRecordingSegment.md)| Segment | 
+ **storefront_oid** | **int**|  |
+ **screen_recording_segment_oid** | **int**|  |
+ **segment** | [**ScreenRecordingSegment**](ScreenRecordingSegment.md)| Segment |
 
 ### Return type
 
@@ -8130,6 +17504,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_screen_recording_settings**
@@ -8138,34 +17524,80 @@ Name | Type | Description  | Notes
 Update screen recording settings
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.screen_recording_settings import ScreenRecordingSettings
+from ultracart.model.screen_recording_settings_response import ScreenRecordingSettingsResponse
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-settings = ultracart.ScreenRecordingSettings() # ScreenRecordingSettings | Settings
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update screen recording settings
-    api_response = api_instance.update_screen_recording_settings(storefront_oid, settings)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_screen_recording_settings: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    settings = ScreenRecordingSettings(
+        cost_per_thousand=3.14,
+        enabled=True,
+        retention_interval="retention_interval_example",
+        sessions_current_billing_period=1,
+        sessions_last_billing_period=1,
+        sessions_trial_billing_period=1,
+        trial_expiration="trial_expiration_example",
+        trial_expired=True,
+    ) # ScreenRecordingSettings | Settings
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update screen recording settings
+        api_response = api_instance.update_screen_recording_settings(storefront_oid, settings)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_screen_recording_settings: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **settings** | [**ScreenRecordingSettings**](ScreenRecordingSettings.md)| Settings | 
+ **storefront_oid** | **int**|  |
+ **settings** | [**ScreenRecordingSettings**](ScreenRecordingSettings.md)| Settings |
 
 ### Return type
 
@@ -8180,6 +17612,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_screen_recording_tags**
@@ -8190,35 +17634,68 @@ Update tags on a screen recording
 Update tags on a screen recording 
 
 ### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.screen_recording_tags_request import ScreenRecordingTagsRequest
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-screen_recording_uuid = 'screen_recording_uuid_example' # str | 
-tags = ultracart.ScreenRecordingTagsRequest() # ScreenRecordingTagsRequest | Tags
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-try:
-    # Update tags on a screen recording
-    api_instance.update_screen_recording_tags(storefront_oid, screen_recording_uuid, tags)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_screen_recording_tags: %s\n" % e)
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    screen_recording_uuid = "screen_recording_uuid_example" # str | 
+    tags = ScreenRecordingTagsRequest(
+        tags=[
+            "tags_example",
+        ],
+    ) # ScreenRecordingTagsRequest | Tags
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update tags on a screen recording
+        api_instance.update_screen_recording_tags(storefront_oid, screen_recording_uuid, tags)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_screen_recording_tags: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **screen_recording_uuid** | **str**|  | 
- **tags** | [**ScreenRecordingTagsRequest**](ScreenRecordingTagsRequest.md)| Tags | 
+ **storefront_oid** | **int**|  |
+ **screen_recording_uuid** | **str**|  |
+ **tags** | [**ScreenRecordingTagsRequest**](ScreenRecordingTagsRequest.md)| Tags |
 
 ### Return type
 
@@ -8233,6 +17710,17 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_transaction_email**
@@ -8243,36 +17731,107 @@ Updates a transaction email object
 Updates a transactional email 
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.transaction_email_response import TransactionEmailResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.transaction_email import TransactionEmail
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-storefront_oid = 56 # int | 
-email_id = 'email_id_example' # str | 
-transaction_email = ultracart.TransactionEmail() # TransactionEmail | TransactionEmail
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Updates a transaction email object
-    api_response = api_instance.update_transaction_email(storefront_oid, email_id, transaction_email)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_transaction_email: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    storefront_oid = 1 # int | 
+    email_id = "email_id_example" # str | 
+    transaction_email = TransactionEmail(
+        content="content_example",
+        esp_domain_uuid="esp_domain_uuid_example",
+        esp_friendly_name="esp_friendly_name_example",
+        esp_user="esp_user_example",
+        file_exists=True,
+        file_name="file_name_example",
+        group="group_example",
+        handlebar_variables=[
+            "handlebar_variables_example",
+        ],
+        invalid=True,
+        last_modified="last_modified_example",
+        library_item_oid=1,
+        options=[
+            TransactionEmailOption(
+                description="description_example",
+                merchant_email_delivery_option_oid=1,
+                merchant_id="merchant_id_example",
+                name="name_example",
+                selected=True,
+                store_front_oid=1,
+                template_display="template_display_example",
+                template_type="template_type_example",
+            ),
+        ],
+        path="path_example",
+        size="size_example",
+        store_front_fs_directory_oid=1,
+        store_front_fs_file_oid=1,
+        subject="subject_example",
+        syntax_errors="syntax_errors_example",
+        template_path_relative_path="template_path_relative_path_example",
+        theme_relative_path="theme_relative_path_example",
+    ) # TransactionEmail | TransactionEmail
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Updates a transaction email object
+        api_response = api_instance.update_transaction_email(storefront_oid, email_id, transaction_email)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_transaction_email: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefront_oid** | **int**|  | 
- **email_id** | **str**|  | 
- **transaction_email** | [**TransactionEmail**](TransactionEmail.md)| TransactionEmail | 
+ **storefront_oid** | **int**|  |
+ **email_id** | **str**|  |
+ **transaction_email** | [**TransactionEmail**](TransactionEmail.md)| TransactionEmail |
 
 ### Return type
 
@@ -8287,6 +17846,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_twilio_account**
@@ -8295,34 +17866,78 @@ Name | Type | Description  | Notes
 Update Twilio account
 
 ### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
 ```python
-from __future__ import print_function
 import time
 import ultracart
-from ultracart.rest import ApiException
+from ultracart.api import storefront_api
+from ultracart.model.twilio_response import TwilioResponse
+from ultracart.model.twilio import Twilio
+from ultracart.model.error_response import ErrorResponse
 from pprint import pprint
+# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
 
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-esp_twilio_uuid = 'esp_twilio_uuid_example' # str | 
-twilio = ultracart.Twilio() # Twilio | Twilio
+# Configure API key authorization: ultraCartBrowserApiKey
+configuration.api_key['ultraCartBrowserApiKey'] = 'YOUR_API_KEY'
 
-try:
-    # Update Twilio account
-    api_response = api_instance.update_twilio_account(esp_twilio_uuid, twilio)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling StorefrontApi->update_twilio_account: %s\n" % e)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartBrowserApiKey'] = 'Bearer'
+
+# Configure OAuth2 access token for authorization: ultraCartOauth
+configuration = ultracart.Configuration(
+    host = "https://secure.ultracart.com/rest/v2"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure API key authorization: ultraCartSimpleApiKey
+configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with ultracart.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = storefront_api.StorefrontApi(api_client)
+    esp_twilio_uuid = "esp_twilio_uuid_example" # str | 
+    twilio = Twilio(
+        account_sid="account_sid_example",
+        auth_token="auth_token_example",
+        esp_twilio_uuid="esp_twilio_uuid_example",
+        phone_numbers=[
+            "phone_numbers_example",
+        ],
+    ) # Twilio | Twilio
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update Twilio account
+        api_response = api_instance.update_twilio_account(esp_twilio_uuid, twilio)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->update_twilio_account: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **esp_twilio_uuid** | **str**|  | 
- **twilio** | [**Twilio**](Twilio.md)| Twilio | 
+ **esp_twilio_uuid** | **str**|  |
+ **twilio** | [**Twilio**](Twilio.md)| Twilio |
 
 ### Return type
 
@@ -8336,6 +17951,18 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # ScreenRecording
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 **events_gz_size** | **int** |  | [optional] 
 **events_json_key** | **str** |  | [optional] 
 **favorite** | **bool** | True if the user calling the API has favorited this particular screen recording. | [optional] 
-**favorites** | **list[int]** | Array of user ids that favorited this particular screen recording. | [optional] 
+**favorites** | **[int]** | Array of user ids that favorited this particular screen recording. | [optional] 
 **geolocation** | [**GeoPoint**](GeoPoint.md) |  | [optional] 
 **geolocation_country** | **str** |  | [optional] 
 **geolocation_state** | **str** |  | [optional] 
@@ -30,22 +31,22 @@ Name | Type | Description | Notes
 **missing_external_tracking** | **bool** | True if external page view was not tracked | [optional] 
 **order_id** | **str** |  | [optional] 
 **page_view_count** | **int** |  | [optional] 
-**page_views** | [**list[ScreenRecordingPageView]**](ScreenRecordingPageView.md) |  | [optional] 
+**page_views** | [**[ScreenRecordingPageView]**](ScreenRecordingPageView.md) |  | [optional] 
 **preferred_language** | **str** | ISO 3 Letter language code that the customer would prefer | [optional] 
 **referrer_domain** | **str** |  | [optional] 
 **rrweb_version** | **str** |  | [optional] 
 **screen_recording_uuid** | **str** |  | [optional] 
 **signed_download_url** | **str** |  | [optional] 
 **start_timestamp** | **str** | Starting timestamp | [optional] 
-**storefront_oids** | **list[int]** |  | [optional] 
-**storefronts** | [**list[ScreenRecordingStoreFront]**](ScreenRecordingStoreFront.md) |  | [optional] 
-**tags** | **list[str]** |  | [optional] 
+**storefront_oids** | **[int]** |  | [optional] 
+**storefronts** | [**[ScreenRecordingStoreFront]**](ScreenRecordingStoreFront.md) |  | [optional] 
+**tags** | **[str]** |  | [optional] 
 **time_on_site** | **int** |  | [optional] 
 **ucacid** | **str** |  | [optional] 
 **user_agent** | [**ScreenRecordingUserAgent**](ScreenRecordingUserAgent.md) |  | [optional] 
 **user_agent_raw** | **str** |  | [optional] 
 **user_ip** | **str** |  | [optional] 
-**user_properties** | [**list[ScreenRecordingUserProperty]**](ScreenRecordingUserProperty.md) |  | [optional] 
+**user_properties** | [**[ScreenRecordingUserProperty]**](ScreenRecordingUserProperty.md) |  | [optional] 
 **utm_campaign** | **str** | UTM Campaign | [optional] 
 **utm_source** | **str** | UTM Source | [optional] 
 **visitor_first_seen** | **str** | Timestamp this visitor was first seen | [optional] 
@@ -53,6 +54,7 @@ Name | Type | Description | Notes
 **watched** | **bool** |  | [optional] 
 **window_height** | **int** |  | [optional] 
 **window_width** | **int** |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

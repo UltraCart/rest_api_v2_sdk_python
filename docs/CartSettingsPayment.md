@@ -1,5 +1,6 @@
 # CartSettingsPayment
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **supports_purchase_order** | **bool** | True if purchase order payments are available on this order | [optional] 
 **supports_quote_request** | **bool** | True if quote requests payments are available on this order | [optional] 
 **supports_wire_transfer** | **bool** | True if wire transfer payments are available on this order | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # EmailPerformance
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -9,7 +10,7 @@ Name | Type | Description | Notes
 **bounce_percentage** | **float** | bounce percentage rate based upon our look back window.  This should be under five percent or the account will be paused for sending. | [optional] 
 **bounce_percentage_formatted** | **str** | bounce percentage rate (formatted) based upon our look back window.  This should be under five percent or the account will be paused for sending. | [optional] 
 **customer_histogram** | [**EmailPerformanceCustomerHistogram**](EmailPerformanceCustomerHistogram.md) |  | [optional] 
-**daily_stats** | [**list[EmailPerformanceDaily]**](EmailPerformanceDaily.md) | Daily statistics used for charting | [optional] 
+**daily_stats** | [**[EmailPerformanceDaily]**](EmailPerformanceDaily.md) | Daily statistics used for charting | [optional] 
 **delivered_count** | **int** | Delivered count | [optional] 
 **loyalty_program_type** | **str** | Loyalty Program Type | [optional] 
 **max_active_customers** | **int** | Maximum active customers allowed under their billing plan | [optional] 
@@ -26,6 +27,7 @@ Name | Type | Description | Notes
 **spam_percentage** | **float** | Spam percentage rate based upon our look back window.  This should be under one half a percent or the account will be paused for sending. | [optional] 
 **spam_percentage_formatted** | **str** | Spam percentage rate (formatted) based upon our look back window.  This should be under one half a percent or the account will be paused for sending. | [optional] 
 **transactional_send_count** | **int** | Total transactions emails sent | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

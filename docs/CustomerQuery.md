@@ -1,10 +1,11 @@
 # CustomerQuery
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**all_tags** | **list[str]** | All tags the customer must have | [optional] 
-**any_tags** | **list[str]** | Any of these tags the customer must have | [optional] 
+**all_tags** | **[str]** | All tags the customer must have | [optional] 
+**any_tags** | **[str]** | Any of these tags the customer must have | [optional] 
 **billing_city** | **str** | Billing city | [optional] 
 **billing_company** | **str** | Billing company | [optional] 
 **billing_country_code** | **str** | Billing country code | [optional] 
@@ -32,6 +33,7 @@ Name | Type | Description | Notes
 **shipping_state** | **str** | Billing state | [optional] 
 **signup_dts_end** | **str** | Signup date end | [optional] 
 **signup_dts_start** | **str** | Signup date start | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

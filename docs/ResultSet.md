@@ -1,5 +1,6 @@
 # ResultSet
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -9,6 +10,7 @@ Name | Type | Description | Notes
 **next_offset** | **int** | The next offset that you should query to retrieve more results | [optional] 
 **offset** | **int** | Offset of this result set (zero based) | [optional] 
 **total_records** | **int** | The total number of records in the result set.  May be null if the number is not known and the client should continue iterating as long as more is true. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

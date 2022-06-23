@@ -1,5 +1,6 @@
 # ItemOption
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -16,7 +17,8 @@ Name | Type | Description | Notes
 **required** | **bool** | True if the customer is required to specify an answer | [optional] 
 **system_option** | **bool** | True if this is a system option | [optional] 
 **type** | **str** | Type of option | [optional] 
-**values** | [**list[ItemOptionValue]**](ItemOptionValue.md) | Values | [optional] 
+**values** | [**[ItemOptionValue]**](ItemOptionValue.md) | Values | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

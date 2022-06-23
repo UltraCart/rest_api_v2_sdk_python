@@ -1,5 +1,6 @@
 # ItemContentMultimedia
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -14,10 +15,11 @@ Name | Type | Description | Notes
 **orphan** | **bool** | True if the multimedia is an orphan of the active StoreFront themes | [optional] 
 **placeholder** | **bool** | True if the object is a place holder that can be populated | [optional] 
 **temp_multimedia_oid** | **int** | Temporary multimedia object identifier assigned if uploading new multimedia | [optional] 
-**thumbnails** | [**list[ItemContentMultimediaThumbnail]**](ItemContentMultimediaThumbnail.md) | Thumbnails of this image | [optional] 
+**thumbnails** | [**[ItemContentMultimediaThumbnail]**](ItemContentMultimediaThumbnail.md) | Thumbnails of this image | [optional] 
 **type** | **str** | Type of file | [optional] 
 **url** | **str** | URL to download file (on new multimedia record this can be a URL for UltraCart to fetch) | [optional] 
 **width** | **int** | Width of the image | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
