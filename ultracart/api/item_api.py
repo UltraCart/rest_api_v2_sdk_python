@@ -45,6 +45,7 @@ class ItemApi(object):
 
 
 
+
     def delete_item(self, merchant_item_oid, **kwargs):  # noqa: E501
         """Delete an item  # noqa: E501
 

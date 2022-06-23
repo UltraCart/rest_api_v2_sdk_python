@@ -45,6 +45,7 @@ class CustomerApi(object):
 
 
 
+
     def add_customer_store_credit(self, customer_profile_oid, store_credit_request, **kwargs):  # noqa: E501
         """Adds store credit to a customer  # noqa: E501
 

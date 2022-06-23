@@ -45,6 +45,7 @@ class OrderApi(object):
 
 
 
+
     def adjust_order_total(self, order_id, desired_total, **kwargs):  # noqa: E501
         """Adjusts an order total  # noqa: E501
 

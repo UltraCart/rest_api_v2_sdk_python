@@ -45,6 +45,7 @@ class AutoOrderApi(object):
 
 
 
+
     def get_auto_order(self, auto_order_oid, **kwargs):  # noqa: E501
         """Retrieve an auto order by oid  # noqa: E501
 

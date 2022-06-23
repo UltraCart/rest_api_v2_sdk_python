@@ -45,6 +45,7 @@ class AffiliateApi(object):
 
 
 
+
     def get_clicks_by_query(self, click_query, **kwargs):  # noqa: E501
         """Retrieve clicks  # noqa: E501
 

@@ -45,6 +45,7 @@ class OauthApi(object):
 
 
 
+
     def oauth_access_token(self, client_id, grant_type, **kwargs):  # noqa: E501
         """Exchange authorization code for access token.  # noqa: E501
 

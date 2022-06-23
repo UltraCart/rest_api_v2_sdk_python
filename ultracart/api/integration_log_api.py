@@ -45,6 +45,7 @@ class IntegrationLogApi(object):
 
 
 
+
     def get_integration_log(self, pk, sk, **kwargs):  # noqa: E501
         """Retrieve an integration log  # noqa: E501
 

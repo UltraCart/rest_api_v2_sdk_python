@@ -1,10 +1,10 @@
-# TransactionGatewaysResponse
+# ChannelPartnerEstimateTaxResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**arbitrary_tax** | **float** |  | [optional] 
 **error** | [**Error**](Error.md) |  | [optional] 
-**gateways** | [**list[TransactionGateway]**](TransactionGateway.md) |  | [optional] 
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **warning** | [**Warning**](Warning.md) |  | [optional] 

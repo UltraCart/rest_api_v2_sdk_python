@@ -45,6 +45,7 @@ class TaxApi(object):
 
 
 
+
     def delete_tax_provider_self_city(self, city, tax_city, **kwargs):  # noqa: E501
         """Deletes a Self tax provider city  # noqa: E501
 

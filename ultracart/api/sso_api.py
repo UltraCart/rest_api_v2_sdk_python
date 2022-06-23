@@ -45,6 +45,7 @@ class SsoApi(object):
 
 
 
+
     def get_sso_session_user(self, **kwargs):  # noqa: E501
         """Get single sign on session user  # noqa: E501
 

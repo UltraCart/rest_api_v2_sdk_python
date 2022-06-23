@@ -45,6 +45,7 @@ class GiftCertificateApi(object):
 
 
 
+
     def add_gift_certificate_ledger_entry(self, gift_certificate_oid, gift_certificate_ledger_entry, **kwargs):  # noqa: E501
         """Add a gift certificate ledger entry  # noqa: E501
 

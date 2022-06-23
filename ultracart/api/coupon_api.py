@@ -45,6 +45,7 @@ class CouponApi(object):
 
 
 
+
     def delete_coupon(self, coupon_oid, **kwargs):  # noqa: E501
         """Delete a coupon  # noqa: E501
 

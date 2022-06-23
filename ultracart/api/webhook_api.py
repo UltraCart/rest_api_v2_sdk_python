@@ -45,6 +45,7 @@ class WebhookApi(object):
 
 
 
+
     def delete_webhook(self, webhook_oid, **kwargs):  # noqa: E501
         """Delete a webhook  # noqa: E501
 

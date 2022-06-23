@@ -45,6 +45,7 @@ class UserApi(object):
 
 
 
+
     def delete_group(self, group_oid, **kwargs):  # noqa: E501
         """Delete a group  # noqa: E501
 
