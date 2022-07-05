@@ -29,34 +29,15 @@ import ultracart
 from ultracart.api import channel_partner_api
 from ultracart.model.channel_partner_cancel_response import ChannelPartnerCancelResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = channel_partner_api.ChannelPartnerApi(api_client)
     order_id = "order_id_example" # str | The channel partner order id to delete.
 
     # example passing only required values which don't have defaults set
@@ -120,34 +101,15 @@ import ultracart
 from ultracart.api import channel_partner_api
 from ultracart.model.channel_partner_cancel_response import ChannelPartnerCancelResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = channel_partner_api.ChannelPartnerApi(api_client)
     order_id = "order_id_example" # str | The UltraCart order id to delete.
 
     # example passing only required values which don't have defaults set
@@ -212,34 +174,15 @@ from ultracart.api import channel_partner_api
 from ultracart.model.channel_partner_order import ChannelPartnerOrder
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.channel_partner_estimate_shipping_response import ChannelPartnerEstimateShippingResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = channel_partner_api.ChannelPartnerApi(api_client)
     channel_partner_order = ChannelPartnerOrder(
         advertising_source="advertising_source_example",
         affiliate_id="affiliate_id_example",
@@ -412,34 +355,15 @@ from ultracart.api import channel_partner_api
 from ultracart.model.channel_partner_order import ChannelPartnerOrder
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.channel_partner_estimate_tax_response import ChannelPartnerEstimateTaxResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = channel_partner_api.ChannelPartnerApi(api_client)
     channel_partner_order = ChannelPartnerOrder(
         advertising_source="advertising_source_example",
         affiliate_id="affiliate_id_example",
@@ -612,34 +536,15 @@ from ultracart.api import channel_partner_api
 from ultracart.model.channel_partner_order import ChannelPartnerOrder
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.channel_partner_import_response import ChannelPartnerImportResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = channel_partner_api.ChannelPartnerApi(api_client)
     channel_partner_order = ChannelPartnerOrder(
         advertising_source="advertising_source_example",
         affiliate_id="affiliate_id_example",

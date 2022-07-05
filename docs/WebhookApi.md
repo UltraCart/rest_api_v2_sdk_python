@@ -31,34 +31,15 @@ import time
 import ultracart
 from ultracart.api import webhook_api
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = webhook_api.WebhookApi(api_client)
     webhook_oid = 1 # int | The webhook oid to delete.
 
     # example passing only required values which don't have defaults set
@@ -122,34 +103,15 @@ from ultracart.api import webhook_api
 from ultracart.model.webhook import Webhook
 from ultracart.model.webhook_response import WebhookResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = webhook_api.WebhookApi(api_client)
     webhook = Webhook(
         api_user_oid=1,
         api_version="2017-03-01",
@@ -260,34 +222,15 @@ import ultracart
 from ultracart.api import webhook_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.webhook_log_response import WebhookLogResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = webhook_api.WebhookApi(api_client)
     webhook_oid = 1 # int | The webhook oid that owns the log.
     request_id = "requestId_example" # str | The request id associated with the log to view.
 
@@ -353,34 +296,15 @@ import ultracart
 from ultracart.api import webhook_api
 from ultracart.model.webhook_log_summaries_response import WebhookLogSummariesResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = webhook_api.WebhookApi(api_client)
     webhook_oid = 1 # int | The webhook oid to retrieve log summaries for.
     limit = 100 # int | The maximum number of records to return on this one API call. (optional) if omitted the server will use the default value of 100
     offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
@@ -459,34 +383,15 @@ import ultracart
 from ultracart.api import webhook_api
 from ultracart.model.webhooks_response import WebhooksResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = webhook_api.WebhookApi(api_client)
     limit = 100 # int | The maximum number of records to return on this one API call. (optional) if omitted the server will use the default value of 100
     offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
     sort = "_sort_example" # str | The sort order of the webhooks.  See documentation for examples (optional)
@@ -558,34 +463,15 @@ from ultracart.api import webhook_api
 from ultracart.model.webhook import Webhook
 from ultracart.model.webhook_response import WebhookResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = webhook_api.WebhookApi(api_client)
     webhook = Webhook(
         api_user_oid=1,
         api_version="2017-03-01",
@@ -707,34 +593,15 @@ import ultracart
 from ultracart.api import webhook_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.webhook_sample_request_response import WebhookSampleRequestResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = webhook_api.WebhookApi(api_client)
     webhook_oid = 1 # int | The webhook oid that is receiving the reflowed events.
     event_name = "eventName_example" # str | The event to reflow.
 
@@ -801,34 +668,15 @@ from ultracart.api import webhook_api
 from ultracart.model.webhook import Webhook
 from ultracart.model.webhook_response import WebhookResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = webhook_api.WebhookApi(api_client)
     webhook_oid = 1 # int | The webhook oid to update.
     webhook = Webhook(
         api_user_oid=1,

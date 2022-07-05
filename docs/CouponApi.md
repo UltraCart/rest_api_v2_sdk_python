@@ -42,34 +42,15 @@ import time
 import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupon_oid = 1 # int | The coupon_oid to delete.
 
     # example passing only required values which don't have defaults set
@@ -131,34 +112,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.coupon_deletes_request import CouponDeletesRequest
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupon_delete_request = CouponDeletesRequest(
         coupon_codes=[
             "coupon_codes_example",
@@ -227,34 +189,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.coupon_deletes_request import CouponDeletesRequest
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupon_delete_request = CouponDeletesRequest(
         coupon_codes=[
             "coupon_codes_example",
@@ -323,34 +266,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.coupon_exists_response import CouponExistsResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     merchant_code = "merchant_code_example" # str | The coupon merchant code to examine.
 
     # example passing only required values which don't have defaults set
@@ -415,34 +339,15 @@ from ultracart.api import coupon_api
 from ultracart.model.coupon_codes_response import CouponCodesResponse
 from ultracart.model.coupon_codes_request import CouponCodesRequest
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupon_oid = 1 # int | The coupon oid to generate codes.
     coupon_codes_request = CouponCodesRequest(
         error=Error(
@@ -536,34 +441,15 @@ from ultracart.api import coupon_api
 from ultracart.model.coupon_codes_response import CouponCodesResponse
 from ultracart.model.coupon_codes_request import CouponCodesRequest
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     merchant_code = "merchant_code_example" # str | The merchant code to generate one time codes.
     coupon_codes_request = CouponCodesRequest(
         error=Error(
@@ -656,34 +542,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.coupon_auto_apply_conditions import CouponAutoApplyConditions
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -743,34 +610,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.coupon_response import CouponResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupon_oid = 1 # int | The coupon oid to retrieve.
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -845,34 +693,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.coupon_response import CouponResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     merchant_code = "merchant_code_example" # str | The coupon merchant code to retrieve.
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -947,34 +776,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.coupons_response import CouponsResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     merchant_code = "merchant_code_example" # str | Merchant code (optional)
     description = "description_example" # str | Description (optional)
     coupon_type = "coupon_type_example" # str | Coupon type (optional)
@@ -1064,34 +874,15 @@ from ultracart.api import coupon_api
 from ultracart.model.coupons_response import CouponsResponse
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.coupon_query import CouponQuery
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupon_query = CouponQuery(
         affiliate_oid=1,
         coupon_type="coupon_type_example",
@@ -1183,34 +974,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.coupon_editor_values import CouponEditorValues
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -1271,34 +1043,15 @@ from ultracart.api import coupon_api
 from ultracart.model.coupon_response import CouponResponse
 from ultracart.model.coupon import Coupon
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupon = Coupon(
         affiliate_oid=1,
         allow_multiple_one_time_codes=True,
@@ -1737,34 +1490,15 @@ from ultracart.api import coupon_api
 from ultracart.model.coupons_request import CouponsRequest
 from ultracart.model.coupons_response import CouponsResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupons_request = CouponsRequest(
         coupons=[
             Coupon(
@@ -2208,34 +1942,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.coupon_item_search_results_response import CouponItemSearchResultsResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     s = "s_example" # str |  (optional)
     m = 1 # int |  (optional)
 
@@ -2302,34 +2017,15 @@ import ultracart
 from ultracart.api import coupon_api
 from ultracart.model.coupon_auto_apply_conditions import CouponAutoApplyConditions
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     conditions = CouponAutoApplyConditions(
         error=Error(
             developer_message="developer_message_example",
@@ -2430,34 +2126,15 @@ from ultracart.api import coupon_api
 from ultracart.model.coupon_response import CouponResponse
 from ultracart.model.coupon import Coupon
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupon_oid = 1 # int | The coupon_oid to update.
     coupon = Coupon(
         affiliate_oid=1,
@@ -2898,34 +2575,15 @@ from ultracart.api import coupon_api
 from ultracart.model.coupons_request import CouponsRequest
 from ultracart.model.coupons_response import CouponsResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupons_request = CouponsRequest(
         coupons=[
             Coupon(
@@ -3372,34 +3030,15 @@ from ultracart.api import coupon_api
 from ultracart.model.upload_coupon_codes_response import UploadCouponCodesResponse
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.upload_coupon_codes_request import UploadCouponCodesRequest
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = coupon_api.CouponApi(api_client)
     coupon_oid = 1 # int | The coupon oid to associate with the provided one-time codes.
     upload_coupon_codes_request = UploadCouponCodesRequest(
         coupon_codes=[

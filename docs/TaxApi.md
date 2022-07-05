@@ -52,34 +52,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.tax_city import TaxCity
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     city = "city_example" # str | The city being deleted.
     tax_city = TaxCity(
         accounting_code="accounting_code_example",
@@ -163,34 +144,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_country import TaxCountry
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     country_code = "countryCode_example" # str | The country code being deleted.
     tax_country = TaxCountry(
         accounting_code="accounting_code_example",
@@ -320,34 +282,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_county import TaxCounty
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     county = "county_example" # str | The county being deleted.
     tax_county = TaxCounty(
         accounting_code="accounting_code_example",
@@ -444,34 +387,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_postal_code import TaxPostalCode
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     postal_code = "postal_code_example" # str | The postal code being deleted.
     tax_postal_code = TaxPostalCode(
         accounting_code="accounting_code_example",
@@ -543,34 +467,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_state import TaxState
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     state_code = "stateCode_example" # str | The state code being deleted.
     tax_state = TaxState(
         accounting_code="accounting_code_example",
@@ -688,34 +593,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_provider_avalara import TaxProviderAvalara
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -776,34 +662,15 @@ from ultracart.api import tax_api
 from ultracart.model.tax_provider_avalara_companies_result import TaxProviderAvalaraCompaniesResult
 from ultracart.model.tax_provider_avalara import TaxProviderAvalara
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     tax_provider_avalara = TaxProviderAvalara(
         configuration=AvalaraConfig(
             account_id="account_id_example",
@@ -886,34 +753,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.tax_provider_test_result import TaxProviderTestResult
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -973,34 +821,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.tax_provider_self import TaxProviderSelf
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -1060,34 +889,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.tax_provider_self_countries_response import TaxProviderSelfCountriesResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -1147,34 +957,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_provider_self_regions_response import TaxProviderSelfRegionsResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     country_code = "countryCode_example" # str | The country code regions desired.
 
     # example passing only required values which don't have defaults set
@@ -1238,34 +1029,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_provider_sovos import TaxProviderSovos
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -1325,34 +1097,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.tax_provider_test_result import TaxProviderTestResult
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -1412,34 +1165,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_provider_tax_jar import TaxProviderTaxJar
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -1499,34 +1233,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.tax_provider_test_result import TaxProviderTestResult
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -1586,34 +1301,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_provider_ultra_cart import TaxProviderUltraCart
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -1673,34 +1369,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_providers_response import TaxProvidersResponse
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) if omitted the server will use the default value of 100
     offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1769,34 +1446,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.tax_provider_activate_result import TaxProviderActivateResult
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     provider_name = "providerName_example" # str | The tax provider to set active.
 
     # example passing only required values which don't have defaults set
@@ -1860,34 +1518,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_provider_avalara import TaxProviderAvalara
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     tax_provider_avalara = TaxProviderAvalara(
         configuration=AvalaraConfig(
             account_id="account_id_example",
@@ -1970,34 +1609,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.tax_provider_self import TaxProviderSelf
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     tax_provider_self = TaxProviderSelf(
         configuration=SelfConfig(
             tax_billing=True,
@@ -2137,34 +1757,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.tax_city import TaxCity
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     city = "city_example" # str | The city being updated.
     tax_city = TaxCity(
         accounting_code="accounting_code_example",
@@ -2250,34 +1851,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_country import TaxCountry
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     country_code = "countryCode_example" # str | The country code being updated.
     tax_country = TaxCountry(
         accounting_code="accounting_code_example",
@@ -2409,34 +1991,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_county import TaxCounty
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     county = "county_example" # str | The county being updated.
     tax_county = TaxCounty(
         accounting_code="accounting_code_example",
@@ -2535,34 +2098,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_postal_code import TaxPostalCode
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     postal_code = "postal_code_example" # str | The postal code being updated.
     tax_postal_code = TaxPostalCode(
         accounting_code="accounting_code_example",
@@ -2636,34 +2180,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_state import TaxState
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     state_code = "stateCode_example" # str | The state code being updated.
     tax_state = TaxState(
         accounting_code="accounting_code_example",
@@ -2783,34 +2308,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_provider_sovos import TaxProviderSovos
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     tax_provider_sovos = TaxProviderSovos(
         configuration=SovosConfig(
             access_key="access_key_example",
@@ -2887,34 +2393,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_provider_tax_jar import TaxProviderTaxJar
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     tax_provider_tax_jar = TaxProviderTaxJar(
         configuration=TaxJarConfig(
             active=True,
@@ -2991,34 +2478,15 @@ import ultracart
 from ultracart.api import tax_api
 from ultracart.model.tax_provider_ultra_cart import TaxProviderUltraCart
 from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
-# Defining the host is optional and defaults to https://secure.ultracart.com/rest/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-# Configure OAuth2 access token for authorization: ultraCartOauth
-configuration = ultracart.Configuration(
-    host = "https://secure.ultracart.com/rest/v2"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+api_instance = GiftCertificateApi(api_client())
 
-# Configure API key authorization: ultraCartSimpleApiKey
-configuration.api_key['ultraCartSimpleApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ultraCartSimpleApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with ultracart.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tax_api.TaxApi(api_client)
     tax_provider_ultracart = TaxProviderUltraCart(
         configuration=UltraCartConfig(
             tax_billing=True,
