@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**get_customers_for_data_tables**](CustomerApi.md#get_customers_for_data_tables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**get_email_verification_token**](CustomerApi.md#get_email_verification_token) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**insert_customer**](CustomerApi.md#insert_customer) | **POST** /customer/customers | Insert a customer
+[**merge_customer**](CustomerApi.md#merge_customer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 [**search_customer_profile_values**](CustomerApi.md#search_customer_profile_values) | **POST** /customer/search | Searches for all matching values (using POST)
 [**update_customer**](CustomerApi.md#update_customer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**update_customer_email_lists**](CustomerApi.md#update_customer_email_lists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
@@ -1078,6 +1079,8 @@ api_instance = GiftCertificateApi(api_client())
                     uuid="uuid_example",
                 ),
             ],
+            global_unsubscribed=True,
+            global_unsubscribed_dts="global_unsubscribed_dts_example",
             memberships=[
                 ListSegmentMembership(
                     name="name_example",
@@ -1103,6 +1106,8 @@ api_instance = GiftCertificateApi(api_client())
                     value="value_example",
                 ),
             ],
+            spam_complaint=True,
+            spam_complaint_dts="spam_complaint_dts_example",
         ),
         affiliate_oid=1,
         allow_3rd_party_billing=True,
@@ -3042,6 +3047,91 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **merge_customer**
+> merge_customer(customer_profile_oid, customer)
+
+Merge customer into this customer
+
+Merge customer into this customer. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import customer_api
+from ultracart.model.customer_merge_request import CustomerMergeRequest
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    customer_profile_oid = 1 # int | The customer_profile_oid to update.
+    customer = CustomerMergeRequest(
+        customer_profile_oid=1,
+        email="email_example",
+    ) # CustomerMergeRequest | Customer to merge into this profile.
+    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Merge customer into this customer
+        api_instance.merge_customer(customer_profile_oid, customer)
+    except ultracart.ApiException as e:
+        print("Exception when calling CustomerApi->merge_customer: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Merge customer into this customer
+        api_instance.merge_customer(customer_profile_oid, customer, expand=expand)
+    except ultracart.ApiException as e:
+        print("Exception when calling CustomerApi->merge_customer: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer_profile_oid to update. |
+ **customer** | [**CustomerMergeRequest**](CustomerMergeRequest.md)| Customer to merge into this profile. |
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **search_customer_profile_values**
 > LookupResponse search_customer_profile_values(lookup_request)
 
@@ -3161,6 +3251,8 @@ api_instance = GiftCertificateApi(api_client())
                     uuid="uuid_example",
                 ),
             ],
+            global_unsubscribed=True,
+            global_unsubscribed_dts="global_unsubscribed_dts_example",
             memberships=[
                 ListSegmentMembership(
                     name="name_example",
@@ -3186,6 +3278,8 @@ api_instance = GiftCertificateApi(api_client())
                     value="value_example",
                 ),
             ],
+            spam_complaint=True,
+            spam_complaint_dts="spam_complaint_dts_example",
         ),
         affiliate_oid=1,
         allow_3rd_party_billing=True,

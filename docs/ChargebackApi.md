@@ -503,6 +503,8 @@ api_instance = GiftCertificateApi(api_client())
                             uuid="uuid_example",
                         ),
                     ],
+                    global_unsubscribed=True,
+                    global_unsubscribed_dts="global_unsubscribed_dts_example",
                     memberships=[
                         ListSegmentMembership(
                             name="name_example",
@@ -528,6 +530,8 @@ api_instance = GiftCertificateApi(api_client())
                             value="value_example",
                         ),
                     ],
+                    spam_complaint=True,
+                    spam_complaint_dts="spam_complaint_dts_example",
                 ),
                 affiliate_oid=1,
                 allow_3rd_party_billing=True,
@@ -1715,6 +1719,8 @@ api_instance = GiftCertificateApi(api_client())
                             uuid="uuid_example",
                         ),
                     ],
+                    global_unsubscribed=True,
+                    global_unsubscribed_dts="global_unsubscribed_dts_example",
                     memberships=[
                         ListSegmentMembership(
                             name="name_example",
@@ -1740,6 +1746,8 @@ api_instance = GiftCertificateApi(api_client())
                             value="value_example",
                         ),
                     ],
+                    spam_complaint=True,
+                    spam_complaint_dts="spam_complaint_dts_example",
                 ),
                 affiliate_oid=1,
                 allow_3rd_party_billing=True,

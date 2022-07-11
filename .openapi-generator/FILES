@@ -202,6 +202,7 @@ docs/CustomerEmailListChanges.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
+docs/CustomerMergeRequest.md
 docs/CustomerOrdersSummary.md
 docs/CustomerPricingTier.md
 docs/CustomerPrivacy.md
@@ -876,6 +877,7 @@ ultracart/model/customer_email_list_changes.py
 ultracart/model/customer_loyalty.py
 ultracart/model/customer_loyalty_ledger.py
 ultracart/model/customer_loyalty_redemption.py
+ultracart/model/customer_merge_request.py
 ultracart/model/customer_orders_summary.py
 ultracart/model/customer_pricing_tier.py
 ultracart/model/customer_privacy.py

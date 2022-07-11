@@ -28,6 +28,7 @@ from ultracart.model.base_response import BaseResponse
 from ultracart.model.customer import Customer
 from ultracart.model.customer_editor_values import CustomerEditorValues
 from ultracart.model.customer_email_list_changes import CustomerEmailListChanges
+from ultracart.model.customer_merge_request import CustomerMergeRequest
 from ultracart.model.customer_query import CustomerQuery
 from ultracart.model.customer_response import CustomerResponse
 from ultracart.model.customer_store_credit_add_request import CustomerStoreCreditAddRequest
@@ -920,6 +921,70 @@ class CustomerApi(object):
                     'expand': '_expand',
                 },
                 'location_map': {
+                    'customer': 'body',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.merge_customer_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/customer/customers/{customer_profile_oid}/merge',
+                'operation_id': 'merge_customer',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'customer_profile_oid',
+                    'customer',
+                    'expand',
+                ],
+                'required': [
+                    'customer_profile_oid',
+                    'customer',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'customer_profile_oid':
+                        (int,),
+                    'customer':
+                        (CustomerMergeRequest,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'customer_profile_oid': 'customer_profile_oid',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'customer_profile_oid': 'path',
                     'customer': 'body',
                     'expand': 'query',
                 },
@@ -2274,6 +2339,94 @@ class CustomerApi(object):
         kwargs['customer'] = \
             customer
         return self.insert_customer_endpoint.call_with_http_info(**kwargs)
+
+    def merge_customer(
+        self,
+        customer_profile_oid,
+        customer,
+        **kwargs
+    ):
+        """Merge customer into this customer  # noqa: E501
+
+        Merge customer into this customer.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.merge_customer(customer_profile_oid, customer, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            customer_profile_oid (int): The customer_profile_oid to update.
+            customer (CustomerMergeRequest): Customer to merge into this profile.
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['customer_profile_oid'] = \
+            customer_profile_oid
+        kwargs['customer'] = \
+            customer
+        return self.merge_customer_endpoint.call_with_http_info(**kwargs)
 
     def search_customer_profile_values(
         self,

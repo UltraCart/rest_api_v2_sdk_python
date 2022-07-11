@@ -202,6 +202,7 @@ from ultracart.model.customer_email_list_changes import CustomerEmailListChanges
 from ultracart.model.customer_loyalty import CustomerLoyalty
 from ultracart.model.customer_loyalty_ledger import CustomerLoyaltyLedger
 from ultracart.model.customer_loyalty_redemption import CustomerLoyaltyRedemption
+from ultracart.model.customer_merge_request import CustomerMergeRequest
 from ultracart.model.customer_orders_summary import CustomerOrdersSummary
 from ultracart.model.customer_pricing_tier import CustomerPricingTier
 from ultracart.model.customer_privacy import CustomerPrivacy
