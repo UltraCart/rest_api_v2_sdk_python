@@ -1481,6 +1481,117 @@ class CustomerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def merge_customer(self, customer, customer_profile_oid, **kwargs):  # noqa: E501
+        """Merge customer into this customer  # noqa: E501
+
+        Merge customer into this customer.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.merge_customer(customer, customer_profile_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomerMergeRequest customer: Customer to merge into this profile. (required)
+        :param int customer_profile_oid: The customer_profile_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.merge_customer_with_http_info(customer, customer_profile_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.merge_customer_with_http_info(customer, customer_profile_oid, **kwargs)  # noqa: E501
+            return data
+
+    def merge_customer_with_http_info(self, customer, customer_profile_oid, **kwargs):  # noqa: E501
+        """Merge customer into this customer  # noqa: E501
+
+        Merge customer into this customer.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.merge_customer_with_http_info(customer, customer_profile_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomerMergeRequest customer: Customer to merge into this profile. (required)
+        :param int customer_profile_oid: The customer_profile_oid to update. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['customer', 'customer_profile_oid', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method merge_customer" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'customer' is set
+        if ('customer' not in params or
+                params['customer'] is None):
+            raise ValueError("Missing the required parameter `customer` when calling `merge_customer`")  # noqa: E501
+        # verify the required parameter 'customer_profile_oid' is set
+        if ('customer_profile_oid' not in params or
+                params['customer_profile_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `merge_customer`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'customer_profile_oid' in params:
+            path_params['customer_profile_oid'] = params['customer_profile_oid']  # noqa: E501
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'customer' in params:
+            body_params = params['customer']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/customer/customers/{customer_profile_oid}/merge', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def search_customer_profile_values(self, lookup_request, **kwargs):  # noqa: E501
         """Searches for all matching values (using POST)  # noqa: E501
 

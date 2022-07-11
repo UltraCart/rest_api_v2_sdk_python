@@ -32,35 +32,55 @@ class CustomerActivity(object):
     """
     swagger_types = {
         'activities': 'list[Activity]',
+        'global_unsubscribed': 'bool',
+        'global_unsubscribed_dts': 'str',
         'memberships': 'list[ListSegmentMembership]',
         'metrics': 'list[Metric]',
-        'properties_list': 'list[ModelProperty]'
+        'properties_list': 'list[ModelProperty]',
+        'spam_complaint': 'bool',
+        'spam_complaint_dts': 'str'
     }
 
     attribute_map = {
         'activities': 'activities',
+        'global_unsubscribed': 'global_unsubscribed',
+        'global_unsubscribed_dts': 'global_unsubscribed_dts',
         'memberships': 'memberships',
         'metrics': 'metrics',
-        'properties_list': 'properties_list'
+        'properties_list': 'properties_list',
+        'spam_complaint': 'spam_complaint',
+        'spam_complaint_dts': 'spam_complaint_dts'
     }
 
-    def __init__(self, activities=None, memberships=None, metrics=None, properties_list=None):  # noqa: E501
+    def __init__(self, activities=None, global_unsubscribed=None, global_unsubscribed_dts=None, memberships=None, metrics=None, properties_list=None, spam_complaint=None, spam_complaint_dts=None):  # noqa: E501
         """CustomerActivity - a model defined in Swagger"""  # noqa: E501
 
         self._activities = None
+        self._global_unsubscribed = None
+        self._global_unsubscribed_dts = None
         self._memberships = None
         self._metrics = None
         self._properties_list = None
+        self._spam_complaint = None
+        self._spam_complaint_dts = None
         self.discriminator = None
 
         if activities is not None:
             self.activities = activities
+        if global_unsubscribed is not None:
+            self.global_unsubscribed = global_unsubscribed
+        if global_unsubscribed_dts is not None:
+            self.global_unsubscribed_dts = global_unsubscribed_dts
         if memberships is not None:
             self.memberships = memberships
         if metrics is not None:
             self.metrics = metrics
         if properties_list is not None:
             self.properties_list = properties_list
+        if spam_complaint is not None:
+            self.spam_complaint = spam_complaint
+        if spam_complaint_dts is not None:
+            self.spam_complaint_dts = spam_complaint_dts
 
     @property
     def activities(self):
@@ -82,6 +102,48 @@ class CustomerActivity(object):
         """
 
         self._activities = activities
+
+    @property
+    def global_unsubscribed(self):
+        """Gets the global_unsubscribed of this CustomerActivity.  # noqa: E501
+
+
+        :return: The global_unsubscribed of this CustomerActivity.  # noqa: E501
+        :rtype: bool
+        """
+        return self._global_unsubscribed
+
+    @global_unsubscribed.setter
+    def global_unsubscribed(self, global_unsubscribed):
+        """Sets the global_unsubscribed of this CustomerActivity.
+
+
+        :param global_unsubscribed: The global_unsubscribed of this CustomerActivity.  # noqa: E501
+        :type: bool
+        """
+
+        self._global_unsubscribed = global_unsubscribed
+
+    @property
+    def global_unsubscribed_dts(self):
+        """Gets the global_unsubscribed_dts of this CustomerActivity.  # noqa: E501
+
+
+        :return: The global_unsubscribed_dts of this CustomerActivity.  # noqa: E501
+        :rtype: str
+        """
+        return self._global_unsubscribed_dts
+
+    @global_unsubscribed_dts.setter
+    def global_unsubscribed_dts(self, global_unsubscribed_dts):
+        """Sets the global_unsubscribed_dts of this CustomerActivity.
+
+
+        :param global_unsubscribed_dts: The global_unsubscribed_dts of this CustomerActivity.  # noqa: E501
+        :type: str
+        """
+
+        self._global_unsubscribed_dts = global_unsubscribed_dts
 
     @property
     def memberships(self):
@@ -145,6 +207,48 @@ class CustomerActivity(object):
         """
 
         self._properties_list = properties_list
+
+    @property
+    def spam_complaint(self):
+        """Gets the spam_complaint of this CustomerActivity.  # noqa: E501
+
+
+        :return: The spam_complaint of this CustomerActivity.  # noqa: E501
+        :rtype: bool
+        """
+        return self._spam_complaint
+
+    @spam_complaint.setter
+    def spam_complaint(self, spam_complaint):
+        """Sets the spam_complaint of this CustomerActivity.
+
+
+        :param spam_complaint: The spam_complaint of this CustomerActivity.  # noqa: E501
+        :type: bool
+        """
+
+        self._spam_complaint = spam_complaint
+
+    @property
+    def spam_complaint_dts(self):
+        """Gets the spam_complaint_dts of this CustomerActivity.  # noqa: E501
+
+
+        :return: The spam_complaint_dts of this CustomerActivity.  # noqa: E501
+        :rtype: str
+        """
+        return self._spam_complaint_dts
+
+    @spam_complaint_dts.setter
+    def spam_complaint_dts(self, spam_complaint_dts):
+        """Sets the spam_complaint_dts of this CustomerActivity.
+
+
+        :param spam_complaint_dts: The spam_complaint_dts of this CustomerActivity.  # noqa: E501
+        :type: str
+        """
+
+        self._spam_complaint_dts = spam_complaint_dts
 
     def to_dict(self):
         """Returns the model properties as a dict"""
