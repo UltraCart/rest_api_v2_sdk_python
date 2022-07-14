@@ -4,7 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **str** |  | [optional] 
+**channel** | **str** |  | [optional] 
 **metric** | **str** |  | [optional] 
+**storefront_oid** | **int** |  | [optional] 
 **subject** | **str** |  | [optional] 
 **ts** | **int** |  | [optional] 
 **type** | **str** |  | [optional] 

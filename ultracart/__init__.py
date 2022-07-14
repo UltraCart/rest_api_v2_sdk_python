@@ -21,6 +21,7 @@ from ultracart.api.auto_order_api import AutoOrderApi
 from ultracart.api.channel_partner_api import ChannelPartnerApi
 from ultracart.api.chargeback_api import ChargebackApi
 from ultracart.api.checkout_api import CheckoutApi
+from ultracart.api.conversation_api import ConversationApi
 from ultracart.api.coupon_api import CouponApi
 from ultracart.api.customer_api import CustomerApi
 from ultracart.api.fulfillment_api import FulfillmentApi
@@ -155,6 +156,14 @@ from ultracart.models.checkout_setup_browser_key_request import CheckoutSetupBro
 from ultracart.models.checkout_setup_browser_key_response import CheckoutSetupBrowserKeyResponse
 from ultracart.models.checkout_state_province_response import CheckoutStateProvinceResponse
 from ultracart.models.city_state_zip import CityStateZip
+from ultracart.models.conversation import Conversation
+from ultracart.models.conversation_agent_auth_response import ConversationAgentAuthResponse
+from ultracart.models.conversation_message import ConversationMessage
+from ultracart.models.conversation_participant import ConversationParticipant
+from ultracart.models.conversation_start_request import ConversationStartRequest
+from ultracart.models.conversation_start_response import ConversationStartResponse
+from ultracart.models.conversation_summary import ConversationSummary
+from ultracart.models.conversations_response import ConversationsResponse
 from ultracart.models.countries_response import CountriesResponse
 from ultracart.models.country import Country
 from ultracart.models.coupon import Coupon

@@ -32,7 +32,9 @@ class Activity(object):
     """
     swagger_types = {
         'action': 'str',
+        'channel': 'str',
         'metric': 'str',
+        'storefront_oid': 'int',
         'subject': 'str',
         'ts': 'int',
         'type': 'str',
@@ -41,18 +43,22 @@ class Activity(object):
 
     attribute_map = {
         'action': 'action',
+        'channel': 'channel',
         'metric': 'metric',
+        'storefront_oid': 'storefront_oid',
         'subject': 'subject',
         'ts': 'ts',
         'type': 'type',
         'uuid': 'uuid'
     }
 
-    def __init__(self, action=None, metric=None, subject=None, ts=None, type=None, uuid=None):  # noqa: E501
+    def __init__(self, action=None, channel=None, metric=None, storefront_oid=None, subject=None, ts=None, type=None, uuid=None):  # noqa: E501
         """Activity - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
+        self._channel = None
         self._metric = None
+        self._storefront_oid = None
         self._subject = None
         self._ts = None
         self._type = None
@@ -61,8 +67,12 @@ class Activity(object):
 
         if action is not None:
             self.action = action
+        if channel is not None:
+            self.channel = channel
         if metric is not None:
             self.metric = metric
+        if storefront_oid is not None:
+            self.storefront_oid = storefront_oid
         if subject is not None:
             self.subject = subject
         if ts is not None:
@@ -94,6 +104,27 @@ class Activity(object):
         self._action = action
 
     @property
+    def channel(self):
+        """Gets the channel of this Activity.  # noqa: E501
+
+
+        :return: The channel of this Activity.  # noqa: E501
+        :rtype: str
+        """
+        return self._channel
+
+    @channel.setter
+    def channel(self, channel):
+        """Sets the channel of this Activity.
+
+
+        :param channel: The channel of this Activity.  # noqa: E501
+        :type: str
+        """
+
+        self._channel = channel
+
+    @property
     def metric(self):
         """Gets the metric of this Activity.  # noqa: E501
 
@@ -113,6 +144,27 @@ class Activity(object):
         """
 
         self._metric = metric
+
+    @property
+    def storefront_oid(self):
+        """Gets the storefront_oid of this Activity.  # noqa: E501
+
+
+        :return: The storefront_oid of this Activity.  # noqa: E501
+        :rtype: int
+        """
+        return self._storefront_oid
+
+    @storefront_oid.setter
+    def storefront_oid(self, storefront_oid):
+        """Sets the storefront_oid of this Activity.
+
+
+        :param storefront_oid: The storefront_oid of this Activity.  # noqa: E501
+        :type: int
+        """
+
+        self._storefront_oid = storefront_oid
 
     @property
     def subject(self):
