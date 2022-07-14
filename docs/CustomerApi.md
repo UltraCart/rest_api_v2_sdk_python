@@ -1072,7 +1072,9 @@ api_instance = GiftCertificateApi(api_client())
             activities=[
                 Activity(
                     action="action_example",
+                    channel="channel_example",
                     metric="metric_example",
+                    storefront_oid=1,
                     subject="subject_example",
                     ts=1,
                     type="type_example",
@@ -3244,7 +3246,9 @@ api_instance = GiftCertificateApi(api_client())
             activities=[
                 Activity(
                     action="action_example",
+                    channel="channel_example",
                     metric="metric_example",
+                    storefront_oid=1,
                     subject="subject_example",
                     ts=1,
                     type="type_example",

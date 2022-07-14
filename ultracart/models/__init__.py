@@ -125,6 +125,14 @@ from ultracart.model.checkout_setup_browser_key_request import CheckoutSetupBrow
 from ultracart.model.checkout_setup_browser_key_response import CheckoutSetupBrowserKeyResponse
 from ultracart.model.checkout_state_province_response import CheckoutStateProvinceResponse
 from ultracart.model.city_state_zip import CityStateZip
+from ultracart.model.conversation import Conversation
+from ultracart.model.conversation_agent_auth_response import ConversationAgentAuthResponse
+from ultracart.model.conversation_message import ConversationMessage
+from ultracart.model.conversation_participant import ConversationParticipant
+from ultracart.model.conversation_start_request import ConversationStartRequest
+from ultracart.model.conversation_start_response import ConversationStartResponse
+from ultracart.model.conversation_summary import ConversationSummary
+from ultracart.model.conversations_response import ConversationsResponse
 from ultracart.model.countries_response import CountriesResponse
 from ultracart.model.country import Country
 from ultracart.model.coupon import Coupon
