@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_agent_websocket_authorization**](ConversationApi.md#get_agent_websocket_authorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 [**get_conversation**](ConversationApi.md#get_conversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+[**get_conversation_multimedia_upload_url**](ConversationApi.md#get_conversation_multimedia_upload_url) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 [**get_conversations**](ConversationApi.md#get_conversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 [**join_conversation**](ConversationApi.md#join_conversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**leave_conversation**](ConversationApi.md#leave_conversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
@@ -96,6 +97,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Conversation**](Conversation.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_conversation_multimedia_upload_url**
+> get_conversation_multimedia_upload_url(extension)
+
+Get a presigned conersation multimedia upload URL
+
+Get a presigned conersation multimedia upload URL 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+extension = 'extension_example' # str | 
+
+try:
+    # Get a presigned conersation multimedia upload URL
+    api_instance.get_conversation_multimedia_upload_url(extension)
+except ApiException as e:
+    print("Exception when calling ConversationApi->get_conversation_multimedia_upload_url: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **extension** | **str**|  | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

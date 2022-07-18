@@ -33,20 +33,26 @@ class ConversationAgentAuthResponse(object):
     swagger_types = {
         'conversation_participant_arn': 'str',
         'jwt': 'str',
+        'merchant_id': 'str',
+        'twilio_phone_numbers': 'list[str]',
         'websocket_url': 'str'
     }
 
     attribute_map = {
         'conversation_participant_arn': 'conversation_participant_arn',
         'jwt': 'jwt',
+        'merchant_id': 'merchant_id',
+        'twilio_phone_numbers': 'twilio_phone_numbers',
         'websocket_url': 'websocket_url'
     }
 
-    def __init__(self, conversation_participant_arn=None, jwt=None, websocket_url=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, jwt=None, merchant_id=None, twilio_phone_numbers=None, websocket_url=None):  # noqa: E501
         """ConversationAgentAuthResponse - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
         self._jwt = None
+        self._merchant_id = None
+        self._twilio_phone_numbers = None
         self._websocket_url = None
         self.discriminator = None
 
@@ -54,6 +60,10 @@ class ConversationAgentAuthResponse(object):
             self.conversation_participant_arn = conversation_participant_arn
         if jwt is not None:
             self.jwt = jwt
+        if merchant_id is not None:
+            self.merchant_id = merchant_id
+        if twilio_phone_numbers is not None:
+            self.twilio_phone_numbers = twilio_phone_numbers
         if websocket_url is not None:
             self.websocket_url = websocket_url
 
@@ -98,6 +108,48 @@ class ConversationAgentAuthResponse(object):
         """
 
         self._jwt = jwt
+
+    @property
+    def merchant_id(self):
+        """Gets the merchant_id of this ConversationAgentAuthResponse.  # noqa: E501
+
+
+        :return: The merchant_id of this ConversationAgentAuthResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._merchant_id
+
+    @merchant_id.setter
+    def merchant_id(self, merchant_id):
+        """Sets the merchant_id of this ConversationAgentAuthResponse.
+
+
+        :param merchant_id: The merchant_id of this ConversationAgentAuthResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._merchant_id = merchant_id
+
+    @property
+    def twilio_phone_numbers(self):
+        """Gets the twilio_phone_numbers of this ConversationAgentAuthResponse.  # noqa: E501
+
+
+        :return: The twilio_phone_numbers of this ConversationAgentAuthResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._twilio_phone_numbers
+
+    @twilio_phone_numbers.setter
+    def twilio_phone_numbers(self, twilio_phone_numbers):
+        """Sets the twilio_phone_numbers of this ConversationAgentAuthResponse.
+
+
+        :param twilio_phone_numbers: The twilio_phone_numbers of this ConversationAgentAuthResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._twilio_phone_numbers = twilio_phone_numbers
 
     @property
     def websocket_url(self):
