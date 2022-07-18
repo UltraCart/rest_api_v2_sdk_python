@@ -84,6 +84,8 @@ class ConversationAgentAuthResponse(ModelNormal):
         return {
             'conversation_participant_arn': (str,),  # noqa: E501
             'jwt': (str,),  # noqa: E501
+            'merchant_id': (str,),  # noqa: E501
+            'twilio_phone_numbers': ([str],),  # noqa: E501
             'websocket_url': (str,),  # noqa: E501
         }
 
@@ -95,6 +97,8 @@ class ConversationAgentAuthResponse(ModelNormal):
     attribute_map = {
         'conversation_participant_arn': 'conversation_participant_arn',  # noqa: E501
         'jwt': 'jwt',  # noqa: E501
+        'merchant_id': 'merchant_id',  # noqa: E501
+        'twilio_phone_numbers': 'twilio_phone_numbers',  # noqa: E501
         'websocket_url': 'websocket_url',  # noqa: E501
     }
 
@@ -141,6 +145,8 @@ class ConversationAgentAuthResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             conversation_participant_arn (str): [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
+            merchant_id (str): [optional]  # noqa: E501
+            twilio_phone_numbers ([str]): [optional]  # noqa: E501
             websocket_url (str): [optional]  # noqa: E501
         """
 
@@ -229,6 +235,8 @@ class ConversationAgentAuthResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             conversation_participant_arn (str): [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
+            merchant_id (str): [optional]  # noqa: E501
+            twilio_phone_numbers ([str]): [optional]  # noqa: E501
             websocket_url (str): [optional]  # noqa: E501
         """
 
