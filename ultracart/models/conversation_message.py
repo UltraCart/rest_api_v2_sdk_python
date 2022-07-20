@@ -35,7 +35,8 @@ class ConversationMessage(object):
         'author_conversation_participant_name': 'str',
         'body': 'str',
         'media_urls': 'list[str]',
-        'message_dts': 'str'
+        'message_dts': 'str',
+        'transport_statuses': 'list[ConversationMessageTransportStatus]'
     }
 
     attribute_map = {
@@ -43,10 +44,11 @@ class ConversationMessage(object):
         'author_conversation_participant_name': 'author_conversation_participant_name',
         'body': 'body',
         'media_urls': 'media_urls',
-        'message_dts': 'message_dts'
+        'message_dts': 'message_dts',
+        'transport_statuses': 'transport_statuses'
     }
 
-    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, media_urls=None, message_dts=None):  # noqa: E501
+    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, media_urls=None, message_dts=None, transport_statuses=None):  # noqa: E501
         """ConversationMessage - a model defined in Swagger"""  # noqa: E501
 
         self._author_conversation_participant_arn = None
@@ -54,6 +56,7 @@ class ConversationMessage(object):
         self._body = None
         self._media_urls = None
         self._message_dts = None
+        self._transport_statuses = None
         self.discriminator = None
 
         if author_conversation_participant_arn is not None:
@@ -66,6 +69,8 @@ class ConversationMessage(object):
             self.media_urls = media_urls
         if message_dts is not None:
             self.message_dts = message_dts
+        if transport_statuses is not None:
+            self.transport_statuses = transport_statuses
 
     @property
     def author_conversation_participant_arn(self):
@@ -173,6 +178,27 @@ class ConversationMessage(object):
         """
 
         self._message_dts = message_dts
+
+    @property
+    def transport_statuses(self):
+        """Gets the transport_statuses of this ConversationMessage.  # noqa: E501
+
+
+        :return: The transport_statuses of this ConversationMessage.  # noqa: E501
+        :rtype: list[ConversationMessageTransportStatus]
+        """
+        return self._transport_statuses
+
+    @transport_statuses.setter
+    def transport_statuses(self, transport_statuses):
+        """Sets the transport_statuses of this ConversationMessage.
+
+
+        :param transport_statuses: The transport_statuses of this ConversationMessage.  # noqa: E501
+        :type: list[ConversationMessageTransportStatus]
+        """
+
+        self._transport_statuses = transport_statuses
 
     def to_dict(self):
         """Returns the model properties as a dict"""

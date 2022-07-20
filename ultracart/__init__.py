@@ -159,6 +159,7 @@ from ultracart.models.city_state_zip import CityStateZip
 from ultracart.models.conversation import Conversation
 from ultracart.models.conversation_agent_auth_response import ConversationAgentAuthResponse
 from ultracart.models.conversation_message import ConversationMessage
+from ultracart.models.conversation_message_transport_status import ConversationMessageTransportStatus
 from ultracart.models.conversation_participant import ConversationParticipant
 from ultracart.models.conversation_start_request import ConversationStartRequest
 from ultracart.models.conversation_start_response import ConversationStartResponse

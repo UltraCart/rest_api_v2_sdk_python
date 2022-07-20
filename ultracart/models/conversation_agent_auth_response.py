@@ -32,6 +32,7 @@ class ConversationAgentAuthResponse(object):
     """
     swagger_types = {
         'conversation_participant_arn': 'str',
+        'conversation_participant_name': 'str',
         'jwt': 'str',
         'merchant_id': 'str',
         'twilio_phone_numbers': 'list[str]',
@@ -40,16 +41,18 @@ class ConversationAgentAuthResponse(object):
 
     attribute_map = {
         'conversation_participant_arn': 'conversation_participant_arn',
+        'conversation_participant_name': 'conversation_participant_name',
         'jwt': 'jwt',
         'merchant_id': 'merchant_id',
         'twilio_phone_numbers': 'twilio_phone_numbers',
         'websocket_url': 'websocket_url'
     }
 
-    def __init__(self, conversation_participant_arn=None, jwt=None, merchant_id=None, twilio_phone_numbers=None, websocket_url=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, jwt=None, merchant_id=None, twilio_phone_numbers=None, websocket_url=None):  # noqa: E501
         """ConversationAgentAuthResponse - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
+        self._conversation_participant_name = None
         self._jwt = None
         self._merchant_id = None
         self._twilio_phone_numbers = None
@@ -58,6 +61,8 @@ class ConversationAgentAuthResponse(object):
 
         if conversation_participant_arn is not None:
             self.conversation_participant_arn = conversation_participant_arn
+        if conversation_participant_name is not None:
+            self.conversation_participant_name = conversation_participant_name
         if jwt is not None:
             self.jwt = jwt
         if merchant_id is not None:
@@ -87,6 +92,27 @@ class ConversationAgentAuthResponse(object):
         """
 
         self._conversation_participant_arn = conversation_participant_arn
+
+    @property
+    def conversation_participant_name(self):
+        """Gets the conversation_participant_name of this ConversationAgentAuthResponse.  # noqa: E501
+
+
+        :return: The conversation_participant_name of this ConversationAgentAuthResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._conversation_participant_name
+
+    @conversation_participant_name.setter
+    def conversation_participant_name(self, conversation_participant_name):
+        """Sets the conversation_participant_name of this ConversationAgentAuthResponse.
+
+
+        :param conversation_participant_name: The conversation_participant_name of this ConversationAgentAuthResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._conversation_participant_name = conversation_participant_name
 
     @property
     def jwt(self):
