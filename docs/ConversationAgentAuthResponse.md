@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conversation_participant_arn** | **str** |  | [optional] 
+**conversation_participant_name** | **str** |  | [optional] 
 **jwt** | **str** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **twilio_phone_numbers** | **[str]** |  | [optional] 
