@@ -23,6 +23,7 @@ from ultracart.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from ultracart.model.conversation_agent_auth_response import ConversationAgentAuthResponse
+from ultracart.model.conversation_multimedia_upload_url_response import ConversationMultimediaUploadUrlResponse
 from ultracart.model.conversation_response import ConversationResponse
 from ultracart.model.conversation_start_request import ConversationStartRequest
 from ultracart.model.conversation_start_response import ConversationStartResponse
@@ -151,7 +152,7 @@ class ConversationApi(object):
         )
         self.get_conversation_multimedia_upload_url_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (ConversationMultimediaUploadUrlResponse,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -625,7 +626,7 @@ class ConversationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            ConversationMultimediaUploadUrlResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

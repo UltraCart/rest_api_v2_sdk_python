@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_conversation_multimedia_upload_url**
-> get_conversation_multimedia_upload_url(extension)
+> ConversationMultimediaUploadUrlResponse get_conversation_multimedia_upload_url(extension)
 
 Get a presigned conersation multimedia upload URL
 
@@ -169,6 +169,7 @@ Get a presigned conersation multimedia upload URL
 import time
 import ultracart
 from ultracart.api import conversation_api
+from ultracart.model.conversation_multimedia_upload_url_response import ConversationMultimediaUploadUrlResponse
 from ultracart.model.error_response import ErrorResponse
 from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
@@ -184,7 +185,8 @@ api_instance = GiftCertificateApi(api_client())
     # example passing only required values which don't have defaults set
     try:
         # Get a presigned conersation multimedia upload URL
-        api_instance.get_conversation_multimedia_upload_url(extension)
+        api_response = api_instance.get_conversation_multimedia_upload_url(extension)
+        pprint(api_response)
     except ultracart.ApiException as e:
         print("Exception when calling ConversationApi->get_conversation_multimedia_upload_url: %s\n" % e)
 ```
@@ -198,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
 
 ### Authorization
 
@@ -214,6 +216,7 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Successful response |  -  |
 **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |

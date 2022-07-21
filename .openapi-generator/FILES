@@ -129,6 +129,8 @@ docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
 docs/ConversationMessage.md
 docs/ConversationMessageTransportStatus.md
+docs/ConversationMultimediaUploadUrl.md
+docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
 docs/ConversationResponse.md
 docs/ConversationStartRequest.md
@@ -818,6 +820,8 @@ ultracart/model/conversation_agent_auth.py
 ultracart/model/conversation_agent_auth_response.py
 ultracart/model/conversation_message.py
 ultracart/model/conversation_message_transport_status.py
+ultracart/model/conversation_multimedia_upload_url.py
+ultracart/model/conversation_multimedia_upload_url_response.py
 ultracart/model/conversation_participant.py
 ultracart/model/conversation_response.py
 ultracart/model/conversation_start_request.py
