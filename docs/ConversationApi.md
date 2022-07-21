@@ -82,7 +82,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_conversation**
-> Conversation get_conversation(conversation_uuid)
+> ConversationResponse get_conversation(conversation_uuid)
 
 Retrieve a conversation
 
@@ -98,7 +98,7 @@ import time
 import ultracart
 from ultracart.api import conversation_api
 from ultracart.model.error_response import ErrorResponse
-from ultracart.model.conversation import Conversation
+from ultracart.model.conversation_response import ConversationResponse
 from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
 
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Conversation**](Conversation.md)
+[**ConversationResponse**](ConversationResponse.md)
 
 ### Authorization
 

@@ -1,14 +1,15 @@
-# ConversationAgentAuthResponse
+# ConversationAgentAuth
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_auth** | [**ConversationAgentAuth**](ConversationAgentAuth.md) |  | [optional] 
-**error** | [**Error**](Error.md) |  | [optional] 
-**metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
-**success** | **bool** | Indicates if API call was successful | [optional] 
-**warning** | [**Warning**](Warning.md) |  | [optional] 
+**conversation_participant_arn** | **str** |  | [optional] 
+**conversation_participant_name** | **str** |  | [optional] 
+**jwt** | **str** |  | [optional] 
+**merchant_id** | **str** |  | [optional] 
+**twilio_phone_numbers** | **[str]** |  | [optional] 
+**websocket_url** | **str** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

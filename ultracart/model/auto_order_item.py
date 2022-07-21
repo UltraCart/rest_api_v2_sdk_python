@@ -114,6 +114,7 @@ class AutoOrderItem(ModelNormal):
             'arbitrary_unit_cost': (float,),  # noqa: E501
             'arbitrary_unit_cost_remaining_orders': (int,),  # noqa: E501
             'auto_order_item_oid': (int,),  # noqa: E501
+            'first_order_dts': (str,),  # noqa: E501
             'frequency': (str,),  # noqa: E501
             'future_schedules': ([AutoOrderItemFutureSchedule],),  # noqa: E501
             'last_order_dts': (str,),  # noqa: E501
@@ -125,6 +126,7 @@ class AutoOrderItem(ModelNormal):
             'options': ([AutoOrderItemOption],),  # noqa: E501
             'original_item_id': (str,),  # noqa: E501
             'original_quantity': (float,),  # noqa: E501
+            'paused': (bool,),  # noqa: E501
             'paypal_payer_id': (str,),  # noqa: E501
             'paypal_recurring_payment_profile_id': (str,),  # noqa: E501
             'preshipment_notice_sent': (bool,),  # noqa: E501
@@ -146,6 +148,7 @@ class AutoOrderItem(ModelNormal):
         'arbitrary_unit_cost': 'arbitrary_unit_cost',  # noqa: E501
         'arbitrary_unit_cost_remaining_orders': 'arbitrary_unit_cost_remaining_orders',  # noqa: E501
         'auto_order_item_oid': 'auto_order_item_oid',  # noqa: E501
+        'first_order_dts': 'first_order_dts',  # noqa: E501
         'frequency': 'frequency',  # noqa: E501
         'future_schedules': 'future_schedules',  # noqa: E501
         'last_order_dts': 'last_order_dts',  # noqa: E501
@@ -157,6 +160,7 @@ class AutoOrderItem(ModelNormal):
         'options': 'options',  # noqa: E501
         'original_item_id': 'original_item_id',  # noqa: E501
         'original_quantity': 'original_quantity',  # noqa: E501
+        'paused': 'paused',  # noqa: E501
         'paypal_payer_id': 'paypal_payer_id',  # noqa: E501
         'paypal_recurring_payment_profile_id': 'paypal_recurring_payment_profile_id',  # noqa: E501
         'preshipment_notice_sent': 'preshipment_notice_sent',  # noqa: E501
@@ -213,6 +217,7 @@ class AutoOrderItem(ModelNormal):
             arbitrary_unit_cost (float): Arbitrary unit cost that rebills of this item should occur at. [optional]  # noqa: E501
             arbitrary_unit_cost_remaining_orders (int): The number of rebills to give the arbitrary unit cost on before reverting to normal pricing.. [optional]  # noqa: E501
             auto_order_item_oid (int): Primary key of AutoOrderItem. [optional]  # noqa: E501
+            first_order_dts (str): Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.. [optional]  # noqa: E501
             frequency (str): Frequency of the rebill if not a fixed schedule. [optional]  # noqa: E501
             future_schedules ([AutoOrderItemFutureSchedule]): The future rebill schedule for this item up to the next ten rebills. [optional]  # noqa: E501
             last_order_dts (str): Date/time of the last order of this item. [optional]  # noqa: E501
@@ -224,6 +229,7 @@ class AutoOrderItem(ModelNormal):
             options ([AutoOrderItemOption]): Options associated with this item. [optional]  # noqa: E501
             original_item_id (str): The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.. [optional]  # noqa: E501
             original_quantity (float): The original quantity purchased. [optional]  # noqa: E501
+            paused (bool): True if paused.  This field is an object instead of a primitive for backwards compatibility.. [optional]  # noqa: E501
             paypal_payer_id (str): The PayPal Payer ID tied to this item. [optional]  # noqa: E501
             paypal_recurring_payment_profile_id (str): The PayPal Profile ID tied to this item. [optional]  # noqa: E501
             preshipment_notice_sent (bool): True if the preshipment notice associated with the next rebill has been sent. [optional]  # noqa: E501
@@ -322,6 +328,7 @@ class AutoOrderItem(ModelNormal):
             arbitrary_unit_cost (float): Arbitrary unit cost that rebills of this item should occur at. [optional]  # noqa: E501
             arbitrary_unit_cost_remaining_orders (int): The number of rebills to give the arbitrary unit cost on before reverting to normal pricing.. [optional]  # noqa: E501
             auto_order_item_oid (int): Primary key of AutoOrderItem. [optional]  # noqa: E501
+            first_order_dts (str): Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.. [optional]  # noqa: E501
             frequency (str): Frequency of the rebill if not a fixed schedule. [optional]  # noqa: E501
             future_schedules ([AutoOrderItemFutureSchedule]): The future rebill schedule for this item up to the next ten rebills. [optional]  # noqa: E501
             last_order_dts (str): Date/time of the last order of this item. [optional]  # noqa: E501
@@ -333,6 +340,7 @@ class AutoOrderItem(ModelNormal):
             options ([AutoOrderItemOption]): Options associated with this item. [optional]  # noqa: E501
             original_item_id (str): The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.. [optional]  # noqa: E501
             original_quantity (float): The original quantity purchased. [optional]  # noqa: E501
+            paused (bool): True if paused.  This field is an object instead of a primitive for backwards compatibility.. [optional]  # noqa: E501
             paypal_payer_id (str): The PayPal Payer ID tied to this item. [optional]  # noqa: E501
             paypal_recurring_payment_profile_id (str): The PayPal Profile ID tied to this item. [optional]  # noqa: E501
             preshipment_notice_sent (bool): True if the preshipment notice associated with the next rebill has been sent. [optional]  # noqa: E501

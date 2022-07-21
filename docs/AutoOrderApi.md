@@ -632,6 +632,7 @@ api_instance = GiftCertificateApi(api_client())
                 arbitrary_unit_cost=3.14,
                 arbitrary_unit_cost_remaining_orders=1,
                 auto_order_item_oid=1,
+                first_order_dts="first_order_dts_example",
                 frequency="Weekly",
                 future_schedules=[
                     AutoOrderItemFutureSchedule(
@@ -655,6 +656,7 @@ api_instance = GiftCertificateApi(api_client())
                 ],
                 original_item_id="original_item_id_example",
                 original_quantity=3.14,
+                paused=True,
                 paypal_payer_id="paypal_payer_id_example",
                 paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
                 preshipment_notice_sent=True,
@@ -717,6 +719,7 @@ api_instance = GiftCertificateApi(api_client())
                         arbitrary_unit_cost=3.14,
                         arbitrary_unit_cost_remaining_orders=1,
                         auto_order_item_oid=1,
+                        first_order_dts="first_order_dts_example",
                         frequency="Weekly",
                         future_schedules=[
                             AutoOrderItemFutureSchedule(
@@ -740,6 +743,7 @@ api_instance = GiftCertificateApi(api_client())
                         ],
                         original_item_id="original_item_id_example",
                         original_quantity=3.14,
+                        paused=True,
                         paypal_payer_id="paypal_payer_id_example",
                         paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
                         preshipment_notice_sent=True,
@@ -1830,6 +1834,7 @@ api_instance = GiftCertificateApi(api_client())
                             arbitrary_unit_cost=3.14,
                             arbitrary_unit_cost_remaining_orders=1,
                             auto_order_item_oid=1,
+                            first_order_dts="first_order_dts_example",
                             frequency="Weekly",
                             future_schedules=[
                                 AutoOrderItemFutureSchedule(
@@ -1853,6 +1858,7 @@ api_instance = GiftCertificateApi(api_client())
                             ],
                             original_item_id="original_item_id_example",
                             original_quantity=3.14,
+                            paused=True,
                             paypal_payer_id="paypal_payer_id_example",
                             paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
                             preshipment_notice_sent=True,
@@ -3008,6 +3014,7 @@ api_instance = GiftCertificateApi(api_client())
                         arbitrary_unit_cost=3.14,
                         arbitrary_unit_cost_remaining_orders=1,
                         auto_order_item_oid=1,
+                        first_order_dts="first_order_dts_example",
                         frequency="Weekly",
                         future_schedules=[
                             AutoOrderItemFutureSchedule(
@@ -3031,6 +3038,7 @@ api_instance = GiftCertificateApi(api_client())
                         ],
                         original_item_id="original_item_id_example",
                         original_quantity=3.14,
+                        paused=True,
                         paypal_payer_id="paypal_payer_id_example",
                         paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
                         preshipment_notice_sent=True,
@@ -3093,6 +3101,7 @@ api_instance = GiftCertificateApi(api_client())
                                 arbitrary_unit_cost=3.14,
                                 arbitrary_unit_cost_remaining_orders=1,
                                 auto_order_item_oid=1,
+                                first_order_dts="first_order_dts_example",
                                 frequency="Weekly",
                                 future_schedules=[
                                     AutoOrderItemFutureSchedule(
@@ -3116,6 +3125,7 @@ api_instance = GiftCertificateApi(api_client())
                                 ],
                                 original_item_id="original_item_id_example",
                                 original_quantity=3.14,
+                                paused=True,
                                 paypal_payer_id="paypal_payer_id_example",
                                 paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
                                 preshipment_notice_sent=True,
@@ -4206,6 +4216,7 @@ api_instance = GiftCertificateApi(api_client())
                                     arbitrary_unit_cost=3.14,
                                     arbitrary_unit_cost_remaining_orders=1,
                                     auto_order_item_oid=1,
+                                    first_order_dts="first_order_dts_example",
                                     frequency="Weekly",
                                     future_schedules=[
                                         AutoOrderItemFutureSchedule(
@@ -4229,6 +4240,7 @@ api_instance = GiftCertificateApi(api_client())
                                     ],
                                     original_item_id="original_item_id_example",
                                     original_quantity=3.14,
+                                    paused=True,
                                     paypal_payer_id="paypal_payer_id_example",
                                     paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
                                     preshipment_notice_sent=True,

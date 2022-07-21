@@ -124,11 +124,13 @@ docs/CheckoutSetupBrowserKeyResponse.md
 docs/CheckoutStateProvinceResponse.md
 docs/CityStateZip.md
 docs/Conversation.md
+docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
 docs/ConversationMessage.md
 docs/ConversationMessageTransportStatus.md
 docs/ConversationParticipant.md
+docs/ConversationResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
@@ -812,10 +814,12 @@ ultracart/model/checkout_setup_browser_key_response.py
 ultracart/model/checkout_state_province_response.py
 ultracart/model/city_state_zip.py
 ultracart/model/conversation.py
+ultracart/model/conversation_agent_auth.py
 ultracart/model/conversation_agent_auth_response.py
 ultracart/model/conversation_message.py
 ultracart/model/conversation_message_transport_status.py
 ultracart/model/conversation_participant.py
+ultracart/model/conversation_response.py
 ultracart/model/conversation_start_request.py
 ultracart/model/conversation_start_response.py
 ultracart/model/conversation_summary.py

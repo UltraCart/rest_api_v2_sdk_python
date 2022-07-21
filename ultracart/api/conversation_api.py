@@ -22,8 +22,8 @@ from ultracart.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from ultracart.model.conversation import Conversation
 from ultracart.model.conversation_agent_auth_response import ConversationAgentAuthResponse
+from ultracart.model.conversation_response import ConversationResponse
 from ultracart.model.conversation_start_request import ConversationStartRequest
 from ultracart.model.conversation_start_response import ConversationStartResponse
 from ultracart.model.conversations_response import ConversationsResponse
@@ -99,7 +99,7 @@ class ConversationApi(object):
         )
         self.get_conversation_endpoint = _Endpoint(
             settings={
-                'response_type': (Conversation,),
+                'response_type': (ConversationResponse,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -542,7 +542,7 @@ class ConversationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Conversation
+            ConversationResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
