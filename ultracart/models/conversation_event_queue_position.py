@@ -31,14 +31,72 @@ class ConversationEventQueuePosition(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'available': 'bool',
+        'position': 'int'
     }
 
     attribute_map = {
+        'available': 'available',
+        'position': 'position'
     }
 
-    def __init__(self):  # noqa: E501
+    def __init__(self, available=None, position=None):  # noqa: E501
         """ConversationEventQueuePosition - a model defined in Swagger"""  # noqa: E501
+
+        self._available = None
+        self._position = None
         self.discriminator = None
+
+        if available is not None:
+            self.available = available
+        if position is not None:
+            self.position = position
+
+    @property
+    def available(self):
+        """Gets the available of this ConversationEventQueuePosition.  # noqa: E501
+
+        True if agents are logged into the queue  # noqa: E501
+
+        :return: The available of this ConversationEventQueuePosition.  # noqa: E501
+        :rtype: bool
+        """
+        return self._available
+
+    @available.setter
+    def available(self, available):
+        """Sets the available of this ConversationEventQueuePosition.
+
+        True if agents are logged into the queue  # noqa: E501
+
+        :param available: The available of this ConversationEventQueuePosition.  # noqa: E501
+        :type: bool
+        """
+
+        self._available = available
+
+    @property
+    def position(self):
+        """Gets the position of this ConversationEventQueuePosition.  # noqa: E501
+
+        Position in the queue.  Value will be -1 if they cant be found in the queue.  # noqa: E501
+
+        :return: The position of this ConversationEventQueuePosition.  # noqa: E501
+        :rtype: int
+        """
+        return self._position
+
+    @position.setter
+    def position(self, position):
+        """Sets the position of this ConversationEventQueuePosition.
+
+        Position in the queue.  Value will be -1 if they cant be found in the queue.  # noqa: E501
+
+        :param position: The position of this ConversationEventQueuePosition.  # noqa: E501
+        :type: int
+        """
+
+        self._position = position
 
     def to_dict(self):
         """Returns the model properties as a dict"""

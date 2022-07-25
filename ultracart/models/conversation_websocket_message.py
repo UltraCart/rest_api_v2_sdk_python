@@ -34,7 +34,7 @@ class ConversationWebsocketMessage(object):
         'conversation_uuid': 'str',
         'event_conversation_closed': 'Conversation',
         'event_new_conversation': 'Conversation',
-        'event_new_message': 'ConversationMessage',
+        'event_new_message': 'Conversation',
         'event_queue_position': 'ConversationEventQueuePosition',
         'event_type': 'str',
         'event_updated_message': 'ConversationMessage',
@@ -158,7 +158,7 @@ class ConversationWebsocketMessage(object):
 
 
         :return: The event_new_message of this ConversationWebsocketMessage.  # noqa: E501
-        :rtype: ConversationMessage
+        :rtype: Conversation
         """
         return self._event_new_message
 
@@ -168,7 +168,7 @@ class ConversationWebsocketMessage(object):
 
 
         :param event_new_message: The event_new_message of this ConversationWebsocketMessage.  # noqa: E501
-        :type: ConversationMessage
+        :type: Conversation
         """
 
         self._event_new_message = event_new_message
