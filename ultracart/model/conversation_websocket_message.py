@@ -31,12 +31,12 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from ultracart.model.conversation import Conversation
     from ultracart.model.conversation_event_queue_position import ConversationEventQueuePosition
     from ultracart.model.conversation_message import ConversationMessage
-    globals()['Conversation'] = Conversation
+    from ultracart.model.conversation_summary import ConversationSummary
     globals()['ConversationEventQueuePosition'] = ConversationEventQueuePosition
     globals()['ConversationMessage'] = ConversationMessage
+    globals()['ConversationSummary'] = ConversationSummary
 
 
 class ConversationWebsocketMessage(ModelNormal):
@@ -106,9 +106,9 @@ class ConversationWebsocketMessage(ModelNormal):
         lazy_import()
         return {
             'conversation_uuid': (str,),  # noqa: E501
-            'event_conversation_closed': (Conversation,),  # noqa: E501
-            'event_new_conversation': (Conversation,),  # noqa: E501
-            'event_new_message': (Conversation,),  # noqa: E501
+            'event_conversation_closed': (ConversationSummary,),  # noqa: E501
+            'event_new_conversation': (ConversationSummary,),  # noqa: E501
+            'event_new_message': (ConversationSummary,),  # noqa: E501
             'event_queue_position': (ConversationEventQueuePosition,),  # noqa: E501
             'event_type': (str,),  # noqa: E501
             'event_updated_message': (ConversationMessage,),  # noqa: E501
@@ -175,9 +175,9 @@ class ConversationWebsocketMessage(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             conversation_uuid (str): Conversation UUID if the websocket message is tied to a specific conversation. [optional]  # noqa: E501
-            event_conversation_closed (Conversation): [optional]  # noqa: E501
-            event_new_conversation (Conversation): [optional]  # noqa: E501
-            event_new_message (Conversation): [optional]  # noqa: E501
+            event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
+            event_new_conversation (ConversationSummary): [optional]  # noqa: E501
+            event_new_message (ConversationSummary): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_type (str): Type of event. [optional]  # noqa: E501
             event_updated_message (ConversationMessage): [optional]  # noqa: E501
@@ -269,9 +269,9 @@ class ConversationWebsocketMessage(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             conversation_uuid (str): Conversation UUID if the websocket message is tied to a specific conversation. [optional]  # noqa: E501
-            event_conversation_closed (Conversation): [optional]  # noqa: E501
-            event_new_conversation (Conversation): [optional]  # noqa: E501
-            event_new_message (Conversation): [optional]  # noqa: E501
+            event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
+            event_new_conversation (ConversationSummary): [optional]  # noqa: E501
+            event_new_message (ConversationSummary): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_type (str): Type of event. [optional]  # noqa: E501
             event_updated_message (ConversationMessage): [optional]  # noqa: E501

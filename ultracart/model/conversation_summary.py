@@ -82,6 +82,7 @@ class ConversationSummary(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'closed': (bool,),  # noqa: E501
             'conversation_arn': (str,),  # noqa: E501
             'conversation_uuid': (str,),  # noqa: E501
             'last_conversation_message_body': (str,),  # noqa: E501
@@ -99,6 +100,7 @@ class ConversationSummary(ModelNormal):
 
 
     attribute_map = {
+        'closed': 'closed',  # noqa: E501
         'conversation_arn': 'conversation_arn',  # noqa: E501
         'conversation_uuid': 'conversation_uuid',  # noqa: E501
         'last_conversation_message_body': 'last_conversation_message_body',  # noqa: E501
@@ -151,6 +153,7 @@ class ConversationSummary(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
             last_conversation_message_body (str): [optional]  # noqa: E501
@@ -245,6 +248,7 @@ class ConversationSummary(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
             last_conversation_message_body (str): [optional]  # noqa: E501

@@ -90,6 +90,7 @@ class Conversation(ModelNormal):
         """
         lazy_import()
         return {
+            'closed': (bool,),  # noqa: E501
             'conversation_arn': (str,),  # noqa: E501
             'conversation_uuid': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
@@ -103,6 +104,7 @@ class Conversation(ModelNormal):
 
 
     attribute_map = {
+        'closed': 'closed',  # noqa: E501
         'conversation_arn': 'conversation_arn',  # noqa: E501
         'conversation_uuid': 'conversation_uuid',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
@@ -151,6 +153,7 @@ class Conversation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
@@ -241,6 +244,7 @@ class Conversation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501

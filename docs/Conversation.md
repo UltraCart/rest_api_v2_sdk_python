@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**closed** | **bool** |  | [optional] 
 **conversation_arn** | **str** |  | [optional] 
 **conversation_uuid** | **str** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
