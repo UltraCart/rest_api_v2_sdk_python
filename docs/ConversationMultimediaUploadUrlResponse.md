@@ -1,9 +1,9 @@
-# ConversationAgentAuthResponse
+# ConversationMultimediaUploadUrlResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_auth** | [**ConversationAgentAuth**](ConversationAgentAuth.md) |  | [optional] 
+**conversation_multimedia_upload_url** | [**ConversationMultimediaUploadUrl**](ConversationMultimediaUploadUrl.md) |  | [optional] 
 **error** | [**Error**](Error.md) |  | [optional] 
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 

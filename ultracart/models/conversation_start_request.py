@@ -32,25 +32,30 @@ class ConversationStartRequest(object):
     """
     swagger_types = {
         'add_conversation_participant_arns': 'list[str]',
-        'conversation_arn': 'str'
+        'conversation_arn': 'str',
+        'conversation_webchat_queue_uuid': 'str'
     }
 
     attribute_map = {
         'add_conversation_participant_arns': 'add_conversation_participant_arns',
-        'conversation_arn': 'conversation_arn'
+        'conversation_arn': 'conversation_arn',
+        'conversation_webchat_queue_uuid': 'conversation_webchat_queue_uuid'
     }
 
-    def __init__(self, add_conversation_participant_arns=None, conversation_arn=None):  # noqa: E501
+    def __init__(self, add_conversation_participant_arns=None, conversation_arn=None, conversation_webchat_queue_uuid=None):  # noqa: E501
         """ConversationStartRequest - a model defined in Swagger"""  # noqa: E501
 
         self._add_conversation_participant_arns = None
         self._conversation_arn = None
+        self._conversation_webchat_queue_uuid = None
         self.discriminator = None
 
         if add_conversation_participant_arns is not None:
             self.add_conversation_participant_arns = add_conversation_participant_arns
         if conversation_arn is not None:
             self.conversation_arn = conversation_arn
+        if conversation_webchat_queue_uuid is not None:
+            self.conversation_webchat_queue_uuid = conversation_webchat_queue_uuid
 
     @property
     def add_conversation_participant_arns(self):
@@ -93,6 +98,27 @@ class ConversationStartRequest(object):
         """
 
         self._conversation_arn = conversation_arn
+
+    @property
+    def conversation_webchat_queue_uuid(self):
+        """Gets the conversation_webchat_queue_uuid of this ConversationStartRequest.  # noqa: E501
+
+
+        :return: The conversation_webchat_queue_uuid of this ConversationStartRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._conversation_webchat_queue_uuid
+
+    @conversation_webchat_queue_uuid.setter
+    def conversation_webchat_queue_uuid(self, conversation_webchat_queue_uuid):
+        """Sets the conversation_webchat_queue_uuid of this ConversationStartRequest.
+
+
+        :param conversation_webchat_queue_uuid: The conversation_webchat_queue_uuid of this ConversationStartRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._conversation_webchat_queue_uuid = conversation_webchat_queue_uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

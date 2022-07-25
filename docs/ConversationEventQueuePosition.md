@@ -1,11 +1,8 @@
-# ConversationStartRequest
+# ConversationEventQueuePosition
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**add_conversation_participant_arns** | **list[str]** |  | [optional] 
-**conversation_arn** | **str** |  | [optional] 
-**conversation_webchat_queue_uuid** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

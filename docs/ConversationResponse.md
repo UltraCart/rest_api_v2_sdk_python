@@ -1,9 +1,9 @@
-# ConversationAgentAuthResponse
+# ConversationResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_auth** | [**ConversationAgentAuth**](ConversationAgentAuth.md) |  | [optional] 
+**conversation** | [**Conversation**](Conversation.md) |  | [optional] 
 **error** | [**Error**](Error.md) |  | [optional] 
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 

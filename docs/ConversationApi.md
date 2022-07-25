@@ -60,7 +60,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_conversation**
-> Conversation get_conversation(conversation_uuid)
+> ConversationResponse get_conversation(conversation_uuid)
 
 Retrieve a conversation
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Conversation**](Conversation.md)
+[**ConversationResponse**](ConversationResponse.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_conversation_multimedia_upload_url**
-> get_conversation_multimedia_upload_url(extension)
+> ConversationMultimediaUploadUrlResponse get_conversation_multimedia_upload_url(extension)
 
 Get a presigned conersation multimedia upload URL
 
@@ -132,7 +132,8 @@ extension = 'extension_example' # str |
 
 try:
     # Get a presigned conersation multimedia upload URL
-    api_instance.get_conversation_multimedia_upload_url(extension)
+    api_response = api_instance.get_conversation_multimedia_upload_url(extension)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling ConversationApi->get_conversation_multimedia_upload_url: %s\n" % e)
 ```
@@ -145,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
 
 ### Authorization
 
