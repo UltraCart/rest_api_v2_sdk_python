@@ -129,6 +129,7 @@ from ultracart.model.city_state_zip import CityStateZip
 from ultracart.model.conversation import Conversation
 from ultracart.model.conversation_agent_auth import ConversationAgentAuth
 from ultracart.model.conversation_agent_auth_response import ConversationAgentAuthResponse
+from ultracart.model.conversation_event_queue_position import ConversationEventQueuePosition
 from ultracart.model.conversation_message import ConversationMessage
 from ultracart.model.conversation_message_transport_status import ConversationMessageTransportStatus
 from ultracart.model.conversation_multimedia_upload_url import ConversationMultimediaUploadUrl
