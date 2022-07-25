@@ -31,6 +31,7 @@ class Conversation(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'closed': 'bool',
         'conversation_arn': 'str',
         'conversation_uuid': 'str',
         'merchant_id': 'str',
@@ -39,6 +40,7 @@ class Conversation(object):
     }
 
     attribute_map = {
+        'closed': 'closed',
         'conversation_arn': 'conversation_arn',
         'conversation_uuid': 'conversation_uuid',
         'merchant_id': 'merchant_id',
@@ -46,9 +48,10 @@ class Conversation(object):
         'participants': 'participants'
     }
 
-    def __init__(self, conversation_arn=None, conversation_uuid=None, merchant_id=None, messages=None, participants=None):  # noqa: E501
+    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, merchant_id=None, messages=None, participants=None):  # noqa: E501
         """Conversation - a model defined in Swagger"""  # noqa: E501
 
+        self._closed = None
         self._conversation_arn = None
         self._conversation_uuid = None
         self._merchant_id = None
@@ -56,6 +59,8 @@ class Conversation(object):
         self._participants = None
         self.discriminator = None
 
+        if closed is not None:
+            self.closed = closed
         if conversation_arn is not None:
             self.conversation_arn = conversation_arn
         if conversation_uuid is not None:
@@ -66,6 +71,27 @@ class Conversation(object):
             self.messages = messages
         if participants is not None:
             self.participants = participants
+
+    @property
+    def closed(self):
+        """Gets the closed of this Conversation.  # noqa: E501
+
+
+        :return: The closed of this Conversation.  # noqa: E501
+        :rtype: bool
+        """
+        return self._closed
+
+    @closed.setter
+    def closed(self, closed):
+        """Sets the closed of this Conversation.
+
+
+        :param closed: The closed of this Conversation.  # noqa: E501
+        :type: bool
+        """
+
+        self._closed = closed
 
     @property
     def conversation_arn(self):

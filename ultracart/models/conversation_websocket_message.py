@@ -32,9 +32,9 @@ class ConversationWebsocketMessage(object):
     """
     swagger_types = {
         'conversation_uuid': 'str',
-        'event_conversation_closed': 'Conversation',
-        'event_new_conversation': 'Conversation',
-        'event_new_message': 'Conversation',
+        'event_conversation_closed': 'ConversationSummary',
+        'event_new_conversation': 'ConversationSummary',
+        'event_new_message': 'ConversationSummary',
         'event_queue_position': 'ConversationEventQueuePosition',
         'event_type': 'str',
         'event_updated_message': 'ConversationMessage',
@@ -116,7 +116,7 @@ class ConversationWebsocketMessage(object):
 
 
         :return: The event_conversation_closed of this ConversationWebsocketMessage.  # noqa: E501
-        :rtype: Conversation
+        :rtype: ConversationSummary
         """
         return self._event_conversation_closed
 
@@ -126,7 +126,7 @@ class ConversationWebsocketMessage(object):
 
 
         :param event_conversation_closed: The event_conversation_closed of this ConversationWebsocketMessage.  # noqa: E501
-        :type: Conversation
+        :type: ConversationSummary
         """
 
         self._event_conversation_closed = event_conversation_closed
@@ -137,7 +137,7 @@ class ConversationWebsocketMessage(object):
 
 
         :return: The event_new_conversation of this ConversationWebsocketMessage.  # noqa: E501
-        :rtype: Conversation
+        :rtype: ConversationSummary
         """
         return self._event_new_conversation
 
@@ -147,7 +147,7 @@ class ConversationWebsocketMessage(object):
 
 
         :param event_new_conversation: The event_new_conversation of this ConversationWebsocketMessage.  # noqa: E501
-        :type: Conversation
+        :type: ConversationSummary
         """
 
         self._event_new_conversation = event_new_conversation
@@ -158,7 +158,7 @@ class ConversationWebsocketMessage(object):
 
 
         :return: The event_new_message of this ConversationWebsocketMessage.  # noqa: E501
-        :rtype: Conversation
+        :rtype: ConversationSummary
         """
         return self._event_new_message
 
@@ -168,7 +168,7 @@ class ConversationWebsocketMessage(object):
 
 
         :param event_new_message: The event_new_message of this ConversationWebsocketMessage.  # noqa: E501
-        :type: Conversation
+        :type: ConversationSummary
         """
 
         self._event_new_message = event_new_message
