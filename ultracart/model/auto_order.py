@@ -33,9 +33,11 @@ from ultracart.exceptions import ApiAttributeError
 def lazy_import():
     from ultracart.model.auto_order_item import AutoOrderItem
     from ultracart.model.auto_order_log import AutoOrderLog
+    from ultracart.model.auto_order_management import AutoOrderManagement
     from ultracart.model.order import Order
     globals()['AutoOrderItem'] = AutoOrderItem
     globals()['AutoOrderLog'] = AutoOrderLog
+    globals()['AutoOrderManagement'] = AutoOrderManagement
     globals()['Order'] = Order
 
 
@@ -112,6 +114,7 @@ class AutoOrder(ModelNormal):
             'failure_reason': (str,),  # noqa: E501
             'items': ([AutoOrderItem],),  # noqa: E501
             'logs': ([AutoOrderLog],),  # noqa: E501
+            'management': (AutoOrderManagement,),  # noqa: E501
             'next_attempt': (str,),  # noqa: E501
             'original_order': (Order,),  # noqa: E501
             'original_order_id': (str,),  # noqa: E501
@@ -142,6 +145,7 @@ class AutoOrder(ModelNormal):
         'failure_reason': 'failure_reason',  # noqa: E501
         'items': 'items',  # noqa: E501
         'logs': 'logs',  # noqa: E501
+        'management': 'management',  # noqa: E501
         'next_attempt': 'next_attempt',  # noqa: E501
         'original_order': 'original_order',  # noqa: E501
         'original_order_id': 'original_order_id',  # noqa: E501
@@ -207,6 +211,7 @@ class AutoOrder(ModelNormal):
             failure_reason (str): The reason this auto order failed during the last rebill attempt. [optional]  # noqa: E501
             items ([AutoOrderItem]): The items that are setup to rebill. [optional]  # noqa: E501
             logs ([AutoOrderLog]): Logs associated with this auto order. [optional]  # noqa: E501
+            management (AutoOrderManagement): [optional]  # noqa: E501
             next_attempt (str): The next time that the auto order will be attempted for processing. [optional]  # noqa: E501
             original_order (Order): [optional]  # noqa: E501
             original_order_id (str): The original order id that this auto order is associated with.. [optional]  # noqa: E501
@@ -314,6 +319,7 @@ class AutoOrder(ModelNormal):
             failure_reason (str): The reason this auto order failed during the last rebill attempt. [optional]  # noqa: E501
             items ([AutoOrderItem]): The items that are setup to rebill. [optional]  # noqa: E501
             logs ([AutoOrderLog]): Logs associated with this auto order. [optional]  # noqa: E501
+            management (AutoOrderManagement): [optional]  # noqa: E501
             next_attempt (str): The next time that the auto order will be attempted for processing. [optional]  # noqa: E501
             original_order (Order): [optional]  # noqa: E501
             original_order_id (str): The original order id that this auto order is associated with.. [optional]  # noqa: E501

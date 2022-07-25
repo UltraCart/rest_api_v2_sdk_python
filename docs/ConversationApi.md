@@ -471,6 +471,7 @@ api_instance = GiftCertificateApi(api_client())
             "add_conversation_participant_arns_example",
         ],
         conversation_arn="conversation_arn_example",
+        conversation_webchat_queue_uuid="conversation_webchat_queue_uuid_example",
     ) # ConversationStartRequest | Start request
 
     # example passing only required values which don't have defaults set

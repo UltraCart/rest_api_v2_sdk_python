@@ -84,6 +84,7 @@ class ConversationStartRequest(ModelNormal):
         return {
             'add_conversation_participant_arns': ([str],),  # noqa: E501
             'conversation_arn': (str,),  # noqa: E501
+            'conversation_webchat_queue_uuid': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class ConversationStartRequest(ModelNormal):
     attribute_map = {
         'add_conversation_participant_arns': 'add_conversation_participant_arns',  # noqa: E501
         'conversation_arn': 'conversation_arn',  # noqa: E501
+        'conversation_webchat_queue_uuid': 'conversation_webchat_queue_uuid',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,6 +141,7 @@ class ConversationStartRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             add_conversation_participant_arns ([str]): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
+            conversation_webchat_queue_uuid (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,6 +229,7 @@ class ConversationStartRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             add_conversation_participant_arns ([str]): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
+            conversation_webchat_queue_uuid (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

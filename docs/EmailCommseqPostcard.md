@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **postcard_container_cjson_last_modified_dts** | **str** | Timestamp the last time the container was modified. | [optional] 
 **postcard_front_container_cjson** | **str** | Postcard front container cjson | [optional] 
 **postcard_front_container_uuid** | **str** | Postcard front container uuid | [optional] 
-**screenshot_back_url** | **str** | URL to screenshot of the front of the postcard | [optional] 
+**screenshot_back_url** | **str** | URL to screenshot of the back of the postcard | [optional] 
 **screenshot_front_url** | **str** | URL to screenshot of the front of the postcard | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

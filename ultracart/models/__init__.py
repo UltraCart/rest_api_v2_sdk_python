@@ -36,6 +36,7 @@ from ultracart.model.auto_order_item_future_schedule import AutoOrderItemFutureS
 from ultracart.model.auto_order_item_option import AutoOrderItemOption
 from ultracart.model.auto_order_item_simple_schedule import AutoOrderItemSimpleSchedule
 from ultracart.model.auto_order_log import AutoOrderLog
+from ultracart.model.auto_order_management import AutoOrderManagement
 from ultracart.model.auto_order_query import AutoOrderQuery
 from ultracart.model.auto_order_query_batch import AutoOrderQueryBatch
 from ultracart.model.auto_order_response import AutoOrderResponse
@@ -137,6 +138,7 @@ from ultracart.model.conversation_response import ConversationResponse
 from ultracart.model.conversation_start_request import ConversationStartRequest
 from ultracart.model.conversation_start_response import ConversationStartResponse
 from ultracart.model.conversation_summary import ConversationSummary
+from ultracart.model.conversation_websocket_message import ConversationWebsocketMessage
 from ultracart.model.conversations_response import ConversationsResponse
 from ultracart.model.countries_response import CountriesResponse
 from ultracart.model.country import Country

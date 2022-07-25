@@ -31,6 +31,7 @@ docs/AutoOrderItemFutureSchedule.md
 docs/AutoOrderItemOption.md
 docs/AutoOrderItemSimpleSchedule.md
 docs/AutoOrderLog.md
+docs/AutoOrderManagement.md
 docs/AutoOrderQuery.md
 docs/AutoOrderQueryBatch.md
 docs/AutoOrderResponse.md
@@ -136,6 +137,7 @@ docs/ConversationResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
+docs/ConversationWebsocketMessage.md
 docs/ConversationsResponse.md
 docs/CountriesResponse.md
 docs/Country.md
@@ -726,6 +728,7 @@ ultracart/model/auto_order_item_future_schedule.py
 ultracart/model/auto_order_item_option.py
 ultracart/model/auto_order_item_simple_schedule.py
 ultracart/model/auto_order_log.py
+ultracart/model/auto_order_management.py
 ultracart/model/auto_order_query.py
 ultracart/model/auto_order_query_batch.py
 ultracart/model/auto_order_response.py
@@ -827,6 +830,7 @@ ultracart/model/conversation_response.py
 ultracart/model/conversation_start_request.py
 ultracart/model/conversation_start_response.py
 ultracart/model/conversation_summary.py
+ultracart/model/conversation_websocket_message.py
 ultracart/model/conversations_response.py
 ultracart/model/countries_response.py
 ultracart/model/country.py
