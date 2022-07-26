@@ -138,6 +138,11 @@ docs/ConversationResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
+docs/ConversationWebchatQueueStatus.md
+docs/ConversationWebchatQueueStatusAgent.md
+docs/ConversationWebchatQueueStatusQueueEntry.md
+docs/ConversationWebchatQueueStatusUpdateRequest.md
+docs/ConversationWebchatQueueStatusesResponse.md
 docs/ConversationWebsocketMessage.md
 docs/ConversationsResponse.md
 docs/CountriesResponse.md
@@ -832,6 +837,11 @@ ultracart/model/conversation_response.py
 ultracart/model/conversation_start_request.py
 ultracart/model/conversation_start_response.py
 ultracart/model/conversation_summary.py
+ultracart/model/conversation_webchat_queue_status.py
+ultracart/model/conversation_webchat_queue_status_agent.py
+ultracart/model/conversation_webchat_queue_status_queue_entry.py
+ultracart/model/conversation_webchat_queue_status_update_request.py
+ultracart/model/conversation_webchat_queue_statuses_response.py
 ultracart/model/conversation_websocket_message.py
 ultracart/model/conversations_response.py
 ultracart/model/countries_response.py
