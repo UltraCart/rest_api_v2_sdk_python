@@ -1,0 +1,14 @@
+# ConversationWebchatQueueStatusAgent
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**agent_status** | **str** |  | [optional] 
+**conversation_participant_arn** | **str** |  | [optional] 
+**conversation_participant_name** | **str** |  | [optional] 
+**last_chat_dts** | **str** | Date/time that this agent took their last chat | [optional] 
+**next_round_robin** | **bool** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

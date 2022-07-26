@@ -36,6 +36,7 @@ class ConversationWebsocketMessage(object):
         'event_new_conversation': 'ConversationSummary',
         'event_new_message': 'ConversationSummary',
         'event_queue_position': 'ConversationEventQueuePosition',
+        'event_queue_status_update': 'ConversationWebchatQueueStatus',
         'event_type': 'str',
         'event_updated_message': 'ConversationMessage',
         'message': 'ConversationMessage',
@@ -48,13 +49,14 @@ class ConversationWebsocketMessage(object):
         'event_new_conversation': 'event_new_conversation',
         'event_new_message': 'event_new_message',
         'event_queue_position': 'event_queue_position',
+        'event_queue_status_update': 'event_queue_status_update',
         'event_type': 'event_type',
         'event_updated_message': 'event_updated_message',
         'message': 'message',
         'type': 'type'
     }
 
-    def __init__(self, conversation_uuid=None, event_conversation_closed=None, event_new_conversation=None, event_new_message=None, event_queue_position=None, event_type=None, event_updated_message=None, message=None, type=None):  # noqa: E501
+    def __init__(self, conversation_uuid=None, event_conversation_closed=None, event_new_conversation=None, event_new_message=None, event_queue_position=None, event_queue_status_update=None, event_type=None, event_updated_message=None, message=None, type=None):  # noqa: E501
         """ConversationWebsocketMessage - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_uuid = None
@@ -62,6 +64,7 @@ class ConversationWebsocketMessage(object):
         self._event_new_conversation = None
         self._event_new_message = None
         self._event_queue_position = None
+        self._event_queue_status_update = None
         self._event_type = None
         self._event_updated_message = None
         self._message = None
@@ -78,6 +81,8 @@ class ConversationWebsocketMessage(object):
             self.event_new_message = event_new_message
         if event_queue_position is not None:
             self.event_queue_position = event_queue_position
+        if event_queue_status_update is not None:
+            self.event_queue_status_update = event_queue_status_update
         if event_type is not None:
             self.event_type = event_type
         if event_updated_message is not None:
@@ -195,6 +200,27 @@ class ConversationWebsocketMessage(object):
         self._event_queue_position = event_queue_position
 
     @property
+    def event_queue_status_update(self):
+        """Gets the event_queue_status_update of this ConversationWebsocketMessage.  # noqa: E501
+
+
+        :return: The event_queue_status_update of this ConversationWebsocketMessage.  # noqa: E501
+        :rtype: ConversationWebchatQueueStatus
+        """
+        return self._event_queue_status_update
+
+    @event_queue_status_update.setter
+    def event_queue_status_update(self, event_queue_status_update):
+        """Sets the event_queue_status_update of this ConversationWebsocketMessage.
+
+
+        :param event_queue_status_update: The event_queue_status_update of this ConversationWebsocketMessage.  # noqa: E501
+        :type: ConversationWebchatQueueStatus
+        """
+
+        self._event_queue_status_update = event_queue_status_update
+
+    @property
     def event_type(self):
         """Gets the event_type of this ConversationWebsocketMessage.  # noqa: E501
 
@@ -214,7 +240,7 @@ class ConversationWebsocketMessage(object):
         :param event_type: The event_type of this ConversationWebsocketMessage.  # noqa: E501
         :type: str
         """
-        allowed_values = ["queue position", "webchat start conversation", "conversation closed", "new conversation", "new message", "updated message"]  # noqa: E501
+        allowed_values = ["queue position", "webchat start conversation", "conversation closed", "new conversation", "new message", "updated message", "queue status update"]  # noqa: E501
         if event_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `event_type` ({0}), must be one of {1}"  # noqa: E501
