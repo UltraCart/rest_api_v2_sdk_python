@@ -34,6 +34,7 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         'conversation_participant_arn': 'str',
         'conversation_participant_name': 'str',
         'conversation_webchat_queue_uuid': 'str',
+        'email': 'str',
         'join_dts': 'str',
         'question': 'str'
     }
@@ -42,16 +43,18 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         'conversation_participant_arn': 'conversation_participant_arn',
         'conversation_participant_name': 'conversation_participant_name',
         'conversation_webchat_queue_uuid': 'conversation_webchat_queue_uuid',
+        'email': 'email',
         'join_dts': 'join_dts',
         'question': 'question'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_webchat_queue_uuid=None, join_dts=None, question=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_webchat_queue_uuid=None, email=None, join_dts=None, question=None):  # noqa: E501
         """ConversationWebchatQueueStatusQueueEntry - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
         self._conversation_participant_name = None
         self._conversation_webchat_queue_uuid = None
+        self._email = None
         self._join_dts = None
         self._question = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ConversationWebchatQueueStatusQueueEntry(object):
             self.conversation_participant_name = conversation_participant_name
         if conversation_webchat_queue_uuid is not None:
             self.conversation_webchat_queue_uuid = conversation_webchat_queue_uuid
+        if email is not None:
+            self.email = email
         if join_dts is not None:
             self.join_dts = join_dts
         if question is not None:
@@ -129,6 +134,27 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         """
 
         self._conversation_webchat_queue_uuid = conversation_webchat_queue_uuid
+
+    @property
+    def email(self):
+        """Gets the email of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+
+
+        :return: The email of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._email
+
+    @email.setter
+    def email(self, email):
+        """Sets the email of this ConversationWebchatQueueStatusQueueEntry.
+
+
+        :param email: The email of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+        :type: str
+        """
+
+        self._email = email
 
     @property
     def join_dts(self):

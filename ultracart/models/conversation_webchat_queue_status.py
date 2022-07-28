@@ -41,6 +41,7 @@ class ConversationWebchatQueueStatus(object):
         'customer_average_abandon_time_seconds': 'int',
         'customer_average_chat_time_seconds': 'int',
         'customer_average_hold_time_seconds': 'int',
+        'customer_chat_count': 'int',
         'customer_waiting_count': 'int',
         'customer_waiting_join_dts': 'str',
         'queue_entries': 'list[ConversationWebchatQueueStatusQueueEntry]',
@@ -58,13 +59,14 @@ class ConversationWebchatQueueStatus(object):
         'customer_average_abandon_time_seconds': 'customer_average_abandon_time_seconds',
         'customer_average_chat_time_seconds': 'customer_average_chat_time_seconds',
         'customer_average_hold_time_seconds': 'customer_average_hold_time_seconds',
+        'customer_chat_count': 'customer_chat_count',
         'customer_waiting_count': 'customer_waiting_count',
         'customer_waiting_join_dts': 'customer_waiting_join_dts',
         'queue_entries': 'queue_entries',
         'queue_name': 'queue_name'
     }
 
-    def __init__(self, agent_available_count=None, agent_busy_count=None, agent_count=None, agent_unavailable_count=None, agents=None, customer_abandon_count=None, customer_active_count=None, customer_average_abandon_time_seconds=None, customer_average_chat_time_seconds=None, customer_average_hold_time_seconds=None, customer_waiting_count=None, customer_waiting_join_dts=None, queue_entries=None, queue_name=None):  # noqa: E501
+    def __init__(self, agent_available_count=None, agent_busy_count=None, agent_count=None, agent_unavailable_count=None, agents=None, customer_abandon_count=None, customer_active_count=None, customer_average_abandon_time_seconds=None, customer_average_chat_time_seconds=None, customer_average_hold_time_seconds=None, customer_chat_count=None, customer_waiting_count=None, customer_waiting_join_dts=None, queue_entries=None, queue_name=None):  # noqa: E501
         """ConversationWebchatQueueStatus - a model defined in Swagger"""  # noqa: E501
 
         self._agent_available_count = None
@@ -77,6 +79,7 @@ class ConversationWebchatQueueStatus(object):
         self._customer_average_abandon_time_seconds = None
         self._customer_average_chat_time_seconds = None
         self._customer_average_hold_time_seconds = None
+        self._customer_chat_count = None
         self._customer_waiting_count = None
         self._customer_waiting_join_dts = None
         self._queue_entries = None
@@ -103,6 +106,8 @@ class ConversationWebchatQueueStatus(object):
             self.customer_average_chat_time_seconds = customer_average_chat_time_seconds
         if customer_average_hold_time_seconds is not None:
             self.customer_average_hold_time_seconds = customer_average_hold_time_seconds
+        if customer_chat_count is not None:
+            self.customer_chat_count = customer_chat_count
         if customer_waiting_count is not None:
             self.customer_waiting_count = customer_waiting_count
         if customer_waiting_join_dts is not None:
@@ -321,6 +326,27 @@ class ConversationWebchatQueueStatus(object):
         """
 
         self._customer_average_hold_time_seconds = customer_average_hold_time_seconds
+
+    @property
+    def customer_chat_count(self):
+        """Gets the customer_chat_count of this ConversationWebchatQueueStatus.  # noqa: E501
+
+
+        :return: The customer_chat_count of this ConversationWebchatQueueStatus.  # noqa: E501
+        :rtype: int
+        """
+        return self._customer_chat_count
+
+    @customer_chat_count.setter
+    def customer_chat_count(self, customer_chat_count):
+        """Sets the customer_chat_count of this ConversationWebchatQueueStatus.
+
+
+        :param customer_chat_count: The customer_chat_count of this ConversationWebchatQueueStatus.  # noqa: E501
+        :type: int
+        """
+
+        self._customer_chat_count = customer_chat_count
 
     @property
     def customer_waiting_count(self):
