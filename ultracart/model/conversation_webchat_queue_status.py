@@ -100,6 +100,7 @@ class ConversationWebchatQueueStatus(ModelNormal):
             'customer_average_abandon_time_seconds': (int,),  # noqa: E501
             'customer_average_chat_time_seconds': (int,),  # noqa: E501
             'customer_average_hold_time_seconds': (int,),  # noqa: E501
+            'customer_chat_count': (int,),  # noqa: E501
             'customer_waiting_count': (int,),  # noqa: E501
             'customer_waiting_join_dts': (str,),  # noqa: E501
             'queue_entries': ([ConversationWebchatQueueStatusQueueEntry],),  # noqa: E501
@@ -122,6 +123,7 @@ class ConversationWebchatQueueStatus(ModelNormal):
         'customer_average_abandon_time_seconds': 'customer_average_abandon_time_seconds',  # noqa: E501
         'customer_average_chat_time_seconds': 'customer_average_chat_time_seconds',  # noqa: E501
         'customer_average_hold_time_seconds': 'customer_average_hold_time_seconds',  # noqa: E501
+        'customer_chat_count': 'customer_chat_count',  # noqa: E501
         'customer_waiting_count': 'customer_waiting_count',  # noqa: E501
         'customer_waiting_join_dts': 'customer_waiting_join_dts',  # noqa: E501
         'queue_entries': 'queue_entries',  # noqa: E501
@@ -179,6 +181,7 @@ class ConversationWebchatQueueStatus(ModelNormal):
             customer_average_abandon_time_seconds (int): [optional]  # noqa: E501
             customer_average_chat_time_seconds (int): [optional]  # noqa: E501
             customer_average_hold_time_seconds (int): [optional]  # noqa: E501
+            customer_chat_count (int): [optional]  # noqa: E501
             customer_waiting_count (int): [optional]  # noqa: E501
             customer_waiting_join_dts (str): Date/time that the oldest person joined the queue. [optional]  # noqa: E501
             queue_entries ([ConversationWebchatQueueStatusQueueEntry]): [optional]  # noqa: E501
@@ -278,6 +281,7 @@ class ConversationWebchatQueueStatus(ModelNormal):
             customer_average_abandon_time_seconds (int): [optional]  # noqa: E501
             customer_average_chat_time_seconds (int): [optional]  # noqa: E501
             customer_average_hold_time_seconds (int): [optional]  # noqa: E501
+            customer_chat_count (int): [optional]  # noqa: E501
             customer_waiting_count (int): [optional]  # noqa: E501
             customer_waiting_join_dts (str): Date/time that the oldest person joined the queue. [optional]  # noqa: E501
             queue_entries ([ConversationWebchatQueueStatusQueueEntry]): [optional]  # noqa: E501

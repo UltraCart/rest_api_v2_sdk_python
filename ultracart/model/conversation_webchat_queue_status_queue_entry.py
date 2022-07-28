@@ -85,6 +85,7 @@ class ConversationWebchatQueueStatusQueueEntry(ModelNormal):
             'conversation_participant_arn': (str,),  # noqa: E501
             'conversation_participant_name': (str,),  # noqa: E501
             'conversation_webchat_queue_uuid': (str,),  # noqa: E501
+            'email': (str,),  # noqa: E501
             'join_dts': (str,),  # noqa: E501
             'question': (str,),  # noqa: E501
         }
@@ -98,6 +99,7 @@ class ConversationWebchatQueueStatusQueueEntry(ModelNormal):
         'conversation_participant_arn': 'conversation_participant_arn',  # noqa: E501
         'conversation_participant_name': 'conversation_participant_name',  # noqa: E501
         'conversation_webchat_queue_uuid': 'conversation_webchat_queue_uuid',  # noqa: E501
+        'email': 'email',  # noqa: E501
         'join_dts': 'join_dts',  # noqa: E501
         'question': 'question',  # noqa: E501
     }
@@ -146,6 +148,7 @@ class ConversationWebchatQueueStatusQueueEntry(ModelNormal):
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
             conversation_webchat_queue_uuid (str): [optional]  # noqa: E501
+            email (str): [optional]  # noqa: E501
             join_dts (str): Date/time the customer joined the queue. [optional]  # noqa: E501
             question (str): [optional]  # noqa: E501
         """
@@ -236,6 +239,7 @@ class ConversationWebchatQueueStatusQueueEntry(ModelNormal):
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
             conversation_webchat_queue_uuid (str): [optional]  # noqa: E501
+            email (str): [optional]  # noqa: E501
             join_dts (str): Date/time the customer joined the queue. [optional]  # noqa: E501
             question (str): [optional]  # noqa: E501
         """
