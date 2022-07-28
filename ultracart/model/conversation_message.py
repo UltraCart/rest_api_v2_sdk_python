@@ -94,6 +94,7 @@ class ConversationMessage(ModelNormal):
             'media_urls': ([str],),  # noqa: E501
             'message_dts': (str,),  # noqa: E501
             'transport_statuses': ([ConversationMessageTransportStatus],),  # noqa: E501
+            'upload_keys': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +109,7 @@ class ConversationMessage(ModelNormal):
         'media_urls': 'media_urls',  # noqa: E501
         'message_dts': 'message_dts',  # noqa: E501
         'transport_statuses': 'transport_statuses',  # noqa: E501
+        'upload_keys': 'upload_keys',  # noqa: E501
     }
 
     read_only_vars = {
@@ -157,6 +159,7 @@ class ConversationMessage(ModelNormal):
             media_urls ([str]): [optional]  # noqa: E501
             message_dts (str): Message date/time. [optional]  # noqa: E501
             transport_statuses ([ConversationMessageTransportStatus]): [optional]  # noqa: E501
+            upload_keys ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,6 +251,7 @@ class ConversationMessage(ModelNormal):
             media_urls ([str]): [optional]  # noqa: E501
             message_dts (str): Message date/time. [optional]  # noqa: E501
             transport_statuses ([ConversationMessageTransportStatus]): [optional]  # noqa: E501
+            upload_keys ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
