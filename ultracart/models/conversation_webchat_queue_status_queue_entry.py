@@ -34,23 +34,26 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         'conversation_participant_arn': 'str',
         'conversation_participant_name': 'str',
         'conversation_webchat_queue_uuid': 'str',
-        'join_dts': 'str'
+        'join_dts': 'str',
+        'question': 'str'
     }
 
     attribute_map = {
         'conversation_participant_arn': 'conversation_participant_arn',
         'conversation_participant_name': 'conversation_participant_name',
         'conversation_webchat_queue_uuid': 'conversation_webchat_queue_uuid',
-        'join_dts': 'join_dts'
+        'join_dts': 'join_dts',
+        'question': 'question'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_webchat_queue_uuid=None, join_dts=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_webchat_queue_uuid=None, join_dts=None, question=None):  # noqa: E501
         """ConversationWebchatQueueStatusQueueEntry - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
         self._conversation_participant_name = None
         self._conversation_webchat_queue_uuid = None
         self._join_dts = None
+        self._question = None
         self.discriminator = None
 
         if conversation_participant_arn is not None:
@@ -61,6 +64,8 @@ class ConversationWebchatQueueStatusQueueEntry(object):
             self.conversation_webchat_queue_uuid = conversation_webchat_queue_uuid
         if join_dts is not None:
             self.join_dts = join_dts
+        if question is not None:
+            self.question = question
 
     @property
     def conversation_participant_arn(self):
@@ -147,6 +152,27 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         """
 
         self._join_dts = join_dts
+
+    @property
+    def question(self):
+        """Gets the question of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+
+
+        :return: The question of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._question
+
+    @question.setter
+    def question(self, question):
+        """Sets the question of this ConversationWebchatQueueStatusQueueEntry.
+
+
+        :param question: The question of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+        :type: str
+        """
+
+        self._question = question
 
     def to_dict(self):
         """Returns the model properties as a dict"""

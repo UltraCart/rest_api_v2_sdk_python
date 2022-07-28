@@ -36,7 +36,8 @@ class ConversationMessage(object):
         'body': 'str',
         'media_urls': 'list[str]',
         'message_dts': 'str',
-        'transport_statuses': 'list[ConversationMessageTransportStatus]'
+        'transport_statuses': 'list[ConversationMessageTransportStatus]',
+        'upload_keys': 'list[str]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class ConversationMessage(object):
         'body': 'body',
         'media_urls': 'media_urls',
         'message_dts': 'message_dts',
-        'transport_statuses': 'transport_statuses'
+        'transport_statuses': 'transport_statuses',
+        'upload_keys': 'upload_keys'
     }
 
-    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, media_urls=None, message_dts=None, transport_statuses=None):  # noqa: E501
+    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, media_urls=None, message_dts=None, transport_statuses=None, upload_keys=None):  # noqa: E501
         """ConversationMessage - a model defined in Swagger"""  # noqa: E501
 
         self._author_conversation_participant_arn = None
@@ -57,6 +59,7 @@ class ConversationMessage(object):
         self._media_urls = None
         self._message_dts = None
         self._transport_statuses = None
+        self._upload_keys = None
         self.discriminator = None
 
         if author_conversation_participant_arn is not None:
@@ -71,6 +74,8 @@ class ConversationMessage(object):
             self.message_dts = message_dts
         if transport_statuses is not None:
             self.transport_statuses = transport_statuses
+        if upload_keys is not None:
+            self.upload_keys = upload_keys
 
     @property
     def author_conversation_participant_arn(self):
@@ -199,6 +204,27 @@ class ConversationMessage(object):
         """
 
         self._transport_statuses = transport_statuses
+
+    @property
+    def upload_keys(self):
+        """Gets the upload_keys of this ConversationMessage.  # noqa: E501
+
+
+        :return: The upload_keys of this ConversationMessage.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._upload_keys
+
+    @upload_keys.setter
+    def upload_keys(self, upload_keys):
+        """Sets the upload_keys of this ConversationMessage.
+
+
+        :param upload_keys: The upload_keys of this ConversationMessage.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._upload_keys = upload_keys
 
     def to_dict(self):
         """Returns the model properties as a dict"""
