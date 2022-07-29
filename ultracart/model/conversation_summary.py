@@ -91,7 +91,9 @@ class ConversationSummary(ModelNormal):
             'last_message_dts': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'message_count': (int,),  # noqa: E501
+            'start_dts': (str,),  # noqa: E501
             'unread_messages': (bool,),  # noqa: E501
+            'visible': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -109,7 +111,9 @@ class ConversationSummary(ModelNormal):
         'last_message_dts': 'last_message_dts',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'message_count': 'message_count',  # noqa: E501
+        'start_dts': 'start_dts',  # noqa: E501
         'unread_messages': 'unread_messages',  # noqa: E501
+        'visible': 'visible',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,7 +166,9 @@ class ConversationSummary(ModelNormal):
             last_message_dts (str): Last message date/time. [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             message_count (int): [optional]  # noqa: E501
+            start_dts (str): Start of the conversation date/time. [optional]  # noqa: E501
             unread_messages (bool): [optional]  # noqa: E501
+            visible (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,7 +263,9 @@ class ConversationSummary(ModelNormal):
             last_message_dts (str): Last message date/time. [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             message_count (int): [optional]  # noqa: E501
+            start_dts (str): Start of the conversation date/time. [optional]  # noqa: E501
             unread_messages (bool): [optional]  # noqa: E501
+            visible (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

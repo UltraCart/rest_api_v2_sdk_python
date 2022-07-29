@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **author_conversation_participant_arn** | **str** |  | [optional] 
 **author_conversation_participant_name** | **str** |  | [optional] 
 **body** | **str** |  | [optional] 
+**client_message_id** | **str** |  | [optional] 
 **media_urls** | **[str]** |  | [optional] 
 **message_dts** | **str** | Message date/time | [optional] 
 **transport_statuses** | [**[ConversationMessageTransportStatus]**](ConversationMessageTransportStatus.md) |  | [optional] 
