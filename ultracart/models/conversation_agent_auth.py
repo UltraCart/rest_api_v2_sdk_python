@@ -35,7 +35,7 @@ class ConversationAgentAuth(object):
         'conversation_participant_name': 'str',
         'jwt': 'str',
         'merchant_id': 'str',
-        'twilio_phone_numbers': 'list[str]',
+        'twilio_accounts': 'list[ConversationTwilioAccount]',
         'websocket_url': 'str'
     }
 
@@ -44,18 +44,18 @@ class ConversationAgentAuth(object):
         'conversation_participant_name': 'conversation_participant_name',
         'jwt': 'jwt',
         'merchant_id': 'merchant_id',
-        'twilio_phone_numbers': 'twilio_phone_numbers',
+        'twilio_accounts': 'twilio_accounts',
         'websocket_url': 'websocket_url'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, jwt=None, merchant_id=None, twilio_phone_numbers=None, websocket_url=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, jwt=None, merchant_id=None, twilio_accounts=None, websocket_url=None):  # noqa: E501
         """ConversationAgentAuth - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
         self._conversation_participant_name = None
         self._jwt = None
         self._merchant_id = None
-        self._twilio_phone_numbers = None
+        self._twilio_accounts = None
         self._websocket_url = None
         self.discriminator = None
 
@@ -67,8 +67,8 @@ class ConversationAgentAuth(object):
             self.jwt = jwt
         if merchant_id is not None:
             self.merchant_id = merchant_id
-        if twilio_phone_numbers is not None:
-            self.twilio_phone_numbers = twilio_phone_numbers
+        if twilio_accounts is not None:
+            self.twilio_accounts = twilio_accounts
         if websocket_url is not None:
             self.websocket_url = websocket_url
 
@@ -157,25 +157,25 @@ class ConversationAgentAuth(object):
         self._merchant_id = merchant_id
 
     @property
-    def twilio_phone_numbers(self):
-        """Gets the twilio_phone_numbers of this ConversationAgentAuth.  # noqa: E501
+    def twilio_accounts(self):
+        """Gets the twilio_accounts of this ConversationAgentAuth.  # noqa: E501
 
 
-        :return: The twilio_phone_numbers of this ConversationAgentAuth.  # noqa: E501
-        :rtype: list[str]
+        :return: The twilio_accounts of this ConversationAgentAuth.  # noqa: E501
+        :rtype: list[ConversationTwilioAccount]
         """
-        return self._twilio_phone_numbers
+        return self._twilio_accounts
 
-    @twilio_phone_numbers.setter
-    def twilio_phone_numbers(self, twilio_phone_numbers):
-        """Sets the twilio_phone_numbers of this ConversationAgentAuth.
+    @twilio_accounts.setter
+    def twilio_accounts(self, twilio_accounts):
+        """Sets the twilio_accounts of this ConversationAgentAuth.
 
 
-        :param twilio_phone_numbers: The twilio_phone_numbers of this ConversationAgentAuth.  # noqa: E501
-        :type: list[str]
+        :param twilio_accounts: The twilio_accounts of this ConversationAgentAuth.  # noqa: E501
+        :type: list[ConversationTwilioAccount]
         """
 
-        self._twilio_phone_numbers = twilio_phone_numbers
+        self._twilio_accounts = twilio_accounts
 
     @property
     def websocket_url(self):

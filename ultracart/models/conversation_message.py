@@ -34,6 +34,7 @@ class ConversationMessage(object):
         'author_conversation_participant_arn': 'str',
         'author_conversation_participant_name': 'str',
         'body': 'str',
+        'client_message_id': 'str',
         'media_urls': 'list[str]',
         'message_dts': 'str',
         'transport_statuses': 'list[ConversationMessageTransportStatus]',
@@ -44,18 +45,20 @@ class ConversationMessage(object):
         'author_conversation_participant_arn': 'author_conversation_participant_arn',
         'author_conversation_participant_name': 'author_conversation_participant_name',
         'body': 'body',
+        'client_message_id': 'client_message_id',
         'media_urls': 'media_urls',
         'message_dts': 'message_dts',
         'transport_statuses': 'transport_statuses',
         'upload_keys': 'upload_keys'
     }
 
-    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, media_urls=None, message_dts=None, transport_statuses=None, upload_keys=None):  # noqa: E501
+    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, media_urls=None, message_dts=None, transport_statuses=None, upload_keys=None):  # noqa: E501
         """ConversationMessage - a model defined in Swagger"""  # noqa: E501
 
         self._author_conversation_participant_arn = None
         self._author_conversation_participant_name = None
         self._body = None
+        self._client_message_id = None
         self._media_urls = None
         self._message_dts = None
         self._transport_statuses = None
@@ -68,6 +71,8 @@ class ConversationMessage(object):
             self.author_conversation_participant_name = author_conversation_participant_name
         if body is not None:
             self.body = body
+        if client_message_id is not None:
+            self.client_message_id = client_message_id
         if media_urls is not None:
             self.media_urls = media_urls
         if message_dts is not None:
@@ -139,6 +144,27 @@ class ConversationMessage(object):
         """
 
         self._body = body
+
+    @property
+    def client_message_id(self):
+        """Gets the client_message_id of this ConversationMessage.  # noqa: E501
+
+
+        :return: The client_message_id of this ConversationMessage.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_message_id
+
+    @client_message_id.setter
+    def client_message_id(self, client_message_id):
+        """Sets the client_message_id of this ConversationMessage.
+
+
+        :param client_message_id: The client_message_id of this ConversationMessage.  # noqa: E501
+        :type: str
+        """
+
+        self._client_message_id = client_message_id
 
     @property
     def media_urls(self):
