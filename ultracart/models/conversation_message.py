@@ -38,6 +38,7 @@ class ConversationMessage(object):
         'media_urls': 'list[str]',
         'message_dts': 'str',
         'transport_statuses': 'list[ConversationMessageTransportStatus]',
+        'type': 'str',
         'upload_keys': 'list[str]'
     }
 
@@ -49,10 +50,11 @@ class ConversationMessage(object):
         'media_urls': 'media_urls',
         'message_dts': 'message_dts',
         'transport_statuses': 'transport_statuses',
+        'type': 'type',
         'upload_keys': 'upload_keys'
     }
 
-    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, media_urls=None, message_dts=None, transport_statuses=None, upload_keys=None):  # noqa: E501
+    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, media_urls=None, message_dts=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
         """ConversationMessage - a model defined in Swagger"""  # noqa: E501
 
         self._author_conversation_participant_arn = None
@@ -62,6 +64,7 @@ class ConversationMessage(object):
         self._media_urls = None
         self._message_dts = None
         self._transport_statuses = None
+        self._type = None
         self._upload_keys = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class ConversationMessage(object):
             self.message_dts = message_dts
         if transport_statuses is not None:
             self.transport_statuses = transport_statuses
+        if type is not None:
+            self.type = type
         if upload_keys is not None:
             self.upload_keys = upload_keys
 
@@ -230,6 +235,35 @@ class ConversationMessage(object):
         """
 
         self._transport_statuses = transport_statuses
+
+    @property
+    def type(self):
+        """Gets the type of this ConversationMessage.  # noqa: E501
+
+        Message type  # noqa: E501
+
+        :return: The type of this ConversationMessage.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this ConversationMessage.
+
+        Message type  # noqa: E501
+
+        :param type: The type of this ConversationMessage.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["message", "notice"]  # noqa: E501
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
 
     @property
     def upload_keys(self):
