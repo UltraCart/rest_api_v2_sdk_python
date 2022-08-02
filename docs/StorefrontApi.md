@@ -140,6 +140,7 @@ Method | HTTP request | Description
 [**send_email_test**](StorefrontApi.md#send_email_test) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 [**send_postcard_test**](StorefrontApi.md#send_postcard_test) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
 [**send_webhook_test**](StorefrontApi.md#send_webhook_test) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
+[**sequence_test**](StorefrontApi.md#sequence_test) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 [**start_email_campaign**](StorefrontApi.md#start_email_campaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 [**subscribe_to_email_list**](StorefrontApi.md#subscribe_to_email_list) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 [**unfavorite_screen_recording**](StorefrontApi.md#unfavorite_screen_recording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
@@ -11298,6 +11299,93 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailCommseqWebhookSendTestResponse**](EmailCommseqWebhookSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sequence_test**
+> EmailCommseqSequenceTestResponse sequence_test(storefront_oid, commseq_uuid, email_commseq_sequence_test_request)
+
+Sequence test
+
+### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import storefront_api
+from ultracart.model.email_commseq_sequence_test_request import EmailCommseqSequenceTestRequest
+from ultracart.model.email_commseq_sequence_test_response import EmailCommseqSequenceTestResponse
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    storefront_oid = 1 # int | 
+    commseq_uuid = "commseq_uuid_example" # str | 
+    email_commseq_sequence_test_request = EmailCommseqSequenceTestRequest(
+        cart_id="cart_id_example",
+        cart_item_ids=[
+            "cart_item_ids_example",
+        ],
+        esp_commseq_uuid="esp_commseq_uuid_example",
+        name="name_example",
+        order_id="order_id_example",
+        please_review=True,
+        send_to_email="send_to_email_example",
+        send_to_logged_in_user=True,
+    ) # EmailCommseqSequenceTestRequest | Commseq test request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Sequence test
+        api_response = api_instance.sequence_test(storefront_oid, commseq_uuid, email_commseq_sequence_test_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->sequence_test: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **str**|  |
+ **email_commseq_sequence_test_request** | [**EmailCommseqSequenceTestRequest**](EmailCommseqSequenceTestRequest.md)| Commseq test request |
+
+### Return type
+
+[**EmailCommseqSequenceTestResponse**](EmailCommseqSequenceTestResponse.md)
 
 ### Authorization
 
