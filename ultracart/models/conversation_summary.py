@@ -40,6 +40,7 @@ class ConversationSummary(object):
         'last_message_dts': 'str',
         'merchant_id': 'str',
         'message_count': 'int',
+        'participants': 'list[ConversationParticipant]',
         'start_dts': 'str',
         'unread_messages': 'bool',
         'visible': 'bool'
@@ -55,12 +56,13 @@ class ConversationSummary(object):
         'last_message_dts': 'last_message_dts',
         'merchant_id': 'merchant_id',
         'message_count': 'message_count',
+        'participants': 'participants',
         'start_dts': 'start_dts',
         'unread_messages': 'unread_messages',
         'visible': 'visible'
     }
 
-    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_message_dts=None, merchant_id=None, message_count=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
+    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_message_dts=None, merchant_id=None, message_count=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
         """ConversationSummary - a model defined in Swagger"""  # noqa: E501
 
         self._closed = None
@@ -72,6 +74,7 @@ class ConversationSummary(object):
         self._last_message_dts = None
         self._merchant_id = None
         self._message_count = None
+        self._participants = None
         self._start_dts = None
         self._unread_messages = None
         self._visible = None
@@ -95,6 +98,8 @@ class ConversationSummary(object):
             self.merchant_id = merchant_id
         if message_count is not None:
             self.message_count = message_count
+        if participants is not None:
+            self.participants = participants
         if start_dts is not None:
             self.start_dts = start_dts
         if unread_messages is not None:
@@ -292,6 +297,27 @@ class ConversationSummary(object):
         """
 
         self._message_count = message_count
+
+    @property
+    def participants(self):
+        """Gets the participants of this ConversationSummary.  # noqa: E501
+
+
+        :return: The participants of this ConversationSummary.  # noqa: E501
+        :rtype: list[ConversationParticipant]
+        """
+        return self._participants
+
+    @participants.setter
+    def participants(self, participants):
+        """Sets the participants of this ConversationSummary.
+
+
+        :param participants: The participants of this ConversationSummary.  # noqa: E501
+        :type: list[ConversationParticipant]
+        """
+
+        self._participants = participants
 
     @property
     def start_dts(self):
