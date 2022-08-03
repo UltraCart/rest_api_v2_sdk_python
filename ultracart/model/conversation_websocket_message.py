@@ -79,6 +79,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'UPDATED_MESSAGE': "updated message",
             'QUEUE_STATUS_UPDATE': "queue status update",
             'RRWEB': "rrweb",
+            'PARTICIPANT_UPDATE': "participant update",
         },
         ('type',): {
             'MESSAGE': "message",
@@ -118,6 +119,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'event_conversation_closed': (ConversationSummary,),  # noqa: E501
             'event_new_conversation': (ConversationSummary,),  # noqa: E501
             'event_new_message': (ConversationSummary,),  # noqa: E501
+            'event_participant_update': (ConversationSummary,),  # noqa: E501
             'event_queue_position': (ConversationEventQueuePosition,),  # noqa: E501
             'event_queue_status_update': (ConversationWebchatQueueStatus,),  # noqa: E501
             'event_rrweb': (ConversationEventRRWeb,),  # noqa: E501
@@ -138,6 +140,7 @@ class ConversationWebsocketMessage(ModelNormal):
         'event_conversation_closed': 'event_conversation_closed',  # noqa: E501
         'event_new_conversation': 'event_new_conversation',  # noqa: E501
         'event_new_message': 'event_new_message',  # noqa: E501
+        'event_participant_update': 'event_participant_update',  # noqa: E501
         'event_queue_position': 'event_queue_position',  # noqa: E501
         'event_queue_status_update': 'event_queue_status_update',  # noqa: E501
         'event_rrweb': 'event_rrweb',  # noqa: E501
@@ -193,6 +196,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
             event_new_conversation (ConversationSummary): [optional]  # noqa: E501
             event_new_message (ConversationSummary): [optional]  # noqa: E501
+            event_participant_update (ConversationSummary): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_queue_status_update (ConversationWebchatQueueStatus): [optional]  # noqa: E501
             event_rrweb (ConversationEventRRWeb): [optional]  # noqa: E501
@@ -290,6 +294,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
             event_new_conversation (ConversationSummary): [optional]  # noqa: E501
             event_new_message (ConversationSummary): [optional]  # noqa: E501
+            event_participant_update (ConversationSummary): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_queue_status_update (ConversationWebchatQueueStatus): [optional]  # noqa: E501
             event_rrweb (ConversationEventRRWeb): [optional]  # noqa: E501

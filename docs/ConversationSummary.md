@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **last_message_dts** | **str** | Last message date/time | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **message_count** | **int** |  | [optional] 
+**participants** | [**[ConversationParticipant]**](ConversationParticipant.md) |  | [optional] 
 **start_dts** | **str** | Start of the conversation date/time | [optional] 
 **unread_messages** | **bool** |  | [optional] 
 **visible** | **bool** |  | [optional] 
