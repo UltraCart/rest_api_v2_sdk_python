@@ -1,2 +1,2 @@
 #!/bin/sh
-git tag 4.0.48-RC
+git tag 4.0.49-RC
