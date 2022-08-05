@@ -96,7 +96,9 @@ class ConversationMessage(ModelNormal):
             'author_conversation_participant_name': (str,),  # noqa: E501
             'body': (str,),  # noqa: E501
             'client_message_id': (str,),  # noqa: E501
+            'conversation_message_uuid': (str,),  # noqa: E501
             'media_urls': ([str],),  # noqa: E501
+            'merchant_id': (str,),  # noqa: E501
             'message_dts': (str,),  # noqa: E501
             'transport_statuses': ([ConversationMessageTransportStatus],),  # noqa: E501
             'type': (str,),  # noqa: E501
@@ -113,7 +115,9 @@ class ConversationMessage(ModelNormal):
         'author_conversation_participant_name': 'author_conversation_participant_name',  # noqa: E501
         'body': 'body',  # noqa: E501
         'client_message_id': 'client_message_id',  # noqa: E501
+        'conversation_message_uuid': 'conversation_message_uuid',  # noqa: E501
         'media_urls': 'media_urls',  # noqa: E501
+        'merchant_id': 'merchant_id',  # noqa: E501
         'message_dts': 'message_dts',  # noqa: E501
         'transport_statuses': 'transport_statuses',  # noqa: E501
         'type': 'type',  # noqa: E501
@@ -165,7 +169,9 @@ class ConversationMessage(ModelNormal):
             author_conversation_participant_name (str): [optional]  # noqa: E501
             body (str): [optional]  # noqa: E501
             client_message_id (str): [optional]  # noqa: E501
+            conversation_message_uuid (str): [optional]  # noqa: E501
             media_urls ([str]): [optional]  # noqa: E501
+            merchant_id (str): [optional]  # noqa: E501
             message_dts (str): Message date/time. [optional]  # noqa: E501
             transport_statuses ([ConversationMessageTransportStatus]): [optional]  # noqa: E501
             type (str): Message type. [optional]  # noqa: E501
@@ -259,7 +265,9 @@ class ConversationMessage(ModelNormal):
             author_conversation_participant_name (str): [optional]  # noqa: E501
             body (str): [optional]  # noqa: E501
             client_message_id (str): [optional]  # noqa: E501
+            conversation_message_uuid (str): [optional]  # noqa: E501
             media_urls ([str]): [optional]  # noqa: E501
+            merchant_id (str): [optional]  # noqa: E501
             message_dts (str): Message date/time. [optional]  # noqa: E501
             transport_statuses ([ConversationMessageTransportStatus]): [optional]  # noqa: E501
             type (str): Message type. [optional]  # noqa: E501
