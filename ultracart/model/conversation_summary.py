@@ -60,6 +60,10 @@ class ConversationSummary(ModelNormal):
     """
 
     allowed_values = {
+        ('medium',): {
+            'SMS': "sms",
+            'WEBSOCKET': "websocket",
+        },
     }
 
     validations = {
@@ -95,6 +99,7 @@ class ConversationSummary(ModelNormal):
             'last_conversation_participant_arn': (str,),  # noqa: E501
             'last_conversation_participant_name': (str,),  # noqa: E501
             'last_message_dts': (str,),  # noqa: E501
+            'medium': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'message_count': (int,),  # noqa: E501
             'participants': ([ConversationParticipant],),  # noqa: E501
@@ -116,6 +121,7 @@ class ConversationSummary(ModelNormal):
         'last_conversation_participant_arn': 'last_conversation_participant_arn',  # noqa: E501
         'last_conversation_participant_name': 'last_conversation_participant_name',  # noqa: E501
         'last_message_dts': 'last_message_dts',  # noqa: E501
+        'medium': 'medium',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'message_count': 'message_count',  # noqa: E501
         'participants': 'participants',  # noqa: E501
@@ -172,6 +178,7 @@ class ConversationSummary(ModelNormal):
             last_conversation_participant_arn (str): [optional]  # noqa: E501
             last_conversation_participant_name (str): [optional]  # noqa: E501
             last_message_dts (str): Last message date/time. [optional]  # noqa: E501
+            medium (str): The communication medium of the customer.. [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             message_count (int): [optional]  # noqa: E501
             participants ([ConversationParticipant]): [optional]  # noqa: E501
@@ -270,6 +277,7 @@ class ConversationSummary(ModelNormal):
             last_conversation_participant_arn (str): [optional]  # noqa: E501
             last_conversation_participant_name (str): [optional]  # noqa: E501
             last_message_dts (str): Last message date/time. [optional]  # noqa: E501
+            medium (str): The communication medium of the customer.. [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             message_count (int): [optional]  # noqa: E501
             participants ([ConversationParticipant]): [optional]  # noqa: E501

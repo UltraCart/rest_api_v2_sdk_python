@@ -62,6 +62,10 @@ class Conversation(ModelNormal):
     """
 
     allowed_values = {
+        ('medium',): {
+            'SMS': "sms",
+            'WEBSOCKET': "websocket",
+        },
     }
 
     validations = {
@@ -93,9 +97,18 @@ class Conversation(ModelNormal):
             'closed': (bool,),  # noqa: E501
             'conversation_arn': (str,),  # noqa: E501
             'conversation_uuid': (str,),  # noqa: E501
+            'last_conversation_message_body': (str,),  # noqa: E501
+            'last_conversation_participant_arn': (str,),  # noqa: E501
+            'last_conversation_participant_name': (str,),  # noqa: E501
+            'last_message_dts': (str,),  # noqa: E501
+            'medium': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
+            'message_count': (int,),  # noqa: E501
             'messages': ([ConversationMessage],),  # noqa: E501
             'participants': ([ConversationParticipant],),  # noqa: E501
+            'start_dts': (str,),  # noqa: E501
+            'unread_messages': (bool,),  # noqa: E501
+            'visible': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -107,9 +120,18 @@ class Conversation(ModelNormal):
         'closed': 'closed',  # noqa: E501
         'conversation_arn': 'conversation_arn',  # noqa: E501
         'conversation_uuid': 'conversation_uuid',  # noqa: E501
+        'last_conversation_message_body': 'last_conversation_message_body',  # noqa: E501
+        'last_conversation_participant_arn': 'last_conversation_participant_arn',  # noqa: E501
+        'last_conversation_participant_name': 'last_conversation_participant_name',  # noqa: E501
+        'last_message_dts': 'last_message_dts',  # noqa: E501
+        'medium': 'medium',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
+        'message_count': 'message_count',  # noqa: E501
         'messages': 'messages',  # noqa: E501
         'participants': 'participants',  # noqa: E501
+        'start_dts': 'start_dts',  # noqa: E501
+        'unread_messages': 'unread_messages',  # noqa: E501
+        'visible': 'visible',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,9 +178,18 @@ class Conversation(ModelNormal):
             closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
+            last_conversation_message_body (str): [optional]  # noqa: E501
+            last_conversation_participant_arn (str): [optional]  # noqa: E501
+            last_conversation_participant_name (str): [optional]  # noqa: E501
+            last_message_dts (str): Last message date/time. [optional]  # noqa: E501
+            medium (str): The communication medium of the customer.. [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
+            message_count (int): [optional]  # noqa: E501
             messages ([ConversationMessage]): [optional]  # noqa: E501
             participants ([ConversationParticipant]): [optional]  # noqa: E501
+            start_dts (str): Start of the conversation date/time. [optional]  # noqa: E501
+            unread_messages (bool): [optional]  # noqa: E501
+            visible (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,9 +278,18 @@ class Conversation(ModelNormal):
             closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
+            last_conversation_message_body (str): [optional]  # noqa: E501
+            last_conversation_participant_arn (str): [optional]  # noqa: E501
+            last_conversation_participant_name (str): [optional]  # noqa: E501
+            last_message_dts (str): Last message date/time. [optional]  # noqa: E501
+            medium (str): The communication medium of the customer.. [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
+            message_count (int): [optional]  # noqa: E501
             messages ([ConversationMessage]): [optional]  # noqa: E501
             participants ([ConversationParticipant]): [optional]  # noqa: E501
+            start_dts (str): Start of the conversation date/time. [optional]  # noqa: E501
+            unread_messages (bool): [optional]  # noqa: E501
+            visible (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

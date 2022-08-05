@@ -263,6 +263,7 @@ class ConversationApi(object):
             },
             params_map={
                 'all': [
+                    'medium',
                     'limit',
                     'offset',
                 ],
@@ -280,16 +281,20 @@ class ConversationApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'medium':
+                        (str,),
                     'limit':
                         (int,),
                     'offset':
                         (int,),
                 },
                 'attribute_map': {
+                    'medium': 'medium',
                     'limit': '_limit',
                     'offset': '_offset',
                 },
                 'location_map': {
+                    'medium': 'query',
                     'limit': 'query',
                     'offset': 'query',
                 },
@@ -858,6 +863,7 @@ class ConversationApi(object):
 
 
         Keyword Args:
+            medium (str): [optional]
             limit (int): The maximum number of records to return on this one API call. (Max 200). [optional] if omitted the server will use the default value of 100
             offset (int): Pagination of the record set.  Offset is a zero based index.. [optional] if omitted the server will use the default value of 0
             _return_http_data_only (bool): response data without head status

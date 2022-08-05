@@ -322,6 +322,7 @@ from pprint import pprint
 
 api_instance = GiftCertificateApi(api_client())
 
+    medium = "medium_example" # str |  (optional)
     limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) if omitted the server will use the default value of 100
     offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
 
@@ -329,7 +330,7 @@ api_instance = GiftCertificateApi(api_client())
     # and optional values
     try:
         # Retrieve a list of conversation summaries newest to oldest
-        api_response = api_instance.get_conversations(limit=limit, offset=offset)
+        api_response = api_instance.get_conversations(medium=medium, limit=limit, offset=offset)
         pprint(api_response)
     except ultracart.ApiException as e:
         print("Exception when calling ConversationApi->get_conversations: %s\n" % e)
@@ -340,6 +341,7 @@ api_instance = GiftCertificateApi(api_client())
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **medium** | **str**|  | [optional]
  **limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] if omitted the server will use the default value of 100
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
 
