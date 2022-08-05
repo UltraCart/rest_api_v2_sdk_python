@@ -38,6 +38,7 @@ class ConversationSummary(object):
         'last_conversation_participant_arn': 'str',
         'last_conversation_participant_name': 'str',
         'last_message_dts': 'str',
+        'medium': 'str',
         'merchant_id': 'str',
         'message_count': 'int',
         'participants': 'list[ConversationParticipant]',
@@ -54,6 +55,7 @@ class ConversationSummary(object):
         'last_conversation_participant_arn': 'last_conversation_participant_arn',
         'last_conversation_participant_name': 'last_conversation_participant_name',
         'last_message_dts': 'last_message_dts',
+        'medium': 'medium',
         'merchant_id': 'merchant_id',
         'message_count': 'message_count',
         'participants': 'participants',
@@ -62,7 +64,7 @@ class ConversationSummary(object):
         'visible': 'visible'
     }
 
-    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_message_dts=None, merchant_id=None, message_count=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
+    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
         """ConversationSummary - a model defined in Swagger"""  # noqa: E501
 
         self._closed = None
@@ -72,6 +74,7 @@ class ConversationSummary(object):
         self._last_conversation_participant_arn = None
         self._last_conversation_participant_name = None
         self._last_message_dts = None
+        self._medium = None
         self._merchant_id = None
         self._message_count = None
         self._participants = None
@@ -94,6 +97,8 @@ class ConversationSummary(object):
             self.last_conversation_participant_name = last_conversation_participant_name
         if last_message_dts is not None:
             self.last_message_dts = last_message_dts
+        if medium is not None:
+            self.medium = medium
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if message_count is not None:
@@ -255,6 +260,35 @@ class ConversationSummary(object):
         """
 
         self._last_message_dts = last_message_dts
+
+    @property
+    def medium(self):
+        """Gets the medium of this ConversationSummary.  # noqa: E501
+
+        The communication medium of the customer.  # noqa: E501
+
+        :return: The medium of this ConversationSummary.  # noqa: E501
+        :rtype: str
+        """
+        return self._medium
+
+    @medium.setter
+    def medium(self, medium):
+        """Sets the medium of this ConversationSummary.
+
+        The communication medium of the customer.  # noqa: E501
+
+        :param medium: The medium of this ConversationSummary.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["sms", "websocket"]  # noqa: E501
+        if medium not in allowed_values:
+            raise ValueError(
+                "Invalid value for `medium` ({0}), must be one of {1}"  # noqa: E501
+                .format(medium, allowed_values)
+            )
+
+        self._medium = medium
 
     @property
     def merchant_id(self):

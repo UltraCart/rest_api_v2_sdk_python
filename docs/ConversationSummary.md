@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **last_conversation_participant_arn** | **str** |  | [optional] 
 **last_conversation_participant_name** | **str** |  | [optional] 
 **last_message_dts** | **str** | Last message date/time | [optional] 
+**medium** | **str** | The communication medium of the customer. | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **message_count** | **int** |  | [optional] 
 **participants** | [**list[ConversationParticipant]**](ConversationParticipant.md) |  | [optional] 

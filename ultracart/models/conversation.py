@@ -34,29 +34,56 @@ class Conversation(object):
         'closed': 'bool',
         'conversation_arn': 'str',
         'conversation_uuid': 'str',
+        'last_conversation_message_body': 'str',
+        'last_conversation_participant_arn': 'str',
+        'last_conversation_participant_name': 'str',
+        'last_message_dts': 'str',
+        'medium': 'str',
         'merchant_id': 'str',
+        'message_count': 'int',
         'messages': 'list[ConversationMessage]',
-        'participants': 'list[ConversationParticipant]'
+        'participants': 'list[ConversationParticipant]',
+        'start_dts': 'str',
+        'unread_messages': 'bool',
+        'visible': 'bool'
     }
 
     attribute_map = {
         'closed': 'closed',
         'conversation_arn': 'conversation_arn',
         'conversation_uuid': 'conversation_uuid',
+        'last_conversation_message_body': 'last_conversation_message_body',
+        'last_conversation_participant_arn': 'last_conversation_participant_arn',
+        'last_conversation_participant_name': 'last_conversation_participant_name',
+        'last_message_dts': 'last_message_dts',
+        'medium': 'medium',
         'merchant_id': 'merchant_id',
+        'message_count': 'message_count',
         'messages': 'messages',
-        'participants': 'participants'
+        'participants': 'participants',
+        'start_dts': 'start_dts',
+        'unread_messages': 'unread_messages',
+        'visible': 'visible'
     }
 
-    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, merchant_id=None, messages=None, participants=None):  # noqa: E501
+    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, messages=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
         """Conversation - a model defined in Swagger"""  # noqa: E501
 
         self._closed = None
         self._conversation_arn = None
         self._conversation_uuid = None
+        self._last_conversation_message_body = None
+        self._last_conversation_participant_arn = None
+        self._last_conversation_participant_name = None
+        self._last_message_dts = None
+        self._medium = None
         self._merchant_id = None
+        self._message_count = None
         self._messages = None
         self._participants = None
+        self._start_dts = None
+        self._unread_messages = None
+        self._visible = None
         self.discriminator = None
 
         if closed is not None:
@@ -65,12 +92,30 @@ class Conversation(object):
             self.conversation_arn = conversation_arn
         if conversation_uuid is not None:
             self.conversation_uuid = conversation_uuid
+        if last_conversation_message_body is not None:
+            self.last_conversation_message_body = last_conversation_message_body
+        if last_conversation_participant_arn is not None:
+            self.last_conversation_participant_arn = last_conversation_participant_arn
+        if last_conversation_participant_name is not None:
+            self.last_conversation_participant_name = last_conversation_participant_name
+        if last_message_dts is not None:
+            self.last_message_dts = last_message_dts
+        if medium is not None:
+            self.medium = medium
         if merchant_id is not None:
             self.merchant_id = merchant_id
+        if message_count is not None:
+            self.message_count = message_count
         if messages is not None:
             self.messages = messages
         if participants is not None:
             self.participants = participants
+        if start_dts is not None:
+            self.start_dts = start_dts
+        if unread_messages is not None:
+            self.unread_messages = unread_messages
+        if visible is not None:
+            self.visible = visible
 
     @property
     def closed(self):
@@ -136,6 +181,121 @@ class Conversation(object):
         self._conversation_uuid = conversation_uuid
 
     @property
+    def last_conversation_message_body(self):
+        """Gets the last_conversation_message_body of this Conversation.  # noqa: E501
+
+
+        :return: The last_conversation_message_body of this Conversation.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_conversation_message_body
+
+    @last_conversation_message_body.setter
+    def last_conversation_message_body(self, last_conversation_message_body):
+        """Sets the last_conversation_message_body of this Conversation.
+
+
+        :param last_conversation_message_body: The last_conversation_message_body of this Conversation.  # noqa: E501
+        :type: str
+        """
+
+        self._last_conversation_message_body = last_conversation_message_body
+
+    @property
+    def last_conversation_participant_arn(self):
+        """Gets the last_conversation_participant_arn of this Conversation.  # noqa: E501
+
+
+        :return: The last_conversation_participant_arn of this Conversation.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_conversation_participant_arn
+
+    @last_conversation_participant_arn.setter
+    def last_conversation_participant_arn(self, last_conversation_participant_arn):
+        """Sets the last_conversation_participant_arn of this Conversation.
+
+
+        :param last_conversation_participant_arn: The last_conversation_participant_arn of this Conversation.  # noqa: E501
+        :type: str
+        """
+
+        self._last_conversation_participant_arn = last_conversation_participant_arn
+
+    @property
+    def last_conversation_participant_name(self):
+        """Gets the last_conversation_participant_name of this Conversation.  # noqa: E501
+
+
+        :return: The last_conversation_participant_name of this Conversation.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_conversation_participant_name
+
+    @last_conversation_participant_name.setter
+    def last_conversation_participant_name(self, last_conversation_participant_name):
+        """Sets the last_conversation_participant_name of this Conversation.
+
+
+        :param last_conversation_participant_name: The last_conversation_participant_name of this Conversation.  # noqa: E501
+        :type: str
+        """
+
+        self._last_conversation_participant_name = last_conversation_participant_name
+
+    @property
+    def last_message_dts(self):
+        """Gets the last_message_dts of this Conversation.  # noqa: E501
+
+        Last message date/time  # noqa: E501
+
+        :return: The last_message_dts of this Conversation.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_message_dts
+
+    @last_message_dts.setter
+    def last_message_dts(self, last_message_dts):
+        """Sets the last_message_dts of this Conversation.
+
+        Last message date/time  # noqa: E501
+
+        :param last_message_dts: The last_message_dts of this Conversation.  # noqa: E501
+        :type: str
+        """
+
+        self._last_message_dts = last_message_dts
+
+    @property
+    def medium(self):
+        """Gets the medium of this Conversation.  # noqa: E501
+
+        The communication medium of the customer.  # noqa: E501
+
+        :return: The medium of this Conversation.  # noqa: E501
+        :rtype: str
+        """
+        return self._medium
+
+    @medium.setter
+    def medium(self, medium):
+        """Sets the medium of this Conversation.
+
+        The communication medium of the customer.  # noqa: E501
+
+        :param medium: The medium of this Conversation.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["sms", "websocket"]  # noqa: E501
+        if medium not in allowed_values:
+            raise ValueError(
+                "Invalid value for `medium` ({0}), must be one of {1}"  # noqa: E501
+                .format(medium, allowed_values)
+            )
+
+        self._medium = medium
+
+    @property
     def merchant_id(self):
         """Gets the merchant_id of this Conversation.  # noqa: E501
 
@@ -155,6 +315,27 @@ class Conversation(object):
         """
 
         self._merchant_id = merchant_id
+
+    @property
+    def message_count(self):
+        """Gets the message_count of this Conversation.  # noqa: E501
+
+
+        :return: The message_count of this Conversation.  # noqa: E501
+        :rtype: int
+        """
+        return self._message_count
+
+    @message_count.setter
+    def message_count(self, message_count):
+        """Sets the message_count of this Conversation.
+
+
+        :param message_count: The message_count of this Conversation.  # noqa: E501
+        :type: int
+        """
+
+        self._message_count = message_count
 
     @property
     def messages(self):
@@ -197,6 +378,71 @@ class Conversation(object):
         """
 
         self._participants = participants
+
+    @property
+    def start_dts(self):
+        """Gets the start_dts of this Conversation.  # noqa: E501
+
+        Start of the conversation date/time  # noqa: E501
+
+        :return: The start_dts of this Conversation.  # noqa: E501
+        :rtype: str
+        """
+        return self._start_dts
+
+    @start_dts.setter
+    def start_dts(self, start_dts):
+        """Sets the start_dts of this Conversation.
+
+        Start of the conversation date/time  # noqa: E501
+
+        :param start_dts: The start_dts of this Conversation.  # noqa: E501
+        :type: str
+        """
+
+        self._start_dts = start_dts
+
+    @property
+    def unread_messages(self):
+        """Gets the unread_messages of this Conversation.  # noqa: E501
+
+
+        :return: The unread_messages of this Conversation.  # noqa: E501
+        :rtype: bool
+        """
+        return self._unread_messages
+
+    @unread_messages.setter
+    def unread_messages(self, unread_messages):
+        """Sets the unread_messages of this Conversation.
+
+
+        :param unread_messages: The unread_messages of this Conversation.  # noqa: E501
+        :type: bool
+        """
+
+        self._unread_messages = unread_messages
+
+    @property
+    def visible(self):
+        """Gets the visible of this Conversation.  # noqa: E501
+
+
+        :return: The visible of this Conversation.  # noqa: E501
+        :rtype: bool
+        """
+        return self._visible
+
+    @visible.setter
+    def visible(self, visible):
+        """Sets the visible of this Conversation.
+
+
+        :param visible: The visible of this Conversation.  # noqa: E501
+        :type: bool
+        """
+
+        self._visible = visible
 
     def to_dict(self):
         """Returns the model properties as a dict"""
