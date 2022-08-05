@@ -35,7 +35,9 @@ class ConversationMessage(object):
         'author_conversation_participant_name': 'str',
         'body': 'str',
         'client_message_id': 'str',
+        'conversation_message_uuid': 'str',
         'media_urls': 'list[str]',
+        'merchant_id': 'str',
         'message_dts': 'str',
         'transport_statuses': 'list[ConversationMessageTransportStatus]',
         'type': 'str',
@@ -47,21 +49,25 @@ class ConversationMessage(object):
         'author_conversation_participant_name': 'author_conversation_participant_name',
         'body': 'body',
         'client_message_id': 'client_message_id',
+        'conversation_message_uuid': 'conversation_message_uuid',
         'media_urls': 'media_urls',
+        'merchant_id': 'merchant_id',
         'message_dts': 'message_dts',
         'transport_statuses': 'transport_statuses',
         'type': 'type',
         'upload_keys': 'upload_keys'
     }
 
-    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, media_urls=None, message_dts=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
+    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, conversation_message_uuid=None, media_urls=None, merchant_id=None, message_dts=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
         """ConversationMessage - a model defined in Swagger"""  # noqa: E501
 
         self._author_conversation_participant_arn = None
         self._author_conversation_participant_name = None
         self._body = None
         self._client_message_id = None
+        self._conversation_message_uuid = None
         self._media_urls = None
+        self._merchant_id = None
         self._message_dts = None
         self._transport_statuses = None
         self._type = None
@@ -76,8 +82,12 @@ class ConversationMessage(object):
             self.body = body
         if client_message_id is not None:
             self.client_message_id = client_message_id
+        if conversation_message_uuid is not None:
+            self.conversation_message_uuid = conversation_message_uuid
         if media_urls is not None:
             self.media_urls = media_urls
+        if merchant_id is not None:
+            self.merchant_id = merchant_id
         if message_dts is not None:
             self.message_dts = message_dts
         if transport_statuses is not None:
@@ -172,6 +182,27 @@ class ConversationMessage(object):
         self._client_message_id = client_message_id
 
     @property
+    def conversation_message_uuid(self):
+        """Gets the conversation_message_uuid of this ConversationMessage.  # noqa: E501
+
+
+        :return: The conversation_message_uuid of this ConversationMessage.  # noqa: E501
+        :rtype: str
+        """
+        return self._conversation_message_uuid
+
+    @conversation_message_uuid.setter
+    def conversation_message_uuid(self, conversation_message_uuid):
+        """Sets the conversation_message_uuid of this ConversationMessage.
+
+
+        :param conversation_message_uuid: The conversation_message_uuid of this ConversationMessage.  # noqa: E501
+        :type: str
+        """
+
+        self._conversation_message_uuid = conversation_message_uuid
+
+    @property
     def media_urls(self):
         """Gets the media_urls of this ConversationMessage.  # noqa: E501
 
@@ -191,6 +222,27 @@ class ConversationMessage(object):
         """
 
         self._media_urls = media_urls
+
+    @property
+    def merchant_id(self):
+        """Gets the merchant_id of this ConversationMessage.  # noqa: E501
+
+
+        :return: The merchant_id of this ConversationMessage.  # noqa: E501
+        :rtype: str
+        """
+        return self._merchant_id
+
+    @merchant_id.setter
+    def merchant_id(self, merchant_id):
+        """Sets the merchant_id of this ConversationMessage.
+
+
+        :param merchant_id: The merchant_id of this ConversationMessage.  # noqa: E501
+        :type: str
+        """
+
+        self._merchant_id = merchant_id
 
     @property
     def message_dts(self):
