@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **media_urls** | **[str]** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **message_dts** | **str** | Message date/time | [optional] 
+**message_epoch** | **int** | Message epoch milliseconds | [optional] 
 **transport_statuses** | [**[ConversationMessageTransportStatus]**](ConversationMessageTransportStatus.md) |  | [optional] 
 **type** | **str** | Message type | [optional] 
 **upload_keys** | **[str]** |  | [optional] 

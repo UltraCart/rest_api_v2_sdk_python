@@ -1237,7 +1237,9 @@ api_instance = GiftCertificateApi(api_client())
             ],
             limit=1,
         ),
-        no_discount={},
+        no_discount=CouponNoDiscount(
+            ignore_this_property=True,
+        ),
         percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
             discount_percent=3.14,
             items=[
@@ -1686,7 +1688,9 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                     limit=1,
                 ),
-                no_discount={},
+                no_discount=CouponNoDiscount(
+                    ignore_this_property=True,
+                ),
                 percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
                     discount_percent=3.14,
                     items=[
@@ -2321,7 +2325,9 @@ api_instance = GiftCertificateApi(api_client())
             ],
             limit=1,
         ),
-        no_discount={},
+        no_discount=CouponNoDiscount(
+            ignore_this_property=True,
+        ),
         percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
             discount_percent=3.14,
             items=[
@@ -2771,7 +2777,9 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                     limit=1,
                 ),
-                no_discount={},
+                no_discount=CouponNoDiscount(
+                    ignore_this_property=True,
+                ),
                 percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
                     discount_percent=3.14,
                     items=[

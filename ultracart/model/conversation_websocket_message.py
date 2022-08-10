@@ -32,6 +32,7 @@ from ultracart.exceptions import ApiAttributeError
 
 def lazy_import():
     from ultracart.model.conversation_event_queue_position import ConversationEventQueuePosition
+    from ultracart.model.conversation_event_read_message import ConversationEventReadMessage
     from ultracart.model.conversation_event_rr_web import ConversationEventRRWeb
     from ultracart.model.conversation_event_typing import ConversationEventTyping
     from ultracart.model.conversation_message import ConversationMessage
@@ -39,6 +40,7 @@ def lazy_import():
     from ultracart.model.conversation_webchat_queue_status import ConversationWebchatQueueStatus
     globals()['ConversationEventQueuePosition'] = ConversationEventQueuePosition
     globals()['ConversationEventRRWeb'] = ConversationEventRRWeb
+    globals()['ConversationEventReadMessage'] = ConversationEventReadMessage
     globals()['ConversationEventTyping'] = ConversationEventTyping
     globals()['ConversationMessage'] = ConversationMessage
     globals()['ConversationSummary'] = ConversationSummary
@@ -80,6 +82,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'QUEUE_STATUS_UPDATE': "queue status update",
             'RRWEB': "rrweb",
             'PARTICIPANT_UPDATE': "participant update",
+            'READ_MESSAGE': "read message",
         },
         ('type',): {
             'MESSAGE': "message",
@@ -122,6 +125,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'event_participant_update': (ConversationSummary,),  # noqa: E501
             'event_queue_position': (ConversationEventQueuePosition,),  # noqa: E501
             'event_queue_status_update': (ConversationWebchatQueueStatus,),  # noqa: E501
+            'event_read_message': (ConversationEventReadMessage,),  # noqa: E501
             'event_rrweb': (ConversationEventRRWeb,),  # noqa: E501
             'event_type': (str,),  # noqa: E501
             'event_typing': (ConversationEventTyping,),  # noqa: E501
@@ -143,6 +147,7 @@ class ConversationWebsocketMessage(ModelNormal):
         'event_participant_update': 'event_participant_update',  # noqa: E501
         'event_queue_position': 'event_queue_position',  # noqa: E501
         'event_queue_status_update': 'event_queue_status_update',  # noqa: E501
+        'event_read_message': 'event_read_message',  # noqa: E501
         'event_rrweb': 'event_rrweb',  # noqa: E501
         'event_type': 'event_type',  # noqa: E501
         'event_typing': 'event_typing',  # noqa: E501
@@ -199,6 +204,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_participant_update (ConversationSummary): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_queue_status_update (ConversationWebchatQueueStatus): [optional]  # noqa: E501
+            event_read_message (ConversationEventReadMessage): [optional]  # noqa: E501
             event_rrweb (ConversationEventRRWeb): [optional]  # noqa: E501
             event_type (str): Type of event. [optional]  # noqa: E501
             event_typing (ConversationEventTyping): [optional]  # noqa: E501
@@ -297,6 +303,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_participant_update (ConversationSummary): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_queue_status_update (ConversationWebchatQueueStatus): [optional]  # noqa: E501
+            event_read_message (ConversationEventReadMessage): [optional]  # noqa: E501
             event_rrweb (ConversationEventRRWeb): [optional]  # noqa: E501
             event_type (str): Type of event. [optional]  # noqa: E501
             event_typing (ConversationEventTyping): [optional]  # noqa: E501

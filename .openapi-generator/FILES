@@ -130,6 +130,7 @@ docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
 docs/ConversationEventQueuePosition.md
 docs/ConversationEventRRWeb.md
+docs/ConversationEventReadMessage.md
 docs/ConversationEventTyping.md
 docs/ConversationMessage.md
 docs/ConversationMessageTransportStatus.md
@@ -185,6 +186,7 @@ docs/CouponFreeShippingWithSubtotal.md
 docs/CouponItemSearchResult.md
 docs/CouponItemSearchResultsResponse.md
 docs/CouponMultipleAmountsOffItems.md
+docs/CouponNoDiscount.md
 docs/CouponPercentOffItemWithItemsQuantityPurchase.md
 docs/CouponPercentOffItems.md
 docs/CouponPercentOffItemsAndFreeShipping.md
@@ -833,6 +835,7 @@ ultracart/model/conversation.py
 ultracart/model/conversation_agent_auth.py
 ultracart/model/conversation_agent_auth_response.py
 ultracart/model/conversation_event_queue_position.py
+ultracart/model/conversation_event_read_message.py
 ultracart/model/conversation_event_rr_web.py
 ultracart/model/conversation_event_typing.py
 ultracart/model/conversation_message.py
@@ -888,6 +891,7 @@ ultracart/model/coupon_free_shipping_with_subtotal.py
 ultracart/model/coupon_item_search_result.py
 ultracart/model/coupon_item_search_results_response.py
 ultracart/model/coupon_multiple_amounts_off_items.py
+ultracart/model/coupon_no_discount.py
 ultracart/model/coupon_percent_off_item_with_items_quantity_purchase.py
 ultracart/model/coupon_percent_off_items.py
 ultracart/model/coupon_percent_off_items_and_free_shipping.py

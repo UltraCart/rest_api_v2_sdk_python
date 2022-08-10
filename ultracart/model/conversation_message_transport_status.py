@@ -56,6 +56,19 @@ class ConversationMessageTransportStatus(ModelNormal):
     """
 
     allowed_values = {
+        ('status',): {
+            'ACCEPTED': "accepted",
+            'SCHEDULED': "scheduled",
+            'QUEUED': "queued",
+            'SENDING': "sending",
+            'SENT': "sent",
+            'READ': "read",
+            'TWILIO_CREDENTIALS_MISSING': "TWILIO_CREDENTIALS_MISSING",
+            'SENT_TO_TWILIO': "SENT_TO_TWILIO",
+            'TWILIO_ERROR': "TWILIO_ERROR",
+            'SENT_TO_PINPOINT': "SENT_TO_PINPOINT",
+            'PINPOINT_ERROR': "PINPOINT_ERROR",
+        },
     }
 
     validations = {
@@ -138,7 +151,7 @@ class ConversationMessageTransportStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             conversation_participant_arn (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (str): The status of the message transport. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,7 +238,7 @@ class ConversationMessageTransportStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             conversation_participant_arn (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (str): The status of the message transport. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

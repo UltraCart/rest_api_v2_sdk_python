@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **merchant_code** | **str** | Merchant code of coupon up to 20 characters. | [optional] 
 **merchant_notes** | **str** | Internal notes about this coupon.  These are not visible to customer. | [optional] 
 **multiple_amounts_off_items** | [**CouponMultipleAmountsOffItems**](CouponMultipleAmountsOffItems.md) |  | [optional] 
-**no_discount** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
+**no_discount** | [**CouponNoDiscount**](CouponNoDiscount.md) |  | [optional] 
 **percent_off_item_with_items_quantity_purchase** | [**CouponPercentOffItemWithItemsQuantityPurchase**](CouponPercentOffItemWithItemsQuantityPurchase.md) |  | [optional] 
 **percent_off_items** | [**CouponPercentOffItems**](CouponPercentOffItems.md) |  | [optional] 
 **percent_off_items_and_free_shipping** | [**CouponPercentOffItemsAndFreeShipping**](CouponPercentOffItemsAndFreeShipping.md) |  | [optional] 

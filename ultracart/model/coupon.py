@@ -55,6 +55,7 @@ def lazy_import():
     from ultracart.model.coupon_free_shipping_with_items_purchase import CouponFreeShippingWithItemsPurchase
     from ultracart.model.coupon_free_shipping_with_subtotal import CouponFreeShippingWithSubtotal
     from ultracart.model.coupon_multiple_amounts_off_items import CouponMultipleAmountsOffItems
+    from ultracart.model.coupon_no_discount import CouponNoDiscount
     from ultracart.model.coupon_percent_off_item_with_items_quantity_purchase import CouponPercentOffItemWithItemsQuantityPurchase
     from ultracart.model.coupon_percent_off_items import CouponPercentOffItems
     from ultracart.model.coupon_percent_off_items_and_free_shipping import CouponPercentOffItemsAndFreeShipping
@@ -97,6 +98,7 @@ def lazy_import():
     globals()['CouponFreeShippingWithItemsPurchase'] = CouponFreeShippingWithItemsPurchase
     globals()['CouponFreeShippingWithSubtotal'] = CouponFreeShippingWithSubtotal
     globals()['CouponMultipleAmountsOffItems'] = CouponMultipleAmountsOffItems
+    globals()['CouponNoDiscount'] = CouponNoDiscount
     globals()['CouponPercentOffItemWithItemsQuantityPurchase'] = CouponPercentOffItemWithItemsQuantityPurchase
     globals()['CouponPercentOffItems'] = CouponPercentOffItems
     globals()['CouponPercentOffItemsAndFreeShipping'] = CouponPercentOffItemsAndFreeShipping
@@ -223,7 +225,7 @@ class Coupon(ModelNormal):
             'merchant_code': (str,),  # noqa: E501
             'merchant_notes': (str,),  # noqa: E501
             'multiple_amounts_off_items': (CouponMultipleAmountsOffItems,),  # noqa: E501
-            'no_discount': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'no_discount': (CouponNoDiscount,),  # noqa: E501
             'percent_off_item_with_items_quantity_purchase': (CouponPercentOffItemWithItemsQuantityPurchase,),  # noqa: E501
             'percent_off_items': (CouponPercentOffItems,),  # noqa: E501
             'percent_off_items_and_free_shipping': (CouponPercentOffItemsAndFreeShipping,),  # noqa: E501
@@ -394,7 +396,7 @@ class Coupon(ModelNormal):
             merchant_code (str): Merchant code of coupon up to 20 characters.. [optional]  # noqa: E501
             merchant_notes (str): Internal notes about this coupon.  These are not visible to customer.. [optional]  # noqa: E501
             multiple_amounts_off_items (CouponMultipleAmountsOffItems): [optional]  # noqa: E501
-            no_discount (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            no_discount (CouponNoDiscount): [optional]  # noqa: E501
             percent_off_item_with_items_quantity_purchase (CouponPercentOffItemWithItemsQuantityPurchase): [optional]  # noqa: E501
             percent_off_items (CouponPercentOffItems): [optional]  # noqa: E501
             percent_off_items_and_free_shipping (CouponPercentOffItemsAndFreeShipping): [optional]  # noqa: E501
@@ -539,7 +541,7 @@ class Coupon(ModelNormal):
             merchant_code (str): Merchant code of coupon up to 20 characters.. [optional]  # noqa: E501
             merchant_notes (str): Internal notes about this coupon.  These are not visible to customer.. [optional]  # noqa: E501
             multiple_amounts_off_items (CouponMultipleAmountsOffItems): [optional]  # noqa: E501
-            no_discount (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            no_discount (CouponNoDiscount): [optional]  # noqa: E501
             percent_off_item_with_items_quantity_purchase (CouponPercentOffItemWithItemsQuantityPurchase): [optional]  # noqa: E501
             percent_off_items (CouponPercentOffItems): [optional]  # noqa: E501
             percent_off_items_and_free_shipping (CouponPercentOffItemsAndFreeShipping): [optional]  # noqa: E501
