@@ -39,6 +39,7 @@ class ConversationMessage(object):
         'media_urls': 'list[str]',
         'merchant_id': 'str',
         'message_dts': 'str',
+        'message_epoch': 'int',
         'transport_statuses': 'list[ConversationMessageTransportStatus]',
         'type': 'str',
         'upload_keys': 'list[str]'
@@ -53,12 +54,13 @@ class ConversationMessage(object):
         'media_urls': 'media_urls',
         'merchant_id': 'merchant_id',
         'message_dts': 'message_dts',
+        'message_epoch': 'message_epoch',
         'transport_statuses': 'transport_statuses',
         'type': 'type',
         'upload_keys': 'upload_keys'
     }
 
-    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, conversation_message_uuid=None, media_urls=None, merchant_id=None, message_dts=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
+    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, conversation_message_uuid=None, media_urls=None, merchant_id=None, message_dts=None, message_epoch=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
         """ConversationMessage - a model defined in Swagger"""  # noqa: E501
 
         self._author_conversation_participant_arn = None
@@ -69,6 +71,7 @@ class ConversationMessage(object):
         self._media_urls = None
         self._merchant_id = None
         self._message_dts = None
+        self._message_epoch = None
         self._transport_statuses = None
         self._type = None
         self._upload_keys = None
@@ -90,6 +93,8 @@ class ConversationMessage(object):
             self.merchant_id = merchant_id
         if message_dts is not None:
             self.message_dts = message_dts
+        if message_epoch is not None:
+            self.message_epoch = message_epoch
         if transport_statuses is not None:
             self.transport_statuses = transport_statuses
         if type is not None:
@@ -266,6 +271,29 @@ class ConversationMessage(object):
         """
 
         self._message_dts = message_dts
+
+    @property
+    def message_epoch(self):
+        """Gets the message_epoch of this ConversationMessage.  # noqa: E501
+
+        Message epoch milliseconds  # noqa: E501
+
+        :return: The message_epoch of this ConversationMessage.  # noqa: E501
+        :rtype: int
+        """
+        return self._message_epoch
+
+    @message_epoch.setter
+    def message_epoch(self, message_epoch):
+        """Sets the message_epoch of this ConversationMessage.
+
+        Message epoch milliseconds  # noqa: E501
+
+        :param message_epoch: The message_epoch of this ConversationMessage.  # noqa: E501
+        :type: int
+        """
+
+        self._message_epoch = message_epoch
 
     @property
     def transport_statuses(self):

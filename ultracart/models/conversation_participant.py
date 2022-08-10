@@ -37,7 +37,8 @@ class ConversationParticipant(object):
         'joined_dts': 'str',
         'last_message_dts': 'str',
         'left_dts': 'str',
-        'status': 'str'
+        'status': 'str',
+        'unread_messages': 'int'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class ConversationParticipant(object):
         'joined_dts': 'joined_dts',
         'last_message_dts': 'last_message_dts',
         'left_dts': 'left_dts',
-        'status': 'status'
+        'status': 'status',
+        'unread_messages': 'unread_messages'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, joined_dts=None, last_message_dts=None, left_dts=None, status=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, joined_dts=None, last_message_dts=None, left_dts=None, status=None, unread_messages=None):  # noqa: E501
         """ConversationParticipant - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
@@ -60,6 +62,7 @@ class ConversationParticipant(object):
         self._last_message_dts = None
         self._left_dts = None
         self._status = None
+        self._unread_messages = None
         self.discriminator = None
 
         if conversation_participant_arn is not None:
@@ -76,6 +79,8 @@ class ConversationParticipant(object):
             self.left_dts = left_dts
         if status is not None:
             self.status = status
+        if unread_messages is not None:
+            self.unread_messages = unread_messages
 
     @property
     def conversation_participant_arn(self):
@@ -229,6 +234,27 @@ class ConversationParticipant(object):
         """
 
         self._status = status
+
+    @property
+    def unread_messages(self):
+        """Gets the unread_messages of this ConversationParticipant.  # noqa: E501
+
+
+        :return: The unread_messages of this ConversationParticipant.  # noqa: E501
+        :rtype: int
+        """
+        return self._unread_messages
+
+    @unread_messages.setter
+    def unread_messages(self, unread_messages):
+        """Sets the unread_messages of this ConversationParticipant.
+
+
+        :param unread_messages: The unread_messages of this ConversationParticipant.  # noqa: E501
+        :type: int
+        """
+
+        self._unread_messages = unread_messages
 
     def to_dict(self):
         """Returns the model properties as a dict"""

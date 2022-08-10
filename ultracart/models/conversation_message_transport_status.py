@@ -77,6 +77,7 @@ class ConversationMessageTransportStatus(object):
     def status(self):
         """Gets the status of this ConversationMessageTransportStatus.  # noqa: E501
 
+        The status of the message transport  # noqa: E501
 
         :return: The status of this ConversationMessageTransportStatus.  # noqa: E501
         :rtype: str
@@ -87,10 +88,17 @@ class ConversationMessageTransportStatus(object):
     def status(self, status):
         """Sets the status of this ConversationMessageTransportStatus.
 
+        The status of the message transport  # noqa: E501
 
         :param status: The status of this ConversationMessageTransportStatus.  # noqa: E501
         :type: str
         """
+        allowed_values = ["accepted", "scheduled", "queued", "sending", "sent", "read", "TWILIO_CREDENTIALS_MISSING", "SENT_TO_TWILIO", "TWILIO_ERROR", "SENT_TO_PINPOINT", "PINPOINT_ERROR"]  # noqa: E501
+        if status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
 
         self._status = status
 

@@ -38,6 +38,7 @@ class ConversationWebsocketMessage(object):
         'event_participant_update': 'ConversationSummary',
         'event_queue_position': 'ConversationEventQueuePosition',
         'event_queue_status_update': 'ConversationWebchatQueueStatus',
+        'event_read_message': 'ConversationEventReadMessage',
         'event_rrweb': 'ConversationEventRRWeb',
         'event_type': 'str',
         'event_typing': 'ConversationEventTyping',
@@ -54,6 +55,7 @@ class ConversationWebsocketMessage(object):
         'event_participant_update': 'event_participant_update',
         'event_queue_position': 'event_queue_position',
         'event_queue_status_update': 'event_queue_status_update',
+        'event_read_message': 'event_read_message',
         'event_rrweb': 'event_rrweb',
         'event_type': 'event_type',
         'event_typing': 'event_typing',
@@ -62,7 +64,7 @@ class ConversationWebsocketMessage(object):
         'type': 'type'
     }
 
-    def __init__(self, conversation_uuid=None, event_conversation_closed=None, event_new_conversation=None, event_new_message=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, message=None, type=None):  # noqa: E501
+    def __init__(self, conversation_uuid=None, event_conversation_closed=None, event_new_conversation=None, event_new_message=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, message=None, type=None):  # noqa: E501
         """ConversationWebsocketMessage - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_uuid = None
@@ -72,6 +74,7 @@ class ConversationWebsocketMessage(object):
         self._event_participant_update = None
         self._event_queue_position = None
         self._event_queue_status_update = None
+        self._event_read_message = None
         self._event_rrweb = None
         self._event_type = None
         self._event_typing = None
@@ -94,6 +97,8 @@ class ConversationWebsocketMessage(object):
             self.event_queue_position = event_queue_position
         if event_queue_status_update is not None:
             self.event_queue_status_update = event_queue_status_update
+        if event_read_message is not None:
+            self.event_read_message = event_read_message
         if event_rrweb is not None:
             self.event_rrweb = event_rrweb
         if event_type is not None:
@@ -257,6 +262,27 @@ class ConversationWebsocketMessage(object):
         self._event_queue_status_update = event_queue_status_update
 
     @property
+    def event_read_message(self):
+        """Gets the event_read_message of this ConversationWebsocketMessage.  # noqa: E501
+
+
+        :return: The event_read_message of this ConversationWebsocketMessage.  # noqa: E501
+        :rtype: ConversationEventReadMessage
+        """
+        return self._event_read_message
+
+    @event_read_message.setter
+    def event_read_message(self, event_read_message):
+        """Sets the event_read_message of this ConversationWebsocketMessage.
+
+
+        :param event_read_message: The event_read_message of this ConversationWebsocketMessage.  # noqa: E501
+        :type: ConversationEventReadMessage
+        """
+
+        self._event_read_message = event_read_message
+
+    @property
     def event_rrweb(self):
         """Gets the event_rrweb of this ConversationWebsocketMessage.  # noqa: E501
 
@@ -297,7 +323,7 @@ class ConversationWebsocketMessage(object):
         :param event_type: The event_type of this ConversationWebsocketMessage.  # noqa: E501
         :type: str
         """
-        allowed_values = ["queue position", "webchat start conversation", "conversation closed", "new conversation", "new message", "updated message", "queue status update", "rrweb", "participant update"]  # noqa: E501
+        allowed_values = ["queue position", "webchat start conversation", "conversation closed", "new conversation", "new message", "updated message", "queue status update", "rrweb", "participant update", "read message"]  # noqa: E501
         if event_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `event_type` ({0}), must be one of {1}"  # noqa: E501
