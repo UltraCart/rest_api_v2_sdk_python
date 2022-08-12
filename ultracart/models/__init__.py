@@ -228,6 +228,7 @@ from ultracart.model.customer_email_list_changes import CustomerEmailListChanges
 from ultracart.model.customer_loyalty import CustomerLoyalty
 from ultracart.model.customer_loyalty_ledger import CustomerLoyaltyLedger
 from ultracart.model.customer_loyalty_redemption import CustomerLoyaltyRedemption
+from ultracart.model.customer_magic_link_response import CustomerMagicLinkResponse
 from ultracart.model.customer_merge_request import CustomerMergeRequest
 from ultracart.model.customer_orders_summary import CustomerOrdersSummary
 from ultracart.model.customer_pricing_tier import CustomerPricingTier
@@ -615,6 +616,8 @@ from ultracart.model.single_sign_on_token_response import SingleSignOnTokenRespo
 from ultracart.model.sovos_config import SovosConfig
 from ultracart.model.state_province import StateProvince
 from ultracart.model.step_waiting import StepWaiting
+from ultracart.model.store_front import StoreFront
+from ultracart.model.store_fronts_response import StoreFrontsResponse
 from ultracart.model.tax_city import TaxCity
 from ultracart.model.tax_country import TaxCountry
 from ultracart.model.tax_country_code import TaxCountryCode

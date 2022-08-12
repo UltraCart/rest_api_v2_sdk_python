@@ -229,6 +229,7 @@ docs/CustomerEmailListChanges.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
+docs/CustomerMagicLinkResponse.md
 docs/CustomerMergeRequest.md
 docs/CustomerOrdersSummary.md
 docs/CustomerPricingTier.md
@@ -623,6 +624,8 @@ docs/SovosConfig.md
 docs/SsoApi.md
 docs/StateProvince.md
 docs/StepWaiting.md
+docs/StoreFront.md
+docs/StoreFrontsResponse.md
 docs/StorefrontApi.md
 docs/TaxApi.md
 docs/TaxCity.md
@@ -933,6 +936,7 @@ ultracart/model/customer_email_list_changes.py
 ultracart/model/customer_loyalty.py
 ultracart/model/customer_loyalty_ledger.py
 ultracart/model/customer_loyalty_redemption.py
+ultracart/model/customer_magic_link_response.py
 ultracart/model/customer_merge_request.py
 ultracart/model/customer_orders_summary.py
 ultracart/model/customer_pricing_tier.py
@@ -1320,6 +1324,8 @@ ultracart/model/single_sign_on_token_response.py
 ultracart/model/sovos_config.py
 ultracart/model/state_province.py
 ultracart/model/step_waiting.py
+ultracart/model/store_front.py
+ultracart/model/store_fronts_response.py
 ultracart/model/tax_city.py
 ultracart/model/tax_country.py
 ultracart/model/tax_country_code.py
