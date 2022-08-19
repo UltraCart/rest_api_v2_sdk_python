@@ -35,7 +35,8 @@ class ConversationWebchatQueueStatusAgent(object):
         'conversation_participant_arn': 'str',
         'conversation_participant_name': 'str',
         'last_chat_dts': 'str',
-        'next_round_robin': 'bool'
+        'next_round_robin': 'bool',
+        'profile_image_url': 'str'
     }
 
     attribute_map = {
@@ -43,10 +44,11 @@ class ConversationWebchatQueueStatusAgent(object):
         'conversation_participant_arn': 'conversation_participant_arn',
         'conversation_participant_name': 'conversation_participant_name',
         'last_chat_dts': 'last_chat_dts',
-        'next_round_robin': 'next_round_robin'
+        'next_round_robin': 'next_round_robin',
+        'profile_image_url': 'profile_image_url'
     }
 
-    def __init__(self, agent_status=None, conversation_participant_arn=None, conversation_participant_name=None, last_chat_dts=None, next_round_robin=None):  # noqa: E501
+    def __init__(self, agent_status=None, conversation_participant_arn=None, conversation_participant_name=None, last_chat_dts=None, next_round_robin=None, profile_image_url=None):  # noqa: E501
         """ConversationWebchatQueueStatusAgent - a model defined in Swagger"""  # noqa: E501
 
         self._agent_status = None
@@ -54,6 +56,7 @@ class ConversationWebchatQueueStatusAgent(object):
         self._conversation_participant_name = None
         self._last_chat_dts = None
         self._next_round_robin = None
+        self._profile_image_url = None
         self.discriminator = None
 
         if agent_status is not None:
@@ -66,11 +69,14 @@ class ConversationWebchatQueueStatusAgent(object):
             self.last_chat_dts = last_chat_dts
         if next_round_robin is not None:
             self.next_round_robin = next_round_robin
+        if profile_image_url is not None:
+            self.profile_image_url = profile_image_url
 
     @property
     def agent_status(self):
         """Gets the agent_status of this ConversationWebchatQueueStatusAgent.  # noqa: E501
 
+        Status of the agent  # noqa: E501
 
         :return: The agent_status of this ConversationWebchatQueueStatusAgent.  # noqa: E501
         :rtype: str
@@ -81,10 +87,17 @@ class ConversationWebchatQueueStatusAgent(object):
     def agent_status(self, agent_status):
         """Sets the agent_status of this ConversationWebchatQueueStatusAgent.
 
+        Status of the agent  # noqa: E501
 
         :param agent_status: The agent_status of this ConversationWebchatQueueStatusAgent.  # noqa: E501
         :type: str
         """
+        allowed_values = ["available", "busy", "unavailable"]  # noqa: E501
+        if agent_status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `agent_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(agent_status, allowed_values)
+            )
 
         self._agent_status = agent_status
 
@@ -173,6 +186,29 @@ class ConversationWebchatQueueStatusAgent(object):
         """
 
         self._next_round_robin = next_round_robin
+
+    @property
+    def profile_image_url(self):
+        """Gets the profile_image_url of this ConversationWebchatQueueStatusAgent.  # noqa: E501
+
+        Profile image URL  # noqa: E501
+
+        :return: The profile_image_url of this ConversationWebchatQueueStatusAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._profile_image_url
+
+    @profile_image_url.setter
+    def profile_image_url(self, profile_image_url):
+        """Sets the profile_image_url of this ConversationWebchatQueueStatusAgent.
+
+        Profile image URL  # noqa: E501
+
+        :param profile_image_url: The profile_image_url of this ConversationWebchatQueueStatusAgent.  # noqa: E501
+        :type: str
+        """
+
+        self._profile_image_url = profile_image_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

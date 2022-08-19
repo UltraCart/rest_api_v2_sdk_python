@@ -32,23 +32,28 @@ class CartMarketing(object):
     """
     swagger_types = {
         'advertising_source': 'str',
+        'cell_phone_opt_in': 'bool',
         'mailing_list_opt_in': 'bool'
     }
 
     attribute_map = {
         'advertising_source': 'advertising_source',
+        'cell_phone_opt_in': 'cell_phone_opt_in',
         'mailing_list_opt_in': 'mailing_list_opt_in'
     }
 
-    def __init__(self, advertising_source=None, mailing_list_opt_in=None):  # noqa: E501
+    def __init__(self, advertising_source=None, cell_phone_opt_in=None, mailing_list_opt_in=None):  # noqa: E501
         """CartMarketing - a model defined in Swagger"""  # noqa: E501
 
         self._advertising_source = None
+        self._cell_phone_opt_in = None
         self._mailing_list_opt_in = None
         self.discriminator = None
 
         if advertising_source is not None:
             self.advertising_source = advertising_source
+        if cell_phone_opt_in is not None:
+            self.cell_phone_opt_in = cell_phone_opt_in
         if mailing_list_opt_in is not None:
             self.mailing_list_opt_in = mailing_list_opt_in
 
@@ -74,6 +79,29 @@ class CartMarketing(object):
         """
 
         self._advertising_source = advertising_source
+
+    @property
+    def cell_phone_opt_in(self):
+        """Gets the cell_phone_opt_in of this CartMarketing.  # noqa: E501
+
+        True if the customer agrees to receiving marketing SMS messages  # noqa: E501
+
+        :return: The cell_phone_opt_in of this CartMarketing.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cell_phone_opt_in
+
+    @cell_phone_opt_in.setter
+    def cell_phone_opt_in(self, cell_phone_opt_in):
+        """Sets the cell_phone_opt_in of this CartMarketing.
+
+        True if the customer agrees to receiving marketing SMS messages  # noqa: E501
+
+        :param cell_phone_opt_in: The cell_phone_opt_in of this CartMarketing.  # noqa: E501
+        :type: bool
+        """
+
+        self._cell_phone_opt_in = cell_phone_opt_in
 
     @property
     def mailing_list_opt_in(self):

@@ -32,26 +32,31 @@ class OrderMarketing(object):
     """
     swagger_types = {
         'advertising_source': 'str',
+        'cell_phone_opt_in': 'bool',
         'mailing_list': 'bool',
         'referral_code': 'str'
     }
 
     attribute_map = {
         'advertising_source': 'advertising_source',
+        'cell_phone_opt_in': 'cell_phone_opt_in',
         'mailing_list': 'mailing_list',
         'referral_code': 'referral_code'
     }
 
-    def __init__(self, advertising_source=None, mailing_list=None, referral_code=None):  # noqa: E501
+    def __init__(self, advertising_source=None, cell_phone_opt_in=None, mailing_list=None, referral_code=None):  # noqa: E501
         """OrderMarketing - a model defined in Swagger"""  # noqa: E501
 
         self._advertising_source = None
+        self._cell_phone_opt_in = None
         self._mailing_list = None
         self._referral_code = None
         self.discriminator = None
 
         if advertising_source is not None:
             self.advertising_source = advertising_source
+        if cell_phone_opt_in is not None:
+            self.cell_phone_opt_in = cell_phone_opt_in
         if mailing_list is not None:
             self.mailing_list = mailing_list
         if referral_code is not None:
@@ -81,6 +86,29 @@ class OrderMarketing(object):
             raise ValueError("Invalid value for `advertising_source`, length must be less than or equal to `50`")  # noqa: E501
 
         self._advertising_source = advertising_source
+
+    @property
+    def cell_phone_opt_in(self):
+        """Gets the cell_phone_opt_in of this OrderMarketing.  # noqa: E501
+
+        True if the customer has opted into SMS marketing  # noqa: E501
+
+        :return: The cell_phone_opt_in of this OrderMarketing.  # noqa: E501
+        :rtype: bool
+        """
+        return self._cell_phone_opt_in
+
+    @cell_phone_opt_in.setter
+    def cell_phone_opt_in(self, cell_phone_opt_in):
+        """Sets the cell_phone_opt_in of this OrderMarketing.
+
+        True if the customer has opted into SMS marketing  # noqa: E501
+
+        :param cell_phone_opt_in: The cell_phone_opt_in of this OrderMarketing.  # noqa: E501
+        :type: bool
+        """
+
+        self._cell_phone_opt_in = cell_phone_opt_in
 
     @property
     def mailing_list(self):

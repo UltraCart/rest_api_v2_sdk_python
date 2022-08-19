@@ -10601,7 +10601,7 @@ class StorefrontApi(object):
         auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/storefront/', 'GET',
+            '/storefront', 'GET',
             path_params,
             query_params,
             header_params,

@@ -37,6 +37,7 @@ class ConversationParticipant(object):
         'joined_dts': 'str',
         'last_message_dts': 'str',
         'left_dts': 'str',
+        'profile_image_url': 'str',
         'status': 'str',
         'unread_messages': 'int'
     }
@@ -48,11 +49,12 @@ class ConversationParticipant(object):
         'joined_dts': 'joined_dts',
         'last_message_dts': 'last_message_dts',
         'left_dts': 'left_dts',
+        'profile_image_url': 'profile_image_url',
         'status': 'status',
         'unread_messages': 'unread_messages'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, joined_dts=None, last_message_dts=None, left_dts=None, status=None, unread_messages=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, joined_dts=None, last_message_dts=None, left_dts=None, profile_image_url=None, status=None, unread_messages=None):  # noqa: E501
         """ConversationParticipant - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
@@ -61,6 +63,7 @@ class ConversationParticipant(object):
         self._joined_dts = None
         self._last_message_dts = None
         self._left_dts = None
+        self._profile_image_url = None
         self._status = None
         self._unread_messages = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class ConversationParticipant(object):
             self.last_message_dts = last_message_dts
         if left_dts is not None:
             self.left_dts = left_dts
+        if profile_image_url is not None:
+            self.profile_image_url = profile_image_url
         if status is not None:
             self.status = status
         if unread_messages is not None:
@@ -213,6 +218,27 @@ class ConversationParticipant(object):
         """
 
         self._left_dts = left_dts
+
+    @property
+    def profile_image_url(self):
+        """Gets the profile_image_url of this ConversationParticipant.  # noqa: E501
+
+
+        :return: The profile_image_url of this ConversationParticipant.  # noqa: E501
+        :rtype: str
+        """
+        return self._profile_image_url
+
+    @profile_image_url.setter
+    def profile_image_url(self, profile_image_url):
+        """Sets the profile_image_url of this ConversationParticipant.
+
+
+        :param profile_image_url: The profile_image_url of this ConversationParticipant.  # noqa: E501
+        :type: str
+        """
+
+        self._profile_image_url = profile_image_url
 
     @property
     def status(self):
