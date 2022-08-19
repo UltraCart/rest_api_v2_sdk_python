@@ -6090,7 +6090,7 @@ class StorefrontApi(object):
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
                 ],
-                'endpoint_path': '/storefront/',
+                'endpoint_path': '/storefront',
                 'operation_id': 'get_store_fronts',
                 'http_method': 'GET',
                 'servers': None,

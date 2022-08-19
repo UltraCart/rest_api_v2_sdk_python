@@ -88,6 +88,7 @@ class ConversationParticipant(ModelNormal):
             'joined_dts': (str,),  # noqa: E501
             'last_message_dts': (str,),  # noqa: E501
             'left_dts': (str,),  # noqa: E501
+            'profile_image_url': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'unread_messages': (int,),  # noqa: E501
         }
@@ -104,6 +105,7 @@ class ConversationParticipant(ModelNormal):
         'joined_dts': 'joined_dts',  # noqa: E501
         'last_message_dts': 'last_message_dts',  # noqa: E501
         'left_dts': 'left_dts',  # noqa: E501
+        'profile_image_url': 'profile_image_url',  # noqa: E501
         'status': 'status',  # noqa: E501
         'unread_messages': 'unread_messages',  # noqa: E501
     }
@@ -155,6 +157,7 @@ class ConversationParticipant(ModelNormal):
             joined_dts (str): Joined conversation date/time. [optional]  # noqa: E501
             last_message_dts (str): Last message date/time. [optional]  # noqa: E501
             left_dts (str): Left conversation date/time. [optional]  # noqa: E501
+            profile_image_url (str): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
             unread_messages (int): [optional]  # noqa: E501
         """
@@ -248,6 +251,7 @@ class ConversationParticipant(ModelNormal):
             joined_dts (str): Joined conversation date/time. [optional]  # noqa: E501
             last_message_dts (str): Last message date/time. [optional]  # noqa: E501
             left_dts (str): Left conversation date/time. [optional]  # noqa: E501
+            profile_image_url (str): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
             unread_messages (int): [optional]  # noqa: E501
         """

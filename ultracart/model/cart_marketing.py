@@ -83,6 +83,7 @@ class CartMarketing(ModelNormal):
         """
         return {
             'advertising_source': (str,),  # noqa: E501
+            'cell_phone_opt_in': (bool,),  # noqa: E501
             'mailing_list_opt_in': (bool,),  # noqa: E501
         }
 
@@ -93,6 +94,7 @@ class CartMarketing(ModelNormal):
 
     attribute_map = {
         'advertising_source': 'advertising_source',  # noqa: E501
+        'cell_phone_opt_in': 'cell_phone_opt_in',  # noqa: E501
         'mailing_list_opt_in': 'mailing_list_opt_in',  # noqa: E501
     }
 
@@ -138,6 +140,7 @@ class CartMarketing(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             advertising_source (str): The advertising source the customer indicated. [optional]  # noqa: E501
+            cell_phone_opt_in (bool): True if the customer agrees to receiving marketing SMS messages. [optional]  # noqa: E501
             mailing_list_opt_in (bool): True if the customer agrees to receiving marketing emails. [optional]  # noqa: E501
         """
 
@@ -225,6 +228,7 @@ class CartMarketing(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             advertising_source (str): The advertising source the customer indicated. [optional]  # noqa: E501
+            cell_phone_opt_in (bool): True if the customer agrees to receiving marketing SMS messages. [optional]  # noqa: E501
             mailing_list_opt_in (bool): True if the customer agrees to receiving marketing emails. [optional]  # noqa: E501
         """
 

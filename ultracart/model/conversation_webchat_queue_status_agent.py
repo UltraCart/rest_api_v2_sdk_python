@@ -56,6 +56,11 @@ class ConversationWebchatQueueStatusAgent(ModelNormal):
     """
 
     allowed_values = {
+        ('agent_status',): {
+            'AVAILABLE': "available",
+            'BUSY': "busy",
+            'UNAVAILABLE': "unavailable",
+        },
     }
 
     validations = {
@@ -87,6 +92,7 @@ class ConversationWebchatQueueStatusAgent(ModelNormal):
             'conversation_participant_name': (str,),  # noqa: E501
             'last_chat_dts': (str,),  # noqa: E501
             'next_round_robin': (bool,),  # noqa: E501
+            'profile_image_url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +106,7 @@ class ConversationWebchatQueueStatusAgent(ModelNormal):
         'conversation_participant_name': 'conversation_participant_name',  # noqa: E501
         'last_chat_dts': 'last_chat_dts',  # noqa: E501
         'next_round_robin': 'next_round_robin',  # noqa: E501
+        'profile_image_url': 'profile_image_url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,11 +150,12 @@ class ConversationWebchatQueueStatusAgent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            agent_status (str): [optional]  # noqa: E501
+            agent_status (str): Status of the agent. [optional]  # noqa: E501
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
             last_chat_dts (str): Date/time that this agent took their last chat. [optional]  # noqa: E501
             next_round_robin (bool): [optional]  # noqa: E501
+            profile_image_url (str): Profile image URL. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,11 +241,12 @@ class ConversationWebchatQueueStatusAgent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            agent_status (str): [optional]  # noqa: E501
+            agent_status (str): Status of the agent. [optional]  # noqa: E501
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
             last_chat_dts (str): Date/time that this agent took their last chat. [optional]  # noqa: E501
             next_round_robin (bool): [optional]  # noqa: E501
+            profile_image_url (str): Profile image URL. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

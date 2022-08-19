@@ -467,6 +467,7 @@ api_instance = GiftCertificateApi(api_client())
         logged_in=True,
         marketing=CartMarketing(
             advertising_source="advertising_source_example",
+            cell_phone_opt_in=True,
             mailing_list_opt_in=True,
         ),
         merchant_id="merchant_id_example",
@@ -1290,6 +1291,7 @@ api_instance = GiftCertificateApi(api_client())
             logged_in=True,
             marketing=CartMarketing(
                 advertising_source="advertising_source_example",
+                cell_phone_opt_in=True,
                 mailing_list_opt_in=True,
             ),
             merchant_id="merchant_id_example",
@@ -2663,6 +2665,7 @@ api_instance = GiftCertificateApi(api_client())
             logged_in=True,
             marketing=CartMarketing(
                 advertising_source="advertising_source_example",
+                cell_phone_opt_in=True,
                 mailing_list_opt_in=True,
             ),
             merchant_id="merchant_id_example",
@@ -3506,6 +3509,7 @@ api_instance = GiftCertificateApi(api_client())
             logged_in=True,
             marketing=CartMarketing(
                 advertising_source="advertising_source_example",
+                cell_phone_opt_in=True,
                 mailing_list_opt_in=True,
             ),
             merchant_id="merchant_id_example",
@@ -4343,6 +4347,7 @@ api_instance = GiftCertificateApi(api_client())
         logged_in=True,
         marketing=CartMarketing(
             advertising_source="advertising_source_example",
+            cell_phone_opt_in=True,
             mailing_list_opt_in=True,
         ),
         merchant_id="merchant_id_example",
@@ -5178,6 +5183,7 @@ api_instance = GiftCertificateApi(api_client())
             logged_in=True,
             marketing=CartMarketing(
                 advertising_source="advertising_source_example",
+                cell_phone_opt_in=True,
                 mailing_list_opt_in=True,
             ),
             merchant_id="merchant_id_example",
@@ -6106,6 +6112,7 @@ api_instance = GiftCertificateApi(api_client())
         logged_in=True,
         marketing=CartMarketing(
             advertising_source="advertising_source_example",
+            cell_phone_opt_in=True,
             mailing_list_opt_in=True,
         ),
         merchant_id="merchant_id_example",
@@ -6941,6 +6948,7 @@ api_instance = GiftCertificateApi(api_client())
         logged_in=True,
         marketing=CartMarketing(
             advertising_source="advertising_source_example",
+            cell_phone_opt_in=True,
             mailing_list_opt_in=True,
         ),
         merchant_id="merchant_id_example",
@@ -7853,6 +7861,7 @@ api_instance = GiftCertificateApi(api_client())
         logged_in=True,
         marketing=CartMarketing(
             advertising_source="advertising_source_example",
+            cell_phone_opt_in=True,
             mailing_list_opt_in=True,
         ),
         merchant_id="merchant_id_example",
@@ -8688,6 +8697,7 @@ api_instance = GiftCertificateApi(api_client())
             logged_in=True,
             marketing=CartMarketing(
                 advertising_source="advertising_source_example",
+                cell_phone_opt_in=True,
                 mailing_list_opt_in=True,
             ),
             merchant_id="merchant_id_example",

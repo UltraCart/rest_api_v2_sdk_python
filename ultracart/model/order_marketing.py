@@ -89,6 +89,7 @@ class OrderMarketing(ModelNormal):
         """
         return {
             'advertising_source': (str,),  # noqa: E501
+            'cell_phone_opt_in': (bool,),  # noqa: E501
             'mailing_list': (bool,),  # noqa: E501
             'referral_code': (str,),  # noqa: E501
         }
@@ -100,6 +101,7 @@ class OrderMarketing(ModelNormal):
 
     attribute_map = {
         'advertising_source': 'advertising_source',  # noqa: E501
+        'cell_phone_opt_in': 'cell_phone_opt_in',  # noqa: E501
         'mailing_list': 'mailing_list',  # noqa: E501
         'referral_code': 'referral_code',  # noqa: E501
     }
@@ -146,6 +148,7 @@ class OrderMarketing(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             advertising_source (str): Advertising source. [optional]  # noqa: E501
+            cell_phone_opt_in (bool): True if the customer has opted into SMS marketing. [optional]  # noqa: E501
             mailing_list (bool): True if the customer has opted into mailing list subscription. [optional]  # noqa: E501
             referral_code (str): Referral code. [optional]  # noqa: E501
         """
@@ -234,6 +237,7 @@ class OrderMarketing(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             advertising_source (str): Advertising source. [optional]  # noqa: E501
+            cell_phone_opt_in (bool): True if the customer has opted into SMS marketing. [optional]  # noqa: E501
             mailing_list (bool): True if the customer has opted into mailing list subscription. [optional]  # noqa: E501
             referral_code (str): Referral code. [optional]  # noqa: E501
         """
