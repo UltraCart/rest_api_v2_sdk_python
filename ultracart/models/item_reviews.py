@@ -33,6 +33,7 @@ class ItemReviews(object):
     swagger_types = {
         'has_approved_review': 'bool',
         'has_review': 'bool',
+        'individual_reviews': 'list[ItemReview]',
         'review_count': 'int',
         'review_overall': 'float',
         'review_template_name': 'str',
@@ -45,6 +46,7 @@ class ItemReviews(object):
     attribute_map = {
         'has_approved_review': 'has_approved_review',
         'has_review': 'has_review',
+        'individual_reviews': 'individual_reviews',
         'review_count': 'review_count',
         'review_overall': 'review_overall',
         'review_template_name': 'review_template_name',
@@ -54,11 +56,12 @@ class ItemReviews(object):
         'share_reviews_with_merchant_item_oid': 'share_reviews_with_merchant_item_oid'
     }
 
-    def __init__(self, has_approved_review=None, has_review=None, review_count=None, review_overall=None, review_template_name=None, review_template_oid=None, reviewable=None, share_reviews_with_merchant_item_id=None, share_reviews_with_merchant_item_oid=None):  # noqa: E501
+    def __init__(self, has_approved_review=None, has_review=None, individual_reviews=None, review_count=None, review_overall=None, review_template_name=None, review_template_oid=None, reviewable=None, share_reviews_with_merchant_item_id=None, share_reviews_with_merchant_item_oid=None):  # noqa: E501
         """ItemReviews - a model defined in Swagger"""  # noqa: E501
 
         self._has_approved_review = None
         self._has_review = None
+        self._individual_reviews = None
         self._review_count = None
         self._review_overall = None
         self._review_template_name = None
@@ -72,6 +75,8 @@ class ItemReviews(object):
             self.has_approved_review = has_approved_review
         if has_review is not None:
             self.has_review = has_review
+        if individual_reviews is not None:
+            self.individual_reviews = individual_reviews
         if review_count is not None:
             self.review_count = review_count
         if review_overall is not None:
@@ -132,6 +137,27 @@ class ItemReviews(object):
         """
 
         self._has_review = has_review
+
+    @property
+    def individual_reviews(self):
+        """Gets the individual_reviews of this ItemReviews.  # noqa: E501
+
+
+        :return: The individual_reviews of this ItemReviews.  # noqa: E501
+        :rtype: list[ItemReview]
+        """
+        return self._individual_reviews
+
+    @individual_reviews.setter
+    def individual_reviews(self, individual_reviews):
+        """Sets the individual_reviews of this ItemReviews.
+
+
+        :param individual_reviews: The individual_reviews of this ItemReviews.  # noqa: E501
+        :type: list[ItemReview]
+        """
+
+        self._individual_reviews = individual_reviews
 
     @property
     def review_count(self):
