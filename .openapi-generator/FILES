@@ -453,6 +453,7 @@ docs/ItemResponse.md
 docs/ItemRestriction.md
 docs/ItemRestrictionItem.md
 docs/ItemRevguard.md
+docs/ItemReview.md
 docs/ItemReviews.md
 docs/ItemSalesforce.md
 docs/ItemShipping.md
@@ -1156,6 +1157,7 @@ ultracart/model/item_response.py
 ultracart/model/item_restriction.py
 ultracart/model/item_restriction_item.py
 ultracart/model/item_revguard.py
+ultracart/model/item_review.py
 ultracart/model/item_reviews.py
 ultracart/model/item_salesforce.py
 ultracart/model/item_shipping.py

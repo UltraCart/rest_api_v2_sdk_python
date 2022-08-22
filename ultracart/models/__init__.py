@@ -448,6 +448,7 @@ from ultracart.model.item_response import ItemResponse
 from ultracart.model.item_restriction import ItemRestriction
 from ultracart.model.item_restriction_item import ItemRestrictionItem
 from ultracart.model.item_revguard import ItemRevguard
+from ultracart.model.item_review import ItemReview
 from ultracart.model.item_reviews import ItemReviews
 from ultracart.model.item_salesforce import ItemSalesforce
 from ultracart.model.item_shipping import ItemShipping
