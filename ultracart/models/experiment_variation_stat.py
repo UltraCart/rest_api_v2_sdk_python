@@ -41,6 +41,7 @@ class ExperimentVariationStat(object):
         'page_view_count': 'int',
         'revenue': 'float',
         'session_count': 'int',
+        'sms_opt_in_count': 'int',
         'stat_dts': 'str'
     }
 
@@ -55,10 +56,11 @@ class ExperimentVariationStat(object):
         'page_view_count': 'page_view_count',
         'revenue': 'revenue',
         'session_count': 'session_count',
+        'sms_opt_in_count': 'sms_opt_in_count',
         'stat_dts': 'stat_dts'
     }
 
-    def __init__(self, add_to_cart_count=None, bounce_count=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, order_item_count=None, page_view_count=None, revenue=None, session_count=None, stat_dts=None):  # noqa: E501
+    def __init__(self, add_to_cart_count=None, bounce_count=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, order_item_count=None, page_view_count=None, revenue=None, session_count=None, sms_opt_in_count=None, stat_dts=None):  # noqa: E501
         """ExperimentVariationStat - a model defined in Swagger"""  # noqa: E501
 
         self._add_to_cart_count = None
@@ -71,6 +73,7 @@ class ExperimentVariationStat(object):
         self._page_view_count = None
         self._revenue = None
         self._session_count = None
+        self._sms_opt_in_count = None
         self._stat_dts = None
         self.discriminator = None
 
@@ -94,6 +97,8 @@ class ExperimentVariationStat(object):
             self.revenue = revenue
         if session_count is not None:
             self.session_count = session_count
+        if sms_opt_in_count is not None:
+            self.sms_opt_in_count = sms_opt_in_count
         if stat_dts is not None:
             self.stat_dts = stat_dts
 
@@ -326,6 +331,29 @@ class ExperimentVariationStat(object):
         """
 
         self._session_count = session_count
+
+    @property
+    def sms_opt_in_count(self):
+        """Gets the sms_opt_in_count of this ExperimentVariationStat.  # noqa: E501
+
+        Total SMS opt in count for this variation  # noqa: E501
+
+        :return: The sms_opt_in_count of this ExperimentVariationStat.  # noqa: E501
+        :rtype: int
+        """
+        return self._sms_opt_in_count
+
+    @sms_opt_in_count.setter
+    def sms_opt_in_count(self, sms_opt_in_count):
+        """Sets the sms_opt_in_count of this ExperimentVariationStat.
+
+        Total SMS opt in count for this variation  # noqa: E501
+
+        :param sms_opt_in_count: The sms_opt_in_count of this ExperimentVariationStat.  # noqa: E501
+        :type: int
+        """
+
+        self._sms_opt_in_count = sms_opt_in_count
 
     @property
     def stat_dts(self):

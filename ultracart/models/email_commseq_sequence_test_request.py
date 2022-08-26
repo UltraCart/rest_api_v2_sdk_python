@@ -31,56 +31,128 @@ class EmailCommseqSequenceTestRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'address_1': 'str',
+        'address_2': 'str',
         'cart_id': 'str',
         'cart_item_ids': 'list[str]',
+        'city': 'str',
         'esp_commseq_uuid': 'str',
+        'mail_card': 'bool',
         'name': 'str',
         'order_id': 'str',
         'please_review': 'bool',
+        'postal_code': 'str',
         'send_to_email': 'str',
-        'send_to_logged_in_user': 'bool'
+        'send_to_logged_in_user': 'bool',
+        'state': 'str'
     }
 
     attribute_map = {
+        'address_1': 'address_1',
+        'address_2': 'address_2',
         'cart_id': 'cart_id',
         'cart_item_ids': 'cart_item_ids',
+        'city': 'city',
         'esp_commseq_uuid': 'esp_commseq_uuid',
+        'mail_card': 'mail_card',
         'name': 'name',
         'order_id': 'order_id',
         'please_review': 'please_review',
+        'postal_code': 'postal_code',
         'send_to_email': 'send_to_email',
-        'send_to_logged_in_user': 'send_to_logged_in_user'
+        'send_to_logged_in_user': 'send_to_logged_in_user',
+        'state': 'state'
     }
 
-    def __init__(self, cart_id=None, cart_item_ids=None, esp_commseq_uuid=None, name=None, order_id=None, please_review=None, send_to_email=None, send_to_logged_in_user=None):  # noqa: E501
+    def __init__(self, address_1=None, address_2=None, cart_id=None, cart_item_ids=None, city=None, esp_commseq_uuid=None, mail_card=None, name=None, order_id=None, please_review=None, postal_code=None, send_to_email=None, send_to_logged_in_user=None, state=None):  # noqa: E501
         """EmailCommseqSequenceTestRequest - a model defined in Swagger"""  # noqa: E501
 
+        self._address_1 = None
+        self._address_2 = None
         self._cart_id = None
         self._cart_item_ids = None
+        self._city = None
         self._esp_commseq_uuid = None
+        self._mail_card = None
         self._name = None
         self._order_id = None
         self._please_review = None
+        self._postal_code = None
         self._send_to_email = None
         self._send_to_logged_in_user = None
+        self._state = None
         self.discriminator = None
 
+        if address_1 is not None:
+            self.address_1 = address_1
+        if address_2 is not None:
+            self.address_2 = address_2
         if cart_id is not None:
             self.cart_id = cart_id
         if cart_item_ids is not None:
             self.cart_item_ids = cart_item_ids
+        if city is not None:
+            self.city = city
         if esp_commseq_uuid is not None:
             self.esp_commseq_uuid = esp_commseq_uuid
+        if mail_card is not None:
+            self.mail_card = mail_card
         if name is not None:
             self.name = name
         if order_id is not None:
             self.order_id = order_id
         if please_review is not None:
             self.please_review = please_review
+        if postal_code is not None:
+            self.postal_code = postal_code
         if send_to_email is not None:
             self.send_to_email = send_to_email
         if send_to_logged_in_user is not None:
             self.send_to_logged_in_user = send_to_logged_in_user
+        if state is not None:
+            self.state = state
+
+    @property
+    def address_1(self):
+        """Gets the address_1 of this EmailCommseqSequenceTestRequest.  # noqa: E501
+
+
+        :return: The address_1 of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_1
+
+    @address_1.setter
+    def address_1(self, address_1):
+        """Sets the address_1 of this EmailCommseqSequenceTestRequest.
+
+
+        :param address_1: The address_1 of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._address_1 = address_1
+
+    @property
+    def address_2(self):
+        """Gets the address_2 of this EmailCommseqSequenceTestRequest.  # noqa: E501
+
+
+        :return: The address_2 of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_2
+
+    @address_2.setter
+    def address_2(self, address_2):
+        """Sets the address_2 of this EmailCommseqSequenceTestRequest.
+
+
+        :param address_2: The address_2 of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._address_2 = address_2
 
     @property
     def cart_id(self):
@@ -125,6 +197,27 @@ class EmailCommseqSequenceTestRequest(object):
         self._cart_item_ids = cart_item_ids
 
     @property
+    def city(self):
+        """Gets the city of this EmailCommseqSequenceTestRequest.  # noqa: E501
+
+
+        :return: The city of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._city
+
+    @city.setter
+    def city(self, city):
+        """Sets the city of this EmailCommseqSequenceTestRequest.
+
+
+        :param city: The city of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._city = city
+
+    @property
     def esp_commseq_uuid(self):
         """Gets the esp_commseq_uuid of this EmailCommseqSequenceTestRequest.  # noqa: E501
 
@@ -144,6 +237,27 @@ class EmailCommseqSequenceTestRequest(object):
         """
 
         self._esp_commseq_uuid = esp_commseq_uuid
+
+    @property
+    def mail_card(self):
+        """Gets the mail_card of this EmailCommseqSequenceTestRequest.  # noqa: E501
+
+
+        :return: The mail_card of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._mail_card
+
+    @mail_card.setter
+    def mail_card(self, mail_card):
+        """Sets the mail_card of this EmailCommseqSequenceTestRequest.
+
+
+        :param mail_card: The mail_card of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._mail_card = mail_card
 
     @property
     def name(self):
@@ -209,6 +323,27 @@ class EmailCommseqSequenceTestRequest(object):
         self._please_review = please_review
 
     @property
+    def postal_code(self):
+        """Gets the postal_code of this EmailCommseqSequenceTestRequest.  # noqa: E501
+
+
+        :return: The postal_code of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._postal_code
+
+    @postal_code.setter
+    def postal_code(self, postal_code):
+        """Sets the postal_code of this EmailCommseqSequenceTestRequest.
+
+
+        :param postal_code: The postal_code of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._postal_code = postal_code
+
+    @property
     def send_to_email(self):
         """Gets the send_to_email of this EmailCommseqSequenceTestRequest.  # noqa: E501
 
@@ -249,6 +384,27 @@ class EmailCommseqSequenceTestRequest(object):
         """
 
         self._send_to_logged_in_user = send_to_logged_in_user
+
+    @property
+    def state(self):
+        """Gets the state of this EmailCommseqSequenceTestRequest.  # noqa: E501
+
+
+        :return: The state of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """Sets the state of this EmailCommseqSequenceTestRequest.
+
+
+        :param state: The state of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._state = state
 
     def to_dict(self):
         """Returns the model properties as a dict"""

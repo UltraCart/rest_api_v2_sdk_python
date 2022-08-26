@@ -48,6 +48,7 @@ class ExperimentVariation(object):
         'paused': 'bool',
         'revenue': 'float',
         'session_count': 'int',
+        'sms_opt_ins': 'int',
         'traffic_percentage': 'float',
         'url': 'str',
         'variation_name': 'str',
@@ -73,6 +74,7 @@ class ExperimentVariation(object):
         'paused': 'paused',
         'revenue': 'revenue',
         'session_count': 'session_count',
+        'sms_opt_ins': 'sms_opt_ins',
         'traffic_percentage': 'traffic_percentage',
         'url': 'url',
         'variation_name': 'variation_name',
@@ -80,7 +82,7 @@ class ExperimentVariation(object):
         'winner': 'winner'
     }
 
-    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, average_order_value=None, bounce_count=None, conversion_rate=None, daily_statistics=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, order_item_count=None, original_traffic_percentage=None, page_view_count=None, paused=None, revenue=None, session_count=None, traffic_percentage=None, url=None, variation_name=None, variation_number=None, winner=None):  # noqa: E501
+    def __init__(self, add_to_cart_count=None, average_duration_seconds=None, average_objective_per_session=None, average_order_value=None, bounce_count=None, conversion_rate=None, daily_statistics=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, order_item_count=None, original_traffic_percentage=None, page_view_count=None, paused=None, revenue=None, session_count=None, sms_opt_ins=None, traffic_percentage=None, url=None, variation_name=None, variation_number=None, winner=None):  # noqa: E501
         """ExperimentVariation - a model defined in Swagger"""  # noqa: E501
 
         self._add_to_cart_count = None
@@ -100,6 +102,7 @@ class ExperimentVariation(object):
         self._paused = None
         self._revenue = None
         self._session_count = None
+        self._sms_opt_ins = None
         self._traffic_percentage = None
         self._url = None
         self._variation_name = None
@@ -141,6 +144,8 @@ class ExperimentVariation(object):
             self.revenue = revenue
         if session_count is not None:
             self.session_count = session_count
+        if sms_opt_ins is not None:
+            self.sms_opt_ins = sms_opt_ins
         if traffic_percentage is not None:
             self.traffic_percentage = traffic_percentage
         if url is not None:
@@ -542,6 +547,29 @@ class ExperimentVariation(object):
         """
 
         self._session_count = session_count
+
+    @property
+    def sms_opt_ins(self):
+        """Gets the sms_opt_ins of this ExperimentVariation.  # noqa: E501
+
+        SMS Opt Ins for this variation  # noqa: E501
+
+        :return: The sms_opt_ins of this ExperimentVariation.  # noqa: E501
+        :rtype: int
+        """
+        return self._sms_opt_ins
+
+    @sms_opt_ins.setter
+    def sms_opt_ins(self, sms_opt_ins):
+        """Sets the sms_opt_ins of this ExperimentVariation.
+
+        SMS Opt Ins for this variation  # noqa: E501
+
+        :param sms_opt_ins: The sms_opt_ins of this ExperimentVariation.  # noqa: E501
+        :type: int
+        """
+
+        self._sms_opt_ins = sms_opt_ins
 
     @property
     def traffic_percentage(self):
