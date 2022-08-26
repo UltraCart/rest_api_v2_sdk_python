@@ -82,14 +82,20 @@ class EmailCommseqSequenceTestRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'address_1': (str,),  # noqa: E501
+            'address_2': (str,),  # noqa: E501
             'cart_id': (str,),  # noqa: E501
             'cart_item_ids': ([str],),  # noqa: E501
+            'city': (str,),  # noqa: E501
             'esp_commseq_uuid': (str,),  # noqa: E501
+            'mail_card': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'order_id': (str,),  # noqa: E501
             'please_review': (bool,),  # noqa: E501
+            'postal_code': (str,),  # noqa: E501
             'send_to_email': (str,),  # noqa: E501
             'send_to_logged_in_user': (bool,),  # noqa: E501
+            'state': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,14 +104,20 @@ class EmailCommseqSequenceTestRequest(ModelNormal):
 
 
     attribute_map = {
+        'address_1': 'address_1',  # noqa: E501
+        'address_2': 'address_2',  # noqa: E501
         'cart_id': 'cart_id',  # noqa: E501
         'cart_item_ids': 'cart_item_ids',  # noqa: E501
+        'city': 'city',  # noqa: E501
         'esp_commseq_uuid': 'esp_commseq_uuid',  # noqa: E501
+        'mail_card': 'mail_card',  # noqa: E501
         'name': 'name',  # noqa: E501
         'order_id': 'order_id',  # noqa: E501
         'please_review': 'please_review',  # noqa: E501
+        'postal_code': 'postal_code',  # noqa: E501
         'send_to_email': 'send_to_email',  # noqa: E501
         'send_to_logged_in_user': 'send_to_logged_in_user',  # noqa: E501
+        'state': 'state',  # noqa: E501
     }
 
     read_only_vars = {
@@ -149,14 +161,20 @@ class EmailCommseqSequenceTestRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            address_1 (str): [optional]  # noqa: E501
+            address_2 (str): [optional]  # noqa: E501
             cart_id (str): [optional]  # noqa: E501
             cart_item_ids ([str]): [optional]  # noqa: E501
+            city (str): [optional]  # noqa: E501
             esp_commseq_uuid (str): [optional]  # noqa: E501
+            mail_card (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             order_id (str): [optional]  # noqa: E501
             please_review (bool): [optional]  # noqa: E501
+            postal_code (str): [optional]  # noqa: E501
             send_to_email (str): [optional]  # noqa: E501
             send_to_logged_in_user (bool): [optional]  # noqa: E501
+            state (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -242,14 +260,20 @@ class EmailCommseqSequenceTestRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            address_1 (str): [optional]  # noqa: E501
+            address_2 (str): [optional]  # noqa: E501
             cart_id (str): [optional]  # noqa: E501
             cart_item_ids ([str]): [optional]  # noqa: E501
+            city (str): [optional]  # noqa: E501
             esp_commseq_uuid (str): [optional]  # noqa: E501
+            mail_card (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             order_id (str): [optional]  # noqa: E501
             please_review (bool): [optional]  # noqa: E501
+            postal_code (str): [optional]  # noqa: E501
             send_to_email (str): [optional]  # noqa: E501
             send_to_logged_in_user (bool): [optional]  # noqa: E501
+            state (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

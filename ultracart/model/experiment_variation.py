@@ -105,6 +105,7 @@ class ExperimentVariation(ModelNormal):
             'paused': (bool,),  # noqa: E501
             'revenue': (float,),  # noqa: E501
             'session_count': (int,),  # noqa: E501
+            'sms_opt_ins': (int,),  # noqa: E501
             'traffic_percentage': (float,),  # noqa: E501
             'url': (str,),  # noqa: E501
             'variation_name': (str,),  # noqa: E501
@@ -135,6 +136,7 @@ class ExperimentVariation(ModelNormal):
         'paused': 'paused',  # noqa: E501
         'revenue': 'revenue',  # noqa: E501
         'session_count': 'session_count',  # noqa: E501
+        'sms_opt_ins': 'sms_opt_ins',  # noqa: E501
         'traffic_percentage': 'traffic_percentage',  # noqa: E501
         'url': 'url',  # noqa: E501
         'variation_name': 'variation_name',  # noqa: E501
@@ -200,6 +202,7 @@ class ExperimentVariation(ModelNormal):
             paused (bool): True if traffic should be paused to this variation. [optional]  # noqa: E501
             revenue (float): Total revenue for this variation. [optional]  # noqa: E501
             session_count (int): Total sessions for this variation. [optional]  # noqa: E501
+            sms_opt_ins (int): SMS Opt Ins for this variation. [optional]  # noqa: E501
             traffic_percentage (float): Percentage of the traffic this variation is currently receiving. [optional]  # noqa: E501
             url (str): Url of the variation if this experiment is a url experiment.. [optional]  # noqa: E501
             variation_name (str): Name of the variation. [optional]  # noqa: E501
@@ -307,6 +310,7 @@ class ExperimentVariation(ModelNormal):
             paused (bool): True if traffic should be paused to this variation. [optional]  # noqa: E501
             revenue (float): Total revenue for this variation. [optional]  # noqa: E501
             session_count (int): Total sessions for this variation. [optional]  # noqa: E501
+            sms_opt_ins (int): SMS Opt Ins for this variation. [optional]  # noqa: E501
             traffic_percentage (float): Percentage of the traffic this variation is currently receiving. [optional]  # noqa: E501
             url (str): Url of the variation if this experiment is a url experiment.. [optional]  # noqa: E501
             variation_name (str): Name of the variation. [optional]  # noqa: E501

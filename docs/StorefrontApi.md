@@ -11421,16 +11421,22 @@ api_instance = GiftCertificateApi(api_client())
     storefront_oid = 1 # int | 
     commseq_uuid = "commseq_uuid_example" # str | 
     email_commseq_sequence_test_request = EmailCommseqSequenceTestRequest(
+        address_1="address_1_example",
+        address_2="address_2_example",
         cart_id="cart_id_example",
         cart_item_ids=[
             "cart_item_ids_example",
         ],
+        city="city_example",
         esp_commseq_uuid="esp_commseq_uuid_example",
+        mail_card=True,
         name="name_example",
         order_id="order_id_example",
         please_review=True,
+        postal_code="postal_code_example",
         send_to_email="send_to_email_example",
         send_to_logged_in_user=True,
+        state="state_example",
     ) # EmailCommseqSequenceTestRequest | Commseq test request
 
     # example passing only required values which don't have defaults set
@@ -13188,6 +13194,7 @@ api_instance = GiftCertificateApi(api_client())
                         page_view_count=1,
                         revenue=3.14,
                         session_count=1,
+                        sms_opt_in_count=1,
                         stat_dts="stat_dts_example",
                     ),
                 ],
@@ -13201,6 +13208,7 @@ api_instance = GiftCertificateApi(api_client())
                 paused=True,
                 revenue=3.14,
                 session_count=1,
+                sms_opt_ins=1,
                 traffic_percentage=3.14,
                 url="url_example",
                 variation_name="variation_name_example",

@@ -3722,6 +3722,7 @@ api_instance = GiftCertificateApi(api_client())
     auto_order_cancel = False # bool | Cancel associated auto orders (optional) if omitted the server will use the default value of False
     manual_refund = False # bool | Consider a manual refund done externally (optional) if omitted the server will use the default value of False
     reverse_affiliate_transactions = True # bool | Reverse affiliate transactions (optional) if omitted the server will use the default value of True
+    issue_store_credit = False # bool | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional) if omitted the server will use the default value of False
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
     # example passing only required values which don't have defaults set
@@ -3736,7 +3737,7 @@ api_instance = GiftCertificateApi(api_client())
     # and optional values
     try:
         # Refund an order
-        api_response = api_instance.refund_order(order_id, order, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, expand=expand)
+        api_response = api_instance.refund_order(order_id, order, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, expand=expand)
         pprint(api_response)
     except ultracart.ApiException as e:
         print("Exception when calling OrderApi->refund_order: %s\n" % e)
@@ -3754,6 +3755,7 @@ Name | Type | Description  | Notes
  **auto_order_cancel** | **bool**| Cancel associated auto orders | [optional] if omitted the server will use the default value of False
  **manual_refund** | **bool**| Consider a manual refund done externally | [optional] if omitted the server will use the default value of False
  **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional] if omitted the server will use the default value of True
+ **issue_store_credit** | **bool**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] if omitted the server will use the default value of False
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **page_view_count** | **int** | Total page view count for this variation | [optional] 
 **revenue** | **float** | Total revenue for this variation | [optional] 
 **session_count** | **int** | Total sessions for this variation | [optional] 
+**sms_opt_in_count** | **int** | Total SMS opt in count for this variation | [optional] 
 **stat_dts** | **str** | Date/time that the statistic was created | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

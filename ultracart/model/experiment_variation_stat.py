@@ -92,6 +92,7 @@ class ExperimentVariationStat(ModelNormal):
             'page_view_count': (int,),  # noqa: E501
             'revenue': (float,),  # noqa: E501
             'session_count': (int,),  # noqa: E501
+            'sms_opt_in_count': (int,),  # noqa: E501
             'stat_dts': (str,),  # noqa: E501
         }
 
@@ -111,6 +112,7 @@ class ExperimentVariationStat(ModelNormal):
         'page_view_count': 'page_view_count',  # noqa: E501
         'revenue': 'revenue',  # noqa: E501
         'session_count': 'session_count',  # noqa: E501
+        'sms_opt_in_count': 'sms_opt_in_count',  # noqa: E501
         'stat_dts': 'stat_dts',  # noqa: E501
     }
 
@@ -165,6 +167,7 @@ class ExperimentVariationStat(ModelNormal):
             page_view_count (int): Total page view count for this variation. [optional]  # noqa: E501
             revenue (float): Total revenue for this variation. [optional]  # noqa: E501
             session_count (int): Total sessions for this variation. [optional]  # noqa: E501
+            sms_opt_in_count (int): Total SMS opt in count for this variation. [optional]  # noqa: E501
             stat_dts (str): Date/time that the statistic was created. [optional]  # noqa: E501
         """
 
@@ -261,6 +264,7 @@ class ExperimentVariationStat(ModelNormal):
             page_view_count (int): Total page view count for this variation. [optional]  # noqa: E501
             revenue (float): Total revenue for this variation. [optional]  # noqa: E501
             session_count (int): Total sessions for this variation. [optional]  # noqa: E501
+            sms_opt_in_count (int): Total SMS opt in count for this variation. [optional]  # noqa: E501
             stat_dts (str): Date/time that the statistic was created. [optional]  # noqa: E501
         """
 
