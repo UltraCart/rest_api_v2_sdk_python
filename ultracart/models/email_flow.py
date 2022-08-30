@@ -53,6 +53,8 @@ class EmailFlow(object):
         'revenue_formatted': 'str',
         'revenue_per_customer_formatted': 'str',
         'screenshot_large_full_url': 'str',
+        'sms_esp_twilio_uuid': 'str',
+        'sms_phone_number': 'str',
         'status': 'str',
         'status_dts': 'str',
         'storefront_oid': 'int',
@@ -84,6 +86,8 @@ class EmailFlow(object):
         'revenue_formatted': 'revenue_formatted',
         'revenue_per_customer_formatted': 'revenue_per_customer_formatted',
         'screenshot_large_full_url': 'screenshot_large_full_url',
+        'sms_esp_twilio_uuid': 'sms_esp_twilio_uuid',
+        'sms_phone_number': 'sms_phone_number',
         'status': 'status',
         'status_dts': 'status_dts',
         'storefront_oid': 'storefront_oid',
@@ -92,7 +96,7 @@ class EmailFlow(object):
         'trigger_type': 'trigger_type'
     }
 
-    def __init__(self, allow_multiple_concurrent_enrollments=None, back_populating=None, click_rate_formatted=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, enrolled_customers=None, esp_domain_user=None, esp_domain_uuid=None, esp_flow_folder_uuid=None, esp_friendly_name=None, filter_profile_equation_json=None, library_item_oid=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, revenue_per_customer_formatted=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):  # noqa: E501
+    def __init__(self, allow_multiple_concurrent_enrollments=None, back_populating=None, click_rate_formatted=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, enrolled_customers=None, esp_domain_user=None, esp_domain_uuid=None, esp_flow_folder_uuid=None, esp_friendly_name=None, filter_profile_equation_json=None, library_item_oid=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, revenue_per_customer_formatted=None, screenshot_large_full_url=None, sms_esp_twilio_uuid=None, sms_phone_number=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):  # noqa: E501
         """EmailFlow - a model defined in Swagger"""  # noqa: E501
 
         self._allow_multiple_concurrent_enrollments = None
@@ -117,6 +121,8 @@ class EmailFlow(object):
         self._revenue_formatted = None
         self._revenue_per_customer_formatted = None
         self._screenshot_large_full_url = None
+        self._sms_esp_twilio_uuid = None
+        self._sms_phone_number = None
         self._status = None
         self._status_dts = None
         self._storefront_oid = None
@@ -169,6 +175,10 @@ class EmailFlow(object):
             self.revenue_per_customer_formatted = revenue_per_customer_formatted
         if screenshot_large_full_url is not None:
             self.screenshot_large_full_url = screenshot_large_full_url
+        if sms_esp_twilio_uuid is not None:
+            self.sms_esp_twilio_uuid = sms_esp_twilio_uuid
+        if sms_phone_number is not None:
+            self.sms_phone_number = sms_phone_number
         if status is not None:
             self.status = status
         if status_dts is not None:
@@ -689,6 +699,52 @@ class EmailFlow(object):
         """
 
         self._screenshot_large_full_url = screenshot_large_full_url
+
+    @property
+    def sms_esp_twilio_uuid(self):
+        """Gets the sms_esp_twilio_uuid of this EmailFlow.  # noqa: E501
+
+        Twilio Account UUID.  Null for none  # noqa: E501
+
+        :return: The sms_esp_twilio_uuid of this EmailFlow.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms_esp_twilio_uuid
+
+    @sms_esp_twilio_uuid.setter
+    def sms_esp_twilio_uuid(self, sms_esp_twilio_uuid):
+        """Sets the sms_esp_twilio_uuid of this EmailFlow.
+
+        Twilio Account UUID.  Null for none  # noqa: E501
+
+        :param sms_esp_twilio_uuid: The sms_esp_twilio_uuid of this EmailFlow.  # noqa: E501
+        :type: str
+        """
+
+        self._sms_esp_twilio_uuid = sms_esp_twilio_uuid
+
+    @property
+    def sms_phone_number(self):
+        """Gets the sms_phone_number of this EmailFlow.  # noqa: E501
+
+        Twilio SMS Phone Number.  Null for none  # noqa: E501
+
+        :return: The sms_phone_number of this EmailFlow.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms_phone_number
+
+    @sms_phone_number.setter
+    def sms_phone_number(self, sms_phone_number):
+        """Sets the sms_phone_number of this EmailFlow.
+
+        Twilio SMS Phone Number.  Null for none  # noqa: E501
+
+        :param sms_phone_number: The sms_phone_number of this EmailFlow.  # noqa: E501
+        :type: str
+        """
+
+        self._sms_phone_number = sms_phone_number
 
     @property
     def status(self):

@@ -52,6 +52,8 @@ class EmailCampaign(object):
         'revenue_per_customer_formatted': 'str',
         'scheduled_dts': 'str',
         'screenshot_large_full_url': 'str',
+        'sms_esp_twilio_uuid': 'str',
+        'sms_phone_number': 'str',
         'status': 'str',
         'status_dts': 'str',
         'storefront_oid': 'int'
@@ -79,12 +81,14 @@ class EmailCampaign(object):
         'revenue_per_customer_formatted': 'revenue_per_customer_formatted',
         'scheduled_dts': 'scheduled_dts',
         'screenshot_large_full_url': 'screenshot_large_full_url',
+        'sms_esp_twilio_uuid': 'sms_esp_twilio_uuid',
+        'sms_phone_number': 'sms_phone_number',
         'status': 'status',
         'status_dts': 'status_dts',
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, esp_campaign_folder_uuid=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, library_item_oid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, revenue_per_customer_formatted=None, scheduled_dts=None, screenshot_large_full_url=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
+    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, esp_campaign_folder_uuid=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, library_item_oid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, revenue_per_customer_formatted=None, scheduled_dts=None, screenshot_large_full_url=None, sms_esp_twilio_uuid=None, sms_phone_number=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
         """EmailCampaign - a model defined in Swagger"""  # noqa: E501
 
         self._click_rate_formatted = None
@@ -108,6 +112,8 @@ class EmailCampaign(object):
         self._revenue_per_customer_formatted = None
         self._scheduled_dts = None
         self._screenshot_large_full_url = None
+        self._sms_esp_twilio_uuid = None
+        self._sms_phone_number = None
         self._status = None
         self._status_dts = None
         self._storefront_oid = None
@@ -155,6 +161,10 @@ class EmailCampaign(object):
             self.scheduled_dts = scheduled_dts
         if screenshot_large_full_url is not None:
             self.screenshot_large_full_url = screenshot_large_full_url
+        if sms_esp_twilio_uuid is not None:
+            self.sms_esp_twilio_uuid = sms_esp_twilio_uuid
+        if sms_phone_number is not None:
+            self.sms_phone_number = sms_phone_number
         if status is not None:
             self.status = status
         if status_dts is not None:
@@ -646,6 +656,52 @@ class EmailCampaign(object):
         """
 
         self._screenshot_large_full_url = screenshot_large_full_url
+
+    @property
+    def sms_esp_twilio_uuid(self):
+        """Gets the sms_esp_twilio_uuid of this EmailCampaign.  # noqa: E501
+
+        Twilio Account UUID.  Null for none  # noqa: E501
+
+        :return: The sms_esp_twilio_uuid of this EmailCampaign.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms_esp_twilio_uuid
+
+    @sms_esp_twilio_uuid.setter
+    def sms_esp_twilio_uuid(self, sms_esp_twilio_uuid):
+        """Sets the sms_esp_twilio_uuid of this EmailCampaign.
+
+        Twilio Account UUID.  Null for none  # noqa: E501
+
+        :param sms_esp_twilio_uuid: The sms_esp_twilio_uuid of this EmailCampaign.  # noqa: E501
+        :type: str
+        """
+
+        self._sms_esp_twilio_uuid = sms_esp_twilio_uuid
+
+    @property
+    def sms_phone_number(self):
+        """Gets the sms_phone_number of this EmailCampaign.  # noqa: E501
+
+        Twilio SMS Phone Number.  Null for none  # noqa: E501
+
+        :return: The sms_phone_number of this EmailCampaign.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms_phone_number
+
+    @sms_phone_number.setter
+    def sms_phone_number(self, sms_phone_number):
+        """Sets the sms_phone_number of this EmailCampaign.
+
+        Twilio SMS Phone Number.  Null for none  # noqa: E501
+
+        :param sms_phone_number: The sms_phone_number of this EmailCampaign.  # noqa: E501
+        :type: str
+        """
+
+        self._sms_phone_number = sms_phone_number
 
     @property
     def status(self):

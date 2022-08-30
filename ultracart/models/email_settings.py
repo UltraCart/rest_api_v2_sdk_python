@@ -40,6 +40,8 @@ class EmailSettings(object):
         'postcard_from_name': 'str',
         'postcard_from_postal_code': 'str',
         'postcard_from_state': 'str',
+        'sms_esp_twilio_uuid': 'str',
+        'sms_phone_number': 'str',
         'transactional_esp_domain_user': 'str',
         'transactional_esp_domain_uuid': 'str',
         'transactional_esp_friendly_name': 'str'
@@ -55,12 +57,14 @@ class EmailSettings(object):
         'postcard_from_name': 'postcard_from_name',
         'postcard_from_postal_code': 'postcard_from_postal_code',
         'postcard_from_state': 'postcard_from_state',
+        'sms_esp_twilio_uuid': 'sms_esp_twilio_uuid',
+        'sms_phone_number': 'sms_phone_number',
         'transactional_esp_domain_user': 'transactional_esp_domain_user',
         'transactional_esp_domain_uuid': 'transactional_esp_domain_uuid',
         'transactional_esp_friendly_name': 'transactional_esp_friendly_name'
     }
 
-    def __init__(self, marketing_esp_domain_user=None, marketing_esp_domain_uuid=None, marketing_esp_friendly_name=None, postcard_from_address1=None, postcard_from_address2=None, postcard_from_city=None, postcard_from_name=None, postcard_from_postal_code=None, postcard_from_state=None, transactional_esp_domain_user=None, transactional_esp_domain_uuid=None, transactional_esp_friendly_name=None):  # noqa: E501
+    def __init__(self, marketing_esp_domain_user=None, marketing_esp_domain_uuid=None, marketing_esp_friendly_name=None, postcard_from_address1=None, postcard_from_address2=None, postcard_from_city=None, postcard_from_name=None, postcard_from_postal_code=None, postcard_from_state=None, sms_esp_twilio_uuid=None, sms_phone_number=None, transactional_esp_domain_user=None, transactional_esp_domain_uuid=None, transactional_esp_friendly_name=None):  # noqa: E501
         """EmailSettings - a model defined in Swagger"""  # noqa: E501
 
         self._marketing_esp_domain_user = None
@@ -72,6 +76,8 @@ class EmailSettings(object):
         self._postcard_from_name = None
         self._postcard_from_postal_code = None
         self._postcard_from_state = None
+        self._sms_esp_twilio_uuid = None
+        self._sms_phone_number = None
         self._transactional_esp_domain_user = None
         self._transactional_esp_domain_uuid = None
         self._transactional_esp_friendly_name = None
@@ -95,6 +101,10 @@ class EmailSettings(object):
             self.postcard_from_postal_code = postcard_from_postal_code
         if postcard_from_state is not None:
             self.postcard_from_state = postcard_from_state
+        if sms_esp_twilio_uuid is not None:
+            self.sms_esp_twilio_uuid = sms_esp_twilio_uuid
+        if sms_phone_number is not None:
+            self.sms_phone_number = sms_phone_number
         if transactional_esp_domain_user is not None:
             self.transactional_esp_domain_user = transactional_esp_domain_user
         if transactional_esp_domain_uuid is not None:
@@ -290,6 +300,48 @@ class EmailSettings(object):
         """
 
         self._postcard_from_state = postcard_from_state
+
+    @property
+    def sms_esp_twilio_uuid(self):
+        """Gets the sms_esp_twilio_uuid of this EmailSettings.  # noqa: E501
+
+
+        :return: The sms_esp_twilio_uuid of this EmailSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms_esp_twilio_uuid
+
+    @sms_esp_twilio_uuid.setter
+    def sms_esp_twilio_uuid(self, sms_esp_twilio_uuid):
+        """Sets the sms_esp_twilio_uuid of this EmailSettings.
+
+
+        :param sms_esp_twilio_uuid: The sms_esp_twilio_uuid of this EmailSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sms_esp_twilio_uuid = sms_esp_twilio_uuid
+
+    @property
+    def sms_phone_number(self):
+        """Gets the sms_phone_number of this EmailSettings.  # noqa: E501
+
+
+        :return: The sms_phone_number of this EmailSettings.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms_phone_number
+
+    @sms_phone_number.setter
+    def sms_phone_number(self, sms_phone_number):
+        """Sets the sms_phone_number of this EmailSettings.
+
+
+        :param sms_phone_number: The sms_phone_number of this EmailSettings.  # noqa: E501
+        :type: str
+        """
+
+        self._sms_phone_number = sms_phone_number
 
     @property
     def transactional_esp_domain_user(self):
