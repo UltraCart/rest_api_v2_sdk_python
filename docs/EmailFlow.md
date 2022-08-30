@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **revenue_formatted** | **str** | Revenue, formatted | [optional] 
 **revenue_per_customer_formatted** | **str** | Revenue per customer, formatted | [optional] 
 **screenshot_large_full_url** | **str** | URL to a large full length screenshot | [optional] 
+**sms_esp_twilio_uuid** | **str** | Twilio Account UUID.  Null for none | [optional] 
+**sms_phone_number** | **str** | Twilio SMS Phone Number.  Null for none | [optional] 
 **status** | **str** | Status of the campaign of draft, archived, active, and inactive | [optional] 
 **status_dts** | **str** | Timestamp when the last status change happened | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 

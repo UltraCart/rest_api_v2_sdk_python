@@ -107,6 +107,8 @@ class EmailFlow(ModelNormal):
             'revenue_formatted': (str,),  # noqa: E501
             'revenue_per_customer_formatted': (str,),  # noqa: E501
             'screenshot_large_full_url': (str,),  # noqa: E501
+            'sms_esp_twilio_uuid': (str,),  # noqa: E501
+            'sms_phone_number': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'status_dts': (str,),  # noqa: E501
             'storefront_oid': (int,),  # noqa: E501
@@ -143,6 +145,8 @@ class EmailFlow(ModelNormal):
         'revenue_formatted': 'revenue_formatted',  # noqa: E501
         'revenue_per_customer_formatted': 'revenue_per_customer_formatted',  # noqa: E501
         'screenshot_large_full_url': 'screenshot_large_full_url',  # noqa: E501
+        'sms_esp_twilio_uuid': 'sms_esp_twilio_uuid',  # noqa: E501
+        'sms_phone_number': 'sms_phone_number',  # noqa: E501
         'status': 'status',  # noqa: E501
         'status_dts': 'status_dts',  # noqa: E501
         'storefront_oid': 'storefront_oid',  # noqa: E501
@@ -214,6 +218,8 @@ class EmailFlow(ModelNormal):
             revenue_formatted (str): Revenue, formatted. [optional]  # noqa: E501
             revenue_per_customer_formatted (str): Revenue per customer, formatted. [optional]  # noqa: E501
             screenshot_large_full_url (str): URL to a large full length screenshot. [optional]  # noqa: E501
+            sms_esp_twilio_uuid (str): Twilio Account UUID.  Null for none. [optional]  # noqa: E501
+            sms_phone_number (str): Twilio SMS Phone Number.  Null for none. [optional]  # noqa: E501
             status (str): Status of the campaign of draft, archived, active, and inactive. [optional]  # noqa: E501
             status_dts (str): Timestamp when the last status change happened. [optional]  # noqa: E501
             storefront_oid (int): Storefront oid. [optional]  # noqa: E501
@@ -327,6 +333,8 @@ class EmailFlow(ModelNormal):
             revenue_formatted (str): Revenue, formatted. [optional]  # noqa: E501
             revenue_per_customer_formatted (str): Revenue per customer, formatted. [optional]  # noqa: E501
             screenshot_large_full_url (str): URL to a large full length screenshot. [optional]  # noqa: E501
+            sms_esp_twilio_uuid (str): Twilio Account UUID.  Null for none. [optional]  # noqa: E501
+            sms_phone_number (str): Twilio SMS Phone Number.  Null for none. [optional]  # noqa: E501
             status (str): Status of the campaign of draft, archived, active, and inactive. [optional]  # noqa: E501
             status_dts (str): Timestamp when the last status change happened. [optional]  # noqa: E501
             storefront_oid (int): Storefront oid. [optional]  # noqa: E501
