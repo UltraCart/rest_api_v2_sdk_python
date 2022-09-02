@@ -95,6 +95,7 @@ class CustomerEditorValues(ModelNormal):
             'card_exp_years': ([str],),  # noqa: E501
             'card_types': ([str],),  # noqa: E501
             'countries': ([Country],),  # noqa: E501
+            'loyalty_ledger_descriptions': ([str],),  # noqa: E501
             'loyalty_program_type': (str,),  # noqa: E501
             'qb_classes': ([str],),  # noqa: E501
             'sales_rep_codes': ([str],),  # noqa: E501
@@ -113,6 +114,7 @@ class CustomerEditorValues(ModelNormal):
         'card_exp_years': 'card_exp_years',  # noqa: E501
         'card_types': 'card_types',  # noqa: E501
         'countries': 'countries',  # noqa: E501
+        'loyalty_ledger_descriptions': 'loyalty_ledger_descriptions',  # noqa: E501
         'loyalty_program_type': 'loyalty_program_type',  # noqa: E501
         'qb_classes': 'qb_classes',  # noqa: E501
         'sales_rep_codes': 'sales_rep_codes',  # noqa: E501
@@ -166,6 +168,7 @@ class CustomerEditorValues(ModelNormal):
             card_exp_years ([str]): card_exp_years. [optional]  # noqa: E501
             card_types ([str]): card_types. [optional]  # noqa: E501
             countries ([Country]): countries. [optional]  # noqa: E501
+            loyalty_ledger_descriptions ([str]): loyalty_ledger_descriptions. [optional]  # noqa: E501
             loyalty_program_type (str): loyalty_program_type. [optional]  # noqa: E501
             qb_classes ([str]): qb_classes. [optional]  # noqa: E501
             sales_rep_codes ([str]): sales_rep_codes. [optional]  # noqa: E501
@@ -261,6 +264,7 @@ class CustomerEditorValues(ModelNormal):
             card_exp_years ([str]): card_exp_years. [optional]  # noqa: E501
             card_types ([str]): card_types. [optional]  # noqa: E501
             countries ([Country]): countries. [optional]  # noqa: E501
+            loyalty_ledger_descriptions ([str]): loyalty_ledger_descriptions. [optional]  # noqa: E501
             loyalty_program_type (str): loyalty_program_type. [optional]  # noqa: E501
             qb_classes ([str]): qb_classes. [optional]  # noqa: E501
             sales_rep_codes ([str]): sales_rep_codes. [optional]  # noqa: E501
