@@ -36,6 +36,7 @@ class CustomerEditorValues(object):
         'card_exp_years': 'list[str]',
         'card_types': 'list[str]',
         'countries': 'list[Country]',
+        'loyalty_ledger_descriptions': 'list[str]',
         'loyalty_program_type': 'str',
         'qb_classes': 'list[str]',
         'sales_rep_codes': 'list[str]',
@@ -49,6 +50,7 @@ class CustomerEditorValues(object):
         'card_exp_years': 'card_exp_years',
         'card_types': 'card_types',
         'countries': 'countries',
+        'loyalty_ledger_descriptions': 'loyalty_ledger_descriptions',
         'loyalty_program_type': 'loyalty_program_type',
         'qb_classes': 'qb_classes',
         'sales_rep_codes': 'sales_rep_codes',
@@ -56,7 +58,7 @@ class CustomerEditorValues(object):
         'terms': 'terms'
     }
 
-    def __init__(self, affiliates=None, card_exp_months=None, card_exp_years=None, card_types=None, countries=None, loyalty_program_type=None, qb_classes=None, sales_rep_codes=None, state_optional_countries=None, terms=None):  # noqa: E501
+    def __init__(self, affiliates=None, card_exp_months=None, card_exp_years=None, card_types=None, countries=None, loyalty_ledger_descriptions=None, loyalty_program_type=None, qb_classes=None, sales_rep_codes=None, state_optional_countries=None, terms=None):  # noqa: E501
         """CustomerEditorValues - a model defined in Swagger"""  # noqa: E501
 
         self._affiliates = None
@@ -64,6 +66,7 @@ class CustomerEditorValues(object):
         self._card_exp_years = None
         self._card_types = None
         self._countries = None
+        self._loyalty_ledger_descriptions = None
         self._loyalty_program_type = None
         self._qb_classes = None
         self._sales_rep_codes = None
@@ -81,6 +84,8 @@ class CustomerEditorValues(object):
             self.card_types = card_types
         if countries is not None:
             self.countries = countries
+        if loyalty_ledger_descriptions is not None:
+            self.loyalty_ledger_descriptions = loyalty_ledger_descriptions
         if loyalty_program_type is not None:
             self.loyalty_program_type = loyalty_program_type
         if qb_classes is not None:
@@ -206,6 +211,29 @@ class CustomerEditorValues(object):
         """
 
         self._countries = countries
+
+    @property
+    def loyalty_ledger_descriptions(self):
+        """Gets the loyalty_ledger_descriptions of this CustomerEditorValues.  # noqa: E501
+
+        loyalty_ledger_descriptions  # noqa: E501
+
+        :return: The loyalty_ledger_descriptions of this CustomerEditorValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._loyalty_ledger_descriptions
+
+    @loyalty_ledger_descriptions.setter
+    def loyalty_ledger_descriptions(self, loyalty_ledger_descriptions):
+        """Sets the loyalty_ledger_descriptions of this CustomerEditorValues.
+
+        loyalty_ledger_descriptions  # noqa: E501
+
+        :param loyalty_ledger_descriptions: The loyalty_ledger_descriptions of this CustomerEditorValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._loyalty_ledger_descriptions = loyalty_ledger_descriptions
 
     @property
     def loyalty_program_type(self):
