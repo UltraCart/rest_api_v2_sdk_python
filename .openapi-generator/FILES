@@ -566,6 +566,8 @@ docs/RegisterAffiliateClickRequest.md
 docs/RegisterAffiliateClickResponse.md
 docs/ResponseMetadata.md
 docs/ResultSet.md
+docs/RulerValidationRequest.md
+docs/RulerValidationResponse.md
 docs/ScreenRecording.md
 docs/ScreenRecordingAdPlatform.md
 docs/ScreenRecordingFilter.md
@@ -1268,6 +1270,8 @@ ultracart/model/register_affiliate_click_request.py
 ultracart/model/register_affiliate_click_response.py
 ultracart/model/response_metadata.py
 ultracart/model/result_set.py
+ultracart/model/ruler_validation_request.py
+ultracart/model/ruler_validation_response.py
 ultracart/model/screen_recording.py
 ultracart/model/screen_recording_ad_platform.py
 ultracart/model/screen_recording_filter.py

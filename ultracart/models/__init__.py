@@ -559,6 +559,8 @@ from ultracart.model.register_affiliate_click_request import RegisterAffiliateCl
 from ultracart.model.register_affiliate_click_response import RegisterAffiliateClickResponse
 from ultracart.model.response_metadata import ResponseMetadata
 from ultracart.model.result_set import ResultSet
+from ultracart.model.ruler_validation_request import RulerValidationRequest
+from ultracart.model.ruler_validation_response import RulerValidationResponse
 from ultracart.model.screen_recording import ScreenRecording
 from ultracart.model.screen_recording_ad_platform import ScreenRecordingAdPlatform
 from ultracart.model.screen_recording_filter import ScreenRecordingFilter
