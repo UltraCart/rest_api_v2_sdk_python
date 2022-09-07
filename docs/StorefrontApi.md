@@ -168,6 +168,7 @@ Method | HTTP request | Description
 [**update_screen_recording_tags**](StorefrontApi.md#update_screen_recording_tags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 [**update_transaction_email**](StorefrontApi.md#update_transaction_email) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
 [**update_twilio_account**](StorefrontApi.md#update_twilio_account) | **PUT** /storefront/twilio/accounts/{esp_twilio_uuid} | Update Twilio account
+[**validate_ruler**](StorefrontApi.md#validate_ruler) | **POST** /storefront/ruler/validate | Validate AWS Event Ruler
 
 
 # **add_to_library**
@@ -8425,6 +8426,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TwilioResponse**](TwilioResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **validate_ruler**
+> RulerValidationResponse validate_ruler(ruler_validate_request)
+
+Validate AWS Event Ruler
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+ruler_validate_request = ultracart.RulerValidationRequest() # RulerValidationRequest | Ruler Validate Request
+
+try:
+    # Validate AWS Event Ruler
+    api_response = api_instance.validate_ruler(ruler_validate_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->validate_ruler: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ruler_validate_request** | [**RulerValidationRequest**](RulerValidationRequest.md)| Ruler Validate Request | 
+
+### Return type
+
+[**RulerValidationResponse**](RulerValidationResponse.md)
 
 ### Authorization
 
