@@ -40,6 +40,7 @@ class EmailSettings(object):
         'postcard_from_name': 'str',
         'postcard_from_postal_code': 'str',
         'postcard_from_state': 'str',
+        'reviews_io_configured': 'bool',
         'sms_esp_twilio_uuid': 'str',
         'sms_phone_number': 'str',
         'transactional_esp_domain_user': 'str',
@@ -57,6 +58,7 @@ class EmailSettings(object):
         'postcard_from_name': 'postcard_from_name',
         'postcard_from_postal_code': 'postcard_from_postal_code',
         'postcard_from_state': 'postcard_from_state',
+        'reviews_io_configured': 'reviews_io_configured',
         'sms_esp_twilio_uuid': 'sms_esp_twilio_uuid',
         'sms_phone_number': 'sms_phone_number',
         'transactional_esp_domain_user': 'transactional_esp_domain_user',
@@ -64,7 +66,7 @@ class EmailSettings(object):
         'transactional_esp_friendly_name': 'transactional_esp_friendly_name'
     }
 
-    def __init__(self, marketing_esp_domain_user=None, marketing_esp_domain_uuid=None, marketing_esp_friendly_name=None, postcard_from_address1=None, postcard_from_address2=None, postcard_from_city=None, postcard_from_name=None, postcard_from_postal_code=None, postcard_from_state=None, sms_esp_twilio_uuid=None, sms_phone_number=None, transactional_esp_domain_user=None, transactional_esp_domain_uuid=None, transactional_esp_friendly_name=None):  # noqa: E501
+    def __init__(self, marketing_esp_domain_user=None, marketing_esp_domain_uuid=None, marketing_esp_friendly_name=None, postcard_from_address1=None, postcard_from_address2=None, postcard_from_city=None, postcard_from_name=None, postcard_from_postal_code=None, postcard_from_state=None, reviews_io_configured=None, sms_esp_twilio_uuid=None, sms_phone_number=None, transactional_esp_domain_user=None, transactional_esp_domain_uuid=None, transactional_esp_friendly_name=None):  # noqa: E501
         """EmailSettings - a model defined in Swagger"""  # noqa: E501
 
         self._marketing_esp_domain_user = None
@@ -76,6 +78,7 @@ class EmailSettings(object):
         self._postcard_from_name = None
         self._postcard_from_postal_code = None
         self._postcard_from_state = None
+        self._reviews_io_configured = None
         self._sms_esp_twilio_uuid = None
         self._sms_phone_number = None
         self._transactional_esp_domain_user = None
@@ -101,6 +104,8 @@ class EmailSettings(object):
             self.postcard_from_postal_code = postcard_from_postal_code
         if postcard_from_state is not None:
             self.postcard_from_state = postcard_from_state
+        if reviews_io_configured is not None:
+            self.reviews_io_configured = reviews_io_configured
         if sms_esp_twilio_uuid is not None:
             self.sms_esp_twilio_uuid = sms_esp_twilio_uuid
         if sms_phone_number is not None:
@@ -300,6 +305,29 @@ class EmailSettings(object):
         """
 
         self._postcard_from_state = postcard_from_state
+
+    @property
+    def reviews_io_configured(self):
+        """Gets the reviews_io_configured of this EmailSettings.  # noqa: E501
+
+        True if the Reviews.io integration is configured  # noqa: E501
+
+        :return: The reviews_io_configured of this EmailSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._reviews_io_configured
+
+    @reviews_io_configured.setter
+    def reviews_io_configured(self, reviews_io_configured):
+        """Sets the reviews_io_configured of this EmailSettings.
+
+        True if the Reviews.io integration is configured  # noqa: E501
+
+        :param reviews_io_configured: The reviews_io_configured of this EmailSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._reviews_io_configured = reviews_io_configured
 
     @property
     def sms_esp_twilio_uuid(self):
