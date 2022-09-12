@@ -13087,6 +13087,7 @@ api_instance = GiftCertificateApi(api_client())
         postcard_from_name="postcard_from_name_example",
         postcard_from_postal_code="postcard_from_postal_code_example",
         postcard_from_state="postcard_from_state_example",
+        reviews_io_configured=True,
         sms_esp_twilio_uuid="sms_esp_twilio_uuid_example",
         sms_phone_number="sms_phone_number_example",
         transactional_esp_domain_user="transactional_esp_domain_user_example",

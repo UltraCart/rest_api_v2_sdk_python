@@ -91,6 +91,7 @@ class EmailSettings(ModelNormal):
             'postcard_from_name': (str,),  # noqa: E501
             'postcard_from_postal_code': (str,),  # noqa: E501
             'postcard_from_state': (str,),  # noqa: E501
+            'reviews_io_configured': (bool,),  # noqa: E501
             'sms_esp_twilio_uuid': (str,),  # noqa: E501
             'sms_phone_number': (str,),  # noqa: E501
             'transactional_esp_domain_user': (str,),  # noqa: E501
@@ -113,6 +114,7 @@ class EmailSettings(ModelNormal):
         'postcard_from_name': 'postcard_from_name',  # noqa: E501
         'postcard_from_postal_code': 'postcard_from_postal_code',  # noqa: E501
         'postcard_from_state': 'postcard_from_state',  # noqa: E501
+        'reviews_io_configured': 'reviews_io_configured',  # noqa: E501
         'sms_esp_twilio_uuid': 'sms_esp_twilio_uuid',  # noqa: E501
         'sms_phone_number': 'sms_phone_number',  # noqa: E501
         'transactional_esp_domain_user': 'transactional_esp_domain_user',  # noqa: E501
@@ -170,6 +172,7 @@ class EmailSettings(ModelNormal):
             postcard_from_name (str): [optional]  # noqa: E501
             postcard_from_postal_code (str): [optional]  # noqa: E501
             postcard_from_state (str): [optional]  # noqa: E501
+            reviews_io_configured (bool): True if the Reviews.io integration is configured. [optional]  # noqa: E501
             sms_esp_twilio_uuid (str): [optional]  # noqa: E501
             sms_phone_number (str): [optional]  # noqa: E501
             transactional_esp_domain_user (str): [optional]  # noqa: E501
@@ -269,6 +272,7 @@ class EmailSettings(ModelNormal):
             postcard_from_name (str): [optional]  # noqa: E501
             postcard_from_postal_code (str): [optional]  # noqa: E501
             postcard_from_state (str): [optional]  # noqa: E501
+            reviews_io_configured (bool): True if the Reviews.io integration is configured. [optional]  # noqa: E501
             sms_esp_twilio_uuid (str): [optional]  # noqa: E501
             sms_phone_number (str): [optional]  # noqa: E501
             transactional_esp_domain_user (str): [optional]  # noqa: E501
