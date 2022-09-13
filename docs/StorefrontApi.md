@@ -44,6 +44,7 @@ Method | HTTP request | Description
 [**get_email_commseq**](StorefrontApi.md#get_email_commseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
 [**get_email_commseq_email_stats**](StorefrontApi.md#get_email_commseq_email_stats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 [**get_email_commseq_postcard_stats**](StorefrontApi.md#get_email_commseq_postcard_stats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
+[**get_email_commseq_postcard_tracking**](StorefrontApi.md#get_email_commseq_postcard_tracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
 [**get_email_commseq_stat_overall**](StorefrontApi.md#get_email_commseq_stat_overall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 [**get_email_commseq_step_stats**](StorefrontApi.md#get_email_commseq_step_stats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 [**get_email_commseq_step_waiting**](StorefrontApi.md#get_email_commseq_step_waiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
@@ -3159,6 +3160,79 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_email_commseq_postcard_tracking**
+> EmailPostcardTrackingResponse get_email_commseq_postcard_tracking(storefront_oid, commseq_postcard_uuid)
+
+Get email communication postcard tracking
+
+### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.email_postcard_tracking_response import EmailPostcardTrackingResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    storefront_oid = 1 # int | 
+    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get email communication postcard tracking
+        api_response = api_instance.get_email_commseq_postcard_tracking(storefront_oid, commseq_postcard_uuid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->get_email_commseq_postcard_tracking: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_postcard_uuid** | **str**|  |
+
+### Return type
+
+[**EmailPostcardTrackingResponse**](EmailPostcardTrackingResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
