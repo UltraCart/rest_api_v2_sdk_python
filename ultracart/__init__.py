@@ -359,6 +359,8 @@ from ultracart.models.email_plan import EmailPlan
 from ultracart.models.email_plan_additional import EmailPlanAdditional
 from ultracart.models.email_plan_response import EmailPlanResponse
 from ultracart.models.email_postcard_stat import EmailPostcardStat
+from ultracart.models.email_postcard_tracking import EmailPostcardTracking
+from ultracart.models.email_postcard_tracking_response import EmailPostcardTrackingResponse
 from ultracart.models.email_segment import EmailSegment
 from ultracart.models.email_segment_archive_response import EmailSegmentArchiveResponse
 from ultracart.models.email_segment_customer import EmailSegmentCustomer
