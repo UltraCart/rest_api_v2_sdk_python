@@ -134,6 +134,7 @@ docs/ConversationEventReadMessage.md
 docs/ConversationEventTyping.md
 docs/ConversationMessage.md
 docs/ConversationMessageTransportStatus.md
+docs/ConversationMessagesResponse.md
 docs/ConversationMultimediaUploadUrl.md
 docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
@@ -848,6 +849,7 @@ ultracart/model/conversation_event_rr_web.py
 ultracart/model/conversation_event_typing.py
 ultracart/model/conversation_message.py
 ultracart/model/conversation_message_transport_status.py
+ultracart/model/conversation_messages_response.py
 ultracart/model/conversation_multimedia_upload_url.py
 ultracart/model/conversation_multimedia_upload_url_response.py
 ultracart/model/conversation_participant.py
