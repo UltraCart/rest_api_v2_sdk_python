@@ -31,41 +31,84 @@ class ItemDigitalItem(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'click_wrap_agreement': 'str',
         'creation_dts': 'str',
         'description': 'str',
+        'digital_item_oid': 'int',
         'file_size': 'int',
+        'import_from_url': 'str',
         'mime_type': 'str',
-        'original_filename': 'str'
+        'original_filename': 'str',
+        'pdf_meta': 'ItemDigitalItemPdfMeta'
     }
 
     attribute_map = {
+        'click_wrap_agreement': 'click_wrap_agreement',
         'creation_dts': 'creation_dts',
         'description': 'description',
+        'digital_item_oid': 'digital_item_oid',
         'file_size': 'file_size',
+        'import_from_url': 'import_from_url',
         'mime_type': 'mime_type',
-        'original_filename': 'original_filename'
+        'original_filename': 'original_filename',
+        'pdf_meta': 'pdf_meta'
     }
 
-    def __init__(self, creation_dts=None, description=None, file_size=None, mime_type=None, original_filename=None):  # noqa: E501
+    def __init__(self, click_wrap_agreement=None, creation_dts=None, description=None, digital_item_oid=None, file_size=None, import_from_url=None, mime_type=None, original_filename=None, pdf_meta=None):  # noqa: E501
         """ItemDigitalItem - a model defined in Swagger"""  # noqa: E501
 
+        self._click_wrap_agreement = None
         self._creation_dts = None
         self._description = None
+        self._digital_item_oid = None
         self._file_size = None
+        self._import_from_url = None
         self._mime_type = None
         self._original_filename = None
+        self._pdf_meta = None
         self.discriminator = None
 
+        if click_wrap_agreement is not None:
+            self.click_wrap_agreement = click_wrap_agreement
         if creation_dts is not None:
             self.creation_dts = creation_dts
         if description is not None:
             self.description = description
+        if digital_item_oid is not None:
+            self.digital_item_oid = digital_item_oid
         if file_size is not None:
             self.file_size = file_size
+        if import_from_url is not None:
+            self.import_from_url = import_from_url
         if mime_type is not None:
             self.mime_type = mime_type
         if original_filename is not None:
             self.original_filename = original_filename
+        if pdf_meta is not None:
+            self.pdf_meta = pdf_meta
+
+    @property
+    def click_wrap_agreement(self):
+        """Gets the click_wrap_agreement of this ItemDigitalItem.  # noqa: E501
+
+        Click wrap agreement is presented to the customer before they can purchase your product.  # noqa: E501
+
+        :return: The click_wrap_agreement of this ItemDigitalItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._click_wrap_agreement
+
+    @click_wrap_agreement.setter
+    def click_wrap_agreement(self, click_wrap_agreement):
+        """Sets the click_wrap_agreement of this ItemDigitalItem.
+
+        Click wrap agreement is presented to the customer before they can purchase your product.  # noqa: E501
+
+        :param click_wrap_agreement: The click_wrap_agreement of this ItemDigitalItem.  # noqa: E501
+        :type: str
+        """
+
+        self._click_wrap_agreement = click_wrap_agreement
 
     @property
     def creation_dts(self):
@@ -116,6 +159,29 @@ class ItemDigitalItem(object):
         self._description = description
 
     @property
+    def digital_item_oid(self):
+        """Gets the digital_item_oid of this ItemDigitalItem.  # noqa: E501
+
+        The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect.  # noqa: E501
+
+        :return: The digital_item_oid of this ItemDigitalItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._digital_item_oid
+
+    @digital_item_oid.setter
+    def digital_item_oid(self, digital_item_oid):
+        """Sets the digital_item_oid of this ItemDigitalItem.
+
+        The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect.  # noqa: E501
+
+        :param digital_item_oid: The digital_item_oid of this ItemDigitalItem.  # noqa: E501
+        :type: int
+        """
+
+        self._digital_item_oid = digital_item_oid
+
+    @property
     def file_size(self):
         """Gets the file_size of this ItemDigitalItem.  # noqa: E501
 
@@ -137,6 +203,29 @@ class ItemDigitalItem(object):
         """
 
         self._file_size = file_size
+
+    @property
+    def import_from_url(self):
+        """Gets the import_from_url of this ItemDigitalItem.  # noqa: E501
+
+        This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation.  # noqa: E501
+
+        :return: The import_from_url of this ItemDigitalItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._import_from_url
+
+    @import_from_url.setter
+    def import_from_url(self, import_from_url):
+        """Sets the import_from_url of this ItemDigitalItem.
+
+        This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation.  # noqa: E501
+
+        :param import_from_url: The import_from_url of this ItemDigitalItem.  # noqa: E501
+        :type: str
+        """
+
+        self._import_from_url = import_from_url
 
     @property
     def mime_type(self):
@@ -187,6 +276,27 @@ class ItemDigitalItem(object):
             raise ValueError("Invalid value for `original_filename`, length must be less than or equal to `250`")  # noqa: E501
 
         self._original_filename = original_filename
+
+    @property
+    def pdf_meta(self):
+        """Gets the pdf_meta of this ItemDigitalItem.  # noqa: E501
+
+
+        :return: The pdf_meta of this ItemDigitalItem.  # noqa: E501
+        :rtype: ItemDigitalItemPdfMeta
+        """
+        return self._pdf_meta
+
+    @pdf_meta.setter
+    def pdf_meta(self, pdf_meta):
+        """Sets the pdf_meta of this ItemDigitalItem.
+
+
+        :param pdf_meta: The pdf_meta of this ItemDigitalItem.  # noqa: E501
+        :type: ItemDigitalItemPdfMeta
+        """
+
+        self._pdf_meta = pdf_meta
 
     def to_dict(self):
         """Returns the model properties as a dict"""

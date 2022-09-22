@@ -4,16 +4,70 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**delete_digital_item**](ItemApi.md#delete_digital_item) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 [**delete_item**](ItemApi.md#delete_item) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**get_digital_item**](ItemApi.md#get_digital_item) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+[**get_digital_items**](ItemApi.md#get_digital_items) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**get_item**](ItemApi.md#get_item) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**get_item_by_merchant_item_id**](ItemApi.md#get_item_by_merchant_item_id) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
 [**get_pricing_tiers**](ItemApi.md#get_pricing_tiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+[**insert_digital_item**](ItemApi.md#insert_digital_item) | **POST** /item/digital_library | Create a file within the digital library
 [**insert_item**](ItemApi.md#insert_item) | **POST** /item/items | Create an item
+[**update_digital_item**](ItemApi.md#update_digital_item) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**update_items**](ItemApi.md#update_items) | **PUT** /item/items/batch | Update multiple items
 [**upload_temporary_multimedia**](ItemApi.md#upload_temporary_multimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
+
+# **delete_digital_item**
+> delete_digital_item(digital_item_oid)
+
+Delete a digital item, which is a file within the digital library, not an actual merchant item
+
+Delete a digital item on the UltraCart account. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+digital_item_oid = 56 # int | The digital item oid to delete.
+
+try:
+    # Delete a digital item, which is a file within the digital library, not an actual merchant item
+    api_instance.delete_digital_item(digital_item_oid)
+except ApiException as e:
+    print("Exception when calling ItemApi->delete_digital_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digital_item_oid** | **int**| The digital item oid to delete. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_item**
 > delete_item(merchant_item_oid)
@@ -52,6 +106,128 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_digital_item**
+> ItemDigitalItemResponse get_digital_item(digital_item_oid, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+
+Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+
+Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+digital_item_oid = 56 # int | The digital item oid to retrieve.
+limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) (default to 100)
+offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
+since = 'since_example' # str | Fetch items that have been created/modified since this date/time. (optional)
+sort = 'sort_example' # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+
+try:
+    # Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+    api_response = api_instance.get_digital_item(digital_item_oid, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->get_digital_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digital_item_oid** | **int**| The digital item oid to retrieve. | 
+ **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **str**| Fetch items that have been created/modified since this date/time. | [optional] 
+ **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+
+### Return type
+
+[**ItemDigitalItemResponse**](ItemDigitalItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_digital_items**
+> ItemDigitalItemsResponse get_digital_items(limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+
+Retrieve digital items from the digital library which are digital files that may be attached to normal items
+
+Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) (default to 100)
+offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
+since = 'since_example' # str | Fetch items that have been created/modified since this date/time. (optional)
+sort = 'sort_example' # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+
+try:
+    # Retrieve digital items from the digital library which are digital files that may be attached to normal items
+    api_response = api_instance.get_digital_items(limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->get_digital_items: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **str**| Fetch items that have been created/modified since this date/time. | [optional] 
+ **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+
+### Return type
+
+[**ItemDigitalItemsResponse**](ItemDigitalItemsResponse.md)
 
 ### Authorization
 
@@ -286,6 +462,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **insert_digital_item**
+> ItemDigitalItemResponse insert_digital_item(digital_item)
+
+Create a file within the digital library
+
+Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+digital_item = ultracart.ItemDigitalItem() # ItemDigitalItem | Digital item to create
+
+try:
+    # Create a file within the digital library
+    api_response = api_instance.insert_digital_item(digital_item)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->insert_digital_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digital_item** | [**ItemDigitalItem**](ItemDigitalItem.md)| Digital item to create | 
+
+### Return type
+
+[**ItemDigitalItemResponse**](ItemDigitalItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **insert_item**
 > ItemResponse insert_item(item, expand=expand, placeholders=placeholders)
 
@@ -328,6 +554,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_digital_item**
+> ItemDigitalItemResponse update_digital_item(digital_item_oid, digital_item)
+
+Updates a file within the digital library
+
+Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+digital_item_oid = 56 # int | The digital item oid to update.
+digital_item = ultracart.ItemDigitalItem() # ItemDigitalItem | Digital item to update
+
+try:
+    # Updates a file within the digital library
+    api_response = api_instance.update_digital_item(digital_item_oid, digital_item)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->update_digital_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digital_item_oid** | **int**| The digital item oid to update. | 
+ **digital_item** | [**ItemDigitalItem**](ItemDigitalItem.md)| Digital item to update | 
+
+### Return type
+
+[**ItemDigitalItemResponse**](ItemDigitalItemResponse.md)
 
 ### Authorization
 
