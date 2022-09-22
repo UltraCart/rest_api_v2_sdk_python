@@ -119,7 +119,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_digital_item**
-> ItemDigitalItemResponse get_digital_item(digital_item_oid, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+> ItemDigitalItemResponse get_digital_item(digital_item_oid)
 
 Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 
@@ -138,16 +138,10 @@ simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
 api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
 
 digital_item_oid = 56 # int | The digital item oid to retrieve.
-limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) (default to 100)
-offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
-since = 'since_example' # str | Fetch items that have been created/modified since this date/time. (optional)
-sort = 'sort_example' # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
-placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
 try:
     # Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
-    api_response = api_instance.get_digital_item(digital_item_oid, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+    api_response = api_instance.get_digital_item(digital_item_oid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ItemApi->get_digital_item: %s\n" % e)
@@ -158,12 +152,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **digital_item_oid** | **int**| The digital item oid to retrieve. | 
- **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
- **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **since** | **str**| Fetch items that have been created/modified since this date/time. | [optional] 
- **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
- **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
- **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 

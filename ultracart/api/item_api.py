@@ -255,12 +255,6 @@ class ItemApi(object):
 
         :param async_req bool
         :param int digital_item_oid: The digital item oid to retrieve. (required)
-        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 2000)
-        :param int offset: Pagination of the record set.  Offset is a zero based index.
-        :param str since: Fetch items that have been created/modified since this date/time.
-        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemDigitalItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -283,18 +277,12 @@ class ItemApi(object):
 
         :param async_req bool
         :param int digital_item_oid: The digital item oid to retrieve. (required)
-        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 2000)
-        :param int offset: Pagination of the record set.  Offset is a zero based index.
-        :param str since: Fetch items that have been created/modified since this date/time.
-        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-        :param str expand: The object expansion to perform on the result.  See documentation for examples
-        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
         :return: ItemDigitalItemResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['digital_item_oid', 'limit', 'offset', 'since', 'sort', 'expand', 'placeholders']  # noqa: E501
+        all_params = ['digital_item_oid']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -321,18 +309,6 @@ class ItemApi(object):
             path_params['digital_item_oid'] = params['digital_item_oid']  # noqa: E501
 
         query_params = []
-        if 'limit' in params:
-            query_params.append(('_limit', params['limit']))  # noqa: E501
-        if 'offset' in params:
-            query_params.append(('_offset', params['offset']))  # noqa: E501
-        if 'since' in params:
-            query_params.append(('_since', params['since']))  # noqa: E501
-        if 'sort' in params:
-            query_params.append(('_sort', params['sort']))  # noqa: E501
-        if 'expand' in params:
-            query_params.append(('_expand', params['expand']))  # noqa: E501
-        if 'placeholders' in params:
-            query_params.append(('_placeholders', params['placeholders']))  # noqa: E501
 
         header_params = {}
 
