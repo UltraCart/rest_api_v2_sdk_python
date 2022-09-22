@@ -422,6 +422,9 @@ docs/ItemContentMultimedia.md
 docs/ItemContentMultimediaThumbnail.md
 docs/ItemDigitalDelivery.md
 docs/ItemDigitalItem.md
+docs/ItemDigitalItemPdfMeta.md
+docs/ItemDigitalItemResponse.md
+docs/ItemDigitalItemsResponse.md
 docs/ItemEbay.md
 docs/ItemEbayCategorySpecific.md
 docs/ItemEbayMarketListing.md
@@ -1131,6 +1134,9 @@ ultracart/model/item_content_multimedia.py
 ultracart/model/item_content_multimedia_thumbnail.py
 ultracart/model/item_digital_delivery.py
 ultracart/model/item_digital_item.py
+ultracart/model/item_digital_item_pdf_meta.py
+ultracart/model/item_digital_item_response.py
+ultracart/model/item_digital_items_response.py
 ultracart/model/item_ebay.py
 ultracart/model/item_ebay_category_specific.py
 ultracart/model/item_ebay_market_listing.py

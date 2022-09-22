@@ -4,16 +4,91 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**delete_digital_item**](ItemApi.md#delete_digital_item) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 [**delete_item**](ItemApi.md#delete_item) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**get_digital_item**](ItemApi.md#get_digital_item) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+[**get_digital_items**](ItemApi.md#get_digital_items) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**get_item**](ItemApi.md#get_item) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**get_item_by_merchant_item_id**](ItemApi.md#get_item_by_merchant_item_id) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
 [**get_pricing_tiers**](ItemApi.md#get_pricing_tiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+[**insert_digital_item**](ItemApi.md#insert_digital_item) | **POST** /item/digital_library | Create a file within the digital library
 [**insert_item**](ItemApi.md#insert_item) | **POST** /item/items | Create an item
+[**update_digital_item**](ItemApi.md#update_digital_item) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**update_items**](ItemApi.md#update_items) | **PUT** /item/items/batch | Update multiple items
 [**upload_temporary_multimedia**](ItemApi.md#upload_temporary_multimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
+
+# **delete_digital_item**
+> delete_digital_item(digital_item_oid)
+
+Delete a digital item, which is a file within the digital library, not an actual merchant item
+
+Delete a digital item on the UltraCart account. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    digital_item_oid = 1 # int | The digital item oid to delete.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete a digital item, which is a file within the digital library, not an actual merchant item
+        api_instance.delete_digital_item(digital_item_oid)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->delete_digital_item: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digital_item_oid** | **int**| The digital item oid to delete. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_item**
 > delete_item(merchant_item_oid)
@@ -77,6 +152,182 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_digital_item**
+> ItemDigitalItemResponse get_digital_item(digital_item_oid)
+
+Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+
+Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    digital_item_oid = 1 # int | The digital item oid to retrieve.
+    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) if omitted the server will use the default value of 100
+    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
+    since = "_since_example" # str | Fetch items that have been created/modified since this date/time. (optional)
+    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+        api_response = api_instance.get_digital_item(digital_item_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->get_digital_item: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+        api_response = api_instance.get_digital_item(digital_item_oid, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->get_digital_item: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digital_item_oid** | **int**| The digital item oid to retrieve. |
+ **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] if omitted the server will use the default value of 100
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
+ **since** | **str**| Fetch items that have been created/modified since this date/time. | [optional]
+ **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+
+### Return type
+
+[**ItemDigitalItemResponse**](ItemDigitalItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_digital_items**
+> ItemDigitalItemsResponse get_digital_items()
+
+Retrieve digital items from the digital library which are digital files that may be attached to normal items
+
+Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.item_digital_items_response import ItemDigitalItemsResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) if omitted the server will use the default value of 100
+    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
+    since = "_since_example" # str | Fetch items that have been created/modified since this date/time. (optional)
+    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Retrieve digital items from the digital library which are digital files that may be attached to normal items
+        api_response = api_instance.get_digital_items(limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->get_digital_items: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] if omitted the server will use the default value of 100
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
+ **since** | **str**| Fetch items that have been created/modified since this date/time. | [optional]
+ **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+
+### Return type
+
+[**ItemDigitalItemsResponse**](ItemDigitalItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
 **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -415,6 +666,101 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **insert_digital_item**
+> ItemDigitalItemResponse insert_digital_item(digital_item)
+
+Create a file within the digital library
+
+Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.item_digital_item import ItemDigitalItem
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    digital_item = ItemDigitalItem(
+        click_wrap_agreement="click_wrap_agreement_example",
+        creation_dts="creation_dts_example",
+        description="description_example",
+        digital_item_oid=1,
+        file_size=1,
+        import_from_url="import_from_url_example",
+        mime_type="mime_type_example",
+        original_filename="original_filename_example",
+        pdf_meta=ItemDigitalItemPdfMeta(
+            assembly_allowed=True,
+            copy_allowed=True,
+            custom_footer="custom_footer_example",
+            custom_header="custom_header_example",
+            degraded_printing_allowed=True,
+            fillin_allowed=True,
+            modify_annotations_allowed=True,
+            modify_contents_allowed=True,
+            printing_allowed=True,
+            screen_readers_allowed=True,
+            tagged=True,
+        ),
+    ) # ItemDigitalItem | Digital item to create
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Create a file within the digital library
+        api_response = api_instance.insert_digital_item(digital_item)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->insert_digital_item: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digital_item** | [**ItemDigitalItem**](ItemDigitalItem.md)| Digital item to create |
+
+### Return type
+
+[**ItemDigitalItemResponse**](ItemDigitalItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **insert_item**
 > ItemResponse insert_item(item)
 
@@ -628,11 +974,27 @@ api_instance = GiftCertificateApi(api_client())
             activation_code_type="activation_code_type_example",
             digital_items=[
                 ItemDigitalItem(
+                    click_wrap_agreement="click_wrap_agreement_example",
                     creation_dts="creation_dts_example",
                     description="description_example",
+                    digital_item_oid=1,
                     file_size=1,
+                    import_from_url="import_from_url_example",
                     mime_type="mime_type_example",
                     original_filename="original_filename_example",
+                    pdf_meta=ItemDigitalItemPdfMeta(
+                        assembly_allowed=True,
+                        copy_allowed=True,
+                        custom_footer="custom_footer_example",
+                        custom_header="custom_header_example",
+                        degraded_printing_allowed=True,
+                        fillin_allowed=True,
+                        modify_annotations_allowed=True,
+                        modify_contents_allowed=True,
+                        printing_allowed=True,
+                        screen_readers_allowed=True,
+                        tagged=True,
+                    ),
                 ),
             ],
         ),
@@ -1335,6 +1697,103 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_digital_item**
+> ItemDigitalItemResponse update_digital_item(digital_item_oid, digital_item)
+
+Updates a file within the digital library
+
+Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.item_digital_item import ItemDigitalItem
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    digital_item_oid = 1 # int | The digital item oid to update.
+    digital_item = ItemDigitalItem(
+        click_wrap_agreement="click_wrap_agreement_example",
+        creation_dts="creation_dts_example",
+        description="description_example",
+        digital_item_oid=1,
+        file_size=1,
+        import_from_url="import_from_url_example",
+        mime_type="mime_type_example",
+        original_filename="original_filename_example",
+        pdf_meta=ItemDigitalItemPdfMeta(
+            assembly_allowed=True,
+            copy_allowed=True,
+            custom_footer="custom_footer_example",
+            custom_header="custom_header_example",
+            degraded_printing_allowed=True,
+            fillin_allowed=True,
+            modify_annotations_allowed=True,
+            modify_contents_allowed=True,
+            printing_allowed=True,
+            screen_readers_allowed=True,
+            tagged=True,
+        ),
+    ) # ItemDigitalItem | Digital item to update
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Updates a file within the digital library
+        api_response = api_instance.update_digital_item(digital_item_oid, digital_item)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->update_digital_item: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digital_item_oid** | **int**| The digital item oid to update. |
+ **digital_item** | [**ItemDigitalItem**](ItemDigitalItem.md)| Digital item to update |
+
+### Return type
+
+[**ItemDigitalItemResponse**](ItemDigitalItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_item**
 > ItemResponse update_item(merchant_item_oid, item)
 
@@ -1549,11 +2008,27 @@ api_instance = GiftCertificateApi(api_client())
             activation_code_type="activation_code_type_example",
             digital_items=[
                 ItemDigitalItem(
+                    click_wrap_agreement="click_wrap_agreement_example",
                     creation_dts="creation_dts_example",
                     description="description_example",
+                    digital_item_oid=1,
                     file_size=1,
+                    import_from_url="import_from_url_example",
                     mime_type="mime_type_example",
                     original_filename="original_filename_example",
+                    pdf_meta=ItemDigitalItemPdfMeta(
+                        assembly_allowed=True,
+                        copy_allowed=True,
+                        custom_footer="custom_footer_example",
+                        custom_header="custom_header_example",
+                        degraded_printing_allowed=True,
+                        fillin_allowed=True,
+                        modify_annotations_allowed=True,
+                        modify_contents_allowed=True,
+                        printing_allowed=True,
+                        screen_readers_allowed=True,
+                        tagged=True,
+                    ),
                 ),
             ],
         ),
@@ -2472,11 +2947,27 @@ api_instance = GiftCertificateApi(api_client())
                     activation_code_type="activation_code_type_example",
                     digital_items=[
                         ItemDigitalItem(
+                            click_wrap_agreement="click_wrap_agreement_example",
                             creation_dts="creation_dts_example",
                             description="description_example",
+                            digital_item_oid=1,
                             file_size=1,
+                            import_from_url="import_from_url_example",
                             mime_type="mime_type_example",
                             original_filename="original_filename_example",
+                            pdf_meta=ItemDigitalItemPdfMeta(
+                                assembly_allowed=True,
+                                copy_allowed=True,
+                                custom_footer="custom_footer_example",
+                                custom_header="custom_header_example",
+                                degraded_printing_allowed=True,
+                                fillin_allowed=True,
+                                modify_annotations_allowed=True,
+                                modify_contents_allowed=True,
+                                printing_allowed=True,
+                                screen_readers_allowed=True,
+                                tagged=True,
+                            ),
                         ),
                     ],
                 ),

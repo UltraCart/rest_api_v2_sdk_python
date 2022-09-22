@@ -417,6 +417,9 @@ from ultracart.model.item_content_multimedia import ItemContentMultimedia
 from ultracart.model.item_content_multimedia_thumbnail import ItemContentMultimediaThumbnail
 from ultracart.model.item_digital_delivery import ItemDigitalDelivery
 from ultracart.model.item_digital_item import ItemDigitalItem
+from ultracart.model.item_digital_item_pdf_meta import ItemDigitalItemPdfMeta
+from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
+from ultracart.model.item_digital_items_response import ItemDigitalItemsResponse
 from ultracart.model.item_ebay import ItemEbay
 from ultracart.model.item_ebay_category_specific import ItemEbayCategorySpecific
 from ultracart.model.item_ebay_market_listing import ItemEbayMarketListing

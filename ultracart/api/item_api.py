@@ -24,6 +24,9 @@ from ultracart.model_utils import (  # noqa: F401
 )
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.item import Item
+from ultracart.model.item_digital_item import ItemDigitalItem
+from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
+from ultracart.model.item_digital_items_response import ItemDigitalItemsResponse
 from ultracart.model.item_response import ItemResponse
 from ultracart.model.items_request import ItemsRequest
 from ultracart.model.items_response import ItemsResponse
@@ -53,6 +56,58 @@ class ItemApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.delete_digital_item_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/digital_library/{digital_item_oid}',
+                'operation_id': 'delete_digital_item',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'digital_item_oid',
+                ],
+                'required': [
+                    'digital_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'digital_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'digital_item_oid': 'digital_item_oid',
+                },
+                'location_map': {
+                    'digital_item_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_item_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -93,6 +148,163 @@ class ItemApi(object):
                 },
                 'location_map': {
                     'merchant_item_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_digital_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemDigitalItemResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/digital_library/{digital_item_oid}',
+                'operation_id': 'get_digital_item',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'digital_item_oid',
+                    'limit',
+                    'offset',
+                    'since',
+                    'sort',
+                    'expand',
+                    'placeholders',
+                ],
+                'required': [
+                    'digital_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'digital_item_oid':
+                        (int,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                    'since':
+                        (str,),
+                    'sort':
+                        (str,),
+                    'expand':
+                        (str,),
+                    'placeholders':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'digital_item_oid': 'digital_item_oid',
+                    'limit': '_limit',
+                    'offset': '_offset',
+                    'since': '_since',
+                    'sort': '_sort',
+                    'expand': '_expand',
+                    'placeholders': '_placeholders',
+                },
+                'location_map': {
+                    'digital_item_oid': 'path',
+                    'limit': 'query',
+                    'offset': 'query',
+                    'since': 'query',
+                    'sort': 'query',
+                    'expand': 'query',
+                    'placeholders': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_digital_items_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemDigitalItemsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/digital_library',
+                'operation_id': 'get_digital_items',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'limit',
+                    'offset',
+                    'since',
+                    'sort',
+                    'expand',
+                    'placeholders',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                    'since':
+                        (str,),
+                    'sort':
+                        (str,),
+                    'expand':
+                        (str,),
+                    'placeholders':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'limit': '_limit',
+                    'offset': '_offset',
+                    'since': '_since',
+                    'sort': '_sort',
+                    'expand': '_expand',
+                    'placeholders': '_placeholders',
+                },
+                'location_map': {
+                    'limit': 'query',
+                    'offset': 'query',
+                    'since': 'query',
+                    'sort': 'query',
+                    'expand': 'query',
+                    'placeholders': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -364,6 +576,59 @@ class ItemApi(object):
             },
             api_client=api_client
         )
+        self.insert_digital_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemDigitalItemResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/digital_library',
+                'operation_id': 'insert_digital_item',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'digital_item',
+                ],
+                'required': [
+                    'digital_item',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'digital_item':
+                        (ItemDigitalItem,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'digital_item': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.insert_item_endpoint = _Endpoint(
             settings={
                 'response_type': (ItemResponse,),
@@ -413,6 +678,65 @@ class ItemApi(object):
                     'item': 'body',
                     'expand': 'query',
                     'placeholders': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_digital_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemDigitalItemResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/digital_library/{digital_item_oid}',
+                'operation_id': 'update_digital_item',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'digital_item_oid',
+                    'digital_item',
+                ],
+                'required': [
+                    'digital_item_oid',
+                    'digital_item',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'digital_item_oid':
+                        (int,),
+                    'digital_item':
+                        (ItemDigitalItem,),
+                },
+                'attribute_map': {
+                    'digital_item_oid': 'digital_item_oid',
+                },
+                'location_map': {
+                    'digital_item_oid': 'path',
+                    'digital_item': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -619,6 +943,89 @@ class ItemApi(object):
             api_client=api_client
         )
 
+    def delete_digital_item(
+        self,
+        digital_item_oid,
+        **kwargs
+    ):
+        """Delete a digital item, which is a file within the digital library, not an actual merchant item  # noqa: E501
+
+        Delete a digital item on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_digital_item(digital_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            digital_item_oid (int): The digital item oid to delete.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['digital_item_oid'] = \
+            digital_item_oid
+        return self.delete_digital_item_endpoint.call_with_http_info(**kwargs)
+
     def delete_item(
         self,
         merchant_item_oid,
@@ -701,6 +1108,179 @@ class ItemApi(object):
         kwargs['merchant_item_oid'] = \
             merchant_item_oid
         return self.delete_item_endpoint.call_with_http_info(**kwargs)
+
+    def get_digital_item(
+        self,
+        digital_item_oid,
+        **kwargs
+    ):
+        """Retrieve a digital item from the digital library, which are digital files that may be attached to normal items  # noqa: E501
+
+        Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_digital_item(digital_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            digital_item_oid (int): The digital item oid to retrieve.
+
+        Keyword Args:
+            limit (int): The maximum number of records to return on this one API call. (Default 100, Max 2000). [optional] if omitted the server will use the default value of 100
+            offset (int): Pagination of the record set.  Offset is a zero based index.. [optional] if omitted the server will use the default value of 0
+            since (str): Fetch items that have been created/modified since this date/time.. [optional]
+            sort (str): The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.. [optional]
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            placeholders (bool): Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemDigitalItemResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['digital_item_oid'] = \
+            digital_item_oid
+        return self.get_digital_item_endpoint.call_with_http_info(**kwargs)
+
+    def get_digital_items(
+        self,
+        **kwargs
+    ):
+        """Retrieve digital items from the digital library which are digital files that may be attached to normal items  # noqa: E501
+
+        Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_digital_items(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            limit (int): The maximum number of records to return on this one API call. (Default 100, Max 2000). [optional] if omitted the server will use the default value of 100
+            offset (int): Pagination of the record set.  Offset is a zero based index.. [optional] if omitted the server will use the default value of 0
+            since (str): Fetch items that have been created/modified since this date/time.. [optional]
+            sort (str): The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.. [optional]
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            placeholders (bool): Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemDigitalItemsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_digital_items_endpoint.call_with_http_info(**kwargs)
 
     def get_item(
         self,
@@ -1037,6 +1617,89 @@ class ItemApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_pricing_tiers_endpoint.call_with_http_info(**kwargs)
 
+    def insert_digital_item(
+        self,
+        digital_item,
+        **kwargs
+    ):
+        """Create a file within the digital library  # noqa: E501
+
+        Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_digital_item(digital_item, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            digital_item (ItemDigitalItem): Digital item to create
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemDigitalItemResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['digital_item'] = \
+            digital_item
+        return self.insert_digital_item_endpoint.call_with_http_info(**kwargs)
+
     def insert_item(
         self,
         item,
@@ -1121,6 +1784,93 @@ class ItemApi(object):
         kwargs['item'] = \
             item
         return self.insert_item_endpoint.call_with_http_info(**kwargs)
+
+    def update_digital_item(
+        self,
+        digital_item_oid,
+        digital_item,
+        **kwargs
+    ):
+        """Updates a file within the digital library  # noqa: E501
+
+        Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_digital_item(digital_item_oid, digital_item, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            digital_item_oid (int): The digital item oid to update.
+            digital_item (ItemDigitalItem): Digital item to update
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemDigitalItemResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['digital_item_oid'] = \
+            digital_item_oid
+        kwargs['digital_item'] = \
+            digital_item
+        return self.update_digital_item_endpoint.call_with_http_info(**kwargs)
 
     def update_item(
         self,
