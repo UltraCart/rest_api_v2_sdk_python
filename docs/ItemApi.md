@@ -188,26 +188,11 @@ from pprint import pprint
 api_instance = GiftCertificateApi(api_client())
 
     digital_item_oid = 1 # int | The digital item oid to retrieve.
-    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    since = "_since_example" # str | Fetch items that have been created/modified since this date/time. (optional)
-    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
         api_response = api_instance.get_digital_item(digital_item_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_digital_item: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
-        api_response = api_instance.get_digital_item(digital_item_oid, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
         pprint(api_response)
     except ultracart.ApiException as e:
         print("Exception when calling ItemApi->get_digital_item: %s\n" % e)
@@ -219,12 +204,6 @@ api_instance = GiftCertificateApi(api_client())
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **digital_item_oid** | **int**| The digital item oid to retrieve. |
- **limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] if omitted the server will use the default value of 100
- **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
- **since** | **str**| Fetch items that have been created/modified since this date/time. | [optional]
- **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
- **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
- **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 

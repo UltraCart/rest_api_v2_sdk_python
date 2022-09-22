@@ -175,12 +175,6 @@ class ItemApi(object):
             params_map={
                 'all': [
                     'digital_item_oid',
-                    'limit',
-                    'offset',
-                    'since',
-                    'sort',
-                    'expand',
-                    'placeholders',
                 ],
                 'required': [
                     'digital_item_oid',
@@ -200,36 +194,12 @@ class ItemApi(object):
                 'openapi_types': {
                     'digital_item_oid':
                         (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'since':
-                        (str,),
-                    'sort':
-                        (str,),
-                    'expand':
-                        (str,),
-                    'placeholders':
-                        (bool,),
                 },
                 'attribute_map': {
                     'digital_item_oid': 'digital_item_oid',
-                    'limit': '_limit',
-                    'offset': '_offset',
-                    'since': '_since',
-                    'sort': '_sort',
-                    'expand': '_expand',
-                    'placeholders': '_placeholders',
                 },
                 'location_map': {
                     'digital_item_oid': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'since': 'query',
-                    'sort': 'query',
-                    'expand': 'query',
-                    'placeholders': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1127,12 +1097,6 @@ class ItemApi(object):
             digital_item_oid (int): The digital item oid to retrieve.
 
         Keyword Args:
-            limit (int): The maximum number of records to return on this one API call. (Default 100, Max 2000). [optional] if omitted the server will use the default value of 100
-            offset (int): Pagination of the record set.  Offset is a zero based index.. [optional] if omitted the server will use the default value of 0
-            since (str): Fetch items that have been created/modified since this date/time.. [optional]
-            sort (str): The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.. [optional]
-            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
-            placeholders (bool): Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
