@@ -12,9 +12,12 @@ Method | HTTP request | Description
 [**check_download_email_segment**](StorefrontApi.md#check_download_email_segment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 [**clone_email_campaign**](StorefrontApi.md#clone_email_campaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**clone_email_flow**](StorefrontApi.md#clone_email_flow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
+[**create_admin_panel_fs_directory**](StorefrontApi.md#create_admin_panel_fs_directory) | **POST** /storefront/{id}/adminPanel/fs/dir | Create file manager directory for admin panel
+[**create_admin_panel_fs_file_upload**](StorefrontApi.md#create_admin_panel_fs_file_upload) | **POST** /storefront/{id}/adminPanel/fs/file | Upload file manager file for admin panel
 [**create_email_sending_domain**](StorefrontApi.md#create_email_sending_domain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
 [**create_email_sending_domain2**](StorefrontApi.md#create_email_sending_domain2) | **POST** /storefront/email/sending_domains | Create email sending domain for various providers
 [**create_twilio_account**](StorefrontApi.md#create_twilio_account) | **POST** /storefront/twilio/accounts | Create Twilio account
+[**delete_admin_panel_fs_file**](StorefrontApi.md#delete_admin_panel_fs_file) | **DELETE** /storefront/{id}/adminPanel/fs/file | Delete file manager directory for admin panel
 [**delete_email_campaign_folder**](StorefrontApi.md#delete_email_campaign_folder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 [**delete_email_commseq_stat**](StorefrontApi.md#delete_email_commseq_stat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 [**delete_email_email**](StorefrontApi.md#delete_email_email) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -32,6 +35,7 @@ Method | HTTP request | Description
 [**duplicate_library_item**](StorefrontApi.md#duplicate_library_item) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 [**favorite_screen_recording**](StorefrontApi.md#favorite_screen_recording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 [**geocode_address**](StorefrontApi.md#geocode_address) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
+[**get_admin_panel_fs_directory**](StorefrontApi.md#get_admin_panel_fs_directory) | **GET** /storefront/{id}/adminPanel/fs/dir | Get file manager directory for admin panel
 [**get_countries**](StorefrontApi.md#get_countries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
 [**get_editor_token**](StorefrontApi.md#get_editor_token) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 [**get_email_base_templates**](StorefrontApi.md#get_email_base_templates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
@@ -576,6 +580,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_admin_panel_fs_directory**
+> FileManagerPage create_admin_panel_fs_directory(id, name=name, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid)
+
+Create file manager directory for admin panel
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+id = 56 # int | 
+name = 'name_example' # str |  (optional)
+parent_storefront_fs_directory_oid = 56 # int |  (optional)
+
+try:
+    # Create file manager directory for admin panel
+    api_response = api_instance.create_admin_panel_fs_directory(id, name=name, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->create_admin_panel_fs_directory: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+ **name** | **str**|  | [optional] 
+ **parent_storefront_fs_directory_oid** | **int**|  | [optional] 
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_admin_panel_fs_file_upload**
+> FileManagerPage create_admin_panel_fs_file_upload(id, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid)
+
+Upload file manager file for admin panel
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+id = 56 # int | 
+parent_storefront_fs_directory_oid = 56 # int |  (optional)
+
+try:
+    # Upload file manager file for admin panel
+    api_response = api_instance.create_admin_panel_fs_file_upload(id, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->create_admin_panel_fs_file_upload: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+ **parent_storefront_fs_directory_oid** | **int**|  | [optional] 
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_email_sending_domain**
 > EmailSendingDomainResponse create_email_sending_domain(domain)
 
@@ -708,6 +814,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TwilioResponse**](TwilioResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_admin_panel_fs_file**
+> FileManagerPage delete_admin_panel_fs_file(id, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid, storefront_fs_file_oid=storefront_fs_file_oid)
+
+Delete file manager directory for admin panel
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+id = 56 # int | 
+parent_storefront_fs_directory_oid = 56 # int |  (optional)
+storefront_fs_file_oid = 56 # int |  (optional)
+
+try:
+    # Delete file manager directory for admin panel
+    api_response = api_instance.delete_admin_panel_fs_file(id, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid, storefront_fs_file_oid=storefront_fs_file_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->delete_admin_panel_fs_file: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+ **parent_storefront_fs_directory_oid** | **int**|  | [optional] 
+ **storefront_fs_file_oid** | **int**|  | [optional] 
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
 
 ### Authorization
 
@@ -1547,6 +1705,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GeocodeResponse**](GeocodeResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_admin_panel_fs_directory**
+> FileManagerPage get_admin_panel_fs_directory(id, path=path, storefront_fs_directory_oid=storefront_fs_directory_oid, storefront_theme_oid=storefront_theme_oid)
+
+Get file manager directory for admin panel
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.StorefrontApi.fromApiKey(simple_key, False, True)
+
+id = 56 # int | 
+path = 'path_example' # str |  (optional)
+storefront_fs_directory_oid = 56 # int |  (optional)
+storefront_theme_oid = 56 # int |  (optional)
+
+try:
+    # Get file manager directory for admin panel
+    api_response = api_instance.get_admin_panel_fs_directory(id, path=path, storefront_fs_directory_oid=storefront_fs_directory_oid, storefront_theme_oid=storefront_theme_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StorefrontApi->get_admin_panel_fs_directory: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+ **path** | **str**|  | [optional] 
+ **storefront_fs_directory_oid** | **int**|  | [optional] 
+ **storefront_theme_oid** | **int**|  | [optional] 
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
 
 ### Authorization
 

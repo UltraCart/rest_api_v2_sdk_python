@@ -890,6 +890,121 @@ class ItemApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_unassociated_digital_items(self, **kwargs):  # noqa: E501
+        """Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items  # noqa: E501
+
+        Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_unassociated_digital_items(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 2000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch items that have been created/modified since this date/time.
+        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: ItemDigitalItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_unassociated_digital_items_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_unassociated_digital_items_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_unassociated_digital_items_with_http_info(self, **kwargs):  # noqa: E501
+        """Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items  # noqa: E501
+
+        Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_unassociated_digital_items_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int limit: The maximum number of records to return on this one API call. (Default 100, Max 2000)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch items that have been created/modified since this date/time.
+        :param str sort: The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :param bool placeholders: Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+        :return: ItemDigitalItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['limit', 'offset', 'since', 'sort', 'expand', 'placeholders']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_unassociated_digital_items" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'limit' in params:
+            query_params.append(('_limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('_offset', params['offset']))  # noqa: E501
+        if 'since' in params:
+            query_params.append(('_since', params['since']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('_sort', params['sort']))  # noqa: E501
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+        if 'placeholders' in params:
+            query_params.append(('_placeholders', params['placeholders']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/item/digital_library/unassociated', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ItemDigitalItemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def insert_digital_item(self, digital_item, **kwargs):  # noqa: E501
         """Create a file within the digital library  # noqa: E501
 

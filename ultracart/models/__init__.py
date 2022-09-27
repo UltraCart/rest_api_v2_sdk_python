@@ -377,6 +377,7 @@ from ultracart.models.experiment_response import ExperimentResponse
 from ultracart.models.experiment_variation import ExperimentVariation
 from ultracart.models.experiment_variation_stat import ExperimentVariationStat
 from ultracart.models.experiments_response import ExperimentsResponse
+from ultracart.models.file_manager_page import FileManagerPage
 from ultracart.models.fulfillment_inventory import FulfillmentInventory
 from ultracart.models.fulfillment_shipment import FulfillmentShipment
 from ultracart.models.geo_point import GeoPoint
