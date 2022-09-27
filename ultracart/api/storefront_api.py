@@ -118,6 +118,7 @@ from ultracart.model.error_response import ErrorResponse
 from ultracart.model.experiment import Experiment
 from ultracart.model.experiment_response import ExperimentResponse
 from ultracart.model.experiments_response import ExperimentsResponse
+from ultracart.model.file_manager_page import FileManagerPage
 from ultracart.model.geocode_request import GeocodeRequest
 from ultracart.model.geocode_response import GeocodeResponse
 from ultracart.model.library_filter_values_response import LibraryFilterValuesResponse
@@ -667,6 +668,127 @@ class StorefrontApi(object):
             },
             api_client=api_client
         )
+        self.create_admin_panel_fs_directory_endpoint = _Endpoint(
+            settings={
+                'response_type': (FileManagerPage,),
+                'auth': [
+                    'ultraCartBrowserApiKey',
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/storefront/{id}/adminPanel/fs/dir',
+                'operation_id': 'create_admin_panel_fs_directory',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'name',
+                    'parent_storefront_fs_directory_oid',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'name':
+                        (str,),
+                    'parent_storefront_fs_directory_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'name': 'name',
+                    'parent_storefront_fs_directory_oid': 'parent_storefront_fs_directory_oid',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'name': 'query',
+                    'parent_storefront_fs_directory_oid': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.create_admin_panel_fs_file_upload_endpoint = _Endpoint(
+            settings={
+                'response_type': (FileManagerPage,),
+                'auth': [
+                    'ultraCartBrowserApiKey',
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/storefront/{id}/adminPanel/fs/file',
+                'operation_id': 'create_admin_panel_fs_file_upload',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'parent_storefront_fs_directory_oid',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'parent_storefront_fs_directory_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'parent_storefront_fs_directory_oid': 'parent_storefront_fs_directory_oid',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'parent_storefront_fs_directory_oid': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.create_email_sending_domain_endpoint = _Endpoint(
             settings={
                 'response_type': (EmailSendingDomainResponse,),
@@ -825,6 +947,69 @@ class StorefrontApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.delete_admin_panel_fs_file_endpoint = _Endpoint(
+            settings={
+                'response_type': (FileManagerPage,),
+                'auth': [
+                    'ultraCartBrowserApiKey',
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/storefront/{id}/adminPanel/fs/file',
+                'operation_id': 'delete_admin_panel_fs_file',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'parent_storefront_fs_directory_oid',
+                    'storefront_fs_file_oid',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'parent_storefront_fs_directory_oid':
+                        (int,),
+                    'storefront_fs_file_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'parent_storefront_fs_directory_oid': 'parent_storefront_fs_directory_oid',
+                    'storefront_fs_file_oid': 'storefront_fs_file_oid',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'parent_storefront_fs_directory_oid': 'query',
+                    'storefront_fs_file_oid': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -1804,6 +1989,74 @@ class StorefrontApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.get_admin_panel_fs_directory_endpoint = _Endpoint(
+            settings={
+                'response_type': (FileManagerPage,),
+                'auth': [
+                    'ultraCartBrowserApiKey',
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/storefront/{id}/adminPanel/fs/dir',
+                'operation_id': 'get_admin_panel_fs_directory',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'path',
+                    'storefront_fs_directory_oid',
+                    'storefront_theme_oid',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (int,),
+                    'path':
+                        (str,),
+                    'storefront_fs_directory_oid':
+                        (int,),
+                    'storefront_theme_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'path': 'path',
+                    'storefront_fs_directory_oid': 'storefront_fs_directory_oid',
+                    'storefront_theme_oid': 'storefront_theme_oid',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'path': 'query',
+                    'storefront_fs_directory_oid': 'query',
+                    'storefront_theme_oid': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -10781,6 +11034,173 @@ class StorefrontApi(object):
             email_flow_uuid
         return self.clone_email_flow_endpoint.call_with_http_info(**kwargs)
 
+    def create_admin_panel_fs_directory(
+        self,
+        id,
+        **kwargs
+    ):
+        """Create file manager directory for admin panel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_admin_panel_fs_directory(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int):
+
+        Keyword Args:
+            name (str): [optional]
+            parent_storefront_fs_directory_oid (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            FileManagerPage
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.create_admin_panel_fs_directory_endpoint.call_with_http_info(**kwargs)
+
+    def create_admin_panel_fs_file_upload(
+        self,
+        id,
+        **kwargs
+    ):
+        """Upload file manager file for admin panel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_admin_panel_fs_file_upload(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int):
+
+        Keyword Args:
+            parent_storefront_fs_directory_oid (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            FileManagerPage
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.create_admin_panel_fs_file_upload_endpoint.call_with_http_info(**kwargs)
+
     def create_email_sending_domain(
         self,
         domain,
@@ -11026,6 +11446,90 @@ class StorefrontApi(object):
         kwargs['twilio'] = \
             twilio
         return self.create_twilio_account_endpoint.call_with_http_info(**kwargs)
+
+    def delete_admin_panel_fs_file(
+        self,
+        id,
+        **kwargs
+    ):
+        """Delete file manager directory for admin panel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_admin_panel_fs_file(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int):
+
+        Keyword Args:
+            parent_storefront_fs_directory_oid (int): [optional]
+            storefront_fs_file_oid (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            FileManagerPage
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.delete_admin_panel_fs_file_endpoint.call_with_http_info(**kwargs)
 
     def delete_email_campaign_folder(
         self,
@@ -12474,6 +12978,91 @@ class StorefrontApi(object):
         kwargs['geocode_request'] = \
             geocode_request
         return self.geocode_address_endpoint.call_with_http_info(**kwargs)
+
+    def get_admin_panel_fs_directory(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get file manager directory for admin panel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_admin_panel_fs_directory(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (int):
+
+        Keyword Args:
+            path (str): [optional]
+            storefront_fs_directory_oid (int): [optional]
+            storefront_theme_oid (int): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            FileManagerPage
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_admin_panel_fs_directory_endpoint.call_with_http_info(**kwargs)
 
     def get_countries(
         self,

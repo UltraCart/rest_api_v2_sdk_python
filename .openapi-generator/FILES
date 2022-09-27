@@ -372,6 +372,7 @@ docs/ExperimentResponse.md
 docs/ExperimentVariation.md
 docs/ExperimentVariationStat.md
 docs/ExperimentsResponse.md
+docs/FileManagerPage.md
 docs/FulfillmentApi.md
 docs/FulfillmentInventory.md
 docs/FulfillmentShipment.md
@@ -1088,6 +1089,7 @@ ultracart/model/experiment_response.py
 ultracart/model/experiment_variation.py
 ultracart/model/experiment_variation_stat.py
 ultracart/model/experiments_response.py
+ultracart/model/file_manager_page.py
 ultracart/model/fulfillment_inventory.py
 ultracart/model/fulfillment_shipment.py
 ultracart/model/geo_point.py
