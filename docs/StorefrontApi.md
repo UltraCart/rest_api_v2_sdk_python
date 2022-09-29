@@ -678,7 +678,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_fs_directory**
-> FileManagerPage create_fs_directory(id, name=name, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid)
+> FileManagerPageResponse create_fs_directory(id, name=name, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid)
 
 Create file manager directory
 
@@ -716,7 +716,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -1226,7 +1226,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_fs_file**
-> FileManagerPage delete_fs_file(id, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid, storefront_fs_file_oid=storefront_fs_file_oid)
+> FileManagerPageResponse delete_fs_file(id, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid, storefront_fs_file_oid=storefront_fs_file_oid)
 
 Delete file manager directory
 
@@ -1264,7 +1264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -4561,7 +4561,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_fs_directory**
-> FileManagerPage get_fs_directory(id, path=path, storefront_fs_directory_oid=storefront_fs_directory_oid, storefront_theme_oid=storefront_theme_oid)
+> FileManagerPageResponse get_fs_directory(id, path=path, storefront_fs_directory_oid=storefront_fs_directory_oid, storefront_theme_oid=storefront_theme_oid)
 
 Get file manager directory
 
@@ -4601,7 +4601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
