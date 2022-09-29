@@ -371,7 +371,11 @@ from ultracart.model.experiment_response import ExperimentResponse
 from ultracart.model.experiment_variation import ExperimentVariation
 from ultracart.model.experiment_variation_stat import ExperimentVariationStat
 from ultracart.model.experiments_response import ExperimentsResponse
+from ultracart.model.file_manager_directory import FileManagerDirectory
+from ultracart.model.file_manager_file import FileManagerFile
 from ultracart.model.file_manager_page import FileManagerPage
+from ultracart.model.file_manager_upload_request import FileManagerUploadRequest
+from ultracart.model.file_manager_upload_url_response import FileManagerUploadUrlResponse
 from ultracart.model.fulfillment_inventory import FulfillmentInventory
 from ultracart.model.fulfillment_shipment import FulfillmentShipment
 from ultracart.model.geo_point import GeoPoint

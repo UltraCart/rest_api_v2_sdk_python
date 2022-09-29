@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_item**](ItemApi.md#delete_item) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 [**get_digital_item**](ItemApi.md#get_digital_item) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**get_digital_items**](ItemApi.md#get_digital_items) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
+[**get_digital_items_by_external_id**](ItemApi.md#get_digital_items_by_external_id) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
 [**get_item**](ItemApi.md#get_item) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**get_item_by_merchant_item_id**](ItemApi.md#get_item_by_merchant_item_id) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
@@ -288,6 +289,78 @@ Name | Type | Description  | Notes
  **sort** | **str**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+
+### Return type
+
+[**ItemDigitalItemsResponse**](ItemDigitalItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_digital_items_by_external_id**
+> ItemDigitalItemsResponse get_digital_items_by_external_id(external_id)
+
+Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+
+Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.item_digital_items_response import ItemDigitalItemsResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    external_id = "external_id_example" # str | The external id to match against.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+        api_response = api_instance.get_digital_items_by_external_id(external_id)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->get_digital_items_by_external_id: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_id** | **str**| The external id to match against. |
 
 ### Return type
 
@@ -762,6 +835,7 @@ api_instance = GiftCertificateApi(api_client())
         creation_dts="creation_dts_example",
         description="description_example",
         digital_item_oid=1,
+        external_id="external_id_example",
         file_size=1,
         import_from_url="import_from_url_example",
         mime_type="mime_type_example",
@@ -1041,6 +1115,7 @@ api_instance = GiftCertificateApi(api_client())
                     creation_dts="creation_dts_example",
                     description="description_example",
                     digital_item_oid=1,
+                    external_id="external_id_example",
                     file_size=1,
                     import_from_url="import_from_url_example",
                     mime_type="mime_type_example",
@@ -1794,6 +1869,7 @@ api_instance = GiftCertificateApi(api_client())
         creation_dts="creation_dts_example",
         description="description_example",
         digital_item_oid=1,
+        external_id="external_id_example",
         file_size=1,
         import_from_url="import_from_url_example",
         mime_type="mime_type_example",
@@ -2075,6 +2151,7 @@ api_instance = GiftCertificateApi(api_client())
                     creation_dts="creation_dts_example",
                     description="description_example",
                     digital_item_oid=1,
+                    external_id="external_id_example",
                     file_size=1,
                     import_from_url="import_from_url_example",
                     mime_type="mime_type_example",
@@ -3014,6 +3091,7 @@ api_instance = GiftCertificateApi(api_client())
                             creation_dts="creation_dts_example",
                             description="description_example",
                             digital_item_oid=1,
+                            external_id="external_id_example",
                             file_size=1,
                             import_from_url="import_from_url_example",
                             mime_type="mime_type_example",
