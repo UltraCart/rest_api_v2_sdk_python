@@ -990,7 +990,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_fs_directory**
-> FileManagerPage create_fs_directory(id)
+> FileManagerPageResponse create_fs_directory(id)
 
 Create file manager directory
 
@@ -1004,8 +1004,8 @@ Create file manager directory
 import time
 import ultracart
 from ultracart.api import storefront_api
+from ultracart.model.file_manager_page_response import FileManagerPageResponse
 from ultracart.model.error_response import ErrorResponse
-from ultracart.model.file_manager_page import FileManagerPage
 from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
 
@@ -1048,7 +1048,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -1804,7 +1804,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_fs_file**
-> FileManagerPage delete_fs_file(id)
+> FileManagerPageResponse delete_fs_file(id)
 
 Delete file manager directory
 
@@ -1818,8 +1818,8 @@ Delete file manager directory
 import time
 import ultracart
 from ultracart.api import storefront_api
+from ultracart.model.file_manager_page_response import FileManagerPageResponse
 from ultracart.model.error_response import ErrorResponse
-from ultracart.model.file_manager_page import FileManagerPage
 from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
 
@@ -1862,7 +1862,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -6818,7 +6818,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_fs_directory**
-> FileManagerPage get_fs_directory(id)
+> FileManagerPageResponse get_fs_directory(id)
 
 Get file manager directory
 
@@ -6832,8 +6832,8 @@ Get file manager directory
 import time
 import ultracart
 from ultracart.api import storefront_api
+from ultracart.model.file_manager_page_response import FileManagerPageResponse
 from ultracart.model.error_response import ErrorResponse
-from ultracart.model.file_manager_page import FileManagerPage
 from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
 
@@ -6878,7 +6878,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 

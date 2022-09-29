@@ -375,6 +375,7 @@ docs/ExperimentsResponse.md
 docs/FileManagerDirectory.md
 docs/FileManagerFile.md
 docs/FileManagerPage.md
+docs/FileManagerPageResponse.md
 docs/FileManagerUploadRequest.md
 docs/FileManagerUploadUrlResponse.md
 docs/FulfillmentApi.md
@@ -1096,6 +1097,7 @@ ultracart/model/experiments_response.py
 ultracart/model/file_manager_directory.py
 ultracart/model/file_manager_file.py
 ultracart/model/file_manager_page.py
+ultracart/model/file_manager_page_response.py
 ultracart/model/file_manager_upload_request.py
 ultracart/model/file_manager_upload_url_response.py
 ultracart/model/fulfillment_inventory.py

@@ -118,7 +118,7 @@ from ultracart.model.error_response import ErrorResponse
 from ultracart.model.experiment import Experiment
 from ultracart.model.experiment_response import ExperimentResponse
 from ultracart.model.experiments_response import ExperimentsResponse
-from ultracart.model.file_manager_page import FileManagerPage
+from ultracart.model.file_manager_page_response import FileManagerPageResponse
 from ultracart.model.file_manager_upload_request import FileManagerUploadRequest
 from ultracart.model.file_manager_upload_url_response import FileManagerUploadUrlResponse
 from ultracart.model.geocode_request import GeocodeRequest
@@ -779,7 +779,7 @@ class StorefrontApi(object):
         )
         self.create_fs_directory_endpoint = _Endpoint(
             settings={
-                'response_type': (FileManagerPage,),
+                'response_type': (FileManagerPageResponse,),
                 'auth': [
                     'ultraCartBrowserApiKey',
                     'ultraCartOauth',
@@ -1427,7 +1427,7 @@ class StorefrontApi(object):
         )
         self.delete_fs_file_endpoint = _Endpoint(
             settings={
-                'response_type': (FileManagerPage,),
+                'response_type': (FileManagerPageResponse,),
                 'auth': [
                     'ultraCartBrowserApiKey',
                     'ultraCartOauth',
@@ -5328,7 +5328,7 @@ class StorefrontApi(object):
         )
         self.get_fs_directory_endpoint = _Endpoint(
             settings={
-                'response_type': (FileManagerPage,),
+                'response_type': (FileManagerPageResponse,),
                 'auth': [
                     'ultraCartBrowserApiKey',
                     'ultraCartOauth',
@@ -11312,7 +11312,7 @@ class StorefrontApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            FileManagerPage
+            FileManagerPageResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -12252,7 +12252,7 @@ class StorefrontApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            FileManagerPage
+            FileManagerPageResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -17947,7 +17947,7 @@ class StorefrontApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            FileManagerPage
+            FileManagerPageResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
