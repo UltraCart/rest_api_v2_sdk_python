@@ -32,38 +32,53 @@ class FileManagerPage(object):
     """
     swagger_types = {
         'current_storefront_fs_directory_oid': 'int',
+        'directories': 'list[FileManagerDirectory]',
+        'files': 'list[FileManagerFile]',
         'hostname': 'str',
         'parent_storefront_fs_directory_oid': 'int',
         'path': 'str',
+        'path_list': 'list[FileManagerDirectory]',
         'storefront_oid': 'int'
     }
 
     attribute_map = {
         'current_storefront_fs_directory_oid': 'current_storefront_fs_directory_oid',
+        'directories': 'directories',
+        'files': 'files',
         'hostname': 'hostname',
         'parent_storefront_fs_directory_oid': 'parent_storefront_fs_directory_oid',
         'path': 'path',
+        'path_list': 'path_list',
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, current_storefront_fs_directory_oid=None, hostname=None, parent_storefront_fs_directory_oid=None, path=None, storefront_oid=None):  # noqa: E501
+    def __init__(self, current_storefront_fs_directory_oid=None, directories=None, files=None, hostname=None, parent_storefront_fs_directory_oid=None, path=None, path_list=None, storefront_oid=None):  # noqa: E501
         """FileManagerPage - a model defined in Swagger"""  # noqa: E501
 
         self._current_storefront_fs_directory_oid = None
+        self._directories = None
+        self._files = None
         self._hostname = None
         self._parent_storefront_fs_directory_oid = None
         self._path = None
+        self._path_list = None
         self._storefront_oid = None
         self.discriminator = None
 
         if current_storefront_fs_directory_oid is not None:
             self.current_storefront_fs_directory_oid = current_storefront_fs_directory_oid
+        if directories is not None:
+            self.directories = directories
+        if files is not None:
+            self.files = files
         if hostname is not None:
             self.hostname = hostname
         if parent_storefront_fs_directory_oid is not None:
             self.parent_storefront_fs_directory_oid = parent_storefront_fs_directory_oid
         if path is not None:
             self.path = path
+        if path_list is not None:
+            self.path_list = path_list
         if storefront_oid is not None:
             self.storefront_oid = storefront_oid
 
@@ -87,6 +102,48 @@ class FileManagerPage(object):
         """
 
         self._current_storefront_fs_directory_oid = current_storefront_fs_directory_oid
+
+    @property
+    def directories(self):
+        """Gets the directories of this FileManagerPage.  # noqa: E501
+
+
+        :return: The directories of this FileManagerPage.  # noqa: E501
+        :rtype: list[FileManagerDirectory]
+        """
+        return self._directories
+
+    @directories.setter
+    def directories(self, directories):
+        """Sets the directories of this FileManagerPage.
+
+
+        :param directories: The directories of this FileManagerPage.  # noqa: E501
+        :type: list[FileManagerDirectory]
+        """
+
+        self._directories = directories
+
+    @property
+    def files(self):
+        """Gets the files of this FileManagerPage.  # noqa: E501
+
+
+        :return: The files of this FileManagerPage.  # noqa: E501
+        :rtype: list[FileManagerFile]
+        """
+        return self._files
+
+    @files.setter
+    def files(self, files):
+        """Sets the files of this FileManagerPage.
+
+
+        :param files: The files of this FileManagerPage.  # noqa: E501
+        :type: list[FileManagerFile]
+        """
+
+        self._files = files
 
     @property
     def hostname(self):
@@ -150,6 +207,27 @@ class FileManagerPage(object):
         """
 
         self._path = path
+
+    @property
+    def path_list(self):
+        """Gets the path_list of this FileManagerPage.  # noqa: E501
+
+
+        :return: The path_list of this FileManagerPage.  # noqa: E501
+        :rtype: list[FileManagerDirectory]
+        """
+        return self._path_list
+
+    @path_list.setter
+    def path_list(self, path_list):
+        """Sets the path_list of this FileManagerPage.
+
+
+        :param path_list: The path_list of this FileManagerPage.  # noqa: E501
+        :type: list[FileManagerDirectory]
+        """
+
+        self._path_list = path_list
 
     @property
     def storefront_oid(self):

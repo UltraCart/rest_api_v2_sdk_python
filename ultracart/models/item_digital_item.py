@@ -35,6 +35,7 @@ class ItemDigitalItem(object):
         'creation_dts': 'str',
         'description': 'str',
         'digital_item_oid': 'int',
+        'external_id': 'str',
         'file_size': 'int',
         'import_from_url': 'str',
         'mime_type': 'str',
@@ -47,6 +48,7 @@ class ItemDigitalItem(object):
         'creation_dts': 'creation_dts',
         'description': 'description',
         'digital_item_oid': 'digital_item_oid',
+        'external_id': 'external_id',
         'file_size': 'file_size',
         'import_from_url': 'import_from_url',
         'mime_type': 'mime_type',
@@ -54,13 +56,14 @@ class ItemDigitalItem(object):
         'pdf_meta': 'pdf_meta'
     }
 
-    def __init__(self, click_wrap_agreement=None, creation_dts=None, description=None, digital_item_oid=None, file_size=None, import_from_url=None, mime_type=None, original_filename=None, pdf_meta=None):  # noqa: E501
+    def __init__(self, click_wrap_agreement=None, creation_dts=None, description=None, digital_item_oid=None, external_id=None, file_size=None, import_from_url=None, mime_type=None, original_filename=None, pdf_meta=None):  # noqa: E501
         """ItemDigitalItem - a model defined in Swagger"""  # noqa: E501
 
         self._click_wrap_agreement = None
         self._creation_dts = None
         self._description = None
         self._digital_item_oid = None
+        self._external_id = None
         self._file_size = None
         self._import_from_url = None
         self._mime_type = None
@@ -76,6 +79,8 @@ class ItemDigitalItem(object):
             self.description = description
         if digital_item_oid is not None:
             self.digital_item_oid = digital_item_oid
+        if external_id is not None:
+            self.external_id = external_id
         if file_size is not None:
             self.file_size = file_size
         if import_from_url is not None:
@@ -180,6 +185,31 @@ class ItemDigitalItem(object):
         """
 
         self._digital_item_oid = digital_item_oid
+
+    @property
+    def external_id(self):
+        """Gets the external_id of this ItemDigitalItem.  # noqa: E501
+
+        External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.  # noqa: E501
+
+        :return: The external_id of this ItemDigitalItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_id
+
+    @external_id.setter
+    def external_id(self, external_id):
+        """Sets the external_id of this ItemDigitalItem.
+
+        External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.  # noqa: E501
+
+        :param external_id: The external_id of this ItemDigitalItem.  # noqa: E501
+        :type: str
+        """
+        if external_id is not None and len(external_id) > 100:
+            raise ValueError("Invalid value for `external_id`, length must be less than or equal to `100`")  # noqa: E501
+
+        self._external_id = external_id
 
     @property
     def file_size(self):

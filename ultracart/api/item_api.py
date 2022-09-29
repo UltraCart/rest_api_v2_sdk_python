@@ -458,6 +458,105 @@ class ItemApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_digital_items_by_external_id(self, external_id, **kwargs):  # noqa: E501
+        """Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id  # noqa: E501
+
+        Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_digital_items_by_external_id(external_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str external_id: The external id to match against. (required)
+        :return: ItemDigitalItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_digital_items_by_external_id_with_http_info(external_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_digital_items_by_external_id_with_http_info(external_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_digital_items_by_external_id_with_http_info(self, external_id, **kwargs):  # noqa: E501
+        """Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id  # noqa: E501
+
+        Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_digital_items_by_external_id_with_http_info(external_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str external_id: The external id to match against. (required)
+        :return: ItemDigitalItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['external_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_digital_items_by_external_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'external_id' is set
+        if ('external_id' not in params or
+                params['external_id'] is None):
+            raise ValueError("Missing the required parameter `external_id` when calling `get_digital_items_by_external_id`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'external_id' in params:
+            path_params['external_id'] = params['external_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/item/digital_library/by_external/{external_id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ItemDigitalItemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_item(self, merchant_item_oid, **kwargs):  # noqa: E501
         """Retrieve an item  # noqa: E501
 
