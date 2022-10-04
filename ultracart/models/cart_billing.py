@@ -34,6 +34,8 @@ class CartBilling(object):
         'address1': 'str',
         'address2': 'str',
         'cc_emails': 'list[str]',
+        'cell_phone': 'str',
+        'cell_phone_e164': 'str',
         'city': 'str',
         'company': 'str',
         'country_code': 'str',
@@ -52,6 +54,8 @@ class CartBilling(object):
         'address1': 'address1',
         'address2': 'address2',
         'cc_emails': 'cc_emails',
+        'cell_phone': 'cell_phone',
+        'cell_phone_e164': 'cell_phone_e164',
         'city': 'city',
         'company': 'company',
         'country_code': 'country_code',
@@ -66,12 +70,14 @@ class CartBilling(object):
         'title': 'title'
     }
 
-    def __init__(self, address1=None, address2=None, cc_emails=None, city=None, company=None, country_code=None, day_phone=None, email=None, email_confirm=None, evening_phone=None, first_name=None, last_name=None, postal_code=None, state_region=None, title=None):  # noqa: E501
+    def __init__(self, address1=None, address2=None, cc_emails=None, cell_phone=None, cell_phone_e164=None, city=None, company=None, country_code=None, day_phone=None, email=None, email_confirm=None, evening_phone=None, first_name=None, last_name=None, postal_code=None, state_region=None, title=None):  # noqa: E501
         """CartBilling - a model defined in Swagger"""  # noqa: E501
 
         self._address1 = None
         self._address2 = None
         self._cc_emails = None
+        self._cell_phone = None
+        self._cell_phone_e164 = None
         self._city = None
         self._company = None
         self._country_code = None
@@ -92,6 +98,10 @@ class CartBilling(object):
             self.address2 = address2
         if cc_emails is not None:
             self.cc_emails = cc_emails
+        if cell_phone is not None:
+            self.cell_phone = cell_phone
+        if cell_phone_e164 is not None:
+            self.cell_phone_e164 = cell_phone_e164
         if city is not None:
             self.city = city
         if company is not None:
@@ -189,6 +199,56 @@ class CartBilling(object):
         """
 
         self._cc_emails = cc_emails
+
+    @property
+    def cell_phone(self):
+        """Gets the cell_phone of this CartBilling.  # noqa: E501
+
+        Cell phone  # noqa: E501
+
+        :return: The cell_phone of this CartBilling.  # noqa: E501
+        :rtype: str
+        """
+        return self._cell_phone
+
+    @cell_phone.setter
+    def cell_phone(self, cell_phone):
+        """Sets the cell_phone of this CartBilling.
+
+        Cell phone  # noqa: E501
+
+        :param cell_phone: The cell_phone of this CartBilling.  # noqa: E501
+        :type: str
+        """
+        if cell_phone is not None and len(cell_phone) > 25:
+            raise ValueError("Invalid value for `cell_phone`, length must be less than or equal to `25`")  # noqa: E501
+
+        self._cell_phone = cell_phone
+
+    @property
+    def cell_phone_e164(self):
+        """Gets the cell_phone_e164 of this CartBilling.  # noqa: E501
+
+        Cell phone (E164 format)  # noqa: E501
+
+        :return: The cell_phone_e164 of this CartBilling.  # noqa: E501
+        :rtype: str
+        """
+        return self._cell_phone_e164
+
+    @cell_phone_e164.setter
+    def cell_phone_e164(self, cell_phone_e164):
+        """Sets the cell_phone_e164 of this CartBilling.
+
+        Cell phone (E164 format)  # noqa: E501
+
+        :param cell_phone_e164: The cell_phone_e164 of this CartBilling.  # noqa: E501
+        :type: str
+        """
+        if cell_phone_e164 is not None and len(cell_phone_e164) > 25:
+            raise ValueError("Invalid value for `cell_phone_e164`, length must be less than or equal to `25`")  # noqa: E501
+
+        self._cell_phone_e164 = cell_phone_e164
 
     @property
     def city(self):

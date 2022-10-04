@@ -35,6 +35,7 @@ class FileManagerUploadUrlResponse(object):
         'key': 'str',
         'metadata': 'ResponseMetadata',
         'success': 'bool',
+        'url': 'str',
         'warning': 'Warning'
     }
 
@@ -43,16 +44,18 @@ class FileManagerUploadUrlResponse(object):
         'key': 'key',
         'metadata': 'metadata',
         'success': 'success',
+        'url': 'url',
         'warning': 'warning'
     }
 
-    def __init__(self, error=None, key=None, metadata=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, error=None, key=None, metadata=None, success=None, url=None, warning=None):  # noqa: E501
         """FileManagerUploadUrlResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._key = None
         self._metadata = None
         self._success = None
+        self._url = None
         self._warning = None
         self.discriminator = None
 
@@ -64,6 +67,8 @@ class FileManagerUploadUrlResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if url is not None:
+            self.url = url
         if warning is not None:
             self.warning = warning
 
@@ -152,6 +157,27 @@ class FileManagerUploadUrlResponse(object):
         """
 
         self._success = success
+
+    @property
+    def url(self):
+        """Gets the url of this FileManagerUploadUrlResponse.  # noqa: E501
+
+
+        :return: The url of this FileManagerUploadUrlResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this FileManagerUploadUrlResponse.
+
+
+        :param url: The url of this FileManagerUploadUrlResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
 
     @property
     def warning(self):
