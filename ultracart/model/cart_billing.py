@@ -65,6 +65,12 @@ class CartBilling(ModelNormal):
         ('address2',): {
             'max_length': 50,
         },
+        ('cell_phone',): {
+            'max_length': 25,
+        },
+        ('cell_phone_e164',): {
+            'max_length': 25,
+        },
         ('city',): {
             'max_length': 32,
         },
@@ -127,6 +133,8 @@ class CartBilling(ModelNormal):
             'address1': (str,),  # noqa: E501
             'address2': (str,),  # noqa: E501
             'cc_emails': ([str],),  # noqa: E501
+            'cell_phone': (str,),  # noqa: E501
+            'cell_phone_e164': (str,),  # noqa: E501
             'city': (str,),  # noqa: E501
             'company': (str,),  # noqa: E501
             'country_code': (str,),  # noqa: E501
@@ -150,6 +158,8 @@ class CartBilling(ModelNormal):
         'address1': 'address1',  # noqa: E501
         'address2': 'address2',  # noqa: E501
         'cc_emails': 'cc_emails',  # noqa: E501
+        'cell_phone': 'cell_phone',  # noqa: E501
+        'cell_phone_e164': 'cell_phone_e164',  # noqa: E501
         'city': 'city',  # noqa: E501
         'company': 'company',  # noqa: E501
         'country_code': 'country_code',  # noqa: E501
@@ -208,6 +218,8 @@ class CartBilling(ModelNormal):
             address1 (str): Address line 1. [optional]  # noqa: E501
             address2 (str): Address line 2. [optional]  # noqa: E501
             cc_emails ([str]): CC emails.  Multiple allowed, but total length of all emails can not exceed 100 characters.. [optional]  # noqa: E501
+            cell_phone (str): Cell phone. [optional]  # noqa: E501
+            cell_phone_e164 (str): Cell phone (E164 format). [optional]  # noqa: E501
             city (str): City. [optional]  # noqa: E501
             company (str): Company. [optional]  # noqa: E501
             country_code (str): ISO-3166 two letter country code. [optional]  # noqa: E501
@@ -308,6 +320,8 @@ class CartBilling(ModelNormal):
             address1 (str): Address line 1. [optional]  # noqa: E501
             address2 (str): Address line 2. [optional]  # noqa: E501
             cc_emails ([str]): CC emails.  Multiple allowed, but total length of all emails can not exceed 100 characters.. [optional]  # noqa: E501
+            cell_phone (str): Cell phone. [optional]  # noqa: E501
+            cell_phone_e164 (str): Cell phone (E164 format). [optional]  # noqa: E501
             city (str): City. [optional]  # noqa: E501
             company (str): Company. [optional]  # noqa: E501
             country_code (str): ISO-3166 two letter country code. [optional]  # noqa: E501

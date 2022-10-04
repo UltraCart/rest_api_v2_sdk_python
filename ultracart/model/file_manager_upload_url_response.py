@@ -96,6 +96,7 @@ class FileManagerUploadUrlResponse(ModelNormal):
             'key': (str,),  # noqa: E501
             'metadata': (ResponseMetadata,),  # noqa: E501
             'success': (bool,),  # noqa: E501
+            'url': (str,),  # noqa: E501
             'warning': (Warning,),  # noqa: E501
         }
 
@@ -109,6 +110,7 @@ class FileManagerUploadUrlResponse(ModelNormal):
         'key': 'key',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'success': 'success',  # noqa: E501
+        'url': 'url',  # noqa: E501
         'warning': 'warning',  # noqa: E501
     }
 
@@ -157,6 +159,7 @@ class FileManagerUploadUrlResponse(ModelNormal):
             key (str): [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
+            url (str): [optional]  # noqa: E501
             warning (Warning): [optional]  # noqa: E501
         """
 
@@ -247,6 +250,7 @@ class FileManagerUploadUrlResponse(ModelNormal):
             key (str): [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
+            url (str): [optional]  # noqa: E501
             warning (Warning): [optional]  # noqa: E501
         """
 

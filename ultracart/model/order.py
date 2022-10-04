@@ -120,6 +120,7 @@ class Order(ModelNormal):
             'LEAST_COST_ROUTING': "Least Cost Routing",
             'UNKNOWN': "Unknown",
             'PRE-ORDERED': "Pre-ordered",
+            'ADVANCED_ORDER_ROUTING': "Advanced Order Routing",
         },
     }
 

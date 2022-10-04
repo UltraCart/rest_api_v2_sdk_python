@@ -67,6 +67,8 @@ api_instance = GiftCertificateApi(api_client())
             cc_emails=[
                 "cc_emails_example",
             ],
+            cell_phone="cell_phone_example",
+            cell_phone_e164="cell_phone_e164_example",
             city="city_example",
             company="company_example",
             country_code="country_code_example",
@@ -891,6 +893,8 @@ api_instance = GiftCertificateApi(api_client())
                 cc_emails=[
                     "cc_emails_example",
                 ],
+                cell_phone="cell_phone_example",
+                cell_phone_e164="cell_phone_e164_example",
                 city="city_example",
                 company="company_example",
                 country_code="country_code_example",
@@ -2265,6 +2269,8 @@ api_instance = GiftCertificateApi(api_client())
                 cc_emails=[
                     "cc_emails_example",
                 ],
+                cell_phone="cell_phone_example",
+                cell_phone_e164="cell_phone_e164_example",
                 city="city_example",
                 company="company_example",
                 country_code="country_code_example",
@@ -3109,6 +3115,8 @@ api_instance = GiftCertificateApi(api_client())
                 cc_emails=[
                     "cc_emails_example",
                 ],
+                cell_phone="cell_phone_example",
+                cell_phone_e164="cell_phone_e164_example",
                 city="city_example",
                 company="company_example",
                 country_code="country_code_example",
@@ -3947,6 +3955,8 @@ api_instance = GiftCertificateApi(api_client())
             cc_emails=[
                 "cc_emails_example",
             ],
+            cell_phone="cell_phone_example",
+            cell_phone_e164="cell_phone_e164_example",
             city="city_example",
             company="company_example",
             country_code="country_code_example",
@@ -4783,6 +4793,8 @@ api_instance = GiftCertificateApi(api_client())
                 cc_emails=[
                     "cc_emails_example",
                 ],
+                cell_phone="cell_phone_example",
+                cell_phone_e164="cell_phone_e164_example",
                 city="city_example",
                 company="company_example",
                 country_code="country_code_example",
@@ -5712,6 +5724,8 @@ api_instance = GiftCertificateApi(api_client())
             cc_emails=[
                 "cc_emails_example",
             ],
+            cell_phone="cell_phone_example",
+            cell_phone_e164="cell_phone_e164_example",
             city="city_example",
             company="company_example",
             country_code="country_code_example",
@@ -6548,6 +6562,8 @@ api_instance = GiftCertificateApi(api_client())
             cc_emails=[
                 "cc_emails_example",
             ],
+            cell_phone="cell_phone_example",
+            cell_phone_e164="cell_phone_e164_example",
             city="city_example",
             company="company_example",
             country_code="country_code_example",
@@ -7461,6 +7477,8 @@ api_instance = GiftCertificateApi(api_client())
             cc_emails=[
                 "cc_emails_example",
             ],
+            cell_phone="cell_phone_example",
+            cell_phone_e164="cell_phone_e164_example",
             city="city_example",
             company="company_example",
             country_code="country_code_example",
@@ -8297,6 +8315,8 @@ api_instance = GiftCertificateApi(api_client())
                 cc_emails=[
                     "cc_emails_example",
                 ],
+                cell_phone="cell_phone_example",
+                cell_phone_e164="cell_phone_e164_example",
                 city="city_example",
                 company="company_example",
                 country_code="country_code_example",
