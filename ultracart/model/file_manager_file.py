@@ -99,6 +99,9 @@ class FileManagerFile(ModelNormal):
             'storefront_fs_directory_oid': (int,),  # noqa: E501
             'storefront_fs_file_oid': (int,),  # noqa: E501
             'storefront_oid': (int,),  # noqa: E501
+            'thumbnail_16_url': (str,),  # noqa: E501
+            'thumbnail_32_url': (str,),  # noqa: E501
+            'thumbnail_64_url': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'valid_velocity': (str,),  # noqa: E501
         }
@@ -126,6 +129,9 @@ class FileManagerFile(ModelNormal):
         'storefront_fs_directory_oid': 'storefront_fs_directory_oid',  # noqa: E501
         'storefront_fs_file_oid': 'storefront_fs_file_oid',  # noqa: E501
         'storefront_oid': 'storefront_oid',  # noqa: E501
+        'thumbnail_16_url': 'thumbnail_16_url',  # noqa: E501
+        'thumbnail_32_url': 'thumbnail_32_url',  # noqa: E501
+        'thumbnail_64_url': 'thumbnail_64_url',  # noqa: E501
         'type': 'type',  # noqa: E501
         'valid_velocity': 'valid_velocity',  # noqa: E501
     }
@@ -188,6 +194,9 @@ class FileManagerFile(ModelNormal):
             storefront_fs_directory_oid (int): [optional]  # noqa: E501
             storefront_fs_file_oid (int): [optional]  # noqa: E501
             storefront_oid (int): [optional]  # noqa: E501
+            thumbnail_16_url (str): CDN thumbnail 16x16 size. [optional]  # noqa: E501
+            thumbnail_32_url (str): CDN thumbnail 32x32 size. [optional]  # noqa: E501
+            thumbnail_64_url (str): CDN thumbnail 64x64 size. [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
             valid_velocity (str): [optional]  # noqa: E501
         """
@@ -292,6 +301,9 @@ class FileManagerFile(ModelNormal):
             storefront_fs_directory_oid (int): [optional]  # noqa: E501
             storefront_fs_file_oid (int): [optional]  # noqa: E501
             storefront_oid (int): [optional]  # noqa: E501
+            thumbnail_16_url (str): CDN thumbnail 16x16 size. [optional]  # noqa: E501
+            thumbnail_32_url (str): CDN thumbnail 32x32 size. [optional]  # noqa: E501
+            thumbnail_64_url (str): CDN thumbnail 64x64 size. [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
             valid_velocity (str): [optional]  # noqa: E501
         """
