@@ -48,6 +48,9 @@ class FileManagerFile(object):
         'storefront_fs_directory_oid': 'int',
         'storefront_fs_file_oid': 'int',
         'storefront_oid': 'int',
+        'thumbnail_16_url': 'str',
+        'thumbnail_32_url': 'str',
+        'thumbnail_64_url': 'str',
         'type': 'str',
         'valid_velocity': 'str'
     }
@@ -70,11 +73,14 @@ class FileManagerFile(object):
         'storefront_fs_directory_oid': 'storefront_fs_directory_oid',
         'storefront_fs_file_oid': 'storefront_fs_file_oid',
         'storefront_oid': 'storefront_oid',
+        'thumbnail_16_url': 'thumbnail_16_url',
+        'thumbnail_32_url': 'thumbnail_32_url',
+        'thumbnail_64_url': 'thumbnail_64_url',
         'type': 'type',
         'valid_velocity': 'valid_velocity'
     }
 
-    def __init__(self, favorite=None, hostname=None, i18n_violation=None, icon=None, internal_version=None, last_modified=None, merge_conflict=None, name=None, parent_storefront_fs_directory_oid=None, part_of_active_theme=None, path=None, raw_size=None, selected=None, size=None, storefront_fs_directory_oid=None, storefront_fs_file_oid=None, storefront_oid=None, type=None, valid_velocity=None):  # noqa: E501
+    def __init__(self, favorite=None, hostname=None, i18n_violation=None, icon=None, internal_version=None, last_modified=None, merge_conflict=None, name=None, parent_storefront_fs_directory_oid=None, part_of_active_theme=None, path=None, raw_size=None, selected=None, size=None, storefront_fs_directory_oid=None, storefront_fs_file_oid=None, storefront_oid=None, thumbnail_16_url=None, thumbnail_32_url=None, thumbnail_64_url=None, type=None, valid_velocity=None):  # noqa: E501
         """FileManagerFile - a model defined in Swagger"""  # noqa: E501
 
         self._favorite = None
@@ -94,6 +100,9 @@ class FileManagerFile(object):
         self._storefront_fs_directory_oid = None
         self._storefront_fs_file_oid = None
         self._storefront_oid = None
+        self._thumbnail_16_url = None
+        self._thumbnail_32_url = None
+        self._thumbnail_64_url = None
         self._type = None
         self._valid_velocity = None
         self.discriminator = None
@@ -132,6 +141,12 @@ class FileManagerFile(object):
             self.storefront_fs_file_oid = storefront_fs_file_oid
         if storefront_oid is not None:
             self.storefront_oid = storefront_oid
+        if thumbnail_16_url is not None:
+            self.thumbnail_16_url = thumbnail_16_url
+        if thumbnail_32_url is not None:
+            self.thumbnail_32_url = thumbnail_32_url
+        if thumbnail_64_url is not None:
+            self.thumbnail_64_url = thumbnail_64_url
         if type is not None:
             self.type = type
         if valid_velocity is not None:
@@ -493,6 +508,75 @@ class FileManagerFile(object):
         """
 
         self._storefront_oid = storefront_oid
+
+    @property
+    def thumbnail_16_url(self):
+        """Gets the thumbnail_16_url of this FileManagerFile.  # noqa: E501
+
+        CDN thumbnail 16x16 size  # noqa: E501
+
+        :return: The thumbnail_16_url of this FileManagerFile.  # noqa: E501
+        :rtype: str
+        """
+        return self._thumbnail_16_url
+
+    @thumbnail_16_url.setter
+    def thumbnail_16_url(self, thumbnail_16_url):
+        """Sets the thumbnail_16_url of this FileManagerFile.
+
+        CDN thumbnail 16x16 size  # noqa: E501
+
+        :param thumbnail_16_url: The thumbnail_16_url of this FileManagerFile.  # noqa: E501
+        :type: str
+        """
+
+        self._thumbnail_16_url = thumbnail_16_url
+
+    @property
+    def thumbnail_32_url(self):
+        """Gets the thumbnail_32_url of this FileManagerFile.  # noqa: E501
+
+        CDN thumbnail 32x32 size  # noqa: E501
+
+        :return: The thumbnail_32_url of this FileManagerFile.  # noqa: E501
+        :rtype: str
+        """
+        return self._thumbnail_32_url
+
+    @thumbnail_32_url.setter
+    def thumbnail_32_url(self, thumbnail_32_url):
+        """Sets the thumbnail_32_url of this FileManagerFile.
+
+        CDN thumbnail 32x32 size  # noqa: E501
+
+        :param thumbnail_32_url: The thumbnail_32_url of this FileManagerFile.  # noqa: E501
+        :type: str
+        """
+
+        self._thumbnail_32_url = thumbnail_32_url
+
+    @property
+    def thumbnail_64_url(self):
+        """Gets the thumbnail_64_url of this FileManagerFile.  # noqa: E501
+
+        CDN thumbnail 64x64 size  # noqa: E501
+
+        :return: The thumbnail_64_url of this FileManagerFile.  # noqa: E501
+        :rtype: str
+        """
+        return self._thumbnail_64_url
+
+    @thumbnail_64_url.setter
+    def thumbnail_64_url(self, thumbnail_64_url):
+        """Sets the thumbnail_64_url of this FileManagerFile.
+
+        CDN thumbnail 64x64 size  # noqa: E501
+
+        :param thumbnail_64_url: The thumbnail_64_url of this FileManagerFile.  # noqa: E501
+        :type: str
+        """
+
+        self._thumbnail_64_url = thumbnail_64_url
 
     @property
     def type(self):
