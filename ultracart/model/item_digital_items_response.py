@@ -107,7 +107,7 @@ class ItemDigitalItemsResponse(ModelNormal):
 
 
     attribute_map = {
-        'digital_items': 'digitalItems',  # noqa: E501
+        'digital_items': 'digital_items',  # noqa: E501
         'error': 'error',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'success': 'success',  # noqa: E501

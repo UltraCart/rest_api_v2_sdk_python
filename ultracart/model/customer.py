@@ -179,6 +179,7 @@ class Customer(ModelNormal):
             'last_modified_dts': (str,),  # noqa: E501
             'loyalty': (CustomerLoyalty,),  # noqa: E501
             'maximum_item_count': (int,),  # noqa: E501
+            'merchant_id': (str,),  # noqa: E501
             'minimum_item_count': (int,),  # noqa: E501
             'minimum_subtotal': (float,),  # noqa: E501
             'no_coupons': (bool,),  # noqa: E501
@@ -246,6 +247,7 @@ class Customer(ModelNormal):
         'last_modified_dts': 'last_modified_dts',  # noqa: E501
         'loyalty': 'loyalty',  # noqa: E501
         'maximum_item_count': 'maximum_item_count',  # noqa: E501
+        'merchant_id': 'merchant_id',  # noqa: E501
         'minimum_item_count': 'minimum_item_count',  # noqa: E501
         'minimum_subtotal': 'minimum_subtotal',  # noqa: E501
         'no_coupons': 'no_coupons',  # noqa: E501
@@ -348,6 +350,7 @@ class Customer(ModelNormal):
             last_modified_dts (str): Last modified date. [optional]  # noqa: E501
             loyalty (CustomerLoyalty): [optional]  # noqa: E501
             maximum_item_count (int): Maximum item count. [optional]  # noqa: E501
+            merchant_id (str): Merchant ID. [optional]  # noqa: E501
             minimum_item_count (int): Minimum item count. [optional]  # noqa: E501
             minimum_subtotal (float): Minimum subtotal. [optional]  # noqa: E501
             no_coupons (bool): No coupons. [optional]  # noqa: E501
@@ -492,6 +495,7 @@ class Customer(ModelNormal):
             last_modified_dts (str): Last modified date. [optional]  # noqa: E501
             loyalty (CustomerLoyalty): [optional]  # noqa: E501
             maximum_item_count (int): Maximum item count. [optional]  # noqa: E501
+            merchant_id (str): Merchant ID. [optional]  # noqa: E501
             minimum_item_count (int): Minimum item count. [optional]  # noqa: E501
             minimum_subtotal (float): Minimum subtotal. [optional]  # noqa: E501
             no_coupons (bool): No coupons. [optional]  # noqa: E501
