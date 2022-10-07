@@ -59,6 +59,7 @@ class Customer(object):
         'last_modified_dts': 'str',
         'loyalty': 'CustomerLoyalty',
         'maximum_item_count': 'int',
+        'merchant_id': 'str',
         'minimum_item_count': 'int',
         'minimum_subtotal': 'float',
         'no_coupons': 'bool',
@@ -121,6 +122,7 @@ class Customer(object):
         'last_modified_dts': 'last_modified_dts',
         'loyalty': 'loyalty',
         'maximum_item_count': 'maximum_item_count',
+        'merchant_id': 'merchant_id',
         'minimum_item_count': 'minimum_item_count',
         'minimum_subtotal': 'minimum_subtotal',
         'no_coupons': 'no_coupons',
@@ -154,7 +156,7 @@ class Customer(object):
         'website_url': 'website_url'
     }
 
-    def __init__(self, activity=None, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_drop_shipping=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, attachments=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, loyalty=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, privacy=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, reviewer=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, software_entitlements=None, suppress_buysafe=None, tags=None, tax_codes=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):  # noqa: E501
+    def __init__(self, activity=None, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_drop_shipping=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, attachments=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, loyalty=None, maximum_item_count=None, merchant_id=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, privacy=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, reviewer=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, software_entitlements=None, suppress_buysafe=None, tags=None, tax_codes=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):  # noqa: E501
         """Customer - a model defined in Swagger"""  # noqa: E501
 
         self._activity = None
@@ -185,6 +187,7 @@ class Customer(object):
         self._last_modified_dts = None
         self._loyalty = None
         self._maximum_item_count = None
+        self._merchant_id = None
         self._minimum_item_count = None
         self._minimum_subtotal = None
         self._no_coupons = None
@@ -274,6 +277,8 @@ class Customer(object):
             self.loyalty = loyalty
         if maximum_item_count is not None:
             self.maximum_item_count = maximum_item_count
+        if merchant_id is not None:
+            self.merchant_id = merchant_id
         if minimum_item_count is not None:
             self.minimum_item_count = minimum_item_count
         if minimum_subtotal is not None:
@@ -986,6 +991,29 @@ class Customer(object):
         """
 
         self._maximum_item_count = maximum_item_count
+
+    @property
+    def merchant_id(self):
+        """Gets the merchant_id of this Customer.  # noqa: E501
+
+        Merchant ID  # noqa: E501
+
+        :return: The merchant_id of this Customer.  # noqa: E501
+        :rtype: str
+        """
+        return self._merchant_id
+
+    @merchant_id.setter
+    def merchant_id(self, merchant_id):
+        """Sets the merchant_id of this Customer.
+
+        Merchant ID  # noqa: E501
+
+        :param merchant_id: The merchant_id of this Customer.  # noqa: E501
+        :type: str
+        """
+
+        self._merchant_id = merchant_id
 
     @property
     def minimum_item_count(self):

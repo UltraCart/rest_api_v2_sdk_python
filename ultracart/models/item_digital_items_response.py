@@ -39,7 +39,7 @@ class ItemDigitalItemsResponse(object):
     }
 
     attribute_map = {
-        'digital_items': 'digitalItems',
+        'digital_items': 'digital_items',
         'error': 'error',
         'metadata': 'metadata',
         'success': 'success',
