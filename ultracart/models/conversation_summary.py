@@ -37,6 +37,7 @@ class ConversationSummary(object):
         'last_conversation_message_body': 'str',
         'last_conversation_participant_arn': 'str',
         'last_conversation_participant_name': 'str',
+        'last_interactive_message_dts': 'str',
         'last_message_dts': 'str',
         'medium': 'str',
         'merchant_id': 'str',
@@ -54,6 +55,7 @@ class ConversationSummary(object):
         'last_conversation_message_body': 'last_conversation_message_body',
         'last_conversation_participant_arn': 'last_conversation_participant_arn',
         'last_conversation_participant_name': 'last_conversation_participant_name',
+        'last_interactive_message_dts': 'last_interactive_message_dts',
         'last_message_dts': 'last_message_dts',
         'medium': 'medium',
         'merchant_id': 'merchant_id',
@@ -64,7 +66,7 @@ class ConversationSummary(object):
         'visible': 'visible'
     }
 
-    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
+    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_interactive_message_dts=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
         """ConversationSummary - a model defined in Swagger"""  # noqa: E501
 
         self._closed = None
@@ -73,6 +75,7 @@ class ConversationSummary(object):
         self._last_conversation_message_body = None
         self._last_conversation_participant_arn = None
         self._last_conversation_participant_name = None
+        self._last_interactive_message_dts = None
         self._last_message_dts = None
         self._medium = None
         self._merchant_id = None
@@ -95,6 +98,8 @@ class ConversationSummary(object):
             self.last_conversation_participant_arn = last_conversation_participant_arn
         if last_conversation_participant_name is not None:
             self.last_conversation_participant_name = last_conversation_participant_name
+        if last_interactive_message_dts is not None:
+            self.last_interactive_message_dts = last_interactive_message_dts
         if last_message_dts is not None:
             self.last_message_dts = last_message_dts
         if medium is not None:
@@ -237,6 +242,29 @@ class ConversationSummary(object):
         """
 
         self._last_conversation_participant_name = last_conversation_participant_name
+
+    @property
+    def last_interactive_message_dts(self):
+        """Gets the last_interactive_message_dts of this ConversationSummary.  # noqa: E501
+
+        Last interactive message date/time  # noqa: E501
+
+        :return: The last_interactive_message_dts of this ConversationSummary.  # noqa: E501
+        :rtype: str
+        """
+        return self._last_interactive_message_dts
+
+    @last_interactive_message_dts.setter
+    def last_interactive_message_dts(self, last_interactive_message_dts):
+        """Sets the last_interactive_message_dts of this ConversationSummary.
+
+        Last interactive message date/time  # noqa: E501
+
+        :param last_interactive_message_dts: The last_interactive_message_dts of this ConversationSummary.  # noqa: E501
+        :type: str
+        """
+
+        self._last_interactive_message_dts = last_interactive_message_dts
 
     @property
     def last_message_dts(self):

@@ -311,7 +311,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_conversations**
-> ConversationsResponse get_conversations(medium=medium, limit=limit, offset=offset)
+> ConversationsResponse get_conversations(medium=medium, before=before, limit=limit, offset=offset)
 
 Retrieve a list of conversation summaries newest to oldest
 
@@ -330,12 +330,13 @@ simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
 api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
 
 medium = 'medium_example' # str |  (optional)
+before = 'before_example' # str |  (optional)
 limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 
 try:
     # Retrieve a list of conversation summaries newest to oldest
-    api_response = api_instance.get_conversations(medium=medium, limit=limit, offset=offset)
+    api_response = api_instance.get_conversations(medium=medium, before=before, limit=limit, offset=offset)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ConversationApi->get_conversations: %s\n" % e)
@@ -346,6 +347,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **medium** | **str**|  | [optional] 
+ **before** | **str**|  | [optional] 
  **limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
 

@@ -643,6 +643,7 @@ class ConversationApi(object):
 
         :param async_req bool
         :param str medium:
+        :param str before:
         :param int limit: The maximum number of records to return on this one API call. (Max 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :return: ConversationsResponse
@@ -667,6 +668,7 @@ class ConversationApi(object):
 
         :param async_req bool
         :param str medium:
+        :param str before:
         :param int limit: The maximum number of records to return on this one API call. (Max 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :return: ConversationsResponse
@@ -674,7 +676,7 @@ class ConversationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['medium', 'limit', 'offset']  # noqa: E501
+        all_params = ['medium', 'before', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -697,6 +699,8 @@ class ConversationApi(object):
         query_params = []
         if 'medium' in params:
             query_params.append(('medium', params['medium']))  # noqa: E501
+        if 'before' in params:
+            query_params.append(('before', params['before']))  # noqa: E501
         if 'limit' in params:
             query_params.append(('_limit', params['limit']))  # noqa: E501
         if 'offset' in params:
