@@ -42,6 +42,7 @@ class EmailCommseqSequenceTestRequest(object):
         'order_id': 'str',
         'please_review': 'bool',
         'postal_code': 'str',
+        'send_to_cellphone_e164': 'str',
         'send_to_email': 'str',
         'send_to_logged_in_user': 'bool',
         'state': 'str'
@@ -59,12 +60,13 @@ class EmailCommseqSequenceTestRequest(object):
         'order_id': 'order_id',
         'please_review': 'please_review',
         'postal_code': 'postal_code',
+        'send_to_cellphone_e164': 'send_to_cellphone_e164',
         'send_to_email': 'send_to_email',
         'send_to_logged_in_user': 'send_to_logged_in_user',
         'state': 'state'
     }
 
-    def __init__(self, address_1=None, address_2=None, cart_id=None, cart_item_ids=None, city=None, esp_commseq_uuid=None, mail_card=None, name=None, order_id=None, please_review=None, postal_code=None, send_to_email=None, send_to_logged_in_user=None, state=None):  # noqa: E501
+    def __init__(self, address_1=None, address_2=None, cart_id=None, cart_item_ids=None, city=None, esp_commseq_uuid=None, mail_card=None, name=None, order_id=None, please_review=None, postal_code=None, send_to_cellphone_e164=None, send_to_email=None, send_to_logged_in_user=None, state=None):  # noqa: E501
         """EmailCommseqSequenceTestRequest - a model defined in Swagger"""  # noqa: E501
 
         self._address_1 = None
@@ -78,6 +80,7 @@ class EmailCommseqSequenceTestRequest(object):
         self._order_id = None
         self._please_review = None
         self._postal_code = None
+        self._send_to_cellphone_e164 = None
         self._send_to_email = None
         self._send_to_logged_in_user = None
         self._state = None
@@ -105,6 +108,8 @@ class EmailCommseqSequenceTestRequest(object):
             self.please_review = please_review
         if postal_code is not None:
             self.postal_code = postal_code
+        if send_to_cellphone_e164 is not None:
+            self.send_to_cellphone_e164 = send_to_cellphone_e164
         if send_to_email is not None:
             self.send_to_email = send_to_email
         if send_to_logged_in_user is not None:
@@ -342,6 +347,27 @@ class EmailCommseqSequenceTestRequest(object):
         """
 
         self._postal_code = postal_code
+
+    @property
+    def send_to_cellphone_e164(self):
+        """Gets the send_to_cellphone_e164 of this EmailCommseqSequenceTestRequest.  # noqa: E501
+
+
+        :return: The send_to_cellphone_e164 of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._send_to_cellphone_e164
+
+    @send_to_cellphone_e164.setter
+    def send_to_cellphone_e164(self, send_to_cellphone_e164):
+        """Sets the send_to_cellphone_e164 of this EmailCommseqSequenceTestRequest.
+
+
+        :param send_to_cellphone_e164: The send_to_cellphone_e164 of this EmailCommseqSequenceTestRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._send_to_cellphone_e164 = send_to_cellphone_e164
 
     @property
     def send_to_email(self):
