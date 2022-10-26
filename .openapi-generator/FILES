@@ -277,6 +277,8 @@ docs/EmailCommseqPostcardsResponse.md
 docs/EmailCommseqResponse.md
 docs/EmailCommseqSequenceTestRequest.md
 docs/EmailCommseqSequenceTestResponse.md
+docs/EmailCommseqSmsSendTestRequest.md
+docs/EmailCommseqSmsSendTestResponse.md
 docs/EmailCommseqStat.md
 docs/EmailCommseqStatResponse.md
 docs/EmailCommseqStep.md
@@ -999,6 +1001,8 @@ ultracart/model/email_commseq_postcards_response.py
 ultracart/model/email_commseq_response.py
 ultracart/model/email_commseq_sequence_test_request.py
 ultracart/model/email_commseq_sequence_test_response.py
+ultracart/model/email_commseq_sms_send_test_request.py
+ultracart/model/email_commseq_sms_send_test_response.py
 ultracart/model/email_commseq_stat.py
 ultracart/model/email_commseq_stat_response.py
 ultracart/model/email_commseq_step.py
