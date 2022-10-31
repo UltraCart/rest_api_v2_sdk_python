@@ -31,6 +31,7 @@ class EmailStepStat(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'left_click_count': 'int',
         'left_click_count_formatted': 'str',
         'left_conversion_count': 'int',
         'left_conversion_count_formatted': 'str',
@@ -63,6 +64,7 @@ class EmailStepStat(object):
     }
 
     attribute_map = {
+        'left_click_count': 'left_click_count',
         'left_click_count_formatted': 'left_click_count_formatted',
         'left_conversion_count': 'left_conversion_count',
         'left_conversion_count_formatted': 'left_conversion_count_formatted',
@@ -94,9 +96,10 @@ class EmailStepStat(object):
         'right_revenue_formatted': 'right_revenue_formatted'
     }
 
-    def __init__(self, left_click_count_formatted=None, left_conversion_count=None, left_conversion_count_formatted=None, left_customer_count=None, left_customer_count_formatted=None, left_delivered_count=None, left_delivered_count_formatted=None, left_order_count=None, left_order_count_formatted=None, left_profit=None, left_profit_formatted=None, left_revenue=None, left_revenue_formatted=None, left_send_count=None, left_send_count_formatted=None, left_skipped_count=None, left_skipped_count_formatted=None, left_unsubscribe_count=None, left_unsubscribe_count_formatted=None, right_conversion_count=None, right_conversion_count_formatted=None, right_customer_count=None, right_customer_count_formatted=None, right_order_count=None, right_order_count_formatted=None, right_profit=None, right_profit_formatted=None, right_revenue=None, right_revenue_formatted=None):  # noqa: E501
+    def __init__(self, left_click_count=None, left_click_count_formatted=None, left_conversion_count=None, left_conversion_count_formatted=None, left_customer_count=None, left_customer_count_formatted=None, left_delivered_count=None, left_delivered_count_formatted=None, left_order_count=None, left_order_count_formatted=None, left_profit=None, left_profit_formatted=None, left_revenue=None, left_revenue_formatted=None, left_send_count=None, left_send_count_formatted=None, left_skipped_count=None, left_skipped_count_formatted=None, left_unsubscribe_count=None, left_unsubscribe_count_formatted=None, right_conversion_count=None, right_conversion_count_formatted=None, right_customer_count=None, right_customer_count_formatted=None, right_order_count=None, right_order_count_formatted=None, right_profit=None, right_profit_formatted=None, right_revenue=None, right_revenue_formatted=None):  # noqa: E501
         """EmailStepStat - a model defined in Swagger"""  # noqa: E501
 
+        self._left_click_count = None
         self._left_click_count_formatted = None
         self._left_conversion_count = None
         self._left_conversion_count_formatted = None
@@ -128,6 +131,8 @@ class EmailStepStat(object):
         self._right_revenue_formatted = None
         self.discriminator = None
 
+        if left_click_count is not None:
+            self.left_click_count = left_click_count
         if left_click_count_formatted is not None:
             self.left_click_count_formatted = left_click_count_formatted
         if left_conversion_count is not None:
@@ -188,6 +193,29 @@ class EmailStepStat(object):
             self.right_revenue_formatted = right_revenue_formatted
 
     @property
+    def left_click_count(self):
+        """Gets the left_click_count of this EmailStepStat.  # noqa: E501
+
+        click count (left side)  # noqa: E501
+
+        :return: The left_click_count of this EmailStepStat.  # noqa: E501
+        :rtype: int
+        """
+        return self._left_click_count
+
+    @left_click_count.setter
+    def left_click_count(self, left_click_count):
+        """Sets the left_click_count of this EmailStepStat.
+
+        click count (left side)  # noqa: E501
+
+        :param left_click_count: The left_click_count of this EmailStepStat.  # noqa: E501
+        :type: int
+        """
+
+        self._left_click_count = left_click_count
+
+    @property
     def left_click_count_formatted(self):
         """Gets the left_click_count_formatted of this EmailStepStat.  # noqa: E501
 
@@ -214,7 +242,7 @@ class EmailStepStat(object):
     def left_conversion_count(self):
         """Gets the left_conversion_count of this EmailStepStat.  # noqa: E501
 
-        click count (left side)  # noqa: E501
+        conversion count (left/default side)  # noqa: E501
 
         :return: The left_conversion_count of this EmailStepStat.  # noqa: E501
         :rtype: int
@@ -225,7 +253,7 @@ class EmailStepStat(object):
     def left_conversion_count(self, left_conversion_count):
         """Sets the left_conversion_count of this EmailStepStat.
 
-        click count (left side)  # noqa: E501
+        conversion count (left/default side)  # noqa: E501
 
         :param left_conversion_count: The left_conversion_count of this EmailStepStat.  # noqa: E501
         :type: int
