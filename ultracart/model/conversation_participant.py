@@ -90,6 +90,7 @@ class ConversationParticipant(ModelNormal):
             'left_dts': (str,),  # noqa: E501
             'profile_image_url': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'timezone': (str,),  # noqa: E501
             'unread_messages': (int,),  # noqa: E501
         }
 
@@ -107,6 +108,7 @@ class ConversationParticipant(ModelNormal):
         'left_dts': 'left_dts',  # noqa: E501
         'profile_image_url': 'profile_image_url',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'timezone': 'timezone',  # noqa: E501
         'unread_messages': 'unread_messages',  # noqa: E501
     }
 
@@ -159,6 +161,7 @@ class ConversationParticipant(ModelNormal):
             left_dts (str): Left conversation date/time. [optional]  # noqa: E501
             profile_image_url (str): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
+            timezone (str): [optional]  # noqa: E501
             unread_messages (int): [optional]  # noqa: E501
         """
 
@@ -253,6 +256,7 @@ class ConversationParticipant(ModelNormal):
             left_dts (str): Left conversation date/time. [optional]  # noqa: E501
             profile_image_url (str): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
+            timezone (str): [optional]  # noqa: E501
             unread_messages (int): [optional]  # noqa: E501
         """
 

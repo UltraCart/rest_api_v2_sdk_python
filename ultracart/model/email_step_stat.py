@@ -82,16 +82,25 @@ class EmailStepStat(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'left_click_count_formatted': (str,),  # noqa: E501
             'left_conversion_count': (int,),  # noqa: E501
             'left_conversion_count_formatted': (str,),  # noqa: E501
             'left_customer_count': (int,),  # noqa: E501
             'left_customer_count_formatted': (str,),  # noqa: E501
+            'left_delivered_count': (int,),  # noqa: E501
+            'left_delivered_count_formatted': (str,),  # noqa: E501
             'left_order_count': (int,),  # noqa: E501
             'left_order_count_formatted': (str,),  # noqa: E501
             'left_profit': (float,),  # noqa: E501
             'left_profit_formatted': (str,),  # noqa: E501
             'left_revenue': (float,),  # noqa: E501
             'left_revenue_formatted': (str,),  # noqa: E501
+            'left_send_count': (int,),  # noqa: E501
+            'left_send_count_formatted': (str,),  # noqa: E501
+            'left_skipped_count': (int,),  # noqa: E501
+            'left_skipped_count_formatted': (str,),  # noqa: E501
+            'left_unsubscribe_count': (int,),  # noqa: E501
+            'left_unsubscribe_count_formatted': (str,),  # noqa: E501
             'right_conversion_count': (int,),  # noqa: E501
             'right_conversion_count_formatted': (str,),  # noqa: E501
             'right_customer_count': (int,),  # noqa: E501
@@ -110,16 +119,25 @@ class EmailStepStat(ModelNormal):
 
 
     attribute_map = {
+        'left_click_count_formatted': 'left_click_count_formatted',  # noqa: E501
         'left_conversion_count': 'left_conversion_count',  # noqa: E501
         'left_conversion_count_formatted': 'left_conversion_count_formatted',  # noqa: E501
         'left_customer_count': 'left_customer_count',  # noqa: E501
         'left_customer_count_formatted': 'left_customer_count_formatted',  # noqa: E501
+        'left_delivered_count': 'left_delivered_count',  # noqa: E501
+        'left_delivered_count_formatted': 'left_delivered_count_formatted',  # noqa: E501
         'left_order_count': 'left_order_count',  # noqa: E501
         'left_order_count_formatted': 'left_order_count_formatted',  # noqa: E501
         'left_profit': 'left_profit',  # noqa: E501
         'left_profit_formatted': 'left_profit_formatted',  # noqa: E501
         'left_revenue': 'left_revenue',  # noqa: E501
         'left_revenue_formatted': 'left_revenue_formatted',  # noqa: E501
+        'left_send_count': 'left_send_count',  # noqa: E501
+        'left_send_count_formatted': 'left_send_count_formatted',  # noqa: E501
+        'left_skipped_count': 'left_skipped_count',  # noqa: E501
+        'left_skipped_count_formatted': 'left_skipped_count_formatted',  # noqa: E501
+        'left_unsubscribe_count': 'left_unsubscribe_count',  # noqa: E501
+        'left_unsubscribe_count_formatted': 'left_unsubscribe_count_formatted',  # noqa: E501
         'right_conversion_count': 'right_conversion_count',  # noqa: E501
         'right_conversion_count_formatted': 'right_conversion_count_formatted',  # noqa: E501
         'right_customer_count': 'right_customer_count',  # noqa: E501
@@ -173,16 +191,25 @@ class EmailStepStat(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            left_conversion_count (int): conversion count (left/default side). [optional]  # noqa: E501
+            left_click_count_formatted (str): click count formatted (left side). [optional]  # noqa: E501
+            left_conversion_count (int): click count (left side). [optional]  # noqa: E501
             left_conversion_count_formatted (str): conversion count formatted (left/default side). [optional]  # noqa: E501
             left_customer_count (int): customer count (left/default side). [optional]  # noqa: E501
             left_customer_count_formatted (str): customer count formatted (left/default side). [optional]  # noqa: E501
+            left_delivered_count (int): delivered count (left side). [optional]  # noqa: E501
+            left_delivered_count_formatted (str): delivered count formatted (left side). [optional]  # noqa: E501
             left_order_count (int): order count (left/default side). [optional]  # noqa: E501
             left_order_count_formatted (str): order count formatted (left/default side). [optional]  # noqa: E501
             left_profit (float): profit (left/default side). [optional]  # noqa: E501
             left_profit_formatted (str): profit formatted (left/default side). [optional]  # noqa: E501
             left_revenue (float): revenue (left/default side). [optional]  # noqa: E501
             left_revenue_formatted (str): revenue formatted (left/default side). [optional]  # noqa: E501
+            left_send_count (int): send count (left side). [optional]  # noqa: E501
+            left_send_count_formatted (str): send count formatted (left side). [optional]  # noqa: E501
+            left_skipped_count (int): conversion count (left side). [optional]  # noqa: E501
+            left_skipped_count_formatted (str): skipped count formatted (left side). [optional]  # noqa: E501
+            left_unsubscribe_count (int): unsubscribe count (left side). [optional]  # noqa: E501
+            left_unsubscribe_count_formatted (str): unsubscribe count formatted (left side). [optional]  # noqa: E501
             right_conversion_count (int): conversion count (right side). [optional]  # noqa: E501
             right_conversion_count_formatted (str): conversion count formatted (right side). [optional]  # noqa: E501
             right_customer_count (int): customer count (right side). [optional]  # noqa: E501
@@ -278,16 +305,25 @@ class EmailStepStat(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            left_conversion_count (int): conversion count (left/default side). [optional]  # noqa: E501
+            left_click_count_formatted (str): click count formatted (left side). [optional]  # noqa: E501
+            left_conversion_count (int): click count (left side). [optional]  # noqa: E501
             left_conversion_count_formatted (str): conversion count formatted (left/default side). [optional]  # noqa: E501
             left_customer_count (int): customer count (left/default side). [optional]  # noqa: E501
             left_customer_count_formatted (str): customer count formatted (left/default side). [optional]  # noqa: E501
+            left_delivered_count (int): delivered count (left side). [optional]  # noqa: E501
+            left_delivered_count_formatted (str): delivered count formatted (left side). [optional]  # noqa: E501
             left_order_count (int): order count (left/default side). [optional]  # noqa: E501
             left_order_count_formatted (str): order count formatted (left/default side). [optional]  # noqa: E501
             left_profit (float): profit (left/default side). [optional]  # noqa: E501
             left_profit_formatted (str): profit formatted (left/default side). [optional]  # noqa: E501
             left_revenue (float): revenue (left/default side). [optional]  # noqa: E501
             left_revenue_formatted (str): revenue formatted (left/default side). [optional]  # noqa: E501
+            left_send_count (int): send count (left side). [optional]  # noqa: E501
+            left_send_count_formatted (str): send count formatted (left side). [optional]  # noqa: E501
+            left_skipped_count (int): conversion count (left side). [optional]  # noqa: E501
+            left_skipped_count_formatted (str): skipped count formatted (left side). [optional]  # noqa: E501
+            left_unsubscribe_count (int): unsubscribe count (left side). [optional]  # noqa: E501
+            left_unsubscribe_count_formatted (str): unsubscribe count formatted (left side). [optional]  # noqa: E501
             right_conversion_count (int): conversion count (right side). [optional]  # noqa: E501
             right_conversion_count_formatted (str): conversion count formatted (right side). [optional]  # noqa: E501
             right_customer_count (int): customer count (right side). [optional]  # noqa: E501

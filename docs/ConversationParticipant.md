@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **left_dts** | **str** | Left conversation date/time | [optional] 
 **profile_image_url** | **str** |  | [optional] 
 **status** | **str** |  | [optional] 
+**timezone** | **str** |  | [optional] 
 **unread_messages** | **int** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
