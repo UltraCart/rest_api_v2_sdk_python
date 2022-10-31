@@ -82,6 +82,7 @@ class EmailStepStat(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'left_click_count': (int,),  # noqa: E501
             'left_click_count_formatted': (str,),  # noqa: E501
             'left_conversion_count': (int,),  # noqa: E501
             'left_conversion_count_formatted': (str,),  # noqa: E501
@@ -119,6 +120,7 @@ class EmailStepStat(ModelNormal):
 
 
     attribute_map = {
+        'left_click_count': 'left_click_count',  # noqa: E501
         'left_click_count_formatted': 'left_click_count_formatted',  # noqa: E501
         'left_conversion_count': 'left_conversion_count',  # noqa: E501
         'left_conversion_count_formatted': 'left_conversion_count_formatted',  # noqa: E501
@@ -191,8 +193,9 @@ class EmailStepStat(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            left_click_count (int): click count (left side). [optional]  # noqa: E501
             left_click_count_formatted (str): click count formatted (left side). [optional]  # noqa: E501
-            left_conversion_count (int): click count (left side). [optional]  # noqa: E501
+            left_conversion_count (int): conversion count (left/default side). [optional]  # noqa: E501
             left_conversion_count_formatted (str): conversion count formatted (left/default side). [optional]  # noqa: E501
             left_customer_count (int): customer count (left/default side). [optional]  # noqa: E501
             left_customer_count_formatted (str): customer count formatted (left/default side). [optional]  # noqa: E501
@@ -305,8 +308,9 @@ class EmailStepStat(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            left_click_count (int): click count (left side). [optional]  # noqa: E501
             left_click_count_formatted (str): click count formatted (left side). [optional]  # noqa: E501
-            left_conversion_count (int): click count (left side). [optional]  # noqa: E501
+            left_conversion_count (int): conversion count (left/default side). [optional]  # noqa: E501
             left_conversion_count_formatted (str): conversion count formatted (left/default side). [optional]  # noqa: E501
             left_customer_count (int): customer count (left/default side). [optional]  # noqa: E501
             left_customer_count_formatted (str): customer count formatted (left/default side). [optional]  # noqa: E501
