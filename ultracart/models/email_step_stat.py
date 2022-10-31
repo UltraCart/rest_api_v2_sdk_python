@@ -31,16 +31,25 @@ class EmailStepStat(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'left_click_count_formatted': 'str',
         'left_conversion_count': 'int',
         'left_conversion_count_formatted': 'str',
         'left_customer_count': 'int',
         'left_customer_count_formatted': 'str',
+        'left_delivered_count': 'int',
+        'left_delivered_count_formatted': 'str',
         'left_order_count': 'int',
         'left_order_count_formatted': 'str',
         'left_profit': 'float',
         'left_profit_formatted': 'str',
         'left_revenue': 'float',
         'left_revenue_formatted': 'str',
+        'left_send_count': 'int',
+        'left_send_count_formatted': 'str',
+        'left_skipped_count': 'int',
+        'left_skipped_count_formatted': 'str',
+        'left_unsubscribe_count': 'int',
+        'left_unsubscribe_count_formatted': 'str',
         'right_conversion_count': 'int',
         'right_conversion_count_formatted': 'str',
         'right_customer_count': 'int',
@@ -54,16 +63,25 @@ class EmailStepStat(object):
     }
 
     attribute_map = {
+        'left_click_count_formatted': 'left_click_count_formatted',
         'left_conversion_count': 'left_conversion_count',
         'left_conversion_count_formatted': 'left_conversion_count_formatted',
         'left_customer_count': 'left_customer_count',
         'left_customer_count_formatted': 'left_customer_count_formatted',
+        'left_delivered_count': 'left_delivered_count',
+        'left_delivered_count_formatted': 'left_delivered_count_formatted',
         'left_order_count': 'left_order_count',
         'left_order_count_formatted': 'left_order_count_formatted',
         'left_profit': 'left_profit',
         'left_profit_formatted': 'left_profit_formatted',
         'left_revenue': 'left_revenue',
         'left_revenue_formatted': 'left_revenue_formatted',
+        'left_send_count': 'left_send_count',
+        'left_send_count_formatted': 'left_send_count_formatted',
+        'left_skipped_count': 'left_skipped_count',
+        'left_skipped_count_formatted': 'left_skipped_count_formatted',
+        'left_unsubscribe_count': 'left_unsubscribe_count',
+        'left_unsubscribe_count_formatted': 'left_unsubscribe_count_formatted',
         'right_conversion_count': 'right_conversion_count',
         'right_conversion_count_formatted': 'right_conversion_count_formatted',
         'right_customer_count': 'right_customer_count',
@@ -76,19 +94,28 @@ class EmailStepStat(object):
         'right_revenue_formatted': 'right_revenue_formatted'
     }
 
-    def __init__(self, left_conversion_count=None, left_conversion_count_formatted=None, left_customer_count=None, left_customer_count_formatted=None, left_order_count=None, left_order_count_formatted=None, left_profit=None, left_profit_formatted=None, left_revenue=None, left_revenue_formatted=None, right_conversion_count=None, right_conversion_count_formatted=None, right_customer_count=None, right_customer_count_formatted=None, right_order_count=None, right_order_count_formatted=None, right_profit=None, right_profit_formatted=None, right_revenue=None, right_revenue_formatted=None):  # noqa: E501
+    def __init__(self, left_click_count_formatted=None, left_conversion_count=None, left_conversion_count_formatted=None, left_customer_count=None, left_customer_count_formatted=None, left_delivered_count=None, left_delivered_count_formatted=None, left_order_count=None, left_order_count_formatted=None, left_profit=None, left_profit_formatted=None, left_revenue=None, left_revenue_formatted=None, left_send_count=None, left_send_count_formatted=None, left_skipped_count=None, left_skipped_count_formatted=None, left_unsubscribe_count=None, left_unsubscribe_count_formatted=None, right_conversion_count=None, right_conversion_count_formatted=None, right_customer_count=None, right_customer_count_formatted=None, right_order_count=None, right_order_count_formatted=None, right_profit=None, right_profit_formatted=None, right_revenue=None, right_revenue_formatted=None):  # noqa: E501
         """EmailStepStat - a model defined in Swagger"""  # noqa: E501
 
+        self._left_click_count_formatted = None
         self._left_conversion_count = None
         self._left_conversion_count_formatted = None
         self._left_customer_count = None
         self._left_customer_count_formatted = None
+        self._left_delivered_count = None
+        self._left_delivered_count_formatted = None
         self._left_order_count = None
         self._left_order_count_formatted = None
         self._left_profit = None
         self._left_profit_formatted = None
         self._left_revenue = None
         self._left_revenue_formatted = None
+        self._left_send_count = None
+        self._left_send_count_formatted = None
+        self._left_skipped_count = None
+        self._left_skipped_count_formatted = None
+        self._left_unsubscribe_count = None
+        self._left_unsubscribe_count_formatted = None
         self._right_conversion_count = None
         self._right_conversion_count_formatted = None
         self._right_customer_count = None
@@ -101,6 +128,8 @@ class EmailStepStat(object):
         self._right_revenue_formatted = None
         self.discriminator = None
 
+        if left_click_count_formatted is not None:
+            self.left_click_count_formatted = left_click_count_formatted
         if left_conversion_count is not None:
             self.left_conversion_count = left_conversion_count
         if left_conversion_count_formatted is not None:
@@ -109,6 +138,10 @@ class EmailStepStat(object):
             self.left_customer_count = left_customer_count
         if left_customer_count_formatted is not None:
             self.left_customer_count_formatted = left_customer_count_formatted
+        if left_delivered_count is not None:
+            self.left_delivered_count = left_delivered_count
+        if left_delivered_count_formatted is not None:
+            self.left_delivered_count_formatted = left_delivered_count_formatted
         if left_order_count is not None:
             self.left_order_count = left_order_count
         if left_order_count_formatted is not None:
@@ -121,6 +154,18 @@ class EmailStepStat(object):
             self.left_revenue = left_revenue
         if left_revenue_formatted is not None:
             self.left_revenue_formatted = left_revenue_formatted
+        if left_send_count is not None:
+            self.left_send_count = left_send_count
+        if left_send_count_formatted is not None:
+            self.left_send_count_formatted = left_send_count_formatted
+        if left_skipped_count is not None:
+            self.left_skipped_count = left_skipped_count
+        if left_skipped_count_formatted is not None:
+            self.left_skipped_count_formatted = left_skipped_count_formatted
+        if left_unsubscribe_count is not None:
+            self.left_unsubscribe_count = left_unsubscribe_count
+        if left_unsubscribe_count_formatted is not None:
+            self.left_unsubscribe_count_formatted = left_unsubscribe_count_formatted
         if right_conversion_count is not None:
             self.right_conversion_count = right_conversion_count
         if right_conversion_count_formatted is not None:
@@ -143,10 +188,33 @@ class EmailStepStat(object):
             self.right_revenue_formatted = right_revenue_formatted
 
     @property
+    def left_click_count_formatted(self):
+        """Gets the left_click_count_formatted of this EmailStepStat.  # noqa: E501
+
+        click count formatted (left side)  # noqa: E501
+
+        :return: The left_click_count_formatted of this EmailStepStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._left_click_count_formatted
+
+    @left_click_count_formatted.setter
+    def left_click_count_formatted(self, left_click_count_formatted):
+        """Sets the left_click_count_formatted of this EmailStepStat.
+
+        click count formatted (left side)  # noqa: E501
+
+        :param left_click_count_formatted: The left_click_count_formatted of this EmailStepStat.  # noqa: E501
+        :type: str
+        """
+
+        self._left_click_count_formatted = left_click_count_formatted
+
+    @property
     def left_conversion_count(self):
         """Gets the left_conversion_count of this EmailStepStat.  # noqa: E501
 
-        conversion count (left/default side)  # noqa: E501
+        click count (left side)  # noqa: E501
 
         :return: The left_conversion_count of this EmailStepStat.  # noqa: E501
         :rtype: int
@@ -157,7 +225,7 @@ class EmailStepStat(object):
     def left_conversion_count(self, left_conversion_count):
         """Sets the left_conversion_count of this EmailStepStat.
 
-        conversion count (left/default side)  # noqa: E501
+        click count (left side)  # noqa: E501
 
         :param left_conversion_count: The left_conversion_count of this EmailStepStat.  # noqa: E501
         :type: int
@@ -233,6 +301,52 @@ class EmailStepStat(object):
         """
 
         self._left_customer_count_formatted = left_customer_count_formatted
+
+    @property
+    def left_delivered_count(self):
+        """Gets the left_delivered_count of this EmailStepStat.  # noqa: E501
+
+        delivered count (left side)  # noqa: E501
+
+        :return: The left_delivered_count of this EmailStepStat.  # noqa: E501
+        :rtype: int
+        """
+        return self._left_delivered_count
+
+    @left_delivered_count.setter
+    def left_delivered_count(self, left_delivered_count):
+        """Sets the left_delivered_count of this EmailStepStat.
+
+        delivered count (left side)  # noqa: E501
+
+        :param left_delivered_count: The left_delivered_count of this EmailStepStat.  # noqa: E501
+        :type: int
+        """
+
+        self._left_delivered_count = left_delivered_count
+
+    @property
+    def left_delivered_count_formatted(self):
+        """Gets the left_delivered_count_formatted of this EmailStepStat.  # noqa: E501
+
+        delivered count formatted (left side)  # noqa: E501
+
+        :return: The left_delivered_count_formatted of this EmailStepStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._left_delivered_count_formatted
+
+    @left_delivered_count_formatted.setter
+    def left_delivered_count_formatted(self, left_delivered_count_formatted):
+        """Sets the left_delivered_count_formatted of this EmailStepStat.
+
+        delivered count formatted (left side)  # noqa: E501
+
+        :param left_delivered_count_formatted: The left_delivered_count_formatted of this EmailStepStat.  # noqa: E501
+        :type: str
+        """
+
+        self._left_delivered_count_formatted = left_delivered_count_formatted
 
     @property
     def left_order_count(self):
@@ -371,6 +485,144 @@ class EmailStepStat(object):
         """
 
         self._left_revenue_formatted = left_revenue_formatted
+
+    @property
+    def left_send_count(self):
+        """Gets the left_send_count of this EmailStepStat.  # noqa: E501
+
+        send count (left side)  # noqa: E501
+
+        :return: The left_send_count of this EmailStepStat.  # noqa: E501
+        :rtype: int
+        """
+        return self._left_send_count
+
+    @left_send_count.setter
+    def left_send_count(self, left_send_count):
+        """Sets the left_send_count of this EmailStepStat.
+
+        send count (left side)  # noqa: E501
+
+        :param left_send_count: The left_send_count of this EmailStepStat.  # noqa: E501
+        :type: int
+        """
+
+        self._left_send_count = left_send_count
+
+    @property
+    def left_send_count_formatted(self):
+        """Gets the left_send_count_formatted of this EmailStepStat.  # noqa: E501
+
+        send count formatted (left side)  # noqa: E501
+
+        :return: The left_send_count_formatted of this EmailStepStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._left_send_count_formatted
+
+    @left_send_count_formatted.setter
+    def left_send_count_formatted(self, left_send_count_formatted):
+        """Sets the left_send_count_formatted of this EmailStepStat.
+
+        send count formatted (left side)  # noqa: E501
+
+        :param left_send_count_formatted: The left_send_count_formatted of this EmailStepStat.  # noqa: E501
+        :type: str
+        """
+
+        self._left_send_count_formatted = left_send_count_formatted
+
+    @property
+    def left_skipped_count(self):
+        """Gets the left_skipped_count of this EmailStepStat.  # noqa: E501
+
+        conversion count (left side)  # noqa: E501
+
+        :return: The left_skipped_count of this EmailStepStat.  # noqa: E501
+        :rtype: int
+        """
+        return self._left_skipped_count
+
+    @left_skipped_count.setter
+    def left_skipped_count(self, left_skipped_count):
+        """Sets the left_skipped_count of this EmailStepStat.
+
+        conversion count (left side)  # noqa: E501
+
+        :param left_skipped_count: The left_skipped_count of this EmailStepStat.  # noqa: E501
+        :type: int
+        """
+
+        self._left_skipped_count = left_skipped_count
+
+    @property
+    def left_skipped_count_formatted(self):
+        """Gets the left_skipped_count_formatted of this EmailStepStat.  # noqa: E501
+
+        skipped count formatted (left side)  # noqa: E501
+
+        :return: The left_skipped_count_formatted of this EmailStepStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._left_skipped_count_formatted
+
+    @left_skipped_count_formatted.setter
+    def left_skipped_count_formatted(self, left_skipped_count_formatted):
+        """Sets the left_skipped_count_formatted of this EmailStepStat.
+
+        skipped count formatted (left side)  # noqa: E501
+
+        :param left_skipped_count_formatted: The left_skipped_count_formatted of this EmailStepStat.  # noqa: E501
+        :type: str
+        """
+
+        self._left_skipped_count_formatted = left_skipped_count_formatted
+
+    @property
+    def left_unsubscribe_count(self):
+        """Gets the left_unsubscribe_count of this EmailStepStat.  # noqa: E501
+
+        unsubscribe count (left side)  # noqa: E501
+
+        :return: The left_unsubscribe_count of this EmailStepStat.  # noqa: E501
+        :rtype: int
+        """
+        return self._left_unsubscribe_count
+
+    @left_unsubscribe_count.setter
+    def left_unsubscribe_count(self, left_unsubscribe_count):
+        """Sets the left_unsubscribe_count of this EmailStepStat.
+
+        unsubscribe count (left side)  # noqa: E501
+
+        :param left_unsubscribe_count: The left_unsubscribe_count of this EmailStepStat.  # noqa: E501
+        :type: int
+        """
+
+        self._left_unsubscribe_count = left_unsubscribe_count
+
+    @property
+    def left_unsubscribe_count_formatted(self):
+        """Gets the left_unsubscribe_count_formatted of this EmailStepStat.  # noqa: E501
+
+        unsubscribe count formatted (left side)  # noqa: E501
+
+        :return: The left_unsubscribe_count_formatted of this EmailStepStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._left_unsubscribe_count_formatted
+
+    @left_unsubscribe_count_formatted.setter
+    def left_unsubscribe_count_formatted(self, left_unsubscribe_count_formatted):
+        """Sets the left_unsubscribe_count_formatted of this EmailStepStat.
+
+        unsubscribe count formatted (left side)  # noqa: E501
+
+        :param left_unsubscribe_count_formatted: The left_unsubscribe_count_formatted of this EmailStepStat.  # noqa: E501
+        :type: str
+        """
+
+        self._left_unsubscribe_count_formatted = left_unsubscribe_count_formatted
 
     @property
     def right_conversion_count(self):

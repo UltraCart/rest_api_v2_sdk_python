@@ -39,6 +39,7 @@ class ConversationParticipant(object):
         'left_dts': 'str',
         'profile_image_url': 'str',
         'status': 'str',
+        'timezone': 'str',
         'unread_messages': 'int'
     }
 
@@ -51,10 +52,11 @@ class ConversationParticipant(object):
         'left_dts': 'left_dts',
         'profile_image_url': 'profile_image_url',
         'status': 'status',
+        'timezone': 'timezone',
         'unread_messages': 'unread_messages'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, joined_dts=None, last_message_dts=None, left_dts=None, profile_image_url=None, status=None, unread_messages=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, joined_dts=None, last_message_dts=None, left_dts=None, profile_image_url=None, status=None, timezone=None, unread_messages=None):  # noqa: E501
         """ConversationParticipant - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
@@ -65,6 +67,7 @@ class ConversationParticipant(object):
         self._left_dts = None
         self._profile_image_url = None
         self._status = None
+        self._timezone = None
         self._unread_messages = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class ConversationParticipant(object):
             self.profile_image_url = profile_image_url
         if status is not None:
             self.status = status
+        if timezone is not None:
+            self.timezone = timezone
         if unread_messages is not None:
             self.unread_messages = unread_messages
 
@@ -260,6 +265,27 @@ class ConversationParticipant(object):
         """
 
         self._status = status
+
+    @property
+    def timezone(self):
+        """Gets the timezone of this ConversationParticipant.  # noqa: E501
+
+
+        :return: The timezone of this ConversationParticipant.  # noqa: E501
+        :rtype: str
+        """
+        return self._timezone
+
+    @timezone.setter
+    def timezone(self, timezone):
+        """Sets the timezone of this ConversationParticipant.
+
+
+        :param timezone: The timezone of this ConversationParticipant.  # noqa: E501
+        :type: str
+        """
+
+        self._timezone = timezone
 
     @property
     def unread_messages(self):
