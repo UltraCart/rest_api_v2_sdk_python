@@ -213,6 +213,7 @@ docs/CouponTieredAmountOffSubtotal.md
 docs/CouponTieredPercentOffItems.md
 docs/CouponTieredPercentOffShipping.md
 docs/CouponTieredPercentOffSubtotal.md
+docs/CouponTieredPercentOffSubtotalBasedOnMSRP.md
 docs/CouponType.md
 docs/CouponsRequest.md
 docs/CouponsResponse.md
@@ -938,6 +939,7 @@ ultracart/model/coupon_tiered_amount_off_subtotal.py
 ultracart/model/coupon_tiered_percent_off_items.py
 ultracart/model/coupon_tiered_percent_off_shipping.py
 ultracart/model/coupon_tiered_percent_off_subtotal.py
+ultracart/model/coupon_tiered_percent_off_subtotal_based_on_msrp.py
 ultracart/model/coupon_type.py
 ultracart/model/coupons_request.py
 ultracart/model/coupons_response.py

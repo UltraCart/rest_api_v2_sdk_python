@@ -1416,6 +1416,18 @@ api_instance = GiftCertificateApi(api_client())
                 ),
             ],
         ),
+        tiered_percent_off_subtotal_based_on_msrp=CouponTieredPercentOffSubtotalBasedOnMSRP(
+            items=[
+                "items_example",
+            ],
+            tiers=[
+                CouponTierPercent(
+                    discount_percent=3.14,
+                    quickbooks_code="quickbooks_code_example",
+                    subtotal_amount=3.14,
+                ),
+            ],
+        ),
         usable_by="usable_by_example",
     ) # Coupon | Coupon to insert
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1856,6 +1868,18 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                 ),
                 tiered_percent_off_subtotal=CouponTieredPercentOffSubtotal(
+                    items=[
+                        "items_example",
+                    ],
+                    tiers=[
+                        CouponTierPercent(
+                            discount_percent=3.14,
+                            quickbooks_code="quickbooks_code_example",
+                            subtotal_amount=3.14,
+                        ),
+                    ],
+                ),
+                tiered_percent_off_subtotal_based_on_msrp=CouponTieredPercentOffSubtotalBasedOnMSRP(
                     items=[
                         "items_example",
                     ],
@@ -2504,6 +2528,18 @@ api_instance = GiftCertificateApi(api_client())
                 ),
             ],
         ),
+        tiered_percent_off_subtotal_based_on_msrp=CouponTieredPercentOffSubtotalBasedOnMSRP(
+            items=[
+                "items_example",
+            ],
+            tiers=[
+                CouponTierPercent(
+                    discount_percent=3.14,
+                    quickbooks_code="quickbooks_code_example",
+                    subtotal_amount=3.14,
+                ),
+            ],
+        ),
         usable_by="usable_by_example",
     ) # Coupon | Coupon to update
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
@@ -2945,6 +2981,18 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                 ),
                 tiered_percent_off_subtotal=CouponTieredPercentOffSubtotal(
+                    items=[
+                        "items_example",
+                    ],
+                    tiers=[
+                        CouponTierPercent(
+                            discount_percent=3.14,
+                            quickbooks_code="quickbooks_code_example",
+                            subtotal_amount=3.14,
+                        ),
+                    ],
+                ),
+                tiered_percent_off_subtotal_based_on_msrp=CouponTieredPercentOffSubtotalBasedOnMSRP(
                     items=[
                         "items_example",
                     ],

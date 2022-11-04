@@ -74,6 +74,7 @@ def lazy_import():
     from ultracart.model.coupon_tiered_percent_off_items import CouponTieredPercentOffItems
     from ultracart.model.coupon_tiered_percent_off_shipping import CouponTieredPercentOffShipping
     from ultracart.model.coupon_tiered_percent_off_subtotal import CouponTieredPercentOffSubtotal
+    from ultracart.model.coupon_tiered_percent_off_subtotal_based_on_msrp import CouponTieredPercentOffSubtotalBasedOnMSRP
     globals()['CouponAmountOffItems'] = CouponAmountOffItems
     globals()['CouponAmountOffShipping'] = CouponAmountOffShipping
     globals()['CouponAmountOffShippingWithItemsPurchase'] = CouponAmountOffShippingWithItemsPurchase
@@ -117,6 +118,7 @@ def lazy_import():
     globals()['CouponTieredPercentOffItems'] = CouponTieredPercentOffItems
     globals()['CouponTieredPercentOffShipping'] = CouponTieredPercentOffShipping
     globals()['CouponTieredPercentOffSubtotal'] = CouponTieredPercentOffSubtotal
+    globals()['CouponTieredPercentOffSubtotalBasedOnMSRP'] = CouponTieredPercentOffSubtotalBasedOnMSRP
 
 
 class Coupon(ModelNormal):
@@ -249,6 +251,7 @@ class Coupon(ModelNormal):
             'tiered_percent_off_items': (CouponTieredPercentOffItems,),  # noqa: E501
             'tiered_percent_off_shipping': (CouponTieredPercentOffShipping,),  # noqa: E501
             'tiered_percent_off_subtotal': (CouponTieredPercentOffSubtotal,),  # noqa: E501
+            'tiered_percent_off_subtotal_based_on_msrp': (CouponTieredPercentOffSubtotalBasedOnMSRP,),  # noqa: E501
             'usable_by': (str,),  # noqa: E501
         }
 
@@ -317,6 +320,7 @@ class Coupon(ModelNormal):
         'tiered_percent_off_items': 'tiered_percent_off_items',  # noqa: E501
         'tiered_percent_off_shipping': 'tiered_percent_off_shipping',  # noqa: E501
         'tiered_percent_off_subtotal': 'tiered_percent_off_subtotal',  # noqa: E501
+        'tiered_percent_off_subtotal_based_on_msrp': 'tiered_percent_off_subtotal_based_on_msrp',  # noqa: E501
         'usable_by': 'usable_by',  # noqa: E501
     }
 
@@ -420,6 +424,7 @@ class Coupon(ModelNormal):
             tiered_percent_off_items (CouponTieredPercentOffItems): [optional]  # noqa: E501
             tiered_percent_off_shipping (CouponTieredPercentOffShipping): [optional]  # noqa: E501
             tiered_percent_off_subtotal (CouponTieredPercentOffSubtotal): [optional]  # noqa: E501
+            tiered_percent_off_subtotal_based_on_msrp (CouponTieredPercentOffSubtotalBasedOnMSRP): [optional]  # noqa: E501
             usable_by (str): Who may use this coupon.. [optional]  # noqa: E501
         """
 
@@ -565,6 +570,7 @@ class Coupon(ModelNormal):
             tiered_percent_off_items (CouponTieredPercentOffItems): [optional]  # noqa: E501
             tiered_percent_off_shipping (CouponTieredPercentOffShipping): [optional]  # noqa: E501
             tiered_percent_off_subtotal (CouponTieredPercentOffSubtotal): [optional]  # noqa: E501
+            tiered_percent_off_subtotal_based_on_msrp (CouponTieredPercentOffSubtotalBasedOnMSRP): [optional]  # noqa: E501
             usable_by (str): Who may use this coupon.. [optional]  # noqa: E501
         """
 
