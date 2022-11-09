@@ -33,6 +33,7 @@ class ItemFulfillmentAddon(object):
     swagger_types = {
         'add_item_id': 'str',
         'add_item_oid': 'int',
+        'initial_order_only': 'bool',
         'once_per_order': 'bool',
         'quantity': 'int'
     }
@@ -40,15 +41,17 @@ class ItemFulfillmentAddon(object):
     attribute_map = {
         'add_item_id': 'add_item_id',
         'add_item_oid': 'add_item_oid',
+        'initial_order_only': 'initial_order_only',
         'once_per_order': 'once_per_order',
         'quantity': 'quantity'
     }
 
-    def __init__(self, add_item_id=None, add_item_oid=None, once_per_order=None, quantity=None):  # noqa: E501
+    def __init__(self, add_item_id=None, add_item_oid=None, initial_order_only=None, once_per_order=None, quantity=None):  # noqa: E501
         """ItemFulfillmentAddon - a model defined in Swagger"""  # noqa: E501
 
         self._add_item_id = None
         self._add_item_oid = None
+        self._initial_order_only = None
         self._once_per_order = None
         self._quantity = None
         self.discriminator = None
@@ -57,6 +60,8 @@ class ItemFulfillmentAddon(object):
             self.add_item_id = add_item_id
         if add_item_oid is not None:
             self.add_item_oid = add_item_oid
+        if initial_order_only is not None:
+            self.initial_order_only = initial_order_only
         if once_per_order is not None:
             self.once_per_order = once_per_order
         if quantity is not None:
@@ -109,10 +114,33 @@ class ItemFulfillmentAddon(object):
         self._add_item_oid = add_item_oid
 
     @property
+    def initial_order_only(self):
+        """Gets the initial_order_only of this ItemFulfillmentAddon.  # noqa: E501
+
+        Initial Order Only  # noqa: E501
+
+        :return: The initial_order_only of this ItemFulfillmentAddon.  # noqa: E501
+        :rtype: bool
+        """
+        return self._initial_order_only
+
+    @initial_order_only.setter
+    def initial_order_only(self, initial_order_only):
+        """Sets the initial_order_only of this ItemFulfillmentAddon.
+
+        Initial Order Only  # noqa: E501
+
+        :param initial_order_only: The initial_order_only of this ItemFulfillmentAddon.  # noqa: E501
+        :type: bool
+        """
+
+        self._initial_order_only = initial_order_only
+
+    @property
     def once_per_order(self):
         """Gets the once_per_order of this ItemFulfillmentAddon.  # noqa: E501
 
-        Quantity  # noqa: E501
+        Once Per Order  # noqa: E501
 
         :return: The once_per_order of this ItemFulfillmentAddon.  # noqa: E501
         :rtype: bool
@@ -123,7 +151,7 @@ class ItemFulfillmentAddon(object):
     def once_per_order(self, once_per_order):
         """Sets the once_per_order of this ItemFulfillmentAddon.
 
-        Quantity  # noqa: E501
+        Once Per Order  # noqa: E501
 
         :param once_per_order: The once_per_order of this ItemFulfillmentAddon.  # noqa: E501
         :type: bool
