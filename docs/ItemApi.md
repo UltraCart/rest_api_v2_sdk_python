@@ -1248,6 +1248,7 @@ api_instance = GiftCertificateApi(api_client())
             ItemFulfillmentAddon(
                 add_item_id="add_item_id_example",
                 add_item_oid=1,
+                initial_order_only=True,
                 once_per_order=True,
                 quantity=1,
             ),
@@ -2284,6 +2285,7 @@ api_instance = GiftCertificateApi(api_client())
             ItemFulfillmentAddon(
                 add_item_id="add_item_id_example",
                 add_item_oid=1,
+                initial_order_only=True,
                 once_per_order=True,
                 quantity=1,
             ),
@@ -3224,6 +3226,7 @@ api_instance = GiftCertificateApi(api_client())
                     ItemFulfillmentAddon(
                         add_item_id="add_item_id_example",
                         add_item_oid=1,
+                        initial_order_only=True,
                         once_per_order=True,
                         quantity=1,
                     ),

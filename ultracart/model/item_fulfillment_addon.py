@@ -84,6 +84,7 @@ class ItemFulfillmentAddon(ModelNormal):
         return {
             'add_item_id': (str,),  # noqa: E501
             'add_item_oid': (int,),  # noqa: E501
+            'initial_order_only': (bool,),  # noqa: E501
             'once_per_order': (bool,),  # noqa: E501
             'quantity': (int,),  # noqa: E501
         }
@@ -96,6 +97,7 @@ class ItemFulfillmentAddon(ModelNormal):
     attribute_map = {
         'add_item_id': 'add_item_id',  # noqa: E501
         'add_item_oid': 'add_item_oid',  # noqa: E501
+        'initial_order_only': 'initial_order_only',  # noqa: E501
         'once_per_order': 'once_per_order',  # noqa: E501
         'quantity': 'quantity',  # noqa: E501
     }
@@ -143,7 +145,8 @@ class ItemFulfillmentAddon(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             add_item_id (str): Add Item Id. [optional]  # noqa: E501
             add_item_oid (int): Add Item object identifier. [optional]  # noqa: E501
-            once_per_order (bool): Quantity. [optional]  # noqa: E501
+            initial_order_only (bool): Initial Order Only. [optional]  # noqa: E501
+            once_per_order (bool): Once Per Order. [optional]  # noqa: E501
             quantity (int): Quantity. [optional]  # noqa: E501
         """
 
@@ -232,7 +235,8 @@ class ItemFulfillmentAddon(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             add_item_id (str): Add Item Id. [optional]  # noqa: E501
             add_item_oid (int): Add Item object identifier. [optional]  # noqa: E501
-            once_per_order (bool): Quantity. [optional]  # noqa: E501
+            initial_order_only (bool): Initial Order Only. [optional]  # noqa: E501
+            once_per_order (bool): Once Per Order. [optional]  # noqa: E501
             quantity (int): Quantity. [optional]  # noqa: E501
         """
 

@@ -83,6 +83,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'RRWEB': "rrweb",
             'PARTICIPANT_UPDATE': "participant update",
             'READ_MESSAGE': "read message",
+            'TYPING': "typing",
         },
         ('type',): {
             'MESSAGE': "message",
