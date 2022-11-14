@@ -783,7 +783,7 @@ api_instance = GiftCertificateApi(api_client())
 
     queue_name = "queue_name_example" # str | 
     status_request = ConversationWebchatQueueStatusUpdateRequest(
-        agent_status="agent_status_example",
+        agent_status="available",
     ) # ConversationWebchatQueueStatusUpdateRequest | Status request
 
     # example passing only required values which don't have defaults set

@@ -56,6 +56,11 @@ class ConversationWebchatQueueStatusUpdateRequest(ModelNormal):
     """
 
     allowed_values = {
+        ('agent_status',): {
+            'AVAILABLE': "available",
+            'BUSY': "busy",
+            'UNAVAILABLE': "unavailable",
+        },
     }
 
     validations = {
@@ -135,7 +140,7 @@ class ConversationWebchatQueueStatusUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            agent_status (str): [optional]  # noqa: E501
+            agent_status (str): Status of the agent. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,7 +226,7 @@ class ConversationWebchatQueueStatusUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            agent_status (str): [optional]  # noqa: E501
+            agent_status (str): Status of the agent. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -103,6 +103,7 @@ class Webhook(ModelNormal):
             'authentication_type': (str,),  # noqa: E501
             'basic_password': (str,),  # noqa: E501
             'basic_username': (str,),  # noqa: E501
+            'compress_events': (bool,),  # noqa: E501
             'consecutive_failures': (int,),  # noqa: E501
             'disabled': (bool,),  # noqa: E501
             'event_categories': ([WebhookEventCategory],),  # noqa: E501
@@ -129,6 +130,7 @@ class Webhook(ModelNormal):
         'authentication_type': 'authentication_type',  # noqa: E501
         'basic_password': 'basic_password',  # noqa: E501
         'basic_username': 'basic_username',  # noqa: E501
+        'compress_events': 'compress_events',  # noqa: E501
         'consecutive_failures': 'consecutive_failures',  # noqa: E501
         'disabled': 'disabled',  # noqa: E501
         'event_categories': 'event_categories',  # noqa: E501
@@ -190,6 +192,7 @@ class Webhook(ModelNormal):
             authentication_type (str): The type of authentication this webhook will use when communicating with your server. [optional]  # noqa: E501
             basic_password (str): Basic authentication password. [optional]  # noqa: E501
             basic_username (str): Basic authentication user name. [optional]  # noqa: E501
+            compress_events (bool): Compress events with GZIP then base 64 encode them as a string. [optional]  # noqa: E501
             consecutive_failures (int): The number of consecutive failures that have occurred trying to deliver notifications to the target server. [optional]  # noqa: E501
             disabled (bool): True if the webhook has been disabled. [optional]  # noqa: E501
             event_categories ([WebhookEventCategory]): The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.. [optional]  # noqa: E501
@@ -293,6 +296,7 @@ class Webhook(ModelNormal):
             authentication_type (str): The type of authentication this webhook will use when communicating with your server. [optional]  # noqa: E501
             basic_password (str): Basic authentication password. [optional]  # noqa: E501
             basic_username (str): Basic authentication user name. [optional]  # noqa: E501
+            compress_events (bool): Compress events with GZIP then base 64 encode them as a string. [optional]  # noqa: E501
             consecutive_failures (int): The number of consecutive failures that have occurred trying to deliver notifications to the target server. [optional]  # noqa: E501
             disabled (bool): True if the webhook has been disabled. [optional]  # noqa: E501
             event_categories ([WebhookEventCategory]): The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.. [optional]  # noqa: E501
