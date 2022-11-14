@@ -37,6 +37,7 @@ class Webhook(object):
         'authentication_type': 'str',
         'basic_password': 'str',
         'basic_username': 'str',
+        'compress_events': 'bool',
         'consecutive_failures': 'int',
         'disabled': 'bool',
         'event_categories': 'list[WebhookEventCategory]',
@@ -58,6 +59,7 @@ class Webhook(object):
         'authentication_type': 'authentication_type',
         'basic_password': 'basic_password',
         'basic_username': 'basic_username',
+        'compress_events': 'compress_events',
         'consecutive_failures': 'consecutive_failures',
         'disabled': 'disabled',
         'event_categories': 'event_categories',
@@ -72,7 +74,7 @@ class Webhook(object):
         'webhook_url': 'webhook_url'
     }
 
-    def __init__(self, api_user_oid=None, api_version=None, application_profile=None, authentication_type=None, basic_password=None, basic_username=None, consecutive_failures=None, disabled=None, event_categories=None, iam_access_key=None, iam_secret_key=None, maximum_events=None, maximum_size=None, merchant_id=None, next_retry_after=None, pending=None, webhook_oid=None, webhook_url=None):  # noqa: E501
+    def __init__(self, api_user_oid=None, api_version=None, application_profile=None, authentication_type=None, basic_password=None, basic_username=None, compress_events=None, consecutive_failures=None, disabled=None, event_categories=None, iam_access_key=None, iam_secret_key=None, maximum_events=None, maximum_size=None, merchant_id=None, next_retry_after=None, pending=None, webhook_oid=None, webhook_url=None):  # noqa: E501
         """Webhook - a model defined in Swagger"""  # noqa: E501
 
         self._api_user_oid = None
@@ -81,6 +83,7 @@ class Webhook(object):
         self._authentication_type = None
         self._basic_password = None
         self._basic_username = None
+        self._compress_events = None
         self._consecutive_failures = None
         self._disabled = None
         self._event_categories = None
@@ -107,6 +110,8 @@ class Webhook(object):
             self.basic_password = basic_password
         if basic_username is not None:
             self.basic_username = basic_username
+        if compress_events is not None:
+            self.compress_events = compress_events
         if consecutive_failures is not None:
             self.consecutive_failures = consecutive_failures
         if disabled is not None:
@@ -279,6 +284,29 @@ class Webhook(object):
         """
 
         self._basic_username = basic_username
+
+    @property
+    def compress_events(self):
+        """Gets the compress_events of this Webhook.  # noqa: E501
+
+        Compress events with GZIP then base 64 encode them as a string  # noqa: E501
+
+        :return: The compress_events of this Webhook.  # noqa: E501
+        :rtype: bool
+        """
+        return self._compress_events
+
+    @compress_events.setter
+    def compress_events(self, compress_events):
+        """Sets the compress_events of this Webhook.
+
+        Compress events with GZIP then base 64 encode them as a string  # noqa: E501
+
+        :param compress_events: The compress_events of this Webhook.  # noqa: E501
+        :type: bool
+        """
+
+        self._compress_events = compress_events
 
     @property
     def consecutive_failures(self):

@@ -51,6 +51,7 @@ class ConversationWebchatQueueStatusUpdateRequest(object):
     def agent_status(self):
         """Gets the agent_status of this ConversationWebchatQueueStatusUpdateRequest.  # noqa: E501
 
+        Status of the agent  # noqa: E501
 
         :return: The agent_status of this ConversationWebchatQueueStatusUpdateRequest.  # noqa: E501
         :rtype: str
@@ -61,10 +62,17 @@ class ConversationWebchatQueueStatusUpdateRequest(object):
     def agent_status(self, agent_status):
         """Sets the agent_status of this ConversationWebchatQueueStatusUpdateRequest.
 
+        Status of the agent  # noqa: E501
 
         :param agent_status: The agent_status of this ConversationWebchatQueueStatusUpdateRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["available", "busy", "unavailable"]  # noqa: E501
+        if agent_status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `agent_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(agent_status, allowed_values)
+            )
 
         self._agent_status = agent_status
 
