@@ -98,7 +98,9 @@ class AffiliateClick(ModelNormal):
             'link': (AffiliateLink,),  # noqa: E501
             'referrer': (str,),  # noqa: E501
             'referrer_query_string': (str,),  # noqa: E501
+            'screen_recording_uuid': (str,),  # noqa: E501
             'sub_id': (str,),  # noqa: E501
+            'ucacid': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -117,7 +119,9 @@ class AffiliateClick(ModelNormal):
         'link': 'link',  # noqa: E501
         'referrer': 'referrer',  # noqa: E501
         'referrer_query_string': 'referrer_query_string',  # noqa: E501
+        'screen_recording_uuid': 'screen_recording_uuid',  # noqa: E501
         'sub_id': 'sub_id',  # noqa: E501
+        'ucacid': 'ucacid',  # noqa: E501
     }
 
     read_only_vars = {
@@ -171,7 +175,9 @@ class AffiliateClick(ModelNormal):
             link (AffiliateLink): [optional]  # noqa: E501
             referrer (str): URL that referred the click (Browser Header Referer). [optional]  # noqa: E501
             referrer_query_string (str): Query string that was on the referrer URL.. [optional]  # noqa: E501
+            screen_recording_uuid (str): Screen recording UUID. [optional]  # noqa: E501
             sub_id (str): Sub ID value passed on the click. [optional]  # noqa: E501
+            ucacid (str): UC Analytics Identifier. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -267,7 +273,9 @@ class AffiliateClick(ModelNormal):
             link (AffiliateLink): [optional]  # noqa: E501
             referrer (str): URL that referred the click (Browser Header Referer). [optional]  # noqa: E501
             referrer_query_string (str): Query string that was on the referrer URL.. [optional]  # noqa: E501
+            screen_recording_uuid (str): Screen recording UUID. [optional]  # noqa: E501
             sub_id (str): Sub ID value passed on the click. [optional]  # noqa: E501
+            ucacid (str): UC Analytics Identifier. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

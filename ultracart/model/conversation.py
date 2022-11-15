@@ -94,6 +94,7 @@ class Conversation(ModelNormal):
         """
         lazy_import()
         return {
+            'base_language_iso_code': (str,),  # noqa: E501
             'closed': (bool,),  # noqa: E501
             'conversation_arn': (str,),  # noqa: E501
             'conversation_uuid': (str,),  # noqa: E501
@@ -118,6 +119,7 @@ class Conversation(ModelNormal):
 
 
     attribute_map = {
+        'base_language_iso_code': 'base_language_iso_code',  # noqa: E501
         'closed': 'closed',  # noqa: E501
         'conversation_arn': 'conversation_arn',  # noqa: E501
         'conversation_uuid': 'conversation_uuid',  # noqa: E501
@@ -177,6 +179,7 @@ class Conversation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            base_language_iso_code (str): The base language iso code for the StoreFront that everything is translated into. [optional]  # noqa: E501
             closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
@@ -278,6 +281,7 @@ class Conversation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            base_language_iso_code (str): The base language iso code for the StoreFront that everything is translated into. [optional]  # noqa: E501
             closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
