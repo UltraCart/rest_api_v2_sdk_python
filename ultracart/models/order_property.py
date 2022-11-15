@@ -153,8 +153,8 @@ class OrderProperty(object):
         :param value: The value of this OrderProperty.  # noqa: E501
         :type: str
         """
-        if value is not None and len(value) > 10000:
-            raise ValueError("Invalid value for `value`, length must be less than or equal to `10000`")  # noqa: E501
+        if value is not None and len(value) > 5000:
+            raise ValueError("Invalid value for `value`, length must be less than or equal to `5000`")  # noqa: E501
 
         self._value = value
 
