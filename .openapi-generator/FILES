@@ -128,6 +128,8 @@ docs/Conversation.md
 docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
+docs/ConversationEventAddCoupon.md
+docs/ConversationEventAddItem.md
 docs/ConversationEventQueuePosition.md
 docs/ConversationEventRRWeb.md
 docs/ConversationEventReadMessage.md
@@ -856,6 +858,8 @@ ultracart/model/city_state_zip.py
 ultracart/model/conversation.py
 ultracart/model/conversation_agent_auth.py
 ultracart/model/conversation_agent_auth_response.py
+ultracart/model/conversation_event_add_coupon.py
+ultracart/model/conversation_event_add_item.py
 ultracart/model/conversation_event_queue_position.py
 ultracart/model/conversation_event_read_message.py
 ultracart/model/conversation_event_rr_web.py

@@ -31,6 +31,8 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.conversation_event_add_coupon import ConversationEventAddCoupon
+    from ultracart.model.conversation_event_add_item import ConversationEventAddItem
     from ultracart.model.conversation_event_queue_position import ConversationEventQueuePosition
     from ultracart.model.conversation_event_read_message import ConversationEventReadMessage
     from ultracart.model.conversation_event_rr_web import ConversationEventRRWeb
@@ -38,6 +40,8 @@ def lazy_import():
     from ultracart.model.conversation_message import ConversationMessage
     from ultracart.model.conversation_summary import ConversationSummary
     from ultracart.model.conversation_webchat_queue_status import ConversationWebchatQueueStatus
+    globals()['ConversationEventAddCoupon'] = ConversationEventAddCoupon
+    globals()['ConversationEventAddItem'] = ConversationEventAddItem
     globals()['ConversationEventQueuePosition'] = ConversationEventQueuePosition
     globals()['ConversationEventRRWeb'] = ConversationEventRRWeb
     globals()['ConversationEventReadMessage'] = ConversationEventReadMessage
@@ -84,6 +88,8 @@ class ConversationWebsocketMessage(ModelNormal):
             'PARTICIPANT_UPDATE': "participant update",
             'READ_MESSAGE': "read message",
             'TYPING': "typing",
+            'ADD_COUPON': "add coupon",
+            'ADD_ITEM': "add item",
         },
         ('type',): {
             'MESSAGE': "message",
@@ -120,6 +126,8 @@ class ConversationWebsocketMessage(ModelNormal):
         lazy_import()
         return {
             'conversation_uuid': (str,),  # noqa: E501
+            'event_add_coupon': (ConversationEventAddCoupon,),  # noqa: E501
+            'event_add_item': (ConversationEventAddItem,),  # noqa: E501
             'event_conversation_closed': (ConversationSummary,),  # noqa: E501
             'event_new_conversation': (ConversationSummary,),  # noqa: E501
             'event_new_message': (ConversationSummary,),  # noqa: E501
@@ -142,6 +150,8 @@ class ConversationWebsocketMessage(ModelNormal):
 
     attribute_map = {
         'conversation_uuid': 'conversation_uuid',  # noqa: E501
+        'event_add_coupon': 'event_add_coupon',  # noqa: E501
+        'event_add_item': 'event_add_item',  # noqa: E501
         'event_conversation_closed': 'event_conversation_closed',  # noqa: E501
         'event_new_conversation': 'event_new_conversation',  # noqa: E501
         'event_new_message': 'event_new_message',  # noqa: E501
@@ -199,6 +209,8 @@ class ConversationWebsocketMessage(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             conversation_uuid (str): Conversation UUID if the websocket message is tied to a specific conversation. [optional]  # noqa: E501
+            event_add_coupon (ConversationEventAddCoupon): [optional]  # noqa: E501
+            event_add_item (ConversationEventAddItem): [optional]  # noqa: E501
             event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
             event_new_conversation (ConversationSummary): [optional]  # noqa: E501
             event_new_message (ConversationSummary): [optional]  # noqa: E501
@@ -298,6 +310,8 @@ class ConversationWebsocketMessage(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             conversation_uuid (str): Conversation UUID if the websocket message is tied to a specific conversation. [optional]  # noqa: E501
+            event_add_coupon (ConversationEventAddCoupon): [optional]  # noqa: E501
+            event_add_item (ConversationEventAddItem): [optional]  # noqa: E501
             event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
             event_new_conversation (ConversationSummary): [optional]  # noqa: E501
             event_new_message (ConversationSummary): [optional]  # noqa: E501

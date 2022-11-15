@@ -129,6 +129,8 @@ from ultracart.model.city_state_zip import CityStateZip
 from ultracart.model.conversation import Conversation
 from ultracart.model.conversation_agent_auth import ConversationAgentAuth
 from ultracart.model.conversation_agent_auth_response import ConversationAgentAuthResponse
+from ultracart.model.conversation_event_add_coupon import ConversationEventAddCoupon
+from ultracart.model.conversation_event_add_item import ConversationEventAddItem
 from ultracart.model.conversation_event_queue_position import ConversationEventQueuePosition
 from ultracart.model.conversation_event_rr_web import ConversationEventRRWeb
 from ultracart.model.conversation_event_read_message import ConversationEventReadMessage
