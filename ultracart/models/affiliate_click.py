@@ -41,7 +41,9 @@ class AffiliateClick(object):
         'link': 'AffiliateLink',
         'referrer': 'str',
         'referrer_query_string': 'str',
-        'sub_id': 'str'
+        'screen_recording_uuid': 'str',
+        'sub_id': 'str',
+        'ucacid': 'str'
     }
 
     attribute_map = {
@@ -55,10 +57,12 @@ class AffiliateClick(object):
         'link': 'link',
         'referrer': 'referrer',
         'referrer_query_string': 'referrer_query_string',
-        'sub_id': 'sub_id'
+        'screen_recording_uuid': 'screen_recording_uuid',
+        'sub_id': 'sub_id',
+        'ucacid': 'ucacid'
     }
 
-    def __init__(self, affiliate_click_oid=None, affiliate_link_oid=None, affiliate_oid=None, click_dts=None, ip_address=None, landing_page=None, landing_page_query_string=None, link=None, referrer=None, referrer_query_string=None, sub_id=None):  # noqa: E501
+    def __init__(self, affiliate_click_oid=None, affiliate_link_oid=None, affiliate_oid=None, click_dts=None, ip_address=None, landing_page=None, landing_page_query_string=None, link=None, referrer=None, referrer_query_string=None, screen_recording_uuid=None, sub_id=None, ucacid=None):  # noqa: E501
         """AffiliateClick - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_click_oid = None
@@ -71,7 +75,9 @@ class AffiliateClick(object):
         self._link = None
         self._referrer = None
         self._referrer_query_string = None
+        self._screen_recording_uuid = None
         self._sub_id = None
+        self._ucacid = None
         self.discriminator = None
 
         if affiliate_click_oid is not None:
@@ -94,8 +100,12 @@ class AffiliateClick(object):
             self.referrer = referrer
         if referrer_query_string is not None:
             self.referrer_query_string = referrer_query_string
+        if screen_recording_uuid is not None:
+            self.screen_recording_uuid = screen_recording_uuid
         if sub_id is not None:
             self.sub_id = sub_id
+        if ucacid is not None:
+            self.ucacid = ucacid
 
     @property
     def affiliate_click_oid(self):
@@ -326,6 +336,29 @@ class AffiliateClick(object):
         self._referrer_query_string = referrer_query_string
 
     @property
+    def screen_recording_uuid(self):
+        """Gets the screen_recording_uuid of this AffiliateClick.  # noqa: E501
+
+        Screen recording UUID  # noqa: E501
+
+        :return: The screen_recording_uuid of this AffiliateClick.  # noqa: E501
+        :rtype: str
+        """
+        return self._screen_recording_uuid
+
+    @screen_recording_uuid.setter
+    def screen_recording_uuid(self, screen_recording_uuid):
+        """Sets the screen_recording_uuid of this AffiliateClick.
+
+        Screen recording UUID  # noqa: E501
+
+        :param screen_recording_uuid: The screen_recording_uuid of this AffiliateClick.  # noqa: E501
+        :type: str
+        """
+
+        self._screen_recording_uuid = screen_recording_uuid
+
+    @property
     def sub_id(self):
         """Gets the sub_id of this AffiliateClick.  # noqa: E501
 
@@ -347,6 +380,29 @@ class AffiliateClick(object):
         """
 
         self._sub_id = sub_id
+
+    @property
+    def ucacid(self):
+        """Gets the ucacid of this AffiliateClick.  # noqa: E501
+
+        UC Analytics Identifier  # noqa: E501
+
+        :return: The ucacid of this AffiliateClick.  # noqa: E501
+        :rtype: str
+        """
+        return self._ucacid
+
+    @ucacid.setter
+    def ucacid(self, ucacid):
+        """Sets the ucacid of this AffiliateClick.
+
+        UC Analytics Identifier  # noqa: E501
+
+        :param ucacid: The ucacid of this AffiliateClick.  # noqa: E501
+        :type: str
+        """
+
+        self._ucacid = ucacid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

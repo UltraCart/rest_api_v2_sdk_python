@@ -31,6 +31,7 @@ class Conversation(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'base_language_iso_code': 'str',
         'closed': 'bool',
         'conversation_arn': 'str',
         'conversation_uuid': 'str',
@@ -50,6 +51,7 @@ class Conversation(object):
     }
 
     attribute_map = {
+        'base_language_iso_code': 'base_language_iso_code',
         'closed': 'closed',
         'conversation_arn': 'conversation_arn',
         'conversation_uuid': 'conversation_uuid',
@@ -68,9 +70,10 @@ class Conversation(object):
         'visible': 'visible'
     }
 
-    def __init__(self, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_interactive_message_dts=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, messages=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
+    def __init__(self, base_language_iso_code=None, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_interactive_message_dts=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, messages=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
         """Conversation - a model defined in Swagger"""  # noqa: E501
 
+        self._base_language_iso_code = None
         self._closed = None
         self._conversation_arn = None
         self._conversation_uuid = None
@@ -89,6 +92,8 @@ class Conversation(object):
         self._visible = None
         self.discriminator = None
 
+        if base_language_iso_code is not None:
+            self.base_language_iso_code = base_language_iso_code
         if closed is not None:
             self.closed = closed
         if conversation_arn is not None:
@@ -121,6 +126,29 @@ class Conversation(object):
             self.unread_messages = unread_messages
         if visible is not None:
             self.visible = visible
+
+    @property
+    def base_language_iso_code(self):
+        """Gets the base_language_iso_code of this Conversation.  # noqa: E501
+
+        The base language iso code for the StoreFront that everything is translated into  # noqa: E501
+
+        :return: The base_language_iso_code of this Conversation.  # noqa: E501
+        :rtype: str
+        """
+        return self._base_language_iso_code
+
+    @base_language_iso_code.setter
+    def base_language_iso_code(self, base_language_iso_code):
+        """Sets the base_language_iso_code of this Conversation.
+
+        The base language iso code for the StoreFront that everything is translated into  # noqa: E501
+
+        :param base_language_iso_code: The base_language_iso_code of this Conversation.  # noqa: E501
+        :type: str
+        """
+
+        self._base_language_iso_code = base_language_iso_code
 
     @property
     def closed(self):
