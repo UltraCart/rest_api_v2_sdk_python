@@ -63,7 +63,7 @@ class OrderProperty(ModelNormal):
             'max_length': 100,
         },
         ('value',): {
-            'max_length': 10000,
+            'max_length': 5000,
         },
     }
 
