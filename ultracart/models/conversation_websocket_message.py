@@ -32,6 +32,8 @@ class ConversationWebsocketMessage(object):
     """
     swagger_types = {
         'conversation_uuid': 'str',
+        'event_add_coupon': 'ConversationEventAddCoupon',
+        'event_add_item': 'ConversationEventAddItem',
         'event_conversation_closed': 'ConversationSummary',
         'event_new_conversation': 'ConversationSummary',
         'event_new_message': 'ConversationSummary',
@@ -49,6 +51,8 @@ class ConversationWebsocketMessage(object):
 
     attribute_map = {
         'conversation_uuid': 'conversation_uuid',
+        'event_add_coupon': 'event_add_coupon',
+        'event_add_item': 'event_add_item',
         'event_conversation_closed': 'event_conversation_closed',
         'event_new_conversation': 'event_new_conversation',
         'event_new_message': 'event_new_message',
@@ -64,10 +68,12 @@ class ConversationWebsocketMessage(object):
         'type': 'type'
     }
 
-    def __init__(self, conversation_uuid=None, event_conversation_closed=None, event_new_conversation=None, event_new_message=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, message=None, type=None):  # noqa: E501
+    def __init__(self, conversation_uuid=None, event_add_coupon=None, event_add_item=None, event_conversation_closed=None, event_new_conversation=None, event_new_message=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, message=None, type=None):  # noqa: E501
         """ConversationWebsocketMessage - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_uuid = None
+        self._event_add_coupon = None
+        self._event_add_item = None
         self._event_conversation_closed = None
         self._event_new_conversation = None
         self._event_new_message = None
@@ -85,6 +91,10 @@ class ConversationWebsocketMessage(object):
 
         if conversation_uuid is not None:
             self.conversation_uuid = conversation_uuid
+        if event_add_coupon is not None:
+            self.event_add_coupon = event_add_coupon
+        if event_add_item is not None:
+            self.event_add_item = event_add_item
         if event_conversation_closed is not None:
             self.event_conversation_closed = event_conversation_closed
         if event_new_conversation is not None:
@@ -134,6 +144,48 @@ class ConversationWebsocketMessage(object):
         """
 
         self._conversation_uuid = conversation_uuid
+
+    @property
+    def event_add_coupon(self):
+        """Gets the event_add_coupon of this ConversationWebsocketMessage.  # noqa: E501
+
+
+        :return: The event_add_coupon of this ConversationWebsocketMessage.  # noqa: E501
+        :rtype: ConversationEventAddCoupon
+        """
+        return self._event_add_coupon
+
+    @event_add_coupon.setter
+    def event_add_coupon(self, event_add_coupon):
+        """Sets the event_add_coupon of this ConversationWebsocketMessage.
+
+
+        :param event_add_coupon: The event_add_coupon of this ConversationWebsocketMessage.  # noqa: E501
+        :type: ConversationEventAddCoupon
+        """
+
+        self._event_add_coupon = event_add_coupon
+
+    @property
+    def event_add_item(self):
+        """Gets the event_add_item of this ConversationWebsocketMessage.  # noqa: E501
+
+
+        :return: The event_add_item of this ConversationWebsocketMessage.  # noqa: E501
+        :rtype: ConversationEventAddItem
+        """
+        return self._event_add_item
+
+    @event_add_item.setter
+    def event_add_item(self, event_add_item):
+        """Sets the event_add_item of this ConversationWebsocketMessage.
+
+
+        :param event_add_item: The event_add_item of this ConversationWebsocketMessage.  # noqa: E501
+        :type: ConversationEventAddItem
+        """
+
+        self._event_add_item = event_add_item
 
     @property
     def event_conversation_closed(self):
@@ -323,7 +375,7 @@ class ConversationWebsocketMessage(object):
         :param event_type: The event_type of this ConversationWebsocketMessage.  # noqa: E501
         :type: str
         """
-        allowed_values = ["queue position", "webchat start conversation", "conversation closed", "new conversation", "new message", "updated message", "queue status update", "rrweb", "participant update", "read message", "typing"]  # noqa: E501
+        allowed_values = ["queue position", "webchat start conversation", "conversation closed", "new conversation", "new message", "updated message", "queue status update", "rrweb", "participant update", "read message", "typing", "add coupon", "add item"]  # noqa: E501
         if event_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `event_type` ({0}), must be one of {1}"  # noqa: E501

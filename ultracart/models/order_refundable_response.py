@@ -113,7 +113,7 @@ class OrderRefundableResponse(object):
     def refundable(self):
         """Gets the refundable of this OrderRefundableResponse.  # noqa: E501
 
-        Whether the order is refundable or not.  # noqa: E501
+        Whether the order is refundable or not.  Null should be interpreted as false.  # noqa: E501
 
         :return: The refundable of this OrderRefundableResponse.  # noqa: E501
         :rtype: bool
@@ -124,7 +124,7 @@ class OrderRefundableResponse(object):
     def refundable(self, refundable):
         """Sets the refundable of this OrderRefundableResponse.
 
-        Whether the order is refundable or not.  # noqa: E501
+        Whether the order is refundable or not.  Null should be interpreted as false.  # noqa: E501
 
         :param refundable: The refundable of this OrderRefundableResponse.  # noqa: E501
         :type: bool
