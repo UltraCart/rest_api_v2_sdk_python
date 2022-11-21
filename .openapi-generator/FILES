@@ -146,6 +146,7 @@ docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
 docs/ConversationTwilioAccount.md
+docs/ConversationWebchatContext.md
 docs/ConversationWebchatQueueStatus.md
 docs/ConversationWebchatQueueStatusAgent.md
 docs/ConversationWebchatQueueStatusQueueEntry.md
@@ -402,6 +403,10 @@ docs/GroupResponse.md
 docs/GroupUserMembership.md
 docs/GroupsResponse.md
 docs/HTTPHeader.md
+docs/HitPageView.md
+docs/HitPageViewMetaData.md
+docs/HitSessionStart.md
+docs/HitSessionUtm.md
 docs/IntegrationLog.md
 docs/IntegrationLogApi.md
 docs/IntegrationLogFile.md
@@ -877,6 +882,7 @@ ultracart/model/conversation_start_request.py
 ultracart/model/conversation_start_response.py
 ultracart/model/conversation_summary.py
 ultracart/model/conversation_twilio_account.py
+ultracart/model/conversation_webchat_context.py
 ultracart/model/conversation_webchat_queue_status.py
 ultracart/model/conversation_webchat_queue_status_agent.py
 ultracart/model/conversation_webchat_queue_status_queue_entry.py
@@ -1128,6 +1134,10 @@ ultracart/model/group.py
 ultracart/model/group_response.py
 ultracart/model/group_user_membership.py
 ultracart/model/groups_response.py
+ultracart/model/hit_page_view.py
+ultracart/model/hit_page_view_meta_data.py
+ultracart/model/hit_session_start.py
+ultracart/model/hit_session_utm.py
 ultracart/model/http_header.py
 ultracart/model/integration_log.py
 ultracart/model/integration_log_file.py
