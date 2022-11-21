@@ -31,42 +31,94 @@ class ConversationEventAddItem(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'item_id': 'str'
+        'agent_arn': 'str',
+        'agent_name': 'str',
+        'items': 'list[CartItem]'
     }
 
     attribute_map = {
-        'item_id': 'item_id'
+        'agent_arn': 'agent_arn',
+        'agent_name': 'agent_name',
+        'items': 'items'
     }
 
-    def __init__(self, item_id=None):  # noqa: E501
+    def __init__(self, agent_arn=None, agent_name=None, items=None):  # noqa: E501
         """ConversationEventAddItem - a model defined in Swagger"""  # noqa: E501
 
-        self._item_id = None
+        self._agent_arn = None
+        self._agent_name = None
+        self._items = None
         self.discriminator = None
 
-        if item_id is not None:
-            self.item_id = item_id
+        if agent_arn is not None:
+            self.agent_arn = agent_arn
+        if agent_name is not None:
+            self.agent_name = agent_name
+        if items is not None:
+            self.items = items
 
     @property
-    def item_id(self):
-        """Gets the item_id of this ConversationEventAddItem.  # noqa: E501
+    def agent_arn(self):
+        """Gets the agent_arn of this ConversationEventAddItem.  # noqa: E501
 
 
-        :return: The item_id of this ConversationEventAddItem.  # noqa: E501
+        :return: The agent_arn of this ConversationEventAddItem.  # noqa: E501
         :rtype: str
         """
-        return self._item_id
+        return self._agent_arn
 
-    @item_id.setter
-    def item_id(self, item_id):
-        """Sets the item_id of this ConversationEventAddItem.
+    @agent_arn.setter
+    def agent_arn(self, agent_arn):
+        """Sets the agent_arn of this ConversationEventAddItem.
 
 
-        :param item_id: The item_id of this ConversationEventAddItem.  # noqa: E501
+        :param agent_arn: The agent_arn of this ConversationEventAddItem.  # noqa: E501
         :type: str
         """
 
-        self._item_id = item_id
+        self._agent_arn = agent_arn
+
+    @property
+    def agent_name(self):
+        """Gets the agent_name of this ConversationEventAddItem.  # noqa: E501
+
+
+        :return: The agent_name of this ConversationEventAddItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._agent_name
+
+    @agent_name.setter
+    def agent_name(self, agent_name):
+        """Sets the agent_name of this ConversationEventAddItem.
+
+
+        :param agent_name: The agent_name of this ConversationEventAddItem.  # noqa: E501
+        :type: str
+        """
+
+        self._agent_name = agent_name
+
+    @property
+    def items(self):
+        """Gets the items of this ConversationEventAddItem.  # noqa: E501
+
+
+        :return: The items of this ConversationEventAddItem.  # noqa: E501
+        :rtype: list[CartItem]
+        """
+        return self._items
+
+    @items.setter
+    def items(self, items):
+        """Sets the items of this ConversationEventAddItem.
+
+
+        :param items: The items of this ConversationEventAddItem.  # noqa: E501
+        :type: list[CartItem]
+        """
+
+        self._items = items
 
     def to_dict(self):
         """Returns the model properties as a dict"""

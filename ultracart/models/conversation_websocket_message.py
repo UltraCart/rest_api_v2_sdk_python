@@ -45,6 +45,7 @@ class ConversationWebsocketMessage(object):
         'event_type': 'str',
         'event_typing': 'ConversationEventTyping',
         'event_updated_message': 'ConversationMessage',
+        'event_webchat_context': 'ConversationEventWebchatContext',
         'message': 'ConversationMessage',
         'type': 'str'
     }
@@ -64,11 +65,12 @@ class ConversationWebsocketMessage(object):
         'event_type': 'event_type',
         'event_typing': 'event_typing',
         'event_updated_message': 'event_updated_message',
+        'event_webchat_context': 'event_webchat_context',
         'message': 'message',
         'type': 'type'
     }
 
-    def __init__(self, conversation_uuid=None, event_add_coupon=None, event_add_item=None, event_conversation_closed=None, event_new_conversation=None, event_new_message=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, message=None, type=None):  # noqa: E501
+    def __init__(self, conversation_uuid=None, event_add_coupon=None, event_add_item=None, event_conversation_closed=None, event_new_conversation=None, event_new_message=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, event_webchat_context=None, message=None, type=None):  # noqa: E501
         """ConversationWebsocketMessage - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_uuid = None
@@ -85,6 +87,7 @@ class ConversationWebsocketMessage(object):
         self._event_type = None
         self._event_typing = None
         self._event_updated_message = None
+        self._event_webchat_context = None
         self._message = None
         self._type = None
         self.discriminator = None
@@ -117,6 +120,8 @@ class ConversationWebsocketMessage(object):
             self.event_typing = event_typing
         if event_updated_message is not None:
             self.event_updated_message = event_updated_message
+        if event_webchat_context is not None:
+            self.event_webchat_context = event_webchat_context
         if message is not None:
             self.message = message
         if type is not None:
@@ -425,6 +430,27 @@ class ConversationWebsocketMessage(object):
         """
 
         self._event_updated_message = event_updated_message
+
+    @property
+    def event_webchat_context(self):
+        """Gets the event_webchat_context of this ConversationWebsocketMessage.  # noqa: E501
+
+
+        :return: The event_webchat_context of this ConversationWebsocketMessage.  # noqa: E501
+        :rtype: ConversationEventWebchatContext
+        """
+        return self._event_webchat_context
+
+    @event_webchat_context.setter
+    def event_webchat_context(self, event_webchat_context):
+        """Sets the event_webchat_context of this ConversationWebsocketMessage.
+
+
+        :param event_webchat_context: The event_webchat_context of this ConversationWebsocketMessage.  # noqa: E501
+        :type: ConversationEventWebchatContext
+        """
+
+        self._event_webchat_context = event_webchat_context
 
     @property
     def message(self):

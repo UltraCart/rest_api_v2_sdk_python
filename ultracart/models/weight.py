@@ -72,7 +72,7 @@ class Weight(object):
         :param uom: The uom of this Weight.  # noqa: E501
         :type: str
         """
-        allowed_values = ["KG", "LB", "OZ"]  # noqa: E501
+        allowed_values = ["KG", "G", "LB", "OZ"]  # noqa: E501
         if uom not in allowed_values:
             raise ValueError(
                 "Invalid value for `uom` ({0}), must be one of {1}"  # noqa: E501
