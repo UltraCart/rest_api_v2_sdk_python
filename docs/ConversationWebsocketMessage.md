@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **event_type** | **str** | Type of event | [optional] 
 **event_typing** | [**ConversationEventTyping**](ConversationEventTyping.md) |  | [optional] 
 **event_updated_message** | [**ConversationMessage**](ConversationMessage.md) |  | [optional] 
+**event_webchat_context** | [**ConversationEventWebchatContext**](ConversationEventWebchatContext.md) |  | [optional] 
 **message** | [**ConversationMessage**](ConversationMessage.md) |  | [optional] 
 **type** | **str** | Type of message | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

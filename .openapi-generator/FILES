@@ -134,6 +134,7 @@ docs/ConversationEventQueuePosition.md
 docs/ConversationEventRRWeb.md
 docs/ConversationEventReadMessage.md
 docs/ConversationEventTyping.md
+docs/ConversationEventWebchatContext.md
 docs/ConversationMessage.md
 docs/ConversationMessageTransportStatus.md
 docs/ConversationMessagesResponse.md
@@ -864,6 +865,7 @@ ultracart/model/conversation_event_queue_position.py
 ultracart/model/conversation_event_read_message.py
 ultracart/model/conversation_event_rr_web.py
 ultracart/model/conversation_event_typing.py
+ultracart/model/conversation_event_webchat_context.py
 ultracart/model/conversation_message.py
 ultracart/model/conversation_message_transport_status.py
 ultracart/model/conversation_messages_response.py

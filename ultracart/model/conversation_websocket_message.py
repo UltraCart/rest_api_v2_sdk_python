@@ -37,6 +37,7 @@ def lazy_import():
     from ultracart.model.conversation_event_read_message import ConversationEventReadMessage
     from ultracart.model.conversation_event_rr_web import ConversationEventRRWeb
     from ultracart.model.conversation_event_typing import ConversationEventTyping
+    from ultracart.model.conversation_event_webchat_context import ConversationEventWebchatContext
     from ultracart.model.conversation_message import ConversationMessage
     from ultracart.model.conversation_summary import ConversationSummary
     from ultracart.model.conversation_webchat_queue_status import ConversationWebchatQueueStatus
@@ -46,6 +47,7 @@ def lazy_import():
     globals()['ConversationEventRRWeb'] = ConversationEventRRWeb
     globals()['ConversationEventReadMessage'] = ConversationEventReadMessage
     globals()['ConversationEventTyping'] = ConversationEventTyping
+    globals()['ConversationEventWebchatContext'] = ConversationEventWebchatContext
     globals()['ConversationMessage'] = ConversationMessage
     globals()['ConversationSummary'] = ConversationSummary
     globals()['ConversationWebchatQueueStatus'] = ConversationWebchatQueueStatus
@@ -139,6 +141,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'event_type': (str,),  # noqa: E501
             'event_typing': (ConversationEventTyping,),  # noqa: E501
             'event_updated_message': (ConversationMessage,),  # noqa: E501
+            'event_webchat_context': (ConversationEventWebchatContext,),  # noqa: E501
             'message': (ConversationMessage,),  # noqa: E501
             'type': (str,),  # noqa: E501
         }
@@ -163,6 +166,7 @@ class ConversationWebsocketMessage(ModelNormal):
         'event_type': 'event_type',  # noqa: E501
         'event_typing': 'event_typing',  # noqa: E501
         'event_updated_message': 'event_updated_message',  # noqa: E501
+        'event_webchat_context': 'event_webchat_context',  # noqa: E501
         'message': 'message',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
@@ -222,6 +226,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_type (str): Type of event. [optional]  # noqa: E501
             event_typing (ConversationEventTyping): [optional]  # noqa: E501
             event_updated_message (ConversationMessage): [optional]  # noqa: E501
+            event_webchat_context (ConversationEventWebchatContext): [optional]  # noqa: E501
             message (ConversationMessage): [optional]  # noqa: E501
             type (str): Type of message. [optional]  # noqa: E501
         """
@@ -323,6 +328,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_type (str): Type of event. [optional]  # noqa: E501
             event_typing (ConversationEventTyping): [optional]  # noqa: E501
             event_updated_message (ConversationMessage): [optional]  # noqa: E501
+            event_webchat_context (ConversationEventWebchatContext): [optional]  # noqa: E501
             message (ConversationMessage): [optional]  # noqa: E501
             type (str): Type of message. [optional]  # noqa: E501
         """

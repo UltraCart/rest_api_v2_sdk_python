@@ -58,6 +58,7 @@ class Weight(ModelNormal):
     allowed_values = {
         ('uom',): {
             'KG': "KG",
+            'G': "G",
             'LB': "LB",
             'OZ': "OZ",
         },

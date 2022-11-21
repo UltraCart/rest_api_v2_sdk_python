@@ -82,6 +82,8 @@ class ConversationEventAddCoupon(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'agent_arn': (str,),  # noqa: E501
+            'agent_name': (str,),  # noqa: E501
             'coupon_code': (str,),  # noqa: E501
         }
 
@@ -91,6 +93,8 @@ class ConversationEventAddCoupon(ModelNormal):
 
 
     attribute_map = {
+        'agent_arn': 'agent_arn',  # noqa: E501
+        'agent_name': 'agent_name',  # noqa: E501
         'coupon_code': 'coupon_code',  # noqa: E501
     }
 
@@ -135,6 +139,8 @@ class ConversationEventAddCoupon(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            agent_arn (str): [optional]  # noqa: E501
+            agent_name (str): [optional]  # noqa: E501
             coupon_code (str): [optional]  # noqa: E501
         """
 
@@ -221,6 +227,8 @@ class ConversationEventAddCoupon(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            agent_arn (str): [optional]  # noqa: E501
+            agent_name (str): [optional]  # noqa: E501
             coupon_code (str): [optional]  # noqa: E501
         """
 
