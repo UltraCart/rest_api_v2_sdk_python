@@ -178,6 +178,7 @@ from ultracart.models.conversation_start_request import ConversationStartRequest
 from ultracart.models.conversation_start_response import ConversationStartResponse
 from ultracart.models.conversation_summary import ConversationSummary
 from ultracart.models.conversation_twilio_account import ConversationTwilioAccount
+from ultracart.models.conversation_webchat_context import ConversationWebchatContext
 from ultracart.models.conversation_webchat_queue_status import ConversationWebchatQueueStatus
 from ultracart.models.conversation_webchat_queue_status_agent import ConversationWebchatQueueStatusAgent
 from ultracart.models.conversation_webchat_queue_status_queue_entry import ConversationWebchatQueueStatusQueueEntry
@@ -430,6 +431,10 @@ from ultracart.models.group_response import GroupResponse
 from ultracart.models.group_user_membership import GroupUserMembership
 from ultracart.models.groups_response import GroupsResponse
 from ultracart.models.http_header import HTTPHeader
+from ultracart.models.hit_page_view import HitPageView
+from ultracart.models.hit_page_view_meta_data import HitPageViewMetaData
+from ultracart.models.hit_session_start import HitSessionStart
+from ultracart.models.hit_session_utm import HitSessionUtm
 from ultracart.models.integration_log import IntegrationLog
 from ultracart.models.integration_log_file import IntegrationLogFile
 from ultracart.models.integration_log_log import IntegrationLogLog
