@@ -34,23 +34,29 @@ class CouponPercentOffMsrpItems(object):
         'discount_percent': 'float',
         'excluded_items': 'list[str]',
         'items': 'list[str]',
-        'limit': 'int'
+        'limit': 'int',
+        'minimum_cumulative_msrp': 'float',
+        'minimum_subtotal': 'float'
     }
 
     attribute_map = {
         'discount_percent': 'discount_percent',
         'excluded_items': 'excluded_items',
         'items': 'items',
-        'limit': 'limit'
+        'limit': 'limit',
+        'minimum_cumulative_msrp': 'minimum_cumulative_msrp',
+        'minimum_subtotal': 'minimum_subtotal'
     }
 
-    def __init__(self, discount_percent=None, excluded_items=None, items=None, limit=None):  # noqa: E501
+    def __init__(self, discount_percent=None, excluded_items=None, items=None, limit=None, minimum_cumulative_msrp=None, minimum_subtotal=None):  # noqa: E501
         """CouponPercentOffMsrpItems - a model defined in Swagger"""  # noqa: E501
 
         self._discount_percent = None
         self._excluded_items = None
         self._items = None
         self._limit = None
+        self._minimum_cumulative_msrp = None
+        self._minimum_subtotal = None
         self.discriminator = None
 
         if discount_percent is not None:
@@ -61,6 +67,10 @@ class CouponPercentOffMsrpItems(object):
             self.items = items
         if limit is not None:
             self.limit = limit
+        if minimum_cumulative_msrp is not None:
+            self.minimum_cumulative_msrp = minimum_cumulative_msrp
+        if minimum_subtotal is not None:
+            self.minimum_subtotal = minimum_subtotal
 
     @property
     def discount_percent(self):
@@ -153,6 +163,52 @@ class CouponPercentOffMsrpItems(object):
         """
 
         self._limit = limit
+
+    @property
+    def minimum_cumulative_msrp(self):
+        """Gets the minimum_cumulative_msrp of this CouponPercentOffMsrpItems.  # noqa: E501
+
+        The (optional) minimum cumulative msrp of qualifying items.  # noqa: E501
+
+        :return: The minimum_cumulative_msrp of this CouponPercentOffMsrpItems.  # noqa: E501
+        :rtype: float
+        """
+        return self._minimum_cumulative_msrp
+
+    @minimum_cumulative_msrp.setter
+    def minimum_cumulative_msrp(self, minimum_cumulative_msrp):
+        """Sets the minimum_cumulative_msrp of this CouponPercentOffMsrpItems.
+
+        The (optional) minimum cumulative msrp of qualifying items.  # noqa: E501
+
+        :param minimum_cumulative_msrp: The minimum_cumulative_msrp of this CouponPercentOffMsrpItems.  # noqa: E501
+        :type: float
+        """
+
+        self._minimum_cumulative_msrp = minimum_cumulative_msrp
+
+    @property
+    def minimum_subtotal(self):
+        """Gets the minimum_subtotal of this CouponPercentOffMsrpItems.  # noqa: E501
+
+        The (optional) minimum subtotal of qualifying items.  # noqa: E501
+
+        :return: The minimum_subtotal of this CouponPercentOffMsrpItems.  # noqa: E501
+        :rtype: float
+        """
+        return self._minimum_subtotal
+
+    @minimum_subtotal.setter
+    def minimum_subtotal(self, minimum_subtotal):
+        """Sets the minimum_subtotal of this CouponPercentOffMsrpItems.
+
+        The (optional) minimum subtotal of qualifying items.  # noqa: E501
+
+        :param minimum_subtotal: The minimum_subtotal of this CouponPercentOffMsrpItems.  # noqa: E501
+        :type: float
+        """
+
+        self._minimum_subtotal = minimum_subtotal
 
     def to_dict(self):
         """Returns the model properties as a dict"""
