@@ -86,6 +86,8 @@ class CouponPercentOffMsrpItems(ModelNormal):
             'excluded_items': ([str],),  # noqa: E501
             'items': ([str],),  # noqa: E501
             'limit': (int,),  # noqa: E501
+            'minimum_cumulative_msrp': (float,),  # noqa: E501
+            'minimum_subtotal': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +100,8 @@ class CouponPercentOffMsrpItems(ModelNormal):
         'excluded_items': 'excluded_items',  # noqa: E501
         'items': 'items',  # noqa: E501
         'limit': 'limit',  # noqa: E501
+        'minimum_cumulative_msrp': 'minimum_cumulative_msrp',  # noqa: E501
+        'minimum_subtotal': 'minimum_subtotal',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,6 +149,8 @@ class CouponPercentOffMsrpItems(ModelNormal):
             excluded_items ([str]): A list of items which cannot be discounted.. [optional]  # noqa: E501
             items ([str]): An list of items which will receive a discount.. [optional]  # noqa: E501
             limit (int): The (optional) maximum quantity of discounted items.. [optional]  # noqa: E501
+            minimum_cumulative_msrp (float): The (optional) minimum cumulative msrp of qualifying items.. [optional]  # noqa: E501
+            minimum_subtotal (float): The (optional) minimum subtotal of qualifying items.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,6 +240,8 @@ class CouponPercentOffMsrpItems(ModelNormal):
             excluded_items ([str]): A list of items which cannot be discounted.. [optional]  # noqa: E501
             items ([str]): An list of items which will receive a discount.. [optional]  # noqa: E501
             limit (int): The (optional) maximum quantity of discounted items.. [optional]  # noqa: E501
+            minimum_cumulative_msrp (float): The (optional) minimum cumulative msrp of qualifying items.. [optional]  # noqa: E501
+            minimum_subtotal (float): The (optional) minimum subtotal of qualifying items.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

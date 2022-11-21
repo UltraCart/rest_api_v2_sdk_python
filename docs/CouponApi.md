@@ -1289,6 +1289,8 @@ api_instance = GiftCertificateApi(api_client())
                 "items_example",
             ],
             limit=1,
+            minimum_cumulative_msrp=3.14,
+            minimum_subtotal=3.14,
         ),
         percent_off_retail_price_items=CouponPercentOffRetailPriceItems(
             discount_percent=3.14,
@@ -1752,6 +1754,8 @@ api_instance = GiftCertificateApi(api_client())
                         "items_example",
                     ],
                     limit=1,
+                    minimum_cumulative_msrp=3.14,
+                    minimum_subtotal=3.14,
                 ),
                 percent_off_retail_price_items=CouponPercentOffRetailPriceItems(
                     discount_percent=3.14,
@@ -2401,6 +2405,8 @@ api_instance = GiftCertificateApi(api_client())
                 "items_example",
             ],
             limit=1,
+            minimum_cumulative_msrp=3.14,
+            minimum_subtotal=3.14,
         ),
         percent_off_retail_price_items=CouponPercentOffRetailPriceItems(
             discount_percent=3.14,
@@ -2865,6 +2871,8 @@ api_instance = GiftCertificateApi(api_client())
                         "items_example",
                     ],
                     limit=1,
+                    minimum_cumulative_msrp=3.14,
+                    minimum_subtotal=3.14,
                 ),
                 percent_off_retail_price_items=CouponPercentOffRetailPriceItems(
                     discount_percent=3.14,
