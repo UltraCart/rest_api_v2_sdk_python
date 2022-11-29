@@ -36,6 +36,7 @@ class ConversationMessage(object):
         'body': 'str',
         'client_message_id': 'str',
         'conversation_message_uuid': 'str',
+        'delay_until_dts': 'str',
         'media_urls': 'list[str]',
         'merchant_id': 'str',
         'message_dts': 'str',
@@ -51,6 +52,7 @@ class ConversationMessage(object):
         'body': 'body',
         'client_message_id': 'client_message_id',
         'conversation_message_uuid': 'conversation_message_uuid',
+        'delay_until_dts': 'delay_until_dts',
         'media_urls': 'media_urls',
         'merchant_id': 'merchant_id',
         'message_dts': 'message_dts',
@@ -60,7 +62,7 @@ class ConversationMessage(object):
         'upload_keys': 'upload_keys'
     }
 
-    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, conversation_message_uuid=None, media_urls=None, merchant_id=None, message_dts=None, message_epoch=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
+    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, conversation_message_uuid=None, delay_until_dts=None, media_urls=None, merchant_id=None, message_dts=None, message_epoch=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
         """ConversationMessage - a model defined in Swagger"""  # noqa: E501
 
         self._author_conversation_participant_arn = None
@@ -68,6 +70,7 @@ class ConversationMessage(object):
         self._body = None
         self._client_message_id = None
         self._conversation_message_uuid = None
+        self._delay_until_dts = None
         self._media_urls = None
         self._merchant_id = None
         self._message_dts = None
@@ -87,6 +90,8 @@ class ConversationMessage(object):
             self.client_message_id = client_message_id
         if conversation_message_uuid is not None:
             self.conversation_message_uuid = conversation_message_uuid
+        if delay_until_dts is not None:
+            self.delay_until_dts = delay_until_dts
         if media_urls is not None:
             self.media_urls = media_urls
         if merchant_id is not None:
@@ -206,6 +211,29 @@ class ConversationMessage(object):
         """
 
         self._conversation_message_uuid = conversation_message_uuid
+
+    @property
+    def delay_until_dts(self):
+        """Gets the delay_until_dts of this ConversationMessage.  # noqa: E501
+
+        Delay message transmission until date/time  # noqa: E501
+
+        :return: The delay_until_dts of this ConversationMessage.  # noqa: E501
+        :rtype: str
+        """
+        return self._delay_until_dts
+
+    @delay_until_dts.setter
+    def delay_until_dts(self, delay_until_dts):
+        """Sets the delay_until_dts of this ConversationMessage.
+
+        Delay message transmission until date/time  # noqa: E501
+
+        :param delay_until_dts: The delay_until_dts of this ConversationMessage.  # noqa: E501
+        :type: str
+        """
+
+        self._delay_until_dts = delay_until_dts
 
     @property
     def media_urls(self):
