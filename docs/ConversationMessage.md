@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **body** | **str** |  | [optional] 
 **client_message_id** | **str** |  | [optional] 
 **conversation_message_uuid** | **str** |  | [optional] 
+**delay_until_dts** | **str** | Delay message transmission until date/time | [optional] 
 **media_urls** | **[str]** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **message_dts** | **str** | Message date/time | [optional] 
