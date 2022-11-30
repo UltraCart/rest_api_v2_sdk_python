@@ -952,6 +952,7 @@ api_instance = GiftCertificateApi(api_client())
                         uom="IN",
                         value=3.14,
                     ),
+                    item_index=1,
                     item_reference_oid=1,
                     kit=True,
                     kit_component=True,
@@ -1004,6 +1005,8 @@ api_instance = GiftCertificateApi(api_client())
                         ),
                     ],
                     packed_by_user="packed_by_user_example",
+                    parent_item_index=1,
+                    parent_merchant_item_id="parent_merchant_item_id_example",
                     perishable_class="perishable_class_example",
                     pricing_tier_name="pricing_tier_name_example",
                     properties=[
@@ -2174,6 +2177,7 @@ api_instance = GiftCertificateApi(api_client())
                         uom="IN",
                         value=3.14,
                     ),
+                    item_index=1,
                     item_reference_oid=1,
                     kit=True,
                     kit_component=True,
@@ -2226,6 +2230,8 @@ api_instance = GiftCertificateApi(api_client())
                         ),
                     ],
                     packed_by_user="packed_by_user_example",
+                    parent_item_index=1,
+                    parent_merchant_item_id="parent_merchant_item_id_example",
                     perishable_class="perishable_class_example",
                     pricing_tier_name="pricing_tier_name_example",
                     properties=[

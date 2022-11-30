@@ -93,6 +93,9 @@ class OrderItem(ModelNormal):
         ('merchant_item_id',): {
             'max_length': 20,
         },
+        ('parent_merchant_item_id',): {
+            'max_length': 20,
+        },
         ('perishable_class',): {
             'max_length': 50,
         },
@@ -146,6 +149,7 @@ class OrderItem(ModelNormal):
             'free_shipping': (bool,),  # noqa: E501
             'hazmat': (bool,),  # noqa: E501
             'height': (Distance,),  # noqa: E501
+            'item_index': (int,),  # noqa: E501
             'item_reference_oid': (int,),  # noqa: E501
             'kit': (bool,),  # noqa: E501
             'kit_component': (bool,),  # noqa: E501
@@ -158,6 +162,8 @@ class OrderItem(ModelNormal):
             'no_shipping_discount': (bool,),  # noqa: E501
             'options': ([OrderItemOption],),  # noqa: E501
             'packed_by_user': (str,),  # noqa: E501
+            'parent_item_index': (int,),  # noqa: E501
+            'parent_merchant_item_id': (str,),  # noqa: E501
             'perishable_class': (str,),  # noqa: E501
             'pricing_tier_name': (str,),  # noqa: E501
             'properties': ([OrderItemProperty],),  # noqa: E501
@@ -210,6 +216,7 @@ class OrderItem(ModelNormal):
         'free_shipping': 'free_shipping',  # noqa: E501
         'hazmat': 'hazmat',  # noqa: E501
         'height': 'height',  # noqa: E501
+        'item_index': 'item_index',  # noqa: E501
         'item_reference_oid': 'item_reference_oid',  # noqa: E501
         'kit': 'kit',  # noqa: E501
         'kit_component': 'kit_component',  # noqa: E501
@@ -222,6 +229,8 @@ class OrderItem(ModelNormal):
         'no_shipping_discount': 'no_shipping_discount',  # noqa: E501
         'options': 'options',  # noqa: E501
         'packed_by_user': 'packed_by_user',  # noqa: E501
+        'parent_item_index': 'parent_item_index',  # noqa: E501
+        'parent_merchant_item_id': 'parent_merchant_item_id',  # noqa: E501
         'perishable_class': 'perishable_class',  # noqa: E501
         'pricing_tier_name': 'pricing_tier_name',  # noqa: E501
         'properties': 'properties',  # noqa: E501
@@ -309,6 +318,7 @@ class OrderItem(ModelNormal):
             free_shipping (bool): True if the item receives free shipping. [optional]  # noqa: E501
             hazmat (bool): Hazardous materials indicator. [optional]  # noqa: E501
             height (Distance): [optional]  # noqa: E501
+            item_index (int): Index of the item on the order (one based index). [optional]  # noqa: E501
             item_reference_oid (int): Item reference object identifier used to linked to auto order item record. [optional]  # noqa: E501
             kit (bool): True if this item is a kit. [optional]  # noqa: E501
             kit_component (bool): True if this item is a kit component. [optional]  # noqa: E501
@@ -321,6 +331,8 @@ class OrderItem(ModelNormal):
             no_shipping_discount (bool): True if this item is excluded from shipping discounts. [optional]  # noqa: E501
             options ([OrderItemOption]): Options. [optional]  # noqa: E501
             packed_by_user (str): Packed by user. [optional]  # noqa: E501
+            parent_item_index (int): If this item is a kit component, this is the item index of the parent item (kit). [optional]  # noqa: E501
+            parent_merchant_item_id (str): If this item is a kit component, this is the item id of the parent item (kit). [optional]  # noqa: E501
             perishable_class (str): Perishable class of the item. [optional]  # noqa: E501
             pricing_tier_name (str): Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned. [optional]  # noqa: E501
             properties ([OrderItemProperty]): Properties. [optional]  # noqa: E501
@@ -450,6 +462,7 @@ class OrderItem(ModelNormal):
             free_shipping (bool): True if the item receives free shipping. [optional]  # noqa: E501
             hazmat (bool): Hazardous materials indicator. [optional]  # noqa: E501
             height (Distance): [optional]  # noqa: E501
+            item_index (int): Index of the item on the order (one based index). [optional]  # noqa: E501
             item_reference_oid (int): Item reference object identifier used to linked to auto order item record. [optional]  # noqa: E501
             kit (bool): True if this item is a kit. [optional]  # noqa: E501
             kit_component (bool): True if this item is a kit component. [optional]  # noqa: E501
@@ -462,6 +475,8 @@ class OrderItem(ModelNormal):
             no_shipping_discount (bool): True if this item is excluded from shipping discounts. [optional]  # noqa: E501
             options ([OrderItemOption]): Options. [optional]  # noqa: E501
             packed_by_user (str): Packed by user. [optional]  # noqa: E501
+            parent_item_index (int): If this item is a kit component, this is the item index of the parent item (kit). [optional]  # noqa: E501
+            parent_merchant_item_id (str): If this item is a kit component, this is the item id of the parent item (kit). [optional]  # noqa: E501
             perishable_class (str): Perishable class of the item. [optional]  # noqa: E501
             pricing_tier_name (str): Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned. [optional]  # noqa: E501
             properties ([OrderItemProperty]): Properties. [optional]  # noqa: E501
