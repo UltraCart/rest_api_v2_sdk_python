@@ -53,6 +53,7 @@ class OrderItem(object):
         'free_shipping': 'bool',
         'hazmat': 'bool',
         'height': 'Distance',
+        'item_index': 'int',
         'item_reference_oid': 'int',
         'kit': 'bool',
         'kit_component': 'bool',
@@ -65,6 +66,8 @@ class OrderItem(object):
         'no_shipping_discount': 'bool',
         'options': 'list[OrderItemOption]',
         'packed_by_user': 'str',
+        'parent_item_index': 'int',
+        'parent_merchant_item_id': 'str',
         'perishable_class': 'str',
         'pricing_tier_name': 'str',
         'properties': 'list[OrderItemProperty]',
@@ -112,6 +115,7 @@ class OrderItem(object):
         'free_shipping': 'free_shipping',
         'hazmat': 'hazmat',
         'height': 'height',
+        'item_index': 'item_index',
         'item_reference_oid': 'item_reference_oid',
         'kit': 'kit',
         'kit_component': 'kit_component',
@@ -124,6 +128,8 @@ class OrderItem(object):
         'no_shipping_discount': 'no_shipping_discount',
         'options': 'options',
         'packed_by_user': 'packed_by_user',
+        'parent_item_index': 'parent_item_index',
+        'parent_merchant_item_id': 'parent_merchant_item_id',
         'perishable_class': 'perishable_class',
         'pricing_tier_name': 'pricing_tier_name',
         'properties': 'properties',
@@ -148,7 +154,7 @@ class OrderItem(object):
         'width': 'width'
     }
 
-    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, shipping_status=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
+    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_index=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, parent_item_index=None, parent_merchant_item_id=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, shipping_status=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
         """OrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._accounting_code = None
@@ -173,6 +179,7 @@ class OrderItem(object):
         self._free_shipping = None
         self._hazmat = None
         self._height = None
+        self._item_index = None
         self._item_reference_oid = None
         self._kit = None
         self._kit_component = None
@@ -185,6 +192,8 @@ class OrderItem(object):
         self._no_shipping_discount = None
         self._options = None
         self._packed_by_user = None
+        self._parent_item_index = None
+        self._parent_merchant_item_id = None
         self._perishable_class = None
         self._pricing_tier_name = None
         self._properties = None
@@ -253,6 +262,8 @@ class OrderItem(object):
             self.hazmat = hazmat
         if height is not None:
             self.height = height
+        if item_index is not None:
+            self.item_index = item_index
         if item_reference_oid is not None:
             self.item_reference_oid = item_reference_oid
         if kit is not None:
@@ -277,6 +288,10 @@ class OrderItem(object):
             self.options = options
         if packed_by_user is not None:
             self.packed_by_user = packed_by_user
+        if parent_item_index is not None:
+            self.parent_item_index = parent_item_index
+        if parent_merchant_item_id is not None:
+            self.parent_merchant_item_id = parent_merchant_item_id
         if perishable_class is not None:
             self.perishable_class = perishable_class
         if pricing_tier_name is not None:
@@ -823,6 +838,29 @@ class OrderItem(object):
         self._height = height
 
     @property
+    def item_index(self):
+        """Gets the item_index of this OrderItem.  # noqa: E501
+
+        Index of the item on the order (one based index)  # noqa: E501
+
+        :return: The item_index of this OrderItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._item_index
+
+    @item_index.setter
+    def item_index(self, item_index):
+        """Sets the item_index of this OrderItem.
+
+        Index of the item on the order (one based index)  # noqa: E501
+
+        :param item_index: The item_index of this OrderItem.  # noqa: E501
+        :type: int
+        """
+
+        self._item_index = item_index
+
+    @property
     def item_reference_oid(self):
         """Gets the item_reference_oid of this OrderItem.  # noqa: E501
 
@@ -1097,6 +1135,54 @@ class OrderItem(object):
         """
 
         self._packed_by_user = packed_by_user
+
+    @property
+    def parent_item_index(self):
+        """Gets the parent_item_index of this OrderItem.  # noqa: E501
+
+        If this item is a kit component, this is the item index of the parent item (kit)  # noqa: E501
+
+        :return: The parent_item_index of this OrderItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._parent_item_index
+
+    @parent_item_index.setter
+    def parent_item_index(self, parent_item_index):
+        """Sets the parent_item_index of this OrderItem.
+
+        If this item is a kit component, this is the item index of the parent item (kit)  # noqa: E501
+
+        :param parent_item_index: The parent_item_index of this OrderItem.  # noqa: E501
+        :type: int
+        """
+
+        self._parent_item_index = parent_item_index
+
+    @property
+    def parent_merchant_item_id(self):
+        """Gets the parent_merchant_item_id of this OrderItem.  # noqa: E501
+
+        If this item is a kit component, this is the item id of the parent item (kit)  # noqa: E501
+
+        :return: The parent_merchant_item_id of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._parent_merchant_item_id
+
+    @parent_merchant_item_id.setter
+    def parent_merchant_item_id(self, parent_merchant_item_id):
+        """Sets the parent_merchant_item_id of this OrderItem.
+
+        If this item is a kit component, this is the item id of the parent item (kit)  # noqa: E501
+
+        :param parent_merchant_item_id: The parent_merchant_item_id of this OrderItem.  # noqa: E501
+        :type: str
+        """
+        if parent_merchant_item_id is not None and len(parent_merchant_item_id) > 20:
+            raise ValueError("Invalid value for `parent_merchant_item_id`, length must be less than or equal to `20`")  # noqa: E501
+
+        self._parent_merchant_item_id = parent_merchant_item_id
 
     @property
     def perishable_class(self):
