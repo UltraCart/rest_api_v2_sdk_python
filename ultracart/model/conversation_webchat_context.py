@@ -31,14 +31,18 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.auto_order import AutoOrder
     from ultracart.model.cart import Cart
     from ultracart.model.hit_page_view import HitPageView
     from ultracart.model.hit_session_start import HitSessionStart
     from ultracart.model.hit_session_utm import HitSessionUtm
+    from ultracart.model.order import Order
+    globals()['AutoOrder'] = AutoOrder
     globals()['Cart'] = Cart
     globals()['HitPageView'] = HitPageView
     globals()['HitSessionStart'] = HitSessionStart
     globals()['HitSessionUtm'] = HitSessionUtm
+    globals()['Order'] = Order
 
 
 class ConversationWebchatContext(ModelNormal):
@@ -94,8 +98,10 @@ class ConversationWebchatContext(ModelNormal):
         """
         lazy_import()
         return {
+            'auto_orders': ([AutoOrder],),  # noqa: E501
             'cart': (Cart,),  # noqa: E501
             'current_url': (str,),  # noqa: E501
+            'orders': ([Order],),  # noqa: E501
             'page_view': ([HitPageView],),  # noqa: E501
             'session_start': (HitSessionStart,),  # noqa: E501
             'session_utm': (HitSessionUtm,),  # noqa: E501
@@ -107,8 +113,10 @@ class ConversationWebchatContext(ModelNormal):
 
 
     attribute_map = {
+        'auto_orders': 'auto_orders',  # noqa: E501
         'cart': 'cart',  # noqa: E501
         'current_url': 'current_url',  # noqa: E501
+        'orders': 'orders',  # noqa: E501
         'page_view': 'page_view',  # noqa: E501
         'session_start': 'session_start',  # noqa: E501
         'session_utm': 'session_utm',  # noqa: E501
@@ -155,8 +163,10 @@ class ConversationWebchatContext(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            auto_orders ([AutoOrder]): [optional]  # noqa: E501
             cart (Cart): [optional]  # noqa: E501
             current_url (str): [optional]  # noqa: E501
+            orders ([Order]): [optional]  # noqa: E501
             page_view ([HitPageView]): [optional]  # noqa: E501
             session_start (HitSessionStart): [optional]  # noqa: E501
             session_utm (HitSessionUtm): [optional]  # noqa: E501
@@ -245,8 +255,10 @@ class ConversationWebchatContext(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            auto_orders ([AutoOrder]): [optional]  # noqa: E501
             cart (Cart): [optional]  # noqa: E501
             current_url (str): [optional]  # noqa: E501
+            orders ([Order]): [optional]  # noqa: E501
             page_view ([HitPageView]): [optional]  # noqa: E501
             session_start (HitSessionStart): [optional]  # noqa: E501
             session_utm (HitSessionUtm): [optional]  # noqa: E501
