@@ -31,41 +31,72 @@ class ConversationWebchatContext(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auto_orders': 'list[AutoOrder]',
         'cart': 'Cart',
         'current_url': 'str',
+        'orders': 'list[Order]',
         'page_view': 'list[HitPageView]',
         'session_start': 'HitSessionStart',
         'session_utm': 'HitSessionUtm'
     }
 
     attribute_map = {
+        'auto_orders': 'auto_orders',
         'cart': 'cart',
         'current_url': 'current_url',
+        'orders': 'orders',
         'page_view': 'page_view',
         'session_start': 'session_start',
         'session_utm': 'session_utm'
     }
 
-    def __init__(self, cart=None, current_url=None, page_view=None, session_start=None, session_utm=None):  # noqa: E501
+    def __init__(self, auto_orders=None, cart=None, current_url=None, orders=None, page_view=None, session_start=None, session_utm=None):  # noqa: E501
         """ConversationWebchatContext - a model defined in Swagger"""  # noqa: E501
 
+        self._auto_orders = None
         self._cart = None
         self._current_url = None
+        self._orders = None
         self._page_view = None
         self._session_start = None
         self._session_utm = None
         self.discriminator = None
 
+        if auto_orders is not None:
+            self.auto_orders = auto_orders
         if cart is not None:
             self.cart = cart
         if current_url is not None:
             self.current_url = current_url
+        if orders is not None:
+            self.orders = orders
         if page_view is not None:
             self.page_view = page_view
         if session_start is not None:
             self.session_start = session_start
         if session_utm is not None:
             self.session_utm = session_utm
+
+    @property
+    def auto_orders(self):
+        """Gets the auto_orders of this ConversationWebchatContext.  # noqa: E501
+
+
+        :return: The auto_orders of this ConversationWebchatContext.  # noqa: E501
+        :rtype: list[AutoOrder]
+        """
+        return self._auto_orders
+
+    @auto_orders.setter
+    def auto_orders(self, auto_orders):
+        """Sets the auto_orders of this ConversationWebchatContext.
+
+
+        :param auto_orders: The auto_orders of this ConversationWebchatContext.  # noqa: E501
+        :type: list[AutoOrder]
+        """
+
+        self._auto_orders = auto_orders
 
     @property
     def cart(self):
@@ -108,6 +139,27 @@ class ConversationWebchatContext(object):
         """
 
         self._current_url = current_url
+
+    @property
+    def orders(self):
+        """Gets the orders of this ConversationWebchatContext.  # noqa: E501
+
+
+        :return: The orders of this ConversationWebchatContext.  # noqa: E501
+        :rtype: list[Order]
+        """
+        return self._orders
+
+    @orders.setter
+    def orders(self, orders):
+        """Sets the orders of this ConversationWebchatContext.
+
+
+        :param orders: The orders of this ConversationWebchatContext.  # noqa: E501
+        :type: list[Order]
+        """
+
+        self._orders = orders
 
     @property
     def page_view(self):
