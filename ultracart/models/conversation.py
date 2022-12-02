@@ -35,6 +35,7 @@ class Conversation(object):
         'closed': 'bool',
         'conversation_arn': 'str',
         'conversation_uuid': 'str',
+        'customer_first_message_unresponded_to_dts': 'str',
         'last_conversation_message_body': 'str',
         'last_conversation_participant_arn': 'str',
         'last_conversation_participant_name': 'str',
@@ -55,6 +56,7 @@ class Conversation(object):
         'closed': 'closed',
         'conversation_arn': 'conversation_arn',
         'conversation_uuid': 'conversation_uuid',
+        'customer_first_message_unresponded_to_dts': 'customer_first_message_unresponded_to_dts',
         'last_conversation_message_body': 'last_conversation_message_body',
         'last_conversation_participant_arn': 'last_conversation_participant_arn',
         'last_conversation_participant_name': 'last_conversation_participant_name',
@@ -70,13 +72,14 @@ class Conversation(object):
         'visible': 'visible'
     }
 
-    def __init__(self, base_language_iso_code=None, closed=None, conversation_arn=None, conversation_uuid=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_interactive_message_dts=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, messages=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
+    def __init__(self, base_language_iso_code=None, closed=None, conversation_arn=None, conversation_uuid=None, customer_first_message_unresponded_to_dts=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_interactive_message_dts=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, messages=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
         """Conversation - a model defined in Swagger"""  # noqa: E501
 
         self._base_language_iso_code = None
         self._closed = None
         self._conversation_arn = None
         self._conversation_uuid = None
+        self._customer_first_message_unresponded_to_dts = None
         self._last_conversation_message_body = None
         self._last_conversation_participant_arn = None
         self._last_conversation_participant_name = None
@@ -100,6 +103,8 @@ class Conversation(object):
             self.conversation_arn = conversation_arn
         if conversation_uuid is not None:
             self.conversation_uuid = conversation_uuid
+        if customer_first_message_unresponded_to_dts is not None:
+            self.customer_first_message_unresponded_to_dts = customer_first_message_unresponded_to_dts
         if last_conversation_message_body is not None:
             self.last_conversation_message_body = last_conversation_message_body
         if last_conversation_participant_arn is not None:
@@ -212,6 +217,29 @@ class Conversation(object):
         """
 
         self._conversation_uuid = conversation_uuid
+
+    @property
+    def customer_first_message_unresponded_to_dts(self):
+        """Gets the customer_first_message_unresponded_to_dts of this Conversation.  # noqa: E501
+
+        Date/time of the first customer message that is unresponded to.  # noqa: E501
+
+        :return: The customer_first_message_unresponded_to_dts of this Conversation.  # noqa: E501
+        :rtype: str
+        """
+        return self._customer_first_message_unresponded_to_dts
+
+    @customer_first_message_unresponded_to_dts.setter
+    def customer_first_message_unresponded_to_dts(self, customer_first_message_unresponded_to_dts):
+        """Sets the customer_first_message_unresponded_to_dts of this Conversation.
+
+        Date/time of the first customer message that is unresponded to.  # noqa: E501
+
+        :param customer_first_message_unresponded_to_dts: The customer_first_message_unresponded_to_dts of this Conversation.  # noqa: E501
+        :type: str
+        """
+
+        self._customer_first_message_unresponded_to_dts = customer_first_message_unresponded_to_dts
 
     @property
     def last_conversation_message_body(self):
