@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **closed** | **bool** |  | [optional] 
 **conversation_arn** | **str** |  | [optional] 
 **conversation_uuid** | **str** |  | [optional] 
+**customer_first_message_unresponded_to_dts** | **str** | Date/time of the first customer message that is unresponded to. | [optional] 
 **last_conversation_message_body** | **str** |  | [optional] 
 **last_conversation_participant_arn** | **str** |  | [optional] 
 **last_conversation_participant_name** | **str** |  | [optional] 

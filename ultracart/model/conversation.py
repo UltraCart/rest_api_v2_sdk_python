@@ -98,6 +98,7 @@ class Conversation(ModelNormal):
             'closed': (bool,),  # noqa: E501
             'conversation_arn': (str,),  # noqa: E501
             'conversation_uuid': (str,),  # noqa: E501
+            'customer_first_message_unresponded_to_dts': (str,),  # noqa: E501
             'last_conversation_message_body': (str,),  # noqa: E501
             'last_conversation_participant_arn': (str,),  # noqa: E501
             'last_conversation_participant_name': (str,),  # noqa: E501
@@ -123,6 +124,7 @@ class Conversation(ModelNormal):
         'closed': 'closed',  # noqa: E501
         'conversation_arn': 'conversation_arn',  # noqa: E501
         'conversation_uuid': 'conversation_uuid',  # noqa: E501
+        'customer_first_message_unresponded_to_dts': 'customer_first_message_unresponded_to_dts',  # noqa: E501
         'last_conversation_message_body': 'last_conversation_message_body',  # noqa: E501
         'last_conversation_participant_arn': 'last_conversation_participant_arn',  # noqa: E501
         'last_conversation_participant_name': 'last_conversation_participant_name',  # noqa: E501
@@ -183,6 +185,7 @@ class Conversation(ModelNormal):
             closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
+            customer_first_message_unresponded_to_dts (str): Date/time of the first customer message that is unresponded to.. [optional]  # noqa: E501
             last_conversation_message_body (str): [optional]  # noqa: E501
             last_conversation_participant_arn (str): [optional]  # noqa: E501
             last_conversation_participant_name (str): [optional]  # noqa: E501
@@ -285,6 +288,7 @@ class Conversation(ModelNormal):
             closed (bool): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_uuid (str): [optional]  # noqa: E501
+            customer_first_message_unresponded_to_dts (str): Date/time of the first customer message that is unresponded to.. [optional]  # noqa: E501
             last_conversation_message_body (str): [optional]  # noqa: E501
             last_conversation_participant_arn (str): [optional]  # noqa: E501
             last_conversation_participant_name (str): [optional]  # noqa: E501
