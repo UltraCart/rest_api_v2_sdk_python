@@ -106,6 +106,7 @@ from ultracart.model.cart_taxes import CartTaxes
 from ultracart.model.cart_upsell_after import CartUpsellAfter
 from ultracart.model.cart_validation_request import CartValidationRequest
 from ultracart.model.cart_validation_response import CartValidationResponse
+from ultracart.model.channel_partner import ChannelPartner
 from ultracart.model.channel_partner_cancel_response import ChannelPartnerCancelResponse
 from ultracart.model.channel_partner_estimate_shipping_response import ChannelPartnerEstimateShippingResponse
 from ultracart.model.channel_partner_estimate_tax_response import ChannelPartnerEstimateTaxResponse
@@ -228,6 +229,7 @@ from ultracart.model.customer_affiliate import CustomerAffiliate
 from ultracart.model.customer_attachment import CustomerAttachment
 from ultracart.model.customer_billing import CustomerBilling
 from ultracart.model.customer_card import CustomerCard
+from ultracart.model.customer_edi import CustomerEDI
 from ultracart.model.customer_editor_values import CustomerEditorValues
 from ultracart.model.customer_email import CustomerEmail
 from ultracart.model.customer_email_list_changes import CustomerEmailListChanges

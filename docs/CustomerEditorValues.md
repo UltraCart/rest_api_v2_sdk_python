@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **card_exp_years** | **[str]** | card_exp_years | [optional] 
 **card_types** | **[str]** | card_types | [optional] 
 **countries** | [**[Country]**](Country.md) | countries | [optional] 
+**edi_channel_partners** | [**[ChannelPartner]**](ChannelPartner.md) | EDI channel partners | [optional] 
 **loyalty_ledger_descriptions** | **[str]** | loyalty_ledger_descriptions | [optional] 
 **loyalty_program_type** | **str** | loyalty_program_type | [optional] 
 **qb_classes** | **[str]** | qb_classes | [optional] 

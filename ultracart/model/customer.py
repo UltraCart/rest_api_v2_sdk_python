@@ -35,6 +35,7 @@ def lazy_import():
     from ultracart.model.customer_attachment import CustomerAttachment
     from ultracart.model.customer_billing import CustomerBilling
     from ultracart.model.customer_card import CustomerCard
+    from ultracart.model.customer_edi import CustomerEDI
     from ultracart.model.customer_email import CustomerEmail
     from ultracart.model.customer_loyalty import CustomerLoyalty
     from ultracart.model.customer_orders_summary import CustomerOrdersSummary
@@ -51,6 +52,7 @@ def lazy_import():
     globals()['CustomerAttachment'] = CustomerAttachment
     globals()['CustomerBilling'] = CustomerBilling
     globals()['CustomerCard'] = CustomerCard
+    globals()['CustomerEDI'] = CustomerEDI
     globals()['CustomerEmail'] = CustomerEmail
     globals()['CustomerLoyalty'] = CustomerLoyalty
     globals()['CustomerOrdersSummary'] = CustomerOrdersSummary
@@ -170,6 +172,7 @@ class Customer(ModelNormal):
             'customer_profile_oid': (int,),  # noqa: E501
             'dhl_account_number': (str,),  # noqa: E501
             'dhl_duty_account_number': (str,),  # noqa: E501
+            'edi': (CustomerEDI,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'exempt_shipping_handling_charge': (bool,),  # noqa: E501
             'fedex_account_number': (str,),  # noqa: E501
@@ -238,6 +241,7 @@ class Customer(ModelNormal):
         'customer_profile_oid': 'customer_profile_oid',  # noqa: E501
         'dhl_account_number': 'dhl_account_number',  # noqa: E501
         'dhl_duty_account_number': 'dhl_duty_account_number',  # noqa: E501
+        'edi': 'edi',  # noqa: E501
         'email': 'email',  # noqa: E501
         'exempt_shipping_handling_charge': 'exempt_shipping_handling_charge',  # noqa: E501
         'fedex_account_number': 'fedex_account_number',  # noqa: E501
@@ -341,6 +345,7 @@ class Customer(ModelNormal):
             customer_profile_oid (int): Customer profile object identifier. [optional]  # noqa: E501
             dhl_account_number (str): DHL account number. [optional]  # noqa: E501
             dhl_duty_account_number (str): DHL duty account number. [optional]  # noqa: E501
+            edi (CustomerEDI): [optional]  # noqa: E501
             email (str): Email address of this customer profile. [optional]  # noqa: E501
             exempt_shipping_handling_charge (bool): Exempt shipping handling charge. [optional]  # noqa: E501
             fedex_account_number (str): FedEx account number. [optional]  # noqa: E501
@@ -486,6 +491,7 @@ class Customer(ModelNormal):
             customer_profile_oid (int): Customer profile object identifier. [optional]  # noqa: E501
             dhl_account_number (str): DHL account number. [optional]  # noqa: E501
             dhl_duty_account_number (str): DHL duty account number. [optional]  # noqa: E501
+            edi (CustomerEDI): [optional]  # noqa: E501
             email (str): Email address of this customer profile. [optional]  # noqa: E501
             exempt_shipping_handling_charge (bool): Exempt shipping handling charge. [optional]  # noqa: E501
             fedex_account_number (str): FedEx account number. [optional]  # noqa: E501
