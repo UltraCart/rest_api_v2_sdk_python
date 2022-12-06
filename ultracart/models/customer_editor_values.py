@@ -36,6 +36,7 @@ class CustomerEditorValues(object):
         'card_exp_years': 'list[str]',
         'card_types': 'list[str]',
         'countries': 'list[Country]',
+        'edi_channel_partners': 'list[ChannelPartner]',
         'loyalty_ledger_descriptions': 'list[str]',
         'loyalty_program_type': 'str',
         'qb_classes': 'list[str]',
@@ -50,6 +51,7 @@ class CustomerEditorValues(object):
         'card_exp_years': 'card_exp_years',
         'card_types': 'card_types',
         'countries': 'countries',
+        'edi_channel_partners': 'edi_channel_partners',
         'loyalty_ledger_descriptions': 'loyalty_ledger_descriptions',
         'loyalty_program_type': 'loyalty_program_type',
         'qb_classes': 'qb_classes',
@@ -58,7 +60,7 @@ class CustomerEditorValues(object):
         'terms': 'terms'
     }
 
-    def __init__(self, affiliates=None, card_exp_months=None, card_exp_years=None, card_types=None, countries=None, loyalty_ledger_descriptions=None, loyalty_program_type=None, qb_classes=None, sales_rep_codes=None, state_optional_countries=None, terms=None):  # noqa: E501
+    def __init__(self, affiliates=None, card_exp_months=None, card_exp_years=None, card_types=None, countries=None, edi_channel_partners=None, loyalty_ledger_descriptions=None, loyalty_program_type=None, qb_classes=None, sales_rep_codes=None, state_optional_countries=None, terms=None):  # noqa: E501
         """CustomerEditorValues - a model defined in Swagger"""  # noqa: E501
 
         self._affiliates = None
@@ -66,6 +68,7 @@ class CustomerEditorValues(object):
         self._card_exp_years = None
         self._card_types = None
         self._countries = None
+        self._edi_channel_partners = None
         self._loyalty_ledger_descriptions = None
         self._loyalty_program_type = None
         self._qb_classes = None
@@ -84,6 +87,8 @@ class CustomerEditorValues(object):
             self.card_types = card_types
         if countries is not None:
             self.countries = countries
+        if edi_channel_partners is not None:
+            self.edi_channel_partners = edi_channel_partners
         if loyalty_ledger_descriptions is not None:
             self.loyalty_ledger_descriptions = loyalty_ledger_descriptions
         if loyalty_program_type is not None:
@@ -211,6 +216,29 @@ class CustomerEditorValues(object):
         """
 
         self._countries = countries
+
+    @property
+    def edi_channel_partners(self):
+        """Gets the edi_channel_partners of this CustomerEditorValues.  # noqa: E501
+
+        EDI channel partners  # noqa: E501
+
+        :return: The edi_channel_partners of this CustomerEditorValues.  # noqa: E501
+        :rtype: list[ChannelPartner]
+        """
+        return self._edi_channel_partners
+
+    @edi_channel_partners.setter
+    def edi_channel_partners(self, edi_channel_partners):
+        """Sets the edi_channel_partners of this CustomerEditorValues.
+
+        EDI channel partners  # noqa: E501
+
+        :param edi_channel_partners: The edi_channel_partners of this CustomerEditorValues.  # noqa: E501
+        :type: list[ChannelPartner]
+        """
+
+        self._edi_channel_partners = edi_channel_partners
 
     @property
     def loyalty_ledger_descriptions(self):

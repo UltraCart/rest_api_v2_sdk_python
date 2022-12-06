@@ -50,6 +50,7 @@ class Customer(object):
         'customer_profile_oid': 'int',
         'dhl_account_number': 'str',
         'dhl_duty_account_number': 'str',
+        'edi': 'CustomerEDI',
         'email': 'str',
         'exempt_shipping_handling_charge': 'bool',
         'fedex_account_number': 'str',
@@ -113,6 +114,7 @@ class Customer(object):
         'customer_profile_oid': 'customer_profile_oid',
         'dhl_account_number': 'dhl_account_number',
         'dhl_duty_account_number': 'dhl_duty_account_number',
+        'edi': 'edi',
         'email': 'email',
         'exempt_shipping_handling_charge': 'exempt_shipping_handling_charge',
         'fedex_account_number': 'fedex_account_number',
@@ -156,7 +158,7 @@ class Customer(object):
         'website_url': 'website_url'
     }
 
-    def __init__(self, activity=None, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_drop_shipping=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, attachments=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, loyalty=None, maximum_item_count=None, merchant_id=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, privacy=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, reviewer=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, software_entitlements=None, suppress_buysafe=None, tags=None, tax_codes=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):  # noqa: E501
+    def __init__(self, activity=None, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_drop_shipping=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, attachments=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, edi=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, loyalty=None, maximum_item_count=None, merchant_id=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, privacy=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, reviewer=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, software_entitlements=None, suppress_buysafe=None, tags=None, tax_codes=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):  # noqa: E501
         """Customer - a model defined in Swagger"""  # noqa: E501
 
         self._activity = None
@@ -178,6 +180,7 @@ class Customer(object):
         self._customer_profile_oid = None
         self._dhl_account_number = None
         self._dhl_duty_account_number = None
+        self._edi = None
         self._email = None
         self._exempt_shipping_handling_charge = None
         self._fedex_account_number = None
@@ -259,6 +262,8 @@ class Customer(object):
             self.dhl_account_number = dhl_account_number
         if dhl_duty_account_number is not None:
             self.dhl_duty_account_number = dhl_duty_account_number
+        if edi is not None:
+            self.edi = edi
         if email is not None:
             self.email = email
         if exempt_shipping_handling_charge is not None:
@@ -782,6 +787,27 @@ class Customer(object):
             raise ValueError("Invalid value for `dhl_duty_account_number`, length must be less than or equal to `20`")  # noqa: E501
 
         self._dhl_duty_account_number = dhl_duty_account_number
+
+    @property
+    def edi(self):
+        """Gets the edi of this Customer.  # noqa: E501
+
+
+        :return: The edi of this Customer.  # noqa: E501
+        :rtype: CustomerEDI
+        """
+        return self._edi
+
+    @edi.setter
+    def edi(self, edi):
+        """Sets the edi of this Customer.
+
+
+        :param edi: The edi of this Customer.  # noqa: E501
+        :type: CustomerEDI
+        """
+
+        self._edi = edi
 
     @property
     def email(self):
