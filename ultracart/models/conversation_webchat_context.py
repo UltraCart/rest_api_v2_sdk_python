@@ -37,6 +37,7 @@ class ConversationWebchatContext(object):
         'orders': 'list[Order]',
         'page_view': 'list[HitPageView]',
         'session_start': 'HitSessionStart',
+        'session_start_dts': 'str',
         'session_utm': 'HitSessionUtm'
     }
 
@@ -47,10 +48,11 @@ class ConversationWebchatContext(object):
         'orders': 'orders',
         'page_view': 'page_view',
         'session_start': 'session_start',
+        'session_start_dts': 'session_start_dts',
         'session_utm': 'session_utm'
     }
 
-    def __init__(self, auto_orders=None, cart=None, current_url=None, orders=None, page_view=None, session_start=None, session_utm=None):  # noqa: E501
+    def __init__(self, auto_orders=None, cart=None, current_url=None, orders=None, page_view=None, session_start=None, session_start_dts=None, session_utm=None):  # noqa: E501
         """ConversationWebchatContext - a model defined in Swagger"""  # noqa: E501
 
         self._auto_orders = None
@@ -59,6 +61,7 @@ class ConversationWebchatContext(object):
         self._orders = None
         self._page_view = None
         self._session_start = None
+        self._session_start_dts = None
         self._session_utm = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class ConversationWebchatContext(object):
             self.page_view = page_view
         if session_start is not None:
             self.session_start = session_start
+        if session_start_dts is not None:
+            self.session_start_dts = session_start_dts
         if session_utm is not None:
             self.session_utm = session_utm
 
@@ -202,6 +207,29 @@ class ConversationWebchatContext(object):
         """
 
         self._session_start = session_start
+
+    @property
+    def session_start_dts(self):
+        """Gets the session_start_dts of this ConversationWebchatContext.  # noqa: E501
+
+        Date/time that the session was started (if known)  # noqa: E501
+
+        :return: The session_start_dts of this ConversationWebchatContext.  # noqa: E501
+        :rtype: str
+        """
+        return self._session_start_dts
+
+    @session_start_dts.setter
+    def session_start_dts(self, session_start_dts):
+        """Sets the session_start_dts of this ConversationWebchatContext.
+
+        Date/time that the session was started (if known)  # noqa: E501
+
+        :param session_start_dts: The session_start_dts of this ConversationWebchatContext.  # noqa: E501
+        :type: str
+        """
+
+        self._session_start_dts = session_start_dts
 
     @property
     def session_utm(self):

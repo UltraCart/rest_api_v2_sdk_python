@@ -51,6 +51,7 @@ class CartCustomerProfile(object):
         'no_realtime_charge': 'bool',
         'pricing_tiers': 'list[str]',
         'shipping_addresses': 'list[CartCustomerProfileAddress]',
+        'signup_dts': 'str',
         'tax_exempt': 'bool',
         'ups_account_number': 'str'
     }
@@ -76,11 +77,12 @@ class CartCustomerProfile(object):
         'no_realtime_charge': 'no_realtime_charge',
         'pricing_tiers': 'pricing_tiers',
         'shipping_addresses': 'shipping_addresses',
+        'signup_dts': 'signup_dts',
         'tax_exempt': 'tax_exempt',
         'ups_account_number': 'ups_account_number'
     }
 
-    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, billing_addresses=None, credit_cards=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, email=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, pricing_tiers=None, shipping_addresses=None, tax_exempt=None, ups_account_number=None):  # noqa: E501
+    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, billing_addresses=None, credit_cards=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, email=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, pricing_tiers=None, shipping_addresses=None, signup_dts=None, tax_exempt=None, ups_account_number=None):  # noqa: E501
         """CartCustomerProfile - a model defined in Swagger"""  # noqa: E501
 
         self._allow_3rd_party_billing = None
@@ -103,6 +105,7 @@ class CartCustomerProfile(object):
         self._no_realtime_charge = None
         self._pricing_tiers = None
         self._shipping_addresses = None
+        self._signup_dts = None
         self._tax_exempt = None
         self._ups_account_number = None
         self.discriminator = None
@@ -147,6 +150,8 @@ class CartCustomerProfile(object):
             self.pricing_tiers = pricing_tiers
         if shipping_addresses is not None:
             self.shipping_addresses = shipping_addresses
+        if signup_dts is not None:
+            self.signup_dts = signup_dts
         if tax_exempt is not None:
             self.tax_exempt = tax_exempt
         if ups_account_number is not None:
@@ -409,7 +414,7 @@ class CartCustomerProfile(object):
     def free_shipping_minimum(self):
         """Gets the free_shipping_minimum of this CartCustomerProfile.  # noqa: E501
 
-        The minimum aount that this profile has to purchase to qualify for free shipping  # noqa: E501
+        The minimum amount that this profile has to purchase to qualify for free shipping  # noqa: E501
 
         :return: The free_shipping_minimum of this CartCustomerProfile.  # noqa: E501
         :rtype: float
@@ -420,7 +425,7 @@ class CartCustomerProfile(object):
     def free_shipping_minimum(self, free_shipping_minimum):
         """Sets the free_shipping_minimum of this CartCustomerProfile.
 
-        The minimum aount that this profile has to purchase to qualify for free shipping  # noqa: E501
+        The minimum amount that this profile has to purchase to qualify for free shipping  # noqa: E501
 
         :param free_shipping_minimum: The free_shipping_minimum of this CartCustomerProfile.  # noqa: E501
         :type: float
@@ -611,6 +616,29 @@ class CartCustomerProfile(object):
         """
 
         self._shipping_addresses = shipping_addresses
+
+    @property
+    def signup_dts(self):
+        """Gets the signup_dts of this CartCustomerProfile.  # noqa: E501
+
+        Signup date  # noqa: E501
+
+        :return: The signup_dts of this CartCustomerProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._signup_dts
+
+    @signup_dts.setter
+    def signup_dts(self, signup_dts):
+        """Sets the signup_dts of this CartCustomerProfile.
+
+        Signup date  # noqa: E501
+
+        :param signup_dts: The signup_dts of this CartCustomerProfile.  # noqa: E501
+        :type: str
+        """
+
+        self._signup_dts = signup_dts
 
     @property
     def tax_exempt(self):
