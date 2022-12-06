@@ -110,6 +110,7 @@ class CartCustomerProfile(ModelNormal):
             'no_realtime_charge': (bool,),  # noqa: E501
             'pricing_tiers': ([str],),  # noqa: E501
             'shipping_addresses': ([CartCustomerProfileAddress],),  # noqa: E501
+            'signup_dts': (str,),  # noqa: E501
             'tax_exempt': (bool,),  # noqa: E501
             'ups_account_number': (str,),  # noqa: E501
         }
@@ -140,6 +141,7 @@ class CartCustomerProfile(ModelNormal):
         'no_realtime_charge': 'no_realtime_charge',  # noqa: E501
         'pricing_tiers': 'pricing_tiers',  # noqa: E501
         'shipping_addresses': 'shipping_addresses',  # noqa: E501
+        'signup_dts': 'signup_dts',  # noqa: E501
         'tax_exempt': 'tax_exempt',  # noqa: E501
         'ups_account_number': 'ups_account_number',  # noqa: E501
     }
@@ -196,7 +198,7 @@ class CartCustomerProfile(ModelNormal):
             email (str): Email. [optional]  # noqa: E501
             fedex_account_number (str): FedEx account number on file. [optional]  # noqa: E501
             free_shipping (bool): True if this profile always qualifies for free shipping. [optional]  # noqa: E501
-            free_shipping_minimum (float): The minimum aount that this profile has to purchase to qualify for free shipping. [optional]  # noqa: E501
+            free_shipping_minimum (float): The minimum amount that this profile has to purchase to qualify for free shipping. [optional]  # noqa: E501
             maximum_item_count (int): Maximum item count this profile can purchase. [optional]  # noqa: E501
             minimum_item_count (int): Minimum item count this profile must purchase. [optional]  # noqa: E501
             minimum_subtotal (float): Minimum subtotal this profile must purchase. [optional]  # noqa: E501
@@ -205,6 +207,7 @@ class CartCustomerProfile(ModelNormal):
             no_realtime_charge (bool): True if this customers orders are not charged in real-time. [optional]  # noqa: E501
             pricing_tiers ([str]): Pricing tier names this profile qualifies for. [optional]  # noqa: E501
             shipping_addresses ([CartCustomerProfileAddress]): Shipping addresses on file for this profile. [optional]  # noqa: E501
+            signup_dts (str): Signup date. [optional]  # noqa: E501
             tax_exempt (bool): True if this profile is exempt from sales tax. [optional]  # noqa: E501
             ups_account_number (str): UPS account number on file. [optional]  # noqa: E501
         """
@@ -303,7 +306,7 @@ class CartCustomerProfile(ModelNormal):
             email (str): Email. [optional]  # noqa: E501
             fedex_account_number (str): FedEx account number on file. [optional]  # noqa: E501
             free_shipping (bool): True if this profile always qualifies for free shipping. [optional]  # noqa: E501
-            free_shipping_minimum (float): The minimum aount that this profile has to purchase to qualify for free shipping. [optional]  # noqa: E501
+            free_shipping_minimum (float): The minimum amount that this profile has to purchase to qualify for free shipping. [optional]  # noqa: E501
             maximum_item_count (int): Maximum item count this profile can purchase. [optional]  # noqa: E501
             minimum_item_count (int): Minimum item count this profile must purchase. [optional]  # noqa: E501
             minimum_subtotal (float): Minimum subtotal this profile must purchase. [optional]  # noqa: E501
@@ -312,6 +315,7 @@ class CartCustomerProfile(ModelNormal):
             no_realtime_charge (bool): True if this customers orders are not charged in real-time. [optional]  # noqa: E501
             pricing_tiers ([str]): Pricing tier names this profile qualifies for. [optional]  # noqa: E501
             shipping_addresses ([CartCustomerProfileAddress]): Shipping addresses on file for this profile. [optional]  # noqa: E501
+            signup_dts (str): Signup date. [optional]  # noqa: E501
             tax_exempt (bool): True if this profile is exempt from sales tax. [optional]  # noqa: E501
             ups_account_number (str): UPS account number on file. [optional]  # noqa: E501
         """

@@ -104,6 +104,7 @@ class ConversationWebchatContext(ModelNormal):
             'orders': ([Order],),  # noqa: E501
             'page_view': ([HitPageView],),  # noqa: E501
             'session_start': (HitSessionStart,),  # noqa: E501
+            'session_start_dts': (str,),  # noqa: E501
             'session_utm': (HitSessionUtm,),  # noqa: E501
         }
 
@@ -119,6 +120,7 @@ class ConversationWebchatContext(ModelNormal):
         'orders': 'orders',  # noqa: E501
         'page_view': 'page_view',  # noqa: E501
         'session_start': 'session_start',  # noqa: E501
+        'session_start_dts': 'session_start_dts',  # noqa: E501
         'session_utm': 'session_utm',  # noqa: E501
     }
 
@@ -169,6 +171,7 @@ class ConversationWebchatContext(ModelNormal):
             orders ([Order]): [optional]  # noqa: E501
             page_view ([HitPageView]): [optional]  # noqa: E501
             session_start (HitSessionStart): [optional]  # noqa: E501
+            session_start_dts (str): Date/time that the session was started (if known). [optional]  # noqa: E501
             session_utm (HitSessionUtm): [optional]  # noqa: E501
         """
 
@@ -261,6 +264,7 @@ class ConversationWebchatContext(ModelNormal):
             orders ([Order]): [optional]  # noqa: E501
             page_view ([HitPageView]): [optional]  # noqa: E501
             session_start (HitSessionStart): [optional]  # noqa: E501
+            session_start_dts (str): Date/time that the session was started (if known). [optional]  # noqa: E501
             session_utm (HitSessionUtm): [optional]  # noqa: E501
         """
 
