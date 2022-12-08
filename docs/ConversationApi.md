@@ -7,15 +7,19 @@ Method | HTTP request | Description
 [**get_agent_keep_alive**](ConversationApi.md#get_agent_keep_alive) | **GET** /conversation/agent/keepalive | Agent keep alive
 [**get_agent_websocket_authorization**](ConversationApi.md#get_agent_websocket_authorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 [**get_conversation**](ConversationApi.md#get_conversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+[**get_conversation_canned_messages**](ConversationApi.md#get_conversation_canned_messages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
 [**get_conversation_context**](ConversationApi.md#get_conversation_context) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
 [**get_conversation_messages**](ConversationApi.md#get_conversation_messages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 [**get_conversation_multimedia_upload_url**](ConversationApi.md#get_conversation_multimedia_upload_url) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 [**get_conversation_webchat_queue_statuses**](ConversationApi.md#get_conversation_webchat_queue_statuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 [**get_conversations**](ConversationApi.md#get_conversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
+[**insert_conversation_canned_message**](ConversationApi.md#insert_conversation_canned_message) | **POST** /conversation/canned_messages | Insert a canned message
 [**join_conversation**](ConversationApi.md#join_conversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**leave_conversation**](ConversationApi.md#leave_conversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 [**mark_read_conversation**](ConversationApi.md#mark_read_conversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
+[**search_conversation_canned_messages**](ConversationApi.md#search_conversation_canned_messages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
 [**start_conversation**](ConversationApi.md#start_conversation) | **PUT** /conversation/conversations | Start a conversation
+[**update_conversation_canned_message**](ConversationApi.md#update_conversation_canned_message) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 [**update_conversation_webchat_queue_status**](ConversationApi.md#update_conversation_webchat_queue_status) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
 
 
@@ -150,6 +154,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationResponse**](ConversationResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_conversation_canned_messages**
+> ConversationCannedMessagesResponse get_conversation_canned_messages()
+
+Retrieve a list of canned messages ordered by short_code
+
+Retrieve a list of canned messages ordered by short_code 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+
+try:
+    # Retrieve a list of canned messages ordered by short_code
+    api_response = api_instance.get_conversation_canned_messages()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConversationApi->get_conversation_canned_messages: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationCannedMessagesResponse**](ConversationCannedMessagesResponse.md)
 
 ### Authorization
 
@@ -418,6 +468,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **insert_conversation_canned_message**
+> ConversationCannedMessageResponse insert_conversation_canned_message(canned_message)
+
+Insert a canned message
+
+Insert a canned message 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+canned_message = ultracart.ConversationCannedMessage() # ConversationCannedMessage | Canned message
+
+try:
+    # Insert a canned message
+    api_response = api_instance.insert_conversation_canned_message(canned_message)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConversationApi->insert_conversation_canned_message: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **canned_message** | [**ConversationCannedMessage**](ConversationCannedMessage.md)| Canned message | 
+
+### Return type
+
+[**ConversationCannedMessageResponse**](ConversationCannedMessageResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **join_conversation**
 > join_conversation(conversation_uuid)
 
@@ -565,6 +665,56 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **search_conversation_canned_messages**
+> ConversationCannedMessagesResponse search_conversation_canned_messages(search_request)
+
+Search for canned messages by short_code
+
+Search for canned messages by short_code 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+search_request = ultracart.ConversationCannedMessagesSearch() # ConversationCannedMessagesSearch | Search request
+
+try:
+    # Search for canned messages by short_code
+    api_response = api_instance.search_conversation_canned_messages(search_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConversationApi->search_conversation_canned_messages: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **search_request** | [**ConversationCannedMessagesSearch**](ConversationCannedMessagesSearch.md)| Search request | 
+
+### Return type
+
+[**ConversationCannedMessagesResponse**](ConversationCannedMessagesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **start_conversation**
 > ConversationStartResponse start_conversation(start_request)
 
@@ -603,6 +753,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationStartResponse**](ConversationStartResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_conversation_canned_message**
+> ConversationCannedMessageResponse update_conversation_canned_message(conversation_canned_message_oid, canned_message)
+
+Update a canned message
+
+Update a canned message 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+conversation_canned_message_oid = 56 # int | 
+canned_message = ultracart.ConversationCannedMessage() # ConversationCannedMessage | Canned message
+
+try:
+    # Update a canned message
+    api_response = api_instance.update_conversation_canned_message(conversation_canned_message_oid, canned_message)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConversationApi->update_conversation_canned_message: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_canned_message_oid** | **int**|  | 
+ **canned_message** | [**ConversationCannedMessage**](ConversationCannedMessage.md)| Canned message | 
+
+### Return type
+
+[**ConversationCannedMessageResponse**](ConversationCannedMessageResponse.md)
 
 ### Authorization
 

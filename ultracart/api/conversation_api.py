@@ -331,6 +331,97 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_conversation_canned_messages(self, **kwargs):  # noqa: E501
+        """Retrieve a list of canned messages ordered by short_code  # noqa: E501
+
+        Retrieve a list of canned messages ordered by short_code   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_conversation_canned_messages(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ConversationCannedMessagesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_conversation_canned_messages_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_conversation_canned_messages_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_conversation_canned_messages_with_http_info(self, **kwargs):  # noqa: E501
+        """Retrieve a list of canned messages ordered by short_code  # noqa: E501
+
+        Retrieve a list of canned messages ordered by short_code   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_conversation_canned_messages_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ConversationCannedMessagesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_conversation_canned_messages" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/canned_messages', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationCannedMessagesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_conversation_context(self, conversation_uuid, **kwargs):  # noqa: E501
         """Get a webchat conversation context  # noqa: E501
 
@@ -838,6 +929,105 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def insert_conversation_canned_message(self, canned_message, **kwargs):  # noqa: E501
+        """Insert a canned message  # noqa: E501
+
+        Insert a canned message   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_conversation_canned_message(canned_message, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationCannedMessage canned_message: Canned message (required)
+        :return: ConversationCannedMessageResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_conversation_canned_message_with_http_info(canned_message, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_conversation_canned_message_with_http_info(canned_message, **kwargs)  # noqa: E501
+            return data
+
+    def insert_conversation_canned_message_with_http_info(self, canned_message, **kwargs):  # noqa: E501
+        """Insert a canned message  # noqa: E501
+
+        Insert a canned message   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_conversation_canned_message_with_http_info(canned_message, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationCannedMessage canned_message: Canned message (required)
+        :return: ConversationCannedMessageResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['canned_message']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_conversation_canned_message" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'canned_message' is set
+        if ('canned_message' not in params or
+                params['canned_message'] is None):
+            raise ValueError("Missing the required parameter `canned_message` when calling `insert_conversation_canned_message`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'canned_message' in params:
+            body_params = params['canned_message']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/canned_messages', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationCannedMessageResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def join_conversation(self, conversation_uuid, **kwargs):  # noqa: E501
         """Join a conversation  # noqa: E501
 
@@ -1135,6 +1325,105 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def search_conversation_canned_messages(self, search_request, **kwargs):  # noqa: E501
+        """Search for canned messages by short_code  # noqa: E501
+
+        Search for canned messages by short_code   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_conversation_canned_messages(search_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationCannedMessagesSearch search_request: Search request (required)
+        :return: ConversationCannedMessagesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_conversation_canned_messages_with_http_info(search_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_conversation_canned_messages_with_http_info(search_request, **kwargs)  # noqa: E501
+            return data
+
+    def search_conversation_canned_messages_with_http_info(self, search_request, **kwargs):  # noqa: E501
+        """Search for canned messages by short_code  # noqa: E501
+
+        Search for canned messages by short_code   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_conversation_canned_messages_with_http_info(search_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationCannedMessagesSearch search_request: Search request (required)
+        :return: ConversationCannedMessagesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['search_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_conversation_canned_messages" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'search_request' is set
+        if ('search_request' not in params or
+                params['search_request'] is None):
+            raise ValueError("Missing the required parameter `search_request` when calling `search_conversation_canned_messages`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'search_request' in params:
+            body_params = params['search_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/canned_messages/search', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationCannedMessagesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def start_conversation(self, start_request, **kwargs):  # noqa: E501
         """Start a conversation  # noqa: E501
 
@@ -1227,6 +1516,113 @@ class ConversationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ConversationStartResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_conversation_canned_message(self, conversation_canned_message_oid, canned_message, **kwargs):  # noqa: E501
+        """Update a canned message  # noqa: E501
+
+        Update a canned message   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_conversation_canned_message(conversation_canned_message_oid, canned_message, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int conversation_canned_message_oid: (required)
+        :param ConversationCannedMessage canned_message: Canned message (required)
+        :return: ConversationCannedMessageResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_conversation_canned_message_with_http_info(conversation_canned_message_oid, canned_message, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_conversation_canned_message_with_http_info(conversation_canned_message_oid, canned_message, **kwargs)  # noqa: E501
+            return data
+
+    def update_conversation_canned_message_with_http_info(self, conversation_canned_message_oid, canned_message, **kwargs):  # noqa: E501
+        """Update a canned message  # noqa: E501
+
+        Update a canned message   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_conversation_canned_message_with_http_info(conversation_canned_message_oid, canned_message, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int conversation_canned_message_oid: (required)
+        :param ConversationCannedMessage canned_message: Canned message (required)
+        :return: ConversationCannedMessageResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_canned_message_oid', 'canned_message']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_conversation_canned_message" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_canned_message_oid' is set
+        if ('conversation_canned_message_oid' not in params or
+                params['conversation_canned_message_oid'] is None):
+            raise ValueError("Missing the required parameter `conversation_canned_message_oid` when calling `update_conversation_canned_message`")  # noqa: E501
+        # verify the required parameter 'canned_message' is set
+        if ('canned_message' not in params or
+                params['canned_message'] is None):
+            raise ValueError("Missing the required parameter `canned_message` when calling `update_conversation_canned_message`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_canned_message_oid' in params:
+            path_params['conversation_canned_message_oid'] = params['conversation_canned_message_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'canned_message' in params:
+            body_params = params['canned_message']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/canned_messages/{conversation_canned_message_oid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationCannedMessageResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
