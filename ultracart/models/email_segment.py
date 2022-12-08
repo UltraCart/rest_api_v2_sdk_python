@@ -43,6 +43,7 @@ class EmailSegment(object):
         'merchant_id': 'str',
         'name': 'str',
         'rank_json': 'str',
+        'rebuild_percentage': 'float',
         'rebuild_required': 'bool',
         'storefront_oid': 'int',
         'thirdparty_join_add_tags': 'list[str]',
@@ -67,6 +68,7 @@ class EmailSegment(object):
         'merchant_id': 'merchant_id',
         'name': 'name',
         'rank_json': 'rank_json',
+        'rebuild_percentage': 'rebuild_percentage',
         'rebuild_required': 'rebuild_required',
         'storefront_oid': 'storefront_oid',
         'thirdparty_join_add_tags': 'thirdparty_join_add_tags',
@@ -78,7 +80,7 @@ class EmailSegment(object):
         'used_by': 'used_by'
     }
 
-    def __init__(self, allow_csv_download=None, allow_facebook_audiences=None, created_dts=None, deleted=None, email_segment_uuid=None, esp_list_segment_folder_uuid=None, facebook_custom_audience=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rank_json=None, rebuild_required=None, storefront_oid=None, thirdparty_join_add_tags=None, thirdparty_join_remove_tags=None, thirdparty_leave_add_tags=None, thirdparty_leave_remove_tags=None, thirdparty_list_id=None, thirdparty_provider_name=None, used_by=None):  # noqa: E501
+    def __init__(self, allow_csv_download=None, allow_facebook_audiences=None, created_dts=None, deleted=None, email_segment_uuid=None, esp_list_segment_folder_uuid=None, facebook_custom_audience=None, filter_profile_equation_json=None, member_count=None, merchant_id=None, name=None, rank_json=None, rebuild_percentage=None, rebuild_required=None, storefront_oid=None, thirdparty_join_add_tags=None, thirdparty_join_remove_tags=None, thirdparty_leave_add_tags=None, thirdparty_leave_remove_tags=None, thirdparty_list_id=None, thirdparty_provider_name=None, used_by=None):  # noqa: E501
         """EmailSegment - a model defined in Swagger"""  # noqa: E501
 
         self._allow_csv_download = None
@@ -93,6 +95,7 @@ class EmailSegment(object):
         self._merchant_id = None
         self._name = None
         self._rank_json = None
+        self._rebuild_percentage = None
         self._rebuild_required = None
         self._storefront_oid = None
         self._thirdparty_join_add_tags = None
@@ -128,6 +131,8 @@ class EmailSegment(object):
             self.name = name
         if rank_json is not None:
             self.rank_json = rank_json
+        if rebuild_percentage is not None:
+            self.rebuild_percentage = rebuild_percentage
         if rebuild_required is not None:
             self.rebuild_required = rebuild_required
         if storefront_oid is not None:
@@ -424,6 +429,29 @@ class EmailSegment(object):
         """
 
         self._rank_json = rank_json
+
+    @property
+    def rebuild_percentage(self):
+        """Gets the rebuild_percentage of this EmailSegment.  # noqa: E501
+
+        Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.  # noqa: E501
+
+        :return: The rebuild_percentage of this EmailSegment.  # noqa: E501
+        :rtype: float
+        """
+        return self._rebuild_percentage
+
+    @rebuild_percentage.setter
+    def rebuild_percentage(self, rebuild_percentage):
+        """Sets the rebuild_percentage of this EmailSegment.
+
+        Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.  # noqa: E501
+
+        :param rebuild_percentage: The rebuild_percentage of this EmailSegment.  # noqa: E501
+        :type: float
+        """
+
+        self._rebuild_percentage = rebuild_percentage
 
     @property
     def rebuild_required(self):
