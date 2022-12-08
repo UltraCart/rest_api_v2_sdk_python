@@ -23,6 +23,10 @@ from ultracart.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from ultracart.model.conversation_agent_auth_response import ConversationAgentAuthResponse
+from ultracart.model.conversation_canned_message import ConversationCannedMessage
+from ultracart.model.conversation_canned_message_response import ConversationCannedMessageResponse
+from ultracart.model.conversation_canned_messages_response import ConversationCannedMessagesResponse
+from ultracart.model.conversation_canned_messages_search import ConversationCannedMessagesSearch
 from ultracart.model.conversation_messages_response import ConversationMessagesResponse
 from ultracart.model.conversation_multimedia_upload_url_response import ConversationMultimediaUploadUrlResponse
 from ultracart.model.conversation_response import ConversationResponse
@@ -192,6 +196,51 @@ class ConversationApi(object):
                 'location_map': {
                     'conversation_uuid': 'path',
                     'limit': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_conversation_canned_messages_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationCannedMessagesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/canned_messages',
+                'operation_id': 'get_conversation_canned_messages',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
                 },
                 'collection_format_map': {
                 }
@@ -481,6 +530,59 @@ class ConversationApi(object):
             },
             api_client=api_client
         )
+        self.insert_conversation_canned_message_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationCannedMessageResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/canned_messages',
+                'operation_id': 'insert_conversation_canned_message',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'canned_message',
+                ],
+                'required': [
+                    'canned_message',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'canned_message':
+                        (ConversationCannedMessage,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'canned_message': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.join_conversation_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -637,6 +739,59 @@ class ConversationApi(object):
             },
             api_client=api_client
         )
+        self.search_conversation_canned_messages_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationCannedMessagesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/canned_messages/search',
+                'operation_id': 'search_conversation_canned_messages',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'search_request',
+                ],
+                'required': [
+                    'search_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'search_request':
+                        (ConversationCannedMessagesSearch,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'search_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.start_conversation_endpoint = _Endpoint(
             settings={
                 'response_type': (ConversationStartResponse,),
@@ -676,6 +831,65 @@ class ConversationApi(object):
                 },
                 'location_map': {
                     'start_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_conversation_canned_message_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationCannedMessageResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/canned_messages/{conversation_canned_message_oid}',
+                'operation_id': 'update_conversation_canned_message',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'conversation_canned_message_oid',
+                    'canned_message',
+                ],
+                'required': [
+                    'conversation_canned_message_oid',
+                    'canned_message',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'conversation_canned_message_oid':
+                        (int,),
+                    'canned_message':
+                        (ConversationCannedMessage,),
+                },
+                'attribute_map': {
+                    'conversation_canned_message_oid': 'conversation_canned_message_oid',
+                },
+                'location_map': {
+                    'conversation_canned_message_oid': 'path',
+                    'canned_message': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -989,6 +1203,84 @@ class ConversationApi(object):
         kwargs['conversation_uuid'] = \
             conversation_uuid
         return self.get_conversation_endpoint.call_with_http_info(**kwargs)
+
+    def get_conversation_canned_messages(
+        self,
+        **kwargs
+    ):
+        """Retrieve a list of canned messages ordered by short_code  # noqa: E501
+
+        Retrieve a list of canned messages ordered by short_code   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_conversation_canned_messages(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationCannedMessagesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_conversation_canned_messages_endpoint.call_with_http_info(**kwargs)
 
     def get_conversation_context(
         self,
@@ -1404,6 +1696,89 @@ class ConversationApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_conversations_endpoint.call_with_http_info(**kwargs)
 
+    def insert_conversation_canned_message(
+        self,
+        canned_message,
+        **kwargs
+    ):
+        """Insert a canned message  # noqa: E501
+
+        Insert a canned message   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_conversation_canned_message(canned_message, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            canned_message (ConversationCannedMessage): Canned message
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationCannedMessageResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['canned_message'] = \
+            canned_message
+        return self.insert_conversation_canned_message_endpoint.call_with_http_info(**kwargs)
+
     def join_conversation(
         self,
         conversation_uuid,
@@ -1653,6 +2028,89 @@ class ConversationApi(object):
             conversation_uuid
         return self.mark_read_conversation_endpoint.call_with_http_info(**kwargs)
 
+    def search_conversation_canned_messages(
+        self,
+        search_request,
+        **kwargs
+    ):
+        """Search for canned messages by short_code  # noqa: E501
+
+        Search for canned messages by short_code   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_conversation_canned_messages(search_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            search_request (ConversationCannedMessagesSearch): Search request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationCannedMessagesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['search_request'] = \
+            search_request
+        return self.search_conversation_canned_messages_endpoint.call_with_http_info(**kwargs)
+
     def start_conversation(
         self,
         start_request,
@@ -1735,6 +2193,93 @@ class ConversationApi(object):
         kwargs['start_request'] = \
             start_request
         return self.start_conversation_endpoint.call_with_http_info(**kwargs)
+
+    def update_conversation_canned_message(
+        self,
+        conversation_canned_message_oid,
+        canned_message,
+        **kwargs
+    ):
+        """Update a canned message  # noqa: E501
+
+        Update a canned message   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_conversation_canned_message(conversation_canned_message_oid, canned_message, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            conversation_canned_message_oid (int):
+            canned_message (ConversationCannedMessage): Canned message
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationCannedMessageResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['conversation_canned_message_oid'] = \
+            conversation_canned_message_oid
+        kwargs['canned_message'] = \
+            canned_message
+        return self.update_conversation_canned_message_endpoint.call_with_http_info(**kwargs)
 
     def update_conversation_webchat_queue_status(
         self,
