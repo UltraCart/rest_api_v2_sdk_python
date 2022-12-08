@@ -103,6 +103,7 @@ class EmailSegment(ModelNormal):
             'merchant_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'rank_json': (str,),  # noqa: E501
+            'rebuild_percentage': (float,),  # noqa: E501
             'rebuild_required': (bool,),  # noqa: E501
             'storefront_oid': (int,),  # noqa: E501
             'thirdparty_join_add_tags': ([str],),  # noqa: E501
@@ -132,6 +133,7 @@ class EmailSegment(ModelNormal):
         'merchant_id': 'merchant_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'rank_json': 'rank_json',  # noqa: E501
+        'rebuild_percentage': 'rebuild_percentage',  # noqa: E501
         'rebuild_required': 'rebuild_required',  # noqa: E501
         'storefront_oid': 'storefront_oid',  # noqa: E501
         'thirdparty_join_add_tags': 'thirdparty_join_add_tags',  # noqa: E501
@@ -196,6 +198,7 @@ class EmailSegment(ModelNormal):
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
             name (str): Name of email segment. [optional]  # noqa: E501
             rank_json (str): Rank settings json. [optional]  # noqa: E501
+            rebuild_percentage (float): Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.. [optional]  # noqa: E501
             rebuild_required (bool): True if a rebuild is required because some part of the segment has changed. [optional]  # noqa: E501
             storefront_oid (int): Storefront oid. [optional]  # noqa: E501
             thirdparty_join_add_tags ([str]): Third party provider tags to add when a customer joins the segment.. [optional]  # noqa: E501
@@ -302,6 +305,7 @@ class EmailSegment(ModelNormal):
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
             name (str): Name of email segment. [optional]  # noqa: E501
             rank_json (str): Rank settings json. [optional]  # noqa: E501
+            rebuild_percentage (float): Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.. [optional]  # noqa: E501
             rebuild_required (bool): True if a rebuild is required because some part of the segment has changed. [optional]  # noqa: E501
             storefront_oid (int): Storefront oid. [optional]  # noqa: E501
             thirdparty_join_add_tags ([str]): Third party provider tags to add when a customer joins the segment.. [optional]  # noqa: E501
