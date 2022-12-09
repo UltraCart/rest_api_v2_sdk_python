@@ -35,6 +35,7 @@ class ConversationParticipant(object):
         'conversation_participant_name': 'str',
         'conversation_participant_uuid': 'str',
         'joined_dts': 'str',
+        'language_iso_code': 'str',
         'last_message_dts': 'str',
         'left_dts': 'str',
         'profile_image_url': 'str',
@@ -48,6 +49,7 @@ class ConversationParticipant(object):
         'conversation_participant_name': 'conversation_participant_name',
         'conversation_participant_uuid': 'conversation_participant_uuid',
         'joined_dts': 'joined_dts',
+        'language_iso_code': 'language_iso_code',
         'last_message_dts': 'last_message_dts',
         'left_dts': 'left_dts',
         'profile_image_url': 'profile_image_url',
@@ -56,13 +58,14 @@ class ConversationParticipant(object):
         'unread_messages': 'unread_messages'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, joined_dts=None, last_message_dts=None, left_dts=None, profile_image_url=None, status=None, timezone=None, unread_messages=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, joined_dts=None, language_iso_code=None, last_message_dts=None, left_dts=None, profile_image_url=None, status=None, timezone=None, unread_messages=None):  # noqa: E501
         """ConversationParticipant - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
         self._conversation_participant_name = None
         self._conversation_participant_uuid = None
         self._joined_dts = None
+        self._language_iso_code = None
         self._last_message_dts = None
         self._left_dts = None
         self._profile_image_url = None
@@ -79,6 +82,8 @@ class ConversationParticipant(object):
             self.conversation_participant_uuid = conversation_participant_uuid
         if joined_dts is not None:
             self.joined_dts = joined_dts
+        if language_iso_code is not None:
+            self.language_iso_code = language_iso_code
         if last_message_dts is not None:
             self.last_message_dts = last_message_dts
         if left_dts is not None:
@@ -177,6 +182,27 @@ class ConversationParticipant(object):
         """
 
         self._joined_dts = joined_dts
+
+    @property
+    def language_iso_code(self):
+        """Gets the language_iso_code of this ConversationParticipant.  # noqa: E501
+
+
+        :return: The language_iso_code of this ConversationParticipant.  # noqa: E501
+        :rtype: str
+        """
+        return self._language_iso_code
+
+    @language_iso_code.setter
+    def language_iso_code(self, language_iso_code):
+        """Sets the language_iso_code of this ConversationParticipant.
+
+
+        :param language_iso_code: The language_iso_code of this ConversationParticipant.  # noqa: E501
+        :type: str
+        """
+
+        self._language_iso_code = language_iso_code
 
     @property
     def last_message_dts(self):

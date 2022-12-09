@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **conversation_participant_name** | **str** |  | [optional] 
 **conversation_participant_uuid** | **str** |  | [optional] 
 **joined_dts** | **str** | Joined conversation date/time | [optional] 
+**language_iso_code** | **str** |  | [optional] 
 **last_message_dts** | **str** | Last message date/time | [optional] 
 **left_dts** | **str** | Left conversation date/time | [optional] 
 **profile_image_url** | **str** |  | [optional] 

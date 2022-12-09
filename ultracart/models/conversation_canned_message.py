@@ -33,23 +33,23 @@ class ConversationCannedMessage(object):
     swagger_types = {
         'canned_message': 'str',
         'conversation_canned_message_oid': 'int',
-        'conversation_webchat_queue_uuids': 'list[str]',
+        'conversation_department_oids': 'list[str]',
         'short_code': 'str'
     }
 
     attribute_map = {
         'canned_message': 'canned_message',
         'conversation_canned_message_oid': 'conversation_canned_message_oid',
-        'conversation_webchat_queue_uuids': 'conversation_webchat_queue_uuids',
+        'conversation_department_oids': 'conversation_department_oids',
         'short_code': 'short_code'
     }
 
-    def __init__(self, canned_message=None, conversation_canned_message_oid=None, conversation_webchat_queue_uuids=None, short_code=None):  # noqa: E501
+    def __init__(self, canned_message=None, conversation_canned_message_oid=None, conversation_department_oids=None, short_code=None):  # noqa: E501
         """ConversationCannedMessage - a model defined in Swagger"""  # noqa: E501
 
         self._canned_message = None
         self._conversation_canned_message_oid = None
-        self._conversation_webchat_queue_uuids = None
+        self._conversation_department_oids = None
         self._short_code = None
         self.discriminator = None
 
@@ -57,8 +57,8 @@ class ConversationCannedMessage(object):
             self.canned_message = canned_message
         if conversation_canned_message_oid is not None:
             self.conversation_canned_message_oid = conversation_canned_message_oid
-        if conversation_webchat_queue_uuids is not None:
-            self.conversation_webchat_queue_uuids = conversation_webchat_queue_uuids
+        if conversation_department_oids is not None:
+            self.conversation_department_oids = conversation_department_oids
         if short_code is not None:
             self.short_code = short_code
 
@@ -105,25 +105,25 @@ class ConversationCannedMessage(object):
         self._conversation_canned_message_oid = conversation_canned_message_oid
 
     @property
-    def conversation_webchat_queue_uuids(self):
-        """Gets the conversation_webchat_queue_uuids of this ConversationCannedMessage.  # noqa: E501
+    def conversation_department_oids(self):
+        """Gets the conversation_department_oids of this ConversationCannedMessage.  # noqa: E501
 
 
-        :return: The conversation_webchat_queue_uuids of this ConversationCannedMessage.  # noqa: E501
+        :return: The conversation_department_oids of this ConversationCannedMessage.  # noqa: E501
         :rtype: list[str]
         """
-        return self._conversation_webchat_queue_uuids
+        return self._conversation_department_oids
 
-    @conversation_webchat_queue_uuids.setter
-    def conversation_webchat_queue_uuids(self, conversation_webchat_queue_uuids):
-        """Sets the conversation_webchat_queue_uuids of this ConversationCannedMessage.
+    @conversation_department_oids.setter
+    def conversation_department_oids(self, conversation_department_oids):
+        """Sets the conversation_department_oids of this ConversationCannedMessage.
 
 
-        :param conversation_webchat_queue_uuids: The conversation_webchat_queue_uuids of this ConversationCannedMessage.  # noqa: E501
+        :param conversation_department_oids: The conversation_department_oids of this ConversationCannedMessage.  # noqa: E501
         :type: list[str]
         """
 
-        self._conversation_webchat_queue_uuids = conversation_webchat_queue_uuids
+        self._conversation_department_oids = conversation_department_oids
 
     @property
     def short_code(self):

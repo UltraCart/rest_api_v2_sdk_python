@@ -37,10 +37,12 @@ class ConversationMessage(object):
         'client_message_id': 'str',
         'conversation_message_uuid': 'str',
         'delay_until_dts': 'str',
+        'language_iso_code': 'str',
         'media_urls': 'list[str]',
         'merchant_id': 'str',
         'message_dts': 'str',
         'message_epoch': 'int',
+        'translations': 'list[ConversationMessageTranslation]',
         'transport_statuses': 'list[ConversationMessageTransportStatus]',
         'type': 'str',
         'upload_keys': 'list[str]'
@@ -53,16 +55,18 @@ class ConversationMessage(object):
         'client_message_id': 'client_message_id',
         'conversation_message_uuid': 'conversation_message_uuid',
         'delay_until_dts': 'delay_until_dts',
+        'language_iso_code': 'language_iso_code',
         'media_urls': 'media_urls',
         'merchant_id': 'merchant_id',
         'message_dts': 'message_dts',
         'message_epoch': 'message_epoch',
+        'translations': 'translations',
         'transport_statuses': 'transport_statuses',
         'type': 'type',
         'upload_keys': 'upload_keys'
     }
 
-    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, conversation_message_uuid=None, delay_until_dts=None, media_urls=None, merchant_id=None, message_dts=None, message_epoch=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
+    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, conversation_message_uuid=None, delay_until_dts=None, language_iso_code=None, media_urls=None, merchant_id=None, message_dts=None, message_epoch=None, translations=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
         """ConversationMessage - a model defined in Swagger"""  # noqa: E501
 
         self._author_conversation_participant_arn = None
@@ -71,10 +75,12 @@ class ConversationMessage(object):
         self._client_message_id = None
         self._conversation_message_uuid = None
         self._delay_until_dts = None
+        self._language_iso_code = None
         self._media_urls = None
         self._merchant_id = None
         self._message_dts = None
         self._message_epoch = None
+        self._translations = None
         self._transport_statuses = None
         self._type = None
         self._upload_keys = None
@@ -92,6 +98,8 @@ class ConversationMessage(object):
             self.conversation_message_uuid = conversation_message_uuid
         if delay_until_dts is not None:
             self.delay_until_dts = delay_until_dts
+        if language_iso_code is not None:
+            self.language_iso_code = language_iso_code
         if media_urls is not None:
             self.media_urls = media_urls
         if merchant_id is not None:
@@ -100,6 +108,8 @@ class ConversationMessage(object):
             self.message_dts = message_dts
         if message_epoch is not None:
             self.message_epoch = message_epoch
+        if translations is not None:
+            self.translations = translations
         if transport_statuses is not None:
             self.transport_statuses = transport_statuses
         if type is not None:
@@ -236,6 +246,27 @@ class ConversationMessage(object):
         self._delay_until_dts = delay_until_dts
 
     @property
+    def language_iso_code(self):
+        """Gets the language_iso_code of this ConversationMessage.  # noqa: E501
+
+
+        :return: The language_iso_code of this ConversationMessage.  # noqa: E501
+        :rtype: str
+        """
+        return self._language_iso_code
+
+    @language_iso_code.setter
+    def language_iso_code(self, language_iso_code):
+        """Sets the language_iso_code of this ConversationMessage.
+
+
+        :param language_iso_code: The language_iso_code of this ConversationMessage.  # noqa: E501
+        :type: str
+        """
+
+        self._language_iso_code = language_iso_code
+
+    @property
     def media_urls(self):
         """Gets the media_urls of this ConversationMessage.  # noqa: E501
 
@@ -322,6 +353,27 @@ class ConversationMessage(object):
         """
 
         self._message_epoch = message_epoch
+
+    @property
+    def translations(self):
+        """Gets the translations of this ConversationMessage.  # noqa: E501
+
+
+        :return: The translations of this ConversationMessage.  # noqa: E501
+        :rtype: list[ConversationMessageTranslation]
+        """
+        return self._translations
+
+    @translations.setter
+    def translations(self, translations):
+        """Sets the translations of this ConversationMessage.
+
+
+        :param translations: The translations of this ConversationMessage.  # noqa: E501
+        :type: list[ConversationMessageTranslation]
+        """
+
+        self._translations = translations
 
     @property
     def transport_statuses(self):
