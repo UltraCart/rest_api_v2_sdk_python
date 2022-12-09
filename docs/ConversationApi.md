@@ -714,8 +714,8 @@ api_instance = GiftCertificateApi(api_client())
     canned_message = ConversationCannedMessage(
         canned_message="canned_message_example",
         conversation_canned_message_oid=1,
-        conversation_webchat_queue_uuids=[
-            "conversation_webchat_queue_uuids_example",
+        conversation_department_oids=[
+            "conversation_department_oids_example",
         ],
         short_code="short_code_example",
     ) # ConversationCannedMessage | Canned message
@@ -1157,8 +1157,8 @@ api_instance = GiftCertificateApi(api_client())
     canned_message = ConversationCannedMessage(
         canned_message="canned_message_example",
         conversation_canned_message_oid=1,
-        conversation_webchat_queue_uuids=[
-            "conversation_webchat_queue_uuids_example",
+        conversation_department_oids=[
+            "conversation_department_oids_example",
         ],
         short_code="short_code_example",
     ) # ConversationCannedMessage | Canned message
