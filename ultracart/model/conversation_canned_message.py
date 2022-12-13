@@ -84,7 +84,7 @@ class ConversationCannedMessage(ModelNormal):
         return {
             'canned_message': (str,),  # noqa: E501
             'conversation_canned_message_oid': (int,),  # noqa: E501
-            'conversation_department_oids': ([str],),  # noqa: E501
+            'conversation_department_oids': ([int],),  # noqa: E501
             'short_code': (str,),  # noqa: E501
         }
 
@@ -143,7 +143,7 @@ class ConversationCannedMessage(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             canned_message (str): [optional]  # noqa: E501
             conversation_canned_message_oid (int): [optional]  # noqa: E501
-            conversation_department_oids ([str]): [optional]  # noqa: E501
+            conversation_department_oids ([int]): [optional]  # noqa: E501
             short_code (str): [optional]  # noqa: E501
         """
 
@@ -232,7 +232,7 @@ class ConversationCannedMessage(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             canned_message (str): [optional]  # noqa: E501
             conversation_canned_message_oid (int): [optional]  # noqa: E501
-            conversation_department_oids ([str]): [optional]  # noqa: E501
+            conversation_department_oids ([int]): [optional]  # noqa: E501
             short_code (str): [optional]  # noqa: E501
         """
 

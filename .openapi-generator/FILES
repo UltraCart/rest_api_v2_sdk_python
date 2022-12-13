@@ -133,6 +133,12 @@ docs/ConversationCannedMessage.md
 docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
 docs/ConversationCannedMessagesSearch.md
+docs/ConversationDepartment.md
+docs/ConversationDepartmentResponse.md
+docs/ConversationDepartmentsResponse.md
+docs/ConversationEngagement.md
+docs/ConversationEngagementResponse.md
+docs/ConversationEngagementsResponse.md
 docs/ConversationEventAddCoupon.md
 docs/ConversationEventAddItem.md
 docs/ConversationEventQueuePosition.md
@@ -140,6 +146,7 @@ docs/ConversationEventRRWeb.md
 docs/ConversationEventReadMessage.md
 docs/ConversationEventTyping.md
 docs/ConversationEventWebchatContext.md
+docs/ConversationJoinRequest.md
 docs/ConversationMessage.md
 docs/ConversationMessageTranslation.md
 docs/ConversationMessageTransportStatus.md
@@ -876,6 +883,12 @@ ultracart/model/conversation_canned_message.py
 ultracart/model/conversation_canned_message_response.py
 ultracart/model/conversation_canned_messages_response.py
 ultracart/model/conversation_canned_messages_search.py
+ultracart/model/conversation_department.py
+ultracart/model/conversation_department_response.py
+ultracart/model/conversation_departments_response.py
+ultracart/model/conversation_engagement.py
+ultracart/model/conversation_engagement_response.py
+ultracart/model/conversation_engagements_response.py
 ultracart/model/conversation_event_add_coupon.py
 ultracart/model/conversation_event_add_item.py
 ultracart/model/conversation_event_queue_position.py
@@ -883,6 +896,7 @@ ultracart/model/conversation_event_read_message.py
 ultracart/model/conversation_event_rr_web.py
 ultracart/model/conversation_event_typing.py
 ultracart/model/conversation_event_webchat_context.py
+ultracart/model/conversation_join_request.py
 ultracart/model/conversation_message.py
 ultracart/model/conversation_message_translation.py
 ultracart/model/conversation_message_transport_status.py
