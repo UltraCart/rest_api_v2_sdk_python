@@ -33,7 +33,7 @@ class ConversationCannedMessage(object):
     swagger_types = {
         'canned_message': 'str',
         'conversation_canned_message_oid': 'int',
-        'conversation_department_oids': 'list[str]',
+        'conversation_department_oids': 'list[int]',
         'short_code': 'str'
     }
 
@@ -110,7 +110,7 @@ class ConversationCannedMessage(object):
 
 
         :return: The conversation_department_oids of this ConversationCannedMessage.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[int]
         """
         return self._conversation_department_oids
 
@@ -120,7 +120,7 @@ class ConversationCannedMessage(object):
 
 
         :param conversation_department_oids: The conversation_department_oids of this ConversationCannedMessage.  # noqa: E501
-        :type: list[str]
+        :type: list[int]
         """
 
         self._conversation_department_oids = conversation_department_oids

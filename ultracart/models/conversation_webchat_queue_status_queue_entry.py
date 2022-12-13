@@ -36,6 +36,7 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         'conversation_webchat_queue_uuid': 'str',
         'email': 'str',
         'join_dts': 'str',
+        'participant_language_iso_code': 'str',
         'question': 'str'
     }
 
@@ -45,10 +46,11 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         'conversation_webchat_queue_uuid': 'conversation_webchat_queue_uuid',
         'email': 'email',
         'join_dts': 'join_dts',
+        'participant_language_iso_code': 'participant_language_iso_code',
         'question': 'question'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_webchat_queue_uuid=None, email=None, join_dts=None, question=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_webchat_queue_uuid=None, email=None, join_dts=None, participant_language_iso_code=None, question=None):  # noqa: E501
         """ConversationWebchatQueueStatusQueueEntry - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
@@ -56,6 +58,7 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         self._conversation_webchat_queue_uuid = None
         self._email = None
         self._join_dts = None
+        self._participant_language_iso_code = None
         self._question = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class ConversationWebchatQueueStatusQueueEntry(object):
             self.email = email
         if join_dts is not None:
             self.join_dts = join_dts
+        if participant_language_iso_code is not None:
+            self.participant_language_iso_code = participant_language_iso_code
         if question is not None:
             self.question = question
 
@@ -178,6 +183,27 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         """
 
         self._join_dts = join_dts
+
+    @property
+    def participant_language_iso_code(self):
+        """Gets the participant_language_iso_code of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+
+
+        :return: The participant_language_iso_code of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._participant_language_iso_code
+
+    @participant_language_iso_code.setter
+    def participant_language_iso_code(self, participant_language_iso_code):
+        """Sets the participant_language_iso_code of this ConversationWebchatQueueStatusQueueEntry.
+
+
+        :param participant_language_iso_code: The participant_language_iso_code of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+        :type: str
+        """
+
+        self._participant_language_iso_code = participant_language_iso_code
 
     @property
     def question(self):

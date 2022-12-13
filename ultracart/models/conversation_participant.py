@@ -34,11 +34,13 @@ class ConversationParticipant(object):
         'conversation_participant_arn': 'str',
         'conversation_participant_name': 'str',
         'conversation_participant_uuid': 'str',
+        'email': 'str',
         'joined_dts': 'str',
         'language_iso_code': 'str',
         'last_message_dts': 'str',
         'left_dts': 'str',
         'profile_image_url': 'str',
+        'sms_phone_number': 'str',
         'status': 'str',
         'timezone': 'str',
         'unread_messages': 'int'
@@ -48,27 +50,31 @@ class ConversationParticipant(object):
         'conversation_participant_arn': 'conversation_participant_arn',
         'conversation_participant_name': 'conversation_participant_name',
         'conversation_participant_uuid': 'conversation_participant_uuid',
+        'email': 'email',
         'joined_dts': 'joined_dts',
         'language_iso_code': 'language_iso_code',
         'last_message_dts': 'last_message_dts',
         'left_dts': 'left_dts',
         'profile_image_url': 'profile_image_url',
+        'sms_phone_number': 'sms_phone_number',
         'status': 'status',
         'timezone': 'timezone',
         'unread_messages': 'unread_messages'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, joined_dts=None, language_iso_code=None, last_message_dts=None, left_dts=None, profile_image_url=None, status=None, timezone=None, unread_messages=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_participant_uuid=None, email=None, joined_dts=None, language_iso_code=None, last_message_dts=None, left_dts=None, profile_image_url=None, sms_phone_number=None, status=None, timezone=None, unread_messages=None):  # noqa: E501
         """ConversationParticipant - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
         self._conversation_participant_name = None
         self._conversation_participant_uuid = None
+        self._email = None
         self._joined_dts = None
         self._language_iso_code = None
         self._last_message_dts = None
         self._left_dts = None
         self._profile_image_url = None
+        self._sms_phone_number = None
         self._status = None
         self._timezone = None
         self._unread_messages = None
@@ -80,6 +86,8 @@ class ConversationParticipant(object):
             self.conversation_participant_name = conversation_participant_name
         if conversation_participant_uuid is not None:
             self.conversation_participant_uuid = conversation_participant_uuid
+        if email is not None:
+            self.email = email
         if joined_dts is not None:
             self.joined_dts = joined_dts
         if language_iso_code is not None:
@@ -90,6 +98,8 @@ class ConversationParticipant(object):
             self.left_dts = left_dts
         if profile_image_url is not None:
             self.profile_image_url = profile_image_url
+        if sms_phone_number is not None:
+            self.sms_phone_number = sms_phone_number
         if status is not None:
             self.status = status
         if timezone is not None:
@@ -159,6 +169,27 @@ class ConversationParticipant(object):
         """
 
         self._conversation_participant_uuid = conversation_participant_uuid
+
+    @property
+    def email(self):
+        """Gets the email of this ConversationParticipant.  # noqa: E501
+
+
+        :return: The email of this ConversationParticipant.  # noqa: E501
+        :rtype: str
+        """
+        return self._email
+
+    @email.setter
+    def email(self, email):
+        """Sets the email of this ConversationParticipant.
+
+
+        :param email: The email of this ConversationParticipant.  # noqa: E501
+        :type: str
+        """
+
+        self._email = email
 
     @property
     def joined_dts(self):
@@ -270,6 +301,27 @@ class ConversationParticipant(object):
         """
 
         self._profile_image_url = profile_image_url
+
+    @property
+    def sms_phone_number(self):
+        """Gets the sms_phone_number of this ConversationParticipant.  # noqa: E501
+
+
+        :return: The sms_phone_number of this ConversationParticipant.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms_phone_number
+
+    @sms_phone_number.setter
+    def sms_phone_number(self, sms_phone_number):
+        """Sets the sms_phone_number of this ConversationParticipant.
+
+
+        :param sms_phone_number: The sms_phone_number of this ConversationParticipant.  # noqa: E501
+        :type: str
+        """
+
+        self._sms_phone_number = sms_phone_number
 
     @property
     def status(self):
