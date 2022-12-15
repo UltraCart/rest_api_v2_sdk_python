@@ -131,6 +131,7 @@ docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
 docs/ConversationAutocompleteRequest.md
 docs/ConversationAutocompleteResponse.md
+docs/ConversationAutocompleteValue.md
 docs/ConversationCannedMessage.md
 docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
@@ -885,6 +886,7 @@ ultracart/model/conversation_agent_auth.py
 ultracart/model/conversation_agent_auth_response.py
 ultracart/model/conversation_autocomplete_request.py
 ultracart/model/conversation_autocomplete_response.py
+ultracart/model/conversation_autocomplete_value.py
 ultracart/model/conversation_canned_message.py
 ultracart/model/conversation_canned_message_response.py
 ultracart/model/conversation_canned_messages_response.py

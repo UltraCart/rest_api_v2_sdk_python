@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**date_end** | **str** | End of the range | [optional] 
+**date_start** | **str** | Start of the range | [optional] 
 **email_filter** | **str** |  | [optional] 
 **language_filter** | **str** |  | [optional] 
 **medium_filter** | **str** |  | [optional] 

@@ -932,6 +932,8 @@ from pprint import pprint
 api_instance = GiftCertificateApi(api_client())
 
     search_request = ConversationSearchRequest(
+        date_end="date_end_example",
+        date_start="date_start_example",
         email_filter="email_filter_example",
         language_filter="language_filter_example",
         medium_filter="medium_filter_example",

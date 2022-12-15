@@ -31,9 +31,11 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.conversation_autocomplete_value import ConversationAutocompleteValue
     from ultracart.model.error import Error
     from ultracart.model.response_metadata import ResponseMetadata
     from ultracart.model.warning import Warning
+    globals()['ConversationAutocompleteValue'] = ConversationAutocompleteValue
     globals()['Error'] = Error
     globals()['ResponseMetadata'] = ResponseMetadata
     globals()['Warning'] = Warning
@@ -95,7 +97,7 @@ class ConversationAutocompleteResponse(ModelNormal):
             'error': (Error,),  # noqa: E501
             'field': (str,),  # noqa: E501
             'metadata': (ResponseMetadata,),  # noqa: E501
-            'results': ([str],),  # noqa: E501
+            'results': ([ConversationAutocompleteValue],),  # noqa: E501
             'success': (bool,),  # noqa: E501
             'term': (str,),  # noqa: E501
             'warning': (Warning,),  # noqa: E501
@@ -160,7 +162,7 @@ class ConversationAutocompleteResponse(ModelNormal):
             error (Error): [optional]  # noqa: E501
             field (str): [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
-            results ([str]): [optional]  # noqa: E501
+            results ([ConversationAutocompleteValue]): [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
             term (str): [optional]  # noqa: E501
             warning (Warning): [optional]  # noqa: E501
@@ -252,7 +254,7 @@ class ConversationAutocompleteResponse(ModelNormal):
             error (Error): [optional]  # noqa: E501
             field (str): [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
-            results ([str]): [optional]  # noqa: E501
+            results ([ConversationAutocompleteValue]): [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
             term (str): [optional]  # noqa: E501
             warning (Warning): [optional]  # noqa: E501
