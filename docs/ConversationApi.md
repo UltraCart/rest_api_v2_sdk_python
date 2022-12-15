@@ -15,6 +15,8 @@ Method | HTTP request | Description
 [**get_conversation_multimedia_upload_url**](ConversationApi.md#get_conversation_multimedia_upload_url) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 [**get_conversation_webchat_queue_statuses**](ConversationApi.md#get_conversation_webchat_queue_statuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 [**get_conversations**](ConversationApi.md#get_conversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
+[**get_conversations_autocomplete**](ConversationApi.md#get_conversations_autocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
+[**get_conversations_search**](ConversationApi.md#get_conversations_search) | **POST** /conversation/conversations/search | Search conversations
 [**insert_conversation_canned_message**](ConversationApi.md#insert_conversation_canned_message) | **POST** /conversation/canned_messages | Insert a canned message
 [**insert_conversation_department**](ConversationApi.md#insert_conversation_department) | **POST** /conversation/departments | Insert a department
 [**insert_conversation_engagement**](ConversationApi.md#insert_conversation_engagement) | **POST** /conversation/engagements | Insert a engagement
@@ -809,6 +811,166 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_conversations_autocomplete**
+> ConversationAutocompleteResponse get_conversations_autocomplete(autocomplete_request)
+
+Retrieve a list of matching terms for a search field
+
+Retrieve a list of matching terms for a search field 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import conversation_api
+from ultracart.model.conversation_autocomplete_response import ConversationAutocompleteResponse
+from ultracart.model.conversation_autocomplete_request import ConversationAutocompleteRequest
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    autocomplete_request = ConversationAutocompleteRequest(
+        field="field_example",
+        term="term_example",
+    ) # ConversationAutocompleteRequest | Autocomplete Request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve a list of matching terms for a search field
+        api_response = api_instance.get_conversations_autocomplete(autocomplete_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ConversationApi->get_conversations_autocomplete: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autocomplete_request** | [**ConversationAutocompleteRequest**](ConversationAutocompleteRequest.md)| Autocomplete Request |
+
+### Return type
+
+[**ConversationAutocompleteResponse**](ConversationAutocompleteResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_conversations_search**
+> ConversationSearchResponse get_conversations_search(search_request)
+
+Search conversations
+
+Search conversations 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import conversation_api
+from ultracart.model.conversation_search_response import ConversationSearchResponse
+from ultracart.model.conversation_search_request import ConversationSearchRequest
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    search_request = ConversationSearchRequest(
+        email_filter="email_filter_example",
+        language_filter="language_filter_example",
+        medium_filter="medium_filter_example",
+        order_by_newest=True,
+        order_by_oldest=True,
+        range_begin=1,
+        range_end=1,
+        sms_phone_number_filter="sms_phone_number_filter_example",
+        text_search="text_search_example",
+        visible_filter=True,
+    ) # ConversationSearchRequest | Search Request
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Search conversations
+        api_response = api_instance.get_conversations_search(search_request)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ConversationApi->get_conversations_search: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **search_request** | [**ConversationSearchRequest**](ConversationSearchRequest.md)| Search Request |
+
+### Return type
+
+[**ConversationSearchResponse**](ConversationSearchResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

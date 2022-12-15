@@ -129,6 +129,8 @@ docs/Conversation.md
 docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
+docs/ConversationAutocompleteRequest.md
+docs/ConversationAutocompleteResponse.md
 docs/ConversationCannedMessage.md
 docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
@@ -155,6 +157,8 @@ docs/ConversationMultimediaUploadUrl.md
 docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
 docs/ConversationResponse.md
+docs/ConversationSearchRequest.md
+docs/ConversationSearchResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
@@ -879,6 +883,8 @@ ultracart/model/city_state_zip.py
 ultracart/model/conversation.py
 ultracart/model/conversation_agent_auth.py
 ultracart/model/conversation_agent_auth_response.py
+ultracart/model/conversation_autocomplete_request.py
+ultracart/model/conversation_autocomplete_response.py
 ultracart/model/conversation_canned_message.py
 ultracart/model/conversation_canned_message_response.py
 ultracart/model/conversation_canned_messages_response.py
@@ -905,6 +911,8 @@ ultracart/model/conversation_multimedia_upload_url.py
 ultracart/model/conversation_multimedia_upload_url_response.py
 ultracart/model/conversation_participant.py
 ultracart/model/conversation_response.py
+ultracart/model/conversation_search_request.py
+ultracart/model/conversation_search_response.py
 ultracart/model/conversation_start_request.py
 ultracart/model/conversation_start_response.py
 ultracart/model/conversation_summary.py
