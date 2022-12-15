@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **error** | [**Error**](Error.md) |  | [optional] 
 **field** | **str** |  | [optional] 
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
-**results** | **list[str]** |  | [optional] 
+**results** | [**list[ConversationAutocompleteValue]**](ConversationAutocompleteValue.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **term** | **str** |  | [optional] 
 **warning** | [**Warning**](Warning.md) |  | [optional] 

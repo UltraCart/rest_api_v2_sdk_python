@@ -31,6 +31,8 @@ class ConversationSearchRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'date_end': 'str',
+        'date_start': 'str',
         'email_filter': 'str',
         'language_filter': 'str',
         'medium_filter': 'str',
@@ -44,6 +46,8 @@ class ConversationSearchRequest(object):
     }
 
     attribute_map = {
+        'date_end': 'date_end',
+        'date_start': 'date_start',
         'email_filter': 'email_filter',
         'language_filter': 'language_filter',
         'medium_filter': 'medium_filter',
@@ -56,9 +60,11 @@ class ConversationSearchRequest(object):
         'visible_filter': 'visible_filter'
     }
 
-    def __init__(self, email_filter=None, language_filter=None, medium_filter=None, order_by_newest=None, order_by_oldest=None, range_begin=None, range_end=None, sms_phone_number_filter=None, text_search=None, visible_filter=None):  # noqa: E501
+    def __init__(self, date_end=None, date_start=None, email_filter=None, language_filter=None, medium_filter=None, order_by_newest=None, order_by_oldest=None, range_begin=None, range_end=None, sms_phone_number_filter=None, text_search=None, visible_filter=None):  # noqa: E501
         """ConversationSearchRequest - a model defined in Swagger"""  # noqa: E501
 
+        self._date_end = None
+        self._date_start = None
         self._email_filter = None
         self._language_filter = None
         self._medium_filter = None
@@ -71,6 +77,10 @@ class ConversationSearchRequest(object):
         self._visible_filter = None
         self.discriminator = None
 
+        if date_end is not None:
+            self.date_end = date_end
+        if date_start is not None:
+            self.date_start = date_start
         if email_filter is not None:
             self.email_filter = email_filter
         if language_filter is not None:
@@ -91,6 +101,52 @@ class ConversationSearchRequest(object):
             self.text_search = text_search
         if visible_filter is not None:
             self.visible_filter = visible_filter
+
+    @property
+    def date_end(self):
+        """Gets the date_end of this ConversationSearchRequest.  # noqa: E501
+
+        End of the range  # noqa: E501
+
+        :return: The date_end of this ConversationSearchRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._date_end
+
+    @date_end.setter
+    def date_end(self, date_end):
+        """Sets the date_end of this ConversationSearchRequest.
+
+        End of the range  # noqa: E501
+
+        :param date_end: The date_end of this ConversationSearchRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._date_end = date_end
+
+    @property
+    def date_start(self):
+        """Gets the date_start of this ConversationSearchRequest.  # noqa: E501
+
+        Start of the range  # noqa: E501
+
+        :return: The date_start of this ConversationSearchRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._date_start
+
+    @date_start.setter
+    def date_start(self, date_start):
+        """Sets the date_start of this ConversationSearchRequest.
+
+        Start of the range  # noqa: E501
+
+        :param date_start: The date_start of this ConversationSearchRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._date_start = date_start
 
     @property
     def email_filter(self):

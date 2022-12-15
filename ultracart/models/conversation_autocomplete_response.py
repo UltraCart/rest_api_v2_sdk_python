@@ -34,7 +34,7 @@ class ConversationAutocompleteResponse(object):
         'error': 'Error',
         'field': 'str',
         'metadata': 'ResponseMetadata',
-        'results': 'list[str]',
+        'results': 'list[ConversationAutocompleteValue]',
         'success': 'bool',
         'term': 'str',
         'warning': 'Warning'
@@ -146,7 +146,7 @@ class ConversationAutocompleteResponse(object):
 
 
         :return: The results of this ConversationAutocompleteResponse.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[ConversationAutocompleteValue]
         """
         return self._results
 
@@ -156,7 +156,7 @@ class ConversationAutocompleteResponse(object):
 
 
         :param results: The results of this ConversationAutocompleteResponse.  # noqa: E501
-        :type: list[str]
+        :type: list[ConversationAutocompleteValue]
         """
 
         self._results = results
