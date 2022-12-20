@@ -1183,9 +1183,32 @@ api_instance = GiftCertificateApi(api_client())
             1,
         ],
         engagement_name="engagement_name_example",
-        equation={},
+        equation=ConversationEngagementEquation(
+            groups=[
+                ConversationEngagementEquationGroup(
+                    functions=[
+                        ConversationEngagementEquationFunction(
+                            any_page_url_logic="contains",
+                            any_page_url_value="any_page_url_value_example",
+                            current_page_url_logic="contains",
+                            current_page_url_value="current_page_url_value_example",
+                            customers_browsing_time_logic="is at least",
+                            customers_browsing_time_seconds=1,
+                            customers_location_country="customers_location_country_example",
+                            customers_location_logic="is",
+                            customers_location_state="customers_location_state_example",
+                            number_of_viewed_pages_logic="is at least",
+                            number_of_viewed_pages_value=1,
+                            referring_website_logic="contains",
+                            referring_website_value="referring_website_value_example",
+                            type="current page url",
+                        ),
+                    ],
+                ),
+            ],
+        ),
         time_on_page=1,
-        visitor_type="visitor_type_example",
+        visitor_type="all",
     ) # ConversationEngagement | Engagement
 
     # example passing only required values which don't have defaults set
@@ -1805,9 +1828,32 @@ api_instance = GiftCertificateApi(api_client())
             1,
         ],
         engagement_name="engagement_name_example",
-        equation={},
+        equation=ConversationEngagementEquation(
+            groups=[
+                ConversationEngagementEquationGroup(
+                    functions=[
+                        ConversationEngagementEquationFunction(
+                            any_page_url_logic="contains",
+                            any_page_url_value="any_page_url_value_example",
+                            current_page_url_logic="contains",
+                            current_page_url_value="current_page_url_value_example",
+                            customers_browsing_time_logic="is at least",
+                            customers_browsing_time_seconds=1,
+                            customers_location_country="customers_location_country_example",
+                            customers_location_logic="is",
+                            customers_location_state="customers_location_state_example",
+                            number_of_viewed_pages_logic="is at least",
+                            number_of_viewed_pages_value=1,
+                            referring_website_logic="contains",
+                            referring_website_value="referring_website_value_example",
+                            type="current page url",
+                        ),
+                    ],
+                ),
+            ],
+        ),
         time_on_page=1,
-        visitor_type="visitor_type_example",
+        visitor_type="all",
     ) # ConversationEngagement | Engagement
 
     # example passing only required values which don't have defaults set
