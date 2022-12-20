@@ -207,6 +207,7 @@ class ConversationEngagement(object):
     def visitor_type(self):
         """Gets the visitor_type of this ConversationEngagement.  # noqa: E501
 
+        The type of visitor  # noqa: E501
 
         :return: The visitor_type of this ConversationEngagement.  # noqa: E501
         :rtype: str
@@ -217,10 +218,17 @@ class ConversationEngagement(object):
     def visitor_type(self, visitor_type):
         """Sets the visitor_type of this ConversationEngagement.
 
+        The type of visitor  # noqa: E501
 
         :param visitor_type: The visitor_type of this ConversationEngagement.  # noqa: E501
         :type: str
         """
+        allowed_values = ["all", "first time", "returning"]  # noqa: E501
+        if visitor_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `visitor_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(visitor_type, allowed_values)
+            )
 
         self._visitor_type = visitor_type
 

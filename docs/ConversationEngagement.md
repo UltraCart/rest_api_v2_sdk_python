@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **engagement_name** | **str** |  | [optional] 
 **equation** | [**ConversationEngagementEquation**](ConversationEngagementEquation.md) |  | [optional] 
 **time_on_page** | **int** |  | [optional] 
-**visitor_type** | **str** |  | [optional] 
+**visitor_type** | **str** | The type of visitor | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
