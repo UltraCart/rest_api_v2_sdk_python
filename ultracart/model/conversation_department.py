@@ -83,7 +83,6 @@ class ConversationDepartment(ModelNormal):
         """
         return {
             'conversation_department_oid': (int,),  # noqa: E501
-            'delete_me': (bool,),  # noqa: E501
             'department_name': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'settings': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
@@ -96,7 +95,6 @@ class ConversationDepartment(ModelNormal):
 
     attribute_map = {
         'conversation_department_oid': 'conversation_department_oid',  # noqa: E501
-        'delete_me': 'delete_me',  # noqa: E501
         'department_name': 'department_name',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'settings': 'settings',  # noqa: E501
@@ -144,7 +142,6 @@ class ConversationDepartment(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             conversation_department_oid (int): [optional]  # noqa: E501
-            delete_me (bool): [optional]  # noqa: E501
             department_name (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             settings (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
@@ -234,7 +231,6 @@ class ConversationDepartment(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             conversation_department_oid (int): [optional]  # noqa: E501
-            delete_me (bool): [optional]  # noqa: E501
             department_name (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             settings (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501

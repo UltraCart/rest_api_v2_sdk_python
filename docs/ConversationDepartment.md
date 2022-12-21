@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conversation_department_oid** | **int** |  | [optional] 
-**delete_me** | **bool** |  | [optional] 
 **department_name** | **str** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **settings** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 

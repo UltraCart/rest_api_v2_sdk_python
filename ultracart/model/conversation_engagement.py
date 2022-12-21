@@ -93,6 +93,7 @@ class ConversationEngagement(ModelNormal):
         """
         lazy_import()
         return {
+            'active': (bool,),  # noqa: E501
             'conversation_engagement_oid': (int,),  # noqa: E501
             'customer_greeting': (str,),  # noqa: E501
             'department_oids': ([int],),  # noqa: E501
@@ -108,6 +109,7 @@ class ConversationEngagement(ModelNormal):
 
 
     attribute_map = {
+        'active': 'active',  # noqa: E501
         'conversation_engagement_oid': 'conversation_engagement_oid',  # noqa: E501
         'customer_greeting': 'customer_greeting',  # noqa: E501
         'department_oids': 'department_oids',  # noqa: E501
@@ -158,6 +160,7 @@ class ConversationEngagement(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            active (bool): [optional]  # noqa: E501
             conversation_engagement_oid (int): [optional]  # noqa: E501
             customer_greeting (str): [optional]  # noqa: E501
             department_oids ([int]): [optional]  # noqa: E501
@@ -250,6 +253,7 @@ class ConversationEngagement(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            active (bool): [optional]  # noqa: E501
             conversation_engagement_oid (int): [optional]  # noqa: E501
             customer_greeting (str): [optional]  # noqa: E501
             department_oids ([int]): [optional]  # noqa: E501
