@@ -32,7 +32,6 @@ class ConversationDepartment(object):
     """
     swagger_types = {
         'conversation_department_oid': 'int',
-        'delete_me': 'bool',
         'department_name': 'str',
         'merchant_id': 'str',
         'settings': 'ConversationDepartmentSettings'
@@ -40,17 +39,15 @@ class ConversationDepartment(object):
 
     attribute_map = {
         'conversation_department_oid': 'conversation_department_oid',
-        'delete_me': 'delete_me',
         'department_name': 'department_name',
         'merchant_id': 'merchant_id',
         'settings': 'settings'
     }
 
-    def __init__(self, conversation_department_oid=None, delete_me=None, department_name=None, merchant_id=None, settings=None):  # noqa: E501
+    def __init__(self, conversation_department_oid=None, department_name=None, merchant_id=None, settings=None):  # noqa: E501
         """ConversationDepartment - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_department_oid = None
-        self._delete_me = None
         self._department_name = None
         self._merchant_id = None
         self._settings = None
@@ -58,8 +55,6 @@ class ConversationDepartment(object):
 
         if conversation_department_oid is not None:
             self.conversation_department_oid = conversation_department_oid
-        if delete_me is not None:
-            self.delete_me = delete_me
         if department_name is not None:
             self.department_name = department_name
         if merchant_id is not None:
@@ -87,27 +82,6 @@ class ConversationDepartment(object):
         """
 
         self._conversation_department_oid = conversation_department_oid
-
-    @property
-    def delete_me(self):
-        """Gets the delete_me of this ConversationDepartment.  # noqa: E501
-
-
-        :return: The delete_me of this ConversationDepartment.  # noqa: E501
-        :rtype: bool
-        """
-        return self._delete_me
-
-    @delete_me.setter
-    def delete_me(self, delete_me):
-        """Sets the delete_me of this ConversationDepartment.
-
-
-        :param delete_me: The delete_me of this ConversationDepartment.  # noqa: E501
-        :type: bool
-        """
-
-        self._delete_me = delete_me
 
     @property
     def department_name(self):

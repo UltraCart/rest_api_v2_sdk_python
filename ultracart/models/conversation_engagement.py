@@ -31,6 +31,7 @@ class ConversationEngagement(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'active': 'bool',
         'conversation_engagement_oid': 'int',
         'customer_greeting': 'str',
         'department_oids': 'list[int]',
@@ -41,6 +42,7 @@ class ConversationEngagement(object):
     }
 
     attribute_map = {
+        'active': 'active',
         'conversation_engagement_oid': 'conversation_engagement_oid',
         'customer_greeting': 'customer_greeting',
         'department_oids': 'department_oids',
@@ -50,9 +52,10 @@ class ConversationEngagement(object):
         'visitor_type': 'visitor_type'
     }
 
-    def __init__(self, conversation_engagement_oid=None, customer_greeting=None, department_oids=None, engagement_name=None, equation=None, time_on_page=None, visitor_type=None):  # noqa: E501
+    def __init__(self, active=None, conversation_engagement_oid=None, customer_greeting=None, department_oids=None, engagement_name=None, equation=None, time_on_page=None, visitor_type=None):  # noqa: E501
         """ConversationEngagement - a model defined in Swagger"""  # noqa: E501
 
+        self._active = None
         self._conversation_engagement_oid = None
         self._customer_greeting = None
         self._department_oids = None
@@ -62,6 +65,8 @@ class ConversationEngagement(object):
         self._visitor_type = None
         self.discriminator = None
 
+        if active is not None:
+            self.active = active
         if conversation_engagement_oid is not None:
             self.conversation_engagement_oid = conversation_engagement_oid
         if customer_greeting is not None:
@@ -76,6 +81,27 @@ class ConversationEngagement(object):
             self.time_on_page = time_on_page
         if visitor_type is not None:
             self.visitor_type = visitor_type
+
+    @property
+    def active(self):
+        """Gets the active of this ConversationEngagement.  # noqa: E501
+
+
+        :return: The active of this ConversationEngagement.  # noqa: E501
+        :rtype: bool
+        """
+        return self._active
+
+    @active.setter
+    def active(self, active):
+        """Sets the active of this ConversationEngagement.
+
+
+        :param active: The active of this ConversationEngagement.  # noqa: E501
+        :type: bool
+        """
+
+        self._active = active
 
     @property
     def conversation_engagement_oid(self):
