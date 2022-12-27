@@ -211,8 +211,12 @@ docs/CouponFreeShippingWithItemsPurchase.md
 docs/CouponFreeShippingWithSubtotal.md
 docs/CouponItemSearchResult.md
 docs/CouponItemSearchResultsResponse.md
+docs/CouponMoreLoyaltyCashback.md
+docs/CouponMoreLoyaltyPoints.md
 docs/CouponMultipleAmountsOffItems.md
 docs/CouponNoDiscount.md
+docs/CouponPercentMoreLoyaltyCashback.md
+docs/CouponPercentMoreLoyaltyPoints.md
 docs/CouponPercentOffItemWithItemsQuantityPurchase.md
 docs/CouponPercentOffItems.md
 docs/CouponPercentOffItemsAndFreeShipping.md
@@ -968,8 +972,12 @@ ultracart/model/coupon_free_shipping_with_items_purchase.py
 ultracart/model/coupon_free_shipping_with_subtotal.py
 ultracart/model/coupon_item_search_result.py
 ultracart/model/coupon_item_search_results_response.py
+ultracart/model/coupon_more_loyalty_cashback.py
+ultracart/model/coupon_more_loyalty_points.py
 ultracart/model/coupon_multiple_amounts_off_items.py
 ultracart/model/coupon_no_discount.py
+ultracart/model/coupon_percent_more_loyalty_cashback.py
+ultracart/model/coupon_percent_more_loyalty_points.py
 ultracart/model/coupon_percent_off_item_with_items_quantity_purchase.py
 ultracart/model/coupon_percent_off_items.py
 ultracart/model/coupon_percent_off_items_and_free_shipping.py

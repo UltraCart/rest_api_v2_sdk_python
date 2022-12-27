@@ -54,8 +54,12 @@ def lazy_import():
     from ultracart.model.coupon_free_shipping_specific_items import CouponFreeShippingSpecificItems
     from ultracart.model.coupon_free_shipping_with_items_purchase import CouponFreeShippingWithItemsPurchase
     from ultracart.model.coupon_free_shipping_with_subtotal import CouponFreeShippingWithSubtotal
+    from ultracart.model.coupon_more_loyalty_cashback import CouponMoreLoyaltyCashback
+    from ultracart.model.coupon_more_loyalty_points import CouponMoreLoyaltyPoints
     from ultracart.model.coupon_multiple_amounts_off_items import CouponMultipleAmountsOffItems
     from ultracart.model.coupon_no_discount import CouponNoDiscount
+    from ultracart.model.coupon_percent_more_loyalty_cashback import CouponPercentMoreLoyaltyCashback
+    from ultracart.model.coupon_percent_more_loyalty_points import CouponPercentMoreLoyaltyPoints
     from ultracart.model.coupon_percent_off_item_with_items_quantity_purchase import CouponPercentOffItemWithItemsQuantityPurchase
     from ultracart.model.coupon_percent_off_items import CouponPercentOffItems
     from ultracart.model.coupon_percent_off_items_and_free_shipping import CouponPercentOffItemsAndFreeShipping
@@ -98,8 +102,12 @@ def lazy_import():
     globals()['CouponFreeShippingSpecificItems'] = CouponFreeShippingSpecificItems
     globals()['CouponFreeShippingWithItemsPurchase'] = CouponFreeShippingWithItemsPurchase
     globals()['CouponFreeShippingWithSubtotal'] = CouponFreeShippingWithSubtotal
+    globals()['CouponMoreLoyaltyCashback'] = CouponMoreLoyaltyCashback
+    globals()['CouponMoreLoyaltyPoints'] = CouponMoreLoyaltyPoints
     globals()['CouponMultipleAmountsOffItems'] = CouponMultipleAmountsOffItems
     globals()['CouponNoDiscount'] = CouponNoDiscount
+    globals()['CouponPercentMoreLoyaltyCashback'] = CouponPercentMoreLoyaltyCashback
+    globals()['CouponPercentMoreLoyaltyPoints'] = CouponPercentMoreLoyaltyPoints
     globals()['CouponPercentOffItemWithItemsQuantityPurchase'] = CouponPercentOffItemWithItemsQuantityPurchase
     globals()['CouponPercentOffItems'] = CouponPercentOffItems
     globals()['CouponPercentOffItemsAndFreeShipping'] = CouponPercentOffItemsAndFreeShipping
@@ -226,8 +234,12 @@ class Coupon(ModelNormal):
             'hide_from_customer': (bool,),  # noqa: E501
             'merchant_code': (str,),  # noqa: E501
             'merchant_notes': (str,),  # noqa: E501
+            'more_loyalty_cashback': (CouponMoreLoyaltyCashback,),  # noqa: E501
+            'more_loyalty_points': (CouponMoreLoyaltyPoints,),  # noqa: E501
             'multiple_amounts_off_items': (CouponMultipleAmountsOffItems,),  # noqa: E501
             'no_discount': (CouponNoDiscount,),  # noqa: E501
+            'percent_more_loyalty_cashback': (CouponPercentMoreLoyaltyCashback,),  # noqa: E501
+            'percent_more_loyalty_points': (CouponPercentMoreLoyaltyPoints,),  # noqa: E501
             'percent_off_item_with_items_quantity_purchase': (CouponPercentOffItemWithItemsQuantityPurchase,),  # noqa: E501
             'percent_off_items': (CouponPercentOffItems,),  # noqa: E501
             'percent_off_items_and_free_shipping': (CouponPercentOffItemsAndFreeShipping,),  # noqa: E501
@@ -295,8 +307,12 @@ class Coupon(ModelNormal):
         'hide_from_customer': 'hide_from_customer',  # noqa: E501
         'merchant_code': 'merchant_code',  # noqa: E501
         'merchant_notes': 'merchant_notes',  # noqa: E501
+        'more_loyalty_cashback': 'more_loyalty_cashback',  # noqa: E501
+        'more_loyalty_points': 'more_loyalty_points',  # noqa: E501
         'multiple_amounts_off_items': 'multiple_amounts_off_items',  # noqa: E501
         'no_discount': 'no_discount',  # noqa: E501
+        'percent_more_loyalty_cashback': 'percent_more_loyalty_cashback',  # noqa: E501
+        'percent_more_loyalty_points': 'percent_more_loyalty_points',  # noqa: E501
         'percent_off_item_with_items_quantity_purchase': 'percent_off_item_with_items_quantity_purchase',  # noqa: E501
         'percent_off_items': 'percent_off_items',  # noqa: E501
         'percent_off_items_and_free_shipping': 'percent_off_items_and_free_shipping',  # noqa: E501
@@ -399,8 +415,12 @@ class Coupon(ModelNormal):
             hide_from_customer (bool): Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms.. [optional]  # noqa: E501
             merchant_code (str): Merchant code of coupon up to 20 characters.. [optional]  # noqa: E501
             merchant_notes (str): Internal notes about this coupon.  These are not visible to customer.. [optional]  # noqa: E501
+            more_loyalty_cashback (CouponMoreLoyaltyCashback): [optional]  # noqa: E501
+            more_loyalty_points (CouponMoreLoyaltyPoints): [optional]  # noqa: E501
             multiple_amounts_off_items (CouponMultipleAmountsOffItems): [optional]  # noqa: E501
             no_discount (CouponNoDiscount): [optional]  # noqa: E501
+            percent_more_loyalty_cashback (CouponPercentMoreLoyaltyCashback): [optional]  # noqa: E501
+            percent_more_loyalty_points (CouponPercentMoreLoyaltyPoints): [optional]  # noqa: E501
             percent_off_item_with_items_quantity_purchase (CouponPercentOffItemWithItemsQuantityPurchase): [optional]  # noqa: E501
             percent_off_items (CouponPercentOffItems): [optional]  # noqa: E501
             percent_off_items_and_free_shipping (CouponPercentOffItemsAndFreeShipping): [optional]  # noqa: E501
@@ -545,8 +565,12 @@ class Coupon(ModelNormal):
             hide_from_customer (bool): Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms.. [optional]  # noqa: E501
             merchant_code (str): Merchant code of coupon up to 20 characters.. [optional]  # noqa: E501
             merchant_notes (str): Internal notes about this coupon.  These are not visible to customer.. [optional]  # noqa: E501
+            more_loyalty_cashback (CouponMoreLoyaltyCashback): [optional]  # noqa: E501
+            more_loyalty_points (CouponMoreLoyaltyPoints): [optional]  # noqa: E501
             multiple_amounts_off_items (CouponMultipleAmountsOffItems): [optional]  # noqa: E501
             no_discount (CouponNoDiscount): [optional]  # noqa: E501
+            percent_more_loyalty_cashback (CouponPercentMoreLoyaltyCashback): [optional]  # noqa: E501
+            percent_more_loyalty_points (CouponPercentMoreLoyaltyPoints): [optional]  # noqa: E501
             percent_off_item_with_items_quantity_purchase (CouponPercentOffItemWithItemsQuantityPurchase): [optional]  # noqa: E501
             percent_off_items (CouponPercentOffItems): [optional]  # noqa: E501
             percent_off_items_and_free_shipping (CouponPercentOffItemsAndFreeShipping): [optional]  # noqa: E501

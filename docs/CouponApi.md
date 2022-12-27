@@ -1226,6 +1226,12 @@ api_instance = GiftCertificateApi(api_client())
         hide_from_customer=True,
         merchant_code="merchant_code_example",
         merchant_notes="merchant_notes_example",
+        more_loyalty_cashback=CouponMoreLoyaltyCashback(
+            loyalty_cashback=3.14,
+        ),
+        more_loyalty_points=CouponMoreLoyaltyPoints(
+            loyalty_points=3.14,
+        ),
         multiple_amounts_off_items=CouponMultipleAmountsOffItems(
             discounts=[
                 CouponTierItemDiscount(
@@ -1239,6 +1245,12 @@ api_instance = GiftCertificateApi(api_client())
         ),
         no_discount=CouponNoDiscount(
             ignore_this_property=True,
+        ),
+        percent_more_loyalty_cashback=CouponPercentMoreLoyaltyCashback(
+            percent_more_loyalty_cashback=3.14,
+        ),
+        percent_more_loyalty_points=CouponPercentMoreLoyaltyPoints(
+            percent_more_loyalty_points=3.14,
         ),
         percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
             discount_percent=3.14,
@@ -1691,6 +1703,12 @@ api_instance = GiftCertificateApi(api_client())
                 hide_from_customer=True,
                 merchant_code="merchant_code_example",
                 merchant_notes="merchant_notes_example",
+                more_loyalty_cashback=CouponMoreLoyaltyCashback(
+                    loyalty_cashback=3.14,
+                ),
+                more_loyalty_points=CouponMoreLoyaltyPoints(
+                    loyalty_points=3.14,
+                ),
                 multiple_amounts_off_items=CouponMultipleAmountsOffItems(
                     discounts=[
                         CouponTierItemDiscount(
@@ -1704,6 +1722,12 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 no_discount=CouponNoDiscount(
                     ignore_this_property=True,
+                ),
+                percent_more_loyalty_cashback=CouponPercentMoreLoyaltyCashback(
+                    percent_more_loyalty_cashback=3.14,
+                ),
+                percent_more_loyalty_points=CouponPercentMoreLoyaltyPoints(
+                    percent_more_loyalty_points=3.14,
                 ),
                 percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
                     discount_percent=3.14,
@@ -2342,6 +2366,12 @@ api_instance = GiftCertificateApi(api_client())
         hide_from_customer=True,
         merchant_code="merchant_code_example",
         merchant_notes="merchant_notes_example",
+        more_loyalty_cashback=CouponMoreLoyaltyCashback(
+            loyalty_cashback=3.14,
+        ),
+        more_loyalty_points=CouponMoreLoyaltyPoints(
+            loyalty_points=3.14,
+        ),
         multiple_amounts_off_items=CouponMultipleAmountsOffItems(
             discounts=[
                 CouponTierItemDiscount(
@@ -2355,6 +2385,12 @@ api_instance = GiftCertificateApi(api_client())
         ),
         no_discount=CouponNoDiscount(
             ignore_this_property=True,
+        ),
+        percent_more_loyalty_cashback=CouponPercentMoreLoyaltyCashback(
+            percent_more_loyalty_cashback=3.14,
+        ),
+        percent_more_loyalty_points=CouponPercentMoreLoyaltyPoints(
+            percent_more_loyalty_points=3.14,
         ),
         percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
             discount_percent=3.14,
@@ -2808,6 +2844,12 @@ api_instance = GiftCertificateApi(api_client())
                 hide_from_customer=True,
                 merchant_code="merchant_code_example",
                 merchant_notes="merchant_notes_example",
+                more_loyalty_cashback=CouponMoreLoyaltyCashback(
+                    loyalty_cashback=3.14,
+                ),
+                more_loyalty_points=CouponMoreLoyaltyPoints(
+                    loyalty_points=3.14,
+                ),
                 multiple_amounts_off_items=CouponMultipleAmountsOffItems(
                     discounts=[
                         CouponTierItemDiscount(
@@ -2821,6 +2863,12 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 no_discount=CouponNoDiscount(
                     ignore_this_property=True,
+                ),
+                percent_more_loyalty_cashback=CouponPercentMoreLoyaltyCashback(
+                    percent_more_loyalty_cashback=3.14,
+                ),
+                percent_more_loyalty_points=CouponPercentMoreLoyaltyPoints(
+                    percent_more_loyalty_points=3.14,
                 ),
                 percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
                     discount_percent=3.14,
