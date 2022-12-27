@@ -65,8 +65,12 @@ class Coupon(object):
         'hide_from_customer': 'bool',
         'merchant_code': 'str',
         'merchant_notes': 'str',
+        'more_loyalty_cashback': 'CouponMoreLoyaltyCashback',
+        'more_loyalty_points': 'CouponMoreLoyaltyPoints',
         'multiple_amounts_off_items': 'CouponMultipleAmountsOffItems',
         'no_discount': 'CouponNoDiscount',
+        'percent_more_loyalty_cashback': 'CouponPercentMoreLoyaltyCashback',
+        'percent_more_loyalty_points': 'CouponPercentMoreLoyaltyPoints',
         'percent_off_item_with_items_quantity_purchase': 'CouponPercentOffItemWithItemsQuantityPurchase',
         'percent_off_items': 'CouponPercentOffItems',
         'percent_off_items_and_free_shipping': 'CouponPercentOffItemsAndFreeShipping',
@@ -129,8 +133,12 @@ class Coupon(object):
         'hide_from_customer': 'hide_from_customer',
         'merchant_code': 'merchant_code',
         'merchant_notes': 'merchant_notes',
+        'more_loyalty_cashback': 'more_loyalty_cashback',
+        'more_loyalty_points': 'more_loyalty_points',
         'multiple_amounts_off_items': 'multiple_amounts_off_items',
         'no_discount': 'no_discount',
+        'percent_more_loyalty_cashback': 'percent_more_loyalty_cashback',
+        'percent_more_loyalty_points': 'percent_more_loyalty_points',
         'percent_off_item_with_items_quantity_purchase': 'percent_off_item_with_items_quantity_purchase',
         'percent_off_items': 'percent_off_items',
         'percent_off_items_and_free_shipping': 'percent_off_items_and_free_shipping',
@@ -158,7 +166,7 @@ class Coupon(object):
         'usable_by': 'usable_by'
     }
 
-    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, amount_shipping_with_subtotal=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, hide_from_customer=None, merchant_code=None, merchant_notes=None, multiple_amounts_off_items=None, no_discount=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_items=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, tiered_percent_off_subtotal_based_on_msrp=None, usable_by=None):  # noqa: E501
+    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, amount_shipping_with_subtotal=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, hide_from_customer=None, merchant_code=None, merchant_notes=None, more_loyalty_cashback=None, more_loyalty_points=None, multiple_amounts_off_items=None, no_discount=None, percent_more_loyalty_cashback=None, percent_more_loyalty_points=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_items=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, tiered_percent_off_subtotal_based_on_msrp=None, usable_by=None):  # noqa: E501
         """Coupon - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_oid = None
@@ -195,8 +203,12 @@ class Coupon(object):
         self._hide_from_customer = None
         self._merchant_code = None
         self._merchant_notes = None
+        self._more_loyalty_cashback = None
+        self._more_loyalty_points = None
         self._multiple_amounts_off_items = None
         self._no_discount = None
+        self._percent_more_loyalty_cashback = None
+        self._percent_more_loyalty_points = None
         self._percent_off_item_with_items_quantity_purchase = None
         self._percent_off_items = None
         self._percent_off_items_and_free_shipping = None
@@ -292,10 +304,18 @@ class Coupon(object):
             self.merchant_code = merchant_code
         if merchant_notes is not None:
             self.merchant_notes = merchant_notes
+        if more_loyalty_cashback is not None:
+            self.more_loyalty_cashback = more_loyalty_cashback
+        if more_loyalty_points is not None:
+            self.more_loyalty_points = more_loyalty_points
         if multiple_amounts_off_items is not None:
             self.multiple_amounts_off_items = multiple_amounts_off_items
         if no_discount is not None:
             self.no_discount = no_discount
+        if percent_more_loyalty_cashback is not None:
+            self.percent_more_loyalty_cashback = percent_more_loyalty_cashback
+        if percent_more_loyalty_points is not None:
+            self.percent_more_loyalty_points = percent_more_loyalty_points
         if percent_off_item_with_items_quantity_purchase is not None:
             self.percent_off_item_with_items_quantity_purchase = percent_off_item_with_items_quantity_purchase
         if percent_off_items is not None:
@@ -1092,6 +1112,48 @@ class Coupon(object):
         self._merchant_notes = merchant_notes
 
     @property
+    def more_loyalty_cashback(self):
+        """Gets the more_loyalty_cashback of this Coupon.  # noqa: E501
+
+
+        :return: The more_loyalty_cashback of this Coupon.  # noqa: E501
+        :rtype: CouponMoreLoyaltyCashback
+        """
+        return self._more_loyalty_cashback
+
+    @more_loyalty_cashback.setter
+    def more_loyalty_cashback(self, more_loyalty_cashback):
+        """Sets the more_loyalty_cashback of this Coupon.
+
+
+        :param more_loyalty_cashback: The more_loyalty_cashback of this Coupon.  # noqa: E501
+        :type: CouponMoreLoyaltyCashback
+        """
+
+        self._more_loyalty_cashback = more_loyalty_cashback
+
+    @property
+    def more_loyalty_points(self):
+        """Gets the more_loyalty_points of this Coupon.  # noqa: E501
+
+
+        :return: The more_loyalty_points of this Coupon.  # noqa: E501
+        :rtype: CouponMoreLoyaltyPoints
+        """
+        return self._more_loyalty_points
+
+    @more_loyalty_points.setter
+    def more_loyalty_points(self, more_loyalty_points):
+        """Sets the more_loyalty_points of this Coupon.
+
+
+        :param more_loyalty_points: The more_loyalty_points of this Coupon.  # noqa: E501
+        :type: CouponMoreLoyaltyPoints
+        """
+
+        self._more_loyalty_points = more_loyalty_points
+
+    @property
     def multiple_amounts_off_items(self):
         """Gets the multiple_amounts_off_items of this Coupon.  # noqa: E501
 
@@ -1132,6 +1194,48 @@ class Coupon(object):
         """
 
         self._no_discount = no_discount
+
+    @property
+    def percent_more_loyalty_cashback(self):
+        """Gets the percent_more_loyalty_cashback of this Coupon.  # noqa: E501
+
+
+        :return: The percent_more_loyalty_cashback of this Coupon.  # noqa: E501
+        :rtype: CouponPercentMoreLoyaltyCashback
+        """
+        return self._percent_more_loyalty_cashback
+
+    @percent_more_loyalty_cashback.setter
+    def percent_more_loyalty_cashback(self, percent_more_loyalty_cashback):
+        """Sets the percent_more_loyalty_cashback of this Coupon.
+
+
+        :param percent_more_loyalty_cashback: The percent_more_loyalty_cashback of this Coupon.  # noqa: E501
+        :type: CouponPercentMoreLoyaltyCashback
+        """
+
+        self._percent_more_loyalty_cashback = percent_more_loyalty_cashback
+
+    @property
+    def percent_more_loyalty_points(self):
+        """Gets the percent_more_loyalty_points of this Coupon.  # noqa: E501
+
+
+        :return: The percent_more_loyalty_points of this Coupon.  # noqa: E501
+        :rtype: CouponPercentMoreLoyaltyPoints
+        """
+        return self._percent_more_loyalty_points
+
+    @percent_more_loyalty_points.setter
+    def percent_more_loyalty_points(self, percent_more_loyalty_points):
+        """Sets the percent_more_loyalty_points of this Coupon.
+
+
+        :param percent_more_loyalty_points: The percent_more_loyalty_points of this Coupon.  # noqa: E501
+        :type: CouponPercentMoreLoyaltyPoints
+        """
+
+        self._percent_more_loyalty_points = percent_more_loyalty_points
 
     @property
     def percent_off_item_with_items_quantity_purchase(self):
