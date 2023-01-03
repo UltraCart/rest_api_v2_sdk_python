@@ -56,6 +56,7 @@ class Order(object):
         'merchant_id': 'str',
         'order_id': 'str',
         'payment': 'OrderPayment',
+        'point_of_sale': 'OrderPointOfSale',
         'properties': 'list[OrderProperty]',
         'quote': 'OrderQuote',
         'refund_dts': 'str',
@@ -93,6 +94,7 @@ class Order(object):
         'merchant_id': 'merchant_id',
         'order_id': 'order_id',
         'payment': 'payment',
+        'point_of_sale': 'point_of_sale',
         'properties': 'properties',
         'quote': 'quote',
         'refund_dts': 'refund_dts',
@@ -104,7 +106,7 @@ class Order(object):
         'taxes': 'taxes'
     }
 
-    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, properties=None, quote=None, refund_dts=None, reject_dts=None, salesforce=None, shipping=None, summary=None, tags=None, taxes=None):  # noqa: E501
+    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, point_of_sale=None, properties=None, quote=None, refund_dts=None, reject_dts=None, salesforce=None, shipping=None, summary=None, tags=None, taxes=None):  # noqa: E501
         """Order - a model defined in Swagger"""  # noqa: E501
 
         self._affiliates = None
@@ -132,6 +134,7 @@ class Order(object):
         self._merchant_id = None
         self._order_id = None
         self._payment = None
+        self._point_of_sale = None
         self._properties = None
         self._quote = None
         self._refund_dts = None
@@ -193,6 +196,8 @@ class Order(object):
             self.order_id = order_id
         if payment is not None:
             self.payment = payment
+        if point_of_sale is not None:
+            self.point_of_sale = point_of_sale
         if properties is not None:
             self.properties = properties
         if quote is not None:
@@ -766,6 +771,27 @@ class Order(object):
         """
 
         self._payment = payment
+
+    @property
+    def point_of_sale(self):
+        """Gets the point_of_sale of this Order.  # noqa: E501
+
+
+        :return: The point_of_sale of this Order.  # noqa: E501
+        :rtype: OrderPointOfSale
+        """
+        return self._point_of_sale
+
+    @point_of_sale.setter
+    def point_of_sale(self, point_of_sale):
+        """Sets the point_of_sale of this Order.
+
+
+        :param point_of_sale: The point_of_sale of this Order.  # noqa: E501
+        :type: OrderPointOfSale
+        """
+
+        self._point_of_sale = point_of_sale
 
     @property
     def properties(self):

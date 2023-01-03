@@ -612,6 +612,7 @@ from ultracart.models.order_payment_insurance import OrderPaymentInsurance
 from ultracart.models.order_payment_purchase_order import OrderPaymentPurchaseOrder
 from ultracart.models.order_payment_transaction import OrderPaymentTransaction
 from ultracart.models.order_payment_transaction_detail import OrderPaymentTransactionDetail
+from ultracart.models.order_point_of_sale import OrderPointOfSale
 from ultracart.models.order_process_payment_request import OrderProcessPaymentRequest
 from ultracart.models.order_process_payment_response import OrderProcessPaymentResponse
 from ultracart.models.order_property import OrderProperty
@@ -633,6 +634,9 @@ from ultracart.models.order_tracking_number_detail import OrderTrackingNumberDet
 from ultracart.models.order_tracking_number_details import OrderTrackingNumberDetails
 from ultracart.models.orders_response import OrdersResponse
 from ultracart.models.permission import Permission
+from ultracart.models.point_of_sale_location import PointOfSaleLocation
+from ultracart.models.point_of_sale_reader import PointOfSaleReader
+from ultracart.models.point_of_sale_register import PointOfSaleRegister
 from ultracart.models.pricing_tier import PricingTier
 from ultracart.models.pricing_tier_notification import PricingTierNotification
 from ultracart.models.pricing_tiers_response import PricingTiersResponse
