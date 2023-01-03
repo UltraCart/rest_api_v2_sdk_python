@@ -39,6 +39,7 @@ def lazy_import():
     from ultracart.model.conversation_event_typing import ConversationEventTyping
     from ultracart.model.conversation_event_webchat_context import ConversationEventWebchatContext
     from ultracart.model.conversation_message import ConversationMessage
+    from ultracart.model.conversation_participant import ConversationParticipant
     from ultracart.model.conversation_summary import ConversationSummary
     from ultracart.model.conversation_webchat_queue_status import ConversationWebchatQueueStatus
     globals()['ConversationEventAddCoupon'] = ConversationEventAddCoupon
@@ -49,6 +50,7 @@ def lazy_import():
     globals()['ConversationEventTyping'] = ConversationEventTyping
     globals()['ConversationEventWebchatContext'] = ConversationEventWebchatContext
     globals()['ConversationMessage'] = ConversationMessage
+    globals()['ConversationParticipant'] = ConversationParticipant
     globals()['ConversationSummary'] = ConversationSummary
     globals()['ConversationWebchatQueueStatus'] = ConversationWebchatQueueStatus
 
@@ -88,6 +90,8 @@ class ConversationWebsocketMessage(ModelNormal):
             'QUEUE_STATUS_UPDATE': "queue status update",
             'RRWEB': "rrweb",
             'PARTICIPANT_UPDATE': "participant update",
+            'PARTICIPANT_JOIN': "participant join",
+            'PARTICIPANT_LEAVE': "participant leave",
             'READ_MESSAGE': "read message",
             'TYPING': "typing",
             'ADD_COUPON': "add coupon",
@@ -134,6 +138,10 @@ class ConversationWebsocketMessage(ModelNormal):
             'event_conversation_closed': (ConversationSummary,),  # noqa: E501
             'event_new_conversation': (ConversationSummary,),  # noqa: E501
             'event_new_message': (ConversationSummary,),  # noqa: E501
+            'event_participant_join': (ConversationSummary,),  # noqa: E501
+            'event_participant_join_participant': (ConversationParticipant,),  # noqa: E501
+            'event_participant_left': (ConversationSummary,),  # noqa: E501
+            'event_participant_left_participant': (ConversationParticipant,),  # noqa: E501
             'event_participant_update': (ConversationSummary,),  # noqa: E501
             'event_queue_position': (ConversationEventQueuePosition,),  # noqa: E501
             'event_queue_status_update': (ConversationWebchatQueueStatus,),  # noqa: E501
@@ -159,6 +167,10 @@ class ConversationWebsocketMessage(ModelNormal):
         'event_conversation_closed': 'event_conversation_closed',  # noqa: E501
         'event_new_conversation': 'event_new_conversation',  # noqa: E501
         'event_new_message': 'event_new_message',  # noqa: E501
+        'event_participant_join': 'event_participant_join',  # noqa: E501
+        'event_participant_join_participant': 'event_participant_join_participant',  # noqa: E501
+        'event_participant_left': 'event_participant_left',  # noqa: E501
+        'event_participant_left_participant': 'event_participant_left_participant',  # noqa: E501
         'event_participant_update': 'event_participant_update',  # noqa: E501
         'event_queue_position': 'event_queue_position',  # noqa: E501
         'event_queue_status_update': 'event_queue_status_update',  # noqa: E501
@@ -219,6 +231,10 @@ class ConversationWebsocketMessage(ModelNormal):
             event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
             event_new_conversation (ConversationSummary): [optional]  # noqa: E501
             event_new_message (ConversationSummary): [optional]  # noqa: E501
+            event_participant_join (ConversationSummary): [optional]  # noqa: E501
+            event_participant_join_participant (ConversationParticipant): [optional]  # noqa: E501
+            event_participant_left (ConversationSummary): [optional]  # noqa: E501
+            event_participant_left_participant (ConversationParticipant): [optional]  # noqa: E501
             event_participant_update (ConversationSummary): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_queue_status_update (ConversationWebchatQueueStatus): [optional]  # noqa: E501
@@ -321,6 +337,10 @@ class ConversationWebsocketMessage(ModelNormal):
             event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
             event_new_conversation (ConversationSummary): [optional]  # noqa: E501
             event_new_message (ConversationSummary): [optional]  # noqa: E501
+            event_participant_join (ConversationSummary): [optional]  # noqa: E501
+            event_participant_join_participant (ConversationParticipant): [optional]  # noqa: E501
+            event_participant_left (ConversationSummary): [optional]  # noqa: E501
+            event_participant_left_participant (ConversationParticipant): [optional]  # noqa: E501
             event_participant_update (ConversationSummary): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_queue_status_update (ConversationWebchatQueueStatus): [optional]  # noqa: E501
