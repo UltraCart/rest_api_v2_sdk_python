@@ -587,6 +587,7 @@ docs/OrderPaymentInsurance.md
 docs/OrderPaymentPurchaseOrder.md
 docs/OrderPaymentTransaction.md
 docs/OrderPaymentTransactionDetail.md
+docs/OrderPointOfSale.md
 docs/OrderProcessPaymentRequest.md
 docs/OrderProcessPaymentResponse.md
 docs/OrderProperty.md
@@ -608,6 +609,9 @@ docs/OrderTrackingNumberDetail.md
 docs/OrderTrackingNumberDetails.md
 docs/OrdersResponse.md
 docs/Permission.md
+docs/PointOfSaleLocation.md
+docs/PointOfSaleReader.md
+docs/PointOfSaleRegister.md
 docs/PricingTier.md
 docs/PricingTierNotification.md
 docs/PricingTiersResponse.md
@@ -1341,6 +1345,7 @@ ultracart/model/order_payment_insurance.py
 ultracart/model/order_payment_purchase_order.py
 ultracart/model/order_payment_transaction.py
 ultracart/model/order_payment_transaction_detail.py
+ultracart/model/order_point_of_sale.py
 ultracart/model/order_process_payment_request.py
 ultracart/model/order_process_payment_response.py
 ultracart/model/order_property.py
@@ -1362,6 +1367,9 @@ ultracart/model/order_tracking_number_detail.py
 ultracart/model/order_tracking_number_details.py
 ultracart/model/orders_response.py
 ultracart/model/permission.py
+ultracart/model/point_of_sale_location.py
+ultracart/model/point_of_sale_reader.py
+ultracart/model/point_of_sale_register.py
 ultracart/model/pricing_tier.py
 ultracart/model/pricing_tier_notification.py
 ultracart/model/pricing_tiers_response.py

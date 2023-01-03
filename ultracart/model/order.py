@@ -49,6 +49,7 @@ def lazy_import():
     from ultracart.model.order_linked_shipment import OrderLinkedShipment
     from ultracart.model.order_marketing import OrderMarketing
     from ultracart.model.order_payment import OrderPayment
+    from ultracart.model.order_point_of_sale import OrderPointOfSale
     from ultracart.model.order_property import OrderProperty
     from ultracart.model.order_quote import OrderQuote
     from ultracart.model.order_salesforce import OrderSalesforce
@@ -74,6 +75,7 @@ def lazy_import():
     globals()['OrderLinkedShipment'] = OrderLinkedShipment
     globals()['OrderMarketing'] = OrderMarketing
     globals()['OrderPayment'] = OrderPayment
+    globals()['OrderPointOfSale'] = OrderPointOfSale
     globals()['OrderProperty'] = OrderProperty
     globals()['OrderQuote'] = OrderQuote
     globals()['OrderSalesforce'] = OrderSalesforce
@@ -181,6 +183,7 @@ class Order(ModelNormal):
             'merchant_id': (str,),  # noqa: E501
             'order_id': (str,),  # noqa: E501
             'payment': (OrderPayment,),  # noqa: E501
+            'point_of_sale': (OrderPointOfSale,),  # noqa: E501
             'properties': ([OrderProperty],),  # noqa: E501
             'quote': (OrderQuote,),  # noqa: E501
             'refund_dts': (str,),  # noqa: E501
@@ -223,6 +226,7 @@ class Order(ModelNormal):
         'merchant_id': 'merchant_id',  # noqa: E501
         'order_id': 'order_id',  # noqa: E501
         'payment': 'payment',  # noqa: E501
+        'point_of_sale': 'point_of_sale',  # noqa: E501
         'properties': 'properties',  # noqa: E501
         'quote': 'quote',  # noqa: E501
         'refund_dts': 'refund_dts',  # noqa: E501
@@ -300,6 +304,7 @@ class Order(ModelNormal):
             merchant_id (str): UltraCart merchant ID owning this order. [optional]  # noqa: E501
             order_id (str): Order ID. [optional]  # noqa: E501
             payment (OrderPayment): [optional]  # noqa: E501
+            point_of_sale (OrderPointOfSale): [optional]  # noqa: E501
             properties ([OrderProperty]): Properties, available only through update, not through insert due to the nature of how properties are handled internally. [optional]  # noqa: E501
             quote (OrderQuote): [optional]  # noqa: E501
             refund_dts (str): If the order was refunded, the date/time that the last refund occurred. [optional]  # noqa: E501
@@ -419,6 +424,7 @@ class Order(ModelNormal):
             merchant_id (str): UltraCart merchant ID owning this order. [optional]  # noqa: E501
             order_id (str): Order ID. [optional]  # noqa: E501
             payment (OrderPayment): [optional]  # noqa: E501
+            point_of_sale (OrderPointOfSale): [optional]  # noqa: E501
             properties ([OrderProperty]): Properties, available only through update, not through insert due to the nature of how properties are handled internally. [optional]  # noqa: E501
             quote (OrderQuote): [optional]  # noqa: E501
             refund_dts (str): If the order was refunded, the date/time that the last refund occurred. [optional]  # noqa: E501
