@@ -47,6 +47,7 @@ class EmailFlow(object):
         'esp_friendly_name': 'str',
         'filter_profile_equation_json': 'str',
         'library_item_oid': 'int',
+        'maximum_enrolled': 'bool',
         'merchant_id': 'str',
         'name': 'str',
         'open_rate_formatted': 'str',
@@ -80,6 +81,7 @@ class EmailFlow(object):
         'esp_friendly_name': 'esp_friendly_name',
         'filter_profile_equation_json': 'filter_profile_equation_json',
         'library_item_oid': 'library_item_oid',
+        'maximum_enrolled': 'maximum_enrolled',
         'merchant_id': 'merchant_id',
         'name': 'name',
         'open_rate_formatted': 'open_rate_formatted',
@@ -96,7 +98,7 @@ class EmailFlow(object):
         'trigger_type': 'trigger_type'
     }
 
-    def __init__(self, allow_multiple_concurrent_enrollments=None, back_populating=None, click_rate_formatted=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, enrolled_customers=None, esp_domain_user=None, esp_domain_uuid=None, esp_flow_folder_uuid=None, esp_friendly_name=None, filter_profile_equation_json=None, library_item_oid=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, revenue_per_customer_formatted=None, screenshot_large_full_url=None, sms_esp_twilio_uuid=None, sms_phone_number=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):  # noqa: E501
+    def __init__(self, allow_multiple_concurrent_enrollments=None, back_populating=None, click_rate_formatted=None, created_dts=None, deleted=None, email_communication_sequence_uuid=None, email_flow_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, enrolled_customers=None, esp_domain_user=None, esp_domain_uuid=None, esp_flow_folder_uuid=None, esp_friendly_name=None, filter_profile_equation_json=None, library_item_oid=None, maximum_enrolled=None, merchant_id=None, name=None, open_rate_formatted=None, revenue_formatted=None, revenue_per_customer_formatted=None, screenshot_large_full_url=None, sms_esp_twilio_uuid=None, sms_phone_number=None, status=None, status_dts=None, storefront_oid=None, trigger_parameter=None, trigger_parameter_name=None, trigger_type=None):  # noqa: E501
         """EmailFlow - a model defined in Swagger"""  # noqa: E501
 
         self._allow_multiple_concurrent_enrollments = None
@@ -115,6 +117,7 @@ class EmailFlow(object):
         self._esp_friendly_name = None
         self._filter_profile_equation_json = None
         self._library_item_oid = None
+        self._maximum_enrolled = None
         self._merchant_id = None
         self._name = None
         self._open_rate_formatted = None
@@ -163,6 +166,8 @@ class EmailFlow(object):
             self.filter_profile_equation_json = filter_profile_equation_json
         if library_item_oid is not None:
             self.library_item_oid = library_item_oid
+        if maximum_enrolled is not None:
+            self.maximum_enrolled = maximum_enrolled
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if name is not None:
@@ -559,6 +564,29 @@ class EmailFlow(object):
         """
 
         self._library_item_oid = library_item_oid
+
+    @property
+    def maximum_enrolled(self):
+        """Gets the maximum_enrolled of this EmailFlow.  # noqa: E501
+
+        The number of maximum customers for the plan are currently enrolled in this flow.  # noqa: E501
+
+        :return: The maximum_enrolled of this EmailFlow.  # noqa: E501
+        :rtype: bool
+        """
+        return self._maximum_enrolled
+
+    @maximum_enrolled.setter
+    def maximum_enrolled(self, maximum_enrolled):
+        """Sets the maximum_enrolled of this EmailFlow.
+
+        The number of maximum customers for the plan are currently enrolled in this flow.  # noqa: E501
+
+        :param maximum_enrolled: The maximum_enrolled of this EmailFlow.  # noqa: E501
+        :type: bool
+        """
+
+        self._maximum_enrolled = maximum_enrolled
 
     @property
     def merchant_id(self):
