@@ -101,6 +101,7 @@ class EmailFlow(ModelNormal):
             'esp_friendly_name': (str,),  # noqa: E501
             'filter_profile_equation_json': (str,),  # noqa: E501
             'library_item_oid': (int,),  # noqa: E501
+            'maximum_enrolled': (bool,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'open_rate_formatted': (str,),  # noqa: E501
@@ -139,6 +140,7 @@ class EmailFlow(ModelNormal):
         'esp_friendly_name': 'esp_friendly_name',  # noqa: E501
         'filter_profile_equation_json': 'filter_profile_equation_json',  # noqa: E501
         'library_item_oid': 'library_item_oid',  # noqa: E501
+        'maximum_enrolled': 'maximum_enrolled',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'open_rate_formatted': 'open_rate_formatted',  # noqa: E501
@@ -212,6 +214,7 @@ class EmailFlow(ModelNormal):
             esp_friendly_name (str): Friendly name of the sending email. [optional]  # noqa: E501
             filter_profile_equation_json (str): File profile equation json. [optional]  # noqa: E501
             library_item_oid (int): If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.. [optional]  # noqa: E501
+            maximum_enrolled (bool): The number of maximum customers for the plan are currently enrolled in this flow.. [optional]  # noqa: E501
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
             name (str): Name of email flow. [optional]  # noqa: E501
             open_rate_formatted (str): Open rate of emails, formatted. [optional]  # noqa: E501
@@ -327,6 +330,7 @@ class EmailFlow(ModelNormal):
             esp_friendly_name (str): Friendly name of the sending email. [optional]  # noqa: E501
             filter_profile_equation_json (str): File profile equation json. [optional]  # noqa: E501
             library_item_oid (int): If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.. [optional]  # noqa: E501
+            maximum_enrolled (bool): The number of maximum customers for the plan are currently enrolled in this flow.. [optional]  # noqa: E501
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
             name (str): Name of email flow. [optional]  # noqa: E501
             open_rate_formatted (str): Open rate of emails, formatted. [optional]  # noqa: E501
