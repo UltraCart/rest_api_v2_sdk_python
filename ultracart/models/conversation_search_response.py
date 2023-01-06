@@ -33,20 +33,23 @@ class ConversationSearchResponse(object):
     swagger_types = {
         'range_begin': 'int',
         'range_end': 'int',
+        'records': 'list[Conversation]',
         'total': 'int'
     }
 
     attribute_map = {
         'range_begin': 'range_begin',
         'range_end': 'range_end',
+        'records': 'records',
         'total': 'total'
     }
 
-    def __init__(self, range_begin=None, range_end=None, total=None):  # noqa: E501
+    def __init__(self, range_begin=None, range_end=None, records=None, total=None):  # noqa: E501
         """ConversationSearchResponse - a model defined in Swagger"""  # noqa: E501
 
         self._range_begin = None
         self._range_end = None
+        self._records = None
         self._total = None
         self.discriminator = None
 
@@ -54,6 +57,8 @@ class ConversationSearchResponse(object):
             self.range_begin = range_begin
         if range_end is not None:
             self.range_end = range_end
+        if records is not None:
+            self.records = records
         if total is not None:
             self.total = total
 
@@ -98,6 +103,27 @@ class ConversationSearchResponse(object):
         """
 
         self._range_end = range_end
+
+    @property
+    def records(self):
+        """Gets the records of this ConversationSearchResponse.  # noqa: E501
+
+
+        :return: The records of this ConversationSearchResponse.  # noqa: E501
+        :rtype: list[Conversation]
+        """
+        return self._records
+
+    @records.setter
+    def records(self, records):
+        """Sets the records of this ConversationSearchResponse.
+
+
+        :param records: The records of this ConversationSearchResponse.  # noqa: E501
+        :type: list[Conversation]
+        """
+
+        self._records = records
 
     @property
     def total(self):
