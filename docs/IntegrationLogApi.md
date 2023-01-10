@@ -352,6 +352,7 @@ api_instance = GiftCertificateApi(api_client())
         file_names=[
             "file_names_example",
         ],
+        integration_log_oid=1,
         item_id="item_id_example",
         item_ipn_oid=1,
         log_dts_begin="log_dts_begin_example",

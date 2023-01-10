@@ -88,6 +88,7 @@ class IntegrationLogQueryRequest(ModelNormal):
             'direction': (str,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'file_names': ([str],),  # noqa: E501
+            'integration_log_oid': (int,),  # noqa: E501
             'item_id': (str,),  # noqa: E501
             'item_ipn_oid': (int,),  # noqa: E501
             'log_dts_begin': (str,),  # noqa: E501
@@ -111,6 +112,7 @@ class IntegrationLogQueryRequest(ModelNormal):
         'direction': 'direction',  # noqa: E501
         'email': 'email',  # noqa: E501
         'file_names': 'file_names',  # noqa: E501
+        'integration_log_oid': 'integration_log_oid',  # noqa: E501
         'item_id': 'item_id',  # noqa: E501
         'item_ipn_oid': 'item_ipn_oid',  # noqa: E501
         'log_dts_begin': 'log_dts_begin',  # noqa: E501
@@ -169,6 +171,7 @@ class IntegrationLogQueryRequest(ModelNormal):
             direction (str): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
             file_names ([str]): [optional]  # noqa: E501
+            integration_log_oid (int): [optional]  # noqa: E501
             item_id (str): [optional]  # noqa: E501
             item_ipn_oid (int): [optional]  # noqa: E501
             log_dts_begin (str): Log date/time begin. [optional]  # noqa: E501
@@ -269,6 +272,7 @@ class IntegrationLogQueryRequest(ModelNormal):
             direction (str): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
             file_names ([str]): [optional]  # noqa: E501
+            integration_log_oid (int): [optional]  # noqa: E501
             item_id (str): [optional]  # noqa: E501
             item_ipn_oid (int): [optional]  # noqa: E501
             log_dts_begin (str): Log date/time begin. [optional]  # noqa: E501
