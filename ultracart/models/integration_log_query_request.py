@@ -37,6 +37,7 @@ class IntegrationLogQueryRequest(object):
         'direction': 'str',
         'email': 'str',
         'file_names': 'list[str]',
+        'integration_log_oid': 'int',
         'item_id': 'str',
         'item_ipn_oid': 'int',
         'log_dts_begin': 'str',
@@ -55,6 +56,7 @@ class IntegrationLogQueryRequest(object):
         'direction': 'direction',
         'email': 'email',
         'file_names': 'file_names',
+        'integration_log_oid': 'integration_log_oid',
         'item_id': 'item_id',
         'item_ipn_oid': 'item_ipn_oid',
         'log_dts_begin': 'log_dts_begin',
@@ -66,7 +68,7 @@ class IntegrationLogQueryRequest(object):
         'status': 'status'
     }
 
-    def __init__(self, action=None, auto_order_ids=None, auto_order_oids=None, direction=None, email=None, file_names=None, item_id=None, item_ipn_oid=None, log_dts_begin=None, log_dts_end=None, log_type=None, logger_id=None, logger_name=None, order_ids=None, status=None):  # noqa: E501
+    def __init__(self, action=None, auto_order_ids=None, auto_order_oids=None, direction=None, email=None, file_names=None, integration_log_oid=None, item_id=None, item_ipn_oid=None, log_dts_begin=None, log_dts_end=None, log_type=None, logger_id=None, logger_name=None, order_ids=None, status=None):  # noqa: E501
         """IntegrationLogQueryRequest - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
@@ -75,6 +77,7 @@ class IntegrationLogQueryRequest(object):
         self._direction = None
         self._email = None
         self._file_names = None
+        self._integration_log_oid = None
         self._item_id = None
         self._item_ipn_oid = None
         self._log_dts_begin = None
@@ -98,6 +101,8 @@ class IntegrationLogQueryRequest(object):
             self.email = email
         if file_names is not None:
             self.file_names = file_names
+        if integration_log_oid is not None:
+            self.integration_log_oid = integration_log_oid
         if item_id is not None:
             self.item_id = item_id
         if item_ipn_oid is not None:
@@ -242,6 +247,27 @@ class IntegrationLogQueryRequest(object):
         """
 
         self._file_names = file_names
+
+    @property
+    def integration_log_oid(self):
+        """Gets the integration_log_oid of this IntegrationLogQueryRequest.  # noqa: E501
+
+
+        :return: The integration_log_oid of this IntegrationLogQueryRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._integration_log_oid
+
+    @integration_log_oid.setter
+    def integration_log_oid(self, integration_log_oid):
+        """Sets the integration_log_oid of this IntegrationLogQueryRequest.
+
+
+        :param integration_log_oid: The integration_log_oid of this IntegrationLogQueryRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._integration_log_oid = integration_log_oid
 
     @property
     def item_id(self):
