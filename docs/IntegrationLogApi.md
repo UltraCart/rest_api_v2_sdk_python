@@ -341,6 +341,12 @@ api_instance = GiftCertificateApi(api_client())
 
     integration_log_query = IntegrationLogQueryRequest(
         action="action_example",
+        auto_order_ids=[
+            "auto_order_ids_example",
+        ],
+        auto_order_oids=[
+            1,
+        ],
         direction="direction_example",
         email="email_example",
         file_names=[

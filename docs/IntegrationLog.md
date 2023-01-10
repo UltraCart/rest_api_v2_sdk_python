@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **str** |  | [optional] 
+**auto_order_oids** | **[int]** |  | [optional] 
 **direction** | **str** |  | [optional] 
 **email** | **str** |  | [optional] 
 **files** | [**[IntegrationLogFile]**](IntegrationLogFile.md) |  | [optional] 

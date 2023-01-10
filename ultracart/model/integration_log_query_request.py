@@ -83,6 +83,8 @@ class IntegrationLogQueryRequest(ModelNormal):
         """
         return {
             'action': (str,),  # noqa: E501
+            'auto_order_ids': ([str],),  # noqa: E501
+            'auto_order_oids': ([int],),  # noqa: E501
             'direction': (str,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'file_names': ([str],),  # noqa: E501
@@ -104,6 +106,8 @@ class IntegrationLogQueryRequest(ModelNormal):
 
     attribute_map = {
         'action': 'action',  # noqa: E501
+        'auto_order_ids': 'auto_order_ids',  # noqa: E501
+        'auto_order_oids': 'auto_order_oids',  # noqa: E501
         'direction': 'direction',  # noqa: E501
         'email': 'email',  # noqa: E501
         'file_names': 'file_names',  # noqa: E501
@@ -160,6 +164,8 @@ class IntegrationLogQueryRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): [optional]  # noqa: E501
+            auto_order_ids ([str]): [optional]  # noqa: E501
+            auto_order_oids ([int]): [optional]  # noqa: E501
             direction (str): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
             file_names ([str]): [optional]  # noqa: E501
@@ -258,6 +264,8 @@ class IntegrationLogQueryRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): [optional]  # noqa: E501
+            auto_order_ids ([str]): [optional]  # noqa: E501
+            auto_order_oids ([int]): [optional]  # noqa: E501
             direction (str): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
             file_names ([str]): [optional]  # noqa: E501

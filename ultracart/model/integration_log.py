@@ -91,6 +91,7 @@ class IntegrationLog(ModelNormal):
         lazy_import()
         return {
             'action': (str,),  # noqa: E501
+            'auto_order_oids': ([int],),  # noqa: E501
             'direction': (str,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'files': ([IntegrationLogFile],),  # noqa: E501
@@ -117,6 +118,7 @@ class IntegrationLog(ModelNormal):
 
     attribute_map = {
         'action': 'action',  # noqa: E501
+        'auto_order_oids': 'auto_order_oids',  # noqa: E501
         'direction': 'direction',  # noqa: E501
         'email': 'email',  # noqa: E501
         'files': 'files',  # noqa: E501
@@ -178,6 +180,7 @@ class IntegrationLog(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): [optional]  # noqa: E501
+            auto_order_oids ([int]): [optional]  # noqa: E501
             direction (str): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
             files ([IntegrationLogFile]): [optional]  # noqa: E501
@@ -281,6 +284,7 @@ class IntegrationLog(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): [optional]  # noqa: E501
+            auto_order_oids ([int]): [optional]  # noqa: E501
             direction (str): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
             files ([IntegrationLogFile]): [optional]  # noqa: E501

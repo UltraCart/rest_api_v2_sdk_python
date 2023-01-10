@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **str** |  | [optional] 
+**auto_order_ids** | **[str]** |  | [optional] 
+**auto_order_oids** | **[int]** |  | [optional] 
 **direction** | **str** |  | [optional] 
 **email** | **str** |  | [optional] 
 **file_names** | **[str]** |  | [optional] 
