@@ -92,8 +92,8 @@ class ConversationEngagementEquationFunction(ModelNormal):
         },
         ('type',): {
             'CURRENT_PAGE_URL': "current page url",
-            'CUSTOMER&#39;S_LOCATION': "customer's location",
-            'CUSTOMER&#39;S_BROWSING_TIME': "customer's browsing time",
+            'CUSTOMERS_LOCATION': "customers location",
+            'CUSTOMERS_BROWSING_TIME': "customers browsing time",
             'NUMBER_OF_VIEWED_PAGES': "number of viewed pages",
             'REFERRING_WEBSITE_ADDRESS': "referring website address",
             'ANY_PAGE_FROM_SESSION': "any page from session",
