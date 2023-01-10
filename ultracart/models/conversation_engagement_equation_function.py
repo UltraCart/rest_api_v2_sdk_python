@@ -453,7 +453,7 @@ class ConversationEngagementEquationFunction(object):
         :param type: The type of this ConversationEngagementEquationFunction.  # noqa: E501
         :type: str
         """
-        allowed_values = ["current page url", "customer's location", "customer's browsing time", "number of viewed pages", "referring website address", "any page from session"]  # noqa: E501
+        allowed_values = ["current page url", "customers location", "customers browsing time", "number of viewed pages", "referring website address", "any page from session"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
