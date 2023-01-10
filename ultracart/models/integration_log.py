@@ -32,6 +32,7 @@ class IntegrationLog(object):
     """
     swagger_types = {
         'action': 'str',
+        'auto_order_oids': 'list[int]',
         'direction': 'str',
         'email': 'str',
         'files': 'list[IntegrationLogFile]',
@@ -53,6 +54,7 @@ class IntegrationLog(object):
 
     attribute_map = {
         'action': 'action',
+        'auto_order_oids': 'auto_order_oids',
         'direction': 'direction',
         'email': 'email',
         'files': 'files',
@@ -72,10 +74,11 @@ class IntegrationLog(object):
         'status_code': 'status_code'
     }
 
-    def __init__(self, action=None, direction=None, email=None, files=None, integration_log_oid=None, item_id=None, item_ipn_oid=None, log_dts=None, log_type=None, logger_id=None, logger_name=None, logs=None, omit_log_map=None, order_ids=None, pk=None, sk=None, status=None, status_code=None):  # noqa: E501
+    def __init__(self, action=None, auto_order_oids=None, direction=None, email=None, files=None, integration_log_oid=None, item_id=None, item_ipn_oid=None, log_dts=None, log_type=None, logger_id=None, logger_name=None, logs=None, omit_log_map=None, order_ids=None, pk=None, sk=None, status=None, status_code=None):  # noqa: E501
         """IntegrationLog - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
+        self._auto_order_oids = None
         self._direction = None
         self._email = None
         self._files = None
@@ -97,6 +100,8 @@ class IntegrationLog(object):
 
         if action is not None:
             self.action = action
+        if auto_order_oids is not None:
+            self.auto_order_oids = auto_order_oids
         if direction is not None:
             self.direction = direction
         if email is not None:
@@ -152,6 +157,27 @@ class IntegrationLog(object):
         """
 
         self._action = action
+
+    @property
+    def auto_order_oids(self):
+        """Gets the auto_order_oids of this IntegrationLog.  # noqa: E501
+
+
+        :return: The auto_order_oids of this IntegrationLog.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._auto_order_oids
+
+    @auto_order_oids.setter
+    def auto_order_oids(self, auto_order_oids):
+        """Sets the auto_order_oids of this IntegrationLog.
+
+
+        :param auto_order_oids: The auto_order_oids of this IntegrationLog.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._auto_order_oids = auto_order_oids
 
     @property
     def direction(self):

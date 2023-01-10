@@ -32,6 +32,8 @@ class IntegrationLogQueryRequest(object):
     """
     swagger_types = {
         'action': 'str',
+        'auto_order_ids': 'list[str]',
+        'auto_order_oids': 'list[int]',
         'direction': 'str',
         'email': 'str',
         'file_names': 'list[str]',
@@ -48,6 +50,8 @@ class IntegrationLogQueryRequest(object):
 
     attribute_map = {
         'action': 'action',
+        'auto_order_ids': 'auto_order_ids',
+        'auto_order_oids': 'auto_order_oids',
         'direction': 'direction',
         'email': 'email',
         'file_names': 'file_names',
@@ -62,10 +66,12 @@ class IntegrationLogQueryRequest(object):
         'status': 'status'
     }
 
-    def __init__(self, action=None, direction=None, email=None, file_names=None, item_id=None, item_ipn_oid=None, log_dts_begin=None, log_dts_end=None, log_type=None, logger_id=None, logger_name=None, order_ids=None, status=None):  # noqa: E501
+    def __init__(self, action=None, auto_order_ids=None, auto_order_oids=None, direction=None, email=None, file_names=None, item_id=None, item_ipn_oid=None, log_dts_begin=None, log_dts_end=None, log_type=None, logger_id=None, logger_name=None, order_ids=None, status=None):  # noqa: E501
         """IntegrationLogQueryRequest - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
+        self._auto_order_ids = None
+        self._auto_order_oids = None
         self._direction = None
         self._email = None
         self._file_names = None
@@ -82,6 +88,10 @@ class IntegrationLogQueryRequest(object):
 
         if action is not None:
             self.action = action
+        if auto_order_ids is not None:
+            self.auto_order_ids = auto_order_ids
+        if auto_order_oids is not None:
+            self.auto_order_oids = auto_order_oids
         if direction is not None:
             self.direction = direction
         if email is not None:
@@ -127,6 +137,48 @@ class IntegrationLogQueryRequest(object):
         """
 
         self._action = action
+
+    @property
+    def auto_order_ids(self):
+        """Gets the auto_order_ids of this IntegrationLogQueryRequest.  # noqa: E501
+
+
+        :return: The auto_order_ids of this IntegrationLogQueryRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._auto_order_ids
+
+    @auto_order_ids.setter
+    def auto_order_ids(self, auto_order_ids):
+        """Sets the auto_order_ids of this IntegrationLogQueryRequest.
+
+
+        :param auto_order_ids: The auto_order_ids of this IntegrationLogQueryRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._auto_order_ids = auto_order_ids
+
+    @property
+    def auto_order_oids(self):
+        """Gets the auto_order_oids of this IntegrationLogQueryRequest.  # noqa: E501
+
+
+        :return: The auto_order_oids of this IntegrationLogQueryRequest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._auto_order_oids
+
+    @auto_order_oids.setter
+    def auto_order_oids(self, auto_order_oids):
+        """Sets the auto_order_oids of this IntegrationLogQueryRequest.
+
+
+        :param auto_order_oids: The auto_order_oids of this IntegrationLogQueryRequest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._auto_order_oids = auto_order_oids
 
     @property
     def direction(self):
