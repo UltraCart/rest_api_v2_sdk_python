@@ -31,8 +31,8 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from ultracart.model.conversation import Conversation
-    globals()['Conversation'] = Conversation
+    from ultracart.model.conversation_summary import ConversationSummary
+    globals()['ConversationSummary'] = ConversationSummary
 
 
 class ConversationSearchResponse(ModelNormal):
@@ -90,7 +90,7 @@ class ConversationSearchResponse(ModelNormal):
         return {
             'range_begin': (int,),  # noqa: E501
             'range_end': (int,),  # noqa: E501
-            'records': ([Conversation],),  # noqa: E501
+            'records': ([ConversationSummary],),  # noqa: E501
             'total': (int,),  # noqa: E501
         }
 
@@ -149,7 +149,7 @@ class ConversationSearchResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             range_begin (int): [optional]  # noqa: E501
             range_end (int): [optional]  # noqa: E501
-            records ([Conversation]): [optional]  # noqa: E501
+            records ([ConversationSummary]): [optional]  # noqa: E501
             total (int): [optional]  # noqa: E501
         """
 
@@ -238,7 +238,7 @@ class ConversationSearchResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             range_begin (int): [optional]  # noqa: E501
             range_end (int): [optional]  # noqa: E501
-            records ([Conversation]): [optional]  # noqa: E501
+            records ([ConversationSummary]): [optional]  # noqa: E501
             total (int): [optional]  # noqa: E501
         """
 
