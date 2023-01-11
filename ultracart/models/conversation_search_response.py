@@ -33,7 +33,7 @@ class ConversationSearchResponse(object):
     swagger_types = {
         'range_begin': 'int',
         'range_end': 'int',
-        'records': 'list[Conversation]',
+        'records': 'list[ConversationSummary]',
         'total': 'int'
     }
 
@@ -110,7 +110,7 @@ class ConversationSearchResponse(object):
 
 
         :return: The records of this ConversationSearchResponse.  # noqa: E501
-        :rtype: list[Conversation]
+        :rtype: list[ConversationSummary]
         """
         return self._records
 
@@ -120,7 +120,7 @@ class ConversationSearchResponse(object):
 
 
         :param records: The records of this ConversationSearchResponse.  # noqa: E501
-        :type: list[Conversation]
+        :type: list[ConversationSummary]
         """
 
         self._records = records
