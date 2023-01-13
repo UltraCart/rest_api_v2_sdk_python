@@ -27,6 +27,10 @@ from ultracart.model.channel_partner_estimate_shipping_response import ChannelPa
 from ultracart.model.channel_partner_estimate_tax_response import ChannelPartnerEstimateTaxResponse
 from ultracart.model.channel_partner_import_response import ChannelPartnerImportResponse
 from ultracart.model.channel_partner_order import ChannelPartnerOrder
+from ultracart.model.channel_partner_ship_to_preference import ChannelPartnerShipToPreference
+from ultracart.model.channel_partner_ship_to_preference_response import ChannelPartnerShipToPreferenceResponse
+from ultracart.model.channel_partner_ship_to_preferences_response import ChannelPartnerShipToPreferencesResponse
+from ultracart.model.channel_partners_response import ChannelPartnersResponse
 from ultracart.model.error_response import ErrorResponse
 
 
@@ -156,6 +160,64 @@ class ChannelPartnerApi(object):
             },
             api_client=api_client
         )
+        self.delete_channel_partner_ship_to_preference_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}',
+                'operation_id': 'delete_channel_partner_ship_to_preference',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'channel_partner_oid',
+                    'channel_partner_ship_to_preference_oid',
+                ],
+                'required': [
+                    'channel_partner_oid',
+                    'channel_partner_ship_to_preference_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'channel_partner_oid':
+                        (int,),
+                    'channel_partner_ship_to_preference_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'channel_partner_oid': 'channel_partner_oid',
+                    'channel_partner_ship_to_preference_oid': 'channel_partner_ship_to_preference_oid',
+                },
+                'location_map': {
+                    'channel_partner_oid': 'path',
+                    'channel_partner_ship_to_preference_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.estimate_shipping_for_channel_partner_order_endpoint = _Endpoint(
             settings={
                 'response_type': (ChannelPartnerEstimateShippingResponse,),
@@ -262,6 +324,161 @@ class ChannelPartnerApi(object):
             },
             api_client=api_client
         )
+        self.get_channel_partner_ship_to_preference_endpoint = _Endpoint(
+            settings={
+                'response_type': (ChannelPartnerShipToPreferenceResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}',
+                'operation_id': 'get_channel_partner_ship_to_preference',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'channel_partner_oid',
+                    'channel_partner_ship_to_preference_oid',
+                ],
+                'required': [
+                    'channel_partner_oid',
+                    'channel_partner_ship_to_preference_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'channel_partner_oid':
+                        (int,),
+                    'channel_partner_ship_to_preference_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'channel_partner_oid': 'channel_partner_oid',
+                    'channel_partner_ship_to_preference_oid': 'channel_partner_ship_to_preference_oid',
+                },
+                'location_map': {
+                    'channel_partner_oid': 'path',
+                    'channel_partner_ship_to_preference_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_channel_partner_ship_to_preferences_endpoint = _Endpoint(
+            settings={
+                'response_type': (ChannelPartnerShipToPreferencesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences',
+                'operation_id': 'get_channel_partner_ship_to_preferences',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'channel_partner_oid',
+                ],
+                'required': [
+                    'channel_partner_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'channel_partner_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'channel_partner_oid': 'channel_partner_oid',
+                },
+                'location_map': {
+                    'channel_partner_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_channel_partners_endpoint = _Endpoint(
+            settings={
+                'response_type': (ChannelPartnersResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/channel_partner/channel_partners',
+                'operation_id': 'get_channel_partners',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.import_channel_partner_order_endpoint = _Endpoint(
             settings={
                 'response_type': (ChannelPartnerImportResponse,),
@@ -311,6 +528,130 @@ class ChannelPartnerApi(object):
                 ],
                 'content_type': [
                     'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_channel_partner_ship_to_preference_endpoint = _Endpoint(
+            settings={
+                'response_type': (ChannelPartnerShipToPreferenceResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences',
+                'operation_id': 'insert_channel_partner_ship_to_preference',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'channel_partner_oid',
+                    'ship_to_preference',
+                ],
+                'required': [
+                    'channel_partner_oid',
+                    'ship_to_preference',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'channel_partner_oid':
+                        (int,),
+                    'ship_to_preference':
+                        (ChannelPartnerShipToPreference,),
+                },
+                'attribute_map': {
+                    'channel_partner_oid': 'channel_partner_oid',
+                },
+                'location_map': {
+                    'channel_partner_oid': 'path',
+                    'ship_to_preference': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_channel_partner_ship_to_preference_endpoint = _Endpoint(
+            settings={
+                'response_type': (ChannelPartnerShipToPreferenceResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}',
+                'operation_id': 'update_channel_partner_ship_to_preference',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'channel_partner_oid',
+                    'channel_partner_ship_to_preference_oid',
+                    'ship_to_preference',
+                ],
+                'required': [
+                    'channel_partner_oid',
+                    'channel_partner_ship_to_preference_oid',
+                    'ship_to_preference',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'channel_partner_oid':
+                        (int,),
+                    'channel_partner_ship_to_preference_oid':
+                        (int,),
+                    'ship_to_preference':
+                        (ChannelPartnerShipToPreference,),
+                },
+                'attribute_map': {
+                    'channel_partner_oid': 'channel_partner_oid',
+                    'channel_partner_ship_to_preference_oid': 'channel_partner_ship_to_preference_oid',
+                },
+                'location_map': {
+                    'channel_partner_oid': 'path',
+                    'channel_partner_ship_to_preference_oid': 'path',
+                    'ship_to_preference': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
                 ]
             },
             api_client=api_client
@@ -482,6 +823,93 @@ class ChannelPartnerApi(object):
             order_id
         return self.cancel_order_by_ultra_cart_order_id_endpoint.call_with_http_info(**kwargs)
 
+    def delete_channel_partner_ship_to_preference(
+        self,
+        channel_partner_oid,
+        channel_partner_ship_to_preference_oid,
+        **kwargs
+    ):
+        """Delete a ship to preference record for the channel partner.  # noqa: E501
+
+        Delete a ship to preference record for the channel partner.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            channel_partner_oid (int):
+            channel_partner_ship_to_preference_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['channel_partner_oid'] = \
+            channel_partner_oid
+        kwargs['channel_partner_ship_to_preference_oid'] = \
+            channel_partner_ship_to_preference_oid
+        return self.delete_channel_partner_ship_to_preference_endpoint.call_with_http_info(**kwargs)
+
     def estimate_shipping_for_channel_partner_order(
         self,
         channel_partner_order,
@@ -648,6 +1076,254 @@ class ChannelPartnerApi(object):
             channel_partner_order
         return self.estimate_tax_for_channel_partner_order_endpoint.call_with_http_info(**kwargs)
 
+    def get_channel_partner_ship_to_preference(
+        self,
+        channel_partner_oid,
+        channel_partner_ship_to_preference_oid,
+        **kwargs
+    ):
+        """Retrieve the ship to preference associated with the channel partner and the specific id.  # noqa: E501
+
+        Retrieve the ship to preference associated with the channel partner and the specific id.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            channel_partner_oid (int):
+            channel_partner_ship_to_preference_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ChannelPartnerShipToPreferenceResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['channel_partner_oid'] = \
+            channel_partner_oid
+        kwargs['channel_partner_ship_to_preference_oid'] = \
+            channel_partner_ship_to_preference_oid
+        return self.get_channel_partner_ship_to_preference_endpoint.call_with_http_info(**kwargs)
+
+    def get_channel_partner_ship_to_preferences(
+        self,
+        channel_partner_oid,
+        **kwargs
+    ):
+        """Retrieve the ship to preferences associated with the channel partner.  # noqa: E501
+
+        Retrieve the ship to preferences associated with the channel partner.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_channel_partner_ship_to_preferences(channel_partner_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            channel_partner_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ChannelPartnerShipToPreferencesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['channel_partner_oid'] = \
+            channel_partner_oid
+        return self.get_channel_partner_ship_to_preferences_endpoint.call_with_http_info(**kwargs)
+
+    def get_channel_partners(
+        self,
+        **kwargs
+    ):
+        """Retrieve the channel partners configured on the account.  # noqa: E501
+
+        Retrieve the channel partners configured on the account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_channel_partners(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ChannelPartnersResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_channel_partners_endpoint.call_with_http_info(**kwargs)
+
     def import_channel_partner_order(
         self,
         channel_partner_order,
@@ -730,4 +1406,182 @@ class ChannelPartnerApi(object):
         kwargs['channel_partner_order'] = \
             channel_partner_order
         return self.import_channel_partner_order_endpoint.call_with_http_info(**kwargs)
+
+    def insert_channel_partner_ship_to_preference(
+        self,
+        channel_partner_oid,
+        ship_to_preference,
+        **kwargs
+    ):
+        """Insert a ship to preference record for the channel partner.  # noqa: E501
+
+        Insert a ship to preference record for the channel partner.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_channel_partner_ship_to_preference(channel_partner_oid, ship_to_preference, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            channel_partner_oid (int):
+            ship_to_preference (ChannelPartnerShipToPreference): Ship to preference to create
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ChannelPartnerShipToPreferenceResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['channel_partner_oid'] = \
+            channel_partner_oid
+        kwargs['ship_to_preference'] = \
+            ship_to_preference
+        return self.insert_channel_partner_ship_to_preference_endpoint.call_with_http_info(**kwargs)
+
+    def update_channel_partner_ship_to_preference(
+        self,
+        channel_partner_oid,
+        channel_partner_ship_to_preference_oid,
+        ship_to_preference,
+        **kwargs
+    ):
+        """Update a ship to preference record for the channel partner.  # noqa: E501
+
+        Update a ship to preference record for the channel partner.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid, ship_to_preference, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            channel_partner_oid (int):
+            channel_partner_ship_to_preference_oid (int):
+            ship_to_preference (ChannelPartnerShipToPreference): Ship to preference to create
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ChannelPartnerShipToPreferenceResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['channel_partner_oid'] = \
+            channel_partner_oid
+        kwargs['channel_partner_ship_to_preference_oid'] = \
+            channel_partner_ship_to_preference_oid
+        kwargs['ship_to_preference'] = \
+            ship_to_preference
+        return self.update_channel_partner_ship_to_preference_endpoint.call_with_http_info(**kwargs)
 

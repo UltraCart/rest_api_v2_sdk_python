@@ -112,7 +112,11 @@ docs/ChannelPartnerOrderItem.md
 docs/ChannelPartnerOrderItemOption.md
 docs/ChannelPartnerOrderTransaction.md
 docs/ChannelPartnerOrderTransactionDetail.md
+docs/ChannelPartnerShipToPreference.md
+docs/ChannelPartnerShipToPreferenceResponse.md
+docs/ChannelPartnerShipToPreferencesResponse.md
 docs/ChannelPartnerShippingEstimate.md
+docs/ChannelPartnersResponse.md
 docs/ChargebackApi.md
 docs/ChargebackDispute.md
 docs/ChargebackDisputeResponse.md
@@ -881,7 +885,11 @@ ultracart/model/channel_partner_order_item.py
 ultracart/model/channel_partner_order_item_option.py
 ultracart/model/channel_partner_order_transaction.py
 ultracart/model/channel_partner_order_transaction_detail.py
+ultracart/model/channel_partner_ship_to_preference.py
+ultracart/model/channel_partner_ship_to_preference_response.py
+ultracart/model/channel_partner_ship_to_preferences_response.py
 ultracart/model/channel_partner_shipping_estimate.py
+ultracart/model/channel_partners_response.py
 ultracart/model/chargeback_dispute.py
 ultracart/model/chargeback_dispute_response.py
 ultracart/model/chargeback_disputes_response.py
