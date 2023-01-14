@@ -59,6 +59,9 @@ class PointOfSaleLocation(ModelNormal):
     }
 
     validations = {
+        ('external_id',): {
+            'max_length': 100,
+        },
     }
 
     @cached_property
@@ -87,6 +90,7 @@ class PointOfSaleLocation(ModelNormal):
             'city': (str,),  # noqa: E501
             'country': (str,),  # noqa: E501
             'distribution_center_code': (str,),  # noqa: E501
+            'external_id': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'pos_location_oid': (int,),  # noqa: E501
             'postal_code': (str,),  # noqa: E501
@@ -104,6 +108,7 @@ class PointOfSaleLocation(ModelNormal):
         'city': 'city',  # noqa: E501
         'country': 'country',  # noqa: E501
         'distribution_center_code': 'distribution_center_code',  # noqa: E501
+        'external_id': 'external_id',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'pos_location_oid': 'pos_location_oid',  # noqa: E501
         'postal_code': 'postal_code',  # noqa: E501
@@ -156,6 +161,7 @@ class PointOfSaleLocation(ModelNormal):
             city (str): City. [optional]  # noqa: E501
             country (str): Country. [optional]  # noqa: E501
             distribution_center_code (str): The distribution center code where inventory is reduced from for this sale.. [optional]  # noqa: E501
+            external_id (str): External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.. [optional]  # noqa: E501
             merchant_id (str): Merchant ID that owns this location. [optional]  # noqa: E501
             pos_location_oid (int): Object identifier of the point of sale location.. [optional]  # noqa: E501
             postal_code (str): Postal code. [optional]  # noqa: E501
@@ -250,6 +256,7 @@ class PointOfSaleLocation(ModelNormal):
             city (str): City. [optional]  # noqa: E501
             country (str): Country. [optional]  # noqa: E501
             distribution_center_code (str): The distribution center code where inventory is reduced from for this sale.. [optional]  # noqa: E501
+            external_id (str): External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.. [optional]  # noqa: E501
             merchant_id (str): Merchant ID that owns this location. [optional]  # noqa: E501
             pos_location_oid (int): Object identifier of the point of sale location.. [optional]  # noqa: E501
             postal_code (str): Postal code. [optional]  # noqa: E501
