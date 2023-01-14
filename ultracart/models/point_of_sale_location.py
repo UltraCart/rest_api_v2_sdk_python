@@ -36,6 +36,7 @@ class PointOfSaleLocation(object):
         'city': 'str',
         'country': 'str',
         'distribution_center_code': 'str',
+        'external_id': 'str',
         'merchant_id': 'str',
         'pos_location_oid': 'int',
         'postal_code': 'str',
@@ -48,13 +49,14 @@ class PointOfSaleLocation(object):
         'city': 'city',
         'country': 'country',
         'distribution_center_code': 'distribution_center_code',
+        'external_id': 'external_id',
         'merchant_id': 'merchant_id',
         'pos_location_oid': 'pos_location_oid',
         'postal_code': 'postal_code',
         'state_province': 'state_province'
     }
 
-    def __init__(self, adddress2=None, address1=None, city=None, country=None, distribution_center_code=None, merchant_id=None, pos_location_oid=None, postal_code=None, state_province=None):  # noqa: E501
+    def __init__(self, adddress2=None, address1=None, city=None, country=None, distribution_center_code=None, external_id=None, merchant_id=None, pos_location_oid=None, postal_code=None, state_province=None):  # noqa: E501
         """PointOfSaleLocation - a model defined in Swagger"""  # noqa: E501
 
         self._adddress2 = None
@@ -62,6 +64,7 @@ class PointOfSaleLocation(object):
         self._city = None
         self._country = None
         self._distribution_center_code = None
+        self._external_id = None
         self._merchant_id = None
         self._pos_location_oid = None
         self._postal_code = None
@@ -78,6 +81,8 @@ class PointOfSaleLocation(object):
             self.country = country
         if distribution_center_code is not None:
             self.distribution_center_code = distribution_center_code
+        if external_id is not None:
+            self.external_id = external_id
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if pos_location_oid is not None:
@@ -201,6 +206,31 @@ class PointOfSaleLocation(object):
         """
 
         self._distribution_center_code = distribution_center_code
+
+    @property
+    def external_id(self):
+        """Gets the external_id of this PointOfSaleLocation.  # noqa: E501
+
+        External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.  # noqa: E501
+
+        :return: The external_id of this PointOfSaleLocation.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_id
+
+    @external_id.setter
+    def external_id(self, external_id):
+        """Sets the external_id of this PointOfSaleLocation.
+
+        External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.  # noqa: E501
+
+        :param external_id: The external_id of this PointOfSaleLocation.  # noqa: E501
+        :type: str
+        """
+        if external_id is not None and len(external_id) > 100:
+            raise ValueError("Invalid value for `external_id`, length must be less than or equal to `100`")  # noqa: E501
+
+        self._external_id = external_id
 
     @property
     def merchant_id(self):
