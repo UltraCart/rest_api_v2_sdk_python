@@ -51,6 +51,7 @@ class CartItem(object):
         'phsyical': 'CartItemPhysical',
         'position': 'int',
         'preorder': 'bool',
+        'properties': 'list[CartItemProperty]',
         'quantity': 'float',
         'schedules': 'list[str]',
         'total_cost': 'Currency',
@@ -83,6 +84,7 @@ class CartItem(object):
         'phsyical': 'phsyical',
         'position': 'position',
         'preorder': 'preorder',
+        'properties': 'properties',
         'quantity': 'quantity',
         'schedules': 'schedules',
         'total_cost': 'total_cost',
@@ -94,7 +96,7 @@ class CartItem(object):
         'view_url': 'view_url'
     }
 
-    def __init__(self, arbitrary_unit_cost=None, attributes=None, auto_order_schedule=None, default_image_url=None, default_thumbnail_url=None, description=None, discount=None, extended_description=None, item_id=None, item_oid=None, kit=None, kit_component_options=None, manufacturer_suggested_retail_price=None, maximum_quantity=None, minimum_quantity=None, multimedia=None, options=None, phsyical=None, position=None, preorder=None, quantity=None, schedules=None, total_cost=None, total_cost_with_discount=None, unit_cost=None, unit_cost_with_discount=None, upsell=None, variations=None, view_url=None):  # noqa: E501
+    def __init__(self, arbitrary_unit_cost=None, attributes=None, auto_order_schedule=None, default_image_url=None, default_thumbnail_url=None, description=None, discount=None, extended_description=None, item_id=None, item_oid=None, kit=None, kit_component_options=None, manufacturer_suggested_retail_price=None, maximum_quantity=None, minimum_quantity=None, multimedia=None, options=None, phsyical=None, position=None, preorder=None, properties=None, quantity=None, schedules=None, total_cost=None, total_cost_with_discount=None, unit_cost=None, unit_cost_with_discount=None, upsell=None, variations=None, view_url=None):  # noqa: E501
         """CartItem - a model defined in Swagger"""  # noqa: E501
 
         self._arbitrary_unit_cost = None
@@ -117,6 +119,7 @@ class CartItem(object):
         self._phsyical = None
         self._position = None
         self._preorder = None
+        self._properties = None
         self._quantity = None
         self._schedules = None
         self._total_cost = None
@@ -168,6 +171,8 @@ class CartItem(object):
             self.position = position
         if preorder is not None:
             self.preorder = preorder
+        if properties is not None:
+            self.properties = properties
         if quantity is not None:
             self.quantity = quantity
         if schedules is not None:
@@ -638,6 +643,29 @@ class CartItem(object):
         """
 
         self._preorder = preorder
+
+    @property
+    def properties(self):
+        """Gets the properties of this CartItem.  # noqa: E501
+
+        Properties associated with the item  # noqa: E501
+
+        :return: The properties of this CartItem.  # noqa: E501
+        :rtype: list[CartItemProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this CartItem.
+
+        Properties associated with the item  # noqa: E501
+
+        :param properties: The properties of this CartItem.  # noqa: E501
+        :type: list[CartItemProperty]
+        """
+
+        self._properties = properties
 
     @property
     def quantity(self):
