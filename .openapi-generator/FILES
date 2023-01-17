@@ -66,6 +66,7 @@ docs/CartItemMultimediaThumbnail.md
 docs/CartItemOption.md
 docs/CartItemOptionValue.md
 docs/CartItemPhysical.md
+docs/CartItemProperty.md
 docs/CartItemVariationSelection.md
 docs/CartKitComponentOption.md
 docs/CartMarketing.md
@@ -840,6 +841,7 @@ ultracart/model/cart_item_multimedia_thumbnail.py
 ultracart/model/cart_item_option.py
 ultracart/model/cart_item_option_value.py
 ultracart/model/cart_item_physical.py
+ultracart/model/cart_item_property.py
 ultracart/model/cart_item_variation_selection.py
 ultracart/model/cart_kit_component_option.py
 ultracart/model/cart_marketing.py

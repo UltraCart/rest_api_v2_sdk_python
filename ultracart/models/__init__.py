@@ -71,6 +71,7 @@ from ultracart.model.cart_item_multimedia_thumbnail import CartItemMultimediaThu
 from ultracart.model.cart_item_option import CartItemOption
 from ultracart.model.cart_item_option_value import CartItemOptionValue
 from ultracart.model.cart_item_physical import CartItemPhysical
+from ultracart.model.cart_item_property import CartItemProperty
 from ultracart.model.cart_item_variation_selection import CartItemVariationSelection
 from ultracart.model.cart_kit_component_option import CartKitComponentOption
 from ultracart.model.cart_marketing import CartMarketing

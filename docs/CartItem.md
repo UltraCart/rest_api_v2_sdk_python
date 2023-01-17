@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **phsyical** | [**CartItemPhysical**](CartItemPhysical.md) |  | [optional] 
 **position** | **int** | Position of the item in the cart | [optional] 
 **preorder** | **bool** | True if this item is on pre-order | [optional] 
+**properties** | [**[CartItemProperty]**](CartItemProperty.md) | Properties associated with the item | [optional] 
 **quantity** | **float** | quantity | [optional] 
 **schedules** | **[str]** | Customer selectable auto order schedules | [optional] 
 **total_cost** | [**Currency**](Currency.md) |  | [optional] 

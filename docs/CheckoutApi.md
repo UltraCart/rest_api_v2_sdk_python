@@ -424,6 +424,14 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 position=1,
                 preorder=True,
+                properties=[
+                    CartItemProperty(
+                        display=True,
+                        expiration_dts="expiration_dts_example",
+                        name="name_example",
+                        value="value_example",
+                    ),
+                ],
                 quantity=3.14,
                 schedules=[
                     "schedules_example",
@@ -1251,6 +1259,14 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     position=1,
                     preorder=True,
+                    properties=[
+                        CartItemProperty(
+                            display=True,
+                            expiration_dts="expiration_dts_example",
+                            name="name_example",
+                            value="value_example",
+                        ),
+                    ],
                     quantity=3.14,
                     schedules=[
                         "schedules_example",
@@ -2628,6 +2644,14 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     position=1,
                     preorder=True,
+                    properties=[
+                        CartItemProperty(
+                            display=True,
+                            expiration_dts="expiration_dts_example",
+                            name="name_example",
+                            value="value_example",
+                        ),
+                    ],
                     quantity=3.14,
                     schedules=[
                         "schedules_example",
@@ -3475,6 +3499,14 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     position=1,
                     preorder=True,
+                    properties=[
+                        CartItemProperty(
+                            display=True,
+                            expiration_dts="expiration_dts_example",
+                            name="name_example",
+                            value="value_example",
+                        ),
+                    ],
                     quantity=3.14,
                     schedules=[
                         "schedules_example",
@@ -4316,6 +4348,14 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 position=1,
                 preorder=True,
+                properties=[
+                    CartItemProperty(
+                        display=True,
+                        expiration_dts="expiration_dts_example",
+                        name="name_example",
+                        value="value_example",
+                    ),
+                ],
                 quantity=3.14,
                 schedules=[
                     "schedules_example",
@@ -5155,6 +5195,14 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     position=1,
                     preorder=True,
+                    properties=[
+                        CartItemProperty(
+                            display=True,
+                            expiration_dts="expiration_dts_example",
+                            name="name_example",
+                            value="value_example",
+                        ),
+                    ],
                     quantity=3.14,
                     schedules=[
                         "schedules_example",
@@ -6087,6 +6135,14 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 position=1,
                 preorder=True,
+                properties=[
+                    CartItemProperty(
+                        display=True,
+                        expiration_dts="expiration_dts_example",
+                        name="name_example",
+                        value="value_example",
+                    ),
+                ],
                 quantity=3.14,
                 schedules=[
                     "schedules_example",
@@ -6926,6 +6982,14 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 position=1,
                 preorder=True,
+                properties=[
+                    CartItemProperty(
+                        display=True,
+                        expiration_dts="expiration_dts_example",
+                        name="name_example",
+                        value="value_example",
+                    ),
+                ],
                 quantity=3.14,
                 schedules=[
                     "schedules_example",
@@ -7842,6 +7906,14 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 position=1,
                 preorder=True,
+                properties=[
+                    CartItemProperty(
+                        display=True,
+                        expiration_dts="expiration_dts_example",
+                        name="name_example",
+                        value="value_example",
+                    ),
+                ],
                 quantity=3.14,
                 schedules=[
                     "schedules_example",
@@ -8681,6 +8753,14 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     position=1,
                     preorder=True,
+                    properties=[
+                        CartItemProperty(
+                            display=True,
+                            expiration_dts="expiration_dts_example",
+                            name="name_example",
+                            value="value_example",
+                        ),
+                    ],
                     quantity=3.14,
                     schedules=[
                         "schedules_example",
