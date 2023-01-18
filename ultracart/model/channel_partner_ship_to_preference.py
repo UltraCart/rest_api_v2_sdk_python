@@ -59,6 +59,9 @@ class ChannelPartnerShipToPreference(ModelNormal):
     }
 
     validations = {
+        ('description',): {
+            'max_length': 100,
+        },
     }
 
     @cached_property
@@ -85,6 +88,7 @@ class ChannelPartnerShipToPreference(ModelNormal):
             'additional_kit_component_item_ids': ([str],),  # noqa: E501
             'channel_partner_oid': (int,),  # noqa: E501
             'channel_partner_ship_to_preference_oid': (int,),  # noqa: E501
+            'description': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'return_policy': (str,),  # noqa: E501
             'ship_to_edi_code': (str,),  # noqa: E501
@@ -99,6 +103,7 @@ class ChannelPartnerShipToPreference(ModelNormal):
         'additional_kit_component_item_ids': 'additional_kit_component_item_ids',  # noqa: E501
         'channel_partner_oid': 'channel_partner_oid',  # noqa: E501
         'channel_partner_ship_to_preference_oid': 'channel_partner_ship_to_preference_oid',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'return_policy': 'return_policy',  # noqa: E501
         'ship_to_edi_code': 'ship_to_edi_code',  # noqa: E501
@@ -148,6 +153,7 @@ class ChannelPartnerShipToPreference(ModelNormal):
             additional_kit_component_item_ids ([str]): Additional item ids to add as kit components to the order with a zero price.. [optional]  # noqa: E501
             channel_partner_oid (int): The channel partner object identifier this preference is associated with. [optional]  # noqa: E501
             channel_partner_ship_to_preference_oid (int): Object identifier for the ship to preference. [optional]  # noqa: E501
+            description (str): A description that is meaningful to the merchant.. [optional]  # noqa: E501
             merchant_id (str): The merchant id that owns the channel partner. [optional]  # noqa: E501
             return_policy (str): Alternate return policy to print on the packing slip.. [optional]  # noqa: E501
             ship_to_edi_code (str): The ship to EDI code that the preferences are for. [optional]  # noqa: E501
@@ -239,6 +245,7 @@ class ChannelPartnerShipToPreference(ModelNormal):
             additional_kit_component_item_ids ([str]): Additional item ids to add as kit components to the order with a zero price.. [optional]  # noqa: E501
             channel_partner_oid (int): The channel partner object identifier this preference is associated with. [optional]  # noqa: E501
             channel_partner_ship_to_preference_oid (int): Object identifier for the ship to preference. [optional]  # noqa: E501
+            description (str): A description that is meaningful to the merchant.. [optional]  # noqa: E501
             merchant_id (str): The merchant id that owns the channel partner. [optional]  # noqa: E501
             return_policy (str): Alternate return policy to print on the packing slip.. [optional]  # noqa: E501
             ship_to_edi_code (str): The ship to EDI code that the preferences are for. [optional]  # noqa: E501
