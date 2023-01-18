@@ -34,6 +34,7 @@ class ChannelPartnerShipToPreference(object):
         'additional_kit_component_item_ids': 'list[str]',
         'channel_partner_oid': 'int',
         'channel_partner_ship_to_preference_oid': 'int',
+        'description': 'str',
         'merchant_id': 'str',
         'return_policy': 'str',
         'ship_to_edi_code': 'str'
@@ -43,17 +44,19 @@ class ChannelPartnerShipToPreference(object):
         'additional_kit_component_item_ids': 'additional_kit_component_item_ids',
         'channel_partner_oid': 'channel_partner_oid',
         'channel_partner_ship_to_preference_oid': 'channel_partner_ship_to_preference_oid',
+        'description': 'description',
         'merchant_id': 'merchant_id',
         'return_policy': 'return_policy',
         'ship_to_edi_code': 'ship_to_edi_code'
     }
 
-    def __init__(self, additional_kit_component_item_ids=None, channel_partner_oid=None, channel_partner_ship_to_preference_oid=None, merchant_id=None, return_policy=None, ship_to_edi_code=None):  # noqa: E501
+    def __init__(self, additional_kit_component_item_ids=None, channel_partner_oid=None, channel_partner_ship_to_preference_oid=None, description=None, merchant_id=None, return_policy=None, ship_to_edi_code=None):  # noqa: E501
         """ChannelPartnerShipToPreference - a model defined in Swagger"""  # noqa: E501
 
         self._additional_kit_component_item_ids = None
         self._channel_partner_oid = None
         self._channel_partner_ship_to_preference_oid = None
+        self._description = None
         self._merchant_id = None
         self._return_policy = None
         self._ship_to_edi_code = None
@@ -65,6 +68,8 @@ class ChannelPartnerShipToPreference(object):
             self.channel_partner_oid = channel_partner_oid
         if channel_partner_ship_to_preference_oid is not None:
             self.channel_partner_ship_to_preference_oid = channel_partner_ship_to_preference_oid
+        if description is not None:
+            self.description = description
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if return_policy is not None:
@@ -140,6 +145,31 @@ class ChannelPartnerShipToPreference(object):
         """
 
         self._channel_partner_ship_to_preference_oid = channel_partner_ship_to_preference_oid
+
+    @property
+    def description(self):
+        """Gets the description of this ChannelPartnerShipToPreference.  # noqa: E501
+
+        A description that is meaningful to the merchant.  # noqa: E501
+
+        :return: The description of this ChannelPartnerShipToPreference.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ChannelPartnerShipToPreference.
+
+        A description that is meaningful to the merchant.  # noqa: E501
+
+        :param description: The description of this ChannelPartnerShipToPreference.  # noqa: E501
+        :type: str
+        """
+        if description is not None and len(description) > 100:
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `100`")  # noqa: E501
+
+        self._description = description
 
     @property
     def merchant_id(self):
