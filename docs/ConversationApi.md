@@ -1310,6 +1310,13 @@ api_instance = GiftCertificateApi(api_client())
     department = ConversationDepartment(
         conversation_department_oid=1,
         department_name="department_name_example",
+        members=[
+            ConversationDepartmentMember(
+                member=True,
+                name="name_example",
+                user_id=1,
+            ),
+        ],
         merchant_id="merchant_id_example",
         settings={},
     ) # ConversationDepartment | Department
@@ -1953,6 +1960,13 @@ api_instance = GiftCertificateApi(api_client())
     department = ConversationDepartment(
         conversation_department_oid=1,
         department_name="department_name_example",
+        members=[
+            ConversationDepartmentMember(
+                member=True,
+                name="name_example",
+                user_id=1,
+            ),
+        ],
         merchant_id="merchant_id_example",
         settings={},
     ) # ConversationDepartment | Department
