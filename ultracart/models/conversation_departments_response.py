@@ -34,6 +34,7 @@ class ConversationDepartmentsResponse(object):
         'conversation_departments': 'list[ConversationDepartment]',
         'error': 'Error',
         'metadata': 'ResponseMetadata',
+        'read_only': 'bool',
         'success': 'bool',
         'warning': 'Warning'
     }
@@ -42,16 +43,18 @@ class ConversationDepartmentsResponse(object):
         'conversation_departments': 'conversation_departments',
         'error': 'error',
         'metadata': 'metadata',
+        'read_only': 'read_only',
         'success': 'success',
         'warning': 'warning'
     }
 
-    def __init__(self, conversation_departments=None, error=None, metadata=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, conversation_departments=None, error=None, metadata=None, read_only=None, success=None, warning=None):  # noqa: E501
         """ConversationDepartmentsResponse - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_departments = None
         self._error = None
         self._metadata = None
+        self._read_only = None
         self._success = None
         self._warning = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ConversationDepartmentsResponse(object):
             self.error = error
         if metadata is not None:
             self.metadata = metadata
+        if read_only is not None:
+            self.read_only = read_only
         if success is not None:
             self.success = success
         if warning is not None:
@@ -129,6 +134,27 @@ class ConversationDepartmentsResponse(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def read_only(self):
+        """Gets the read_only of this ConversationDepartmentsResponse.  # noqa: E501
+
+
+        :return: The read_only of this ConversationDepartmentsResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._read_only
+
+    @read_only.setter
+    def read_only(self, read_only):
+        """Sets the read_only of this ConversationDepartmentsResponse.
+
+
+        :param read_only: The read_only of this ConversationDepartmentsResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._read_only = read_only
 
     @property
     def success(self):

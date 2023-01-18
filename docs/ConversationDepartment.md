@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conversation_department_oid** | **int** |  | [optional] 
 **department_name** | **str** |  | [optional] 
+**members** | [**list[ConversationDepartmentMember]**](ConversationDepartmentMember.md) |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **settings** | [**ConversationDepartmentSettings**](ConversationDepartmentSettings.md) |  | [optional] 
 

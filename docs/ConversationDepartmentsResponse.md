@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **conversation_departments** | [**list[ConversationDepartment]**](ConversationDepartment.md) |  | [optional] 
 **error** | [**Error**](Error.md) |  | [optional] 
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**read_only** | **bool** |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **warning** | [**Warning**](Warning.md) |  | [optional] 
 

@@ -33,6 +33,7 @@ class ConversationDepartment(object):
     swagger_types = {
         'conversation_department_oid': 'int',
         'department_name': 'str',
+        'members': 'list[ConversationDepartmentMember]',
         'merchant_id': 'str',
         'settings': 'ConversationDepartmentSettings'
     }
@@ -40,15 +41,17 @@ class ConversationDepartment(object):
     attribute_map = {
         'conversation_department_oid': 'conversation_department_oid',
         'department_name': 'department_name',
+        'members': 'members',
         'merchant_id': 'merchant_id',
         'settings': 'settings'
     }
 
-    def __init__(self, conversation_department_oid=None, department_name=None, merchant_id=None, settings=None):  # noqa: E501
+    def __init__(self, conversation_department_oid=None, department_name=None, members=None, merchant_id=None, settings=None):  # noqa: E501
         """ConversationDepartment - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_department_oid = None
         self._department_name = None
+        self._members = None
         self._merchant_id = None
         self._settings = None
         self.discriminator = None
@@ -57,6 +60,8 @@ class ConversationDepartment(object):
             self.conversation_department_oid = conversation_department_oid
         if department_name is not None:
             self.department_name = department_name
+        if members is not None:
+            self.members = members
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if settings is not None:
@@ -103,6 +108,27 @@ class ConversationDepartment(object):
         """
 
         self._department_name = department_name
+
+    @property
+    def members(self):
+        """Gets the members of this ConversationDepartment.  # noqa: E501
+
+
+        :return: The members of this ConversationDepartment.  # noqa: E501
+        :rtype: list[ConversationDepartmentMember]
+        """
+        return self._members
+
+    @members.setter
+    def members(self, members):
+        """Sets the members of this ConversationDepartment.
+
+
+        :param members: The members of this ConversationDepartment.  # noqa: E501
+        :type: list[ConversationDepartmentMember]
+        """
+
+        self._members = members
 
     @property
     def merchant_id(self):
