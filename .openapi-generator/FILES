@@ -143,6 +143,7 @@ docs/ConversationCannedMessagesResponse.md
 docs/ConversationCannedMessagesSearch.md
 docs/ConversationDepartment.md
 docs/ConversationDepartmentMember.md
+docs/ConversationDepartmentMembersResponse.md
 docs/ConversationDepartmentResponse.md
 docs/ConversationDepartmentsResponse.md
 docs/ConversationEngagement.md
@@ -915,6 +916,7 @@ ultracart/model/conversation_canned_messages_response.py
 ultracart/model/conversation_canned_messages_search.py
 ultracart/model/conversation_department.py
 ultracart/model/conversation_department_member.py
+ultracart/model/conversation_department_members_response.py
 ultracart/model/conversation_department_response.py
 ultracart/model/conversation_departments_response.py
 ultracart/model/conversation_engagement.py
