@@ -167,6 +167,8 @@ docs/ConversationMessagesResponse.md
 docs/ConversationMultimediaUploadUrl.md
 docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
+docs/ConversationPermissions.md
+docs/ConversationPermissionsResponse.md
 docs/ConversationResponse.md
 docs/ConversationSearchRequest.md
 docs/ConversationSearchResponse.md
@@ -940,6 +942,8 @@ ultracart/model/conversation_messages_response.py
 ultracart/model/conversation_multimedia_upload_url.py
 ultracart/model/conversation_multimedia_upload_url_response.py
 ultracart/model/conversation_participant.py
+ultracart/model/conversation_permissions.py
+ultracart/model/conversation_permissions_response.py
 ultracart/model/conversation_response.py
 ultracart/model/conversation_search_request.py
 ultracart/model/conversation_search_response.py
