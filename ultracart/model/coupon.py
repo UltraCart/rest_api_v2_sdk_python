@@ -256,6 +256,7 @@ class Coupon(ModelNormal):
             'restrict_by_postal_codes': ([str],),  # noqa: E501
             'restrict_by_screen_branding_theme_codes': ([CouponRestriction],),  # noqa: E501
             'restrict_by_storefronts': ([CouponRestriction],),  # noqa: E501
+            'skip_on_rebill': (bool,),  # noqa: E501
             'start_dts': (str,),  # noqa: E501
             'super_coupon': (bool,),  # noqa: E501
             'tiered_amount_off_items': (CouponTieredAmountOffItems,),  # noqa: E501
@@ -329,6 +330,7 @@ class Coupon(ModelNormal):
         'restrict_by_postal_codes': 'restrict_by_postal_codes',  # noqa: E501
         'restrict_by_screen_branding_theme_codes': 'restrict_by_screen_branding_theme_codes',  # noqa: E501
         'restrict_by_storefronts': 'restrict_by_storefronts',  # noqa: E501
+        'skip_on_rebill': 'skip_on_rebill',  # noqa: E501
         'start_dts': 'start_dts',  # noqa: E501
         'super_coupon': 'super_coupon',  # noqa: E501
         'tiered_amount_off_items': 'tiered_amount_off_items',  # noqa: E501
@@ -437,6 +439,7 @@ class Coupon(ModelNormal):
             restrict_by_postal_codes ([str]): Optional list of postal codes which restrict a coupon to within these postal codes.. [optional]  # noqa: E501
             restrict_by_screen_branding_theme_codes ([CouponRestriction]): Optional list of legacy screen branding theme codes to limit coupon use to only those themes.. [optional]  # noqa: E501
             restrict_by_storefronts ([CouponRestriction]): Optional list of storefronts to limit coupon use to only those storefronts.. [optional]  # noqa: E501
+            skip_on_rebill (bool): Skip this coupon when it is on a rebill of an auto order.. [optional]  # noqa: E501
             start_dts (str): Date/time when coupon is valid. [optional]  # noqa: E501
             super_coupon (bool): If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration. [optional]  # noqa: E501
             tiered_amount_off_items (CouponTieredAmountOffItems): [optional]  # noqa: E501
@@ -587,6 +590,7 @@ class Coupon(ModelNormal):
             restrict_by_postal_codes ([str]): Optional list of postal codes which restrict a coupon to within these postal codes.. [optional]  # noqa: E501
             restrict_by_screen_branding_theme_codes ([CouponRestriction]): Optional list of legacy screen branding theme codes to limit coupon use to only those themes.. [optional]  # noqa: E501
             restrict_by_storefronts ([CouponRestriction]): Optional list of storefronts to limit coupon use to only those storefronts.. [optional]  # noqa: E501
+            skip_on_rebill (bool): Skip this coupon when it is on a rebill of an auto order.. [optional]  # noqa: E501
             start_dts (str): Date/time when coupon is valid. [optional]  # noqa: E501
             super_coupon (bool): If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration. [optional]  # noqa: E501
             tiered_amount_off_items (CouponTieredAmountOffItems): [optional]  # noqa: E501

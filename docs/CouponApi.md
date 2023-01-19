@@ -1365,6 +1365,7 @@ api_instance = GiftCertificateApi(api_client())
                 valid_only_for_this=True,
             ),
         ],
+        skip_on_rebill=True,
         start_dts="start_dts_example",
         super_coupon=True,
         tiered_amount_off_items=CouponTieredAmountOffItems(
@@ -1842,6 +1843,7 @@ api_instance = GiftCertificateApi(api_client())
                         valid_only_for_this=True,
                     ),
                 ],
+                skip_on_rebill=True,
                 start_dts="start_dts_example",
                 super_coupon=True,
                 tiered_amount_off_items=CouponTieredAmountOffItems(
@@ -2505,6 +2507,7 @@ api_instance = GiftCertificateApi(api_client())
                 valid_only_for_this=True,
             ),
         ],
+        skip_on_rebill=True,
         start_dts="start_dts_example",
         super_coupon=True,
         tiered_amount_off_items=CouponTieredAmountOffItems(
@@ -2983,6 +2986,7 @@ api_instance = GiftCertificateApi(api_client())
                         valid_only_for_this=True,
                     ),
                 ],
+                skip_on_rebill=True,
                 start_dts="start_dts_example",
                 super_coupon=True,
                 tiered_amount_off_items=CouponTieredAmountOffItems(
