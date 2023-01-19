@@ -87,6 +87,7 @@ class Coupon(object):
         'restrict_by_postal_codes': 'list[str]',
         'restrict_by_screen_branding_theme_codes': 'list[CouponRestriction]',
         'restrict_by_storefronts': 'list[CouponRestriction]',
+        'skip_on_rebill': 'bool',
         'start_dts': 'str',
         'super_coupon': 'bool',
         'tiered_amount_off_items': 'CouponTieredAmountOffItems',
@@ -155,6 +156,7 @@ class Coupon(object):
         'restrict_by_postal_codes': 'restrict_by_postal_codes',
         'restrict_by_screen_branding_theme_codes': 'restrict_by_screen_branding_theme_codes',
         'restrict_by_storefronts': 'restrict_by_storefronts',
+        'skip_on_rebill': 'skip_on_rebill',
         'start_dts': 'start_dts',
         'super_coupon': 'super_coupon',
         'tiered_amount_off_items': 'tiered_amount_off_items',
@@ -166,7 +168,7 @@ class Coupon(object):
         'usable_by': 'usable_by'
     }
 
-    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, amount_shipping_with_subtotal=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, hide_from_customer=None, merchant_code=None, merchant_notes=None, more_loyalty_cashback=None, more_loyalty_points=None, multiple_amounts_off_items=None, no_discount=None, percent_more_loyalty_cashback=None, percent_more_loyalty_points=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, start_dts=None, super_coupon=None, tiered_amount_off_items=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, tiered_percent_off_subtotal_based_on_msrp=None, usable_by=None):  # noqa: E501
+    def __init__(self, affiliate_oid=None, allow_multiple_one_time_codes=None, amount_off_items=None, amount_off_shipping=None, amount_off_shipping_with_items_purchase=None, amount_off_subtotal=None, amount_off_subtotal_and_free_shipping=None, amount_off_subtotal_and_shipping=None, amount_off_subtotal_with_block_purchase=None, amount_off_subtotal_with_items_purchase=None, amount_off_subtotal_with_purchase=None, amount_shipping_with_subtotal=None, automatically_apply_coupon_codes=None, buy_one_get_one=None, calculated_description=None, can_be_used_with_other_coupons=None, coupon_oid=None, coupon_type=None, description=None, discount_item_with_item_purchase=None, discount_items=None, expiration_dts=None, free_item_and_shipping_with_subtotal=None, free_item_with_item_purchase=None, free_item_with_subtotal=None, free_items_with_item_purchase=None, free_items_with_mixmatch_purchase=None, free_shipping=None, free_shipping_specific_items=None, free_shipping_with_items_purchase=None, free_shipping_with_subtotal=None, hide_from_customer=None, merchant_code=None, merchant_notes=None, more_loyalty_cashback=None, more_loyalty_points=None, multiple_amounts_off_items=None, no_discount=None, percent_more_loyalty_cashback=None, percent_more_loyalty_points=None, percent_off_item_with_items_quantity_purchase=None, percent_off_items=None, percent_off_items_and_free_shipping=None, percent_off_items_with_items_purchase=None, percent_off_msrp_items=None, percent_off_retail_price_items=None, percent_off_shipping=None, percent_off_subtotal=None, percent_off_subtotal_and_free_shipping=None, percent_off_subtotal_limit=None, percent_off_subtotal_with_items_purchase=None, percent_off_subtotal_with_subtotal=None, quickbooks_code=None, restrict_by_postal_codes=None, restrict_by_screen_branding_theme_codes=None, restrict_by_storefronts=None, skip_on_rebill=None, start_dts=None, super_coupon=None, tiered_amount_off_items=None, tiered_amount_off_subtotal=None, tiered_percent_off_items=None, tiered_percent_off_shipping=None, tiered_percent_off_subtotal=None, tiered_percent_off_subtotal_based_on_msrp=None, usable_by=None):  # noqa: E501
         """Coupon - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate_oid = None
@@ -225,6 +227,7 @@ class Coupon(object):
         self._restrict_by_postal_codes = None
         self._restrict_by_screen_branding_theme_codes = None
         self._restrict_by_storefronts = None
+        self._skip_on_rebill = None
         self._start_dts = None
         self._super_coupon = None
         self._tiered_amount_off_items = None
@@ -348,6 +351,8 @@ class Coupon(object):
             self.restrict_by_screen_branding_theme_codes = restrict_by_screen_branding_theme_codes
         if restrict_by_storefronts is not None:
             self.restrict_by_storefronts = restrict_by_storefronts
+        if skip_on_rebill is not None:
+            self.skip_on_rebill = skip_on_rebill
         if start_dts is not None:
             self.start_dts = start_dts
         if super_coupon is not None:
@@ -1582,6 +1587,29 @@ class Coupon(object):
         """
 
         self._restrict_by_storefronts = restrict_by_storefronts
+
+    @property
+    def skip_on_rebill(self):
+        """Gets the skip_on_rebill of this Coupon.  # noqa: E501
+
+        Skip this coupon when it is on a rebill of an auto order.  # noqa: E501
+
+        :return: The skip_on_rebill of this Coupon.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_on_rebill
+
+    @skip_on_rebill.setter
+    def skip_on_rebill(self, skip_on_rebill):
+        """Sets the skip_on_rebill of this Coupon.
+
+        Skip this coupon when it is on a rebill of an auto order.  # noqa: E501
+
+        :param skip_on_rebill: The skip_on_rebill of this Coupon.  # noqa: E501
+        :type: bool
+        """
+
+        self._skip_on_rebill = skip_on_rebill
 
     @property
     def start_dts(self):
