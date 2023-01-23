@@ -35,7 +35,8 @@ class OrderInternal(object):
         'merchant_notes': 'str',
         'placed_by_user': 'str',
         'refund_by_user': 'str',
-        'sales_rep_code': 'str'
+        'sales_rep_code': 'str',
+        'transactional_merchant_notes': 'list[OrderTransactionalMerchantNote]'
     }
 
     attribute_map = {
@@ -43,10 +44,11 @@ class OrderInternal(object):
         'merchant_notes': 'merchant_notes',
         'placed_by_user': 'placed_by_user',
         'refund_by_user': 'refund_by_user',
-        'sales_rep_code': 'sales_rep_code'
+        'sales_rep_code': 'sales_rep_code',
+        'transactional_merchant_notes': 'transactional_merchant_notes'
     }
 
-    def __init__(self, exported_to_accounting=None, merchant_notes=None, placed_by_user=None, refund_by_user=None, sales_rep_code=None):  # noqa: E501
+    def __init__(self, exported_to_accounting=None, merchant_notes=None, placed_by_user=None, refund_by_user=None, sales_rep_code=None, transactional_merchant_notes=None):  # noqa: E501
         """OrderInternal - a model defined in Swagger"""  # noqa: E501
 
         self._exported_to_accounting = None
@@ -54,6 +56,7 @@ class OrderInternal(object):
         self._placed_by_user = None
         self._refund_by_user = None
         self._sales_rep_code = None
+        self._transactional_merchant_notes = None
         self.discriminator = None
 
         if exported_to_accounting is not None:
@@ -66,6 +69,8 @@ class OrderInternal(object):
             self.refund_by_user = refund_by_user
         if sales_rep_code is not None:
             self.sales_rep_code = sales_rep_code
+        if transactional_merchant_notes is not None:
+            self.transactional_merchant_notes = transactional_merchant_notes
 
     @property
     def exported_to_accounting(self):
@@ -94,7 +99,7 @@ class OrderInternal(object):
     def merchant_notes(self):
         """Gets the merchant_notes of this OrderInternal.  # noqa: E501
 
-        Merchant notes  # noqa: E501
+        Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled.  # noqa: E501
 
         :return: The merchant_notes of this OrderInternal.  # noqa: E501
         :rtype: str
@@ -105,7 +110,7 @@ class OrderInternal(object):
     def merchant_notes(self, merchant_notes):
         """Sets the merchant_notes of this OrderInternal.
 
-        Merchant notes  # noqa: E501
+        Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled.  # noqa: E501
 
         :param merchant_notes: The merchant_notes of this OrderInternal.  # noqa: E501
         :type: str
@@ -183,6 +188,29 @@ class OrderInternal(object):
             raise ValueError("Invalid value for `sales_rep_code`, length must be less than or equal to `10`")  # noqa: E501
 
         self._sales_rep_code = sales_rep_code
+
+    @property
+    def transactional_merchant_notes(self):
+        """Gets the transactional_merchant_notes of this OrderInternal.  # noqa: E501
+
+        Transactional merchant notes  # noqa: E501
+
+        :return: The transactional_merchant_notes of this OrderInternal.  # noqa: E501
+        :rtype: list[OrderTransactionalMerchantNote]
+        """
+        return self._transactional_merchant_notes
+
+    @transactional_merchant_notes.setter
+    def transactional_merchant_notes(self, transactional_merchant_notes):
+        """Sets the transactional_merchant_notes of this OrderInternal.
+
+        Transactional merchant notes  # noqa: E501
+
+        :param transactional_merchant_notes: The transactional_merchant_notes of this OrderInternal.  # noqa: E501
+        :type: list[OrderTransactionalMerchantNote]
+        """
+
+        self._transactional_merchant_notes = transactional_merchant_notes
 
     def to_dict(self):
         """Returns the model properties as a dict"""
