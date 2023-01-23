@@ -1263,6 +1263,14 @@ api_instance = GiftCertificateApi(api_client())
                 placed_by_user="placed_by_user_example",
                 refund_by_user="refund_by_user_example",
                 sales_rep_code="sales_rep_code_example",
+                transactional_merchant_notes=[
+                    OrderTransactionalMerchantNote(
+                        ip_address="ip_address_example",
+                        note="note_example",
+                        note_dts="note_dts_example",
+                        user="user_example",
+                    ),
+                ],
             ),
             items=[
                 OrderItem(
@@ -2417,6 +2425,14 @@ api_instance = GiftCertificateApi(api_client())
                     placed_by_user="placed_by_user_example",
                     refund_by_user="refund_by_user_example",
                     sales_rep_code="sales_rep_code_example",
+                    transactional_merchant_notes=[
+                        OrderTransactionalMerchantNote(
+                            ip_address="ip_address_example",
+                            note="note_example",
+                            note_dts="note_dts_example",
+                            user="user_example",
+                        ),
+                    ],
                 ),
                 items=[
                     OrderItem(
@@ -3728,6 +3744,14 @@ api_instance = GiftCertificateApi(api_client())
                         placed_by_user="placed_by_user_example",
                         refund_by_user="refund_by_user_example",
                         sales_rep_code="sales_rep_code_example",
+                        transactional_merchant_notes=[
+                            OrderTransactionalMerchantNote(
+                                ip_address="ip_address_example",
+                                note="note_example",
+                                note_dts="note_dts_example",
+                                user="user_example",
+                            ),
+                        ],
                     ),
                     items=[
                         OrderItem(
@@ -4882,6 +4906,14 @@ api_instance = GiftCertificateApi(api_client())
                             placed_by_user="placed_by_user_example",
                             refund_by_user="refund_by_user_example",
                             sales_rep_code="sales_rep_code_example",
+                            transactional_merchant_notes=[
+                                OrderTransactionalMerchantNote(
+                                    ip_address="ip_address_example",
+                                    note="note_example",
+                                    note_dts="note_dts_example",
+                                    user="user_example",
+                                ),
+                            ],
                         ),
                         items=[
                             OrderItem(

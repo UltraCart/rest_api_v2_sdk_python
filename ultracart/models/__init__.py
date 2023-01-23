@@ -609,6 +609,7 @@ from ultracart.model.order_taxes import OrderTaxes
 from ultracart.model.order_token_response import OrderTokenResponse
 from ultracart.model.order_tracking_number_detail import OrderTrackingNumberDetail
 from ultracart.model.order_tracking_number_details import OrderTrackingNumberDetails
+from ultracart.model.order_transactional_merchant_note import OrderTransactionalMerchantNote
 from ultracart.model.orders_response import OrdersResponse
 from ultracart.model.permission import Permission
 from ultracart.model.point_of_sale_location import PointOfSaleLocation
