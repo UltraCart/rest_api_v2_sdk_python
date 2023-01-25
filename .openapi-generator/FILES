@@ -577,6 +577,7 @@ docs/OrderFraudScore.md
 docs/OrderGift.md
 docs/OrderGiftCertificate.md
 docs/OrderInternal.md
+docs/OrderInvoiceResponse.md
 docs/OrderItem.md
 docs/OrderItemEdi.md
 docs/OrderItemEdiIdentification.md
@@ -1345,6 +1346,7 @@ ultracart/model/order_fraud_score.py
 ultracart/model/order_gift.py
 ultracart/model/order_gift_certificate.py
 ultracart/model/order_internal.py
+ultracart/model/order_invoice_response.py
 ultracart/model/order_item.py
 ultracart/model/order_item_edi.py
 ultracart/model/order_item_edi_identification.py
