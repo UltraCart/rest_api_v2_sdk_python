@@ -577,6 +577,7 @@ from ultracart.models.order_fraud_score import OrderFraudScore
 from ultracart.models.order_gift import OrderGift
 from ultracart.models.order_gift_certificate import OrderGiftCertificate
 from ultracart.models.order_internal import OrderInternal
+from ultracart.models.order_invoice_response import OrderInvoiceResponse
 from ultracart.models.order_item import OrderItem
 from ultracart.models.order_item_edi import OrderItemEdi
 from ultracart.models.order_item_edi_identification import OrderItemEdiIdentification
