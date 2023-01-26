@@ -65,6 +65,7 @@ class ConversationMessage(ModelNormal):
         ('type',): {
             'MESSAGE': "message",
             'NOTICE': "notice",
+            'ENGAGEMENT_PROMPT': "engagement prompt",
         },
     }
 

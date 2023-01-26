@@ -91,7 +91,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'RRWEB': "rrweb",
             'PARTICIPANT_UPDATE': "participant update",
             'PARTICIPANT_JOIN': "participant join",
-            'PARTICIPANT_LEAVE': "participant leave",
+            'PARTICIPANT_LEFT': "participant left",
             'READ_MESSAGE': "read message",
             'TYPING': "typing",
             'ADD_COUPON': "add coupon",

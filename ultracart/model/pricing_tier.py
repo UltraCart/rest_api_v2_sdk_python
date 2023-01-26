@@ -104,6 +104,7 @@ class PricingTier(ModelNormal):
             'default_tier': (bool,),  # noqa: E501
             'display_on_wholesale_signup': (bool,),  # noqa: E501
             'exclude_from_free_promotion': (bool,),  # noqa: E501
+            'exempt_loyalty_rewards': (bool,),  # noqa: E501
             'exempt_shipping_handling_charge': (bool,),  # noqa: E501
             'free_shipping': (bool,),  # noqa: E501
             'free_shipping_minimum': (float,),  # noqa: E501
@@ -143,6 +144,7 @@ class PricingTier(ModelNormal):
         'default_tier': 'default_tier',  # noqa: E501
         'display_on_wholesale_signup': 'display_on_wholesale_signup',  # noqa: E501
         'exclude_from_free_promotion': 'exclude_from_free_promotion',  # noqa: E501
+        'exempt_loyalty_rewards': 'exempt_loyalty_rewards',  # noqa: E501
         'exempt_shipping_handling_charge': 'exempt_shipping_handling_charge',  # noqa: E501
         'free_shipping': 'free_shipping',  # noqa: E501
         'free_shipping_minimum': 'free_shipping_minimum',  # noqa: E501
@@ -217,6 +219,7 @@ class PricingTier(ModelNormal):
             default_tier (bool): Default tier. [optional]  # noqa: E501
             display_on_wholesale_signup (bool): Display on wholesale signup. [optional]  # noqa: E501
             exclude_from_free_promotion (bool): Exclude from free promotion. [optional]  # noqa: E501
+            exempt_loyalty_rewards (bool): Exempt from Loyalty Rewards. [optional]  # noqa: E501
             exempt_shipping_handling_charge (bool): Exempt shipping handling charge. [optional]  # noqa: E501
             free_shipping (bool): Free shipping. [optional]  # noqa: E501
             free_shipping_minimum (float): Free shipping minimum. [optional]  # noqa: E501
@@ -333,6 +336,7 @@ class PricingTier(ModelNormal):
             default_tier (bool): Default tier. [optional]  # noqa: E501
             display_on_wholesale_signup (bool): Display on wholesale signup. [optional]  # noqa: E501
             exclude_from_free_promotion (bool): Exclude from free promotion. [optional]  # noqa: E501
+            exempt_loyalty_rewards (bool): Exempt from Loyalty Rewards. [optional]  # noqa: E501
             exempt_shipping_handling_charge (bool): Exempt shipping handling charge. [optional]  # noqa: E501
             free_shipping (bool): Free shipping. [optional]  # noqa: E501
             free_shipping_minimum (float): Free shipping minimum. [optional]  # noqa: E501
