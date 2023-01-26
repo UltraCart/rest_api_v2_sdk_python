@@ -44,6 +44,7 @@ class PricingTier(object):
         'default_tier': 'bool',
         'display_on_wholesale_signup': 'bool',
         'exclude_from_free_promotion': 'bool',
+        'exempt_loyalty_rewards': 'bool',
         'exempt_shipping_handling_charge': 'bool',
         'free_shipping': 'bool',
         'free_shipping_minimum': 'float',
@@ -78,6 +79,7 @@ class PricingTier(object):
         'default_tier': 'default_tier',
         'display_on_wholesale_signup': 'display_on_wholesale_signup',
         'exclude_from_free_promotion': 'exclude_from_free_promotion',
+        'exempt_loyalty_rewards': 'exempt_loyalty_rewards',
         'exempt_shipping_handling_charge': 'exempt_shipping_handling_charge',
         'free_shipping': 'free_shipping',
         'free_shipping_minimum': 'free_shipping_minimum',
@@ -98,7 +100,7 @@ class PricingTier(object):
         'track_separately': 'track_separately'
     }
 
-    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, approval_notification=None, auto_approve_cod=None, auto_approve_purchase_order=None, default_on_wholesale_signup=None, default_percentage_discount=None, default_shipping_method_oid=None, default_tier=None, display_on_wholesale_signup=None, exclude_from_free_promotion=None, exempt_shipping_handling_charge=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, name=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, not_valid_when_coupon_present=None, pricing_tier_oid=None, realtime_percentage_discount=None, signup_notification=None, suppress_buysafe=None, suppress_mailing_list=None, tax_exempt=None, track_separately=None):  # noqa: E501
+    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, approval_notification=None, auto_approve_cod=None, auto_approve_purchase_order=None, default_on_wholesale_signup=None, default_percentage_discount=None, default_shipping_method_oid=None, default_tier=None, display_on_wholesale_signup=None, exclude_from_free_promotion=None, exempt_loyalty_rewards=None, exempt_shipping_handling_charge=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, name=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, not_valid_when_coupon_present=None, pricing_tier_oid=None, realtime_percentage_discount=None, signup_notification=None, suppress_buysafe=None, suppress_mailing_list=None, tax_exempt=None, track_separately=None):  # noqa: E501
         """PricingTier - a model defined in Swagger"""  # noqa: E501
 
         self._allow_3rd_party_billing = None
@@ -114,6 +116,7 @@ class PricingTier(object):
         self._default_tier = None
         self._display_on_wholesale_signup = None
         self._exclude_from_free_promotion = None
+        self._exempt_loyalty_rewards = None
         self._exempt_shipping_handling_charge = None
         self._free_shipping = None
         self._free_shipping_minimum = None
@@ -160,6 +163,8 @@ class PricingTier(object):
             self.display_on_wholesale_signup = display_on_wholesale_signup
         if exclude_from_free_promotion is not None:
             self.exclude_from_free_promotion = exclude_from_free_promotion
+        if exempt_loyalty_rewards is not None:
+            self.exempt_loyalty_rewards = exempt_loyalty_rewards
         if exempt_shipping_handling_charge is not None:
             self.exempt_shipping_handling_charge = exempt_shipping_handling_charge
         if free_shipping is not None:
@@ -493,6 +498,29 @@ class PricingTier(object):
         """
 
         self._exclude_from_free_promotion = exclude_from_free_promotion
+
+    @property
+    def exempt_loyalty_rewards(self):
+        """Gets the exempt_loyalty_rewards of this PricingTier.  # noqa: E501
+
+        Exempt from Loyalty Rewards  # noqa: E501
+
+        :return: The exempt_loyalty_rewards of this PricingTier.  # noqa: E501
+        :rtype: bool
+        """
+        return self._exempt_loyalty_rewards
+
+    @exempt_loyalty_rewards.setter
+    def exempt_loyalty_rewards(self, exempt_loyalty_rewards):
+        """Sets the exempt_loyalty_rewards of this PricingTier.
+
+        Exempt from Loyalty Rewards  # noqa: E501
+
+        :param exempt_loyalty_rewards: The exempt_loyalty_rewards of this PricingTier.  # noqa: E501
+        :type: bool
+        """
+
+        self._exempt_loyalty_rewards = exempt_loyalty_rewards
 
     @property
     def exempt_shipping_handling_charge(self):
