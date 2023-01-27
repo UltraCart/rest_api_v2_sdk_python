@@ -35,6 +35,7 @@ class ConversationWebsocketMessage(object):
         'event_add_coupon': 'ConversationEventAddCoupon',
         'event_add_item': 'ConversationEventAddItem',
         'event_conversation_closed': 'ConversationSummary',
+        'event_engage_customer': 'ConversationWebchatQueueStatusQueueEntry',
         'event_new_conversation': 'ConversationSummary',
         'event_new_message': 'ConversationSummary',
         'event_participant_join': 'ConversationSummary',
@@ -59,6 +60,7 @@ class ConversationWebsocketMessage(object):
         'event_add_coupon': 'event_add_coupon',
         'event_add_item': 'event_add_item',
         'event_conversation_closed': 'event_conversation_closed',
+        'event_engage_customer': 'event_engage_customer',
         'event_new_conversation': 'event_new_conversation',
         'event_new_message': 'event_new_message',
         'event_participant_join': 'event_participant_join',
@@ -78,13 +80,14 @@ class ConversationWebsocketMessage(object):
         'type': 'type'
     }
 
-    def __init__(self, conversation_uuid=None, event_add_coupon=None, event_add_item=None, event_conversation_closed=None, event_new_conversation=None, event_new_message=None, event_participant_join=None, event_participant_join_participant=None, event_participant_left=None, event_participant_left_participant=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, event_webchat_context=None, message=None, type=None):  # noqa: E501
+    def __init__(self, conversation_uuid=None, event_add_coupon=None, event_add_item=None, event_conversation_closed=None, event_engage_customer=None, event_new_conversation=None, event_new_message=None, event_participant_join=None, event_participant_join_participant=None, event_participant_left=None, event_participant_left_participant=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, event_webchat_context=None, message=None, type=None):  # noqa: E501
         """ConversationWebsocketMessage - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_uuid = None
         self._event_add_coupon = None
         self._event_add_item = None
         self._event_conversation_closed = None
+        self._event_engage_customer = None
         self._event_new_conversation = None
         self._event_new_message = None
         self._event_participant_join = None
@@ -112,6 +115,8 @@ class ConversationWebsocketMessage(object):
             self.event_add_item = event_add_item
         if event_conversation_closed is not None:
             self.event_conversation_closed = event_conversation_closed
+        if event_engage_customer is not None:
+            self.event_engage_customer = event_engage_customer
         if event_new_conversation is not None:
             self.event_new_conversation = event_new_conversation
         if event_new_message is not None:
@@ -232,6 +237,27 @@ class ConversationWebsocketMessage(object):
         """
 
         self._event_conversation_closed = event_conversation_closed
+
+    @property
+    def event_engage_customer(self):
+        """Gets the event_engage_customer of this ConversationWebsocketMessage.  # noqa: E501
+
+
+        :return: The event_engage_customer of this ConversationWebsocketMessage.  # noqa: E501
+        :rtype: ConversationWebchatQueueStatusQueueEntry
+        """
+        return self._event_engage_customer
+
+    @event_engage_customer.setter
+    def event_engage_customer(self, event_engage_customer):
+        """Sets the event_engage_customer of this ConversationWebsocketMessage.
+
+
+        :param event_engage_customer: The event_engage_customer of this ConversationWebsocketMessage.  # noqa: E501
+        :type: ConversationWebchatQueueStatusQueueEntry
+        """
+
+        self._event_engage_customer = event_engage_customer
 
     @property
     def event_new_conversation(self):
