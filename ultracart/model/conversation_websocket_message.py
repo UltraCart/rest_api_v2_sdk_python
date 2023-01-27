@@ -42,6 +42,7 @@ def lazy_import():
     from ultracart.model.conversation_participant import ConversationParticipant
     from ultracart.model.conversation_summary import ConversationSummary
     from ultracart.model.conversation_webchat_queue_status import ConversationWebchatQueueStatus
+    from ultracart.model.conversation_webchat_queue_status_queue_entry import ConversationWebchatQueueStatusQueueEntry
     globals()['ConversationEventAddCoupon'] = ConversationEventAddCoupon
     globals()['ConversationEventAddItem'] = ConversationEventAddItem
     globals()['ConversationEventQueuePosition'] = ConversationEventQueuePosition
@@ -53,6 +54,7 @@ def lazy_import():
     globals()['ConversationParticipant'] = ConversationParticipant
     globals()['ConversationSummary'] = ConversationSummary
     globals()['ConversationWebchatQueueStatus'] = ConversationWebchatQueueStatus
+    globals()['ConversationWebchatQueueStatusQueueEntry'] = ConversationWebchatQueueStatusQueueEntry
 
 
 class ConversationWebsocketMessage(ModelNormal):
@@ -137,6 +139,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'event_add_coupon': (ConversationEventAddCoupon,),  # noqa: E501
             'event_add_item': (ConversationEventAddItem,),  # noqa: E501
             'event_conversation_closed': (ConversationSummary,),  # noqa: E501
+            'event_engage_customer': (ConversationWebchatQueueStatusQueueEntry,),  # noqa: E501
             'event_new_conversation': (ConversationSummary,),  # noqa: E501
             'event_new_message': (ConversationSummary,),  # noqa: E501
             'event_participant_join': (ConversationSummary,),  # noqa: E501
@@ -166,6 +169,7 @@ class ConversationWebsocketMessage(ModelNormal):
         'event_add_coupon': 'event_add_coupon',  # noqa: E501
         'event_add_item': 'event_add_item',  # noqa: E501
         'event_conversation_closed': 'event_conversation_closed',  # noqa: E501
+        'event_engage_customer': 'event_engage_customer',  # noqa: E501
         'event_new_conversation': 'event_new_conversation',  # noqa: E501
         'event_new_message': 'event_new_message',  # noqa: E501
         'event_participant_join': 'event_participant_join',  # noqa: E501
@@ -230,6 +234,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_add_coupon (ConversationEventAddCoupon): [optional]  # noqa: E501
             event_add_item (ConversationEventAddItem): [optional]  # noqa: E501
             event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
+            event_engage_customer (ConversationWebchatQueueStatusQueueEntry): [optional]  # noqa: E501
             event_new_conversation (ConversationSummary): [optional]  # noqa: E501
             event_new_message (ConversationSummary): [optional]  # noqa: E501
             event_participant_join (ConversationSummary): [optional]  # noqa: E501
@@ -336,6 +341,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_add_coupon (ConversationEventAddCoupon): [optional]  # noqa: E501
             event_add_item (ConversationEventAddItem): [optional]  # noqa: E501
             event_conversation_closed (ConversationSummary): [optional]  # noqa: E501
+            event_engage_customer (ConversationWebchatQueueStatusQueueEntry): [optional]  # noqa: E501
             event_new_conversation (ConversationSummary): [optional]  # noqa: E501
             event_new_message (ConversationSummary): [optional]  # noqa: E501
             event_participant_join (ConversationSummary): [optional]  # noqa: E501
