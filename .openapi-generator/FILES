@@ -160,6 +160,9 @@ docs/ConversationEventReadMessage.md
 docs/ConversationEventTyping.md
 docs/ConversationEventWebchatContext.md
 docs/ConversationJoinRequest.md
+docs/ConversationLocationCountry.md
+docs/ConversationLocationStateProvince.md
+docs/ConversationLocationsResponse.md
 docs/ConversationMessage.md
 docs/ConversationMessageTranslation.md
 docs/ConversationMessageTransportStatus.md
@@ -937,6 +940,9 @@ ultracart/model/conversation_event_rr_web.py
 ultracart/model/conversation_event_typing.py
 ultracart/model/conversation_event_webchat_context.py
 ultracart/model/conversation_join_request.py
+ultracart/model/conversation_location_country.py
+ultracart/model/conversation_location_state_province.py
+ultracart/model/conversation_locations_response.py
 ultracart/model/conversation_message.py
 ultracart/model/conversation_message_translation.py
 ultracart/model/conversation_message_transport_status.py
