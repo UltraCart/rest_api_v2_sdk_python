@@ -133,6 +133,8 @@ docs/CityStateZip.md
 docs/Conversation.md
 docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
+docs/ConversationAgentProfile.md
+docs/ConversationAgentProfileResponse.md
 docs/ConversationApi.md
 docs/ConversationAutocompleteRequest.md
 docs/ConversationAutocompleteResponse.md
@@ -914,6 +916,8 @@ ultracart/model/city_state_zip.py
 ultracart/model/conversation.py
 ultracart/model/conversation_agent_auth.py
 ultracart/model/conversation_agent_auth_response.py
+ultracart/model/conversation_agent_profile.py
+ultracart/model/conversation_agent_profile_response.py
 ultracart/model/conversation_autocomplete_request.py
 ultracart/model/conversation_autocomplete_response.py
 ultracart/model/conversation_autocomplete_value.py
