@@ -31,6 +31,7 @@ class ConversationWebsocketMessage(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'conversation_arn': 'str',
         'conversation_uuid': 'str',
         'event_add_coupon': 'ConversationEventAddCoupon',
         'event_add_item': 'ConversationEventAddItem',
@@ -56,6 +57,7 @@ class ConversationWebsocketMessage(object):
     }
 
     attribute_map = {
+        'conversation_arn': 'conversation_arn',
         'conversation_uuid': 'conversation_uuid',
         'event_add_coupon': 'event_add_coupon',
         'event_add_item': 'event_add_item',
@@ -80,9 +82,10 @@ class ConversationWebsocketMessage(object):
         'type': 'type'
     }
 
-    def __init__(self, conversation_uuid=None, event_add_coupon=None, event_add_item=None, event_conversation_closed=None, event_engage_customer=None, event_new_conversation=None, event_new_message=None, event_participant_join=None, event_participant_join_participant=None, event_participant_left=None, event_participant_left_participant=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, event_webchat_context=None, message=None, type=None):  # noqa: E501
+    def __init__(self, conversation_arn=None, conversation_uuid=None, event_add_coupon=None, event_add_item=None, event_conversation_closed=None, event_engage_customer=None, event_new_conversation=None, event_new_message=None, event_participant_join=None, event_participant_join_participant=None, event_participant_left=None, event_participant_left_participant=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, event_webchat_context=None, message=None, type=None):  # noqa: E501
         """ConversationWebsocketMessage - a model defined in Swagger"""  # noqa: E501
 
+        self._conversation_arn = None
         self._conversation_uuid = None
         self._event_add_coupon = None
         self._event_add_item = None
@@ -107,6 +110,8 @@ class ConversationWebsocketMessage(object):
         self._type = None
         self.discriminator = None
 
+        if conversation_arn is not None:
+            self.conversation_arn = conversation_arn
         if conversation_uuid is not None:
             self.conversation_uuid = conversation_uuid
         if event_add_coupon is not None:
@@ -151,6 +156,29 @@ class ConversationWebsocketMessage(object):
             self.message = message
         if type is not None:
             self.type = type
+
+    @property
+    def conversation_arn(self):
+        """Gets the conversation_arn of this ConversationWebsocketMessage.  # noqa: E501
+
+        Conversation ARN  # noqa: E501
+
+        :return: The conversation_arn of this ConversationWebsocketMessage.  # noqa: E501
+        :rtype: str
+        """
+        return self._conversation_arn
+
+    @conversation_arn.setter
+    def conversation_arn(self, conversation_arn):
+        """Sets the conversation_arn of this ConversationWebsocketMessage.
+
+        Conversation ARN  # noqa: E501
+
+        :param conversation_arn: The conversation_arn of this ConversationWebsocketMessage.  # noqa: E501
+        :type: str
+        """
+
+        self._conversation_arn = conversation_arn
 
     @property
     def conversation_uuid(self):
