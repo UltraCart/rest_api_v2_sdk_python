@@ -135,6 +135,7 @@ class ConversationWebsocketMessage(ModelNormal):
         """
         lazy_import()
         return {
+            'conversation_arn': (str,),  # noqa: E501
             'conversation_uuid': (str,),  # noqa: E501
             'event_add_coupon': (ConversationEventAddCoupon,),  # noqa: E501
             'event_add_item': (ConversationEventAddItem,),  # noqa: E501
@@ -165,6 +166,7 @@ class ConversationWebsocketMessage(ModelNormal):
 
 
     attribute_map = {
+        'conversation_arn': 'conversation_arn',  # noqa: E501
         'conversation_uuid': 'conversation_uuid',  # noqa: E501
         'event_add_coupon': 'event_add_coupon',  # noqa: E501
         'event_add_item': 'event_add_item',  # noqa: E501
@@ -230,6 +232,7 @@ class ConversationWebsocketMessage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            conversation_arn (str): Conversation ARN. [optional]  # noqa: E501
             conversation_uuid (str): Conversation UUID if the websocket message is tied to a specific conversation. [optional]  # noqa: E501
             event_add_coupon (ConversationEventAddCoupon): [optional]  # noqa: E501
             event_add_item (ConversationEventAddItem): [optional]  # noqa: E501
@@ -337,6 +340,7 @@ class ConversationWebsocketMessage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            conversation_arn (str): Conversation ARN. [optional]  # noqa: E501
             conversation_uuid (str): Conversation UUID if the websocket message is tied to a specific conversation. [optional]  # noqa: E501
             event_add_coupon (ConversationEventAddCoupon): [optional]  # noqa: E501
             event_add_item (ConversationEventAddItem): [optional]  # noqa: E501
