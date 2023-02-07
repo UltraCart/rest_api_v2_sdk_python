@@ -44,6 +44,7 @@ class ConversationWebsocketMessage(object):
         'event_participant_left': 'ConversationSummary',
         'event_participant_left_participant': 'ConversationParticipant',
         'event_participant_update': 'ConversationSummary',
+        'event_queue_new_member': 'ConversationWebchatQueueStatusQueueEntry',
         'event_queue_position': 'ConversationEventQueuePosition',
         'event_queue_status_update': 'ConversationWebchatQueueStatus',
         'event_read_message': 'ConversationEventReadMessage',
@@ -70,6 +71,7 @@ class ConversationWebsocketMessage(object):
         'event_participant_left': 'event_participant_left',
         'event_participant_left_participant': 'event_participant_left_participant',
         'event_participant_update': 'event_participant_update',
+        'event_queue_new_member': 'event_queue_new_member',
         'event_queue_position': 'event_queue_position',
         'event_queue_status_update': 'event_queue_status_update',
         'event_read_message': 'event_read_message',
@@ -82,7 +84,7 @@ class ConversationWebsocketMessage(object):
         'type': 'type'
     }
 
-    def __init__(self, conversation_arn=None, conversation_uuid=None, event_add_coupon=None, event_add_item=None, event_conversation_closed=None, event_engage_customer=None, event_new_conversation=None, event_new_message=None, event_participant_join=None, event_participant_join_participant=None, event_participant_left=None, event_participant_left_participant=None, event_participant_update=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, event_webchat_context=None, message=None, type=None):  # noqa: E501
+    def __init__(self, conversation_arn=None, conversation_uuid=None, event_add_coupon=None, event_add_item=None, event_conversation_closed=None, event_engage_customer=None, event_new_conversation=None, event_new_message=None, event_participant_join=None, event_participant_join_participant=None, event_participant_left=None, event_participant_left_participant=None, event_participant_update=None, event_queue_new_member=None, event_queue_position=None, event_queue_status_update=None, event_read_message=None, event_rrweb=None, event_type=None, event_typing=None, event_updated_message=None, event_webchat_context=None, message=None, type=None):  # noqa: E501
         """ConversationWebsocketMessage - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_arn = None
@@ -98,6 +100,7 @@ class ConversationWebsocketMessage(object):
         self._event_participant_left = None
         self._event_participant_left_participant = None
         self._event_participant_update = None
+        self._event_queue_new_member = None
         self._event_queue_position = None
         self._event_queue_status_update = None
         self._event_read_message = None
@@ -136,6 +139,8 @@ class ConversationWebsocketMessage(object):
             self.event_participant_left_participant = event_participant_left_participant
         if event_participant_update is not None:
             self.event_participant_update = event_participant_update
+        if event_queue_new_member is not None:
+            self.event_queue_new_member = event_queue_new_member
         if event_queue_position is not None:
             self.event_queue_position = event_queue_position
         if event_queue_status_update is not None:
@@ -435,6 +440,27 @@ class ConversationWebsocketMessage(object):
         self._event_participant_update = event_participant_update
 
     @property
+    def event_queue_new_member(self):
+        """Gets the event_queue_new_member of this ConversationWebsocketMessage.  # noqa: E501
+
+
+        :return: The event_queue_new_member of this ConversationWebsocketMessage.  # noqa: E501
+        :rtype: ConversationWebchatQueueStatusQueueEntry
+        """
+        return self._event_queue_new_member
+
+    @event_queue_new_member.setter
+    def event_queue_new_member(self, event_queue_new_member):
+        """Sets the event_queue_new_member of this ConversationWebsocketMessage.
+
+
+        :param event_queue_new_member: The event_queue_new_member of this ConversationWebsocketMessage.  # noqa: E501
+        :type: ConversationWebchatQueueStatusQueueEntry
+        """
+
+        self._event_queue_new_member = event_queue_new_member
+
+    @property
     def event_queue_position(self):
         """Gets the event_queue_position of this ConversationWebsocketMessage.  # noqa: E501
 
@@ -538,7 +564,7 @@ class ConversationWebsocketMessage(object):
         :param event_type: The event_type of this ConversationWebsocketMessage.  # noqa: E501
         :type: str
         """
-        allowed_values = ["queue position", "webchat start conversation", "conversation closed", "new conversation", "new message", "updated message", "queue status update", "rrweb", "participant update", "participant join", "participant left", "read message", "typing", "add coupon", "add item", "webchat context", "engage customer"]  # noqa: E501
+        allowed_values = ["queue position", "webchat start conversation", "conversation closed", "new conversation", "new message", "updated message", "queue status update", "rrweb", "participant update", "participant join", "participant left", "read message", "typing", "add coupon", "add item", "webchat context", "engage customer", "queue new member"]  # noqa: E501
         if event_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `event_type` ({0}), must be one of {1}"  # noqa: E501

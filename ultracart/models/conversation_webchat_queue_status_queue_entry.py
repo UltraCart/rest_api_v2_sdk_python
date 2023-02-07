@@ -37,7 +37,8 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         'email': 'str',
         'join_dts': 'str',
         'participant_language_iso_code': 'str',
-        'question': 'str'
+        'question': 'str',
+        'queue_name': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         'email': 'email',
         'join_dts': 'join_dts',
         'participant_language_iso_code': 'participant_language_iso_code',
-        'question': 'question'
+        'question': 'question',
+        'queue_name': 'queue_name'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_webchat_queue_uuid=None, email=None, join_dts=None, participant_language_iso_code=None, question=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, conversation_webchat_queue_uuid=None, email=None, join_dts=None, participant_language_iso_code=None, question=None, queue_name=None):  # noqa: E501
         """ConversationWebchatQueueStatusQueueEntry - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
@@ -60,6 +62,7 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         self._join_dts = None
         self._participant_language_iso_code = None
         self._question = None
+        self._queue_name = None
         self.discriminator = None
 
         if conversation_participant_arn is not None:
@@ -76,6 +79,8 @@ class ConversationWebchatQueueStatusQueueEntry(object):
             self.participant_language_iso_code = participant_language_iso_code
         if question is not None:
             self.question = question
+        if queue_name is not None:
+            self.queue_name = queue_name
 
     @property
     def conversation_participant_arn(self):
@@ -225,6 +230,27 @@ class ConversationWebchatQueueStatusQueueEntry(object):
         """
 
         self._question = question
+
+    @property
+    def queue_name(self):
+        """Gets the queue_name of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+
+
+        :return: The queue_name of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._queue_name
+
+    @queue_name.setter
+    def queue_name(self, queue_name):
+        """Sets the queue_name of this ConversationWebchatQueueStatusQueueEntry.
+
+
+        :param queue_name: The queue_name of this ConversationWebchatQueueStatusQueueEntry.  # noqa: E501
+        :type: str
+        """
+
+        self._queue_name = queue_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
