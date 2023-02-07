@@ -89,6 +89,7 @@ class ConversationWebchatQueueStatusQueueEntry(ModelNormal):
             'join_dts': (str,),  # noqa: E501
             'participant_language_iso_code': (str,),  # noqa: E501
             'question': (str,),  # noqa: E501
+            'queue_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +105,7 @@ class ConversationWebchatQueueStatusQueueEntry(ModelNormal):
         'join_dts': 'join_dts',  # noqa: E501
         'participant_language_iso_code': 'participant_language_iso_code',  # noqa: E501
         'question': 'question',  # noqa: E501
+        'queue_name': 'queue_name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -154,6 +156,7 @@ class ConversationWebchatQueueStatusQueueEntry(ModelNormal):
             join_dts (str): Date/time the customer joined the queue. [optional]  # noqa: E501
             participant_language_iso_code (str): [optional]  # noqa: E501
             question (str): [optional]  # noqa: E501
+            queue_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,6 +249,7 @@ class ConversationWebchatQueueStatusQueueEntry(ModelNormal):
             join_dts (str): Date/time the customer joined the queue. [optional]  # noqa: E501
             participant_language_iso_code (str): [optional]  # noqa: E501
             question (str): [optional]  # noqa: E501
+            queue_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

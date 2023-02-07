@@ -100,6 +100,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'ADD_ITEM': "add item",
             'WEBCHAT_CONTEXT': "webchat context",
             'ENGAGE_CUSTOMER': "engage customer",
+            'QUEUE_NEW_MEMBER': "queue new member",
         },
         ('type',): {
             'MESSAGE': "message",
@@ -148,6 +149,7 @@ class ConversationWebsocketMessage(ModelNormal):
             'event_participant_left': (ConversationSummary,),  # noqa: E501
             'event_participant_left_participant': (ConversationParticipant,),  # noqa: E501
             'event_participant_update': (ConversationSummary,),  # noqa: E501
+            'event_queue_new_member': (ConversationWebchatQueueStatusQueueEntry,),  # noqa: E501
             'event_queue_position': (ConversationEventQueuePosition,),  # noqa: E501
             'event_queue_status_update': (ConversationWebchatQueueStatus,),  # noqa: E501
             'event_read_message': (ConversationEventReadMessage,),  # noqa: E501
@@ -179,6 +181,7 @@ class ConversationWebsocketMessage(ModelNormal):
         'event_participant_left': 'event_participant_left',  # noqa: E501
         'event_participant_left_participant': 'event_participant_left_participant',  # noqa: E501
         'event_participant_update': 'event_participant_update',  # noqa: E501
+        'event_queue_new_member': 'event_queue_new_member',  # noqa: E501
         'event_queue_position': 'event_queue_position',  # noqa: E501
         'event_queue_status_update': 'event_queue_status_update',  # noqa: E501
         'event_read_message': 'event_read_message',  # noqa: E501
@@ -245,6 +248,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_participant_left (ConversationSummary): [optional]  # noqa: E501
             event_participant_left_participant (ConversationParticipant): [optional]  # noqa: E501
             event_participant_update (ConversationSummary): [optional]  # noqa: E501
+            event_queue_new_member (ConversationWebchatQueueStatusQueueEntry): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_queue_status_update (ConversationWebchatQueueStatus): [optional]  # noqa: E501
             event_read_message (ConversationEventReadMessage): [optional]  # noqa: E501
@@ -353,6 +357,7 @@ class ConversationWebsocketMessage(ModelNormal):
             event_participant_left (ConversationSummary): [optional]  # noqa: E501
             event_participant_left_participant (ConversationParticipant): [optional]  # noqa: E501
             event_participant_update (ConversationSummary): [optional]  # noqa: E501
+            event_queue_new_member (ConversationWebchatQueueStatusQueueEntry): [optional]  # noqa: E501
             event_queue_position (ConversationEventQueuePosition): [optional]  # noqa: E501
             event_queue_status_update (ConversationWebchatQueueStatus): [optional]  # noqa: E501
             event_read_message (ConversationEventReadMessage): [optional]  # noqa: E501
