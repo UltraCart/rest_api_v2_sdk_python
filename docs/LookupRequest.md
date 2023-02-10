@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **category** | **str** |  | [optional] 
 **matches** | **str** |  | [optional] 
 **max_hits** | **int** |  | [optional] 
+**storefront_host_name** | **str** |  | [optional] 
 **storefront_oid** | **int** |  | [optional] 
 **subcategory** | **str** |  | [optional] 
 

@@ -34,6 +34,7 @@ class LookupRequest(object):
         'category': 'str',
         'matches': 'str',
         'max_hits': 'int',
+        'storefront_host_name': 'str',
         'storefront_oid': 'int',
         'subcategory': 'str'
     }
@@ -42,16 +43,18 @@ class LookupRequest(object):
         'category': 'category',
         'matches': 'matches',
         'max_hits': 'max_hits',
+        'storefront_host_name': 'storefront_host_name',
         'storefront_oid': 'storefront_oid',
         'subcategory': 'subcategory'
     }
 
-    def __init__(self, category=None, matches=None, max_hits=None, storefront_oid=None, subcategory=None):  # noqa: E501
+    def __init__(self, category=None, matches=None, max_hits=None, storefront_host_name=None, storefront_oid=None, subcategory=None):  # noqa: E501
         """LookupRequest - a model defined in Swagger"""  # noqa: E501
 
         self._category = None
         self._matches = None
         self._max_hits = None
+        self._storefront_host_name = None
         self._storefront_oid = None
         self._subcategory = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class LookupRequest(object):
             self.matches = matches
         if max_hits is not None:
             self.max_hits = max_hits
+        if storefront_host_name is not None:
+            self.storefront_host_name = storefront_host_name
         if storefront_oid is not None:
             self.storefront_oid = storefront_oid
         if subcategory is not None:
@@ -129,6 +134,27 @@ class LookupRequest(object):
         """
 
         self._max_hits = max_hits
+
+    @property
+    def storefront_host_name(self):
+        """Gets the storefront_host_name of this LookupRequest.  # noqa: E501
+
+
+        :return: The storefront_host_name of this LookupRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._storefront_host_name
+
+    @storefront_host_name.setter
+    def storefront_host_name(self, storefront_host_name):
+        """Sets the storefront_host_name of this LookupRequest.
+
+
+        :param storefront_host_name: The storefront_host_name of this LookupRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._storefront_host_name = storefront_host_name
 
     @property
     def storefront_oid(self):
