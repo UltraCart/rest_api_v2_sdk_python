@@ -3336,6 +3336,7 @@ api_instance = GiftCertificateApi(api_client())
         category="category_example",
         matches="matches_example",
         max_hits=1,
+        storefront_host_name="storefront_host_name_example",
         storefront_oid=1,
         subcategory="subcategory_example",
     ) # LookupRequest | LookupRequest

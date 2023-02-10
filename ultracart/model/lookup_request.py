@@ -85,6 +85,7 @@ class LookupRequest(ModelNormal):
             'category': (str,),  # noqa: E501
             'matches': (str,),  # noqa: E501
             'max_hits': (int,),  # noqa: E501
+            'storefront_host_name': (str,),  # noqa: E501
             'storefront_oid': (int,),  # noqa: E501
             'subcategory': (str,),  # noqa: E501
         }
@@ -98,6 +99,7 @@ class LookupRequest(ModelNormal):
         'category': 'category',  # noqa: E501
         'matches': 'matches',  # noqa: E501
         'max_hits': 'max_hits',  # noqa: E501
+        'storefront_host_name': 'storefront_host_name',  # noqa: E501
         'storefront_oid': 'storefront_oid',  # noqa: E501
         'subcategory': 'subcategory',  # noqa: E501
     }
@@ -146,6 +148,7 @@ class LookupRequest(ModelNormal):
             category (str): [optional]  # noqa: E501
             matches (str): [optional]  # noqa: E501
             max_hits (int): [optional]  # noqa: E501
+            storefront_host_name (str): [optional]  # noqa: E501
             storefront_oid (int): [optional]  # noqa: E501
             subcategory (str): [optional]  # noqa: E501
         """
@@ -236,6 +239,7 @@ class LookupRequest(ModelNormal):
             category (str): [optional]  # noqa: E501
             matches (str): [optional]  # noqa: E501
             max_hits (int): [optional]  # noqa: E501
+            storefront_host_name (str): [optional]  # noqa: E501
             storefront_oid (int): [optional]  # noqa: E501
             subcategory (str): [optional]  # noqa: E501
         """
