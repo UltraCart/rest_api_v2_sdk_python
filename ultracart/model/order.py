@@ -57,6 +57,7 @@ def lazy_import():
     from ultracart.model.order_summary import OrderSummary
     from ultracart.model.order_tag import OrderTag
     from ultracart.model.order_taxes import OrderTaxes
+    from ultracart.model.order_utm import OrderUtm
     globals()['Customer'] = Customer
     globals()['OrderAffiliate'] = OrderAffiliate
     globals()['OrderAutoOrder'] = OrderAutoOrder
@@ -83,6 +84,7 @@ def lazy_import():
     globals()['OrderSummary'] = OrderSummary
     globals()['OrderTag'] = OrderTag
     globals()['OrderTaxes'] = OrderTaxes
+    globals()['OrderUtm'] = OrderUtm
 
 
 class Order(ModelNormal):
@@ -193,6 +195,7 @@ class Order(ModelNormal):
             'summary': (OrderSummary,),  # noqa: E501
             'tags': ([OrderTag],),  # noqa: E501
             'taxes': (OrderTaxes,),  # noqa: E501
+            'utms': ([OrderUtm],),  # noqa: E501
         }
 
     @cached_property
@@ -236,6 +239,7 @@ class Order(ModelNormal):
         'summary': 'summary',  # noqa: E501
         'tags': 'Tags',  # noqa: E501
         'taxes': 'taxes',  # noqa: E501
+        'utms': 'utms',  # noqa: E501
     }
 
     read_only_vars = {
@@ -314,6 +318,7 @@ class Order(ModelNormal):
             summary (OrderSummary): [optional]  # noqa: E501
             tags ([OrderTag]): tags, available only through update, not through insert due to the nature of how tags are handled internally. [optional]  # noqa: E501
             taxes (OrderTaxes): [optional]  # noqa: E501
+            utms ([OrderUtm]): UTM clicks.  The zero index is the most recent (last) UTM click. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -434,6 +439,7 @@ class Order(ModelNormal):
             summary (OrderSummary): [optional]  # noqa: E501
             tags ([OrderTag]): tags, available only through update, not through insert due to the nature of how tags are handled internally. [optional]  # noqa: E501
             taxes (OrderTaxes): [optional]  # noqa: E501
+            utms ([OrderUtm]): UTM clicks.  The zero index is the most recent (last) UTM click. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

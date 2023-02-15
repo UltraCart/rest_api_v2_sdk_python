@@ -118,6 +118,7 @@ class PricingTier(ModelNormal):
             'not_valid_when_coupon_present': (bool,),  # noqa: E501
             'pricing_tier_oid': (int,),  # noqa: E501
             'realtime_percentage_discount': (float,),  # noqa: E501
+            'restrict_to_distribution_center_oid': (int,),  # noqa: E501
             'signup_notification': (PricingTierNotification,),  # noqa: E501
             'suppress_buysafe': (bool,),  # noqa: E501
             'suppress_mailing_list': (bool,),  # noqa: E501
@@ -158,6 +159,7 @@ class PricingTier(ModelNormal):
         'not_valid_when_coupon_present': 'not_valid_when_coupon_present',  # noqa: E501
         'pricing_tier_oid': 'pricing_tier_oid',  # noqa: E501
         'realtime_percentage_discount': 'realtime_percentage_discount',  # noqa: E501
+        'restrict_to_distribution_center_oid': 'restrict_to_distribution_center_oid',  # noqa: E501
         'signup_notification': 'signup_notification',  # noqa: E501
         'suppress_buysafe': 'suppress_buysafe',  # noqa: E501
         'suppress_mailing_list': 'suppress_mailing_list',  # noqa: E501
@@ -233,6 +235,7 @@ class PricingTier(ModelNormal):
             not_valid_when_coupon_present (bool): Not valid when coupon present. [optional]  # noqa: E501
             pricing_tier_oid (int): Pricing Tier Oid. [optional]  # noqa: E501
             realtime_percentage_discount (float): Realtime percentage discount. [optional]  # noqa: E501
+            restrict_to_distribution_center_oid (int): Restrict inventory to this distribution center oid. [optional]  # noqa: E501
             signup_notification (PricingTierNotification): [optional]  # noqa: E501
             suppress_buysafe (bool): Suppress buySAFE (deprecated). [optional]  # noqa: E501
             suppress_mailing_list (bool): Suppress mailing list. [optional]  # noqa: E501
@@ -350,6 +353,7 @@ class PricingTier(ModelNormal):
             not_valid_when_coupon_present (bool): Not valid when coupon present. [optional]  # noqa: E501
             pricing_tier_oid (int): Pricing Tier Oid. [optional]  # noqa: E501
             realtime_percentage_discount (float): Realtime percentage discount. [optional]  # noqa: E501
+            restrict_to_distribution_center_oid (int): Restrict inventory to this distribution center oid. [optional]  # noqa: E501
             signup_notification (PricingTierNotification): [optional]  # noqa: E501
             suppress_buysafe (bool): Suppress buySAFE (deprecated). [optional]  # noqa: E501
             suppress_mailing_list (bool): Suppress mailing list. [optional]  # noqa: E501

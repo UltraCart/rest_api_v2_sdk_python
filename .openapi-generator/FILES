@@ -623,6 +623,7 @@ docs/OrderTokenResponse.md
 docs/OrderTrackingNumberDetail.md
 docs/OrderTrackingNumberDetails.md
 docs/OrderTransactionalMerchantNote.md
+docs/OrderUtm.md
 docs/OrdersResponse.md
 docs/Permission.md
 docs/PointOfSaleLocation.md
@@ -1397,6 +1398,7 @@ ultracart/model/order_token_response.py
 ultracart/model/order_tracking_number_detail.py
 ultracart/model/order_tracking_number_details.py
 ultracart/model/order_transactional_merchant_note.py
+ultracart/model/order_utm.py
 ultracart/model/orders_response.py
 ultracart/model/permission.py
 ultracart/model/point_of_sale_location.py

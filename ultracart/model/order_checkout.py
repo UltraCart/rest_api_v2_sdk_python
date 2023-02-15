@@ -66,6 +66,9 @@ class OrderCheckout(ModelNormal):
         ('custom_field1',): {
             'max_length': 50,
         },
+        ('custom_field10',): {
+            'max_length': 200,
+        },
         ('custom_field2',): {
             'max_length': 50,
         },
@@ -83,6 +86,12 @@ class OrderCheckout(ModelNormal):
         },
         ('custom_field7',): {
             'max_length': 50,
+        },
+        ('custom_field8',): {
+            'max_length': 200,
+        },
+        ('custom_field9',): {
+            'max_length': 200,
         },
         ('screen_branding_theme_code',): {
             'max_length': 10,
@@ -115,12 +124,15 @@ class OrderCheckout(ModelNormal):
             'browser': (Browser,),  # noqa: E501
             'comments': (str,),  # noqa: E501
             'custom_field1': (str,),  # noqa: E501
+            'custom_field10': (str,),  # noqa: E501
             'custom_field2': (str,),  # noqa: E501
             'custom_field3': (str,),  # noqa: E501
             'custom_field4': (str,),  # noqa: E501
             'custom_field5': (str,),  # noqa: E501
             'custom_field6': (str,),  # noqa: E501
             'custom_field7': (str,),  # noqa: E501
+            'custom_field8': (str,),  # noqa: E501
+            'custom_field9': (str,),  # noqa: E501
             'customer_ip_address': (str,),  # noqa: E501
             'screen_branding_theme_code': (str,),  # noqa: E501
             'screen_size': (str,),  # noqa: E501
@@ -137,12 +149,15 @@ class OrderCheckout(ModelNormal):
         'browser': 'browser',  # noqa: E501
         'comments': 'comments',  # noqa: E501
         'custom_field1': 'custom_field1',  # noqa: E501
+        'custom_field10': 'custom_field10',  # noqa: E501
         'custom_field2': 'custom_field2',  # noqa: E501
         'custom_field3': 'custom_field3',  # noqa: E501
         'custom_field4': 'custom_field4',  # noqa: E501
         'custom_field5': 'custom_field5',  # noqa: E501
         'custom_field6': 'custom_field6',  # noqa: E501
         'custom_field7': 'custom_field7',  # noqa: E501
+        'custom_field8': 'custom_field8',  # noqa: E501
+        'custom_field9': 'custom_field9',  # noqa: E501
         'customer_ip_address': 'customer_ip_address',  # noqa: E501
         'screen_branding_theme_code': 'screen_branding_theme_code',  # noqa: E501
         'screen_size': 'screen_size',  # noqa: E501
@@ -194,12 +209,15 @@ class OrderCheckout(ModelNormal):
             browser (Browser): [optional]  # noqa: E501
             comments (str): Comments from the customer.  Rarely used on the single page checkout.. [optional]  # noqa: E501
             custom_field1 (str): Custom field 1. [optional]  # noqa: E501
+            custom_field10 (str): Custom field 10. [optional]  # noqa: E501
             custom_field2 (str): Custom field 2. [optional]  # noqa: E501
             custom_field3 (str): Custom field 3. [optional]  # noqa: E501
             custom_field4 (str): Custom field 4. [optional]  # noqa: E501
             custom_field5 (str): Custom field 5. [optional]  # noqa: E501
             custom_field6 (str): Custom field 6. [optional]  # noqa: E501
             custom_field7 (str): Custom field 7. [optional]  # noqa: E501
+            custom_field8 (str): Custom field 8. [optional]  # noqa: E501
+            custom_field9 (str): Custom field 9. [optional]  # noqa: E501
             customer_ip_address (str): IP address of the customer when placing the order. [optional]  # noqa: E501
             screen_branding_theme_code (str): Screen branding theme code associated with the order (legacy checkout). [optional]  # noqa: E501
             screen_size (str): Screen size small, medium or large. [optional]  # noqa: E501
@@ -293,12 +311,15 @@ class OrderCheckout(ModelNormal):
             browser (Browser): [optional]  # noqa: E501
             comments (str): Comments from the customer.  Rarely used on the single page checkout.. [optional]  # noqa: E501
             custom_field1 (str): Custom field 1. [optional]  # noqa: E501
+            custom_field10 (str): Custom field 10. [optional]  # noqa: E501
             custom_field2 (str): Custom field 2. [optional]  # noqa: E501
             custom_field3 (str): Custom field 3. [optional]  # noqa: E501
             custom_field4 (str): Custom field 4. [optional]  # noqa: E501
             custom_field5 (str): Custom field 5. [optional]  # noqa: E501
             custom_field6 (str): Custom field 6. [optional]  # noqa: E501
             custom_field7 (str): Custom field 7. [optional]  # noqa: E501
+            custom_field8 (str): Custom field 8. [optional]  # noqa: E501
+            custom_field9 (str): Custom field 9. [optional]  # noqa: E501
             customer_ip_address (str): IP address of the customer when placing the order. [optional]  # noqa: E501
             screen_branding_theme_code (str): Screen branding theme code associated with the order (legacy checkout). [optional]  # noqa: E501
             screen_size (str): Screen size small, medium or large. [optional]  # noqa: E501

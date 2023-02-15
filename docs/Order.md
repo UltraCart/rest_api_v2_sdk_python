@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **summary** | [**OrderSummary**](OrderSummary.md) |  | [optional] 
 **tags** | [**[OrderTag]**](OrderTag.md) | tags, available only through update, not through insert due to the nature of how tags are handled internally | [optional] 
 **taxes** | [**OrderTaxes**](OrderTaxes.md) |  | [optional] 
+**utms** | [**[OrderUtm]**](OrderUtm.md) | UTM clicks.  The zero index is the most recent (last) UTM click | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
