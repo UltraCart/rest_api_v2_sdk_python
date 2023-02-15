@@ -33,12 +33,15 @@ class CartCheckout(object):
     swagger_types = {
         'comments': 'str',
         'custom_field1': 'str',
+        'custom_field10': 'str',
         'custom_field2': 'str',
         'custom_field3': 'str',
         'custom_field4': 'str',
         'custom_field5': 'str',
         'custom_field6': 'str',
         'custom_field7': 'str',
+        'custom_field8': 'str',
+        'custom_field9': 'str',
         'ip_address': 'str',
         'return_code': 'str',
         'return_url': 'str',
@@ -50,12 +53,15 @@ class CartCheckout(object):
     attribute_map = {
         'comments': 'comments',
         'custom_field1': 'custom_field1',
+        'custom_field10': 'custom_field10',
         'custom_field2': 'custom_field2',
         'custom_field3': 'custom_field3',
         'custom_field4': 'custom_field4',
         'custom_field5': 'custom_field5',
         'custom_field6': 'custom_field6',
         'custom_field7': 'custom_field7',
+        'custom_field8': 'custom_field8',
+        'custom_field9': 'custom_field9',
         'ip_address': 'ip_address',
         'return_code': 'return_code',
         'return_url': 'return_url',
@@ -64,17 +70,20 @@ class CartCheckout(object):
         'user_agent': 'user_agent'
     }
 
-    def __init__(self, comments=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, ip_address=None, return_code=None, return_url=None, screen_branding_theme_code=None, storefront_host_name=None, user_agent=None):  # noqa: E501
+    def __init__(self, comments=None, custom_field1=None, custom_field10=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, custom_field8=None, custom_field9=None, ip_address=None, return_code=None, return_url=None, screen_branding_theme_code=None, storefront_host_name=None, user_agent=None):  # noqa: E501
         """CartCheckout - a model defined in Swagger"""  # noqa: E501
 
         self._comments = None
         self._custom_field1 = None
+        self._custom_field10 = None
         self._custom_field2 = None
         self._custom_field3 = None
         self._custom_field4 = None
         self._custom_field5 = None
         self._custom_field6 = None
         self._custom_field7 = None
+        self._custom_field8 = None
+        self._custom_field9 = None
         self._ip_address = None
         self._return_code = None
         self._return_url = None
@@ -87,6 +96,8 @@ class CartCheckout(object):
             self.comments = comments
         if custom_field1 is not None:
             self.custom_field1 = custom_field1
+        if custom_field10 is not None:
+            self.custom_field10 = custom_field10
         if custom_field2 is not None:
             self.custom_field2 = custom_field2
         if custom_field3 is not None:
@@ -99,6 +110,10 @@ class CartCheckout(object):
             self.custom_field6 = custom_field6
         if custom_field7 is not None:
             self.custom_field7 = custom_field7
+        if custom_field8 is not None:
+            self.custom_field8 = custom_field8
+        if custom_field9 is not None:
+            self.custom_field9 = custom_field9
         if ip_address is not None:
             self.ip_address = ip_address
         if return_code is not None:
@@ -161,6 +176,31 @@ class CartCheckout(object):
             raise ValueError("Invalid value for `custom_field1`, length must be less than or equal to `50`")  # noqa: E501
 
         self._custom_field1 = custom_field1
+
+    @property
+    def custom_field10(self):
+        """Gets the custom_field10 of this CartCheckout.  # noqa: E501
+
+        Custom field 10  # noqa: E501
+
+        :return: The custom_field10 of this CartCheckout.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_field10
+
+    @custom_field10.setter
+    def custom_field10(self, custom_field10):
+        """Sets the custom_field10 of this CartCheckout.
+
+        Custom field 10  # noqa: E501
+
+        :param custom_field10: The custom_field10 of this CartCheckout.  # noqa: E501
+        :type: str
+        """
+        if custom_field10 is not None and len(custom_field10) > 200:
+            raise ValueError("Invalid value for `custom_field10`, length must be less than or equal to `200`")  # noqa: E501
+
+        self._custom_field10 = custom_field10
 
     @property
     def custom_field2(self):
@@ -311,6 +351,56 @@ class CartCheckout(object):
             raise ValueError("Invalid value for `custom_field7`, length must be less than or equal to `50`")  # noqa: E501
 
         self._custom_field7 = custom_field7
+
+    @property
+    def custom_field8(self):
+        """Gets the custom_field8 of this CartCheckout.  # noqa: E501
+
+        Custom field 8  # noqa: E501
+
+        :return: The custom_field8 of this CartCheckout.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_field8
+
+    @custom_field8.setter
+    def custom_field8(self, custom_field8):
+        """Sets the custom_field8 of this CartCheckout.
+
+        Custom field 8  # noqa: E501
+
+        :param custom_field8: The custom_field8 of this CartCheckout.  # noqa: E501
+        :type: str
+        """
+        if custom_field8 is not None and len(custom_field8) > 200:
+            raise ValueError("Invalid value for `custom_field8`, length must be less than or equal to `200`")  # noqa: E501
+
+        self._custom_field8 = custom_field8
+
+    @property
+    def custom_field9(self):
+        """Gets the custom_field9 of this CartCheckout.  # noqa: E501
+
+        Custom field 9  # noqa: E501
+
+        :return: The custom_field9 of this CartCheckout.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_field9
+
+    @custom_field9.setter
+    def custom_field9(self, custom_field9):
+        """Sets the custom_field9 of this CartCheckout.
+
+        Custom field 9  # noqa: E501
+
+        :param custom_field9: The custom_field9 of this CartCheckout.  # noqa: E501
+        :type: str
+        """
+        if custom_field9 is not None and len(custom_field9) > 200:
+            raise ValueError("Invalid value for `custom_field9`, length must be less than or equal to `200`")  # noqa: E501
+
+        self._custom_field9 = custom_field9
 
     @property
     def ip_address(self):

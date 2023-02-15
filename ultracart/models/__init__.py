@@ -623,6 +623,7 @@ from ultracart.models.order_token_response import OrderTokenResponse
 from ultracart.models.order_tracking_number_detail import OrderTrackingNumberDetail
 from ultracart.models.order_tracking_number_details import OrderTrackingNumberDetails
 from ultracart.models.order_transactional_merchant_note import OrderTransactionalMerchantNote
+from ultracart.models.order_utm import OrderUtm
 from ultracart.models.orders_response import OrdersResponse
 from ultracart.models.permission import Permission
 from ultracart.models.point_of_sale_location import PointOfSaleLocation

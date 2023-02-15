@@ -65,7 +65,8 @@ class Order(object):
         'shipping': 'OrderShipping',
         'summary': 'OrderSummary',
         'tags': 'list[OrderTag]',
-        'taxes': 'OrderTaxes'
+        'taxes': 'OrderTaxes',
+        'utms': 'list[OrderUtm]'
     }
 
     attribute_map = {
@@ -103,10 +104,11 @@ class Order(object):
         'shipping': 'shipping',
         'summary': 'summary',
         'tags': 'Tags',
-        'taxes': 'taxes'
+        'taxes': 'taxes',
+        'utms': 'utms'
     }
 
-    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, point_of_sale=None, properties=None, quote=None, refund_dts=None, reject_dts=None, salesforce=None, shipping=None, summary=None, tags=None, taxes=None):  # noqa: E501
+    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, point_of_sale=None, properties=None, quote=None, refund_dts=None, reject_dts=None, salesforce=None, shipping=None, summary=None, tags=None, taxes=None, utms=None):  # noqa: E501
         """Order - a model defined in Swagger"""  # noqa: E501
 
         self._affiliates = None
@@ -144,6 +146,7 @@ class Order(object):
         self._summary = None
         self._tags = None
         self._taxes = None
+        self._utms = None
         self.discriminator = None
 
         if affiliates is not None:
@@ -216,6 +219,8 @@ class Order(object):
             self.tags = tags
         if taxes is not None:
             self.taxes = taxes
+        if utms is not None:
+            self.utms = utms
 
     @property
     def affiliates(self):
@@ -989,6 +994,29 @@ class Order(object):
         """
 
         self._taxes = taxes
+
+    @property
+    def utms(self):
+        """Gets the utms of this Order.  # noqa: E501
+
+        UTM clicks.  The zero index is the most recent (last) UTM click  # noqa: E501
+
+        :return: The utms of this Order.  # noqa: E501
+        :rtype: list[OrderUtm]
+        """
+        return self._utms
+
+    @utms.setter
+    def utms(self, utms):
+        """Sets the utms of this Order.
+
+        UTM clicks.  The zero index is the most recent (last) UTM click  # noqa: E501
+
+        :param utms: The utms of this Order.  # noqa: E501
+        :type: list[OrderUtm]
+        """
+
+        self._utms = utms
 
     def to_dict(self):
         """Returns the model properties as a dict"""

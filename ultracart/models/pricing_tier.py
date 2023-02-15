@@ -58,6 +58,7 @@ class PricingTier(object):
         'not_valid_when_coupon_present': 'bool',
         'pricing_tier_oid': 'int',
         'realtime_percentage_discount': 'float',
+        'restrict_to_distribution_center_oid': 'int',
         'signup_notification': 'PricingTierNotification',
         'suppress_buysafe': 'bool',
         'suppress_mailing_list': 'bool',
@@ -93,6 +94,7 @@ class PricingTier(object):
         'not_valid_when_coupon_present': 'not_valid_when_coupon_present',
         'pricing_tier_oid': 'pricing_tier_oid',
         'realtime_percentage_discount': 'realtime_percentage_discount',
+        'restrict_to_distribution_center_oid': 'restrict_to_distribution_center_oid',
         'signup_notification': 'signup_notification',
         'suppress_buysafe': 'suppress_buysafe',
         'suppress_mailing_list': 'suppress_mailing_list',
@@ -100,7 +102,7 @@ class PricingTier(object):
         'track_separately': 'track_separately'
     }
 
-    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, approval_notification=None, auto_approve_cod=None, auto_approve_purchase_order=None, default_on_wholesale_signup=None, default_percentage_discount=None, default_shipping_method_oid=None, default_tier=None, display_on_wholesale_signup=None, exclude_from_free_promotion=None, exempt_loyalty_rewards=None, exempt_shipping_handling_charge=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, name=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, not_valid_when_coupon_present=None, pricing_tier_oid=None, realtime_percentage_discount=None, signup_notification=None, suppress_buysafe=None, suppress_mailing_list=None, tax_exempt=None, track_separately=None):  # noqa: E501
+    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, approval_notification=None, auto_approve_cod=None, auto_approve_purchase_order=None, default_on_wholesale_signup=None, default_percentage_discount=None, default_shipping_method_oid=None, default_tier=None, display_on_wholesale_signup=None, exclude_from_free_promotion=None, exempt_loyalty_rewards=None, exempt_shipping_handling_charge=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, name=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, not_valid_when_coupon_present=None, pricing_tier_oid=None, realtime_percentage_discount=None, restrict_to_distribution_center_oid=None, signup_notification=None, suppress_buysafe=None, suppress_mailing_list=None, tax_exempt=None, track_separately=None):  # noqa: E501
         """PricingTier - a model defined in Swagger"""  # noqa: E501
 
         self._allow_3rd_party_billing = None
@@ -130,6 +132,7 @@ class PricingTier(object):
         self._not_valid_when_coupon_present = None
         self._pricing_tier_oid = None
         self._realtime_percentage_discount = None
+        self._restrict_to_distribution_center_oid = None
         self._signup_notification = None
         self._suppress_buysafe = None
         self._suppress_mailing_list = None
@@ -191,6 +194,8 @@ class PricingTier(object):
             self.pricing_tier_oid = pricing_tier_oid
         if realtime_percentage_discount is not None:
             self.realtime_percentage_discount = realtime_percentage_discount
+        if restrict_to_distribution_center_oid is not None:
+            self.restrict_to_distribution_center_oid = restrict_to_distribution_center_oid
         if signup_notification is not None:
             self.signup_notification = signup_notification
         if suppress_buysafe is not None:
@@ -822,6 +827,29 @@ class PricingTier(object):
         """
 
         self._realtime_percentage_discount = realtime_percentage_discount
+
+    @property
+    def restrict_to_distribution_center_oid(self):
+        """Gets the restrict_to_distribution_center_oid of this PricingTier.  # noqa: E501
+
+        Restrict inventory to this distribution center oid  # noqa: E501
+
+        :return: The restrict_to_distribution_center_oid of this PricingTier.  # noqa: E501
+        :rtype: int
+        """
+        return self._restrict_to_distribution_center_oid
+
+    @restrict_to_distribution_center_oid.setter
+    def restrict_to_distribution_center_oid(self, restrict_to_distribution_center_oid):
+        """Sets the restrict_to_distribution_center_oid of this PricingTier.
+
+        Restrict inventory to this distribution center oid  # noqa: E501
+
+        :param restrict_to_distribution_center_oid: The restrict_to_distribution_center_oid of this PricingTier.  # noqa: E501
+        :type: int
+        """
+
+        self._restrict_to_distribution_center_oid = restrict_to_distribution_center_oid
 
     @property
     def signup_notification(self):
