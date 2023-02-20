@@ -46,6 +46,8 @@ Name | Type | Description | Notes
 **quantity** | **float** | Quantity | [optional] 
 **quantity_refunded** | **float** | Quantity refunded on this item (read only except refund operation) | [optional] 
 **quickbooks_class** | **str** | QuickBooks class | [optional] 
+**refund_reason** | **str** | Refund reason code.  This can only be written during a refund operation otherwise this field is read only. | [optional] 
+**return_reason** | **str** | Return reason code.  This can only be written during a refund operation otherwise this field is read only. | [optional] 
 **ship_separately** | **bool** | True if this item ships in a separate box | [optional] 
 **shipped_by_user** | **str** | Shipped by user | [optional] 
 **shipped_dts** | **str** | Date/time that this item was marked shipped | [optional] 

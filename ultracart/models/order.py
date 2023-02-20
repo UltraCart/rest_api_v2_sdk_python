@@ -60,7 +60,9 @@ class Order(object):
         'properties': 'list[OrderProperty]',
         'quote': 'OrderQuote',
         'refund_dts': 'str',
+        'refund_reason': 'str',
         'reject_dts': 'str',
+        'reject_reason': 'str',
         'salesforce': 'OrderSalesforce',
         'shipping': 'OrderShipping',
         'summary': 'OrderSummary',
@@ -99,7 +101,9 @@ class Order(object):
         'properties': 'properties',
         'quote': 'quote',
         'refund_dts': 'refund_dts',
+        'refund_reason': 'refund_reason',
         'reject_dts': 'reject_dts',
+        'reject_reason': 'reject_reason',
         'salesforce': 'salesforce',
         'shipping': 'shipping',
         'summary': 'summary',
@@ -108,7 +112,7 @@ class Order(object):
         'utms': 'utms'
     }
 
-    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, point_of_sale=None, properties=None, quote=None, refund_dts=None, reject_dts=None, salesforce=None, shipping=None, summary=None, tags=None, taxes=None, utms=None):  # noqa: E501
+    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, point_of_sale=None, properties=None, quote=None, refund_dts=None, refund_reason=None, reject_dts=None, reject_reason=None, salesforce=None, shipping=None, summary=None, tags=None, taxes=None, utms=None):  # noqa: E501
         """Order - a model defined in Swagger"""  # noqa: E501
 
         self._affiliates = None
@@ -140,7 +144,9 @@ class Order(object):
         self._properties = None
         self._quote = None
         self._refund_dts = None
+        self._refund_reason = None
         self._reject_dts = None
+        self._reject_reason = None
         self._salesforce = None
         self._shipping = None
         self._summary = None
@@ -207,8 +213,12 @@ class Order(object):
             self.quote = quote
         if refund_dts is not None:
             self.refund_dts = refund_dts
+        if refund_reason is not None:
+            self.refund_reason = refund_reason
         if reject_dts is not None:
             self.reject_dts = reject_dts
+        if reject_reason is not None:
+            self.reject_reason = reject_reason
         if salesforce is not None:
             self.salesforce = salesforce
         if shipping is not None:
@@ -866,6 +876,29 @@ class Order(object):
         self._refund_dts = refund_dts
 
     @property
+    def refund_reason(self):
+        """Gets the refund_reason of this Order.  # noqa: E501
+
+        Refund reason code.  This can only be written during a refund operation otherwise this field is read only.  # noqa: E501
+
+        :return: The refund_reason of this Order.  # noqa: E501
+        :rtype: str
+        """
+        return self._refund_reason
+
+    @refund_reason.setter
+    def refund_reason(self, refund_reason):
+        """Sets the refund_reason of this Order.
+
+        Refund reason code.  This can only be written during a refund operation otherwise this field is read only.  # noqa: E501
+
+        :param refund_reason: The refund_reason of this Order.  # noqa: E501
+        :type: str
+        """
+
+        self._refund_reason = refund_reason
+
+    @property
     def reject_dts(self):
         """Gets the reject_dts of this Order.  # noqa: E501
 
@@ -887,6 +920,29 @@ class Order(object):
         """
 
         self._reject_dts = reject_dts
+
+    @property
+    def reject_reason(self):
+        """Gets the reject_reason of this Order.  # noqa: E501
+
+        Reject reason code.  This can only be written during a reject operation otherwise this field is read only.  # noqa: E501
+
+        :return: The reject_reason of this Order.  # noqa: E501
+        :rtype: str
+        """
+        return self._reject_reason
+
+    @reject_reason.setter
+    def reject_reason(self, reject_reason):
+        """Sets the reject_reason of this Order.
+
+        Reject reason code.  This can only be written during a reject operation otherwise this field is read only.  # noqa: E501
+
+        :param reject_reason: The reject_reason of this Order.  # noqa: E501
+        :type: str
+        """
+
+        self._reject_reason = reject_reason
 
     @property
     def salesforce(self):

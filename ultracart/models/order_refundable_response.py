@@ -32,7 +32,13 @@ class OrderRefundableResponse(object):
     """
     swagger_types = {
         'error': 'Error',
+        'item_level_refund_reason_required': 'bool',
+        'item_level_refund_reasons': 'list[OrderReason]',
+        'item_level_return_reasons': 'list[OrderReason]',
         'metadata': 'ResponseMetadata',
+        'order_level_refund_reason_required': 'bool',
+        'order_level_refund_reasons': 'list[OrderReason]',
+        'order_level_reject_reasons': 'list[OrderReason]',
         'refundable': 'bool',
         'success': 'bool',
         'warning': 'Warning'
@@ -40,17 +46,29 @@ class OrderRefundableResponse(object):
 
     attribute_map = {
         'error': 'error',
+        'item_level_refund_reason_required': 'item_level_refund_reason_required',
+        'item_level_refund_reasons': 'item_level_refund_reasons',
+        'item_level_return_reasons': 'item_level_return_reasons',
         'metadata': 'metadata',
+        'order_level_refund_reason_required': 'order_level_refund_reason_required',
+        'order_level_refund_reasons': 'order_level_refund_reasons',
+        'order_level_reject_reasons': 'order_level_reject_reasons',
         'refundable': 'refundable',
         'success': 'success',
         'warning': 'warning'
     }
 
-    def __init__(self, error=None, metadata=None, refundable=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, error=None, item_level_refund_reason_required=None, item_level_refund_reasons=None, item_level_return_reasons=None, metadata=None, order_level_refund_reason_required=None, order_level_refund_reasons=None, order_level_reject_reasons=None, refundable=None, success=None, warning=None):  # noqa: E501
         """OrderRefundableResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
+        self._item_level_refund_reason_required = None
+        self._item_level_refund_reasons = None
+        self._item_level_return_reasons = None
         self._metadata = None
+        self._order_level_refund_reason_required = None
+        self._order_level_refund_reasons = None
+        self._order_level_reject_reasons = None
         self._refundable = None
         self._success = None
         self._warning = None
@@ -58,8 +76,20 @@ class OrderRefundableResponse(object):
 
         if error is not None:
             self.error = error
+        if item_level_refund_reason_required is not None:
+            self.item_level_refund_reason_required = item_level_refund_reason_required
+        if item_level_refund_reasons is not None:
+            self.item_level_refund_reasons = item_level_refund_reasons
+        if item_level_return_reasons is not None:
+            self.item_level_return_reasons = item_level_return_reasons
         if metadata is not None:
             self.metadata = metadata
+        if order_level_refund_reason_required is not None:
+            self.order_level_refund_reason_required = order_level_refund_reason_required
+        if order_level_refund_reasons is not None:
+            self.order_level_refund_reasons = order_level_refund_reasons
+        if order_level_reject_reasons is not None:
+            self.order_level_reject_reasons = order_level_reject_reasons
         if refundable is not None:
             self.refundable = refundable
         if success is not None:
@@ -89,6 +119,75 @@ class OrderRefundableResponse(object):
         self._error = error
 
     @property
+    def item_level_refund_reason_required(self):
+        """Gets the item_level_refund_reason_required of this OrderRefundableResponse.  # noqa: E501
+
+        True if the item level refund reason is required  # noqa: E501
+
+        :return: The item_level_refund_reason_required of this OrderRefundableResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._item_level_refund_reason_required
+
+    @item_level_refund_reason_required.setter
+    def item_level_refund_reason_required(self, item_level_refund_reason_required):
+        """Sets the item_level_refund_reason_required of this OrderRefundableResponse.
+
+        True if the item level refund reason is required  # noqa: E501
+
+        :param item_level_refund_reason_required: The item_level_refund_reason_required of this OrderRefundableResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._item_level_refund_reason_required = item_level_refund_reason_required
+
+    @property
+    def item_level_refund_reasons(self):
+        """Gets the item_level_refund_reasons of this OrderRefundableResponse.  # noqa: E501
+
+        Reason codes available at the item level.  # noqa: E501
+
+        :return: The item_level_refund_reasons of this OrderRefundableResponse.  # noqa: E501
+        :rtype: list[OrderReason]
+        """
+        return self._item_level_refund_reasons
+
+    @item_level_refund_reasons.setter
+    def item_level_refund_reasons(self, item_level_refund_reasons):
+        """Sets the item_level_refund_reasons of this OrderRefundableResponse.
+
+        Reason codes available at the item level.  # noqa: E501
+
+        :param item_level_refund_reasons: The item_level_refund_reasons of this OrderRefundableResponse.  # noqa: E501
+        :type: list[OrderReason]
+        """
+
+        self._item_level_refund_reasons = item_level_refund_reasons
+
+    @property
+    def item_level_return_reasons(self):
+        """Gets the item_level_return_reasons of this OrderRefundableResponse.  # noqa: E501
+
+        Return codes available at the item level.  # noqa: E501
+
+        :return: The item_level_return_reasons of this OrderRefundableResponse.  # noqa: E501
+        :rtype: list[OrderReason]
+        """
+        return self._item_level_return_reasons
+
+    @item_level_return_reasons.setter
+    def item_level_return_reasons(self, item_level_return_reasons):
+        """Sets the item_level_return_reasons of this OrderRefundableResponse.
+
+        Return codes available at the item level.  # noqa: E501
+
+        :param item_level_return_reasons: The item_level_return_reasons of this OrderRefundableResponse.  # noqa: E501
+        :type: list[OrderReason]
+        """
+
+        self._item_level_return_reasons = item_level_return_reasons
+
+    @property
     def metadata(self):
         """Gets the metadata of this OrderRefundableResponse.  # noqa: E501
 
@@ -108,6 +207,75 @@ class OrderRefundableResponse(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def order_level_refund_reason_required(self):
+        """Gets the order_level_refund_reason_required of this OrderRefundableResponse.  # noqa: E501
+
+        True if the order level refund reason is required  # noqa: E501
+
+        :return: The order_level_refund_reason_required of this OrderRefundableResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._order_level_refund_reason_required
+
+    @order_level_refund_reason_required.setter
+    def order_level_refund_reason_required(self, order_level_refund_reason_required):
+        """Sets the order_level_refund_reason_required of this OrderRefundableResponse.
+
+        True if the order level refund reason is required  # noqa: E501
+
+        :param order_level_refund_reason_required: The order_level_refund_reason_required of this OrderRefundableResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._order_level_refund_reason_required = order_level_refund_reason_required
+
+    @property
+    def order_level_refund_reasons(self):
+        """Gets the order_level_refund_reasons of this OrderRefundableResponse.  # noqa: E501
+
+        Reason codes available at the order level.  # noqa: E501
+
+        :return: The order_level_refund_reasons of this OrderRefundableResponse.  # noqa: E501
+        :rtype: list[OrderReason]
+        """
+        return self._order_level_refund_reasons
+
+    @order_level_refund_reasons.setter
+    def order_level_refund_reasons(self, order_level_refund_reasons):
+        """Sets the order_level_refund_reasons of this OrderRefundableResponse.
+
+        Reason codes available at the order level.  # noqa: E501
+
+        :param order_level_refund_reasons: The order_level_refund_reasons of this OrderRefundableResponse.  # noqa: E501
+        :type: list[OrderReason]
+        """
+
+        self._order_level_refund_reasons = order_level_refund_reasons
+
+    @property
+    def order_level_reject_reasons(self):
+        """Gets the order_level_reject_reasons of this OrderRefundableResponse.  # noqa: E501
+
+        Reject codes available at the order level.  # noqa: E501
+
+        :return: The order_level_reject_reasons of this OrderRefundableResponse.  # noqa: E501
+        :rtype: list[OrderReason]
+        """
+        return self._order_level_reject_reasons
+
+    @order_level_reject_reasons.setter
+    def order_level_reject_reasons(self, order_level_reject_reasons):
+        """Sets the order_level_reject_reasons of this OrderRefundableResponse.
+
+        Reject codes available at the order level.  # noqa: E501
+
+        :param order_level_reject_reasons: The order_level_reject_reasons of this OrderRefundableResponse.  # noqa: E501
+        :type: list[OrderReason]
+        """
+
+        self._order_level_reject_reasons = order_level_reject_reasons
 
     @property
     def refundable(self):

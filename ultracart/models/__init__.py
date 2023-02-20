@@ -609,6 +609,7 @@ from ultracart.models.order_property import OrderProperty
 from ultracart.models.order_query import OrderQuery
 from ultracart.models.order_query_batch import OrderQueryBatch
 from ultracart.models.order_quote import OrderQuote
+from ultracart.models.order_reason import OrderReason
 from ultracart.models.order_refundable_response import OrderRefundableResponse
 from ultracart.models.order_replacement import OrderReplacement
 from ultracart.models.order_replacement_item import OrderReplacementItem

@@ -74,6 +74,8 @@ class OrderItem(object):
         'quantity': 'float',
         'quantity_refunded': 'float',
         'quickbooks_class': 'str',
+        'refund_reason': 'str',
+        'return_reason': 'str',
         'ship_separately': 'bool',
         'shipped_by_user': 'str',
         'shipped_dts': 'str',
@@ -136,6 +138,8 @@ class OrderItem(object):
         'quantity': 'quantity',
         'quantity_refunded': 'quantity_refunded',
         'quickbooks_class': 'quickbooks_class',
+        'refund_reason': 'refund_reason',
+        'return_reason': 'return_reason',
         'ship_separately': 'ship_separately',
         'shipped_by_user': 'shipped_by_user',
         'shipped_dts': 'shipped_dts',
@@ -154,7 +158,7 @@ class OrderItem(object):
         'width': 'width'
     }
 
-    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_index=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, parent_item_index=None, parent_merchant_item_id=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, shipping_status=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
+    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_index=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, parent_item_index=None, parent_merchant_item_id=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, refund_reason=None, return_reason=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, shipping_status=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
         """OrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._accounting_code = None
@@ -200,6 +204,8 @@ class OrderItem(object):
         self._quantity = None
         self._quantity_refunded = None
         self._quickbooks_class = None
+        self._refund_reason = None
+        self._return_reason = None
         self._ship_separately = None
         self._shipped_by_user = None
         self._shipped_dts = None
@@ -304,6 +310,10 @@ class OrderItem(object):
             self.quantity_refunded = quantity_refunded
         if quickbooks_class is not None:
             self.quickbooks_class = quickbooks_class
+        if refund_reason is not None:
+            self.refund_reason = refund_reason
+        if return_reason is not None:
+            self.return_reason = return_reason
         if ship_separately is not None:
             self.ship_separately = ship_separately
         if shipped_by_user is not None:
@@ -1325,6 +1335,52 @@ class OrderItem(object):
             raise ValueError("Invalid value for `quickbooks_class`, length must be less than or equal to `31`")  # noqa: E501
 
         self._quickbooks_class = quickbooks_class
+
+    @property
+    def refund_reason(self):
+        """Gets the refund_reason of this OrderItem.  # noqa: E501
+
+        Refund reason code.  This can only be written during a refund operation otherwise this field is read only.  # noqa: E501
+
+        :return: The refund_reason of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._refund_reason
+
+    @refund_reason.setter
+    def refund_reason(self, refund_reason):
+        """Sets the refund_reason of this OrderItem.
+
+        Refund reason code.  This can only be written during a refund operation otherwise this field is read only.  # noqa: E501
+
+        :param refund_reason: The refund_reason of this OrderItem.  # noqa: E501
+        :type: str
+        """
+
+        self._refund_reason = refund_reason
+
+    @property
+    def return_reason(self):
+        """Gets the return_reason of this OrderItem.  # noqa: E501
+
+        Return reason code.  This can only be written during a refund operation otherwise this field is read only.  # noqa: E501
+
+        :return: The return_reason of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._return_reason
+
+    @return_reason.setter
+    def return_reason(self, return_reason):
+        """Sets the return_reason of this OrderItem.
+
+        Return reason code.  This can only be written during a refund operation otherwise this field is read only.  # noqa: E501
+
+        :param return_reason: The return_reason of this OrderItem.  # noqa: E501
+        :type: str
+        """
+
+        self._return_reason = return_reason
 
     @property
     def ship_separately(self):
