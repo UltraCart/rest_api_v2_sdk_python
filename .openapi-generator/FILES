@@ -609,6 +609,7 @@ docs/OrderProperty.md
 docs/OrderQuery.md
 docs/OrderQueryBatch.md
 docs/OrderQuote.md
+docs/OrderReason.md
 docs/OrderRefundableResponse.md
 docs/OrderReplacement.md
 docs/OrderReplacementItem.md
@@ -1384,6 +1385,7 @@ ultracart/model/order_property.py
 ultracart/model/order_query.py
 ultracart/model/order_query_batch.py
 ultracart/model/order_quote.py
+ultracart/model/order_reason.py
 ultracart/model/order_refundable_response.py
 ultracart/model/order_replacement.py
 ultracart/model/order_replacement_item.py

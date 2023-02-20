@@ -170,6 +170,8 @@ class OrderItem(ModelNormal):
             'quantity': (float,),  # noqa: E501
             'quantity_refunded': (float,),  # noqa: E501
             'quickbooks_class': (str,),  # noqa: E501
+            'refund_reason': (str,),  # noqa: E501
+            'return_reason': (str,),  # noqa: E501
             'ship_separately': (bool,),  # noqa: E501
             'shipped_by_user': (str,),  # noqa: E501
             'shipped_dts': (str,),  # noqa: E501
@@ -237,6 +239,8 @@ class OrderItem(ModelNormal):
         'quantity': 'quantity',  # noqa: E501
         'quantity_refunded': 'quantity_refunded',  # noqa: E501
         'quickbooks_class': 'quickbooks_class',  # noqa: E501
+        'refund_reason': 'refund_reason',  # noqa: E501
+        'return_reason': 'return_reason',  # noqa: E501
         'ship_separately': 'ship_separately',  # noqa: E501
         'shipped_by_user': 'shipped_by_user',  # noqa: E501
         'shipped_dts': 'shipped_dts',  # noqa: E501
@@ -339,6 +343,8 @@ class OrderItem(ModelNormal):
             quantity (float): Quantity. [optional]  # noqa: E501
             quantity_refunded (float): Quantity refunded on this item (read only except refund operation). [optional]  # noqa: E501
             quickbooks_class (str): QuickBooks class. [optional]  # noqa: E501
+            refund_reason (str): Refund reason code.  This can only be written during a refund operation otherwise this field is read only.. [optional]  # noqa: E501
+            return_reason (str): Return reason code.  This can only be written during a refund operation otherwise this field is read only.. [optional]  # noqa: E501
             ship_separately (bool): True if this item ships in a separate box. [optional]  # noqa: E501
             shipped_by_user (str): Shipped by user. [optional]  # noqa: E501
             shipped_dts (str): Date/time that this item was marked shipped. [optional]  # noqa: E501
@@ -483,6 +489,8 @@ class OrderItem(ModelNormal):
             quantity (float): Quantity. [optional]  # noqa: E501
             quantity_refunded (float): Quantity refunded on this item (read only except refund operation). [optional]  # noqa: E501
             quickbooks_class (str): QuickBooks class. [optional]  # noqa: E501
+            refund_reason (str): Refund reason code.  This can only be written during a refund operation otherwise this field is read only.. [optional]  # noqa: E501
+            return_reason (str): Return reason code.  This can only be written during a refund operation otherwise this field is read only.. [optional]  # noqa: E501
             ship_separately (bool): True if this item ships in a separate box. [optional]  # noqa: E501
             shipped_by_user (str): Shipped by user. [optional]  # noqa: E501
             shipped_dts (str): Date/time that this item was marked shipped. [optional]  # noqa: E501

@@ -189,7 +189,9 @@ class Order(ModelNormal):
             'properties': ([OrderProperty],),  # noqa: E501
             'quote': (OrderQuote,),  # noqa: E501
             'refund_dts': (str,),  # noqa: E501
+            'refund_reason': (str,),  # noqa: E501
             'reject_dts': (str,),  # noqa: E501
+            'reject_reason': (str,),  # noqa: E501
             'salesforce': (OrderSalesforce,),  # noqa: E501
             'shipping': (OrderShipping,),  # noqa: E501
             'summary': (OrderSummary,),  # noqa: E501
@@ -233,7 +235,9 @@ class Order(ModelNormal):
         'properties': 'properties',  # noqa: E501
         'quote': 'quote',  # noqa: E501
         'refund_dts': 'refund_dts',  # noqa: E501
+        'refund_reason': 'refund_reason',  # noqa: E501
         'reject_dts': 'reject_dts',  # noqa: E501
+        'reject_reason': 'reject_reason',  # noqa: E501
         'salesforce': 'salesforce',  # noqa: E501
         'shipping': 'shipping',  # noqa: E501
         'summary': 'summary',  # noqa: E501
@@ -312,7 +316,9 @@ class Order(ModelNormal):
             properties ([OrderProperty]): Properties, available only through update, not through insert due to the nature of how properties are handled internally. [optional]  # noqa: E501
             quote (OrderQuote): [optional]  # noqa: E501
             refund_dts (str): If the order was refunded, the date/time that the last refund occurred. [optional]  # noqa: E501
+            refund_reason (str): Refund reason code.  This can only be written during a refund operation otherwise this field is read only.. [optional]  # noqa: E501
             reject_dts (str): If the order was rejected, the date/time that the rejection occurred. [optional]  # noqa: E501
+            reject_reason (str): Reject reason code.  This can only be written during a reject operation otherwise this field is read only.. [optional]  # noqa: E501
             salesforce (OrderSalesforce): [optional]  # noqa: E501
             shipping (OrderShipping): [optional]  # noqa: E501
             summary (OrderSummary): [optional]  # noqa: E501
@@ -433,7 +439,9 @@ class Order(ModelNormal):
             properties ([OrderProperty]): Properties, available only through update, not through insert due to the nature of how properties are handled internally. [optional]  # noqa: E501
             quote (OrderQuote): [optional]  # noqa: E501
             refund_dts (str): If the order was refunded, the date/time that the last refund occurred. [optional]  # noqa: E501
+            refund_reason (str): Refund reason code.  This can only be written during a refund operation otherwise this field is read only.. [optional]  # noqa: E501
             reject_dts (str): If the order was rejected, the date/time that the rejection occurred. [optional]  # noqa: E501
+            reject_reason (str): Reject reason code.  This can only be written during a reject operation otherwise this field is read only.. [optional]  # noqa: E501
             salesforce (OrderSalesforce): [optional]  # noqa: E501
             shipping (OrderShipping): [optional]  # noqa: E501
             summary (OrderSummary): [optional]  # noqa: E501
