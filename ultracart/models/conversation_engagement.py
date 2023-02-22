@@ -34,6 +34,7 @@ class ConversationEngagement(object):
         'active': 'bool',
         'conversation_engagement_oid': 'int',
         'customer_greeting': 'str',
+        'customer_initiated': 'bool',
         'department_oids': 'list[int]',
         'engagement_name': 'str',
         'equation': 'ConversationEngagementEquation',
@@ -45,6 +46,7 @@ class ConversationEngagement(object):
         'active': 'active',
         'conversation_engagement_oid': 'conversation_engagement_oid',
         'customer_greeting': 'customer_greeting',
+        'customer_initiated': 'customer_initiated',
         'department_oids': 'department_oids',
         'engagement_name': 'engagement_name',
         'equation': 'equation',
@@ -52,12 +54,13 @@ class ConversationEngagement(object):
         'visitor_type': 'visitor_type'
     }
 
-    def __init__(self, active=None, conversation_engagement_oid=None, customer_greeting=None, department_oids=None, engagement_name=None, equation=None, time_on_page=None, visitor_type=None):  # noqa: E501
+    def __init__(self, active=None, conversation_engagement_oid=None, customer_greeting=None, customer_initiated=None, department_oids=None, engagement_name=None, equation=None, time_on_page=None, visitor_type=None):  # noqa: E501
         """ConversationEngagement - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
         self._conversation_engagement_oid = None
         self._customer_greeting = None
+        self._customer_initiated = None
         self._department_oids = None
         self._engagement_name = None
         self._equation = None
@@ -71,6 +74,8 @@ class ConversationEngagement(object):
             self.conversation_engagement_oid = conversation_engagement_oid
         if customer_greeting is not None:
             self.customer_greeting = customer_greeting
+        if customer_initiated is not None:
+            self.customer_initiated = customer_initiated
         if department_oids is not None:
             self.department_oids = department_oids
         if engagement_name is not None:
@@ -144,6 +149,27 @@ class ConversationEngagement(object):
         """
 
         self._customer_greeting = customer_greeting
+
+    @property
+    def customer_initiated(self):
+        """Gets the customer_initiated of this ConversationEngagement.  # noqa: E501
+
+
+        :return: The customer_initiated of this ConversationEngagement.  # noqa: E501
+        :rtype: bool
+        """
+        return self._customer_initiated
+
+    @customer_initiated.setter
+    def customer_initiated(self, customer_initiated):
+        """Sets the customer_initiated of this ConversationEngagement.
+
+
+        :param customer_initiated: The customer_initiated of this ConversationEngagement.  # noqa: E501
+        :type: bool
+        """
+
+        self._customer_initiated = customer_initiated
 
     @property
     def department_oids(self):
