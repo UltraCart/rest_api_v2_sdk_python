@@ -1747,6 +1747,7 @@ api_instance = GiftCertificateApi(api_client())
         active=True,
         conversation_engagement_oid=1,
         customer_greeting="customer_greeting_example",
+        customer_initiated=True,
         department_oids=[
             1,
         ],
@@ -2549,6 +2550,7 @@ api_instance = GiftCertificateApi(api_client())
         active=True,
         conversation_engagement_oid=1,
         customer_greeting="customer_greeting_example",
+        customer_initiated=True,
         department_oids=[
             1,
         ],
