@@ -33,8 +33,10 @@ from ultracart.exceptions import ApiAttributeError
 def lazy_import():
     from ultracart.model.conversation_message import ConversationMessage
     from ultracart.model.conversation_participant import ConversationParticipant
+    from ultracart.model.conversation_sentiment import ConversationSentiment
     globals()['ConversationMessage'] = ConversationMessage
     globals()['ConversationParticipant'] = ConversationParticipant
+    globals()['ConversationSentiment'] = ConversationSentiment
 
 
 class Conversation(ModelNormal):
@@ -109,6 +111,7 @@ class Conversation(ModelNormal):
             'message_count': (int,),  # noqa: E501
             'messages': ([ConversationMessage],),  # noqa: E501
             'participants': ([ConversationParticipant],),  # noqa: E501
+            'sentiment': (ConversationSentiment,),  # noqa: E501
             'start_dts': (str,),  # noqa: E501
             'unread_messages': (bool,),  # noqa: E501
             'visible': (bool,),  # noqa: E501
@@ -135,6 +138,7 @@ class Conversation(ModelNormal):
         'message_count': 'message_count',  # noqa: E501
         'messages': 'messages',  # noqa: E501
         'participants': 'participants',  # noqa: E501
+        'sentiment': 'sentiment',  # noqa: E501
         'start_dts': 'start_dts',  # noqa: E501
         'unread_messages': 'unread_messages',  # noqa: E501
         'visible': 'visible',  # noqa: E501
@@ -196,6 +200,7 @@ class Conversation(ModelNormal):
             message_count (int): [optional]  # noqa: E501
             messages ([ConversationMessage]): [optional]  # noqa: E501
             participants ([ConversationParticipant]): [optional]  # noqa: E501
+            sentiment (ConversationSentiment): [optional]  # noqa: E501
             start_dts (str): Start of the conversation date/time. [optional]  # noqa: E501
             unread_messages (bool): [optional]  # noqa: E501
             visible (bool): [optional]  # noqa: E501
@@ -299,6 +304,7 @@ class Conversation(ModelNormal):
             message_count (int): [optional]  # noqa: E501
             messages ([ConversationMessage]): [optional]  # noqa: E501
             participants ([ConversationParticipant]): [optional]  # noqa: E501
+            sentiment (ConversationSentiment): [optional]  # noqa: E501
             start_dts (str): Start of the conversation date/time. [optional]  # noqa: E501
             unread_messages (bool): [optional]  # noqa: E501
             visible (bool): [optional]  # noqa: E501

@@ -178,6 +178,7 @@ from ultracart.model.conversation_permissions_response import ConversationPermis
 from ultracart.model.conversation_response import ConversationResponse
 from ultracart.model.conversation_search_request import ConversationSearchRequest
 from ultracart.model.conversation_search_response import ConversationSearchResponse
+from ultracart.model.conversation_sentiment import ConversationSentiment
 from ultracart.model.conversation_start_request import ConversationStartRequest
 from ultracart.model.conversation_start_response import ConversationStartResponse
 from ultracart.model.conversation_summary import ConversationSummary

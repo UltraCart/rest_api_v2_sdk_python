@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **merchant_id** | **str** |  | [optional] 
 **message_count** | **int** |  | [optional] 
 **participants** | [**[ConversationParticipant]**](ConversationParticipant.md) |  | [optional] 
+**sentiment** | [**ConversationSentiment**](ConversationSentiment.md) |  | [optional] 
 **start_dts** | **str** | Start of the conversation date/time | [optional] 
 **unread_messages** | **bool** |  | [optional] 
 **visible** | **bool** |  | [optional] 
