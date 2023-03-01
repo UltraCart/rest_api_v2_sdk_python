@@ -46,6 +46,7 @@ class Conversation(object):
         'message_count': 'int',
         'messages': 'list[ConversationMessage]',
         'participants': 'list[ConversationParticipant]',
+        'sentiment': 'ConversationSentiment',
         'start_dts': 'str',
         'unread_messages': 'bool',
         'visible': 'bool'
@@ -67,12 +68,13 @@ class Conversation(object):
         'message_count': 'message_count',
         'messages': 'messages',
         'participants': 'participants',
+        'sentiment': 'sentiment',
         'start_dts': 'start_dts',
         'unread_messages': 'unread_messages',
         'visible': 'visible'
     }
 
-    def __init__(self, base_language_iso_code=None, closed=None, conversation_arn=None, conversation_uuid=None, customer_first_message_unresponded_to_dts=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_interactive_message_dts=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, messages=None, participants=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
+    def __init__(self, base_language_iso_code=None, closed=None, conversation_arn=None, conversation_uuid=None, customer_first_message_unresponded_to_dts=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_interactive_message_dts=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, messages=None, participants=None, sentiment=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
         """Conversation - a model defined in Swagger"""  # noqa: E501
 
         self._base_language_iso_code = None
@@ -90,6 +92,7 @@ class Conversation(object):
         self._message_count = None
         self._messages = None
         self._participants = None
+        self._sentiment = None
         self._start_dts = None
         self._unread_messages = None
         self._visible = None
@@ -125,6 +128,8 @@ class Conversation(object):
             self.messages = messages
         if participants is not None:
             self.participants = participants
+        if sentiment is not None:
+            self.sentiment = sentiment
         if start_dts is not None:
             self.start_dts = start_dts
         if unread_messages is not None:
@@ -462,6 +467,27 @@ class Conversation(object):
         """
 
         self._participants = participants
+
+    @property
+    def sentiment(self):
+        """Gets the sentiment of this Conversation.  # noqa: E501
+
+
+        :return: The sentiment of this Conversation.  # noqa: E501
+        :rtype: ConversationSentiment
+        """
+        return self._sentiment
+
+    @sentiment.setter
+    def sentiment(self, sentiment):
+        """Sets the sentiment of this Conversation.
+
+
+        :param sentiment: The sentiment of this Conversation.  # noqa: E501
+        :type: ConversationSentiment
+        """
+
+        self._sentiment = sentiment
 
     @property
     def start_dts(self):
