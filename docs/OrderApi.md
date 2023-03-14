@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**get_accounts_receivable_retry_stats**](OrderApi.md#get_accounts_receivable_retry_stats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 [**get_order**](OrderApi.md#get_order) | **GET** /order/orders/{order_id} | Retrieve an order
 [**get_order_by_token**](OrderApi.md#get_order_by_token) | **POST** /order/orders/token | Retrieve an order using a token
+[**get_order_edi_documents**](OrderApi.md#get_order_edi_documents) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 [**get_orders**](OrderApi.md#get_orders) | **GET** /order/orders | Retrieve orders
 [**get_orders_batch**](OrderApi.md#get_orders_batch) | **POST** /order/orders/batch | Retrieve order batch
 [**get_orders_by_query**](OrderApi.md#get_orders_by_query) | **POST** /order/orders/query | Retrieve orders by query
@@ -686,6 +687,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_order_edi_documents**
+> OrderEdiDocumentsResponse get_order_edi_documents(order_id)
+
+Retrieve EDI documents associated with this order.
+
+Retrieve EDI documents associated with this order. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.OrderApi.fromApiKey(simple_key, False, True)
+
+order_id = 'order_id_example' # str | The order id to retrieve EDI documents for.
+
+try:
+    # Retrieve EDI documents associated with this order.
+    api_response = api_instance.get_order_edi_documents(order_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->get_order_edi_documents: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to retrieve EDI documents for. | 
+
+### Return type
+
+[**OrderEdiDocumentsResponse**](OrderEdiDocumentsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

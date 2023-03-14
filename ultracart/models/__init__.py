@@ -577,6 +577,8 @@ from ultracart.models.order_coupon import OrderCoupon
 from ultracart.models.order_digital_item import OrderDigitalItem
 from ultracart.models.order_digital_order import OrderDigitalOrder
 from ultracart.models.order_edi import OrderEdi
+from ultracart.models.order_edi_document import OrderEdiDocument
+from ultracart.models.order_edi_documents_response import OrderEdiDocumentsResponse
 from ultracart.models.order_format import OrderFormat
 from ultracart.models.order_format_response import OrderFormatResponse
 from ultracart.models.order_fraud_score import OrderFraudScore
