@@ -577,6 +577,8 @@ docs/OrderCoupon.md
 docs/OrderDigitalItem.md
 docs/OrderDigitalOrder.md
 docs/OrderEdi.md
+docs/OrderEdiDocument.md
+docs/OrderEdiDocumentsResponse.md
 docs/OrderFormat.md
 docs/OrderFormatResponse.md
 docs/OrderFraudScore.md
@@ -1354,6 +1356,8 @@ ultracart/model/order_coupon.py
 ultracart/model/order_digital_item.py
 ultracart/model/order_digital_order.py
 ultracart/model/order_edi.py
+ultracart/model/order_edi_document.py
+ultracart/model/order_edi_documents_response.py
 ultracart/model/order_format.py
 ultracart/model/order_format_response.py
 ultracart/model/order_fraud_score.py

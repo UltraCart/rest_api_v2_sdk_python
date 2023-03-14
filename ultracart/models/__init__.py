@@ -570,6 +570,8 @@ from ultracart.model.order_coupon import OrderCoupon
 from ultracart.model.order_digital_item import OrderDigitalItem
 from ultracart.model.order_digital_order import OrderDigitalOrder
 from ultracart.model.order_edi import OrderEdi
+from ultracart.model.order_edi_document import OrderEdiDocument
+from ultracart.model.order_edi_documents_response import OrderEdiDocumentsResponse
 from ultracart.model.order_format import OrderFormat
 from ultracart.model.order_format_response import OrderFormatResponse
 from ultracart.model.order_fraud_score import OrderFraudScore
