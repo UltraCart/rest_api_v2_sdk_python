@@ -125,6 +125,7 @@ class Order(ModelNormal):
             'UNKNOWN': "Unknown",
             'PRE-ORDERED': "Pre-ordered",
             'ADVANCED_ORDER_ROUTING': "Advanced Order Routing",
+            'HOLD': "Hold",
         },
     }
 
