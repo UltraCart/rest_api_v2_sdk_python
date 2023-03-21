@@ -451,7 +451,7 @@ class Order(object):
         :param current_stage: The current_stage of this Order.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Accounts Receivable", "Pending Clearance", "Fraud Review", "Rejected", "Shipping Department", "Completed Order", "Quote Request", "Quote Sent", "Least Cost Routing", "Unknown", "Pre-ordered", "Advanced Order Routing"]  # noqa: E501
+        allowed_values = ["Accounts Receivable", "Pending Clearance", "Fraud Review", "Rejected", "Shipping Department", "Completed Order", "Quote Request", "Quote Sent", "Least Cost Routing", "Unknown", "Pre-ordered", "Advanced Order Routing", "Hold"]  # noqa: E501
         if current_stage not in allowed_values:
             raise ValueError(
                 "Invalid value for `current_stage` ({0}), must be one of {1}"  # noqa: E501
