@@ -35,6 +35,7 @@ class OrderRefundableResponse(object):
         'item_level_refund_reason_required': 'bool',
         'item_level_refund_reasons': 'list[OrderReason]',
         'item_level_return_reasons': 'list[OrderReason]',
+        'manual_because_multiple_charges': 'bool',
         'metadata': 'ResponseMetadata',
         'order_level_refund_reason_required': 'bool',
         'order_level_refund_reasons': 'list[OrderReason]',
@@ -49,6 +50,7 @@ class OrderRefundableResponse(object):
         'item_level_refund_reason_required': 'item_level_refund_reason_required',
         'item_level_refund_reasons': 'item_level_refund_reasons',
         'item_level_return_reasons': 'item_level_return_reasons',
+        'manual_because_multiple_charges': 'manual_because_multiple_charges',
         'metadata': 'metadata',
         'order_level_refund_reason_required': 'order_level_refund_reason_required',
         'order_level_refund_reasons': 'order_level_refund_reasons',
@@ -58,13 +60,14 @@ class OrderRefundableResponse(object):
         'warning': 'warning'
     }
 
-    def __init__(self, error=None, item_level_refund_reason_required=None, item_level_refund_reasons=None, item_level_return_reasons=None, metadata=None, order_level_refund_reason_required=None, order_level_refund_reasons=None, order_level_reject_reasons=None, refundable=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, error=None, item_level_refund_reason_required=None, item_level_refund_reasons=None, item_level_return_reasons=None, manual_because_multiple_charges=None, metadata=None, order_level_refund_reason_required=None, order_level_refund_reasons=None, order_level_reject_reasons=None, refundable=None, success=None, warning=None):  # noqa: E501
         """OrderRefundableResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._item_level_refund_reason_required = None
         self._item_level_refund_reasons = None
         self._item_level_return_reasons = None
+        self._manual_because_multiple_charges = None
         self._metadata = None
         self._order_level_refund_reason_required = None
         self._order_level_refund_reasons = None
@@ -82,6 +85,8 @@ class OrderRefundableResponse(object):
             self.item_level_refund_reasons = item_level_refund_reasons
         if item_level_return_reasons is not None:
             self.item_level_return_reasons = item_level_return_reasons
+        if manual_because_multiple_charges is not None:
+            self.manual_because_multiple_charges = manual_because_multiple_charges
         if metadata is not None:
             self.metadata = metadata
         if order_level_refund_reason_required is not None:
@@ -186,6 +191,29 @@ class OrderRefundableResponse(object):
         """
 
         self._item_level_return_reasons = item_level_return_reasons
+
+    @property
+    def manual_because_multiple_charges(self):
+        """Gets the manual_because_multiple_charges of this OrderRefundableResponse.  # noqa: E501
+
+        If true, this refund will have to be manually done because of additional charges with the virtual terminal were made  # noqa: E501
+
+        :return: The manual_because_multiple_charges of this OrderRefundableResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._manual_because_multiple_charges
+
+    @manual_because_multiple_charges.setter
+    def manual_because_multiple_charges(self, manual_because_multiple_charges):
+        """Sets the manual_because_multiple_charges of this OrderRefundableResponse.
+
+        If true, this refund will have to be manually done because of additional charges with the virtual terminal were made  # noqa: E501
+
+        :param manual_because_multiple_charges: The manual_because_multiple_charges of this OrderRefundableResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._manual_because_multiple_charges = manual_because_multiple_charges
 
     @property
     def metadata(self):
