@@ -22,6 +22,7 @@ from ultracart.api.checkout_api import CheckoutApi
 from ultracart.api.conversation_api import ConversationApi
 from ultracart.api.coupon_api import CouponApi
 from ultracart.api.customer_api import CustomerApi
+from ultracart.api.datawarehouse_api import DatawarehouseApi
 from ultracart.api.fulfillment_api import FulfillmentApi
 from ultracart.api.gift_certificate_api import GiftCertificateApi
 from ultracart.api.integration_log_api import IntegrationLogApi
