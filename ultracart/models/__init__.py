@@ -643,6 +643,7 @@ from ultracart.model.report_data_set_query import ReportDataSetQuery
 from ultracart.model.report_data_set_response import ReportDataSetResponse
 from ultracart.model.report_data_set_row import ReportDataSetRow
 from ultracart.model.report_data_set_schema import ReportDataSetSchema
+from ultracart.model.report_data_set_summary import ReportDataSetSummary
 from ultracart.model.report_data_source import ReportDataSource
 from ultracart.model.report_data_source_schema import ReportDataSourceSchema
 from ultracart.model.report_execute_queries_request import ReportExecuteQueriesRequest
@@ -653,6 +654,7 @@ from ultracart.model.report_page_visualization import ReportPageVisualization
 from ultracart.model.report_page_visualization_dimension import ReportPageVisualizationDimension
 from ultracart.model.report_page_visualization_metric import ReportPageVisualizationMetric
 from ultracart.model.report_response import ReportResponse
+from ultracart.model.report_websocket_event import ReportWebsocketEvent
 from ultracart.model.reports_response import ReportsResponse
 from ultracart.model.response_metadata import ResponseMetadata
 from ultracart.model.result_set import ResultSet
