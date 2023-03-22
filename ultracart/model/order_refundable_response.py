@@ -98,6 +98,7 @@ class OrderRefundableResponse(ModelNormal):
             'item_level_refund_reason_required': (bool,),  # noqa: E501
             'item_level_refund_reasons': ([OrderReason],),  # noqa: E501
             'item_level_return_reasons': ([OrderReason],),  # noqa: E501
+            'manual_because_multiple_charges': (bool,),  # noqa: E501
             'metadata': (ResponseMetadata,),  # noqa: E501
             'order_level_refund_reason_required': (bool,),  # noqa: E501
             'order_level_refund_reasons': ([OrderReason],),  # noqa: E501
@@ -117,6 +118,7 @@ class OrderRefundableResponse(ModelNormal):
         'item_level_refund_reason_required': 'item_level_refund_reason_required',  # noqa: E501
         'item_level_refund_reasons': 'item_level_refund_reasons',  # noqa: E501
         'item_level_return_reasons': 'item_level_return_reasons',  # noqa: E501
+        'manual_because_multiple_charges': 'manual_because_multiple_charges',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'order_level_refund_reason_required': 'order_level_refund_reason_required',  # noqa: E501
         'order_level_refund_reasons': 'order_level_refund_reasons',  # noqa: E501
@@ -171,6 +173,7 @@ class OrderRefundableResponse(ModelNormal):
             item_level_refund_reason_required (bool): True if the item level refund reason is required. [optional]  # noqa: E501
             item_level_refund_reasons ([OrderReason]): Reason codes available at the item level.. [optional]  # noqa: E501
             item_level_return_reasons ([OrderReason]): Return codes available at the item level.. [optional]  # noqa: E501
+            manual_because_multiple_charges (bool): If true, this refund will have to be manually done because of additional charges with the virtual terminal were made. [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
             order_level_refund_reason_required (bool): True if the order level refund reason is required. [optional]  # noqa: E501
             order_level_refund_reasons ([OrderReason]): Reason codes available at the order level.. [optional]  # noqa: E501
@@ -267,6 +270,7 @@ class OrderRefundableResponse(ModelNormal):
             item_level_refund_reason_required (bool): True if the item level refund reason is required. [optional]  # noqa: E501
             item_level_refund_reasons ([OrderReason]): Reason codes available at the item level.. [optional]  # noqa: E501
             item_level_return_reasons ([OrderReason]): Return codes available at the item level.. [optional]  # noqa: E501
+            manual_because_multiple_charges (bool): If true, this refund will have to be manually done because of additional charges with the virtual terminal were made. [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
             order_level_refund_reason_required (bool): True if the order level refund reason is required. [optional]  # noqa: E501
             order_level_refund_reasons ([OrderReason]): Reason codes available at the order level.. [optional]  # noqa: E501
