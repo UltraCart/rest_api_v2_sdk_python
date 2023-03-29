@@ -651,7 +651,6 @@ docs/ReportDataSetQuery.md
 docs/ReportDataSetResponse.md
 docs/ReportDataSetRow.md
 docs/ReportDataSetSchema.md
-docs/ReportDataSetSummary.md
 docs/ReportDataSource.md
 docs/ReportDataSourceSchema.md
 docs/ReportExecuteQueriesRequest.md
@@ -1455,7 +1454,6 @@ ultracart/model/report_data_set_query.py
 ultracart/model/report_data_set_response.py
 ultracart/model/report_data_set_row.py
 ultracart/model/report_data_set_schema.py
-ultracart/model/report_data_set_summary.py
 ultracart/model/report_data_source.py
 ultracart/model/report_data_source_schema.py
 ultracart/model/report_execute_queries_request.py

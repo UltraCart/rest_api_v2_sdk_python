@@ -60,6 +60,11 @@ class Experiment(ModelNormal):
     """
 
     allowed_values = {
+        ('openai_element_type',): {
+            'HEADLINE': "headline",
+            'TEXT': "text",
+            'TEXTBLOCK': "textblock",
+        },
         ('status',): {
             'RUNNING': "Running",
             'ENDED': "Ended",
@@ -103,7 +108,12 @@ class Experiment(ModelNormal):
             'notes': (str,),  # noqa: E501
             'objective': (str,),  # noqa: E501
             'objective_parameter': (str,),  # noqa: E501
+            'openai_current_iteration': (int,),  # noqa: E501
+            'openai_element_type': (str,),  # noqa: E501
+            'openai_model': (str,),  # noqa: E501
+            'openai_total_iterations': (int,),  # noqa: E501
             'optimization_type': (str,),  # noqa: E501
+            'p_value': (float,),  # noqa: E501
             'session_count': (int,),  # noqa: E501
             'start_dts': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
@@ -129,7 +139,12 @@ class Experiment(ModelNormal):
         'notes': 'notes',  # noqa: E501
         'objective': 'objective',  # noqa: E501
         'objective_parameter': 'objective_parameter',  # noqa: E501
+        'openai_current_iteration': 'openai_current_iteration',  # noqa: E501
+        'openai_element_type': 'openai_element_type',  # noqa: E501
+        'openai_model': 'openai_model',  # noqa: E501
+        'openai_total_iterations': 'openai_total_iterations',  # noqa: E501
         'optimization_type': 'optimization_type',  # noqa: E501
+        'p_value': 'p_value',  # noqa: E501
         'session_count': 'session_count',  # noqa: E501
         'start_dts': 'start_dts',  # noqa: E501
         'status': 'status',  # noqa: E501
@@ -190,7 +205,12 @@ class Experiment(ModelNormal):
             notes (str): Notes about the experiment. [optional]  # noqa: E501
             objective (str): Objective that is being optimized. [optional]  # noqa: E501
             objective_parameter (str): Objective parameter (such as event name) that is being optimized. [optional]  # noqa: E501
+            openai_current_iteration (int): The current iteration of the OpenAI related experiment. [optional]  # noqa: E501
+            openai_element_type (str): The type of OpenAI element being experimented on. [optional]  # noqa: E501
+            openai_model (str): The type of OpenAI model used. [optional]  # noqa: E501
+            openai_total_iterations (int): The total number of iterations to perform on the experiment. [optional]  # noqa: E501
             optimization_type (str): Type of optimization. [optional]  # noqa: E501
+            p_value (float): Statistics p-value for the experiment. [optional]  # noqa: E501
             session_count (int): Total number of sessions in the experiment. [optional]  # noqa: E501
             start_dts (str): Start date/time. [optional]  # noqa: E501
             status (str): Status of the experiment. [optional]  # noqa: E501
@@ -293,7 +313,12 @@ class Experiment(ModelNormal):
             notes (str): Notes about the experiment. [optional]  # noqa: E501
             objective (str): Objective that is being optimized. [optional]  # noqa: E501
             objective_parameter (str): Objective parameter (such as event name) that is being optimized. [optional]  # noqa: E501
+            openai_current_iteration (int): The current iteration of the OpenAI related experiment. [optional]  # noqa: E501
+            openai_element_type (str): The type of OpenAI element being experimented on. [optional]  # noqa: E501
+            openai_model (str): The type of OpenAI model used. [optional]  # noqa: E501
+            openai_total_iterations (int): The total number of iterations to perform on the experiment. [optional]  # noqa: E501
             optimization_type (str): Type of optimization. [optional]  # noqa: E501
+            p_value (float): Statistics p-value for the experiment. [optional]  # noqa: E501
             session_count (int): Total number of sessions in the experiment. [optional]  # noqa: E501
             start_dts (str): Start date/time. [optional]  # noqa: E501
             status (str): Status of the experiment. [optional]  # noqa: E501

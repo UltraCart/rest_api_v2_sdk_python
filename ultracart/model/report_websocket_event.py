@@ -31,8 +31,8 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from ultracart.model.report_data_set_summary import ReportDataSetSummary
-    globals()['ReportDataSetSummary'] = ReportDataSetSummary
+    from ultracart.model.report_data_set import ReportDataSet
+    globals()['ReportDataSet'] = ReportDataSet
 
 
 class ReportWebsocketEvent(ModelNormal):
@@ -93,7 +93,7 @@ class ReportWebsocketEvent(ModelNormal):
         lazy_import()
         return {
             'event_type': (str,),  # noqa: E501
-            'query_completion': (ReportDataSetSummary,),  # noqa: E501
+            'query_completion': (ReportDataSet,),  # noqa: E501
         }
 
     @cached_property
@@ -148,7 +148,7 @@ class ReportWebsocketEvent(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             event_type (str): Event type. [optional]  # noqa: E501
-            query_completion (ReportDataSetSummary): [optional]  # noqa: E501
+            query_completion (ReportDataSet): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,7 +235,7 @@ class ReportWebsocketEvent(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             event_type (str): Event type. [optional]  # noqa: E501
-            query_completion (ReportDataSetSummary): [optional]  # noqa: E501
+            query_completion (ReportDataSet): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
