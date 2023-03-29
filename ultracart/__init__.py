@@ -676,7 +676,6 @@ from ultracart.models.report_data_set_query import ReportDataSetQuery
 from ultracart.models.report_data_set_response import ReportDataSetResponse
 from ultracart.models.report_data_set_row import ReportDataSetRow
 from ultracart.models.report_data_set_schema import ReportDataSetSchema
-from ultracart.models.report_data_set_summary import ReportDataSetSummary
 from ultracart.models.report_data_source import ReportDataSource
 from ultracart.models.report_data_source_schema import ReportDataSourceSchema
 from ultracart.models.report_execute_queries_request import ReportExecuteQueriesRequest

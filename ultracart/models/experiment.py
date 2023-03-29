@@ -41,7 +41,12 @@ class Experiment(object):
         'notes': 'str',
         'objective': 'str',
         'objective_parameter': 'str',
+        'openai_current_iteration': 'int',
+        'openai_element_type': 'str',
+        'openai_model': 'str',
+        'openai_total_iterations': 'int',
         'optimization_type': 'str',
+        'p_value': 'float',
         'session_count': 'int',
         'start_dts': 'str',
         'status': 'str',
@@ -62,7 +67,12 @@ class Experiment(object):
         'notes': 'notes',
         'objective': 'objective',
         'objective_parameter': 'objective_parameter',
+        'openai_current_iteration': 'openai_current_iteration',
+        'openai_element_type': 'openai_element_type',
+        'openai_model': 'openai_model',
+        'openai_total_iterations': 'openai_total_iterations',
         'optimization_type': 'optimization_type',
+        'p_value': 'p_value',
         'session_count': 'session_count',
         'start_dts': 'start_dts',
         'status': 'status',
@@ -72,7 +82,7 @@ class Experiment(object):
         'variations': 'variations'
     }
 
-    def __init__(self, container_id=None, duration_days=None, end_dts=None, equal_weighting=None, experiment_type=None, id=None, name=None, notes=None, objective=None, objective_parameter=None, optimization_type=None, session_count=None, start_dts=None, status=None, storefront_experiment_oid=None, storefront_oid=None, uri=None, variations=None):  # noqa: E501
+    def __init__(self, container_id=None, duration_days=None, end_dts=None, equal_weighting=None, experiment_type=None, id=None, name=None, notes=None, objective=None, objective_parameter=None, openai_current_iteration=None, openai_element_type=None, openai_model=None, openai_total_iterations=None, optimization_type=None, p_value=None, session_count=None, start_dts=None, status=None, storefront_experiment_oid=None, storefront_oid=None, uri=None, variations=None):  # noqa: E501
         """Experiment - a model defined in Swagger"""  # noqa: E501
 
         self._container_id = None
@@ -85,7 +95,12 @@ class Experiment(object):
         self._notes = None
         self._objective = None
         self._objective_parameter = None
+        self._openai_current_iteration = None
+        self._openai_element_type = None
+        self._openai_model = None
+        self._openai_total_iterations = None
         self._optimization_type = None
+        self._p_value = None
         self._session_count = None
         self._start_dts = None
         self._status = None
@@ -115,8 +130,18 @@ class Experiment(object):
             self.objective = objective
         if objective_parameter is not None:
             self.objective_parameter = objective_parameter
+        if openai_current_iteration is not None:
+            self.openai_current_iteration = openai_current_iteration
+        if openai_element_type is not None:
+            self.openai_element_type = openai_element_type
+        if openai_model is not None:
+            self.openai_model = openai_model
+        if openai_total_iterations is not None:
+            self.openai_total_iterations = openai_total_iterations
         if optimization_type is not None:
             self.optimization_type = optimization_type
+        if p_value is not None:
+            self.p_value = p_value
         if session_count is not None:
             self.session_count = session_count
         if start_dts is not None:
@@ -363,6 +388,104 @@ class Experiment(object):
         self._objective_parameter = objective_parameter
 
     @property
+    def openai_current_iteration(self):
+        """Gets the openai_current_iteration of this Experiment.  # noqa: E501
+
+        The current iteration of the OpenAI related experiment  # noqa: E501
+
+        :return: The openai_current_iteration of this Experiment.  # noqa: E501
+        :rtype: int
+        """
+        return self._openai_current_iteration
+
+    @openai_current_iteration.setter
+    def openai_current_iteration(self, openai_current_iteration):
+        """Sets the openai_current_iteration of this Experiment.
+
+        The current iteration of the OpenAI related experiment  # noqa: E501
+
+        :param openai_current_iteration: The openai_current_iteration of this Experiment.  # noqa: E501
+        :type: int
+        """
+
+        self._openai_current_iteration = openai_current_iteration
+
+    @property
+    def openai_element_type(self):
+        """Gets the openai_element_type of this Experiment.  # noqa: E501
+
+        The type of OpenAI element being experimented on  # noqa: E501
+
+        :return: The openai_element_type of this Experiment.  # noqa: E501
+        :rtype: str
+        """
+        return self._openai_element_type
+
+    @openai_element_type.setter
+    def openai_element_type(self, openai_element_type):
+        """Sets the openai_element_type of this Experiment.
+
+        The type of OpenAI element being experimented on  # noqa: E501
+
+        :param openai_element_type: The openai_element_type of this Experiment.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["headline", "text", "textblock"]  # noqa: E501
+        if openai_element_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `openai_element_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(openai_element_type, allowed_values)
+            )
+
+        self._openai_element_type = openai_element_type
+
+    @property
+    def openai_model(self):
+        """Gets the openai_model of this Experiment.  # noqa: E501
+
+        The type of OpenAI model used  # noqa: E501
+
+        :return: The openai_model of this Experiment.  # noqa: E501
+        :rtype: str
+        """
+        return self._openai_model
+
+    @openai_model.setter
+    def openai_model(self, openai_model):
+        """Sets the openai_model of this Experiment.
+
+        The type of OpenAI model used  # noqa: E501
+
+        :param openai_model: The openai_model of this Experiment.  # noqa: E501
+        :type: str
+        """
+
+        self._openai_model = openai_model
+
+    @property
+    def openai_total_iterations(self):
+        """Gets the openai_total_iterations of this Experiment.  # noqa: E501
+
+        The total number of iterations to perform on the experiment  # noqa: E501
+
+        :return: The openai_total_iterations of this Experiment.  # noqa: E501
+        :rtype: int
+        """
+        return self._openai_total_iterations
+
+    @openai_total_iterations.setter
+    def openai_total_iterations(self, openai_total_iterations):
+        """Sets the openai_total_iterations of this Experiment.
+
+        The total number of iterations to perform on the experiment  # noqa: E501
+
+        :param openai_total_iterations: The openai_total_iterations of this Experiment.  # noqa: E501
+        :type: int
+        """
+
+        self._openai_total_iterations = openai_total_iterations
+
+    @property
     def optimization_type(self):
         """Gets the optimization_type of this Experiment.  # noqa: E501
 
@@ -384,6 +507,29 @@ class Experiment(object):
         """
 
         self._optimization_type = optimization_type
+
+    @property
+    def p_value(self):
+        """Gets the p_value of this Experiment.  # noqa: E501
+
+        Statistics p-value for the experiment  # noqa: E501
+
+        :return: The p_value of this Experiment.  # noqa: E501
+        :rtype: float
+        """
+        return self._p_value
+
+    @p_value.setter
+    def p_value(self, p_value):
+        """Sets the p_value of this Experiment.
+
+        Statistics p-value for the experiment  # noqa: E501
+
+        :param p_value: The p_value of this Experiment.  # noqa: E501
+        :type: float
+        """
+
+        self._p_value = p_value
 
     @property
     def session_count(self):

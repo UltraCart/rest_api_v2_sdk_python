@@ -32,7 +32,7 @@ class ReportWebsocketEvent(object):
     """
     swagger_types = {
         'event_type': 'str',
-        'query_completion': 'ReportDataSetSummary'
+        'query_completion': 'ReportDataSet'
     }
 
     attribute_map = {
@@ -87,7 +87,7 @@ class ReportWebsocketEvent(object):
 
 
         :return: The query_completion of this ReportWebsocketEvent.  # noqa: E501
-        :rtype: ReportDataSetSummary
+        :rtype: ReportDataSet
         """
         return self._query_completion
 
@@ -97,7 +97,7 @@ class ReportWebsocketEvent(object):
 
 
         :param query_completion: The query_completion of this ReportWebsocketEvent.  # noqa: E501
-        :type: ReportDataSetSummary
+        :type: ReportDataSet
         """
 
         self._query_completion = query_completion
