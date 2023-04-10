@@ -4461,6 +4461,12 @@ api_instance = GiftCertificateApi(api_client())
         process_linked_accounts=True,
         processing_percentage="processing_percentage_example",
         reject_at_end=True,
+        transaction_rejects=[
+            AccountsReceivableRetryTransactionReject(
+                name="name_example",
+                value="value_example",
+            ),
+        ],
         trial_mode=True,
         trial_mode_expiration_dts="trial_mode_expiration_dts_example",
     ) # AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
