@@ -44,6 +44,7 @@ class AccountsReceivableRetryConfig(object):
         'process_linked_accounts': 'bool',
         'processing_percentage': 'str',
         'reject_at_end': 'bool',
+        'transaction_rejects': 'list[AccountsReceivableRetryTransactionReject]',
         'trial_mode': 'bool',
         'trial_mode_expiration_dts': 'str'
     }
@@ -62,11 +63,12 @@ class AccountsReceivableRetryConfig(object):
         'process_linked_accounts': 'process_linked_accounts',
         'processing_percentage': 'processing_percentage',
         'reject_at_end': 'reject_at_end',
+        'transaction_rejects': 'transaction_rejects',
         'trial_mode': 'trial_mode',
         'trial_mode_expiration_dts': 'trial_mode_expiration_dts'
     }
 
-    def __init__(self, active=None, allow_process_linked_accounts=None, cancel_auto_order=None, current_service_plan=None, daily_activity_list=None, managed_by_linked_account_merchant_id=None, merchant_id=None, notify_emails=None, notify_rejections=None, notify_successes=None, process_linked_accounts=None, processing_percentage=None, reject_at_end=None, trial_mode=None, trial_mode_expiration_dts=None):  # noqa: E501
+    def __init__(self, active=None, allow_process_linked_accounts=None, cancel_auto_order=None, current_service_plan=None, daily_activity_list=None, managed_by_linked_account_merchant_id=None, merchant_id=None, notify_emails=None, notify_rejections=None, notify_successes=None, process_linked_accounts=None, processing_percentage=None, reject_at_end=None, transaction_rejects=None, trial_mode=None, trial_mode_expiration_dts=None):  # noqa: E501
         """AccountsReceivableRetryConfig - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
@@ -82,6 +84,7 @@ class AccountsReceivableRetryConfig(object):
         self._process_linked_accounts = None
         self._processing_percentage = None
         self._reject_at_end = None
+        self._transaction_rejects = None
         self._trial_mode = None
         self._trial_mode_expiration_dts = None
         self.discriminator = None
@@ -112,6 +115,8 @@ class AccountsReceivableRetryConfig(object):
             self.processing_percentage = processing_percentage
         if reject_at_end is not None:
             self.reject_at_end = reject_at_end
+        if transaction_rejects is not None:
+            self.transaction_rejects = transaction_rejects
         if trial_mode is not None:
             self.trial_mode = trial_mode
         if trial_mode_expiration_dts is not None:
@@ -415,6 +420,29 @@ class AccountsReceivableRetryConfig(object):
         """
 
         self._reject_at_end = reject_at_end
+
+    @property
+    def transaction_rejects(self):
+        """Gets the transaction_rejects of this AccountsReceivableRetryConfig.  # noqa: E501
+
+        Array of key/value pairs that when found in the response cause the rejection of the transaction.  # noqa: E501
+
+        :return: The transaction_rejects of this AccountsReceivableRetryConfig.  # noqa: E501
+        :rtype: list[AccountsReceivableRetryTransactionReject]
+        """
+        return self._transaction_rejects
+
+    @transaction_rejects.setter
+    def transaction_rejects(self, transaction_rejects):
+        """Sets the transaction_rejects of this AccountsReceivableRetryConfig.
+
+        Array of key/value pairs that when found in the response cause the rejection of the transaction.  # noqa: E501
+
+        :param transaction_rejects: The transaction_rejects of this AccountsReceivableRetryConfig.  # noqa: E501
+        :type: list[AccountsReceivableRetryTransactionReject]
+        """
+
+        self._transaction_rejects = transaction_rejects
 
     @property
     def trial_mode(self):
