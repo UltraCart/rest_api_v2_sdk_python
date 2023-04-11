@@ -46,6 +46,7 @@ class Experiment(object):
         'openai_model': 'str',
         'openai_total_iterations': 'int',
         'optimization_type': 'str',
+        'p95_sessions_needed': 'int',
         'p_value': 'float',
         'session_count': 'int',
         'start_dts': 'str',
@@ -72,6 +73,7 @@ class Experiment(object):
         'openai_model': 'openai_model',
         'openai_total_iterations': 'openai_total_iterations',
         'optimization_type': 'optimization_type',
+        'p95_sessions_needed': 'p95_sessions_needed',
         'p_value': 'p_value',
         'session_count': 'session_count',
         'start_dts': 'start_dts',
@@ -82,7 +84,7 @@ class Experiment(object):
         'variations': 'variations'
     }
 
-    def __init__(self, container_id=None, duration_days=None, end_dts=None, equal_weighting=None, experiment_type=None, id=None, name=None, notes=None, objective=None, objective_parameter=None, openai_current_iteration=None, openai_element_type=None, openai_model=None, openai_total_iterations=None, optimization_type=None, p_value=None, session_count=None, start_dts=None, status=None, storefront_experiment_oid=None, storefront_oid=None, uri=None, variations=None):  # noqa: E501
+    def __init__(self, container_id=None, duration_days=None, end_dts=None, equal_weighting=None, experiment_type=None, id=None, name=None, notes=None, objective=None, objective_parameter=None, openai_current_iteration=None, openai_element_type=None, openai_model=None, openai_total_iterations=None, optimization_type=None, p95_sessions_needed=None, p_value=None, session_count=None, start_dts=None, status=None, storefront_experiment_oid=None, storefront_oid=None, uri=None, variations=None):  # noqa: E501
         """Experiment - a model defined in Swagger"""  # noqa: E501
 
         self._container_id = None
@@ -100,6 +102,7 @@ class Experiment(object):
         self._openai_model = None
         self._openai_total_iterations = None
         self._optimization_type = None
+        self._p95_sessions_needed = None
         self._p_value = None
         self._session_count = None
         self._start_dts = None
@@ -140,6 +143,8 @@ class Experiment(object):
             self.openai_total_iterations = openai_total_iterations
         if optimization_type is not None:
             self.optimization_type = optimization_type
+        if p95_sessions_needed is not None:
+            self.p95_sessions_needed = p95_sessions_needed
         if p_value is not None:
             self.p_value = p_value
         if session_count is not None:
@@ -507,6 +512,29 @@ class Experiment(object):
         """
 
         self._optimization_type = optimization_type
+
+    @property
+    def p95_sessions_needed(self):
+        """Gets the p95_sessions_needed of this Experiment.  # noqa: E501
+
+        Estimated sessions needed to achieve P95  # noqa: E501
+
+        :return: The p95_sessions_needed of this Experiment.  # noqa: E501
+        :rtype: int
+        """
+        return self._p95_sessions_needed
+
+    @p95_sessions_needed.setter
+    def p95_sessions_needed(self, p95_sessions_needed):
+        """Sets the p95_sessions_needed of this Experiment.
+
+        Estimated sessions needed to achieve P95  # noqa: E501
+
+        :param p95_sessions_needed: The p95_sessions_needed of this Experiment.  # noqa: E501
+        :type: int
+        """
+
+        self._p95_sessions_needed = p95_sessions_needed
 
     @property
     def p_value(self):
