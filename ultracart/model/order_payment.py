@@ -93,6 +93,7 @@ class OrderPayment(ModelNormal):
             'WIRE_TRANSFER': "Wire Transfer",
             'WALMART': "Walmart",
             'SHOP.COM': "Shop.com",
+            'SEZZLE': "Sezzle",
         },
         ('payment_status',): {
             'UNPROCESSED': "Unprocessed",

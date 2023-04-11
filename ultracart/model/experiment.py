@@ -113,6 +113,7 @@ class Experiment(ModelNormal):
             'openai_model': (str,),  # noqa: E501
             'openai_total_iterations': (int,),  # noqa: E501
             'optimization_type': (str,),  # noqa: E501
+            'p95_sessions_needed': (int,),  # noqa: E501
             'p_value': (float,),  # noqa: E501
             'session_count': (int,),  # noqa: E501
             'start_dts': (str,),  # noqa: E501
@@ -144,6 +145,7 @@ class Experiment(ModelNormal):
         'openai_model': 'openai_model',  # noqa: E501
         'openai_total_iterations': 'openai_total_iterations',  # noqa: E501
         'optimization_type': 'optimization_type',  # noqa: E501
+        'p95_sessions_needed': 'p95_sessions_needed',  # noqa: E501
         'p_value': 'p_value',  # noqa: E501
         'session_count': 'session_count',  # noqa: E501
         'start_dts': 'start_dts',  # noqa: E501
@@ -210,6 +212,7 @@ class Experiment(ModelNormal):
             openai_model (str): The type of OpenAI model used. [optional]  # noqa: E501
             openai_total_iterations (int): The total number of iterations to perform on the experiment. [optional]  # noqa: E501
             optimization_type (str): Type of optimization. [optional]  # noqa: E501
+            p95_sessions_needed (int): Estimated sessions needed to achieve P95. [optional]  # noqa: E501
             p_value (float): Statistics p-value for the experiment. [optional]  # noqa: E501
             session_count (int): Total number of sessions in the experiment. [optional]  # noqa: E501
             start_dts (str): Start date/time. [optional]  # noqa: E501
@@ -318,6 +321,7 @@ class Experiment(ModelNormal):
             openai_model (str): The type of OpenAI model used. [optional]  # noqa: E501
             openai_total_iterations (int): The total number of iterations to perform on the experiment. [optional]  # noqa: E501
             optimization_type (str): Type of optimization. [optional]  # noqa: E501
+            p95_sessions_needed (int): Estimated sessions needed to achieve P95. [optional]  # noqa: E501
             p_value (float): Statistics p-value for the experiment. [optional]  # noqa: E501
             session_count (int): Total number of sessions in the experiment. [optional]  # noqa: E501
             start_dts (str): Start date/time. [optional]  # noqa: E501

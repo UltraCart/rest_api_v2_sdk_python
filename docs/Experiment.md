@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **openai_model** | **str** | The type of OpenAI model used | [optional] 
 **openai_total_iterations** | **int** | The total number of iterations to perform on the experiment | [optional] 
 **optimization_type** | **str** | Type of optimization | [optional] 
+**p95_sessions_needed** | **int** | Estimated sessions needed to achieve P95 | [optional] 
 **p_value** | **float** | Statistics p-value for the experiment | [optional] 
 **session_count** | **int** | Total number of sessions in the experiment | [optional] 
 **start_dts** | **str** | Start date/time | [optional] 

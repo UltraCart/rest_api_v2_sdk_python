@@ -13679,6 +13679,7 @@ api_instance = GiftCertificateApi(api_client())
         openai_model="openai_model_example",
         openai_total_iterations=1,
         optimization_type="optimization_type_example",
+        p95_sessions_needed=1,
         p_value=3.14,
         session_count=1,
         start_dts="start_dts_example",
