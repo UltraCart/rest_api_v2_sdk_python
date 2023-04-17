@@ -34,6 +34,7 @@ class OrderPaymentTransaction(object):
         'details': 'list[OrderPaymentTransactionDetail]',
         'successful': 'bool',
         'transaction_gateway': 'str',
+        'transaction_id': 'int',
         'transaction_timestamp': 'str'
     }
 
@@ -41,15 +42,17 @@ class OrderPaymentTransaction(object):
         'details': 'details',
         'successful': 'successful',
         'transaction_gateway': 'transaction_gateway',
+        'transaction_id': 'transaction_id',
         'transaction_timestamp': 'transaction_timestamp'
     }
 
-    def __init__(self, details=None, successful=None, transaction_gateway=None, transaction_timestamp=None):  # noqa: E501
+    def __init__(self, details=None, successful=None, transaction_gateway=None, transaction_id=None, transaction_timestamp=None):  # noqa: E501
         """OrderPaymentTransaction - a model defined in Swagger"""  # noqa: E501
 
         self._details = None
         self._successful = None
         self._transaction_gateway = None
+        self._transaction_id = None
         self._transaction_timestamp = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class OrderPaymentTransaction(object):
             self.successful = successful
         if transaction_gateway is not None:
             self.transaction_gateway = transaction_gateway
+        if transaction_id is not None:
+            self.transaction_id = transaction_id
         if transaction_timestamp is not None:
             self.transaction_timestamp = transaction_timestamp
 
@@ -130,6 +135,29 @@ class OrderPaymentTransaction(object):
         """
 
         self._transaction_gateway = transaction_gateway
+
+    @property
+    def transaction_id(self):
+        """Gets the transaction_id of this OrderPaymentTransaction.  # noqa: E501
+
+        Transaction ID  # noqa: E501
+
+        :return: The transaction_id of this OrderPaymentTransaction.  # noqa: E501
+        :rtype: int
+        """
+        return self._transaction_id
+
+    @transaction_id.setter
+    def transaction_id(self, transaction_id):
+        """Sets the transaction_id of this OrderPaymentTransaction.
+
+        Transaction ID  # noqa: E501
+
+        :param transaction_id: The transaction_id of this OrderPaymentTransaction.  # noqa: E501
+        :type: int
+        """
+
+        self._transaction_id = transaction_id
 
     @property
     def transaction_timestamp(self):
