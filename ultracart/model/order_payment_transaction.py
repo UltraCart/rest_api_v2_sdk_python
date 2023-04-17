@@ -91,6 +91,7 @@ class OrderPaymentTransaction(ModelNormal):
             'details': ([OrderPaymentTransactionDetail],),  # noqa: E501
             'successful': (bool,),  # noqa: E501
             'transaction_gateway': (str,),  # noqa: E501
+            'transaction_id': (int,),  # noqa: E501
             'transaction_timestamp': (str,),  # noqa: E501
         }
 
@@ -103,6 +104,7 @@ class OrderPaymentTransaction(ModelNormal):
         'details': 'details',  # noqa: E501
         'successful': 'successful',  # noqa: E501
         'transaction_gateway': 'transaction_gateway',  # noqa: E501
+        'transaction_id': 'transaction_id',  # noqa: E501
         'transaction_timestamp': 'transaction_timestamp',  # noqa: E501
     }
 
@@ -150,6 +152,7 @@ class OrderPaymentTransaction(ModelNormal):
             details ([OrderPaymentTransactionDetail]): Details. [optional]  # noqa: E501
             successful (bool): True if the transaction was successful. [optional]  # noqa: E501
             transaction_gateway (str): Transaction gateway. [optional]  # noqa: E501
+            transaction_id (int): Transaction ID. [optional]  # noqa: E501
             transaction_timestamp (str): Transaction date/time. [optional]  # noqa: E501
         """
 
@@ -239,6 +242,7 @@ class OrderPaymentTransaction(ModelNormal):
             details ([OrderPaymentTransactionDetail]): Details. [optional]  # noqa: E501
             successful (bool): True if the transaction was successful. [optional]  # noqa: E501
             transaction_gateway (str): Transaction gateway. [optional]  # noqa: E501
+            transaction_id (int): Transaction ID. [optional]  # noqa: E501
             transaction_timestamp (str): Transaction date/time. [optional]  # noqa: E501
         """
 
