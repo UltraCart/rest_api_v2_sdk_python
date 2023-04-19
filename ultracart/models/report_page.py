@@ -31,7 +31,7 @@ class ReportPage(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'filters': 'list[ReportFilter]',
+        'filters': 'list[ReportPageFilter]',
         'height': 'float',
         'title': 'str',
         'visualizations': 'list[ReportPageVisualization]',
@@ -73,7 +73,7 @@ class ReportPage(object):
 
 
         :return: The filters of this ReportPage.  # noqa: E501
-        :rtype: list[ReportFilter]
+        :rtype: list[ReportPageFilter]
         """
         return self._filters
 
@@ -83,7 +83,7 @@ class ReportPage(object):
 
 
         :param filters: The filters of this ReportPage.  # noqa: E501
-        :type: list[ReportFilter]
+        :type: list[ReportPageFilter]
         """
 
         self._filters = filters

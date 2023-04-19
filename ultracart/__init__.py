@@ -686,6 +686,7 @@ from ultracart.models.report_execute_queries_request import ReportExecuteQueries
 from ultracart.models.report_filter import ReportFilter
 from ultracart.models.report_filter_connection import ReportFilterConnection
 from ultracart.models.report_page import ReportPage
+from ultracart.models.report_page_filter import ReportPageFilter
 from ultracart.models.report_page_visualization import ReportPageVisualization
 from ultracart.models.report_page_visualization_dimension import ReportPageVisualizationDimension
 from ultracart.models.report_page_visualization_metric import ReportPageVisualizationMetric

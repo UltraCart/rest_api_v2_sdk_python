@@ -35,6 +35,7 @@ class Report(object):
         'data_sources': 'list[ReportDataSource]',
         'default_dataset_id': 'str',
         'default_project_id': 'str',
+        'filters': 'list[ReportFilter]',
         'merchant_id': 'str',
         'name': 'str',
         'pages': 'list[ReportPage]',
@@ -47,6 +48,7 @@ class Report(object):
         'data_sources': 'data_sources',
         'default_dataset_id': 'default_dataset_id',
         'default_project_id': 'default_project_id',
+        'filters': 'filters',
         'merchant_id': 'merchant_id',
         'name': 'name',
         'pages': 'pages',
@@ -54,13 +56,14 @@ class Report(object):
         'security_level': 'security_level'
     }
 
-    def __init__(self, active=None, data_sources=None, default_dataset_id=None, default_project_id=None, merchant_id=None, name=None, pages=None, report_oid=None, security_level=None):  # noqa: E501
+    def __init__(self, active=None, data_sources=None, default_dataset_id=None, default_project_id=None, filters=None, merchant_id=None, name=None, pages=None, report_oid=None, security_level=None):  # noqa: E501
         """Report - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
         self._data_sources = None
         self._default_dataset_id = None
         self._default_project_id = None
+        self._filters = None
         self._merchant_id = None
         self._name = None
         self._pages = None
@@ -76,6 +79,8 @@ class Report(object):
             self.default_dataset_id = default_dataset_id
         if default_project_id is not None:
             self.default_project_id = default_project_id
+        if filters is not None:
+            self.filters = filters
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if name is not None:
@@ -170,6 +175,27 @@ class Report(object):
         """
 
         self._default_project_id = default_project_id
+
+    @property
+    def filters(self):
+        """Gets the filters of this Report.  # noqa: E501
+
+
+        :return: The filters of this Report.  # noqa: E501
+        :rtype: list[ReportFilter]
+        """
+        return self._filters
+
+    @filters.setter
+    def filters(self, filters):
+        """Sets the filters of this Report.
+
+
+        :param filters: The filters of this Report.  # noqa: E501
+        :type: list[ReportFilter]
+        """
+
+        self._filters = filters
 
     @property
     def merchant_id(self):

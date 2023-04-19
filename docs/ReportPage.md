@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filters** | [**list[ReportFilter]**](ReportFilter.md) |  | [optional] 
+**filters** | [**list[ReportPageFilter]**](ReportPageFilter.md) |  | [optional] 
 **height** | **float** | Height of the report page in inches | [optional] 
 **title** | **str** |  | [optional] 
 **visualizations** | [**list[ReportPageVisualization]**](ReportPageVisualization.md) | Visualizations on the report page. | [optional] 
