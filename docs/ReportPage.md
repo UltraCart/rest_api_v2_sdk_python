@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**filters** | [**[ReportFilter]**](ReportFilter.md) |  | [optional] 
 **height** | **float** | Height of the report page in inches | [optional] 
 **title** | **str** |  | [optional] 
 **visualizations** | [**[ReportPageVisualization]**](ReportPageVisualization.md) | Visualizations on the report page. | [optional] 

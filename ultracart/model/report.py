@@ -32,10 +32,8 @@ from ultracart.exceptions import ApiAttributeError
 
 def lazy_import():
     from ultracart.model.report_data_source import ReportDataSource
-    from ultracart.model.report_filter import ReportFilter
     from ultracart.model.report_page import ReportPage
     globals()['ReportDataSource'] = ReportDataSource
-    globals()['ReportFilter'] = ReportFilter
     globals()['ReportPage'] = ReportPage
 
 
@@ -102,7 +100,6 @@ class Report(ModelNormal):
             'data_sources': ([ReportDataSource],),  # noqa: E501
             'default_dataset_id': (str,),  # noqa: E501
             'default_project_id': (str,),  # noqa: E501
-            'filters': ([ReportFilter],),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'pages': ([ReportPage],),  # noqa: E501
@@ -120,7 +117,6 @@ class Report(ModelNormal):
         'data_sources': 'data_sources',  # noqa: E501
         'default_dataset_id': 'default_dataset_id',  # noqa: E501
         'default_project_id': 'default_project_id',  # noqa: E501
-        'filters': 'filters',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'pages': 'pages',  # noqa: E501
@@ -173,7 +169,6 @@ class Report(ModelNormal):
             data_sources ([ReportDataSource]): [optional]  # noqa: E501
             default_dataset_id (str): [optional]  # noqa: E501
             default_project_id (str): [optional]  # noqa: E501
-            filters ([ReportFilter]): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             pages ([ReportPage]): [optional]  # noqa: E501
@@ -268,7 +263,6 @@ class Report(ModelNormal):
             data_sources ([ReportDataSource]): [optional]  # noqa: E501
             default_dataset_id (str): [optional]  # noqa: E501
             default_project_id (str): [optional]  # noqa: E501
-            filters ([ReportFilter]): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             pages ([ReportPage]): [optional]  # noqa: E501

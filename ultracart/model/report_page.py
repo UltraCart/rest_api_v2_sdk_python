@@ -31,7 +31,9 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.report_filter import ReportFilter
     from ultracart.model.report_page_visualization import ReportPageVisualization
+    globals()['ReportFilter'] = ReportFilter
     globals()['ReportPageVisualization'] = ReportPageVisualization
 
 
@@ -88,6 +90,7 @@ class ReportPage(ModelNormal):
         """
         lazy_import()
         return {
+            'filters': ([ReportFilter],),  # noqa: E501
             'height': (float,),  # noqa: E501
             'title': (str,),  # noqa: E501
             'visualizations': ([ReportPageVisualization],),  # noqa: E501
@@ -100,6 +103,7 @@ class ReportPage(ModelNormal):
 
 
     attribute_map = {
+        'filters': 'filters',  # noqa: E501
         'height': 'height',  # noqa: E501
         'title': 'title',  # noqa: E501
         'visualizations': 'visualizations',  # noqa: E501
@@ -147,6 +151,7 @@ class ReportPage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            filters ([ReportFilter]): [optional]  # noqa: E501
             height (float): Height of the report page in inches. [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
             visualizations ([ReportPageVisualization]): Visualizations on the report page.. [optional]  # noqa: E501
@@ -236,6 +241,7 @@ class ReportPage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            filters ([ReportFilter]): [optional]  # noqa: E501
             height (float): Height of the report page in inches. [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
             visualizations ([ReportPageVisualization]): Visualizations on the report page.. [optional]  # noqa: E501
