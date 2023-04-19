@@ -804,27 +804,35 @@ api_instance = GiftCertificateApi(api_client())
         ],
         default_dataset_id="default_dataset_id_example",
         default_project_id="default_project_id_example",
+        filters=[
+            ReportFilter(
+                config="config_example",
+                connections=[
+                    ReportFilterConnection(
+                        column="column_example",
+                        data_source_name="data_source_name_example",
+                    ),
+                ],
+                name="name_example",
+                styles="styles_example",
+                timezone="timezone_example",
+                type="date range",
+                uuid="uuid_example",
+                values=[
+                    "values_example",
+                ],
+            ),
+        ],
         merchant_id="merchant_id_example",
         name="name_example",
         pages=[
             ReportPage(
                 filters=[
-                    ReportFilter(
+                    ReportPageFilter(
                         config="config_example",
-                        connections=[
-                            ReportFilterConnection(
-                                column="column_example",
-                                data_source_name="data_source_name_example",
-                            ),
-                        ],
                         name="name_example",
                         styles="styles_example",
-                        timezone="timezone_example",
-                        type="date range",
                         uuid="uuid_example",
-                        values=[
-                            "values_example",
-                        ],
                     ),
                 ],
                 height=3.14,
@@ -958,27 +966,35 @@ api_instance = GiftCertificateApi(api_client())
         ],
         default_dataset_id="default_dataset_id_example",
         default_project_id="default_project_id_example",
+        filters=[
+            ReportFilter(
+                config="config_example",
+                connections=[
+                    ReportFilterConnection(
+                        column="column_example",
+                        data_source_name="data_source_name_example",
+                    ),
+                ],
+                name="name_example",
+                styles="styles_example",
+                timezone="timezone_example",
+                type="date range",
+                uuid="uuid_example",
+                values=[
+                    "values_example",
+                ],
+            ),
+        ],
         merchant_id="merchant_id_example",
         name="name_example",
         pages=[
             ReportPage(
                 filters=[
-                    ReportFilter(
+                    ReportPageFilter(
                         config="config_example",
-                        connections=[
-                            ReportFilterConnection(
-                                column="column_example",
-                                data_source_name="data_source_name_example",
-                            ),
-                        ],
                         name="name_example",
                         styles="styles_example",
-                        timezone="timezone_example",
-                        type="date range",
                         uuid="uuid_example",
-                        values=[
-                            "values_example",
-                        ],
                     ),
                 ],
                 height=3.14,

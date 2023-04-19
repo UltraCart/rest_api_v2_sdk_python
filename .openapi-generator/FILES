@@ -661,6 +661,7 @@ docs/ReportExecuteQueriesRequest.md
 docs/ReportFilter.md
 docs/ReportFilterConnection.md
 docs/ReportPage.md
+docs/ReportPageFilter.md
 docs/ReportPageVisualization.md
 docs/ReportPageVisualizationDimension.md
 docs/ReportPageVisualizationMetric.md
@@ -1468,6 +1469,7 @@ ultracart/model/report_execute_queries_request.py
 ultracart/model/report_filter.py
 ultracart/model/report_filter_connection.py
 ultracart/model/report_page.py
+ultracart/model/report_page_filter.py
 ultracart/model/report_page_visualization.py
 ultracart/model/report_page_visualization_dimension.py
 ultracart/model/report_page_visualization_metric.py
