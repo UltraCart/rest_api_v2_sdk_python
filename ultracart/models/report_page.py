@@ -31,6 +31,7 @@ class ReportPage(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'filters': 'list[ReportFilter]',
         'height': 'float',
         'title': 'str',
         'visualizations': 'list[ReportPageVisualization]',
@@ -38,21 +39,25 @@ class ReportPage(object):
     }
 
     attribute_map = {
+        'filters': 'filters',
         'height': 'height',
         'title': 'title',
         'visualizations': 'visualizations',
         'width': 'width'
     }
 
-    def __init__(self, height=None, title=None, visualizations=None, width=None):  # noqa: E501
+    def __init__(self, filters=None, height=None, title=None, visualizations=None, width=None):  # noqa: E501
         """ReportPage - a model defined in Swagger"""  # noqa: E501
 
+        self._filters = None
         self._height = None
         self._title = None
         self._visualizations = None
         self._width = None
         self.discriminator = None
 
+        if filters is not None:
+            self.filters = filters
         if height is not None:
             self.height = height
         if title is not None:
@@ -61,6 +66,27 @@ class ReportPage(object):
             self.visualizations = visualizations
         if width is not None:
             self.width = width
+
+    @property
+    def filters(self):
+        """Gets the filters of this ReportPage.  # noqa: E501
+
+
+        :return: The filters of this ReportPage.  # noqa: E501
+        :rtype: list[ReportFilter]
+        """
+        return self._filters
+
+    @filters.setter
+    def filters(self, filters):
+        """Sets the filters of this ReportPage.
+
+
+        :param filters: The filters of this ReportPage.  # noqa: E501
+        :type: list[ReportFilter]
+        """
+
+        self._filters = filters
 
     @property
     def height(self):
