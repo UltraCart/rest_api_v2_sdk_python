@@ -31,42 +31,42 @@ class ReportDataSetRow(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'columns': 'list[ReportDataSetColumn]'
+        'c': 'list[ReportDataSetColumn]'
     }
 
     attribute_map = {
-        'columns': 'columns'
+        'c': 'c'
     }
 
-    def __init__(self, columns=None):  # noqa: E501
+    def __init__(self, c=None):  # noqa: E501
         """ReportDataSetRow - a model defined in Swagger"""  # noqa: E501
 
-        self._columns = None
+        self._c = None
         self.discriminator = None
 
-        if columns is not None:
-            self.columns = columns
+        if c is not None:
+            self.c = c
 
     @property
-    def columns(self):
-        """Gets the columns of this ReportDataSetRow.  # noqa: E501
+    def c(self):
+        """Gets the c of this ReportDataSetRow.  # noqa: E501
 
 
-        :return: The columns of this ReportDataSetRow.  # noqa: E501
+        :return: The c of this ReportDataSetRow.  # noqa: E501
         :rtype: list[ReportDataSetColumn]
         """
-        return self._columns
+        return self._c
 
-    @columns.setter
-    def columns(self, columns):
-        """Sets the columns of this ReportDataSetRow.
+    @c.setter
+    def c(self, c):
+        """Sets the c of this ReportDataSetRow.
 
 
-        :param columns: The columns of this ReportDataSetRow.  # noqa: E501
+        :param c: The c of this ReportDataSetRow.  # noqa: E501
         :type: list[ReportDataSetColumn]
         """
 
-        self._columns = columns
+        self._c = c
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -31,42 +31,172 @@ class ReportDataSetColumn(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str'
+        '_in': 'bool',
+        'n': 'str',
+        'vd': 'str',
+        'vdt': 'str',
+        'vn': 'float',
+        'vs': 'str'
     }
 
     attribute_map = {
-        'name': 'name'
+        '_in': 'in',
+        'n': 'n',
+        'vd': 'vd',
+        'vdt': 'vdt',
+        'vn': 'vn',
+        'vs': 'vs'
     }
 
-    def __init__(self, name=None):  # noqa: E501
+    def __init__(self, _in=None, n=None, vd=None, vdt=None, vn=None, vs=None):  # noqa: E501
         """ReportDataSetColumn - a model defined in Swagger"""  # noqa: E501
 
-        self._name = None
+        self.__in = None
+        self._n = None
+        self._vd = None
+        self._vdt = None
+        self._vn = None
+        self._vs = None
         self.discriminator = None
 
-        if name is not None:
-            self.name = name
+        if _in is not None:
+            self._in = _in
+        if n is not None:
+            self.n = n
+        if vd is not None:
+            self.vd = vd
+        if vdt is not None:
+            self.vdt = vdt
+        if vn is not None:
+            self.vn = vn
+        if vs is not None:
+            self.vs = vs
 
     @property
-    def name(self):
-        """Gets the name of this ReportDataSetColumn.  # noqa: E501
+    def _in(self):
+        """Gets the _in of this ReportDataSetColumn.  # noqa: E501
 
 
-        :return: The name of this ReportDataSetColumn.  # noqa: E501
+        :return: The _in of this ReportDataSetColumn.  # noqa: E501
+        :rtype: bool
+        """
+        return self.__in
+
+    @_in.setter
+    def _in(self, _in):
+        """Sets the _in of this ReportDataSetColumn.
+
+
+        :param _in: The _in of this ReportDataSetColumn.  # noqa: E501
+        :type: bool
+        """
+
+        self.__in = _in
+
+    @property
+    def n(self):
+        """Gets the n of this ReportDataSetColumn.  # noqa: E501
+
+
+        :return: The n of this ReportDataSetColumn.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._n
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this ReportDataSetColumn.
+    @n.setter
+    def n(self, n):
+        """Sets the n of this ReportDataSetColumn.
 
 
-        :param name: The name of this ReportDataSetColumn.  # noqa: E501
+        :param n: The n of this ReportDataSetColumn.  # noqa: E501
         :type: str
         """
 
-        self._name = name
+        self._n = n
+
+    @property
+    def vd(self):
+        """Gets the vd of this ReportDataSetColumn.  # noqa: E501
+
+
+        :return: The vd of this ReportDataSetColumn.  # noqa: E501
+        :rtype: str
+        """
+        return self._vd
+
+    @vd.setter
+    def vd(self, vd):
+        """Sets the vd of this ReportDataSetColumn.
+
+
+        :param vd: The vd of this ReportDataSetColumn.  # noqa: E501
+        :type: str
+        """
+
+        self._vd = vd
+
+    @property
+    def vdt(self):
+        """Gets the vdt of this ReportDataSetColumn.  # noqa: E501
+
+
+        :return: The vdt of this ReportDataSetColumn.  # noqa: E501
+        :rtype: str
+        """
+        return self._vdt
+
+    @vdt.setter
+    def vdt(self, vdt):
+        """Sets the vdt of this ReportDataSetColumn.
+
+
+        :param vdt: The vdt of this ReportDataSetColumn.  # noqa: E501
+        :type: str
+        """
+
+        self._vdt = vdt
+
+    @property
+    def vn(self):
+        """Gets the vn of this ReportDataSetColumn.  # noqa: E501
+
+
+        :return: The vn of this ReportDataSetColumn.  # noqa: E501
+        :rtype: float
+        """
+        return self._vn
+
+    @vn.setter
+    def vn(self, vn):
+        """Sets the vn of this ReportDataSetColumn.
+
+
+        :param vn: The vn of this ReportDataSetColumn.  # noqa: E501
+        :type: float
+        """
+
+        self._vn = vn
+
+    @property
+    def vs(self):
+        """Gets the vs of this ReportDataSetColumn.  # noqa: E501
+
+
+        :return: The vs of this ReportDataSetColumn.  # noqa: E501
+        :rtype: str
+        """
+        return self._vs
+
+    @vs.setter
+    def vs(self, vs):
+        """Sets the vs of this ReportDataSetColumn.
+
+
+        :param vs: The vs of this ReportDataSetColumn.  # noqa: E501
+        :type: str
+        """
+
+        self._vs = vs
 
     def to_dict(self):
         """Returns the model properties as a dict"""

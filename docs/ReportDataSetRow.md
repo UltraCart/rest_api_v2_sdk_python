@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**columns** | [**list[ReportDataSetColumn]**](ReportDataSetColumn.md) |  | [optional] 
+**c** | [**list[ReportDataSetColumn]**](ReportDataSetColumn.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -31,10 +31,8 @@ class ReportFilter(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'config': 'str',
         'connections': 'list[ReportFilterConnection]',
         'name': 'str',
-        'styles': 'str',
         'timezone': 'str',
         'type': 'str',
         'uuid': 'str',
@@ -42,37 +40,29 @@ class ReportFilter(object):
     }
 
     attribute_map = {
-        'config': 'config',
         'connections': 'connections',
         'name': 'name',
-        'styles': 'styles',
         'timezone': 'timezone',
         'type': 'type',
         'uuid': 'uuid',
         'values': 'values'
     }
 
-    def __init__(self, config=None, connections=None, name=None, styles=None, timezone=None, type=None, uuid=None, values=None):  # noqa: E501
+    def __init__(self, connections=None, name=None, timezone=None, type=None, uuid=None, values=None):  # noqa: E501
         """ReportFilter - a model defined in Swagger"""  # noqa: E501
 
-        self._config = None
         self._connections = None
         self._name = None
-        self._styles = None
         self._timezone = None
         self._type = None
         self._uuid = None
         self._values = None
         self.discriminator = None
 
-        if config is not None:
-            self.config = config
         if connections is not None:
             self.connections = connections
         if name is not None:
             self.name = name
-        if styles is not None:
-            self.styles = styles
         if timezone is not None:
             self.timezone = timezone
         if type is not None:
@@ -81,29 +71,6 @@ class ReportFilter(object):
             self.uuid = uuid
         if values is not None:
             self.values = values
-
-    @property
-    def config(self):
-        """Gets the config of this ReportFilter.  # noqa: E501
-
-        A JSON representation of the configuration for this visualization  # noqa: E501
-
-        :return: The config of this ReportFilter.  # noqa: E501
-        :rtype: str
-        """
-        return self._config
-
-    @config.setter
-    def config(self, config):
-        """Sets the config of this ReportFilter.
-
-        A JSON representation of the configuration for this visualization  # noqa: E501
-
-        :param config: The config of this ReportFilter.  # noqa: E501
-        :type: str
-        """
-
-        self._config = config
 
     @property
     def connections(self):
@@ -148,29 +115,6 @@ class ReportFilter(object):
         """
 
         self._name = name
-
-    @property
-    def styles(self):
-        """Gets the styles of this ReportFilter.  # noqa: E501
-
-        A JSON representation of the style configuration for this visualization  # noqa: E501
-
-        :return: The styles of this ReportFilter.  # noqa: E501
-        :rtype: str
-        """
-        return self._styles
-
-    @styles.setter
-    def styles(self, styles):
-        """Sets the styles of this ReportFilter.
-
-        A JSON representation of the style configuration for this visualization  # noqa: E501
-
-        :param styles: The styles of this ReportFilter.  # noqa: E501
-        :type: str
-        """
-
-        self._styles = styles
 
     @property
     def timezone(self):
