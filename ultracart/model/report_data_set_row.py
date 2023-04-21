@@ -88,7 +88,7 @@ class ReportDataSetRow(ModelNormal):
         """
         lazy_import()
         return {
-            'columns': ([ReportDataSetColumn],),  # noqa: E501
+            'c': ([ReportDataSetColumn],),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +97,7 @@ class ReportDataSetRow(ModelNormal):
 
 
     attribute_map = {
-        'columns': 'columns',  # noqa: E501
+        'c': 'c',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,7 +141,7 @@ class ReportDataSetRow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            columns ([ReportDataSetColumn]): [optional]  # noqa: E501
+            c ([ReportDataSetColumn]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class ReportDataSetRow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            columns ([ReportDataSetColumn]): [optional]  # noqa: E501
+            c ([ReportDataSetColumn]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

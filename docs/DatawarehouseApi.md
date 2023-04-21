@@ -149,7 +149,6 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                 ],
                 filter=ReportFilter(
-                    config="config_example",
                     connections=[
                         ReportFilterConnection(
                             column="column_example",
@@ -157,7 +156,6 @@ api_instance = GiftCertificateApi(api_client())
                         ),
                     ],
                     name="name_example",
-                    styles="styles_example",
                     timezone="timezone_example",
                     type="date range",
                     uuid="uuid_example",
@@ -178,7 +176,6 @@ api_instance = GiftCertificateApi(api_client())
                 page_size=1,
                 selected_filters=[
                     ReportFilter(
-                        config="config_example",
                         connections=[
                             ReportFilterConnection(
                                 column="column_example",
@@ -186,7 +183,6 @@ api_instance = GiftCertificateApi(api_client())
                             ),
                         ],
                         name="name_example",
-                        styles="styles_example",
                         timezone="timezone_example",
                         type="date range",
                         uuid="uuid_example",
@@ -308,7 +304,6 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                 ],
                 filter=ReportFilter(
-                    config="config_example",
                     connections=[
                         ReportFilterConnection(
                             column="column_example",
@@ -316,7 +311,6 @@ api_instance = GiftCertificateApi(api_client())
                         ),
                     ],
                     name="name_example",
-                    styles="styles_example",
                     timezone="timezone_example",
                     type="date range",
                     uuid="uuid_example",
@@ -337,7 +331,6 @@ api_instance = GiftCertificateApi(api_client())
                 page_size=1,
                 selected_filters=[
                     ReportFilter(
-                        config="config_example",
                         connections=[
                             ReportFilterConnection(
                                 column="column_example",
@@ -345,7 +338,6 @@ api_instance = GiftCertificateApi(api_client())
                             ),
                         ],
                         name="name_example",
-                        styles="styles_example",
                         timezone="timezone_example",
                         type="date range",
                         uuid="uuid_example",
@@ -806,7 +798,6 @@ api_instance = GiftCertificateApi(api_client())
         default_project_id="default_project_id_example",
         filters=[
             ReportFilter(
-                config="config_example",
                 connections=[
                     ReportFilterConnection(
                         column="column_example",
@@ -814,7 +805,6 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                 ],
                 name="name_example",
-                styles="styles_example",
                 timezone="timezone_example",
                 type="date range",
                 uuid="uuid_example",
@@ -968,7 +958,6 @@ api_instance = GiftCertificateApi(api_client())
         default_project_id="default_project_id_example",
         filters=[
             ReportFilter(
-                config="config_example",
                 connections=[
                     ReportFilterConnection(
                         column="column_example",
@@ -976,7 +965,6 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                 ],
                 name="name_example",
-                styles="styles_example",
                 timezone="timezone_example",
                 type="date range",
                 uuid="uuid_example",

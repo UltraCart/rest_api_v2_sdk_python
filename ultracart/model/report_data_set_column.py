@@ -82,7 +82,12 @@ class ReportDataSetColumn(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
+            '_in': (bool,),  # noqa: E501
+            'n': (str,),  # noqa: E501
+            'vd': (str,),  # noqa: E501
+            'vdt': (str,),  # noqa: E501
+            'vn': (float,),  # noqa: E501
+            'vs': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -91,7 +96,12 @@ class ReportDataSetColumn(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
+        '_in': 'in',  # noqa: E501
+        'n': 'n',  # noqa: E501
+        'vd': 'vd',  # noqa: E501
+        'vdt': 'vdt',  # noqa: E501
+        'vn': 'vn',  # noqa: E501
+        'vs': 'vs',  # noqa: E501
     }
 
     read_only_vars = {
@@ -135,7 +145,12 @@ class ReportDataSetColumn(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            _in (bool): [optional]  # noqa: E501
+            n (str): [optional]  # noqa: E501
+            vd (str): [optional]  # noqa: E501
+            vdt (str): [optional]  # noqa: E501
+            vn (float): [optional]  # noqa: E501
+            vs (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,7 +236,12 @@ class ReportDataSetColumn(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            _in (bool): [optional]  # noqa: E501
+            n (str): [optional]  # noqa: E501
+            vd (str): [optional]  # noqa: E501
+            vdt (str): [optional]  # noqa: E501
+            vn (float): [optional]  # noqa: E501
+            vs (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

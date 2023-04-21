@@ -94,10 +94,8 @@ class ReportFilter(ModelNormal):
         """
         lazy_import()
         return {
-            'config': (str,),  # noqa: E501
             'connections': ([ReportFilterConnection],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'styles': (str,),  # noqa: E501
             'timezone': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'uuid': (str,),  # noqa: E501
@@ -110,10 +108,8 @@ class ReportFilter(ModelNormal):
 
 
     attribute_map = {
-        'config': 'config',  # noqa: E501
         'connections': 'connections',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'styles': 'styles',  # noqa: E501
         'timezone': 'timezone',  # noqa: E501
         'type': 'type',  # noqa: E501
         'uuid': 'uuid',  # noqa: E501
@@ -161,10 +157,8 @@ class ReportFilter(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            config (str): A JSON representation of the configuration for this visualization. [optional]  # noqa: E501
             connections ([ReportFilterConnection]): How this filter connects to the data sources and columns. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            styles (str): A JSON representation of the style configuration for this visualization. [optional]  # noqa: E501
             timezone (str): The timezone that the date range is querying on.. [optional]  # noqa: E501
             type (str): Type of filter. [optional]  # noqa: E501
             uuid (str): Unique UUID assigned to the filter.  Assists when returning values that the filter can use.. [optional]  # noqa: E501
@@ -254,10 +248,8 @@ class ReportFilter(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            config (str): A JSON representation of the configuration for this visualization. [optional]  # noqa: E501
             connections ([ReportFilterConnection]): How this filter connects to the data sources and columns. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            styles (str): A JSON representation of the style configuration for this visualization. [optional]  # noqa: E501
             timezone (str): The timezone that the date range is querying on.. [optional]  # noqa: E501
             type (str): Type of filter. [optional]  # noqa: E501
             uuid (str): Unique UUID assigned to the filter.  Assists when returning values that the filter can use.. [optional]  # noqa: E501
