@@ -334,7 +334,7 @@ class ReportDataSet(object):
     def page_count(self):
         """Gets the page_count of this ReportDataSet.  # noqa: E501
 
-        The size of the pages  # noqa: E501
+        The total number of pages in the result set  # noqa: E501
 
         :return: The page_count of this ReportDataSet.  # noqa: E501
         :rtype: int
@@ -345,7 +345,7 @@ class ReportDataSet(object):
     def page_count(self, page_count):
         """Sets the page_count of this ReportDataSet.
 
-        The size of the pages  # noqa: E501
+        The total number of pages in the result set  # noqa: E501
 
         :param page_count: The page_count of this ReportDataSet.  # noqa: E501
         :type: int

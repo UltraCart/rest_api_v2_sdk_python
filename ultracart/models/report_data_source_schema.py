@@ -31,31 +31,59 @@ class ReportDataSourceSchema(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'config': 'str',
         'dimension': 'bool',
         'name': 'str',
         'type': 'str'
     }
 
     attribute_map = {
+        'config': 'config',
         'dimension': 'dimension',
         'name': 'name',
         'type': 'type'
     }
 
-    def __init__(self, dimension=None, name=None, type=None):  # noqa: E501
+    def __init__(self, config=None, dimension=None, name=None, type=None):  # noqa: E501
         """ReportDataSourceSchema - a model defined in Swagger"""  # noqa: E501
 
+        self._config = None
         self._dimension = None
         self._name = None
         self._type = None
         self.discriminator = None
 
+        if config is not None:
+            self.config = config
         if dimension is not None:
             self.dimension = dimension
         if name is not None:
             self.name = name
         if type is not None:
             self.type = type
+
+    @property
+    def config(self):
+        """Gets the config of this ReportDataSourceSchema.  # noqa: E501
+
+        A JSON representation of the configuration for this visualization  # noqa: E501
+
+        :return: The config of this ReportDataSourceSchema.  # noqa: E501
+        :rtype: str
+        """
+        return self._config
+
+    @config.setter
+    def config(self, config):
+        """Sets the config of this ReportDataSourceSchema.
+
+        A JSON representation of the configuration for this visualization  # noqa: E501
+
+        :param config: The config of this ReportDataSourceSchema.  # noqa: E501
+        :type: str
+        """
+
+        self._config = config
 
     @property
     def dimension(self):
