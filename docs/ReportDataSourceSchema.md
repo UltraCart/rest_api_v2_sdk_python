@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**config** | **str** | A JSON representation of the configuration for this visualization | [optional] 
 **dimension** | **bool** | Whether or not this column can be used as a dimension within a visualization | [optional] 
 **name** | **str** |  | [optional] 
 **type** | **str** | Type of the column.  Only supporting the allowed values.  Any other types will be ignored. | [optional] 

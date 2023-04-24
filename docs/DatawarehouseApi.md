@@ -130,6 +130,7 @@ api_instance = GiftCertificateApi(api_client())
                     partition_date_strategy="partition_date_strategy_example",
                     schema=[
                         ReportDataSourceSchema(
+                            config="config_example",
                             dimension=True,
                             name="name_example",
                             type="BIGNUMERIC",
@@ -285,6 +286,7 @@ api_instance = GiftCertificateApi(api_client())
                     partition_date_strategy="partition_date_strategy_example",
                     schema=[
                         ReportDataSourceSchema(
+                            config="config_example",
                             dimension=True,
                             name="name_example",
                             type="BIGNUMERIC",
@@ -786,6 +788,7 @@ api_instance = GiftCertificateApi(api_client())
                 partition_date_strategy="partition_date_strategy_example",
                 schema=[
                     ReportDataSourceSchema(
+                        config="config_example",
                         dimension=True,
                         name="name_example",
                         type="BIGNUMERIC",
@@ -946,6 +949,7 @@ api_instance = GiftCertificateApi(api_client())
                 partition_date_strategy="partition_date_strategy_example",
                 schema=[
                     ReportDataSourceSchema(
+                        config="config_example",
                         dimension=True,
                         name="name_example",
                         type="BIGNUMERIC",

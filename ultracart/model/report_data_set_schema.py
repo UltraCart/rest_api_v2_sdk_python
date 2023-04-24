@@ -95,6 +95,7 @@ class ReportDataSetSchema(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'config': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
         }
@@ -105,6 +106,7 @@ class ReportDataSetSchema(ModelNormal):
 
 
     attribute_map = {
+        'config': 'config',  # noqa: E501
         'name': 'name',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
@@ -150,6 +152,7 @@ class ReportDataSetSchema(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            config (str): A JSON representation of the configuration for this visualization. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             type (str): Type of the column.. [optional]  # noqa: E501
         """
@@ -237,6 +240,7 @@ class ReportDataSetSchema(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            config (str): A JSON representation of the configuration for this visualization. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             type (str): Type of the column.. [optional]  # noqa: E501
         """

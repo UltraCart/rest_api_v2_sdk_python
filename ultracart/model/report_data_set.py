@@ -185,7 +185,7 @@ class ReportDataSet(ModelNormal):
             initial_pages ([ReportDataSetPage]): Initial pages returned in the dataset. [optional]  # noqa: E501
             max_results (int): The total number of results. [optional]  # noqa: E501
             merchant_id (str): Merchant that owns this data set. [optional]  # noqa: E501
-            page_count (int): The size of the pages. [optional]  # noqa: E501
+            page_count (int): The total number of pages in the result set. [optional]  # noqa: E501
             page_size (int): The size of the pages. [optional]  # noqa: E501
             schema ([ReportDataSetSchema]): The schema associated with the data set.. [optional]  # noqa: E501
             security_level (str): Security level this dataset was read from.. [optional]  # noqa: E501
@@ -285,7 +285,7 @@ class ReportDataSet(ModelNormal):
             initial_pages ([ReportDataSetPage]): Initial pages returned in the dataset. [optional]  # noqa: E501
             max_results (int): The total number of results. [optional]  # noqa: E501
             merchant_id (str): Merchant that owns this data set. [optional]  # noqa: E501
-            page_count (int): The size of the pages. [optional]  # noqa: E501
+            page_count (int): The total number of pages in the result set. [optional]  # noqa: E501
             page_size (int): The size of the pages. [optional]  # noqa: E501
             schema ([ReportDataSetSchema]): The schema associated with the data set.. [optional]  # noqa: E501
             security_level (str): Security level this dataset was read from.. [optional]  # noqa: E501
