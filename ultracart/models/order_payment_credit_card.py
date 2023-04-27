@@ -41,7 +41,8 @@ class OrderPaymentCreditCard(object):
         'card_number_token': 'str',
         'card_number_truncated': 'bool',
         'card_type': 'str',
-        'card_verification_number_token': 'str'
+        'card_verification_number_token': 'str',
+        'dual_vaulted': 'OrderPaymentCreditCardDualVaulted'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class OrderPaymentCreditCard(object):
         'card_number_token': 'card_number_token',
         'card_number_truncated': 'card_number_truncated',
         'card_type': 'card_type',
-        'card_verification_number_token': 'card_verification_number_token'
+        'card_verification_number_token': 'card_verification_number_token',
+        'dual_vaulted': 'dual_vaulted'
     }
 
-    def __init__(self, card_auth_ticket=None, card_authorization_amount=None, card_authorization_dts=None, card_authorization_reference_number=None, card_expiration_month=None, card_expiration_year=None, card_number=None, card_number_token=None, card_number_truncated=None, card_type=None, card_verification_number_token=None):  # noqa: E501
+    def __init__(self, card_auth_ticket=None, card_authorization_amount=None, card_authorization_dts=None, card_authorization_reference_number=None, card_expiration_month=None, card_expiration_year=None, card_number=None, card_number_token=None, card_number_truncated=None, card_type=None, card_verification_number_token=None, dual_vaulted=None):  # noqa: E501
         """OrderPaymentCreditCard - a model defined in Swagger"""  # noqa: E501
 
         self._card_auth_ticket = None
@@ -72,6 +74,7 @@ class OrderPaymentCreditCard(object):
         self._card_number_truncated = None
         self._card_type = None
         self._card_verification_number_token = None
+        self._dual_vaulted = None
         self.discriminator = None
 
         if card_auth_ticket is not None:
@@ -96,6 +99,8 @@ class OrderPaymentCreditCard(object):
             self.card_type = card_type
         if card_verification_number_token is not None:
             self.card_verification_number_token = card_verification_number_token
+        if dual_vaulted is not None:
+            self.dual_vaulted = dual_vaulted
 
     @property
     def card_auth_ticket(self):
@@ -355,6 +360,27 @@ class OrderPaymentCreditCard(object):
         """
 
         self._card_verification_number_token = card_verification_number_token
+
+    @property
+    def dual_vaulted(self):
+        """Gets the dual_vaulted of this OrderPaymentCreditCard.  # noqa: E501
+
+
+        :return: The dual_vaulted of this OrderPaymentCreditCard.  # noqa: E501
+        :rtype: OrderPaymentCreditCardDualVaulted
+        """
+        return self._dual_vaulted
+
+    @dual_vaulted.setter
+    def dual_vaulted(self, dual_vaulted):
+        """Sets the dual_vaulted of this OrderPaymentCreditCard.
+
+
+        :param dual_vaulted: The dual_vaulted of this OrderPaymentCreditCard.  # noqa: E501
+        :type: OrderPaymentCreditCardDualVaulted
+        """
+
+        self._dual_vaulted = dual_vaulted
 
     def to_dict(self):
         """Returns the model properties as a dict"""
