@@ -1861,6 +1861,16 @@ api_instance = GiftCertificateApi(api_client())
                         card_number_truncated=True,
                         card_type="AMEX",
                         card_verification_number_token="card_verification_number_token_example",
+                        dual_vaulted=OrderPaymentCreditCardDualVaulted(
+                            gateway_name="gateway_name_example",
+                            properties=[
+                                OrderPaymentCreditCardDualVaultedProperty(
+                                    name="name_example",
+                                    value="value_example",
+                                ),
+                            ],
+                            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
+                        ),
                     ),
                     echeck=OrderPaymentECheck(
                         bank_aba_code="bank_aba_code_example",
@@ -2783,6 +2793,16 @@ api_instance = GiftCertificateApi(api_client())
                         card_number_truncated=True,
                         card_type="AMEX",
                         card_verification_number_token="card_verification_number_token_example",
+                        dual_vaulted=OrderPaymentCreditCardDualVaulted(
+                            gateway_name="gateway_name_example",
+                            properties=[
+                                OrderPaymentCreditCardDualVaultedProperty(
+                                    name="name_example",
+                                    value="value_example",
+                                ),
+                            ],
+                            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
+                        ),
                     ),
                     echeck=OrderPaymentECheck(
                         bank_aba_code="bank_aba_code_example",
@@ -4204,6 +4224,16 @@ api_instance = GiftCertificateApi(api_client())
                         card_number_truncated=True,
                         card_type="AMEX",
                         card_verification_number_token="card_verification_number_token_example",
+                        dual_vaulted=OrderPaymentCreditCardDualVaulted(
+                            gateway_name="gateway_name_example",
+                            properties=[
+                                OrderPaymentCreditCardDualVaultedProperty(
+                                    name="name_example",
+                                    value="value_example",
+                                ),
+                            ],
+                            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
+                        ),
                     ),
                     echeck=OrderPaymentECheck(
                         bank_aba_code="bank_aba_code_example",
@@ -5126,6 +5156,16 @@ api_instance = GiftCertificateApi(api_client())
                         card_number_truncated=True,
                         card_type="AMEX",
                         card_verification_number_token="card_verification_number_token_example",
+                        dual_vaulted=OrderPaymentCreditCardDualVaulted(
+                            gateway_name="gateway_name_example",
+                            properties=[
+                                OrderPaymentCreditCardDualVaultedProperty(
+                                    name="name_example",
+                                    value="value_example",
+                                ),
+                            ],
+                            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
+                        ),
                     ),
                     echeck=OrderPaymentECheck(
                         bank_aba_code="bank_aba_code_example",
