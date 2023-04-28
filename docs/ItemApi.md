@@ -1464,6 +1464,7 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                     limit=ItemPricingTierLimit(
                         cumulative_order_limit=1,
+                        exempt_from_minimum_item_count=True,
                         individual_order_limit=1,
                         multiple_quantity=1,
                     ),
@@ -2504,6 +2505,7 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                     limit=ItemPricingTierLimit(
                         cumulative_order_limit=1,
+                        exempt_from_minimum_item_count=True,
                         individual_order_limit=1,
                         multiple_quantity=1,
                     ),
@@ -3448,6 +3450,7 @@ api_instance = GiftCertificateApi(api_client())
                             ],
                             limit=ItemPricingTierLimit(
                                 cumulative_order_limit=1,
+                                exempt_from_minimum_item_count=True,
                                 individual_order_limit=1,
                                 multiple_quantity=1,
                             ),

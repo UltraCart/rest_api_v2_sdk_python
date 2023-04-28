@@ -83,6 +83,7 @@ class ItemPricingTierLimit(ModelNormal):
         """
         return {
             'cumulative_order_limit': (int,),  # noqa: E501
+            'exempt_from_minimum_item_count': (bool,),  # noqa: E501
             'individual_order_limit': (int,),  # noqa: E501
             'multiple_quantity': (int,),  # noqa: E501
         }
@@ -94,6 +95,7 @@ class ItemPricingTierLimit(ModelNormal):
 
     attribute_map = {
         'cumulative_order_limit': 'cumulative_order_limit',  # noqa: E501
+        'exempt_from_minimum_item_count': 'exempt_from_minimum_item_count',  # noqa: E501
         'individual_order_limit': 'individual_order_limit',  # noqa: E501
         'multiple_quantity': 'multiple_quantity',  # noqa: E501
     }
@@ -140,6 +142,7 @@ class ItemPricingTierLimit(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cumulative_order_limit (int): Cumulative order limit. [optional]  # noqa: E501
+            exempt_from_minimum_item_count (bool): Exempt from Minimum Item Count. [optional]  # noqa: E501
             individual_order_limit (int): Individual order limit. [optional]  # noqa: E501
             multiple_quantity (int): Multiple quantity. [optional]  # noqa: E501
         """
@@ -228,6 +231,7 @@ class ItemPricingTierLimit(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cumulative_order_limit (int): Cumulative order limit. [optional]  # noqa: E501
+            exempt_from_minimum_item_count (bool): Exempt from Minimum Item Count. [optional]  # noqa: E501
             individual_order_limit (int): Individual order limit. [optional]  # noqa: E501
             multiple_quantity (int): Multiple quantity. [optional]  # noqa: E501
         """
