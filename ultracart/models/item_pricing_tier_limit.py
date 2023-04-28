@@ -32,26 +32,31 @@ class ItemPricingTierLimit(object):
     """
     swagger_types = {
         'cumulative_order_limit': 'int',
+        'exempt_from_minimum_item_count': 'bool',
         'individual_order_limit': 'int',
         'multiple_quantity': 'int'
     }
 
     attribute_map = {
         'cumulative_order_limit': 'cumulative_order_limit',
+        'exempt_from_minimum_item_count': 'exempt_from_minimum_item_count',
         'individual_order_limit': 'individual_order_limit',
         'multiple_quantity': 'multiple_quantity'
     }
 
-    def __init__(self, cumulative_order_limit=None, individual_order_limit=None, multiple_quantity=None):  # noqa: E501
+    def __init__(self, cumulative_order_limit=None, exempt_from_minimum_item_count=None, individual_order_limit=None, multiple_quantity=None):  # noqa: E501
         """ItemPricingTierLimit - a model defined in Swagger"""  # noqa: E501
 
         self._cumulative_order_limit = None
+        self._exempt_from_minimum_item_count = None
         self._individual_order_limit = None
         self._multiple_quantity = None
         self.discriminator = None
 
         if cumulative_order_limit is not None:
             self.cumulative_order_limit = cumulative_order_limit
+        if exempt_from_minimum_item_count is not None:
+            self.exempt_from_minimum_item_count = exempt_from_minimum_item_count
         if individual_order_limit is not None:
             self.individual_order_limit = individual_order_limit
         if multiple_quantity is not None:
@@ -79,6 +84,29 @@ class ItemPricingTierLimit(object):
         """
 
         self._cumulative_order_limit = cumulative_order_limit
+
+    @property
+    def exempt_from_minimum_item_count(self):
+        """Gets the exempt_from_minimum_item_count of this ItemPricingTierLimit.  # noqa: E501
+
+        Exempt from Minimum Item Count  # noqa: E501
+
+        :return: The exempt_from_minimum_item_count of this ItemPricingTierLimit.  # noqa: E501
+        :rtype: bool
+        """
+        return self._exempt_from_minimum_item_count
+
+    @exempt_from_minimum_item_count.setter
+    def exempt_from_minimum_item_count(self, exempt_from_minimum_item_count):
+        """Sets the exempt_from_minimum_item_count of this ItemPricingTierLimit.
+
+        Exempt from Minimum Item Count  # noqa: E501
+
+        :param exempt_from_minimum_item_count: The exempt_from_minimum_item_count of this ItemPricingTierLimit.  # noqa: E501
+        :type: bool
+        """
+
+        self._exempt_from_minimum_item_count = exempt_from_minimum_item_count
 
     @property
     def individual_order_limit(self):
