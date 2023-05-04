@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_digital_item**](ItemApi.md#delete_digital_item) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 [**delete_item**](ItemApi.md#delete_item) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**delete_review**](ItemApi.md#delete_review) | **DELETE** /item/items/{merchant_item_oid}/reviews/{review_oid} | Delete a review
 [**get_digital_item**](ItemApi.md#get_digital_item) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**get_digital_items**](ItemApi.md#get_digital_items) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**get_digital_items_by_external_id**](ItemApi.md#get_digital_items_by_external_id) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
@@ -13,12 +14,16 @@ Method | HTTP request | Description
 [**get_item_by_merchant_item_id**](ItemApi.md#get_item_by_merchant_item_id) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
 [**get_pricing_tiers**](ItemApi.md#get_pricing_tiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+[**get_review**](ItemApi.md#get_review) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | get a review
+[**get_reviews**](ItemApi.md#get_reviews) | **GET** /item/items/{merchant_item_oid}/reviews | get reviews for an item
 [**get_unassociated_digital_items**](ItemApi.md#get_unassociated_digital_items) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 [**insert_digital_item**](ItemApi.md#insert_digital_item) | **POST** /item/digital_library | Create a file within the digital library
 [**insert_item**](ItemApi.md#insert_item) | **POST** /item/items | Create an item
+[**insert_review**](ItemApi.md#insert_review) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**update_digital_item**](ItemApi.md#update_digital_item) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**update_items**](ItemApi.md#update_items) | **PUT** /item/items/batch | Update multiple items
+[**update_review**](ItemApi.md#update_review) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 [**upload_temporary_multimedia**](ItemApi.md#upload_temporary_multimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
@@ -154,6 +159,77 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_review**
+> delete_review(review_oid, merchant_item_oid)
+
+Delete a review
+
+Delete an item review. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    review_oid = 1 # int | The review oid to delete.
+    merchant_item_oid = 1 # int | The item oid the review is associated with.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete a review
+        api_instance.delete_review(review_oid, merchant_item_oid)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->delete_review: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to delete. |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
 **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -695,6 +771,152 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PricingTiersResponse**](PricingTiersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_review**
+> ItemReviewResponse get_review(review_oid, merchant_item_oid)
+
+get a review
+
+Retrieve an item review. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.item_review_response import ItemReviewResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    review_oid = 1 # int | The review oid to retrieve.
+    merchant_item_oid = 1 # int | The item oid the review is associated with.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # get a review
+        api_response = api_instance.get_review(review_oid, merchant_item_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->get_review: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to retrieve. |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+[**ItemReviewResponse**](ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_reviews**
+> ItemReviewsResponse get_reviews(merchant_item_oid)
+
+get reviews for an item
+
+Retrieve item reviews. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.item_reviews_response import ItemReviewsResponse
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    merchant_item_oid = 1 # int | The item oid the review is associated with.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # get reviews for an item
+        api_response = api_instance.get_reviews(merchant_item_oid)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->get_reviews: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+[**ItemReviewsResponse**](ItemReviewsResponse.md)
 
 ### Authorization
 
@@ -1566,7 +1788,7 @@ api_instance = GiftCertificateApi(api_client())
                     reviewed_nickname="reviewed_nickname_example",
                     reviewer_email="reviewer_email_example",
                     reviewer_location="reviewer_location_example",
-                    status="status_example",
+                    status="approved",
                     store_feedback="store_feedback_example",
                     submitted_dts="submitted_dts_example",
                     title="title_example",
@@ -1816,6 +2038,119 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **insert_review**
+> ItemReviewResponse insert_review(merchant_item_oid, review)
+
+Insert a review
+
+Insert a item review. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.item_review import ItemReview
+from ultracart.model.item_review_response import ItemReviewResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    merchant_item_oid = 1 # int | The item oid the review is associated with.
+    review = ItemReview(
+        customer_profile_oid=1,
+        featured=True,
+        helperful_no_votes=1,
+        helpful_yes_votes=1,
+        order_id="order_id_example",
+        overall=3.14,
+        rating_name1="rating_name1_example",
+        rating_name10="rating_name10_example",
+        rating_name2="rating_name2_example",
+        rating_name3="rating_name3_example",
+        rating_name4="rating_name4_example",
+        rating_name5="rating_name5_example",
+        rating_name6="rating_name6_example",
+        rating_name7="rating_name7_example",
+        rating_name8="rating_name8_example",
+        rating_name9="rating_name9_example",
+        rating_score1=3.14,
+        rating_score10=3.14,
+        rating_score2=3.14,
+        rating_score3=3.14,
+        rating_score4=3.14,
+        rating_score5=3.14,
+        rating_score6=3.14,
+        rating_score7=3.14,
+        rating_score8=3.14,
+        rating_score9=3.14,
+        recommend_store_to_friend=1,
+        recommend_to_friend=True,
+        review="review_example",
+        review_oid=1,
+        reviewed_nickname="reviewed_nickname_example",
+        reviewer_email="reviewer_email_example",
+        reviewer_location="reviewer_location_example",
+        status="approved",
+        store_feedback="store_feedback_example",
+        submitted_dts="submitted_dts_example",
+        title="title_example",
+    ) # ItemReview | Review to insert
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Insert a review
+        api_response = api_instance.insert_review(merchant_item_oid, review)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->insert_review: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+ **review** | [**ItemReview**](ItemReview.md)| Review to insert |
+
+### Return type
+
+[**ItemReviewResponse**](ItemReviewResponse.md)
 
 ### Authorization
 
@@ -2607,7 +2942,7 @@ api_instance = GiftCertificateApi(api_client())
                     reviewed_nickname="reviewed_nickname_example",
                     reviewer_email="reviewer_email_example",
                     reviewer_location="reviewer_location_example",
-                    status="status_example",
+                    status="approved",
                     store_feedback="store_feedback_example",
                     submitted_dts="submitted_dts_example",
                     title="title_example",
@@ -3552,7 +3887,7 @@ api_instance = GiftCertificateApi(api_client())
                             reviewed_nickname="reviewed_nickname_example",
                             reviewer_email="reviewer_email_example",
                             reviewer_location="reviewer_location_example",
-                            status="status_example",
+                            status="approved",
                             store_feedback="store_feedback_example",
                             submitted_dts="submitted_dts_example",
                             title="title_example",
@@ -3806,6 +4141,121 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemsResponse**](ItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_review**
+> ItemReviewResponse update_review(review_oid, merchant_item_oid, review)
+
+Update a review
+
+Update an item review. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.item_review import ItemReview
+from ultracart.model.item_review_response import ItemReviewResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    review_oid = 1 # int | The review oid to update.
+    merchant_item_oid = 1 # int | The item oid the review is associated with.
+    review = ItemReview(
+        customer_profile_oid=1,
+        featured=True,
+        helperful_no_votes=1,
+        helpful_yes_votes=1,
+        order_id="order_id_example",
+        overall=3.14,
+        rating_name1="rating_name1_example",
+        rating_name10="rating_name10_example",
+        rating_name2="rating_name2_example",
+        rating_name3="rating_name3_example",
+        rating_name4="rating_name4_example",
+        rating_name5="rating_name5_example",
+        rating_name6="rating_name6_example",
+        rating_name7="rating_name7_example",
+        rating_name8="rating_name8_example",
+        rating_name9="rating_name9_example",
+        rating_score1=3.14,
+        rating_score10=3.14,
+        rating_score2=3.14,
+        rating_score3=3.14,
+        rating_score4=3.14,
+        rating_score5=3.14,
+        rating_score6=3.14,
+        rating_score7=3.14,
+        rating_score8=3.14,
+        rating_score9=3.14,
+        recommend_store_to_friend=1,
+        recommend_to_friend=True,
+        review="review_example",
+        review_oid=1,
+        reviewed_nickname="reviewed_nickname_example",
+        reviewer_email="reviewer_email_example",
+        reviewer_location="reviewer_location_example",
+        status="approved",
+        store_feedback="store_feedback_example",
+        submitted_dts="submitted_dts_example",
+        title="title_example",
+    ) # ItemReview | Review to update
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update a review
+        api_response = api_instance.update_review(review_oid, merchant_item_oid, review)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->update_review: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to update. |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+ **review** | [**ItemReview**](ItemReview.md)| Review to update |
+
+### Return type
+
+[**ItemReviewResponse**](ItemReviewResponse.md)
 
 ### Authorization
 

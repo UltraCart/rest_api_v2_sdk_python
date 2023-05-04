@@ -28,6 +28,9 @@ from ultracart.model.item_digital_item import ItemDigitalItem
 from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
 from ultracart.model.item_digital_items_response import ItemDigitalItemsResponse
 from ultracart.model.item_response import ItemResponse
+from ultracart.model.item_review import ItemReview
+from ultracart.model.item_review_response import ItemReviewResponse
+from ultracart.model.item_reviews_response import ItemReviewsResponse
 from ultracart.model.items_request import ItemsRequest
 from ultracart.model.items_response import ItemsResponse
 from ultracart.model.pricing_tiers_response import PricingTiersResponse
@@ -147,6 +150,64 @@ class ItemApi(object):
                     'merchant_item_oid': 'merchant_item_oid',
                 },
                 'location_map': {
+                    'merchant_item_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_review_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/reviews/{review_oid}',
+                'operation_id': 'delete_review',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'review_oid',
+                    'merchant_item_oid',
+                ],
+                'required': [
+                    'review_oid',
+                    'merchant_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'review_oid':
+                        (int,),
+                    'merchant_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'review_oid': 'review_oid',
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'review_oid': 'path',
                     'merchant_item_oid': 'path',
                 },
                 'collection_format_map': {
@@ -598,6 +659,116 @@ class ItemApi(object):
             },
             api_client=api_client
         )
+        self.get_review_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemReviewResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/reviews/{review_oid}',
+                'operation_id': 'get_review',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'review_oid',
+                    'merchant_item_oid',
+                ],
+                'required': [
+                    'review_oid',
+                    'merchant_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'review_oid':
+                        (int,),
+                    'merchant_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'review_oid': 'review_oid',
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'review_oid': 'path',
+                    'merchant_item_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_reviews_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemReviewsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/reviews',
+                'operation_id': 'get_reviews',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_unassociated_digital_items_endpoint = _Endpoint(
             settings={
                 'response_type': (ItemDigitalItemsResponse,),
@@ -775,6 +946,65 @@ class ItemApi(object):
                     'item': 'body',
                     'expand': 'query',
                     'placeholders': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_review_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemReviewResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/reviews',
+                'operation_id': 'insert_review',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                    'review',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                    'review',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                    'review':
+                        (ItemReview,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                    'review': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -971,6 +1201,71 @@ class ItemApi(object):
                     'expand': 'query',
                     'placeholders': 'query',
                     '_async': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_review_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemReviewResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/reviews/{review_oid}',
+                'operation_id': 'update_review',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'review_oid',
+                    'merchant_item_oid',
+                    'review',
+                ],
+                'required': [
+                    'review_oid',
+                    'merchant_item_oid',
+                    'review',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'review_oid':
+                        (int,),
+                    'merchant_item_oid':
+                        (int,),
+                    'review':
+                        (ItemReview,),
+                },
+                'attribute_map': {
+                    'review_oid': 'review_oid',
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'review_oid': 'path',
+                    'merchant_item_oid': 'path',
+                    'review': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1205,6 +1500,93 @@ class ItemApi(object):
         kwargs['merchant_item_oid'] = \
             merchant_item_oid
         return self.delete_item_endpoint.call_with_http_info(**kwargs)
+
+    def delete_review(
+        self,
+        review_oid,
+        merchant_item_oid,
+        **kwargs
+    ):
+        """Delete a review  # noqa: E501
+
+        Delete an item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_review(review_oid, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            review_oid (int): The review oid to delete.
+            merchant_item_oid (int): The item oid the review is associated with.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['review_oid'] = \
+            review_oid
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        return self.delete_review_endpoint.call_with_http_info(**kwargs)
 
     def get_digital_item(
         self,
@@ -1791,6 +2173,176 @@ class ItemApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_pricing_tiers_endpoint.call_with_http_info(**kwargs)
 
+    def get_review(
+        self,
+        review_oid,
+        merchant_item_oid,
+        **kwargs
+    ):
+        """get a review  # noqa: E501
+
+        Retrieve an item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_review(review_oid, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            review_oid (int): The review oid to retrieve.
+            merchant_item_oid (int): The item oid the review is associated with.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemReviewResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['review_oid'] = \
+            review_oid
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        return self.get_review_endpoint.call_with_http_info(**kwargs)
+
+    def get_reviews(
+        self,
+        merchant_item_oid,
+        **kwargs
+    ):
+        """get reviews for an item  # noqa: E501
+
+        Retrieve item reviews.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_reviews(merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid the review is associated with.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemReviewsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        return self.get_reviews_endpoint.call_with_http_info(**kwargs)
+
     def get_unassociated_digital_items(
         self,
         **kwargs
@@ -2042,6 +2594,93 @@ class ItemApi(object):
         kwargs['item'] = \
             item
         return self.insert_item_endpoint.call_with_http_info(**kwargs)
+
+    def insert_review(
+        self,
+        merchant_item_oid,
+        review,
+        **kwargs
+    ):
+        """Insert a review  # noqa: E501
+
+        Insert a item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_review(merchant_item_oid, review, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid the review is associated with.
+            review (ItemReview): Review to insert
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemReviewResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        kwargs['review'] = \
+            review
+        return self.insert_review_endpoint.call_with_http_info(**kwargs)
 
     def update_digital_item(
         self,
@@ -2304,6 +2943,97 @@ class ItemApi(object):
         kwargs['items_request'] = \
             items_request
         return self.update_items_endpoint.call_with_http_info(**kwargs)
+
+    def update_review(
+        self,
+        review_oid,
+        merchant_item_oid,
+        review,
+        **kwargs
+    ):
+        """Update a review  # noqa: E501
+
+        Update an item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_review(review_oid, merchant_item_oid, review, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            review_oid (int): The review oid to update.
+            merchant_item_oid (int): The item oid the review is associated with.
+            review (ItemReview): Review to update
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemReviewResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['review_oid'] = \
+            review_oid
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        kwargs['review'] = \
+            review
+        return self.update_review_endpoint.call_with_http_info(**kwargs)
 
     def upload_temporary_multimedia(
         self,
