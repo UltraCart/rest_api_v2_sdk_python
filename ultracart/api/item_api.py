@@ -244,6 +244,113 @@ class ItemApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_review(self, review_oid, merchant_item_oid, **kwargs):  # noqa: E501
+        """Delete a review  # noqa: E501
+
+        Delete an item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_review(review_oid, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int review_oid: The review oid to delete. (required)
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_review_with_http_info(review_oid, merchant_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_review_with_http_info(review_oid, merchant_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_review_with_http_info(self, review_oid, merchant_item_oid, **kwargs):  # noqa: E501
+        """Delete a review  # noqa: E501
+
+        Delete an item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_review_with_http_info(review_oid, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int review_oid: The review oid to delete. (required)
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['review_oid', 'merchant_item_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_review" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'review_oid' is set
+        if ('review_oid' not in params or
+                params['review_oid'] is None):
+            raise ValueError("Missing the required parameter `review_oid` when calling `delete_review`")  # noqa: E501
+        # verify the required parameter 'merchant_item_oid' is set
+        if ('merchant_item_oid' not in params or
+                params['merchant_item_oid'] is None):
+            raise ValueError("Missing the required parameter `merchant_item_oid` when calling `delete_review`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'review_oid' in params:
+            path_params['review_oid'] = params['review_oid']  # noqa: E501
+        if 'merchant_item_oid' in params:
+            path_params['merchant_item_oid'] = params['merchant_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/item/items/{merchant_item_oid}/reviews/{review_oid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_digital_item(self, digital_item_oid, **kwargs):  # noqa: E501
         """Retrieve a digital item from the digital library, which are digital files that may be attached to normal items  # noqa: E501
 
@@ -989,6 +1096,212 @@ class ItemApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_review(self, review_oid, merchant_item_oid, **kwargs):  # noqa: E501
+        """get a review  # noqa: E501
+
+        Retrieve an item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_review(review_oid, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int review_oid: The review oid to retrieve. (required)
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: ItemReviewResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_review_with_http_info(review_oid, merchant_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_review_with_http_info(review_oid, merchant_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_review_with_http_info(self, review_oid, merchant_item_oid, **kwargs):  # noqa: E501
+        """get a review  # noqa: E501
+
+        Retrieve an item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_review_with_http_info(review_oid, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int review_oid: The review oid to retrieve. (required)
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: ItemReviewResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['review_oid', 'merchant_item_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_review" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'review_oid' is set
+        if ('review_oid' not in params or
+                params['review_oid'] is None):
+            raise ValueError("Missing the required parameter `review_oid` when calling `get_review`")  # noqa: E501
+        # verify the required parameter 'merchant_item_oid' is set
+        if ('merchant_item_oid' not in params or
+                params['merchant_item_oid'] is None):
+            raise ValueError("Missing the required parameter `merchant_item_oid` when calling `get_review`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'review_oid' in params:
+            path_params['review_oid'] = params['review_oid']  # noqa: E501
+        if 'merchant_item_oid' in params:
+            path_params['merchant_item_oid'] = params['merchant_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/item/items/{merchant_item_oid}/reviews/{review_oid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ItemReviewResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_reviews(self, merchant_item_oid, **kwargs):  # noqa: E501
+        """get reviews for an item  # noqa: E501
+
+        Retrieve item reviews.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_reviews(merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: ItemReviewsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_reviews_with_http_info(merchant_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_reviews_with_http_info(merchant_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_reviews_with_http_info(self, merchant_item_oid, **kwargs):  # noqa: E501
+        """get reviews for an item  # noqa: E501
+
+        Retrieve item reviews.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_reviews_with_http_info(merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: ItemReviewsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['merchant_item_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_reviews" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'merchant_item_oid' is set
+        if ('merchant_item_oid' not in params or
+                params['merchant_item_oid'] is None):
+            raise ValueError("Missing the required parameter `merchant_item_oid` when calling `get_reviews`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'merchant_item_oid' in params:
+            path_params['merchant_item_oid'] = params['merchant_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/item/items/{merchant_item_oid}/reviews', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ItemReviewsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_unassociated_digital_items(self, **kwargs):  # noqa: E501
         """Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items  # noqa: E501
 
@@ -1303,6 +1616,113 @@ class ItemApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ItemResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def insert_review(self, review, merchant_item_oid, **kwargs):  # noqa: E501
+        """Insert a review  # noqa: E501
+
+        Insert a item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_review(review, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ItemReview review: Review to insert (required)
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: ItemReviewResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_review_with_http_info(review, merchant_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_review_with_http_info(review, merchant_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def insert_review_with_http_info(self, review, merchant_item_oid, **kwargs):  # noqa: E501
+        """Insert a review  # noqa: E501
+
+        Insert a item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_review_with_http_info(review, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ItemReview review: Review to insert (required)
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: ItemReviewResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['review', 'merchant_item_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_review" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'review' is set
+        if ('review' not in params or
+                params['review'] is None):
+            raise ValueError("Missing the required parameter `review` when calling `insert_review`")  # noqa: E501
+        # verify the required parameter 'merchant_item_oid' is set
+        if ('merchant_item_oid' not in params or
+                params['merchant_item_oid'] is None):
+            raise ValueError("Missing the required parameter `merchant_item_oid` when calling `insert_review`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'merchant_item_oid' in params:
+            path_params['merchant_item_oid'] = params['merchant_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'review' in params:
+            body_params = params['review']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/item/items/{merchant_item_oid}/reviews', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ItemReviewResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1636,6 +2056,121 @@ class ItemApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ItemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_review(self, review, review_oid, merchant_item_oid, **kwargs):  # noqa: E501
+        """Update a review  # noqa: E501
+
+        Update an item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_review(review, review_oid, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ItemReview review: Review to update (required)
+        :param int review_oid: The review oid to update. (required)
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: ItemReviewResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_review_with_http_info(review, review_oid, merchant_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_review_with_http_info(review, review_oid, merchant_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def update_review_with_http_info(self, review, review_oid, merchant_item_oid, **kwargs):  # noqa: E501
+        """Update a review  # noqa: E501
+
+        Update an item review.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_review_with_http_info(review, review_oid, merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ItemReview review: Review to update (required)
+        :param int review_oid: The review oid to update. (required)
+        :param int merchant_item_oid: The item oid the review is associated with. (required)
+        :return: ItemReviewResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['review', 'review_oid', 'merchant_item_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_review" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'review' is set
+        if ('review' not in params or
+                params['review'] is None):
+            raise ValueError("Missing the required parameter `review` when calling `update_review`")  # noqa: E501
+        # verify the required parameter 'review_oid' is set
+        if ('review_oid' not in params or
+                params['review_oid'] is None):
+            raise ValueError("Missing the required parameter `review_oid` when calling `update_review`")  # noqa: E501
+        # verify the required parameter 'merchant_item_oid' is set
+        if ('merchant_item_oid' not in params or
+                params['merchant_item_oid'] is None):
+            raise ValueError("Missing the required parameter `merchant_item_oid` when calling `update_review`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'review_oid' in params:
+            path_params['review_oid'] = params['review_oid']  # noqa: E501
+        if 'merchant_item_oid' in params:
+            path_params['merchant_item_oid'] = params['merchant_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'review' in params:
+            body_params = params['review']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/item/items/{merchant_item_oid}/reviews/{review_oid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ItemReviewResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

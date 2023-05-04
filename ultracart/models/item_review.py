@@ -359,6 +359,7 @@ class ItemReview(object):
     def rating_name1(self):
         """Gets the rating_name1 of this ItemReview.  # noqa: E501
 
+        Rating Name 1  # noqa: E501
 
         :return: The rating_name1 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -369,10 +370,13 @@ class ItemReview(object):
     def rating_name1(self, rating_name1):
         """Sets the rating_name1 of this ItemReview.
 
+        Rating Name 1  # noqa: E501
 
         :param rating_name1: The rating_name1 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name1 is not None and len(rating_name1) > 100:
+            raise ValueError("Invalid value for `rating_name1`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name1 = rating_name1
 
@@ -380,6 +384,7 @@ class ItemReview(object):
     def rating_name10(self):
         """Gets the rating_name10 of this ItemReview.  # noqa: E501
 
+        Rating Name 10  # noqa: E501
 
         :return: The rating_name10 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -390,10 +395,13 @@ class ItemReview(object):
     def rating_name10(self, rating_name10):
         """Sets the rating_name10 of this ItemReview.
 
+        Rating Name 10  # noqa: E501
 
         :param rating_name10: The rating_name10 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name10 is not None and len(rating_name10) > 100:
+            raise ValueError("Invalid value for `rating_name10`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name10 = rating_name10
 
@@ -401,6 +409,7 @@ class ItemReview(object):
     def rating_name2(self):
         """Gets the rating_name2 of this ItemReview.  # noqa: E501
 
+        Rating Name 2  # noqa: E501
 
         :return: The rating_name2 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -411,10 +420,13 @@ class ItemReview(object):
     def rating_name2(self, rating_name2):
         """Sets the rating_name2 of this ItemReview.
 
+        Rating Name 2  # noqa: E501
 
         :param rating_name2: The rating_name2 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name2 is not None and len(rating_name2) > 100:
+            raise ValueError("Invalid value for `rating_name2`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name2 = rating_name2
 
@@ -422,6 +434,7 @@ class ItemReview(object):
     def rating_name3(self):
         """Gets the rating_name3 of this ItemReview.  # noqa: E501
 
+        Rating Name 3  # noqa: E501
 
         :return: The rating_name3 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -432,10 +445,13 @@ class ItemReview(object):
     def rating_name3(self, rating_name3):
         """Sets the rating_name3 of this ItemReview.
 
+        Rating Name 3  # noqa: E501
 
         :param rating_name3: The rating_name3 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name3 is not None and len(rating_name3) > 100:
+            raise ValueError("Invalid value for `rating_name3`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name3 = rating_name3
 
@@ -443,6 +459,7 @@ class ItemReview(object):
     def rating_name4(self):
         """Gets the rating_name4 of this ItemReview.  # noqa: E501
 
+        Rating Name 4  # noqa: E501
 
         :return: The rating_name4 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -453,10 +470,13 @@ class ItemReview(object):
     def rating_name4(self, rating_name4):
         """Sets the rating_name4 of this ItemReview.
 
+        Rating Name 4  # noqa: E501
 
         :param rating_name4: The rating_name4 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name4 is not None and len(rating_name4) > 100:
+            raise ValueError("Invalid value for `rating_name4`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name4 = rating_name4
 
@@ -464,6 +484,7 @@ class ItemReview(object):
     def rating_name5(self):
         """Gets the rating_name5 of this ItemReview.  # noqa: E501
 
+        Rating Name 5  # noqa: E501
 
         :return: The rating_name5 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -474,10 +495,13 @@ class ItemReview(object):
     def rating_name5(self, rating_name5):
         """Sets the rating_name5 of this ItemReview.
 
+        Rating Name 5  # noqa: E501
 
         :param rating_name5: The rating_name5 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name5 is not None and len(rating_name5) > 100:
+            raise ValueError("Invalid value for `rating_name5`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name5 = rating_name5
 
@@ -485,6 +509,7 @@ class ItemReview(object):
     def rating_name6(self):
         """Gets the rating_name6 of this ItemReview.  # noqa: E501
 
+        Rating Name 6  # noqa: E501
 
         :return: The rating_name6 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -495,10 +520,13 @@ class ItemReview(object):
     def rating_name6(self, rating_name6):
         """Sets the rating_name6 of this ItemReview.
 
+        Rating Name 6  # noqa: E501
 
         :param rating_name6: The rating_name6 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name6 is not None and len(rating_name6) > 100:
+            raise ValueError("Invalid value for `rating_name6`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name6 = rating_name6
 
@@ -506,6 +534,7 @@ class ItemReview(object):
     def rating_name7(self):
         """Gets the rating_name7 of this ItemReview.  # noqa: E501
 
+        Rating Name 7  # noqa: E501
 
         :return: The rating_name7 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -516,10 +545,13 @@ class ItemReview(object):
     def rating_name7(self, rating_name7):
         """Sets the rating_name7 of this ItemReview.
 
+        Rating Name 7  # noqa: E501
 
         :param rating_name7: The rating_name7 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name7 is not None and len(rating_name7) > 100:
+            raise ValueError("Invalid value for `rating_name7`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name7 = rating_name7
 
@@ -527,6 +559,7 @@ class ItemReview(object):
     def rating_name8(self):
         """Gets the rating_name8 of this ItemReview.  # noqa: E501
 
+        Rating Name 8  # noqa: E501
 
         :return: The rating_name8 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -537,10 +570,13 @@ class ItemReview(object):
     def rating_name8(self, rating_name8):
         """Sets the rating_name8 of this ItemReview.
 
+        Rating Name 8  # noqa: E501
 
         :param rating_name8: The rating_name8 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name8 is not None and len(rating_name8) > 100:
+            raise ValueError("Invalid value for `rating_name8`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name8 = rating_name8
 
@@ -548,6 +584,7 @@ class ItemReview(object):
     def rating_name9(self):
         """Gets the rating_name9 of this ItemReview.  # noqa: E501
 
+        Rating Name 9  # noqa: E501
 
         :return: The rating_name9 of this ItemReview.  # noqa: E501
         :rtype: str
@@ -558,10 +595,13 @@ class ItemReview(object):
     def rating_name9(self, rating_name9):
         """Sets the rating_name9 of this ItemReview.
 
+        Rating Name 9  # noqa: E501
 
         :param rating_name9: The rating_name9 of this ItemReview.  # noqa: E501
         :type: str
         """
+        if rating_name9 is not None and len(rating_name9) > 100:
+            raise ValueError("Invalid value for `rating_name9`, length must be less than or equal to `100`")  # noqa: E501
 
         self._rating_name9 = rating_name9
 
@@ -821,6 +861,7 @@ class ItemReview(object):
     def review(self):
         """Gets the review of this ItemReview.  # noqa: E501
 
+        Review  # noqa: E501
 
         :return: The review of this ItemReview.  # noqa: E501
         :rtype: str
@@ -831,10 +872,13 @@ class ItemReview(object):
     def review(self, review):
         """Sets the review of this ItemReview.
 
+        Review  # noqa: E501
 
         :param review: The review of this ItemReview.  # noqa: E501
         :type: str
         """
+        if review is not None and len(review) > 10000:
+            raise ValueError("Invalid value for `review`, length must be less than or equal to `10000`")  # noqa: E501
 
         self._review = review
 
@@ -863,6 +907,7 @@ class ItemReview(object):
     def reviewed_nickname(self):
         """Gets the reviewed_nickname of this ItemReview.  # noqa: E501
 
+        Nickname  # noqa: E501
 
         :return: The reviewed_nickname of this ItemReview.  # noqa: E501
         :rtype: str
@@ -873,10 +918,13 @@ class ItemReview(object):
     def reviewed_nickname(self, reviewed_nickname):
         """Sets the reviewed_nickname of this ItemReview.
 
+        Nickname  # noqa: E501
 
         :param reviewed_nickname: The reviewed_nickname of this ItemReview.  # noqa: E501
         :type: str
         """
+        if reviewed_nickname is not None and len(reviewed_nickname) > 25:
+            raise ValueError("Invalid value for `reviewed_nickname`, length must be less than or equal to `25`")  # noqa: E501
 
         self._reviewed_nickname = reviewed_nickname
 
@@ -884,6 +932,7 @@ class ItemReview(object):
     def reviewer_email(self):
         """Gets the reviewer_email of this ItemReview.  # noqa: E501
 
+        Reviewer Email  # noqa: E501
 
         :return: The reviewer_email of this ItemReview.  # noqa: E501
         :rtype: str
@@ -894,10 +943,13 @@ class ItemReview(object):
     def reviewer_email(self, reviewer_email):
         """Sets the reviewer_email of this ItemReview.
 
+        Reviewer Email  # noqa: E501
 
         :param reviewer_email: The reviewer_email of this ItemReview.  # noqa: E501
         :type: str
         """
+        if reviewer_email is not None and len(reviewer_email) > 100:
+            raise ValueError("Invalid value for `reviewer_email`, length must be less than or equal to `100`")  # noqa: E501
 
         self._reviewer_email = reviewer_email
 
@@ -905,6 +957,7 @@ class ItemReview(object):
     def reviewer_location(self):
         """Gets the reviewer_location of this ItemReview.  # noqa: E501
 
+        Location  # noqa: E501
 
         :return: The reviewer_location of this ItemReview.  # noqa: E501
         :rtype: str
@@ -915,10 +968,13 @@ class ItemReview(object):
     def reviewer_location(self, reviewer_location):
         """Sets the reviewer_location of this ItemReview.
 
+        Location  # noqa: E501
 
         :param reviewer_location: The reviewer_location of this ItemReview.  # noqa: E501
         :type: str
         """
+        if reviewer_location is not None and len(reviewer_location) > 25:
+            raise ValueError("Invalid value for `reviewer_location`, length must be less than or equal to `25`")  # noqa: E501
 
         self._reviewer_location = reviewer_location
 
@@ -926,6 +982,7 @@ class ItemReview(object):
     def status(self):
         """Gets the status of this ItemReview.  # noqa: E501
 
+        Status of the review  # noqa: E501
 
         :return: The status of this ItemReview.  # noqa: E501
         :rtype: str
@@ -936,10 +993,17 @@ class ItemReview(object):
     def status(self, status):
         """Sets the status of this ItemReview.
 
+        Status of the review  # noqa: E501
 
         :param status: The status of this ItemReview.  # noqa: E501
         :type: str
         """
+        allowed_values = ["approved", "unapproved", "rejected", "multimedia processing"]  # noqa: E501
+        if status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
 
         self._status = status
 
@@ -947,6 +1011,7 @@ class ItemReview(object):
     def store_feedback(self):
         """Gets the store_feedback of this ItemReview.  # noqa: E501
 
+        Store Feedback  # noqa: E501
 
         :return: The store_feedback of this ItemReview.  # noqa: E501
         :rtype: str
@@ -957,10 +1022,13 @@ class ItemReview(object):
     def store_feedback(self, store_feedback):
         """Sets the store_feedback of this ItemReview.
 
+        Store Feedback  # noqa: E501
 
         :param store_feedback: The store_feedback of this ItemReview.  # noqa: E501
         :type: str
         """
+        if store_feedback is not None and len(store_feedback) > 10000:
+            raise ValueError("Invalid value for `store_feedback`, length must be less than or equal to `10000`")  # noqa: E501
 
         self._store_feedback = store_feedback
 
@@ -991,6 +1059,7 @@ class ItemReview(object):
     def title(self):
         """Gets the title of this ItemReview.  # noqa: E501
 
+        Title  # noqa: E501
 
         :return: The title of this ItemReview.  # noqa: E501
         :rtype: str
@@ -1001,10 +1070,13 @@ class ItemReview(object):
     def title(self, title):
         """Sets the title of this ItemReview.
 
+        Title  # noqa: E501
 
         :param title: The title of this ItemReview.  # noqa: E501
         :type: str
         """
+        if title is not None and len(title) > 250:
+            raise ValueError("Invalid value for `title`, length must be less than or equal to `250`")  # noqa: E501
 
         self._title = title
 

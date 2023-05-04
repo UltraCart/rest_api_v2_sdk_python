@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_digital_item**](ItemApi.md#delete_digital_item) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 [**delete_item**](ItemApi.md#delete_item) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**delete_review**](ItemApi.md#delete_review) | **DELETE** /item/items/{merchant_item_oid}/reviews/{review_oid} | Delete a review
 [**get_digital_item**](ItemApi.md#get_digital_item) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**get_digital_items**](ItemApi.md#get_digital_items) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**get_digital_items_by_external_id**](ItemApi.md#get_digital_items_by_external_id) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
@@ -13,12 +14,16 @@ Method | HTTP request | Description
 [**get_item_by_merchant_item_id**](ItemApi.md#get_item_by_merchant_item_id) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
 [**get_pricing_tiers**](ItemApi.md#get_pricing_tiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+[**get_review**](ItemApi.md#get_review) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | get a review
+[**get_reviews**](ItemApi.md#get_reviews) | **GET** /item/items/{merchant_item_oid}/reviews | get reviews for an item
 [**get_unassociated_digital_items**](ItemApi.md#get_unassociated_digital_items) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 [**insert_digital_item**](ItemApi.md#insert_digital_item) | **POST** /item/digital_library | Create a file within the digital library
 [**insert_item**](ItemApi.md#insert_item) | **POST** /item/items | Create an item
+[**insert_review**](ItemApi.md#insert_review) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**update_digital_item**](ItemApi.md#update_digital_item) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**update_items**](ItemApi.md#update_items) | **PUT** /item/items/batch | Update multiple items
+[**update_review**](ItemApi.md#update_review) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 [**upload_temporary_multimedia**](ItemApi.md#upload_temporary_multimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
@@ -116,6 +121,57 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_review**
+> delete_review(review_oid, merchant_item_oid)
+
+Delete a review
+
+Delete an item review. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+review_oid = 56 # int | The review oid to delete.
+merchant_item_oid = 56 # int | The item oid the review is associated with.
+
+try:
+    # Delete a review
+    api_instance.delete_review(review_oid, merchant_item_oid)
+except ApiException as e:
+    print("Exception when calling ItemApi->delete_review: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to delete. | 
+ **merchant_item_oid** | **int**| The item oid the review is associated with. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -502,6 +558,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_review**
+> ItemReviewResponse get_review(review_oid, merchant_item_oid)
+
+get a review
+
+Retrieve an item review. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+review_oid = 56 # int | The review oid to retrieve.
+merchant_item_oid = 56 # int | The item oid the review is associated with.
+
+try:
+    # get a review
+    api_response = api_instance.get_review(review_oid, merchant_item_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->get_review: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to retrieve. | 
+ **merchant_item_oid** | **int**| The item oid the review is associated with. | 
+
+### Return type
+
+[**ItemReviewResponse**](ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_reviews**
+> ItemReviewsResponse get_reviews(merchant_item_oid)
+
+get reviews for an item
+
+Retrieve item reviews. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+merchant_item_oid = 56 # int | The item oid the review is associated with.
+
+try:
+    # get reviews for an item
+    api_response = api_instance.get_reviews(merchant_item_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->get_reviews: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid the review is associated with. | 
+
+### Return type
+
+[**ItemReviewsResponse**](ItemReviewsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_unassociated_digital_items**
 > ItemDigitalItemsResponse get_unassociated_digital_items(limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
 
@@ -666,6 +824,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **insert_review**
+> ItemReviewResponse insert_review(review, merchant_item_oid)
+
+Insert a review
+
+Insert a item review. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+review = ultracart.ItemReview() # ItemReview | Review to insert
+merchant_item_oid = 56 # int | The item oid the review is associated with.
+
+try:
+    # Insert a review
+    api_response = api_instance.insert_review(review, merchant_item_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->insert_review: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review** | [**ItemReview**](ItemReview.md)| Review to insert | 
+ **merchant_item_oid** | **int**| The item oid the review is associated with. | 
+
+### Return type
+
+[**ItemReviewResponse**](ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_digital_item**
 > ItemDigitalItemResponse update_digital_item(digital_item_oid, digital_item)
 
@@ -818,6 +1028,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemsResponse**](ItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_review**
+> ItemReviewResponse update_review(review, review_oid, merchant_item_oid)
+
+Update a review
+
+Update an item review. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+review = ultracart.ItemReview() # ItemReview | Review to update
+review_oid = 56 # int | The review oid to update.
+merchant_item_oid = 56 # int | The item oid the review is associated with.
+
+try:
+    # Update a review
+    api_response = api_instance.update_review(review, review_oid, merchant_item_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->update_review: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review** | [**ItemReview**](ItemReview.md)| Review to update | 
+ **review_oid** | **int**| The review oid to update. | 
+ **merchant_item_oid** | **int**| The item oid the review is associated with. | 
+
+### Return type
+
+[**ItemReviewResponse**](ItemReviewResponse.md)
 
 ### Authorization
 
