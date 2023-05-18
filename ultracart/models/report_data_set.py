@@ -35,6 +35,7 @@ class ReportDataSet(object):
         'data_set_uuid': 'str',
         'destination_table_id': 'str',
         'error_message': 'str',
+        'executed_sql': 'str',
         'for_object_id': 'str',
         'for_object_type': 'str',
         'initial_pages': 'list[ReportDataSetPage]',
@@ -53,6 +54,7 @@ class ReportDataSet(object):
         'data_set_uuid': 'data_set_uuid',
         'destination_table_id': 'destination_table_id',
         'error_message': 'error_message',
+        'executed_sql': 'executed_sql',
         'for_object_id': 'for_object_id',
         'for_object_type': 'for_object_type',
         'initial_pages': 'initial_pages',
@@ -66,13 +68,14 @@ class ReportDataSet(object):
         'user_data': 'user_data'
     }
 
-    def __init__(self, data_set_query_uuid=None, data_set_uuid=None, destination_table_id=None, error_message=None, for_object_id=None, for_object_type=None, initial_pages=None, max_results=None, merchant_id=None, page_count=None, page_size=None, schema=None, security_level=None, timezone=None, user_data=None):  # noqa: E501
+    def __init__(self, data_set_query_uuid=None, data_set_uuid=None, destination_table_id=None, error_message=None, executed_sql=None, for_object_id=None, for_object_type=None, initial_pages=None, max_results=None, merchant_id=None, page_count=None, page_size=None, schema=None, security_level=None, timezone=None, user_data=None):  # noqa: E501
         """ReportDataSet - a model defined in Swagger"""  # noqa: E501
 
         self._data_set_query_uuid = None
         self._data_set_uuid = None
         self._destination_table_id = None
         self._error_message = None
+        self._executed_sql = None
         self._for_object_id = None
         self._for_object_type = None
         self._initial_pages = None
@@ -94,6 +97,8 @@ class ReportDataSet(object):
             self.destination_table_id = destination_table_id
         if error_message is not None:
             self.error_message = error_message
+        if executed_sql is not None:
+            self.executed_sql = executed_sql
         if for_object_id is not None:
             self.for_object_id = for_object_id
         if for_object_type is not None:
@@ -208,6 +213,27 @@ class ReportDataSet(object):
         """
 
         self._error_message = error_message
+
+    @property
+    def executed_sql(self):
+        """Gets the executed_sql of this ReportDataSet.  # noqa: E501
+
+
+        :return: The executed_sql of this ReportDataSet.  # noqa: E501
+        :rtype: str
+        """
+        return self._executed_sql
+
+    @executed_sql.setter
+    def executed_sql(self, executed_sql):
+        """Sets the executed_sql of this ReportDataSet.
+
+
+        :param executed_sql: The executed_sql of this ReportDataSet.  # noqa: E501
+        :type: str
+        """
+
+        self._executed_sql = executed_sql
 
     @property
     def for_object_id(self):

@@ -34,23 +34,26 @@ class ItemPricingTierLimit(object):
         'cumulative_order_limit': 'int',
         'exempt_from_minimum_item_count': 'bool',
         'individual_order_limit': 'int',
-        'multiple_quantity': 'int'
+        'multiple_quantity': 'int',
+        'payment_method_validity': 'list[str]'
     }
 
     attribute_map = {
         'cumulative_order_limit': 'cumulative_order_limit',
         'exempt_from_minimum_item_count': 'exempt_from_minimum_item_count',
         'individual_order_limit': 'individual_order_limit',
-        'multiple_quantity': 'multiple_quantity'
+        'multiple_quantity': 'multiple_quantity',
+        'payment_method_validity': 'payment_method_validity'
     }
 
-    def __init__(self, cumulative_order_limit=None, exempt_from_minimum_item_count=None, individual_order_limit=None, multiple_quantity=None):  # noqa: E501
+    def __init__(self, cumulative_order_limit=None, exempt_from_minimum_item_count=None, individual_order_limit=None, multiple_quantity=None, payment_method_validity=None):  # noqa: E501
         """ItemPricingTierLimit - a model defined in Swagger"""  # noqa: E501
 
         self._cumulative_order_limit = None
         self._exempt_from_minimum_item_count = None
         self._individual_order_limit = None
         self._multiple_quantity = None
+        self._payment_method_validity = None
         self.discriminator = None
 
         if cumulative_order_limit is not None:
@@ -61,6 +64,8 @@ class ItemPricingTierLimit(object):
             self.individual_order_limit = individual_order_limit
         if multiple_quantity is not None:
             self.multiple_quantity = multiple_quantity
+        if payment_method_validity is not None:
+            self.payment_method_validity = payment_method_validity
 
     @property
     def cumulative_order_limit(self):
@@ -153,6 +158,29 @@ class ItemPricingTierLimit(object):
         """
 
         self._multiple_quantity = multiple_quantity
+
+    @property
+    def payment_method_validity(self):
+        """Gets the payment_method_validity of this ItemPricingTierLimit.  # noqa: E501
+
+        Payment method validity  # noqa: E501
+
+        :return: The payment_method_validity of this ItemPricingTierLimit.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._payment_method_validity
+
+    @payment_method_validity.setter
+    def payment_method_validity(self, payment_method_validity):
+        """Sets the payment_method_validity of this ItemPricingTierLimit.
+
+        Payment method validity  # noqa: E501
+
+        :param payment_method_validity: The payment_method_validity of this ItemPricingTierLimit.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._payment_method_validity = payment_method_validity
 
     def to_dict(self):
         """Returns the model properties as a dict"""

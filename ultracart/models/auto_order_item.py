@@ -38,6 +38,7 @@ class AutoOrderItem(object):
         'arbitrary_unit_cost': 'float',
         'arbitrary_unit_cost_remaining_orders': 'int',
         'auto_order_item_oid': 'int',
+        'first_order_dts': 'str',
         'frequency': 'str',
         'future_schedules': 'list[AutoOrderItemFutureSchedule]',
         'last_order_dts': 'str',
@@ -49,6 +50,7 @@ class AutoOrderItem(object):
         'options': 'list[AutoOrderItemOption]',
         'original_item_id': 'str',
         'original_quantity': 'float',
+        'paused': 'bool',
         'paypal_payer_id': 'str',
         'paypal_recurring_payment_profile_id': 'str',
         'preshipment_notice_sent': 'bool',
@@ -65,6 +67,7 @@ class AutoOrderItem(object):
         'arbitrary_unit_cost': 'arbitrary_unit_cost',
         'arbitrary_unit_cost_remaining_orders': 'arbitrary_unit_cost_remaining_orders',
         'auto_order_item_oid': 'auto_order_item_oid',
+        'first_order_dts': 'first_order_dts',
         'frequency': 'frequency',
         'future_schedules': 'future_schedules',
         'last_order_dts': 'last_order_dts',
@@ -76,6 +79,7 @@ class AutoOrderItem(object):
         'options': 'options',
         'original_item_id': 'original_item_id',
         'original_quantity': 'original_quantity',
+        'paused': 'paused',
         'paypal_payer_id': 'paypal_payer_id',
         'paypal_recurring_payment_profile_id': 'paypal_recurring_payment_profile_id',
         'preshipment_notice_sent': 'preshipment_notice_sent',
@@ -84,7 +88,7 @@ class AutoOrderItem(object):
         'simple_schedule': 'simple_schedule'
     }
 
-    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None, simple_schedule=None):  # noqa: E501
+    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, first_order_dts=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paused=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None, simple_schedule=None):  # noqa: E501
         """AutoOrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._arbitrary_item_id = None
@@ -94,6 +98,7 @@ class AutoOrderItem(object):
         self._arbitrary_unit_cost = None
         self._arbitrary_unit_cost_remaining_orders = None
         self._auto_order_item_oid = None
+        self._first_order_dts = None
         self._frequency = None
         self._future_schedules = None
         self._last_order_dts = None
@@ -105,6 +110,7 @@ class AutoOrderItem(object):
         self._options = None
         self._original_item_id = None
         self._original_quantity = None
+        self._paused = None
         self._paypal_payer_id = None
         self._paypal_recurring_payment_profile_id = None
         self._preshipment_notice_sent = None
@@ -127,6 +133,8 @@ class AutoOrderItem(object):
             self.arbitrary_unit_cost_remaining_orders = arbitrary_unit_cost_remaining_orders
         if auto_order_item_oid is not None:
             self.auto_order_item_oid = auto_order_item_oid
+        if first_order_dts is not None:
+            self.first_order_dts = first_order_dts
         if frequency is not None:
             self.frequency = frequency
         if future_schedules is not None:
@@ -149,6 +157,8 @@ class AutoOrderItem(object):
             self.original_item_id = original_item_id
         if original_quantity is not None:
             self.original_quantity = original_quantity
+        if paused is not None:
+            self.paused = paused
         if paypal_payer_id is not None:
             self.paypal_payer_id = paypal_payer_id
         if paypal_recurring_payment_profile_id is not None:
@@ -322,6 +332,29 @@ class AutoOrderItem(object):
         """
 
         self._auto_order_item_oid = auto_order_item_oid
+
+    @property
+    def first_order_dts(self):
+        """Gets the first_order_dts of this AutoOrderItem.  # noqa: E501
+
+        Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.  # noqa: E501
+
+        :return: The first_order_dts of this AutoOrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._first_order_dts
+
+    @first_order_dts.setter
+    def first_order_dts(self, first_order_dts):
+        """Sets the first_order_dts of this AutoOrderItem.
+
+        Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.  # noqa: E501
+
+        :param first_order_dts: The first_order_dts of this AutoOrderItem.  # noqa: E501
+        :type: str
+        """
+
+        self._first_order_dts = first_order_dts
 
     @property
     def frequency(self):
@@ -581,6 +614,29 @@ class AutoOrderItem(object):
         """
 
         self._original_quantity = original_quantity
+
+    @property
+    def paused(self):
+        """Gets the paused of this AutoOrderItem.  # noqa: E501
+
+        True if paused.  This field is an object instead of a primitive for backwards compatibility.  # noqa: E501
+
+        :return: The paused of this AutoOrderItem.  # noqa: E501
+        :rtype: bool
+        """
+        return self._paused
+
+    @paused.setter
+    def paused(self, paused):
+        """Sets the paused of this AutoOrderItem.
+
+        True if paused.  This field is an object instead of a primitive for backwards compatibility.  # noqa: E501
+
+        :param paused: The paused of this AutoOrderItem.  # noqa: E501
+        :type: bool
+        """
+
+        self._paused = paused
 
     @property
     def paypal_payer_id(self):

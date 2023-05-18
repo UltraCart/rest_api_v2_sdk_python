@@ -1097,7 +1097,7 @@ class ItemApi(object):
             collection_formats=collection_formats)
 
     def get_review(self, review_oid, merchant_item_oid, **kwargs):  # noqa: E501
-        """get a review  # noqa: E501
+        """Get a review  # noqa: E501
 
         Retrieve an item review.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1120,7 +1120,7 @@ class ItemApi(object):
             return data
 
     def get_review_with_http_info(self, review_oid, merchant_item_oid, **kwargs):  # noqa: E501
-        """get a review  # noqa: E501
+        """Get a review  # noqa: E501
 
         Retrieve an item review.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1204,7 +1204,7 @@ class ItemApi(object):
             collection_formats=collection_formats)
 
     def get_reviews(self, merchant_item_oid, **kwargs):  # noqa: E501
-        """get reviews for an item  # noqa: E501
+        """Get reviews for an item  # noqa: E501
 
         Retrieve item reviews.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1226,7 +1226,7 @@ class ItemApi(object):
             return data
 
     def get_reviews_with_http_info(self, merchant_item_oid, **kwargs):  # noqa: E501
-        """get reviews for an item  # noqa: E501
+        """Get reviews for an item  # noqa: E501
 
         Retrieve item reviews.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
