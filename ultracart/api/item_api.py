@@ -2179,7 +2179,7 @@ class ItemApi(object):
         merchant_item_oid,
         **kwargs
     ):
-        """get a review  # noqa: E501
+        """Get a review  # noqa: E501
 
         Retrieve an item review.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2265,7 +2265,7 @@ class ItemApi(object):
         merchant_item_oid,
         **kwargs
     ):
-        """get reviews for an item  # noqa: E501
+        """Get reviews for an item  # noqa: E501
 
         Retrieve item reviews.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

@@ -86,6 +86,7 @@ class ItemPricingTierLimit(ModelNormal):
             'exempt_from_minimum_item_count': (bool,),  # noqa: E501
             'individual_order_limit': (int,),  # noqa: E501
             'multiple_quantity': (int,),  # noqa: E501
+            'payment_method_validity': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +99,7 @@ class ItemPricingTierLimit(ModelNormal):
         'exempt_from_minimum_item_count': 'exempt_from_minimum_item_count',  # noqa: E501
         'individual_order_limit': 'individual_order_limit',  # noqa: E501
         'multiple_quantity': 'multiple_quantity',  # noqa: E501
+        'payment_method_validity': 'payment_method_validity',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,6 +147,7 @@ class ItemPricingTierLimit(ModelNormal):
             exempt_from_minimum_item_count (bool): Exempt from Minimum Item Count. [optional]  # noqa: E501
             individual_order_limit (int): Individual order limit. [optional]  # noqa: E501
             multiple_quantity (int): Multiple quantity. [optional]  # noqa: E501
+            payment_method_validity ([str]): Payment method validity. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,6 +237,7 @@ class ItemPricingTierLimit(ModelNormal):
             exempt_from_minimum_item_count (bool): Exempt from Minimum Item Count. [optional]  # noqa: E501
             individual_order_limit (int): Individual order limit. [optional]  # noqa: E501
             multiple_quantity (int): Multiple quantity. [optional]  # noqa: E501
+            payment_method_validity ([str]): Payment method validity. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

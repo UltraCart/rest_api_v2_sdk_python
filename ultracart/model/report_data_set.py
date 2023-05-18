@@ -99,6 +99,7 @@ class ReportDataSet(ModelNormal):
             'data_set_uuid': (str,),  # noqa: E501
             'destination_table_id': (str,),  # noqa: E501
             'error_message': (str,),  # noqa: E501
+            'executed_sql': (str,),  # noqa: E501
             'for_object_id': (str,),  # noqa: E501
             'for_object_type': (str,),  # noqa: E501
             'initial_pages': ([ReportDataSetPage],),  # noqa: E501
@@ -122,6 +123,7 @@ class ReportDataSet(ModelNormal):
         'data_set_uuid': 'data_set_uuid',  # noqa: E501
         'destination_table_id': 'destination_table_id',  # noqa: E501
         'error_message': 'error_message',  # noqa: E501
+        'executed_sql': 'executed_sql',  # noqa: E501
         'for_object_id': 'for_object_id',  # noqa: E501
         'for_object_type': 'for_object_type',  # noqa: E501
         'initial_pages': 'initial_pages',  # noqa: E501
@@ -180,6 +182,7 @@ class ReportDataSet(ModelNormal):
             data_set_uuid (str): A unique identifier assigned to the data set that is returned.. [optional]  # noqa: E501
             destination_table_id (str): The BigQuery destination table id that contains the result.. [optional]  # noqa: E501
             error_message (str): Error message if the query failed.. [optional]  # noqa: E501
+            executed_sql (str): [optional]  # noqa: E501
             for_object_id (str): An identifier that can be used to help match up the returned data set. [optional]  # noqa: E501
             for_object_type (str): The type of object this data set is for. [optional]  # noqa: E501
             initial_pages ([ReportDataSetPage]): Initial pages returned in the dataset. [optional]  # noqa: E501
@@ -280,6 +283,7 @@ class ReportDataSet(ModelNormal):
             data_set_uuid (str): A unique identifier assigned to the data set that is returned.. [optional]  # noqa: E501
             destination_table_id (str): The BigQuery destination table id that contains the result.. [optional]  # noqa: E501
             error_message (str): Error message if the query failed.. [optional]  # noqa: E501
+            executed_sql (str): [optional]  # noqa: E501
             for_object_id (str): An identifier that can be used to help match up the returned data set. [optional]  # noqa: E501
             for_object_type (str): The type of object this data set is for. [optional]  # noqa: E501
             initial_pages ([ReportDataSetPage]): Initial pages returned in the dataset. [optional]  # noqa: E501
