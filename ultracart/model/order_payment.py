@@ -94,6 +94,7 @@ class OrderPayment(ModelNormal):
             'WALMART': "Walmart",
             'SHOP.COM': "Shop.com",
             'SEZZLE': "Sezzle",
+            'VENMO': "Venmo",
         },
         ('payment_status',): {
             'UNPROCESSED': "Unprocessed",
