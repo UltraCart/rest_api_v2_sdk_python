@@ -36,7 +36,9 @@ class ItemAutoOrder(object):
         'auto_order_cancel_charge_minimum_balance': 'bool',
         'auto_order_cancel_item_id': 'str',
         'auto_order_cancel_item_oid': 'int',
+        'auto_order_cancel_minimum_life_time_count': 'int',
         'auto_order_cancel_minimum_life_time_value': 'float',
+        'auto_order_cancel_minimum_rebill_count': 'int',
         'auto_order_cancel_minimum_rebill_value': 'float',
         'auto_order_downgrade_items': 'list[str]',
         'auto_order_paused': 'bool',
@@ -59,7 +61,9 @@ class ItemAutoOrder(object):
         'auto_order_cancel_charge_minimum_balance': 'auto_order_cancel_charge_minimum_balance',
         'auto_order_cancel_item_id': 'auto_order_cancel_item_id',
         'auto_order_cancel_item_oid': 'auto_order_cancel_item_oid',
+        'auto_order_cancel_minimum_life_time_count': 'auto_order_cancel_minimum_life_time_count',
         'auto_order_cancel_minimum_life_time_value': 'auto_order_cancel_minimum_life_time_value',
+        'auto_order_cancel_minimum_rebill_count': 'auto_order_cancel_minimum_rebill_count',
         'auto_order_cancel_minimum_rebill_value': 'auto_order_cancel_minimum_rebill_value',
         'auto_order_downgrade_items': 'auto_order_downgrade_items',
         'auto_order_paused': 'auto_order_paused',
@@ -76,7 +80,7 @@ class ItemAutoOrder(object):
         'steps': 'steps'
     }
 
-    def __init__(self, auth_future_amount=None, auth_test_amount=None, auto_order_cancel_charge_minimum_balance=None, auto_order_cancel_item_id=None, auto_order_cancel_item_oid=None, auto_order_cancel_minimum_life_time_value=None, auto_order_cancel_minimum_rebill_value=None, auto_order_downgrade_items=None, auto_order_paused=None, auto_order_prohibit_expiring_cards=None, auto_order_schedules=None, auto_order_upgrade_items=None, auto_order_upsell=None, auto_order_upsell_no_easy_cancel=None, auto_order_upsell_one_per_customer=None, auto_orderable=None, cancel_other_auto_orders=None, free_shipping_auto_order=None, refund_other_auto_orders=None, steps=None):  # noqa: E501
+    def __init__(self, auth_future_amount=None, auth_test_amount=None, auto_order_cancel_charge_minimum_balance=None, auto_order_cancel_item_id=None, auto_order_cancel_item_oid=None, auto_order_cancel_minimum_life_time_count=None, auto_order_cancel_minimum_life_time_value=None, auto_order_cancel_minimum_rebill_count=None, auto_order_cancel_minimum_rebill_value=None, auto_order_downgrade_items=None, auto_order_paused=None, auto_order_prohibit_expiring_cards=None, auto_order_schedules=None, auto_order_upgrade_items=None, auto_order_upsell=None, auto_order_upsell_no_easy_cancel=None, auto_order_upsell_one_per_customer=None, auto_orderable=None, cancel_other_auto_orders=None, free_shipping_auto_order=None, refund_other_auto_orders=None, steps=None):  # noqa: E501
         """ItemAutoOrder - a model defined in Swagger"""  # noqa: E501
 
         self._auth_future_amount = None
@@ -84,7 +88,9 @@ class ItemAutoOrder(object):
         self._auto_order_cancel_charge_minimum_balance = None
         self._auto_order_cancel_item_id = None
         self._auto_order_cancel_item_oid = None
+        self._auto_order_cancel_minimum_life_time_count = None
         self._auto_order_cancel_minimum_life_time_value = None
+        self._auto_order_cancel_minimum_rebill_count = None
         self._auto_order_cancel_minimum_rebill_value = None
         self._auto_order_downgrade_items = None
         self._auto_order_paused = None
@@ -111,8 +117,12 @@ class ItemAutoOrder(object):
             self.auto_order_cancel_item_id = auto_order_cancel_item_id
         if auto_order_cancel_item_oid is not None:
             self.auto_order_cancel_item_oid = auto_order_cancel_item_oid
+        if auto_order_cancel_minimum_life_time_count is not None:
+            self.auto_order_cancel_minimum_life_time_count = auto_order_cancel_minimum_life_time_count
         if auto_order_cancel_minimum_life_time_value is not None:
             self.auto_order_cancel_minimum_life_time_value = auto_order_cancel_minimum_life_time_value
+        if auto_order_cancel_minimum_rebill_count is not None:
+            self.auto_order_cancel_minimum_rebill_count = auto_order_cancel_minimum_rebill_count
         if auto_order_cancel_minimum_rebill_value is not None:
             self.auto_order_cancel_minimum_rebill_value = auto_order_cancel_minimum_rebill_value
         if auto_order_downgrade_items is not None:
@@ -260,6 +270,29 @@ class ItemAutoOrder(object):
         self._auto_order_cancel_item_oid = auto_order_cancel_item_oid
 
     @property
+    def auto_order_cancel_minimum_life_time_count(self):
+        """Gets the auto_order_cancel_minimum_life_time_count of this ItemAutoOrder.  # noqa: E501
+
+        The minimum life time count that must be billed in order to not be charged the cancellation item.  # noqa: E501
+
+        :return: The auto_order_cancel_minimum_life_time_count of this ItemAutoOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_order_cancel_minimum_life_time_count
+
+    @auto_order_cancel_minimum_life_time_count.setter
+    def auto_order_cancel_minimum_life_time_count(self, auto_order_cancel_minimum_life_time_count):
+        """Sets the auto_order_cancel_minimum_life_time_count of this ItemAutoOrder.
+
+        The minimum life time count that must be billed in order to not be charged the cancellation item.  # noqa: E501
+
+        :param auto_order_cancel_minimum_life_time_count: The auto_order_cancel_minimum_life_time_count of this ItemAutoOrder.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_order_cancel_minimum_life_time_count = auto_order_cancel_minimum_life_time_count
+
+    @property
     def auto_order_cancel_minimum_life_time_value(self):
         """Gets the auto_order_cancel_minimum_life_time_value of this ItemAutoOrder.  # noqa: E501
 
@@ -281,6 +314,29 @@ class ItemAutoOrder(object):
         """
 
         self._auto_order_cancel_minimum_life_time_value = auto_order_cancel_minimum_life_time_value
+
+    @property
+    def auto_order_cancel_minimum_rebill_count(self):
+        """Gets the auto_order_cancel_minimum_rebill_count of this ItemAutoOrder.  # noqa: E501
+
+        The minimum rebill count that must be billed in order to not be charged the cancellation item.  # noqa: E501
+
+        :return: The auto_order_cancel_minimum_rebill_count of this ItemAutoOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._auto_order_cancel_minimum_rebill_count
+
+    @auto_order_cancel_minimum_rebill_count.setter
+    def auto_order_cancel_minimum_rebill_count(self, auto_order_cancel_minimum_rebill_count):
+        """Sets the auto_order_cancel_minimum_rebill_count of this ItemAutoOrder.
+
+        The minimum rebill count that must be billed in order to not be charged the cancellation item.  # noqa: E501
+
+        :param auto_order_cancel_minimum_rebill_count: The auto_order_cancel_minimum_rebill_count of this ItemAutoOrder.  # noqa: E501
+        :type: int
+        """
+
+        self._auto_order_cancel_minimum_rebill_count = auto_order_cancel_minimum_rebill_count
 
     @property
     def auto_order_cancel_minimum_rebill_value(self):

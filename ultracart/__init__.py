@@ -64,6 +64,8 @@ from ultracart.models.api_user_application_profile import ApiUserApplicationProf
 from ultracart.models.apply_library_item_request import ApplyLibraryItemRequest
 from ultracart.models.apply_library_item_response import ApplyLibraryItemResponse
 from ultracart.models.auto_order import AutoOrder
+from ultracart.models.auto_order_addon_item import AutoOrderAddonItem
+from ultracart.models.auto_order_addon_item_option import AutoOrderAddonItemOption
 from ultracart.models.auto_order_item import AutoOrderItem
 from ultracart.models.auto_order_item_future_schedule import AutoOrderItemFutureSchedule
 from ultracart.models.auto_order_item_option import AutoOrderItemOption

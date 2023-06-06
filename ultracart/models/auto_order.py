@@ -31,6 +31,7 @@ class AutoOrder(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'add_ons': 'list[AutoOrderAddonItem]',
         'auto_order_code': 'str',
         'auto_order_oid': 'int',
         'cancel_after_next_x_orders': 'int',
@@ -57,6 +58,7 @@ class AutoOrder(object):
     }
 
     attribute_map = {
+        'add_ons': 'add_ons',
         'auto_order_code': 'auto_order_code',
         'auto_order_oid': 'auto_order_oid',
         'cancel_after_next_x_orders': 'cancel_after_next_x_orders',
@@ -82,9 +84,10 @@ class AutoOrder(object):
         'status': 'status'
     }
 
-    def __init__(self, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_reason=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, logs=None, management=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
+    def __init__(self, add_ons=None, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_reason=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, logs=None, management=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
         """AutoOrder - a model defined in Swagger"""  # noqa: E501
 
+        self._add_ons = None
         self._auto_order_code = None
         self._auto_order_oid = None
         self._cancel_after_next_x_orders = None
@@ -110,6 +113,8 @@ class AutoOrder(object):
         self._status = None
         self.discriminator = None
 
+        if add_ons is not None:
+            self.add_ons = add_ons
         if auto_order_code is not None:
             self.auto_order_code = auto_order_code
         if auto_order_oid is not None:
@@ -156,6 +161,29 @@ class AutoOrder(object):
             self.rotating_transaction_gateway_code = rotating_transaction_gateway_code
         if status is not None:
             self.status = status
+
+    @property
+    def add_ons(self):
+        """Gets the add_ons of this AutoOrder.  # noqa: E501
+
+        Array of addon objects instructing which items to add to auto order and how many times they should be added.  # noqa: E501
+
+        :return: The add_ons of this AutoOrder.  # noqa: E501
+        :rtype: list[AutoOrderAddonItem]
+        """
+        return self._add_ons
+
+    @add_ons.setter
+    def add_ons(self, add_ons):
+        """Sets the add_ons of this AutoOrder.
+
+        Array of addon objects instructing which items to add to auto order and how many times they should be added.  # noqa: E501
+
+        :param add_ons: The add_ons of this AutoOrder.  # noqa: E501
+        :type: list[AutoOrderAddonItem]
+        """
+
+        self._add_ons = add_ons
 
     @property
     def auto_order_code(self):
