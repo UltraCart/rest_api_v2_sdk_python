@@ -96,7 +96,9 @@ class ItemAutoOrder(ModelNormal):
             'auto_order_cancel_charge_minimum_balance': (bool,),  # noqa: E501
             'auto_order_cancel_item_id': (str,),  # noqa: E501
             'auto_order_cancel_item_oid': (int,),  # noqa: E501
+            'auto_order_cancel_minimum_life_time_count': (int,),  # noqa: E501
             'auto_order_cancel_minimum_life_time_value': (float,),  # noqa: E501
+            'auto_order_cancel_minimum_rebill_count': (int,),  # noqa: E501
             'auto_order_cancel_minimum_rebill_value': (float,),  # noqa: E501
             'auto_order_downgrade_items': ([str],),  # noqa: E501
             'auto_order_paused': (bool,),  # noqa: E501
@@ -124,7 +126,9 @@ class ItemAutoOrder(ModelNormal):
         'auto_order_cancel_charge_minimum_balance': 'auto_order_cancel_charge_minimum_balance',  # noqa: E501
         'auto_order_cancel_item_id': 'auto_order_cancel_item_id',  # noqa: E501
         'auto_order_cancel_item_oid': 'auto_order_cancel_item_oid',  # noqa: E501
+        'auto_order_cancel_minimum_life_time_count': 'auto_order_cancel_minimum_life_time_count',  # noqa: E501
         'auto_order_cancel_minimum_life_time_value': 'auto_order_cancel_minimum_life_time_value',  # noqa: E501
+        'auto_order_cancel_minimum_rebill_count': 'auto_order_cancel_minimum_rebill_count',  # noqa: E501
         'auto_order_cancel_minimum_rebill_value': 'auto_order_cancel_minimum_rebill_value',  # noqa: E501
         'auto_order_downgrade_items': 'auto_order_downgrade_items',  # noqa: E501
         'auto_order_paused': 'auto_order_paused',  # noqa: E501
@@ -187,7 +191,9 @@ class ItemAutoOrder(ModelNormal):
             auto_order_cancel_charge_minimum_balance (bool): If true, the cost of the cancel item will be the remaining balance of the minimum rebill or lifetime value. [optional]  # noqa: E501
             auto_order_cancel_item_id (str): Item id to attempt charging the customer for if they cancel. [optional]  # noqa: E501
             auto_order_cancel_item_oid (int): Item object identifier to attempt charging the customer for if they cancel. [optional]  # noqa: E501
+            auto_order_cancel_minimum_life_time_count (int): The minimum life time count that must be billed in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_cancel_minimum_life_time_value (float): The minimum life time value that must be paid in order to not be charged the cancellation item.. [optional]  # noqa: E501
+            auto_order_cancel_minimum_rebill_count (int): The minimum rebill count that must be billed in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_cancel_minimum_rebill_value (float): The minimum rebill value that must be paid in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_downgrade_items ([str]): List of downgrade items presented to customer service representatives. [optional]  # noqa: E501
             auto_order_paused (bool): True if the rebill processing of this item is paused. [optional]  # noqa: E501
@@ -292,7 +298,9 @@ class ItemAutoOrder(ModelNormal):
             auto_order_cancel_charge_minimum_balance (bool): If true, the cost of the cancel item will be the remaining balance of the minimum rebill or lifetime value. [optional]  # noqa: E501
             auto_order_cancel_item_id (str): Item id to attempt charging the customer for if they cancel. [optional]  # noqa: E501
             auto_order_cancel_item_oid (int): Item object identifier to attempt charging the customer for if they cancel. [optional]  # noqa: E501
+            auto_order_cancel_minimum_life_time_count (int): The minimum life time count that must be billed in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_cancel_minimum_life_time_value (float): The minimum life time value that must be paid in order to not be charged the cancellation item.. [optional]  # noqa: E501
+            auto_order_cancel_minimum_rebill_count (int): The minimum rebill count that must be billed in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_cancel_minimum_rebill_value (float): The minimum rebill value that must be paid in order to not be charged the cancellation item.. [optional]  # noqa: E501
             auto_order_downgrade_items ([str]): List of downgrade items presented to customer service representatives. [optional]  # noqa: E501
             auto_order_paused (bool): True if the rebill processing of this item is paused. [optional]  # noqa: E501

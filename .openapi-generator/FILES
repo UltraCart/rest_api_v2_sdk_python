@@ -26,6 +26,8 @@ docs/ApiUserApplicationProfile.md
 docs/ApplyLibraryItemRequest.md
 docs/ApplyLibraryItemResponse.md
 docs/AutoOrder.md
+docs/AutoOrderAddonItem.md
+docs/AutoOrderAddonItemOption.md
 docs/AutoOrderApi.md
 docs/AutoOrderItem.md
 docs/AutoOrderItemFutureSchedule.md
@@ -852,6 +854,8 @@ ultracart/model/api_user_application_profile.py
 ultracart/model/apply_library_item_request.py
 ultracart/model/apply_library_item_response.py
 ultracart/model/auto_order.py
+ultracart/model/auto_order_addon_item.py
+ultracart/model/auto_order_addon_item_option.py
 ultracart/model/auto_order_item.py
 ultracart/model/auto_order_item_future_schedule.py
 ultracart/model/auto_order_item_option.py

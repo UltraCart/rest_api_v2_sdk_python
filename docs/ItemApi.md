@@ -1163,7 +1163,9 @@ api_instance = GiftCertificateApi(api_client())
             auto_order_cancel_charge_minimum_balance=True,
             auto_order_cancel_item_id="auto_order_cancel_item_id_example",
             auto_order_cancel_item_oid=1,
+            auto_order_cancel_minimum_life_time_count=1,
             auto_order_cancel_minimum_life_time_value=3.14,
+            auto_order_cancel_minimum_rebill_count=1,
             auto_order_cancel_minimum_rebill_value=3.14,
             auto_order_downgrade_items=[
                 "auto_order_downgrade_items_example",
@@ -2320,7 +2322,9 @@ api_instance = GiftCertificateApi(api_client())
             auto_order_cancel_charge_minimum_balance=True,
             auto_order_cancel_item_id="auto_order_cancel_item_id_example",
             auto_order_cancel_item_oid=1,
+            auto_order_cancel_minimum_life_time_count=1,
             auto_order_cancel_minimum_life_time_value=3.14,
+            auto_order_cancel_minimum_rebill_count=1,
             auto_order_cancel_minimum_rebill_value=3.14,
             auto_order_downgrade_items=[
                 "auto_order_downgrade_items_example",
@@ -3268,7 +3272,9 @@ api_instance = GiftCertificateApi(api_client())
                     auto_order_cancel_charge_minimum_balance=True,
                     auto_order_cancel_item_id="auto_order_cancel_item_id_example",
                     auto_order_cancel_item_oid=1,
+                    auto_order_cancel_minimum_life_time_count=1,
                     auto_order_cancel_minimum_life_time_value=3.14,
+                    auto_order_cancel_minimum_rebill_count=1,
                     auto_order_cancel_minimum_rebill_value=3.14,
                     auto_order_downgrade_items=[
                         "auto_order_downgrade_items_example",

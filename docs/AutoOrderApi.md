@@ -610,6 +610,21 @@ api_instance = GiftCertificateApi(api_client())
 
     auto_order_oid = 1 # int | The auto order oid to update.
     auto_order = AutoOrder(
+        add_ons=[
+            AutoOrderAddonItem(
+                arbitrary_unit_cost=3.14,
+                free_shipping=True,
+                item_id="item_id_example",
+                next_x_orders=1,
+                options=[
+                    AutoOrderAddonItemOption(
+                        label="label_example",
+                        value="value_example",
+                    ),
+                ],
+                quantity=1,
+            ),
+        ],
         auto_order_code="auto_order_code_example",
         auto_order_oid=1,
         cancel_after_next_x_orders=1,
@@ -3189,6 +3204,21 @@ api_instance = GiftCertificateApi(api_client())
     auto_orders_request = AutoOrdersRequest(
         auto_orders=[
             AutoOrder(
+                add_ons=[
+                    AutoOrderAddonItem(
+                        arbitrary_unit_cost=3.14,
+                        free_shipping=True,
+                        item_id="item_id_example",
+                        next_x_orders=1,
+                        options=[
+                            AutoOrderAddonItemOption(
+                                label="label_example",
+                                value="value_example",
+                            ),
+                        ],
+                        quantity=1,
+                    ),
+                ],
                 auto_order_code="auto_order_code_example",
                 auto_order_oid=1,
                 cancel_after_next_x_orders=1,
