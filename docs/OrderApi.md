@@ -1888,6 +1888,7 @@ api_instance = GiftCertificateApi(api_client())
             ),
             qb_class="qb_class_example",
             qb_code="qb_code_example",
+            qb_tax_exemption_reason_code=1,
             quotes=[
                 Order(),
             ],
@@ -3331,6 +3332,7 @@ api_instance = GiftCertificateApi(api_client())
             ),
             qb_class="qb_class_example",
             qb_code="qb_code_example",
+            qb_tax_exemption_reason_code=1,
             quotes=[
                 Order(),
             ],
@@ -4981,6 +4983,7 @@ api_instance = GiftCertificateApi(api_client())
             ),
             qb_class="qb_class_example",
             qb_code="qb_code_example",
+            qb_tax_exemption_reason_code=1,
             quotes=[
                 Order(),
             ],

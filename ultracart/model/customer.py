@@ -195,6 +195,7 @@ class Customer(ModelNormal):
             'privacy': (CustomerPrivacy,),  # noqa: E501
             'qb_class': (str,),  # noqa: E501
             'qb_code': (str,),  # noqa: E501
+            'qb_tax_exemption_reason_code': (int,),  # noqa: E501
             'quotes': ([Order],),  # noqa: E501
             'quotes_summary': (CustomerQuotesSummary,),  # noqa: E501
             'referral_source': (str,),  # noqa: E501
@@ -264,6 +265,7 @@ class Customer(ModelNormal):
         'privacy': 'privacy',  # noqa: E501
         'qb_class': 'qb_class',  # noqa: E501
         'qb_code': 'qb_code',  # noqa: E501
+        'qb_tax_exemption_reason_code': 'qb_tax_exemption_reason_code',  # noqa: E501
         'quotes': 'quotes',  # noqa: E501
         'quotes_summary': 'quotes_summary',  # noqa: E501
         'referral_source': 'referral_source',  # noqa: E501
@@ -368,6 +370,7 @@ class Customer(ModelNormal):
             privacy (CustomerPrivacy): [optional]  # noqa: E501
             qb_class (str): QuickBooks class to import this customer as. [optional]  # noqa: E501
             qb_code (str): QuickBooks name to import this customer as. [optional]  # noqa: E501
+            qb_tax_exemption_reason_code (int): QuickBooks tax exemption reason code. [optional]  # noqa: E501
             quotes ([Order]): Quotes associated with this customer profile. [optional]  # noqa: E501
             quotes_summary (CustomerQuotesSummary): [optional]  # noqa: E501
             referral_source (str): Referral Source. [optional]  # noqa: E501
@@ -514,6 +517,7 @@ class Customer(ModelNormal):
             privacy (CustomerPrivacy): [optional]  # noqa: E501
             qb_class (str): QuickBooks class to import this customer as. [optional]  # noqa: E501
             qb_code (str): QuickBooks name to import this customer as. [optional]  # noqa: E501
+            qb_tax_exemption_reason_code (int): QuickBooks tax exemption reason code. [optional]  # noqa: E501
             quotes ([Order]): Quotes associated with this customer profile. [optional]  # noqa: E501
             quotes_summary (CustomerQuotesSummary): [optional]  # noqa: E501
             referral_source (str): Referral Source. [optional]  # noqa: E501
