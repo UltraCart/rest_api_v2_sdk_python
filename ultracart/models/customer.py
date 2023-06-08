@@ -73,6 +73,7 @@ class Customer(object):
         'privacy': 'CustomerPrivacy',
         'qb_class': 'str',
         'qb_code': 'str',
+        'qb_tax_exemption_reason_code': 'int',
         'quotes': 'list[Order]',
         'quotes_summary': 'CustomerQuotesSummary',
         'referral_source': 'str',
@@ -137,6 +138,7 @@ class Customer(object):
         'privacy': 'privacy',
         'qb_class': 'qb_class',
         'qb_code': 'qb_code',
+        'qb_tax_exemption_reason_code': 'qb_tax_exemption_reason_code',
         'quotes': 'quotes',
         'quotes_summary': 'quotes_summary',
         'referral_source': 'referral_source',
@@ -158,7 +160,7 @@ class Customer(object):
         'website_url': 'website_url'
     }
 
-    def __init__(self, activity=None, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_drop_shipping=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, attachments=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, edi=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, loyalty=None, maximum_item_count=None, merchant_id=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, privacy=None, qb_class=None, qb_code=None, quotes=None, quotes_summary=None, referral_source=None, reviewer=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, software_entitlements=None, suppress_buysafe=None, tags=None, tax_codes=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):  # noqa: E501
+    def __init__(self, activity=None, affiliate_oid=None, allow_3rd_party_billing=None, allow_cod=None, allow_drop_shipping=None, allow_purchase_order=None, allow_quote_request=None, allow_selection_of_address_type=None, attachments=None, auto_approve_cod=None, auto_approve_purchase_order=None, automatic_merchant_notes=None, billing=None, business_notes=None, cards=None, cc_emails=None, customer_profile_oid=None, dhl_account_number=None, dhl_duty_account_number=None, edi=None, email=None, exempt_shipping_handling_charge=None, fedex_account_number=None, free_shipping=None, free_shipping_minimum=None, last_modified_by=None, last_modified_dts=None, loyalty=None, maximum_item_count=None, merchant_id=None, minimum_item_count=None, minimum_subtotal=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, orders=None, orders_summary=None, password=None, pricing_tiers=None, privacy=None, qb_class=None, qb_code=None, qb_tax_exemption_reason_code=None, quotes=None, quotes_summary=None, referral_source=None, reviewer=None, sales_rep_code=None, send_signup_notification=None, shipping=None, signup_dts=None, software_entitlements=None, suppress_buysafe=None, tags=None, tax_codes=None, tax_exempt=None, tax_id=None, terms=None, track_separately=None, unapproved=None, ups_account_number=None, website_url=None):  # noqa: E501
         """Customer - a model defined in Swagger"""  # noqa: E501
 
         self._activity = None
@@ -203,6 +205,7 @@ class Customer(object):
         self._privacy = None
         self._qb_class = None
         self._qb_code = None
+        self._qb_tax_exemption_reason_code = None
         self._quotes = None
         self._quotes_summary = None
         self._referral_source = None
@@ -308,6 +311,8 @@ class Customer(object):
             self.qb_class = qb_class
         if qb_code is not None:
             self.qb_code = qb_code
+        if qb_tax_exemption_reason_code is not None:
+            self.qb_tax_exemption_reason_code = qb_tax_exemption_reason_code
         if quotes is not None:
             self.quotes = quotes
         if quotes_summary is not None:
@@ -1314,6 +1319,29 @@ class Customer(object):
         """
 
         self._qb_code = qb_code
+
+    @property
+    def qb_tax_exemption_reason_code(self):
+        """Gets the qb_tax_exemption_reason_code of this Customer.  # noqa: E501
+
+        QuickBooks tax exemption reason code  # noqa: E501
+
+        :return: The qb_tax_exemption_reason_code of this Customer.  # noqa: E501
+        :rtype: int
+        """
+        return self._qb_tax_exemption_reason_code
+
+    @qb_tax_exemption_reason_code.setter
+    def qb_tax_exemption_reason_code(self, qb_tax_exemption_reason_code):
+        """Sets the qb_tax_exemption_reason_code of this Customer.
+
+        QuickBooks tax exemption reason code  # noqa: E501
+
+        :param qb_tax_exemption_reason_code: The qb_tax_exemption_reason_code of this Customer.  # noqa: E501
+        :type: int
+        """
+
+        self._qb_tax_exemption_reason_code = qb_tax_exemption_reason_code
 
     @property
     def quotes(self):
