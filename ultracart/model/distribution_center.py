@@ -101,6 +101,21 @@ class DistributionCenter(ModelNormal):
             'name': (str,),  # noqa: E501
             'no_customer_direct_shipments': (bool,),  # noqa: E501
             'no_split_shipment': (bool,),  # noqa: E501
+            'pickup_cutoff_time_friday': (str,),  # noqa: E501
+            'pickup_cutoff_time_monday': (str,),  # noqa: E501
+            'pickup_cutoff_time_saturday': (str,),  # noqa: E501
+            'pickup_cutoff_time_sunday': (str,),  # noqa: E501
+            'pickup_cutoff_time_thursday': (str,),  # noqa: E501
+            'pickup_cutoff_time_tuesday': (str,),  # noqa: E501
+            'pickup_cutoff_time_wednesday': (str,),  # noqa: E501
+            'pickup_start_time_friday': (str,),  # noqa: E501
+            'pickup_start_time_monday': (str,),  # noqa: E501
+            'pickup_start_time_saturday': (str,),  # noqa: E501
+            'pickup_start_time_sunday': (str,),  # noqa: E501
+            'pickup_start_time_thursday': (str,),  # noqa: E501
+            'pickup_start_time_tuesday': (str,),  # noqa: E501
+            'pickup_start_time_wednesday': (str,),  # noqa: E501
+            'pickup_tz': (str,),  # noqa: E501
             'postal_code': (str,),  # noqa: E501
             'process_days': (int,),  # noqa: E501
             'process_inventory_start_time': (str,),  # noqa: E501
@@ -144,6 +159,21 @@ class DistributionCenter(ModelNormal):
         'name': 'name',  # noqa: E501
         'no_customer_direct_shipments': 'no_customer_direct_shipments',  # noqa: E501
         'no_split_shipment': 'no_split_shipment',  # noqa: E501
+        'pickup_cutoff_time_friday': 'pickup_cutoff_time_friday',  # noqa: E501
+        'pickup_cutoff_time_monday': 'pickup_cutoff_time_monday',  # noqa: E501
+        'pickup_cutoff_time_saturday': 'pickup_cutoff_time_saturday',  # noqa: E501
+        'pickup_cutoff_time_sunday': 'pickup_cutoff_time_sunday',  # noqa: E501
+        'pickup_cutoff_time_thursday': 'pickup_cutoff_time_thursday',  # noqa: E501
+        'pickup_cutoff_time_tuesday': 'pickup_cutoff_time_tuesday',  # noqa: E501
+        'pickup_cutoff_time_wednesday': 'pickup_cutoff_time_wednesday',  # noqa: E501
+        'pickup_start_time_friday': 'pickup_start_time_friday',  # noqa: E501
+        'pickup_start_time_monday': 'pickup_start_time_monday',  # noqa: E501
+        'pickup_start_time_saturday': 'pickup_start_time_saturday',  # noqa: E501
+        'pickup_start_time_sunday': 'pickup_start_time_sunday',  # noqa: E501
+        'pickup_start_time_thursday': 'pickup_start_time_thursday',  # noqa: E501
+        'pickup_start_time_tuesday': 'pickup_start_time_tuesday',  # noqa: E501
+        'pickup_start_time_wednesday': 'pickup_start_time_wednesday',  # noqa: E501
+        'pickup_tz': 'pickup_tz',  # noqa: E501
         'postal_code': 'postal_code',  # noqa: E501
         'process_days': 'process_days',  # noqa: E501
         'process_inventory_start_time': 'process_inventory_start_time',  # noqa: E501
@@ -222,6 +252,21 @@ class DistributionCenter(ModelNormal):
             name (str): Name of this distribution center. [optional]  # noqa: E501
             no_customer_direct_shipments (bool): True if this distribution center does not handle customer direct shipments. [optional]  # noqa: E501
             no_split_shipment (bool): True if this distribution center is not allowed to participate in a split shipment.. [optional]  # noqa: E501
+            pickup_cutoff_time_friday (str): The time (EST) after which pickups will not be available on Friday. [optional]  # noqa: E501
+            pickup_cutoff_time_monday (str): The time (EST) after which pickups will not be available on Monday. [optional]  # noqa: E501
+            pickup_cutoff_time_saturday (str): The time (EST) after which pickups will not be available on Saturday. [optional]  # noqa: E501
+            pickup_cutoff_time_sunday (str): The time (EST) after which pickups will not be available on Sunday. [optional]  # noqa: E501
+            pickup_cutoff_time_thursday (str): The time (EST) after which pickups will not be available on Thursday. [optional]  # noqa: E501
+            pickup_cutoff_time_tuesday (str): The time (EST) after which pickups will not be available on Tuesday. [optional]  # noqa: E501
+            pickup_cutoff_time_wednesday (str): The time (EST) after which pickups will not be available on Wednesday. [optional]  # noqa: E501
+            pickup_start_time_friday (str): The time (EST) after which pickups are available on Friday. [optional]  # noqa: E501
+            pickup_start_time_monday (str): The time (EST) after which pickups are available on Monday. [optional]  # noqa: E501
+            pickup_start_time_saturday (str): The time (EST) after which pickups are available on Saturday. [optional]  # noqa: E501
+            pickup_start_time_sunday (str): The time (EST) after which pickups are available on Sunday. [optional]  # noqa: E501
+            pickup_start_time_thursday (str): The time (EST) after which pickups are available on Thursday. [optional]  # noqa: E501
+            pickup_start_time_tuesday (str): The time (EST) after which pickups are available on Tuesday. [optional]  # noqa: E501
+            pickup_start_time_wednesday (str): The time (EST) after which pickups are available on Wednesday. [optional]  # noqa: E501
+            pickup_tz (str): The IANA timezone for all pickup times. [optional]  # noqa: E501
             postal_code (str): Postal code of the distribution center. [optional]  # noqa: E501
             process_days (int): The number of processing days required before an order ships. [optional]  # noqa: E501
             process_inventory_start_time (str): The time (EST) after which inventory updates will be processed. [optional]  # noqa: E501
@@ -342,6 +387,21 @@ class DistributionCenter(ModelNormal):
             name (str): Name of this distribution center. [optional]  # noqa: E501
             no_customer_direct_shipments (bool): True if this distribution center does not handle customer direct shipments. [optional]  # noqa: E501
             no_split_shipment (bool): True if this distribution center is not allowed to participate in a split shipment.. [optional]  # noqa: E501
+            pickup_cutoff_time_friday (str): The time (EST) after which pickups will not be available on Friday. [optional]  # noqa: E501
+            pickup_cutoff_time_monday (str): The time (EST) after which pickups will not be available on Monday. [optional]  # noqa: E501
+            pickup_cutoff_time_saturday (str): The time (EST) after which pickups will not be available on Saturday. [optional]  # noqa: E501
+            pickup_cutoff_time_sunday (str): The time (EST) after which pickups will not be available on Sunday. [optional]  # noqa: E501
+            pickup_cutoff_time_thursday (str): The time (EST) after which pickups will not be available on Thursday. [optional]  # noqa: E501
+            pickup_cutoff_time_tuesday (str): The time (EST) after which pickups will not be available on Tuesday. [optional]  # noqa: E501
+            pickup_cutoff_time_wednesday (str): The time (EST) after which pickups will not be available on Wednesday. [optional]  # noqa: E501
+            pickup_start_time_friday (str): The time (EST) after which pickups are available on Friday. [optional]  # noqa: E501
+            pickup_start_time_monday (str): The time (EST) after which pickups are available on Monday. [optional]  # noqa: E501
+            pickup_start_time_saturday (str): The time (EST) after which pickups are available on Saturday. [optional]  # noqa: E501
+            pickup_start_time_sunday (str): The time (EST) after which pickups are available on Sunday. [optional]  # noqa: E501
+            pickup_start_time_thursday (str): The time (EST) after which pickups are available on Thursday. [optional]  # noqa: E501
+            pickup_start_time_tuesday (str): The time (EST) after which pickups are available on Tuesday. [optional]  # noqa: E501
+            pickup_start_time_wednesday (str): The time (EST) after which pickups are available on Wednesday. [optional]  # noqa: E501
+            pickup_tz (str): The IANA timezone for all pickup times. [optional]  # noqa: E501
             postal_code (str): Postal code of the distribution center. [optional]  # noqa: E501
             process_days (int): The number of processing days required before an order ships. [optional]  # noqa: E501
             process_inventory_start_time (str): The time (EST) after which inventory updates will be processed. [optional]  # noqa: E501
