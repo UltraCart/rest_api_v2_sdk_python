@@ -50,6 +50,21 @@ class DistributionCenter(object):
         'name': 'str',
         'no_customer_direct_shipments': 'bool',
         'no_split_shipment': 'bool',
+        'pickup_cutoff_time_friday': 'str',
+        'pickup_cutoff_time_monday': 'str',
+        'pickup_cutoff_time_saturday': 'str',
+        'pickup_cutoff_time_sunday': 'str',
+        'pickup_cutoff_time_thursday': 'str',
+        'pickup_cutoff_time_tuesday': 'str',
+        'pickup_cutoff_time_wednesday': 'str',
+        'pickup_start_time_friday': 'str',
+        'pickup_start_time_monday': 'str',
+        'pickup_start_time_saturday': 'str',
+        'pickup_start_time_sunday': 'str',
+        'pickup_start_time_thursday': 'str',
+        'pickup_start_time_tuesday': 'str',
+        'pickup_start_time_wednesday': 'str',
+        'pickup_tz': 'str',
         'postal_code': 'str',
         'process_days': 'int',
         'process_inventory_start_time': 'str',
@@ -88,6 +103,21 @@ class DistributionCenter(object):
         'name': 'name',
         'no_customer_direct_shipments': 'no_customer_direct_shipments',
         'no_split_shipment': 'no_split_shipment',
+        'pickup_cutoff_time_friday': 'pickup_cutoff_time_friday',
+        'pickup_cutoff_time_monday': 'pickup_cutoff_time_monday',
+        'pickup_cutoff_time_saturday': 'pickup_cutoff_time_saturday',
+        'pickup_cutoff_time_sunday': 'pickup_cutoff_time_sunday',
+        'pickup_cutoff_time_thursday': 'pickup_cutoff_time_thursday',
+        'pickup_cutoff_time_tuesday': 'pickup_cutoff_time_tuesday',
+        'pickup_cutoff_time_wednesday': 'pickup_cutoff_time_wednesday',
+        'pickup_start_time_friday': 'pickup_start_time_friday',
+        'pickup_start_time_monday': 'pickup_start_time_monday',
+        'pickup_start_time_saturday': 'pickup_start_time_saturday',
+        'pickup_start_time_sunday': 'pickup_start_time_sunday',
+        'pickup_start_time_thursday': 'pickup_start_time_thursday',
+        'pickup_start_time_tuesday': 'pickup_start_time_tuesday',
+        'pickup_start_time_wednesday': 'pickup_start_time_wednesday',
+        'pickup_tz': 'pickup_tz',
         'postal_code': 'postal_code',
         'process_days': 'process_days',
         'process_inventory_start_time': 'process_inventory_start_time',
@@ -106,7 +136,7 @@ class DistributionCenter(object):
         'transport': 'transport'
     }
 
-    def __init__(self, address1=None, address2=None, city=None, code=None, country_code=None, default_center=None, default_handles_all_items=None, distribution_center_oid=None, duns=None, estimate_from_distribution_center_oid=None, ftp_password=None, hold_before_shipment_minutes=None, hold_before_transmission=None, hold_auto_order_before_shipment_minutes=None, latitude=None, longitude=None, name=None, no_customer_direct_shipments=None, no_split_shipment=None, postal_code=None, process_days=None, process_inventory_start_time=None, process_inventory_stop_time=None, require_asn=None, send_kit_instead_of_components=None, shipment_cutoff_time_friday=None, shipment_cutoff_time_monday=None, shipment_cutoff_time_saturday=None, shipment_cutoff_time_sunday=None, shipment_cutoff_time_thursday=None, shipment_cutoff_time_tuesday=None, shipment_cutoff_time_wednesday=None, state=None, transmit_blank_costs=None, transport=None):  # noqa: E501
+    def __init__(self, address1=None, address2=None, city=None, code=None, country_code=None, default_center=None, default_handles_all_items=None, distribution_center_oid=None, duns=None, estimate_from_distribution_center_oid=None, ftp_password=None, hold_before_shipment_minutes=None, hold_before_transmission=None, hold_auto_order_before_shipment_minutes=None, latitude=None, longitude=None, name=None, no_customer_direct_shipments=None, no_split_shipment=None, pickup_cutoff_time_friday=None, pickup_cutoff_time_monday=None, pickup_cutoff_time_saturday=None, pickup_cutoff_time_sunday=None, pickup_cutoff_time_thursday=None, pickup_cutoff_time_tuesday=None, pickup_cutoff_time_wednesday=None, pickup_start_time_friday=None, pickup_start_time_monday=None, pickup_start_time_saturday=None, pickup_start_time_sunday=None, pickup_start_time_thursday=None, pickup_start_time_tuesday=None, pickup_start_time_wednesday=None, pickup_tz=None, postal_code=None, process_days=None, process_inventory_start_time=None, process_inventory_stop_time=None, require_asn=None, send_kit_instead_of_components=None, shipment_cutoff_time_friday=None, shipment_cutoff_time_monday=None, shipment_cutoff_time_saturday=None, shipment_cutoff_time_sunday=None, shipment_cutoff_time_thursday=None, shipment_cutoff_time_tuesday=None, shipment_cutoff_time_wednesday=None, state=None, transmit_blank_costs=None, transport=None):  # noqa: E501
         """DistributionCenter - a model defined in Swagger"""  # noqa: E501
 
         self._address1 = None
@@ -128,6 +158,21 @@ class DistributionCenter(object):
         self._name = None
         self._no_customer_direct_shipments = None
         self._no_split_shipment = None
+        self._pickup_cutoff_time_friday = None
+        self._pickup_cutoff_time_monday = None
+        self._pickup_cutoff_time_saturday = None
+        self._pickup_cutoff_time_sunday = None
+        self._pickup_cutoff_time_thursday = None
+        self._pickup_cutoff_time_tuesday = None
+        self._pickup_cutoff_time_wednesday = None
+        self._pickup_start_time_friday = None
+        self._pickup_start_time_monday = None
+        self._pickup_start_time_saturday = None
+        self._pickup_start_time_sunday = None
+        self._pickup_start_time_thursday = None
+        self._pickup_start_time_tuesday = None
+        self._pickup_start_time_wednesday = None
+        self._pickup_tz = None
         self._postal_code = None
         self._process_days = None
         self._process_inventory_start_time = None
@@ -184,6 +229,36 @@ class DistributionCenter(object):
             self.no_customer_direct_shipments = no_customer_direct_shipments
         if no_split_shipment is not None:
             self.no_split_shipment = no_split_shipment
+        if pickup_cutoff_time_friday is not None:
+            self.pickup_cutoff_time_friday = pickup_cutoff_time_friday
+        if pickup_cutoff_time_monday is not None:
+            self.pickup_cutoff_time_monday = pickup_cutoff_time_monday
+        if pickup_cutoff_time_saturday is not None:
+            self.pickup_cutoff_time_saturday = pickup_cutoff_time_saturday
+        if pickup_cutoff_time_sunday is not None:
+            self.pickup_cutoff_time_sunday = pickup_cutoff_time_sunday
+        if pickup_cutoff_time_thursday is not None:
+            self.pickup_cutoff_time_thursday = pickup_cutoff_time_thursday
+        if pickup_cutoff_time_tuesday is not None:
+            self.pickup_cutoff_time_tuesday = pickup_cutoff_time_tuesday
+        if pickup_cutoff_time_wednesday is not None:
+            self.pickup_cutoff_time_wednesday = pickup_cutoff_time_wednesday
+        if pickup_start_time_friday is not None:
+            self.pickup_start_time_friday = pickup_start_time_friday
+        if pickup_start_time_monday is not None:
+            self.pickup_start_time_monday = pickup_start_time_monday
+        if pickup_start_time_saturday is not None:
+            self.pickup_start_time_saturday = pickup_start_time_saturday
+        if pickup_start_time_sunday is not None:
+            self.pickup_start_time_sunday = pickup_start_time_sunday
+        if pickup_start_time_thursday is not None:
+            self.pickup_start_time_thursday = pickup_start_time_thursday
+        if pickup_start_time_tuesday is not None:
+            self.pickup_start_time_tuesday = pickup_start_time_tuesday
+        if pickup_start_time_wednesday is not None:
+            self.pickup_start_time_wednesday = pickup_start_time_wednesday
+        if pickup_tz is not None:
+            self.pickup_tz = pickup_tz
         if postal_code is not None:
             self.postal_code = postal_code
         if process_days is not None:
@@ -651,6 +726,351 @@ class DistributionCenter(object):
         """
 
         self._no_split_shipment = no_split_shipment
+
+    @property
+    def pickup_cutoff_time_friday(self):
+        """Gets the pickup_cutoff_time_friday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups will not be available on Friday  # noqa: E501
+
+        :return: The pickup_cutoff_time_friday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_cutoff_time_friday
+
+    @pickup_cutoff_time_friday.setter
+    def pickup_cutoff_time_friday(self, pickup_cutoff_time_friday):
+        """Sets the pickup_cutoff_time_friday of this DistributionCenter.
+
+        The time (EST) after which pickups will not be available on Friday  # noqa: E501
+
+        :param pickup_cutoff_time_friday: The pickup_cutoff_time_friday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_cutoff_time_friday = pickup_cutoff_time_friday
+
+    @property
+    def pickup_cutoff_time_monday(self):
+        """Gets the pickup_cutoff_time_monday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups will not be available on Monday  # noqa: E501
+
+        :return: The pickup_cutoff_time_monday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_cutoff_time_monday
+
+    @pickup_cutoff_time_monday.setter
+    def pickup_cutoff_time_monday(self, pickup_cutoff_time_monday):
+        """Sets the pickup_cutoff_time_monday of this DistributionCenter.
+
+        The time (EST) after which pickups will not be available on Monday  # noqa: E501
+
+        :param pickup_cutoff_time_monday: The pickup_cutoff_time_monday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_cutoff_time_monday = pickup_cutoff_time_monday
+
+    @property
+    def pickup_cutoff_time_saturday(self):
+        """Gets the pickup_cutoff_time_saturday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups will not be available on Saturday  # noqa: E501
+
+        :return: The pickup_cutoff_time_saturday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_cutoff_time_saturday
+
+    @pickup_cutoff_time_saturday.setter
+    def pickup_cutoff_time_saturday(self, pickup_cutoff_time_saturday):
+        """Sets the pickup_cutoff_time_saturday of this DistributionCenter.
+
+        The time (EST) after which pickups will not be available on Saturday  # noqa: E501
+
+        :param pickup_cutoff_time_saturday: The pickup_cutoff_time_saturday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_cutoff_time_saturday = pickup_cutoff_time_saturday
+
+    @property
+    def pickup_cutoff_time_sunday(self):
+        """Gets the pickup_cutoff_time_sunday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups will not be available on Sunday  # noqa: E501
+
+        :return: The pickup_cutoff_time_sunday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_cutoff_time_sunday
+
+    @pickup_cutoff_time_sunday.setter
+    def pickup_cutoff_time_sunday(self, pickup_cutoff_time_sunday):
+        """Sets the pickup_cutoff_time_sunday of this DistributionCenter.
+
+        The time (EST) after which pickups will not be available on Sunday  # noqa: E501
+
+        :param pickup_cutoff_time_sunday: The pickup_cutoff_time_sunday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_cutoff_time_sunday = pickup_cutoff_time_sunday
+
+    @property
+    def pickup_cutoff_time_thursday(self):
+        """Gets the pickup_cutoff_time_thursday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups will not be available on Thursday  # noqa: E501
+
+        :return: The pickup_cutoff_time_thursday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_cutoff_time_thursday
+
+    @pickup_cutoff_time_thursday.setter
+    def pickup_cutoff_time_thursday(self, pickup_cutoff_time_thursday):
+        """Sets the pickup_cutoff_time_thursday of this DistributionCenter.
+
+        The time (EST) after which pickups will not be available on Thursday  # noqa: E501
+
+        :param pickup_cutoff_time_thursday: The pickup_cutoff_time_thursday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_cutoff_time_thursday = pickup_cutoff_time_thursday
+
+    @property
+    def pickup_cutoff_time_tuesday(self):
+        """Gets the pickup_cutoff_time_tuesday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups will not be available on Tuesday  # noqa: E501
+
+        :return: The pickup_cutoff_time_tuesday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_cutoff_time_tuesday
+
+    @pickup_cutoff_time_tuesday.setter
+    def pickup_cutoff_time_tuesday(self, pickup_cutoff_time_tuesday):
+        """Sets the pickup_cutoff_time_tuesday of this DistributionCenter.
+
+        The time (EST) after which pickups will not be available on Tuesday  # noqa: E501
+
+        :param pickup_cutoff_time_tuesday: The pickup_cutoff_time_tuesday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_cutoff_time_tuesday = pickup_cutoff_time_tuesday
+
+    @property
+    def pickup_cutoff_time_wednesday(self):
+        """Gets the pickup_cutoff_time_wednesday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups will not be available on Wednesday  # noqa: E501
+
+        :return: The pickup_cutoff_time_wednesday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_cutoff_time_wednesday
+
+    @pickup_cutoff_time_wednesday.setter
+    def pickup_cutoff_time_wednesday(self, pickup_cutoff_time_wednesday):
+        """Sets the pickup_cutoff_time_wednesday of this DistributionCenter.
+
+        The time (EST) after which pickups will not be available on Wednesday  # noqa: E501
+
+        :param pickup_cutoff_time_wednesday: The pickup_cutoff_time_wednesday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_cutoff_time_wednesday = pickup_cutoff_time_wednesday
+
+    @property
+    def pickup_start_time_friday(self):
+        """Gets the pickup_start_time_friday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups are available on Friday  # noqa: E501
+
+        :return: The pickup_start_time_friday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_start_time_friday
+
+    @pickup_start_time_friday.setter
+    def pickup_start_time_friday(self, pickup_start_time_friday):
+        """Sets the pickup_start_time_friday of this DistributionCenter.
+
+        The time (EST) after which pickups are available on Friday  # noqa: E501
+
+        :param pickup_start_time_friday: The pickup_start_time_friday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_start_time_friday = pickup_start_time_friday
+
+    @property
+    def pickup_start_time_monday(self):
+        """Gets the pickup_start_time_monday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups are available on Monday  # noqa: E501
+
+        :return: The pickup_start_time_monday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_start_time_monday
+
+    @pickup_start_time_monday.setter
+    def pickup_start_time_monday(self, pickup_start_time_monday):
+        """Sets the pickup_start_time_monday of this DistributionCenter.
+
+        The time (EST) after which pickups are available on Monday  # noqa: E501
+
+        :param pickup_start_time_monday: The pickup_start_time_monday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_start_time_monday = pickup_start_time_monday
+
+    @property
+    def pickup_start_time_saturday(self):
+        """Gets the pickup_start_time_saturday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups are available on Saturday  # noqa: E501
+
+        :return: The pickup_start_time_saturday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_start_time_saturday
+
+    @pickup_start_time_saturday.setter
+    def pickup_start_time_saturday(self, pickup_start_time_saturday):
+        """Sets the pickup_start_time_saturday of this DistributionCenter.
+
+        The time (EST) after which pickups are available on Saturday  # noqa: E501
+
+        :param pickup_start_time_saturday: The pickup_start_time_saturday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_start_time_saturday = pickup_start_time_saturday
+
+    @property
+    def pickup_start_time_sunday(self):
+        """Gets the pickup_start_time_sunday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups are available on Sunday  # noqa: E501
+
+        :return: The pickup_start_time_sunday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_start_time_sunday
+
+    @pickup_start_time_sunday.setter
+    def pickup_start_time_sunday(self, pickup_start_time_sunday):
+        """Sets the pickup_start_time_sunday of this DistributionCenter.
+
+        The time (EST) after which pickups are available on Sunday  # noqa: E501
+
+        :param pickup_start_time_sunday: The pickup_start_time_sunday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_start_time_sunday = pickup_start_time_sunday
+
+    @property
+    def pickup_start_time_thursday(self):
+        """Gets the pickup_start_time_thursday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups are available on Thursday  # noqa: E501
+
+        :return: The pickup_start_time_thursday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_start_time_thursday
+
+    @pickup_start_time_thursday.setter
+    def pickup_start_time_thursday(self, pickup_start_time_thursday):
+        """Sets the pickup_start_time_thursday of this DistributionCenter.
+
+        The time (EST) after which pickups are available on Thursday  # noqa: E501
+
+        :param pickup_start_time_thursday: The pickup_start_time_thursday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_start_time_thursday = pickup_start_time_thursday
+
+    @property
+    def pickup_start_time_tuesday(self):
+        """Gets the pickup_start_time_tuesday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups are available on Tuesday  # noqa: E501
+
+        :return: The pickup_start_time_tuesday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_start_time_tuesday
+
+    @pickup_start_time_tuesday.setter
+    def pickup_start_time_tuesday(self, pickup_start_time_tuesday):
+        """Sets the pickup_start_time_tuesday of this DistributionCenter.
+
+        The time (EST) after which pickups are available on Tuesday  # noqa: E501
+
+        :param pickup_start_time_tuesday: The pickup_start_time_tuesday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_start_time_tuesday = pickup_start_time_tuesday
+
+    @property
+    def pickup_start_time_wednesday(self):
+        """Gets the pickup_start_time_wednesday of this DistributionCenter.  # noqa: E501
+
+        The time (EST) after which pickups are available on Wednesday  # noqa: E501
+
+        :return: The pickup_start_time_wednesday of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_start_time_wednesday
+
+    @pickup_start_time_wednesday.setter
+    def pickup_start_time_wednesday(self, pickup_start_time_wednesday):
+        """Sets the pickup_start_time_wednesday of this DistributionCenter.
+
+        The time (EST) after which pickups are available on Wednesday  # noqa: E501
+
+        :param pickup_start_time_wednesday: The pickup_start_time_wednesday of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_start_time_wednesday = pickup_start_time_wednesday
+
+    @property
+    def pickup_tz(self):
+        """Gets the pickup_tz of this DistributionCenter.  # noqa: E501
+
+        The IANA timezone for all pickup times  # noqa: E501
+
+        :return: The pickup_tz of this DistributionCenter.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_tz
+
+    @pickup_tz.setter
+    def pickup_tz(self, pickup_tz):
+        """Sets the pickup_tz of this DistributionCenter.
+
+        The IANA timezone for all pickup times  # noqa: E501
+
+        :param pickup_tz: The pickup_tz of this DistributionCenter.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_tz = pickup_tz
 
     @property
     def postal_code(self):
