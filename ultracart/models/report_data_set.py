@@ -43,6 +43,7 @@ class ReportDataSet(object):
         'merchant_id': 'str',
         'page_count': 'int',
         'page_size': 'int',
+        'request_dts': 'str',
         'schema': 'list[ReportDataSetSchema]',
         'security_level': 'str',
         'timezone': 'str',
@@ -62,13 +63,14 @@ class ReportDataSet(object):
         'merchant_id': 'merchant_id',
         'page_count': 'page_count',
         'page_size': 'page_size',
+        'request_dts': 'request_dts',
         'schema': 'schema',
         'security_level': 'security_level',
         'timezone': 'timezone',
         'user_data': 'user_data'
     }
 
-    def __init__(self, data_set_query_uuid=None, data_set_uuid=None, destination_table_id=None, error_message=None, executed_sql=None, for_object_id=None, for_object_type=None, initial_pages=None, max_results=None, merchant_id=None, page_count=None, page_size=None, schema=None, security_level=None, timezone=None, user_data=None):  # noqa: E501
+    def __init__(self, data_set_query_uuid=None, data_set_uuid=None, destination_table_id=None, error_message=None, executed_sql=None, for_object_id=None, for_object_type=None, initial_pages=None, max_results=None, merchant_id=None, page_count=None, page_size=None, request_dts=None, schema=None, security_level=None, timezone=None, user_data=None):  # noqa: E501
         """ReportDataSet - a model defined in Swagger"""  # noqa: E501
 
         self._data_set_query_uuid = None
@@ -83,6 +85,7 @@ class ReportDataSet(object):
         self._merchant_id = None
         self._page_count = None
         self._page_size = None
+        self._request_dts = None
         self._schema = None
         self._security_level = None
         self._timezone = None
@@ -113,6 +116,8 @@ class ReportDataSet(object):
             self.page_count = page_count
         if page_size is not None:
             self.page_size = page_size
+        if request_dts is not None:
+            self.request_dts = request_dts
         if schema is not None:
             self.schema = schema
         if security_level is not None:
@@ -401,6 +406,29 @@ class ReportDataSet(object):
         """
 
         self._page_size = page_size
+
+    @property
+    def request_dts(self):
+        """Gets the request_dts of this ReportDataSet.  # noqa: E501
+
+        Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results  # noqa: E501
+
+        :return: The request_dts of this ReportDataSet.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_dts
+
+    @request_dts.setter
+    def request_dts(self, request_dts):
+        """Sets the request_dts of this ReportDataSet.
+
+        Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results  # noqa: E501
+
+        :param request_dts: The request_dts of this ReportDataSet.  # noqa: E501
+        :type: str
+        """
+
+        self._request_dts = request_dts
 
     @property
     def schema(self):

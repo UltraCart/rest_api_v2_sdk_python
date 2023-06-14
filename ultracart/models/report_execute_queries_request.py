@@ -37,6 +37,7 @@ class ReportExecuteQueriesRequest(object):
         'default_project_id': 'str',
         'merchant_id': 'str',
         'queries': 'list[ReportDataSetQuery]',
+        'request_dts': 'str',
         'security_level': 'str'
     }
 
@@ -47,10 +48,11 @@ class ReportExecuteQueriesRequest(object):
         'default_project_id': 'default_project_id',
         'merchant_id': 'merchant_id',
         'queries': 'queries',
+        'request_dts': 'request_dts',
         'security_level': 'security_level'
     }
 
-    def __init__(self, client_uuid=None, connection_id=None, default_dataset_id=None, default_project_id=None, merchant_id=None, queries=None, security_level=None):  # noqa: E501
+    def __init__(self, client_uuid=None, connection_id=None, default_dataset_id=None, default_project_id=None, merchant_id=None, queries=None, request_dts=None, security_level=None):  # noqa: E501
         """ReportExecuteQueriesRequest - a model defined in Swagger"""  # noqa: E501
 
         self._client_uuid = None
@@ -59,6 +61,7 @@ class ReportExecuteQueriesRequest(object):
         self._default_project_id = None
         self._merchant_id = None
         self._queries = None
+        self._request_dts = None
         self._security_level = None
         self.discriminator = None
 
@@ -74,6 +77,8 @@ class ReportExecuteQueriesRequest(object):
             self.merchant_id = merchant_id
         if queries is not None:
             self.queries = queries
+        if request_dts is not None:
+            self.request_dts = request_dts
         if security_level is not None:
             self.security_level = security_level
 
@@ -208,6 +213,29 @@ class ReportExecuteQueriesRequest(object):
         """
 
         self._queries = queries
+
+    @property
+    def request_dts(self):
+        """Gets the request_dts of this ReportExecuteQueriesRequest.  # noqa: E501
+
+        Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results  # noqa: E501
+
+        :return: The request_dts of this ReportExecuteQueriesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_dts
+
+    @request_dts.setter
+    def request_dts(self, request_dts):
+        """Sets the request_dts of this ReportExecuteQueriesRequest.
+
+        Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results  # noqa: E501
+
+        :param request_dts: The request_dts of this ReportExecuteQueriesRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._request_dts = request_dts
 
     @property
     def security_level(self):
