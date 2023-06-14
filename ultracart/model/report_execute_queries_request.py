@@ -100,6 +100,7 @@ class ReportExecuteQueriesRequest(ModelNormal):
             'default_project_id': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'queries': ([ReportDataSetQuery],),  # noqa: E501
+            'request_dts': (str,),  # noqa: E501
             'security_level': (str,),  # noqa: E501
         }
 
@@ -115,6 +116,7 @@ class ReportExecuteQueriesRequest(ModelNormal):
         'default_project_id': 'default_project_id',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'queries': 'queries',  # noqa: E501
+        'request_dts': 'request_dts',  # noqa: E501
         'security_level': 'security_level',  # noqa: E501
     }
 
@@ -165,6 +167,7 @@ class ReportExecuteQueriesRequest(ModelNormal):
             default_project_id (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             queries ([ReportDataSetQuery]): An array of queries that we want the lambda function to execute.. [optional]  # noqa: E501
+            request_dts (str): Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results. [optional]  # noqa: E501
             security_level (str): Security level to execute report under. [optional]  # noqa: E501
         """
 
@@ -257,6 +260,7 @@ class ReportExecuteQueriesRequest(ModelNormal):
             default_project_id (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             queries ([ReportDataSetQuery]): An array of queries that we want the lambda function to execute.. [optional]  # noqa: E501
+            request_dts (str): Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results. [optional]  # noqa: E501
             security_level (str): Security level to execute report under. [optional]  # noqa: E501
         """
 

@@ -107,6 +107,7 @@ class ReportDataSet(ModelNormal):
             'merchant_id': (str,),  # noqa: E501
             'page_count': (int,),  # noqa: E501
             'page_size': (int,),  # noqa: E501
+            'request_dts': (str,),  # noqa: E501
             'schema': ([ReportDataSetSchema],),  # noqa: E501
             'security_level': (str,),  # noqa: E501
             'timezone': (str,),  # noqa: E501
@@ -131,6 +132,7 @@ class ReportDataSet(ModelNormal):
         'merchant_id': 'merchant_id',  # noqa: E501
         'page_count': 'page_count',  # noqa: E501
         'page_size': 'page_size',  # noqa: E501
+        'request_dts': 'request_dts',  # noqa: E501
         'schema': 'schema',  # noqa: E501
         'security_level': 'security_level',  # noqa: E501
         'timezone': 'timezone',  # noqa: E501
@@ -190,6 +192,7 @@ class ReportDataSet(ModelNormal):
             merchant_id (str): Merchant that owns this data set. [optional]  # noqa: E501
             page_count (int): The total number of pages in the result set. [optional]  # noqa: E501
             page_size (int): The size of the pages. [optional]  # noqa: E501
+            request_dts (str): Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results. [optional]  # noqa: E501
             schema ([ReportDataSetSchema]): The schema associated with the data set.. [optional]  # noqa: E501
             security_level (str): Security level this dataset was read from.. [optional]  # noqa: E501
             timezone (str): [optional]  # noqa: E501
@@ -291,6 +294,7 @@ class ReportDataSet(ModelNormal):
             merchant_id (str): Merchant that owns this data set. [optional]  # noqa: E501
             page_count (int): The total number of pages in the result set. [optional]  # noqa: E501
             page_size (int): The size of the pages. [optional]  # noqa: E501
+            request_dts (str): Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results. [optional]  # noqa: E501
             schema ([ReportDataSetSchema]): The schema associated with the data set.. [optional]  # noqa: E501
             security_level (str): Security level this dataset was read from.. [optional]  # noqa: E501
             timezone (str): [optional]  # noqa: E501

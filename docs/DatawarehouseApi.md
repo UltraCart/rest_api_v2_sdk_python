@@ -352,6 +352,7 @@ api_instance = GiftCertificateApi(api_client())
                 user_data="user_data_example",
             ),
         ],
+        request_dts="request_dts_example",
         security_level="standard",
     ) # ReportExecuteQueriesRequest | Query request
 

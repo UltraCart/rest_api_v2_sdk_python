@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **default_project_id** | **str** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **queries** | [**[ReportDataSetQuery]**](ReportDataSetQuery.md) | An array of queries that we want the lambda function to execute. | [optional] 
+**request_dts** | **str** | Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results | [optional] 
 **security_level** | **str** | Security level to execute report under | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
