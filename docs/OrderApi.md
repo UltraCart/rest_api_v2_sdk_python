@@ -134,11 +134,22 @@ from pprint import pprint
 api_instance = GiftCertificateApi(api_client())
 
     order_id = "order_id_example" # str | The order id to cancel.
+    lock_self_ship_orders = True # bool | Flag to prevent a order shipping during a refund process (optional)
+    skip_refund_and_hold = True # bool | Skip refund and move order to Held Orders department (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Cancel an order
         api_response = api_instance.cancel_order(order_id)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling OrderApi->cancel_order: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Cancel an order
+        api_response = api_instance.cancel_order(order_id, lock_self_ship_orders=lock_self_ship_orders, skip_refund_and_hold=skip_refund_and_hold)
         pprint(api_response)
     except ultracart.ApiException as e:
         print("Exception when calling OrderApi->cancel_order: %s\n" % e)
@@ -150,6 +161,8 @@ api_instance = GiftCertificateApi(api_client())
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **str**| The order id to cancel. |
+ **lock_self_ship_orders** | **bool**| Flag to prevent a order shipping during a refund process | [optional]
+ **skip_refund_and_hold** | **bool**| Skip refund and move order to Held Orders department | [optional]
 
 ### Return type
 
@@ -2434,6 +2447,7 @@ api_instance = GiftCertificateApi(api_client())
                 "least_cost_route_shipping_methods_example",
             ],
             lift_gate=True,
+            pickup_dts="pickup_dts_example",
             postal_code="postal_code_example",
             rma="rma_example",
             ship_on_date="ship_on_date_example",
@@ -3878,6 +3892,7 @@ api_instance = GiftCertificateApi(api_client())
                 "least_cost_route_shipping_methods_example",
             ],
             lift_gate=True,
+            pickup_dts="pickup_dts_example",
             postal_code="postal_code_example",
             rma="rma_example",
             ship_on_date="ship_on_date_example",
@@ -5529,6 +5544,7 @@ api_instance = GiftCertificateApi(api_client())
                 "least_cost_route_shipping_methods_example",
             ],
             lift_gate=True,
+            pickup_dts="pickup_dts_example",
             postal_code="postal_code_example",
             rma="rma_example",
             ship_on_date="ship_on_date_example",

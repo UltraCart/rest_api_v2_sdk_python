@@ -141,6 +141,8 @@ class OrderApi(object):
             params_map={
                 'all': [
                     'order_id',
+                    'lock_self_ship_orders',
+                    'skip_refund_and_hold',
                 ],
                 'required': [
                     'order_id',
@@ -160,12 +162,20 @@ class OrderApi(object):
                 'openapi_types': {
                     'order_id':
                         (str,),
+                    'lock_self_ship_orders':
+                        (bool,),
+                    'skip_refund_and_hold':
+                        (bool,),
                 },
                 'attribute_map': {
                     'order_id': 'order_id',
+                    'lock_self_ship_orders': 'lock_self_ship_orders',
+                    'skip_refund_and_hold': 'skip_refund_and_hold',
                 },
                 'location_map': {
                     'order_id': 'path',
+                    'lock_self_ship_orders': 'query',
+                    'skip_refund_and_hold': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1807,6 +1817,8 @@ class OrderApi(object):
             order_id (str): The order id to cancel.
 
         Keyword Args:
+            lock_self_ship_orders (bool): Flag to prevent a order shipping during a refund process. [optional]
+            skip_refund_and_hold (bool): Skip refund and move order to Held Orders department. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

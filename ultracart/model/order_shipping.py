@@ -156,6 +156,7 @@ class OrderShipping(ModelNormal):
             'least_cost_route': (bool,),  # noqa: E501
             'least_cost_route_shipping_methods': ([str],),  # noqa: E501
             'lift_gate': (bool,),  # noqa: E501
+            'pickup_dts': (str,),  # noqa: E501
             'postal_code': (str,),  # noqa: E501
             'rma': (str,),  # noqa: E501
             'ship_on_date': (str,),  # noqa: E501
@@ -194,6 +195,7 @@ class OrderShipping(ModelNormal):
         'least_cost_route': 'least_cost_route',  # noqa: E501
         'least_cost_route_shipping_methods': 'least_cost_route_shipping_methods',  # noqa: E501
         'lift_gate': 'lift_gate',  # noqa: E501
+        'pickup_dts': 'pickup_dts',  # noqa: E501
         'postal_code': 'postal_code',  # noqa: E501
         'rma': 'rma',  # noqa: E501
         'ship_on_date': 'ship_on_date',  # noqa: E501
@@ -267,6 +269,7 @@ class OrderShipping(ModelNormal):
             least_cost_route (bool): If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts.. [optional]  # noqa: E501
             least_cost_route_shipping_methods ([str]): List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts.. [optional]  # noqa: E501
             lift_gate (bool): Lift gate requested (LTL shipping methods only). [optional]  # noqa: E501
+            pickup_dts (str): Date/time the order should be picked up locally.. [optional]  # noqa: E501
             postal_code (str): Postal code. [optional]  # noqa: E501
             rma (str): RMA number. [optional]  # noqa: E501
             ship_on_date (str): Date the customer is requesting that the order ship on.  Typically used for perishable product delivery.. [optional]  # noqa: E501
@@ -382,6 +385,7 @@ class OrderShipping(ModelNormal):
             least_cost_route (bool): If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts.. [optional]  # noqa: E501
             least_cost_route_shipping_methods ([str]): List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts.. [optional]  # noqa: E501
             lift_gate (bool): Lift gate requested (LTL shipping methods only). [optional]  # noqa: E501
+            pickup_dts (str): Date/time the order should be picked up locally.. [optional]  # noqa: E501
             postal_code (str): Postal code. [optional]  # noqa: E501
             rma (str): RMA number. [optional]  # noqa: E501
             ship_on_date (str): Date the customer is requesting that the order ship on.  Typically used for perishable product delivery.. [optional]  # noqa: E501
