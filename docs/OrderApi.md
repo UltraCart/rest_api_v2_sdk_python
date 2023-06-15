@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_order**
-> BaseResponse cancel_order(order_id)
+> BaseResponse cancel_order(order_id, lock_self_ship_orders=lock_self_ship_orders, skip_refund_and_hold=skip_refund_and_hold)
 
 Cancel an order
 
@@ -104,10 +104,12 @@ simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
 api_instance = ultracart.OrderApi.fromApiKey(simple_key, False, True)
 
 order_id = 'order_id_example' # str | The order id to cancel.
+lock_self_ship_orders = true # bool | Flag to prevent a order shipping during a refund process (optional)
+skip_refund_and_hold = true # bool | Skip refund and move order to Held Orders department (optional)
 
 try:
     # Cancel an order
-    api_response = api_instance.cancel_order(order_id)
+    api_response = api_instance.cancel_order(order_id, lock_self_ship_orders=lock_self_ship_orders, skip_refund_and_hold=skip_refund_and_hold)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrderApi->cancel_order: %s\n" % e)
@@ -118,6 +120,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **str**| The order id to cancel. | 
+ **lock_self_ship_orders** | **bool**| Flag to prevent a order shipping during a refund process | [optional] 
+ **skip_refund_and_hold** | **bool**| Skip refund and move order to Held Orders department | [optional] 
 
 ### Return type
 

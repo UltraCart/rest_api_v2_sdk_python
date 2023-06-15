@@ -46,6 +46,7 @@ class OrderShipping(object):
         'least_cost_route': 'bool',
         'least_cost_route_shipping_methods': 'list[str]',
         'lift_gate': 'bool',
+        'pickup_dts': 'str',
         'postal_code': 'str',
         'rma': 'str',
         'ship_on_date': 'str',
@@ -79,6 +80,7 @@ class OrderShipping(object):
         'least_cost_route': 'least_cost_route',
         'least_cost_route_shipping_methods': 'least_cost_route_shipping_methods',
         'lift_gate': 'lift_gate',
+        'pickup_dts': 'pickup_dts',
         'postal_code': 'postal_code',
         'rma': 'rma',
         'ship_on_date': 'ship_on_date',
@@ -96,7 +98,7 @@ class OrderShipping(object):
         'weight': 'weight'
     }
 
-    def __init__(self, address1=None, address2=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, delivery_date=None, evening_phone=None, evening_phone_e164=None, first_name=None, last_name=None, least_cost_route=None, least_cost_route_shipping_methods=None, lift_gate=None, postal_code=None, rma=None, ship_on_date=None, ship_to_residential=None, shipping_3rd_party_account_number=None, shipping_date=None, shipping_department_status=None, shipping_method=None, shipping_method_accounting_code=None, special_instructions=None, state_region=None, title=None, tracking_number_details=None, tracking_numbers=None, weight=None):  # noqa: E501
+    def __init__(self, address1=None, address2=None, city=None, company=None, country_code=None, day_phone=None, day_phone_e164=None, delivery_date=None, evening_phone=None, evening_phone_e164=None, first_name=None, last_name=None, least_cost_route=None, least_cost_route_shipping_methods=None, lift_gate=None, pickup_dts=None, postal_code=None, rma=None, ship_on_date=None, ship_to_residential=None, shipping_3rd_party_account_number=None, shipping_date=None, shipping_department_status=None, shipping_method=None, shipping_method_accounting_code=None, special_instructions=None, state_region=None, title=None, tracking_number_details=None, tracking_numbers=None, weight=None):  # noqa: E501
         """OrderShipping - a model defined in Swagger"""  # noqa: E501
 
         self._address1 = None
@@ -114,6 +116,7 @@ class OrderShipping(object):
         self._least_cost_route = None
         self._least_cost_route_shipping_methods = None
         self._lift_gate = None
+        self._pickup_dts = None
         self._postal_code = None
         self._rma = None
         self._ship_on_date = None
@@ -161,6 +164,8 @@ class OrderShipping(object):
             self.least_cost_route_shipping_methods = least_cost_route_shipping_methods
         if lift_gate is not None:
             self.lift_gate = lift_gate
+        if pickup_dts is not None:
+            self.pickup_dts = pickup_dts
         if postal_code is not None:
             self.postal_code = postal_code
         if rma is not None:
@@ -558,6 +563,29 @@ class OrderShipping(object):
         """
 
         self._lift_gate = lift_gate
+
+    @property
+    def pickup_dts(self):
+        """Gets the pickup_dts of this OrderShipping.  # noqa: E501
+
+        Date/time the order should be picked up locally.  # noqa: E501
+
+        :return: The pickup_dts of this OrderShipping.  # noqa: E501
+        :rtype: str
+        """
+        return self._pickup_dts
+
+    @pickup_dts.setter
+    def pickup_dts(self, pickup_dts):
+        """Sets the pickup_dts of this OrderShipping.
+
+        Date/time the order should be picked up locally.  # noqa: E501
+
+        :param pickup_dts: The pickup_dts of this OrderShipping.  # noqa: E501
+        :type: str
+        """
+
+        self._pickup_dts = pickup_dts
 
     @property
     def postal_code(self):

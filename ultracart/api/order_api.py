@@ -164,6 +164,8 @@ class OrderApi(object):
 
         :param async_req bool
         :param str order_id: The order id to cancel. (required)
+        :param bool lock_self_ship_orders: Flag to prevent a order shipping during a refund process
+        :param bool skip_refund_and_hold: Skip refund and move order to Held Orders department
         :return: BaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -186,12 +188,14 @@ class OrderApi(object):
 
         :param async_req bool
         :param str order_id: The order id to cancel. (required)
+        :param bool lock_self_ship_orders: Flag to prevent a order shipping during a refund process
+        :param bool skip_refund_and_hold: Skip refund and move order to Held Orders department
         :return: BaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['order_id']  # noqa: E501
+        all_params = ['order_id', 'lock_self_ship_orders', 'skip_refund_and_hold']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -218,6 +222,10 @@ class OrderApi(object):
             path_params['order_id'] = params['order_id']  # noqa: E501
 
         query_params = []
+        if 'lock_self_ship_orders' in params:
+            query_params.append(('lock_self_ship_orders', params['lock_self_ship_orders']))  # noqa: E501
+        if 'skip_refund_and_hold' in params:
+            query_params.append(('skip_refund_and_hold', params['skip_refund_and_hold']))  # noqa: E501
 
         header_params = {}
 

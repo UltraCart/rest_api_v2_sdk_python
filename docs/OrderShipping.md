@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **least_cost_route** | **bool** | If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts. | [optional] 
 **least_cost_route_shipping_methods** | **list[str]** | List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts. | [optional] 
 **lift_gate** | **bool** | Lift gate requested (LTL shipping methods only) | [optional] 
+**pickup_dts** | **str** | Date/time the order should be picked up locally. | [optional] 
 **postal_code** | **str** | Postal code | [optional] 
 **rma** | **str** | RMA number | [optional] 
 **ship_on_date** | **str** | Date the customer is requesting that the order ship on.  Typically used for perishable product delivery. | [optional] 
