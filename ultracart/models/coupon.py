@@ -1803,8 +1803,12 @@ class Coupon(object):
         :param usable_by: The usable_by of this Coupon.  # noqa: E501
         :type: str
         """
-        if usable_by is not None and len(usable_by) > 50:
-            raise ValueError("Invalid value for `usable_by`, length must be less than or equal to `50`")  # noqa: E501
+        allowed_values = ["Anyone", "UniqueCode", "OncePerCustomer", "OncePerNewCustomer", "OncePerNewCustomerForItem"]  # noqa: E501
+        if usable_by not in allowed_values:
+            raise ValueError(
+                "Invalid value for `usable_by` ({0}), must be one of {1}"  # noqa: E501
+                .format(usable_by, allowed_values)
+            )
 
         self._usable_by = usable_by
 
