@@ -154,6 +154,13 @@ class Coupon(ModelNormal):
     """
 
     allowed_values = {
+        ('usable_by',): {
+            'ANYONE': "Anyone",
+            'UNIQUECODE': "UniqueCode",
+            'ONCEPERCUSTOMER': "OncePerCustomer",
+            'ONCEPERNEWCUSTOMER': "OncePerNewCustomer",
+            'ONCEPERNEWCUSTOMERFORITEM': "OncePerNewCustomerForItem",
+        },
     }
 
     validations = {

@@ -1443,7 +1443,7 @@ api_instance = GiftCertificateApi(api_client())
                 ),
             ],
         ),
-        usable_by="usable_by_example",
+        usable_by="Anyone",
     ) # Coupon | Coupon to insert
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -1921,7 +1921,7 @@ api_instance = GiftCertificateApi(api_client())
                         ),
                     ],
                 ),
-                usable_by="usable_by_example",
+                usable_by="Anyone",
             ),
         ],
     ) # CouponsRequest | Coupons to insert (maximum 50)
@@ -2585,7 +2585,7 @@ api_instance = GiftCertificateApi(api_client())
                 ),
             ],
         ),
-        usable_by="usable_by_example",
+        usable_by="Anyone",
     ) # Coupon | Coupon to update
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
@@ -3064,7 +3064,7 @@ api_instance = GiftCertificateApi(api_client())
                         ),
                     ],
                 ),
-                usable_by="usable_by_example",
+                usable_by="Anyone",
             ),
         ],
     ) # CouponsRequest | Coupons to update (synchronous maximum 50 / asynchronous maximum 100)
