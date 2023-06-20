@@ -53,6 +53,63 @@ class AutoOrderApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.establish_auto_order_by_reference_order_id_endpoint = _Endpoint(
+            settings={
+                'response_type': (AutoOrderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/auto_order/auto_orders/reference_order_id/{reference_order_id}',
+                'operation_id': 'establish_auto_order_by_reference_order_id',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'reference_order_id',
+                    'expand',
+                ],
+                'required': [
+                    'reference_order_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'reference_order_id':
+                        (str,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'reference_order_id': 'reference_order_id',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'reference_order_id': 'path',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_auto_order_endpoint = _Endpoint(
             settings={
                 'response_type': (AutoOrderResponse,),
@@ -647,6 +704,90 @@ class AutoOrderApi(object):
             },
             api_client=api_client
         )
+
+    def establish_auto_order_by_reference_order_id(
+        self,
+        reference_order_id,
+        **kwargs
+    ):
+        """Establish an auto order by referencing a regular order id  # noqa: E501
+
+        Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.establish_auto_order_by_reference_order_id(reference_order_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            reference_order_id (str): The order id to attach this auto order to
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AutoOrderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['reference_order_id'] = \
+            reference_order_id
+        return self.establish_auto_order_by_reference_order_id_endpoint.call_with_http_info(**kwargs)
 
     def get_auto_order(
         self,
