@@ -68,6 +68,7 @@ class ReportPageVisualization(ModelNormal):
             'BAR_CHART': "bar chart",
             'TEXT': "text",
             'TABLE': "table",
+            'GAUGE': "gauge",
         },
     }
 
