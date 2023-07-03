@@ -69,6 +69,7 @@ class ReportPageVisualization(ModelNormal):
             'TEXT': "text",
             'TABLE': "table",
             'GAUGE': "gauge",
+            'PIE_CHART': "pie chart",
         },
     }
 
