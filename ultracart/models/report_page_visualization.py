@@ -260,7 +260,7 @@ class ReportPageVisualization(object):
         :param type: The type of this ReportPageVisualization.  # noqa: E501
         :type: str
         """
-        allowed_values = ["score card", "line chart", "bar chart", "text", "table", "gauge"]  # noqa: E501
+        allowed_values = ["score card", "line chart", "bar chart", "text", "table", "gauge", "pie chart"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
