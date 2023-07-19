@@ -32,25 +32,30 @@ class ReportFilterConnection(object):
     """
     swagger_types = {
         'column': 'str',
-        'data_source_name': 'str'
+        'data_source_name': 'str',
+        'data_source_uuid': 'str'
     }
 
     attribute_map = {
         'column': 'column',
-        'data_source_name': 'data_source_name'
+        'data_source_name': 'data_source_name',
+        'data_source_uuid': 'data_source_uuid'
     }
 
-    def __init__(self, column=None, data_source_name=None):  # noqa: E501
+    def __init__(self, column=None, data_source_name=None, data_source_uuid=None):  # noqa: E501
         """ReportFilterConnection - a model defined in Swagger"""  # noqa: E501
 
         self._column = None
         self._data_source_name = None
+        self._data_source_uuid = None
         self.discriminator = None
 
         if column is not None:
             self.column = column
         if data_source_name is not None:
             self.data_source_name = data_source_name
+        if data_source_uuid is not None:
+            self.data_source_uuid = data_source_uuid
 
     @property
     def column(self):
@@ -93,6 +98,29 @@ class ReportFilterConnection(object):
         """
 
         self._data_source_name = data_source_name
+
+    @property
+    def data_source_uuid(self):
+        """Gets the data_source_uuid of this ReportFilterConnection.  # noqa: E501
+
+        A unique identifier assigned to the data source.  # noqa: E501
+
+        :return: The data_source_uuid of this ReportFilterConnection.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_source_uuid
+
+    @data_source_uuid.setter
+    def data_source_uuid(self, data_source_uuid):
+        """Sets the data_source_uuid of this ReportFilterConnection.
+
+        A unique identifier assigned to the data source.  # noqa: E501
+
+        :param data_source_uuid: The data_source_uuid of this ReportFilterConnection.  # noqa: E501
+        :type: str
+        """
+
+        self._data_source_uuid = data_source_uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""
