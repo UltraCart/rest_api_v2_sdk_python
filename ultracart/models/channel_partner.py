@@ -34,6 +34,7 @@ class ChannelPartner(object):
         'channel_partner_oid': 'int',
         'code': 'str',
         'communication_method': 'str',
+        'dont_hold_shipment': 'bool',
         'inactive': 'bool',
         'merchant_id': 'str',
         'name': 'str',
@@ -44,18 +45,20 @@ class ChannelPartner(object):
         'channel_partner_oid': 'channel_partner_oid',
         'code': 'code',
         'communication_method': 'communication_method',
+        'dont_hold_shipment': 'dont_hold_shipment',
         'inactive': 'inactive',
         'merchant_id': 'merchant_id',
         'name': 'name',
         'skip_customer_emails': 'skip_customer_emails'
     }
 
-    def __init__(self, channel_partner_oid=None, code=None, communication_method=None, inactive=None, merchant_id=None, name=None, skip_customer_emails=None):  # noqa: E501
+    def __init__(self, channel_partner_oid=None, code=None, communication_method=None, dont_hold_shipment=None, inactive=None, merchant_id=None, name=None, skip_customer_emails=None):  # noqa: E501
         """ChannelPartner - a model defined in Swagger"""  # noqa: E501
 
         self._channel_partner_oid = None
         self._code = None
         self._communication_method = None
+        self._dont_hold_shipment = None
         self._inactive = None
         self._merchant_id = None
         self._name = None
@@ -68,6 +71,8 @@ class ChannelPartner(object):
             self.code = code
         if communication_method is not None:
             self.communication_method = communication_method
+        if dont_hold_shipment is not None:
+            self.dont_hold_shipment = dont_hold_shipment
         if inactive is not None:
             self.inactive = inactive
         if merchant_id is not None:
@@ -145,6 +150,29 @@ class ChannelPartner(object):
         """
 
         self._communication_method = communication_method
+
+    @property
+    def dont_hold_shipment(self):
+        """Gets the dont_hold_shipment of this ChannelPartner.  # noqa: E501
+
+        True if shipments should immediately process for this channel partner.  # noqa: E501
+
+        :return: The dont_hold_shipment of this ChannelPartner.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dont_hold_shipment
+
+    @dont_hold_shipment.setter
+    def dont_hold_shipment(self, dont_hold_shipment):
+        """Sets the dont_hold_shipment of this ChannelPartner.
+
+        True if shipments should immediately process for this channel partner.  # noqa: E501
+
+        :param dont_hold_shipment: The dont_hold_shipment of this ChannelPartner.  # noqa: E501
+        :type: bool
+        """
+
+        self._dont_hold_shipment = dont_hold_shipment
 
     @property
     def inactive(self):

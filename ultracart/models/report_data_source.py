@@ -31,6 +31,7 @@ class ReportDataSource(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'data_source_uuid': 'str',
         'name': 'str',
         'partition_date_column': 'str',
         'partition_date_safety_days': 'int',
@@ -40,6 +41,7 @@ class ReportDataSource(object):
     }
 
     attribute_map = {
+        'data_source_uuid': 'data_source_uuid',
         'name': 'name',
         'partition_date_column': 'partition_date_column',
         'partition_date_safety_days': 'partition_date_safety_days',
@@ -48,9 +50,10 @@ class ReportDataSource(object):
         'sql': 'sql'
     }
 
-    def __init__(self, name=None, partition_date_column=None, partition_date_safety_days=None, partition_date_strategy=None, schema=None, sql=None):  # noqa: E501
+    def __init__(self, data_source_uuid=None, name=None, partition_date_column=None, partition_date_safety_days=None, partition_date_strategy=None, schema=None, sql=None):  # noqa: E501
         """ReportDataSource - a model defined in Swagger"""  # noqa: E501
 
+        self._data_source_uuid = None
         self._name = None
         self._partition_date_column = None
         self._partition_date_safety_days = None
@@ -59,6 +62,8 @@ class ReportDataSource(object):
         self._sql = None
         self.discriminator = None
 
+        if data_source_uuid is not None:
+            self.data_source_uuid = data_source_uuid
         if name is not None:
             self.name = name
         if partition_date_column is not None:
@@ -71,6 +76,29 @@ class ReportDataSource(object):
             self.schema = schema
         if sql is not None:
             self.sql = sql
+
+    @property
+    def data_source_uuid(self):
+        """Gets the data_source_uuid of this ReportDataSource.  # noqa: E501
+
+        A unique identifier assigned to the data source.  # noqa: E501
+
+        :return: The data_source_uuid of this ReportDataSource.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_source_uuid
+
+    @data_source_uuid.setter
+    def data_source_uuid(self, data_source_uuid):
+        """Sets the data_source_uuid of this ReportDataSource.
+
+        A unique identifier assigned to the data source.  # noqa: E501
+
+        :param data_source_uuid: The data_source_uuid of this ReportDataSource.  # noqa: E501
+        :type: str
+        """
+
+        self._data_source_uuid = data_source_uuid
 
     @property
     def name(self):
