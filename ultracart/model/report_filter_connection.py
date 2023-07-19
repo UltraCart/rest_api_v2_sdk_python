@@ -84,6 +84,7 @@ class ReportFilterConnection(ModelNormal):
         return {
             'column': (str,),  # noqa: E501
             'data_source_name': (str,),  # noqa: E501
+            'data_source_uuid': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class ReportFilterConnection(ModelNormal):
     attribute_map = {
         'column': 'column',  # noqa: E501
         'data_source_name': 'data_source_name',  # noqa: E501
+        'data_source_uuid': 'data_source_uuid',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,6 +141,7 @@ class ReportFilterConnection(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             column (str): [optional]  # noqa: E501
             data_source_name (str): [optional]  # noqa: E501
+            data_source_uuid (str): A unique identifier assigned to the data source.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,6 +229,7 @@ class ReportFilterConnection(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             column (str): [optional]  # noqa: E501
             data_source_name (str): [optional]  # noqa: E501
+            data_source_uuid (str): A unique identifier assigned to the data source.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

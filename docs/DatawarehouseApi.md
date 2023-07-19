@@ -155,6 +155,7 @@ api_instance = GiftCertificateApi(api_client())
                         ReportFilterConnection(
                             column="column_example",
                             data_source_name="data_source_name_example",
+                            data_source_uuid="data_source_uuid_example",
                         ),
                     ],
                     name="name_example",
@@ -182,6 +183,7 @@ api_instance = GiftCertificateApi(api_client())
                             ReportFilterConnection(
                                 column="column_example",
                                 data_source_name="data_source_name_example",
+                                data_source_uuid="data_source_uuid_example",
                             ),
                         ],
                         name="name_example",
@@ -312,6 +314,7 @@ api_instance = GiftCertificateApi(api_client())
                         ReportFilterConnection(
                             column="column_example",
                             data_source_name="data_source_name_example",
+                            data_source_uuid="data_source_uuid_example",
                         ),
                     ],
                     name="name_example",
@@ -339,6 +342,7 @@ api_instance = GiftCertificateApi(api_client())
                             ReportFilterConnection(
                                 column="column_example",
                                 data_source_name="data_source_name_example",
+                                data_source_uuid="data_source_uuid_example",
                             ),
                         ],
                         name="name_example",
@@ -809,6 +813,7 @@ api_instance = GiftCertificateApi(api_client())
                     ReportFilterConnection(
                         column="column_example",
                         data_source_name="data_source_name_example",
+                        data_source_uuid="data_source_uuid_example",
                     ),
                 ],
                 name="name_example",
@@ -972,6 +977,7 @@ api_instance = GiftCertificateApi(api_client())
                     ReportFilterConnection(
                         column="column_example",
                         data_source_name="data_source_name_example",
+                        data_source_uuid="data_source_uuid_example",
                     ),
                 ],
                 name="name_example",
