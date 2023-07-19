@@ -101,6 +101,7 @@ class ReportPageVisualization(ModelNormal):
         return {
             'config': (str,),  # noqa: E501
             'data_source_name': (str,),  # noqa: E501
+            'data_source_uuid': (str,),  # noqa: E501
             'dimensions': ([ReportPageVisualizationDimension],),  # noqa: E501
             'metrics': ([ReportPageVisualizationMetric],),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -118,6 +119,7 @@ class ReportPageVisualization(ModelNormal):
     attribute_map = {
         'config': 'config',  # noqa: E501
         'data_source_name': 'data_source_name',  # noqa: E501
+        'data_source_uuid': 'data_source_uuid',  # noqa: E501
         'dimensions': 'dimensions',  # noqa: E501
         'metrics': 'metrics',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -170,6 +172,7 @@ class ReportPageVisualization(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             config (str): A JSON representation of the configuration for this visualization. [optional]  # noqa: E501
             data_source_name (str): [optional]  # noqa: E501
+            data_source_uuid (str): A unique identifier assigned to the data source.. [optional]  # noqa: E501
             dimensions ([ReportPageVisualizationDimension]): [optional]  # noqa: E501
             metrics ([ReportPageVisualizationMetric]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
@@ -264,6 +267,7 @@ class ReportPageVisualization(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             config (str): A JSON representation of the configuration for this visualization. [optional]  # noqa: E501
             data_source_name (str): [optional]  # noqa: E501
+            data_source_uuid (str): A unique identifier assigned to the data source.. [optional]  # noqa: E501
             dimensions ([ReportPageVisualizationDimension]): [optional]  # noqa: E501
             metrics ([ReportPageVisualizationMetric]): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501

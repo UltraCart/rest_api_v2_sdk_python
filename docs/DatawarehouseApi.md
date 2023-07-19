@@ -838,6 +838,7 @@ api_instance = GiftCertificateApi(api_client())
                     ReportPageVisualization(
                         config="config_example",
                         data_source_name="data_source_name_example",
+                        data_source_uuid="data_source_uuid_example",
                         dimensions=[
                             ReportPageVisualizationDimension(
                                 _as="_as_example",
@@ -1000,6 +1001,7 @@ api_instance = GiftCertificateApi(api_client())
                     ReportPageVisualization(
                         config="config_example",
                         data_source_name="data_source_name_example",
+                        data_source_uuid="data_source_uuid_example",
                         dimensions=[
                             ReportPageVisualizationDimension(
                                 _as="_as_example",
