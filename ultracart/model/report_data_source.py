@@ -88,6 +88,7 @@ class ReportDataSource(ModelNormal):
         """
         lazy_import()
         return {
+            'data_source_uuid': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'partition_date_column': (str,),  # noqa: E501
             'partition_date_safety_days': (int,),  # noqa: E501
@@ -102,6 +103,7 @@ class ReportDataSource(ModelNormal):
 
 
     attribute_map = {
+        'data_source_uuid': 'data_source_uuid',  # noqa: E501
         'name': 'name',  # noqa: E501
         'partition_date_column': 'partition_date_column',  # noqa: E501
         'partition_date_safety_days': 'partition_date_safety_days',  # noqa: E501
@@ -151,6 +153,7 @@ class ReportDataSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            data_source_uuid (str): A unique identifier assigned to the data source.. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             partition_date_column (str): [optional]  # noqa: E501
             partition_date_safety_days (int): [optional]  # noqa: E501
@@ -242,6 +245,7 @@ class ReportDataSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            data_source_uuid (str): A unique identifier assigned to the data source.. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             partition_date_column (str): [optional]  # noqa: E501
             partition_date_safety_days (int): [optional]  # noqa: E501

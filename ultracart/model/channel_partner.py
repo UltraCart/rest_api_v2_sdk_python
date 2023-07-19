@@ -85,6 +85,7 @@ class ChannelPartner(ModelNormal):
             'channel_partner_oid': (int,),  # noqa: E501
             'code': (str,),  # noqa: E501
             'communication_method': (str,),  # noqa: E501
+            'dont_hold_shipment': (bool,),  # noqa: E501
             'inactive': (bool,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -100,6 +101,7 @@ class ChannelPartner(ModelNormal):
         'channel_partner_oid': 'channel_partner_oid',  # noqa: E501
         'code': 'code',  # noqa: E501
         'communication_method': 'communication_method',  # noqa: E501
+        'dont_hold_shipment': 'dont_hold_shipment',  # noqa: E501
         'inactive': 'inactive',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -150,6 +152,7 @@ class ChannelPartner(ModelNormal):
             channel_partner_oid (int): Channel partner object id. [optional]  # noqa: E501
             code (str): Code associated with the channel partner. [optional]  # noqa: E501
             communication_method (str): Communication method of the channel partner. [optional]  # noqa: E501
+            dont_hold_shipment (bool): True if shipments should immediately process for this channel partner.. [optional]  # noqa: E501
             inactive (bool): True if the channel partner is inactive. [optional]  # noqa: E501
             merchant_id (str): Merchant ID of the channel partner. [optional]  # noqa: E501
             name (str): Name of the channel partner. [optional]  # noqa: E501
@@ -242,6 +245,7 @@ class ChannelPartner(ModelNormal):
             channel_partner_oid (int): Channel partner object id. [optional]  # noqa: E501
             code (str): Code associated with the channel partner. [optional]  # noqa: E501
             communication_method (str): Communication method of the channel partner. [optional]  # noqa: E501
+            dont_hold_shipment (bool): True if shipments should immediately process for this channel partner.. [optional]  # noqa: E501
             inactive (bool): True if the channel partner is inactive. [optional]  # noqa: E501
             merchant_id (str): Merchant ID of the channel partner. [optional]  # noqa: E501
             name (str): Name of the channel partner. [optional]  # noqa: E501
