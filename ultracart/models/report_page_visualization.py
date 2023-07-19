@@ -33,6 +33,7 @@ class ReportPageVisualization(object):
     swagger_types = {
         'config': 'str',
         'data_source_name': 'str',
+        'data_source_uuid': 'str',
         'dimensions': 'list[ReportPageVisualizationDimension]',
         'metrics': 'list[ReportPageVisualizationMetric]',
         'name': 'str',
@@ -45,6 +46,7 @@ class ReportPageVisualization(object):
     attribute_map = {
         'config': 'config',
         'data_source_name': 'data_source_name',
+        'data_source_uuid': 'data_source_uuid',
         'dimensions': 'dimensions',
         'metrics': 'metrics',
         'name': 'name',
@@ -54,11 +56,12 @@ class ReportPageVisualization(object):
         'visualization_uuid': 'visualization_uuid'
     }
 
-    def __init__(self, config=None, data_source_name=None, dimensions=None, metrics=None, name=None, show_comparison=None, styles=None, type=None, visualization_uuid=None):  # noqa: E501
+    def __init__(self, config=None, data_source_name=None, data_source_uuid=None, dimensions=None, metrics=None, name=None, show_comparison=None, styles=None, type=None, visualization_uuid=None):  # noqa: E501
         """ReportPageVisualization - a model defined in Swagger"""  # noqa: E501
 
         self._config = None
         self._data_source_name = None
+        self._data_source_uuid = None
         self._dimensions = None
         self._metrics = None
         self._name = None
@@ -72,6 +75,8 @@ class ReportPageVisualization(object):
             self.config = config
         if data_source_name is not None:
             self.data_source_name = data_source_name
+        if data_source_uuid is not None:
+            self.data_source_uuid = data_source_uuid
         if dimensions is not None:
             self.dimensions = dimensions
         if metrics is not None:
@@ -130,6 +135,29 @@ class ReportPageVisualization(object):
         """
 
         self._data_source_name = data_source_name
+
+    @property
+    def data_source_uuid(self):
+        """Gets the data_source_uuid of this ReportPageVisualization.  # noqa: E501
+
+        A unique identifier assigned to the data source.  # noqa: E501
+
+        :return: The data_source_uuid of this ReportPageVisualization.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_source_uuid
+
+    @data_source_uuid.setter
+    def data_source_uuid(self, data_source_uuid):
+        """Sets the data_source_uuid of this ReportPageVisualization.
+
+        A unique identifier assigned to the data source.  # noqa: E501
+
+        :param data_source_uuid: The data_source_uuid of this ReportPageVisualization.  # noqa: E501
+        :type: str
+        """
+
+        self._data_source_uuid = data_source_uuid
 
     @property
     def dimensions(self):
