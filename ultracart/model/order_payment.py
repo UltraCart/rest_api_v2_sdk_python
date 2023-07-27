@@ -95,6 +95,8 @@ class OrderPayment(ModelNormal):
             'SHOP.COM': "Shop.com",
             'SEZZLE': "Sezzle",
             'VENMO': "Venmo",
+            'APPLE_PAY': "Apple Pay",
+            'GOOGLE_PAY': "Google Pay",
         },
         ('payment_status',): {
             'UNPROCESSED': "Unprocessed",

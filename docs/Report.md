@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **pages** | [**[ReportPage]**](ReportPage.md) |  | [optional] 
 **report_oid** | **int** | Object identifier for this report. | [optional] 
 **security_level** | **str** | Security level to execute report under | [optional] 
+**settings** | **str** | A JSON representation of the settings for this report | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

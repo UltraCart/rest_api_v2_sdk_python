@@ -92,6 +92,7 @@ class ReportPage(ModelNormal):
         return {
             'filters': ([ReportPageFilter],),  # noqa: E501
             'height': (float,),  # noqa: E501
+            'settings': (str,),  # noqa: E501
             'title': (str,),  # noqa: E501
             'visualizations': ([ReportPageVisualization],),  # noqa: E501
             'width': (float,),  # noqa: E501
@@ -105,6 +106,7 @@ class ReportPage(ModelNormal):
     attribute_map = {
         'filters': 'filters',  # noqa: E501
         'height': 'height',  # noqa: E501
+        'settings': 'settings',  # noqa: E501
         'title': 'title',  # noqa: E501
         'visualizations': 'visualizations',  # noqa: E501
         'width': 'width',  # noqa: E501
@@ -153,6 +155,7 @@ class ReportPage(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             filters ([ReportPageFilter]): [optional]  # noqa: E501
             height (float): Height of the report page in inches. [optional]  # noqa: E501
+            settings (str): A JSON representation of the settings for this report. [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
             visualizations ([ReportPageVisualization]): Visualizations on the report page.. [optional]  # noqa: E501
             width (float): Width of the report page in inches. [optional]  # noqa: E501
@@ -243,6 +246,7 @@ class ReportPage(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             filters ([ReportPageFilter]): [optional]  # noqa: E501
             height (float): Height of the report page in inches. [optional]  # noqa: E501
+            settings (str): A JSON representation of the settings for this report. [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
             visualizations ([ReportPageVisualization]): Visualizations on the report page.. [optional]  # noqa: E501
             width (float): Width of the report page in inches. [optional]  # noqa: E501

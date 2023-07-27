@@ -84,6 +84,9 @@ class OrderQuery(ModelNormal):
             'QUOTE_REQUEST': "Quote Request",
             'UNKNOWN': "Unknown",
             'WIRE_TRANSFER': "Wire Transfer",
+            'VENMO': "Venmo",
+            'APPLE_PAY': "Apple Pay",
+            '_GOOGLE_PAY': " Google Pay",
         },
     }
 

@@ -838,6 +838,7 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                 ],
                 height=3.14,
+                settings="settings_example",
                 title="title_example",
                 visualizations=[
                     ReportPageVisualization(
@@ -875,6 +876,7 @@ api_instance = GiftCertificateApi(api_client())
         ],
         report_oid=1,
         security_level="standard",
+        settings="settings_example",
     ) # Report | Report to create
 
     # example passing only required values which don't have defaults set
@@ -1002,6 +1004,7 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                 ],
                 height=3.14,
+                settings="settings_example",
                 title="title_example",
                 visualizations=[
                     ReportPageVisualization(
@@ -1039,6 +1042,7 @@ api_instance = GiftCertificateApi(api_client())
         ],
         report_oid=1,
         security_level="standard",
+        settings="settings_example",
     ) # Report | Report to update
 
     # example passing only required values which don't have defaults set

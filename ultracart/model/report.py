@@ -108,6 +108,7 @@ class Report(ModelNormal):
             'pages': ([ReportPage],),  # noqa: E501
             'report_oid': (int,),  # noqa: E501
             'security_level': (str,),  # noqa: E501
+            'settings': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -126,6 +127,7 @@ class Report(ModelNormal):
         'pages': 'pages',  # noqa: E501
         'report_oid': 'report_oid',  # noqa: E501
         'security_level': 'security_level',  # noqa: E501
+        'settings': 'settings',  # noqa: E501
     }
 
     read_only_vars = {
@@ -179,6 +181,7 @@ class Report(ModelNormal):
             pages ([ReportPage]): [optional]  # noqa: E501
             report_oid (int): Object identifier for this report.. [optional]  # noqa: E501
             security_level (str): Security level to execute report under. [optional]  # noqa: E501
+            settings (str): A JSON representation of the settings for this report. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -274,6 +277,7 @@ class Report(ModelNormal):
             pages ([ReportPage]): [optional]  # noqa: E501
             report_oid (int): Object identifier for this report.. [optional]  # noqa: E501
             security_level (str): Security level to execute report under. [optional]  # noqa: E501
+            settings (str): A JSON representation of the settings for this report. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
