@@ -40,7 +40,8 @@ class Report(object):
         'name': 'str',
         'pages': 'list[ReportPage]',
         'report_oid': 'int',
-        'security_level': 'str'
+        'security_level': 'str',
+        'settings': 'str'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class Report(object):
         'name': 'name',
         'pages': 'pages',
         'report_oid': 'report_oid',
-        'security_level': 'security_level'
+        'security_level': 'security_level',
+        'settings': 'settings'
     }
 
-    def __init__(self, active=None, data_sources=None, default_dataset_id=None, default_project_id=None, filters=None, merchant_id=None, name=None, pages=None, report_oid=None, security_level=None):  # noqa: E501
+    def __init__(self, active=None, data_sources=None, default_dataset_id=None, default_project_id=None, filters=None, merchant_id=None, name=None, pages=None, report_oid=None, security_level=None, settings=None):  # noqa: E501
         """Report - a model defined in Swagger"""  # noqa: E501
 
         self._active = None
@@ -69,6 +71,7 @@ class Report(object):
         self._pages = None
         self._report_oid = None
         self._security_level = None
+        self._settings = None
         self.discriminator = None
 
         if active is not None:
@@ -91,6 +94,8 @@ class Report(object):
             self.report_oid = report_oid
         if security_level is not None:
             self.security_level = security_level
+        if settings is not None:
+            self.settings = settings
 
     @property
     def active(self):
@@ -311,6 +316,29 @@ class Report(object):
             )
 
         self._security_level = security_level
+
+    @property
+    def settings(self):
+        """Gets the settings of this Report.  # noqa: E501
+
+        A JSON representation of the settings for this report  # noqa: E501
+
+        :return: The settings of this Report.  # noqa: E501
+        :rtype: str
+        """
+        return self._settings
+
+    @settings.setter
+    def settings(self, settings):
+        """Sets the settings of this Report.
+
+        A JSON representation of the settings for this report  # noqa: E501
+
+        :param settings: The settings of this Report.  # noqa: E501
+        :type: str
+        """
+
+        self._settings = settings
 
     def to_dict(self):
         """Returns the model properties as a dict"""

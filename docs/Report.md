@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **pages** | [**list[ReportPage]**](ReportPage.md) |  | [optional] 
 **report_oid** | **int** | Object identifier for this report. | [optional] 
 **security_level** | **str** | Security level to execute report under | [optional] 
+**settings** | **str** | A JSON representation of the settings for this report | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
