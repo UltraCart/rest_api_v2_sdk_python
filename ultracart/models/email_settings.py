@@ -43,6 +43,7 @@ class EmailSettings(object):
         'postcard_from_name': 'str',
         'postcard_from_postal_code': 'str',
         'postcard_from_state': 'str',
+        'require_order_within_last': 'int',
         'reviews_io_configured': 'bool',
         'sms_esp_twilio_uuid': 'str',
         'sms_phone_number': 'str',
@@ -64,6 +65,7 @@ class EmailSettings(object):
         'postcard_from_name': 'postcard_from_name',
         'postcard_from_postal_code': 'postcard_from_postal_code',
         'postcard_from_state': 'postcard_from_state',
+        'require_order_within_last': 'require_order_within_last',
         'reviews_io_configured': 'reviews_io_configured',
         'sms_esp_twilio_uuid': 'sms_esp_twilio_uuid',
         'sms_phone_number': 'sms_phone_number',
@@ -72,7 +74,7 @@ class EmailSettings(object):
         'transactional_esp_friendly_name': 'transactional_esp_friendly_name'
     }
 
-    def __init__(self, emails_per_day=None, emails_per_hour=None, emails_per_month=None, marketing_esp_domain_user=None, marketing_esp_domain_uuid=None, marketing_esp_friendly_name=None, postcard_from_address1=None, postcard_from_address2=None, postcard_from_city=None, postcard_from_name=None, postcard_from_postal_code=None, postcard_from_state=None, reviews_io_configured=None, sms_esp_twilio_uuid=None, sms_phone_number=None, transactional_esp_domain_user=None, transactional_esp_domain_uuid=None, transactional_esp_friendly_name=None):  # noqa: E501
+    def __init__(self, emails_per_day=None, emails_per_hour=None, emails_per_month=None, marketing_esp_domain_user=None, marketing_esp_domain_uuid=None, marketing_esp_friendly_name=None, postcard_from_address1=None, postcard_from_address2=None, postcard_from_city=None, postcard_from_name=None, postcard_from_postal_code=None, postcard_from_state=None, require_order_within_last=None, reviews_io_configured=None, sms_esp_twilio_uuid=None, sms_phone_number=None, transactional_esp_domain_user=None, transactional_esp_domain_uuid=None, transactional_esp_friendly_name=None):  # noqa: E501
         """EmailSettings - a model defined in Swagger"""  # noqa: E501
 
         self._emails_per_day = None
@@ -87,6 +89,7 @@ class EmailSettings(object):
         self._postcard_from_name = None
         self._postcard_from_postal_code = None
         self._postcard_from_state = None
+        self._require_order_within_last = None
         self._reviews_io_configured = None
         self._sms_esp_twilio_uuid = None
         self._sms_phone_number = None
@@ -119,6 +122,8 @@ class EmailSettings(object):
             self.postcard_from_postal_code = postcard_from_postal_code
         if postcard_from_state is not None:
             self.postcard_from_state = postcard_from_state
+        if require_order_within_last is not None:
+            self.require_order_within_last = require_order_within_last
         if reviews_io_configured is not None:
             self.reviews_io_configured = reviews_io_configured
         if sms_esp_twilio_uuid is not None:
@@ -389,6 +394,29 @@ class EmailSettings(object):
         """
 
         self._postcard_from_state = postcard_from_state
+
+    @property
+    def require_order_within_last(self):
+        """Gets the require_order_within_last of this EmailSettings.  # noqa: E501
+
+        Require order within last  # noqa: E501
+
+        :return: The require_order_within_last of this EmailSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._require_order_within_last
+
+    @require_order_within_last.setter
+    def require_order_within_last(self, require_order_within_last):
+        """Sets the require_order_within_last of this EmailSettings.
+
+        Require order within last  # noqa: E501
+
+        :param require_order_within_last: The require_order_within_last of this EmailSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._require_order_within_last = require_order_within_last
 
     @property
     def reviews_io_configured(self):
