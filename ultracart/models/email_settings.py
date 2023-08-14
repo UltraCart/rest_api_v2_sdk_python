@@ -31,6 +31,9 @@ class EmailSettings(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'emails_per_day': 'int',
+        'emails_per_hour': 'int',
+        'emails_per_month': 'int',
         'marketing_esp_domain_user': 'str',
         'marketing_esp_domain_uuid': 'str',
         'marketing_esp_friendly_name': 'str',
@@ -49,6 +52,9 @@ class EmailSettings(object):
     }
 
     attribute_map = {
+        'emails_per_day': 'emails_per_day',
+        'emails_per_hour': 'emails_per_hour',
+        'emails_per_month': 'emails_per_month',
         'marketing_esp_domain_user': 'marketing_esp_domain_user',
         'marketing_esp_domain_uuid': 'marketing_esp_domain_uuid',
         'marketing_esp_friendly_name': 'marketing_esp_friendly_name',
@@ -66,9 +72,12 @@ class EmailSettings(object):
         'transactional_esp_friendly_name': 'transactional_esp_friendly_name'
     }
 
-    def __init__(self, marketing_esp_domain_user=None, marketing_esp_domain_uuid=None, marketing_esp_friendly_name=None, postcard_from_address1=None, postcard_from_address2=None, postcard_from_city=None, postcard_from_name=None, postcard_from_postal_code=None, postcard_from_state=None, reviews_io_configured=None, sms_esp_twilio_uuid=None, sms_phone_number=None, transactional_esp_domain_user=None, transactional_esp_domain_uuid=None, transactional_esp_friendly_name=None):  # noqa: E501
+    def __init__(self, emails_per_day=None, emails_per_hour=None, emails_per_month=None, marketing_esp_domain_user=None, marketing_esp_domain_uuid=None, marketing_esp_friendly_name=None, postcard_from_address1=None, postcard_from_address2=None, postcard_from_city=None, postcard_from_name=None, postcard_from_postal_code=None, postcard_from_state=None, reviews_io_configured=None, sms_esp_twilio_uuid=None, sms_phone_number=None, transactional_esp_domain_user=None, transactional_esp_domain_uuid=None, transactional_esp_friendly_name=None):  # noqa: E501
         """EmailSettings - a model defined in Swagger"""  # noqa: E501
 
+        self._emails_per_day = None
+        self._emails_per_hour = None
+        self._emails_per_month = None
         self._marketing_esp_domain_user = None
         self._marketing_esp_domain_uuid = None
         self._marketing_esp_friendly_name = None
@@ -86,6 +95,12 @@ class EmailSettings(object):
         self._transactional_esp_friendly_name = None
         self.discriminator = None
 
+        if emails_per_day is not None:
+            self.emails_per_day = emails_per_day
+        if emails_per_hour is not None:
+            self.emails_per_hour = emails_per_hour
+        if emails_per_month is not None:
+            self.emails_per_month = emails_per_month
         if marketing_esp_domain_user is not None:
             self.marketing_esp_domain_user = marketing_esp_domain_user
         if marketing_esp_domain_uuid is not None:
@@ -116,6 +131,75 @@ class EmailSettings(object):
             self.transactional_esp_domain_uuid = transactional_esp_domain_uuid
         if transactional_esp_friendly_name is not None:
             self.transactional_esp_friendly_name = transactional_esp_friendly_name
+
+    @property
+    def emails_per_day(self):
+        """Gets the emails_per_day of this EmailSettings.  # noqa: E501
+
+        Emails per day allowed  # noqa: E501
+
+        :return: The emails_per_day of this EmailSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._emails_per_day
+
+    @emails_per_day.setter
+    def emails_per_day(self, emails_per_day):
+        """Sets the emails_per_day of this EmailSettings.
+
+        Emails per day allowed  # noqa: E501
+
+        :param emails_per_day: The emails_per_day of this EmailSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._emails_per_day = emails_per_day
+
+    @property
+    def emails_per_hour(self):
+        """Gets the emails_per_hour of this EmailSettings.  # noqa: E501
+
+        Emails per hour allowed  # noqa: E501
+
+        :return: The emails_per_hour of this EmailSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._emails_per_hour
+
+    @emails_per_hour.setter
+    def emails_per_hour(self, emails_per_hour):
+        """Sets the emails_per_hour of this EmailSettings.
+
+        Emails per hour allowed  # noqa: E501
+
+        :param emails_per_hour: The emails_per_hour of this EmailSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._emails_per_hour = emails_per_hour
+
+    @property
+    def emails_per_month(self):
+        """Gets the emails_per_month of this EmailSettings.  # noqa: E501
+
+        Emails per month allowed  # noqa: E501
+
+        :return: The emails_per_month of this EmailSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._emails_per_month
+
+    @emails_per_month.setter
+    def emails_per_month(self, emails_per_month):
+        """Sets the emails_per_month of this EmailSettings.
+
+        Emails per month allowed  # noqa: E501
+
+        :param emails_per_month: The emails_per_month of this EmailSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._emails_per_month = emails_per_month
 
     @property
     def marketing_esp_domain_user(self):
