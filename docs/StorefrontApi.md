@@ -13573,6 +13573,9 @@ api_instance = GiftCertificateApi(api_client())
 
     storefront_oid = 1 # int | 
     settings = EmailSettings(
+        emails_per_day=1,
+        emails_per_hour=1,
+        emails_per_month=1,
         marketing_esp_domain_user="marketing_esp_domain_user_example",
         marketing_esp_domain_uuid="marketing_esp_domain_uuid_example",
         marketing_esp_friendly_name="marketing_esp_friendly_name_example",
