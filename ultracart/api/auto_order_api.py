@@ -871,6 +871,7 @@ class AutoOrderApi(object):
         :param async_req bool
         :param AutoOrder auto_order: Auto order to update (required)
         :param int auto_order_oid: The auto order oid to update. (required)
+        :param str validate_original_order: Validate original order before updating
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: AutoOrderResponse
                  If the method is called asynchronously,
@@ -895,13 +896,14 @@ class AutoOrderApi(object):
         :param async_req bool
         :param AutoOrder auto_order: Auto order to update (required)
         :param int auto_order_oid: The auto order oid to update. (required)
+        :param str validate_original_order: Validate original order before updating
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: AutoOrderResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['auto_order', 'auto_order_oid', 'expand']  # noqa: E501
+        all_params = ['auto_order', 'auto_order_oid', 'validate_original_order', 'expand']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -932,6 +934,8 @@ class AutoOrderApi(object):
             path_params['auto_order_oid'] = params['auto_order_oid']  # noqa: E501
 
         query_params = []
+        if 'validate_original_order' in params:
+            query_params.append(('validate_original_order', params['validate_original_order']))  # noqa: E501
         if 'expand' in params:
             query_params.append(('_expand', params['expand']))  # noqa: E501
 

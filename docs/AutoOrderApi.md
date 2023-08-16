@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_auto_order**
-> AutoOrderResponse update_auto_order(auto_order, auto_order_oid, expand=expand)
+> AutoOrderResponse update_auto_order(auto_order, auto_order_oid, validate_original_order=validate_original_order, expand=expand)
 
 Update an auto order
 
@@ -448,11 +448,12 @@ api_instance = ultracart.AutoOrderApi.fromApiKey(simple_key, False, True)
 
 auto_order = ultracart.AutoOrder() # AutoOrder | Auto order to update
 auto_order_oid = 56 # int | The auto order oid to update.
+validate_original_order = 'validate_original_order_example' # str | Validate original order before updating (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try:
     # Update an auto order
-    api_response = api_instance.update_auto_order(auto_order, auto_order_oid, expand=expand)
+    api_response = api_instance.update_auto_order(auto_order, auto_order_oid, validate_original_order=validate_original_order, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AutoOrderApi->update_auto_order: %s\n" % e)
@@ -464,6 +465,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_order** | [**AutoOrder**](AutoOrder.md)| Auto order to update | 
  **auto_order_oid** | **int**| The auto order oid to update. | 
+ **validate_original_order** | **str**| Validate original order before updating | [optional] 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
