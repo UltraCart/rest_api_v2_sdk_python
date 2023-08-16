@@ -3205,6 +3205,7 @@ api_instance = GiftCertificateApi(api_client())
         rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
         status="active",
     ) # AutoOrder | Auto order to update
+    validate_original_order = "validate_original_order_example" # str | Validate original order before updating (optional)
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
     # example passing only required values which don't have defaults set
@@ -3219,7 +3220,7 @@ api_instance = GiftCertificateApi(api_client())
     # and optional values
     try:
         # Update an auto order
-        api_response = api_instance.update_auto_order(auto_order_oid, auto_order, expand=expand)
+        api_response = api_instance.update_auto_order(auto_order_oid, auto_order, validate_original_order=validate_original_order, expand=expand)
         pprint(api_response)
     except ultracart.ApiException as e:
         print("Exception when calling AutoOrderApi->update_auto_order: %s\n" % e)
@@ -3232,6 +3233,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_order_oid** | **int**| The auto order oid to update. |
  **auto_order** | [**AutoOrder**](AutoOrder.md)| Auto order to update |
+ **validate_original_order** | **str**| Validate original order before updating | [optional]
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

@@ -588,6 +588,7 @@ class AutoOrderApi(object):
                 'all': [
                     'auto_order_oid',
                     'auto_order',
+                    'validate_original_order',
                     'expand',
                 ],
                 'required': [
@@ -611,16 +612,20 @@ class AutoOrderApi(object):
                         (int,),
                     'auto_order':
                         (AutoOrder,),
+                    'validate_original_order':
+                        (str,),
                     'expand':
                         (str,),
                 },
                 'attribute_map': {
                     'auto_order_oid': 'auto_order_oid',
+                    'validate_original_order': 'validate_original_order',
                     'expand': '_expand',
                 },
                 'location_map': {
                     'auto_order_oid': 'path',
                     'auto_order': 'body',
+                    'validate_original_order': 'query',
                     'expand': 'query',
                 },
                 'collection_format_map': {
@@ -1333,6 +1338,7 @@ class AutoOrderApi(object):
             auto_order (AutoOrder): Auto order to update
 
         Keyword Args:
+            validate_original_order (str): Validate original order before updating. [optional]
             expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
