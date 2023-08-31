@@ -1176,6 +1176,16 @@ api_instance = GiftCertificateApi(api_client())
                 "required_purchase_items_example",
             ],
         ),
+        free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
+            items=[
+                "items_example",
+            ],
+            limit=1,
+            match_required_purchase_item_to_free_item=True,
+            required_purchase_items=[
+                "required_purchase_items_example",
+            ],
+        ),
         free_item_with_subtotal=CouponFreeItemWithSubtotal(
             currency_code="currency_code_example",
             items=[
@@ -1645,6 +1655,16 @@ api_instance = GiftCertificateApi(api_client())
                     subtotal_amount=3.14,
                 ),
                 free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
+                    items=[
+                        "items_example",
+                    ],
+                    limit=1,
+                    match_required_purchase_item_to_free_item=True,
+                    required_purchase_items=[
+                        "required_purchase_items_example",
+                    ],
+                ),
+                free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
                     items=[
                         "items_example",
                     ],
@@ -2318,6 +2338,16 @@ api_instance = GiftCertificateApi(api_client())
                 "required_purchase_items_example",
             ],
         ),
+        free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
+            items=[
+                "items_example",
+            ],
+            limit=1,
+            match_required_purchase_item_to_free_item=True,
+            required_purchase_items=[
+                "required_purchase_items_example",
+            ],
+        ),
         free_item_with_subtotal=CouponFreeItemWithSubtotal(
             currency_code="currency_code_example",
             items=[
@@ -2788,6 +2818,16 @@ api_instance = GiftCertificateApi(api_client())
                     subtotal_amount=3.14,
                 ),
                 free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
+                    items=[
+                        "items_example",
+                    ],
+                    limit=1,
+                    match_required_purchase_item_to_free_item=True,
+                    required_purchase_items=[
+                        "required_purchase_items_example",
+                    ],
+                ),
+                free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
                     items=[
                         "items_example",
                     ],

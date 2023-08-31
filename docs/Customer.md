@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **password** | **str** | Password (may only be set, never read) | [optional] 
 **pricing_tiers** | [**[CustomerPricingTier]**](CustomerPricingTier.md) | Pricing tiers for this customer | [optional] 
 **privacy** | [**CustomerPrivacy**](CustomerPrivacy.md) |  | [optional] 
+**properties** | [**[CustomerProperty]**](CustomerProperty.md) | Properties for this customer | [optional] 
 **qb_class** | **str** | QuickBooks class to import this customer as | [optional] 
 **qb_code** | **str** | QuickBooks name to import this customer as | [optional] 
 **qb_tax_exemption_reason_code** | **int** | QuickBooks tax exemption reason code | [optional] 

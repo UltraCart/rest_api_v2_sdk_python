@@ -2271,6 +2271,13 @@ api_instance = GiftCertificateApi(api_client())
             preference=True,
             statistics=True,
         ),
+        properties=[
+            CustomerProperty(
+                expiration_dts="expiration_dts_example",
+                name="name_example",
+                value="value_example",
+            ),
+        ],
         qb_class="qb_class_example",
         qb_code="qb_code_example",
         qb_tax_exemption_reason_code=1,
@@ -4641,6 +4648,13 @@ api_instance = GiftCertificateApi(api_client())
             preference=True,
             statistics=True,
         ),
+        properties=[
+            CustomerProperty(
+                expiration_dts="expiration_dts_example",
+                name="name_example",
+                value="value_example",
+            ),
+        ],
         qb_class="qb_class_example",
         qb_code="qb_code_example",
         qb_tax_exemption_reason_code=1,

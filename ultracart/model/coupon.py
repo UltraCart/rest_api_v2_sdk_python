@@ -47,6 +47,7 @@ def lazy_import():
     from ultracart.model.coupon_discount_items import CouponDiscountItems
     from ultracart.model.coupon_free_item_and_shipping_with_subtotal import CouponFreeItemAndShippingWithSubtotal
     from ultracart.model.coupon_free_item_with_item_purchase import CouponFreeItemWithItemPurchase
+    from ultracart.model.coupon_free_item_with_item_purchase_and_free_shipping import CouponFreeItemWithItemPurchaseAndFreeShipping
     from ultracart.model.coupon_free_item_with_subtotal import CouponFreeItemWithSubtotal
     from ultracart.model.coupon_free_items_with_item_purchase import CouponFreeItemsWithItemPurchase
     from ultracart.model.coupon_free_items_with_mix_match_purchase import CouponFreeItemsWithMixMatchPurchase
@@ -95,6 +96,7 @@ def lazy_import():
     globals()['CouponDiscountItems'] = CouponDiscountItems
     globals()['CouponFreeItemAndShippingWithSubtotal'] = CouponFreeItemAndShippingWithSubtotal
     globals()['CouponFreeItemWithItemPurchase'] = CouponFreeItemWithItemPurchase
+    globals()['CouponFreeItemWithItemPurchaseAndFreeShipping'] = CouponFreeItemWithItemPurchaseAndFreeShipping
     globals()['CouponFreeItemWithSubtotal'] = CouponFreeItemWithSubtotal
     globals()['CouponFreeItemsWithItemPurchase'] = CouponFreeItemsWithItemPurchase
     globals()['CouponFreeItemsWithMixMatchPurchase'] = CouponFreeItemsWithMixMatchPurchase
@@ -231,6 +233,7 @@ class Coupon(ModelNormal):
             'expiration_dts': (str,),  # noqa: E501
             'free_item_and_shipping_with_subtotal': (CouponFreeItemAndShippingWithSubtotal,),  # noqa: E501
             'free_item_with_item_purchase': (CouponFreeItemWithItemPurchase,),  # noqa: E501
+            'free_item_with_item_purchase_and_free_shipping': (CouponFreeItemWithItemPurchaseAndFreeShipping,),  # noqa: E501
             'free_item_with_subtotal': (CouponFreeItemWithSubtotal,),  # noqa: E501
             'free_items_with_item_purchase': (CouponFreeItemsWithItemPurchase,),  # noqa: E501
             'free_items_with_mixmatch_purchase': (CouponFreeItemsWithMixMatchPurchase,),  # noqa: E501
@@ -305,6 +308,7 @@ class Coupon(ModelNormal):
         'expiration_dts': 'expiration_dts',  # noqa: E501
         'free_item_and_shipping_with_subtotal': 'free_item_and_shipping_with_subtotal',  # noqa: E501
         'free_item_with_item_purchase': 'free_item_with_item_purchase',  # noqa: E501
+        'free_item_with_item_purchase_and_free_shipping': 'free_item_with_item_purchase_and_free_shipping',  # noqa: E501
         'free_item_with_subtotal': 'free_item_with_subtotal',  # noqa: E501
         'free_items_with_item_purchase': 'free_items_with_item_purchase',  # noqa: E501
         'free_items_with_mixmatch_purchase': 'free_items_with_mixmatch_purchase',  # noqa: E501
@@ -414,6 +418,7 @@ class Coupon(ModelNormal):
             expiration_dts (str): Date/time when coupon expires. [optional]  # noqa: E501
             free_item_and_shipping_with_subtotal (CouponFreeItemAndShippingWithSubtotal): [optional]  # noqa: E501
             free_item_with_item_purchase (CouponFreeItemWithItemPurchase): [optional]  # noqa: E501
+            free_item_with_item_purchase_and_free_shipping (CouponFreeItemWithItemPurchaseAndFreeShipping): [optional]  # noqa: E501
             free_item_with_subtotal (CouponFreeItemWithSubtotal): [optional]  # noqa: E501
             free_items_with_item_purchase (CouponFreeItemsWithItemPurchase): [optional]  # noqa: E501
             free_items_with_mixmatch_purchase (CouponFreeItemsWithMixMatchPurchase): [optional]  # noqa: E501
@@ -565,6 +570,7 @@ class Coupon(ModelNormal):
             expiration_dts (str): Date/time when coupon expires. [optional]  # noqa: E501
             free_item_and_shipping_with_subtotal (CouponFreeItemAndShippingWithSubtotal): [optional]  # noqa: E501
             free_item_with_item_purchase (CouponFreeItemWithItemPurchase): [optional]  # noqa: E501
+            free_item_with_item_purchase_and_free_shipping (CouponFreeItemWithItemPurchaseAndFreeShipping): [optional]  # noqa: E501
             free_item_with_subtotal (CouponFreeItemWithSubtotal): [optional]  # noqa: E501
             free_items_with_item_purchase (CouponFreeItemsWithItemPurchase): [optional]  # noqa: E501
             free_items_with_mixmatch_purchase (CouponFreeItemsWithMixMatchPurchase): [optional]  # noqa: E501

@@ -41,6 +41,7 @@ def lazy_import():
     from ultracart.model.customer_orders_summary import CustomerOrdersSummary
     from ultracart.model.customer_pricing_tier import CustomerPricingTier
     from ultracart.model.customer_privacy import CustomerPrivacy
+    from ultracart.model.customer_property import CustomerProperty
     from ultracart.model.customer_quotes_summary import CustomerQuotesSummary
     from ultracart.model.customer_reviewer import CustomerReviewer
     from ultracart.model.customer_shipping import CustomerShipping
@@ -58,6 +59,7 @@ def lazy_import():
     globals()['CustomerOrdersSummary'] = CustomerOrdersSummary
     globals()['CustomerPricingTier'] = CustomerPricingTier
     globals()['CustomerPrivacy'] = CustomerPrivacy
+    globals()['CustomerProperty'] = CustomerProperty
     globals()['CustomerQuotesSummary'] = CustomerQuotesSummary
     globals()['CustomerReviewer'] = CustomerReviewer
     globals()['CustomerShipping'] = CustomerShipping
@@ -193,6 +195,7 @@ class Customer(ModelNormal):
             'password': (str,),  # noqa: E501
             'pricing_tiers': ([CustomerPricingTier],),  # noqa: E501
             'privacy': (CustomerPrivacy,),  # noqa: E501
+            'properties': ([CustomerProperty],),  # noqa: E501
             'qb_class': (str,),  # noqa: E501
             'qb_code': (str,),  # noqa: E501
             'qb_tax_exemption_reason_code': (int,),  # noqa: E501
@@ -263,6 +266,7 @@ class Customer(ModelNormal):
         'password': 'password',  # noqa: E501
         'pricing_tiers': 'pricing_tiers',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
+        'properties': 'properties',  # noqa: E501
         'qb_class': 'qb_class',  # noqa: E501
         'qb_code': 'qb_code',  # noqa: E501
         'qb_tax_exemption_reason_code': 'qb_tax_exemption_reason_code',  # noqa: E501
@@ -368,6 +372,7 @@ class Customer(ModelNormal):
             password (str): Password (may only be set, never read). [optional]  # noqa: E501
             pricing_tiers ([CustomerPricingTier]): Pricing tiers for this customer. [optional]  # noqa: E501
             privacy (CustomerPrivacy): [optional]  # noqa: E501
+            properties ([CustomerProperty]): Properties for this customer. [optional]  # noqa: E501
             qb_class (str): QuickBooks class to import this customer as. [optional]  # noqa: E501
             qb_code (str): QuickBooks name to import this customer as. [optional]  # noqa: E501
             qb_tax_exemption_reason_code (int): QuickBooks tax exemption reason code. [optional]  # noqa: E501
@@ -515,6 +520,7 @@ class Customer(ModelNormal):
             password (str): Password (may only be set, never read). [optional]  # noqa: E501
             pricing_tiers ([CustomerPricingTier]): Pricing tiers for this customer. [optional]  # noqa: E501
             privacy (CustomerPrivacy): [optional]  # noqa: E501
+            properties ([CustomerProperty]): Properties for this customer. [optional]  # noqa: E501
             qb_class (str): QuickBooks class to import this customer as. [optional]  # noqa: E501
             qb_code (str): QuickBooks name to import this customer as. [optional]  # noqa: E501
             qb_tax_exemption_reason_code (int): QuickBooks tax exemption reason code. [optional]  # noqa: E501
