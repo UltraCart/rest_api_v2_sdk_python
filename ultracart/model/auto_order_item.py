@@ -78,6 +78,9 @@ class AutoOrderItem(ModelNormal):
             'EVERY_4_MONTHS': "Every 4 Months",
             'EVERY_6_MONTHS': "Every 6 Months",
             'YEARLY': "Yearly",
+            'EVERY_4_WEEKS': "Every 4 Weeks",
+            'EVERY_6_WEEKS': "Every 6 Weeks",
+            'EVERY_8_WEEKS': "Every 8 Weeks",
         },
     }
 
