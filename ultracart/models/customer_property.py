@@ -31,31 +31,59 @@ class CustomerProperty(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'customer_profile_property_oid': 'int',
         'expiration_dts': 'str',
         'name': 'str',
         'value': 'str'
     }
 
     attribute_map = {
+        'customer_profile_property_oid': 'customer_profile_property_oid',
         'expiration_dts': 'expiration_dts',
         'name': 'name',
         'value': 'value'
     }
 
-    def __init__(self, expiration_dts=None, name=None, value=None):  # noqa: E501
+    def __init__(self, customer_profile_property_oid=None, expiration_dts=None, name=None, value=None):  # noqa: E501
         """CustomerProperty - a model defined in Swagger"""  # noqa: E501
 
+        self._customer_profile_property_oid = None
         self._expiration_dts = None
         self._name = None
         self._value = None
         self.discriminator = None
 
+        if customer_profile_property_oid is not None:
+            self.customer_profile_property_oid = customer_profile_property_oid
         if expiration_dts is not None:
             self.expiration_dts = expiration_dts
         if name is not None:
             self.name = name
         if value is not None:
             self.value = value
+
+    @property
+    def customer_profile_property_oid(self):
+        """Gets the customer_profile_property_oid of this CustomerProperty.  # noqa: E501
+
+        Customer profile property oid  # noqa: E501
+
+        :return: The customer_profile_property_oid of this CustomerProperty.  # noqa: E501
+        :rtype: int
+        """
+        return self._customer_profile_property_oid
+
+    @customer_profile_property_oid.setter
+    def customer_profile_property_oid(self, customer_profile_property_oid):
+        """Sets the customer_profile_property_oid of this CustomerProperty.
+
+        Customer profile property oid  # noqa: E501
+
+        :param customer_profile_property_oid: The customer_profile_property_oid of this CustomerProperty.  # noqa: E501
+        :type: int
+        """
+
+        self._customer_profile_property_oid = customer_profile_property_oid
 
     @property
     def expiration_dts(self):
