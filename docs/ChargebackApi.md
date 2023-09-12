@@ -718,6 +718,7 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 properties=[
                     CustomerProperty(
+                        customer_profile_property_oid=1,
                         expiration_dts="expiration_dts_example",
                         name="name_example",
                         value="value_example",
@@ -2044,6 +2045,7 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 properties=[
                     CustomerProperty(
+                        customer_profile_property_oid=1,
                         expiration_dts="expiration_dts_example",
                         name="name_example",
                         value="value_example",

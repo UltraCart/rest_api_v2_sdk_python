@@ -88,6 +88,7 @@ class CustomerProperty(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'customer_profile_property_oid': (int,),  # noqa: E501
             'expiration_dts': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
@@ -99,6 +100,7 @@ class CustomerProperty(ModelNormal):
 
 
     attribute_map = {
+        'customer_profile_property_oid': 'customer_profile_property_oid',  # noqa: E501
         'expiration_dts': 'expiration_dts',  # noqa: E501
         'name': 'name',  # noqa: E501
         'value': 'value',  # noqa: E501
@@ -145,6 +147,7 @@ class CustomerProperty(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            customer_profile_property_oid (int): Customer profile property oid. [optional]  # noqa: E501
             expiration_dts (str): The date/time that the property expires and is deleted. [optional]  # noqa: E501
             name (str): Name. [optional]  # noqa: E501
             value (str): Value. [optional]  # noqa: E501
@@ -233,6 +236,7 @@ class CustomerProperty(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            customer_profile_property_oid (int): Customer profile property oid. [optional]  # noqa: E501
             expiration_dts (str): The date/time that the property expires and is deleted. [optional]  # noqa: E501
             name (str): Name. [optional]  # noqa: E501
             value (str): Value. [optional]  # noqa: E501
