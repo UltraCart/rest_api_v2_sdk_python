@@ -1536,6 +1536,10 @@ api_instance = GiftCertificateApi(api_client())
         ),
         identifiers=ItemIdentifiers(
             barcode="barcode_example",
+            barcode_gtin12="barcode_gtin12_example",
+            barcode_gtin14="barcode_gtin14_example",
+            barcode_upc11="barcode_upc11_example",
+            barcode_upc12="barcode_upc12_example",
             manufacturer_name="manufacturer_name_example",
             manufacturer_sku="manufacturer_sku_example",
             unspsc="unspsc_example",
@@ -2695,6 +2699,10 @@ api_instance = GiftCertificateApi(api_client())
         ),
         identifiers=ItemIdentifiers(
             barcode="barcode_example",
+            barcode_gtin12="barcode_gtin12_example",
+            barcode_gtin14="barcode_gtin14_example",
+            barcode_upc11="barcode_upc11_example",
+            barcode_upc12="barcode_upc12_example",
             manufacturer_name="manufacturer_name_example",
             manufacturer_sku="manufacturer_sku_example",
             unspsc="unspsc_example",
@@ -3645,6 +3653,10 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 identifiers=ItemIdentifiers(
                     barcode="barcode_example",
+                    barcode_gtin12="barcode_gtin12_example",
+                    barcode_gtin14="barcode_gtin14_example",
+                    barcode_upc11="barcode_upc11_example",
+                    barcode_upc12="barcode_upc12_example",
                     manufacturer_name="manufacturer_name_example",
                     manufacturer_sku="manufacturer_sku_example",
                     unspsc="unspsc_example",

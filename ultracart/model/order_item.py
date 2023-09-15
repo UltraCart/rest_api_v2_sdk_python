@@ -81,6 +81,18 @@ class OrderItem(ModelNormal):
     }
 
     validations = {
+        ('barcode_gtin12',): {
+            'max_length': 12,
+        },
+        ('barcode_gtin14',): {
+            'max_length': 14,
+        },
+        ('barcode_upc11',): {
+            'max_length': 11,
+        },
+        ('barcode_upc12',): {
+            'max_length': 12,
+        },
         ('channel_partner_item_id',): {
             'max_length': 30,
         },
@@ -133,6 +145,10 @@ class OrderItem(ModelNormal):
             'auto_order_last_rebill_dts': (str,),  # noqa: E501
             'auto_order_schedule': (str,),  # noqa: E501
             'barcode': (str,),  # noqa: E501
+            'barcode_gtin12': (str,),  # noqa: E501
+            'barcode_gtin14': (str,),  # noqa: E501
+            'barcode_upc11': (str,),  # noqa: E501
+            'barcode_upc12': (str,),  # noqa: E501
             'channel_partner_item_id': (str,),  # noqa: E501
             'cogs': (float,),  # noqa: E501
             'component_unit_value': (float,),  # noqa: E501
@@ -202,6 +218,10 @@ class OrderItem(ModelNormal):
         'auto_order_last_rebill_dts': 'auto_order_last_rebill_dts',  # noqa: E501
         'auto_order_schedule': 'auto_order_schedule',  # noqa: E501
         'barcode': 'barcode',  # noqa: E501
+        'barcode_gtin12': 'barcode_gtin12',  # noqa: E501
+        'barcode_gtin14': 'barcode_gtin14',  # noqa: E501
+        'barcode_upc11': 'barcode_upc11',  # noqa: E501
+        'barcode_upc12': 'barcode_upc12',  # noqa: E501
         'channel_partner_item_id': 'channel_partner_item_id',  # noqa: E501
         'cogs': 'cogs',  # noqa: E501
         'component_unit_value': 'component_unit_value',  # noqa: E501
@@ -306,6 +326,10 @@ class OrderItem(ModelNormal):
             auto_order_last_rebill_dts (str): Date/time of the last rebill, used only during order insert to help project future rebills. [optional]  # noqa: E501
             auto_order_schedule (str): Auto order schedule, used only during inserts supplying the recurring schedule. [optional]  # noqa: E501
             barcode (str): Barcode. [optional]  # noqa: E501
+            barcode_gtin12 (str): Barcode - GTIN 12. [optional]  # noqa: E501
+            barcode_gtin14 (str): Barcode - GTIN 14. [optional]  # noqa: E501
+            barcode_upc11 (str): Barcode - UPC 11. [optional]  # noqa: E501
+            barcode_upc12 (str): Barcode - UPC 12. [optional]  # noqa: E501
             channel_partner_item_id (str): Channel partner item id if this order came through a channel partner and the channel partner item id was mapped to an internal item id. [optional]  # noqa: E501
             cogs (float): Cost of goods sold. [optional]  # noqa: E501
             component_unit_value (float): Value of the kit component item. [optional]  # noqa: E501
@@ -452,6 +476,10 @@ class OrderItem(ModelNormal):
             auto_order_last_rebill_dts (str): Date/time of the last rebill, used only during order insert to help project future rebills. [optional]  # noqa: E501
             auto_order_schedule (str): Auto order schedule, used only during inserts supplying the recurring schedule. [optional]  # noqa: E501
             barcode (str): Barcode. [optional]  # noqa: E501
+            barcode_gtin12 (str): Barcode - GTIN 12. [optional]  # noqa: E501
+            barcode_gtin14 (str): Barcode - GTIN 14. [optional]  # noqa: E501
+            barcode_upc11 (str): Barcode - UPC 11. [optional]  # noqa: E501
+            barcode_upc12 (str): Barcode - UPC 12. [optional]  # noqa: E501
             channel_partner_item_id (str): Channel partner item id if this order came through a channel partner and the channel partner item id was mapped to an internal item id. [optional]  # noqa: E501
             cogs (float): Cost of goods sold. [optional]  # noqa: E501
             component_unit_value (float): Value of the kit component item. [optional]  # noqa: E501

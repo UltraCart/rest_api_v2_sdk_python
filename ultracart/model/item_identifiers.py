@@ -62,6 +62,18 @@ class ItemIdentifiers(ModelNormal):
         ('barcode',): {
             'max_length': 30,
         },
+        ('barcode_gtin12',): {
+            'max_length': 12,
+        },
+        ('barcode_gtin14',): {
+            'max_length': 14,
+        },
+        ('barcode_upc11',): {
+            'max_length': 11,
+        },
+        ('barcode_upc12',): {
+            'max_length': 12,
+        },
         ('manufacturer_name',): {
             'max_length': 50,
         },
@@ -95,6 +107,10 @@ class ItemIdentifiers(ModelNormal):
         """
         return {
             'barcode': (str,),  # noqa: E501
+            'barcode_gtin12': (str,),  # noqa: E501
+            'barcode_gtin14': (str,),  # noqa: E501
+            'barcode_upc11': (str,),  # noqa: E501
+            'barcode_upc12': (str,),  # noqa: E501
             'manufacturer_name': (str,),  # noqa: E501
             'manufacturer_sku': (str,),  # noqa: E501
             'unspsc': (str,),  # noqa: E501
@@ -107,6 +123,10 @@ class ItemIdentifiers(ModelNormal):
 
     attribute_map = {
         'barcode': 'barcode',  # noqa: E501
+        'barcode_gtin12': 'barcode_gtin12',  # noqa: E501
+        'barcode_gtin14': 'barcode_gtin14',  # noqa: E501
+        'barcode_upc11': 'barcode_upc11',  # noqa: E501
+        'barcode_upc12': 'barcode_upc12',  # noqa: E501
         'manufacturer_name': 'manufacturer_name',  # noqa: E501
         'manufacturer_sku': 'manufacturer_sku',  # noqa: E501
         'unspsc': 'unspsc',  # noqa: E501
@@ -154,6 +174,10 @@ class ItemIdentifiers(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             barcode (str): Barcode. [optional]  # noqa: E501
+            barcode_gtin12 (str): Barcode - GTIN 12. [optional]  # noqa: E501
+            barcode_gtin14 (str): Barcode - GTIN 14. [optional]  # noqa: E501
+            barcode_upc11 (str): Barcode - UPC 11. [optional]  # noqa: E501
+            barcode_upc12 (str): Barcode - UPC 12. [optional]  # noqa: E501
             manufacturer_name (str): Manufacturer Name. [optional]  # noqa: E501
             manufacturer_sku (str): Manufacturer SKU. [optional]  # noqa: E501
             unspsc (str): UNSPSC. [optional]  # noqa: E501
@@ -243,6 +267,10 @@ class ItemIdentifiers(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             barcode (str): Barcode. [optional]  # noqa: E501
+            barcode_gtin12 (str): Barcode - GTIN 12. [optional]  # noqa: E501
+            barcode_gtin14 (str): Barcode - GTIN 14. [optional]  # noqa: E501
+            barcode_upc11 (str): Barcode - UPC 11. [optional]  # noqa: E501
+            barcode_upc12 (str): Barcode - UPC 12. [optional]  # noqa: E501
             manufacturer_name (str): Manufacturer Name. [optional]  # noqa: E501
             manufacturer_sku (str): Manufacturer SKU. [optional]  # noqa: E501
             unspsc (str): UNSPSC. [optional]  # noqa: E501
