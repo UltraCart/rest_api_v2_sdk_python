@@ -32,6 +32,10 @@ class ItemIdentifiers(object):
     """
     swagger_types = {
         'barcode': 'str',
+        'barcode_gtin12': 'str',
+        'barcode_gtin14': 'str',
+        'barcode_upc11': 'str',
+        'barcode_upc12': 'str',
         'manufacturer_name': 'str',
         'manufacturer_sku': 'str',
         'unspsc': 'str'
@@ -39,15 +43,23 @@ class ItemIdentifiers(object):
 
     attribute_map = {
         'barcode': 'barcode',
+        'barcode_gtin12': 'barcode_gtin12',
+        'barcode_gtin14': 'barcode_gtin14',
+        'barcode_upc11': 'barcode_upc11',
+        'barcode_upc12': 'barcode_upc12',
         'manufacturer_name': 'manufacturer_name',
         'manufacturer_sku': 'manufacturer_sku',
         'unspsc': 'unspsc'
     }
 
-    def __init__(self, barcode=None, manufacturer_name=None, manufacturer_sku=None, unspsc=None):  # noqa: E501
+    def __init__(self, barcode=None, barcode_gtin12=None, barcode_gtin14=None, barcode_upc11=None, barcode_upc12=None, manufacturer_name=None, manufacturer_sku=None, unspsc=None):  # noqa: E501
         """ItemIdentifiers - a model defined in Swagger"""  # noqa: E501
 
         self._barcode = None
+        self._barcode_gtin12 = None
+        self._barcode_gtin14 = None
+        self._barcode_upc11 = None
+        self._barcode_upc12 = None
         self._manufacturer_name = None
         self._manufacturer_sku = None
         self._unspsc = None
@@ -55,6 +67,14 @@ class ItemIdentifiers(object):
 
         if barcode is not None:
             self.barcode = barcode
+        if barcode_gtin12 is not None:
+            self.barcode_gtin12 = barcode_gtin12
+        if barcode_gtin14 is not None:
+            self.barcode_gtin14 = barcode_gtin14
+        if barcode_upc11 is not None:
+            self.barcode_upc11 = barcode_upc11
+        if barcode_upc12 is not None:
+            self.barcode_upc12 = barcode_upc12
         if manufacturer_name is not None:
             self.manufacturer_name = manufacturer_name
         if manufacturer_sku is not None:
@@ -86,6 +106,106 @@ class ItemIdentifiers(object):
             raise ValueError("Invalid value for `barcode`, length must be less than or equal to `30`")  # noqa: E501
 
         self._barcode = barcode
+
+    @property
+    def barcode_gtin12(self):
+        """Gets the barcode_gtin12 of this ItemIdentifiers.  # noqa: E501
+
+        Barcode - GTIN 12  # noqa: E501
+
+        :return: The barcode_gtin12 of this ItemIdentifiers.  # noqa: E501
+        :rtype: str
+        """
+        return self._barcode_gtin12
+
+    @barcode_gtin12.setter
+    def barcode_gtin12(self, barcode_gtin12):
+        """Sets the barcode_gtin12 of this ItemIdentifiers.
+
+        Barcode - GTIN 12  # noqa: E501
+
+        :param barcode_gtin12: The barcode_gtin12 of this ItemIdentifiers.  # noqa: E501
+        :type: str
+        """
+        if barcode_gtin12 is not None and len(barcode_gtin12) > 12:
+            raise ValueError("Invalid value for `barcode_gtin12`, length must be less than or equal to `12`")  # noqa: E501
+
+        self._barcode_gtin12 = barcode_gtin12
+
+    @property
+    def barcode_gtin14(self):
+        """Gets the barcode_gtin14 of this ItemIdentifiers.  # noqa: E501
+
+        Barcode - GTIN 14  # noqa: E501
+
+        :return: The barcode_gtin14 of this ItemIdentifiers.  # noqa: E501
+        :rtype: str
+        """
+        return self._barcode_gtin14
+
+    @barcode_gtin14.setter
+    def barcode_gtin14(self, barcode_gtin14):
+        """Sets the barcode_gtin14 of this ItemIdentifiers.
+
+        Barcode - GTIN 14  # noqa: E501
+
+        :param barcode_gtin14: The barcode_gtin14 of this ItemIdentifiers.  # noqa: E501
+        :type: str
+        """
+        if barcode_gtin14 is not None and len(barcode_gtin14) > 14:
+            raise ValueError("Invalid value for `barcode_gtin14`, length must be less than or equal to `14`")  # noqa: E501
+
+        self._barcode_gtin14 = barcode_gtin14
+
+    @property
+    def barcode_upc11(self):
+        """Gets the barcode_upc11 of this ItemIdentifiers.  # noqa: E501
+
+        Barcode - UPC 11  # noqa: E501
+
+        :return: The barcode_upc11 of this ItemIdentifiers.  # noqa: E501
+        :rtype: str
+        """
+        return self._barcode_upc11
+
+    @barcode_upc11.setter
+    def barcode_upc11(self, barcode_upc11):
+        """Sets the barcode_upc11 of this ItemIdentifiers.
+
+        Barcode - UPC 11  # noqa: E501
+
+        :param barcode_upc11: The barcode_upc11 of this ItemIdentifiers.  # noqa: E501
+        :type: str
+        """
+        if barcode_upc11 is not None and len(barcode_upc11) > 11:
+            raise ValueError("Invalid value for `barcode_upc11`, length must be less than or equal to `11`")  # noqa: E501
+
+        self._barcode_upc11 = barcode_upc11
+
+    @property
+    def barcode_upc12(self):
+        """Gets the barcode_upc12 of this ItemIdentifiers.  # noqa: E501
+
+        Barcode - UPC 12  # noqa: E501
+
+        :return: The barcode_upc12 of this ItemIdentifiers.  # noqa: E501
+        :rtype: str
+        """
+        return self._barcode_upc12
+
+    @barcode_upc12.setter
+    def barcode_upc12(self, barcode_upc12):
+        """Sets the barcode_upc12 of this ItemIdentifiers.
+
+        Barcode - UPC 12  # noqa: E501
+
+        :param barcode_upc12: The barcode_upc12 of this ItemIdentifiers.  # noqa: E501
+        :type: str
+        """
+        if barcode_upc12 is not None and len(barcode_upc12) > 12:
+            raise ValueError("Invalid value for `barcode_upc12`, length must be less than or equal to `12`")  # noqa: E501
+
+        self._barcode_upc12 = barcode_upc12
 
     @property
     def manufacturer_name(self):

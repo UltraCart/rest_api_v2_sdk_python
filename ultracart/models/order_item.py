@@ -37,6 +37,10 @@ class OrderItem(object):
         'auto_order_last_rebill_dts': 'str',
         'auto_order_schedule': 'str',
         'barcode': 'str',
+        'barcode_gtin12': 'str',
+        'barcode_gtin14': 'str',
+        'barcode_upc11': 'str',
+        'barcode_upc12': 'str',
         'channel_partner_item_id': 'str',
         'cogs': 'float',
         'component_unit_value': 'float',
@@ -101,6 +105,10 @@ class OrderItem(object):
         'auto_order_last_rebill_dts': 'auto_order_last_rebill_dts',
         'auto_order_schedule': 'auto_order_schedule',
         'barcode': 'barcode',
+        'barcode_gtin12': 'barcode_gtin12',
+        'barcode_gtin14': 'barcode_gtin14',
+        'barcode_upc11': 'barcode_upc11',
+        'barcode_upc12': 'barcode_upc12',
         'channel_partner_item_id': 'channel_partner_item_id',
         'cogs': 'cogs',
         'component_unit_value': 'component_unit_value',
@@ -158,7 +166,7 @@ class OrderItem(object):
         'width': 'width'
     }
 
-    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_index=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, parent_item_index=None, parent_merchant_item_id=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, refund_reason=None, return_reason=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, shipping_status=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
+    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, barcode_gtin12=None, barcode_gtin14=None, barcode_upc11=None, barcode_upc12=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_index=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, parent_item_index=None, parent_merchant_item_id=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, refund_reason=None, return_reason=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, shipping_status=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
         """OrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._accounting_code = None
@@ -167,6 +175,10 @@ class OrderItem(object):
         self._auto_order_last_rebill_dts = None
         self._auto_order_schedule = None
         self._barcode = None
+        self._barcode_gtin12 = None
+        self._barcode_gtin14 = None
+        self._barcode_upc11 = None
+        self._barcode_upc12 = None
         self._channel_partner_item_id = None
         self._cogs = None
         self._component_unit_value = None
@@ -236,6 +248,14 @@ class OrderItem(object):
             self.auto_order_schedule = auto_order_schedule
         if barcode is not None:
             self.barcode = barcode
+        if barcode_gtin12 is not None:
+            self.barcode_gtin12 = barcode_gtin12
+        if barcode_gtin14 is not None:
+            self.barcode_gtin14 = barcode_gtin14
+        if barcode_upc11 is not None:
+            self.barcode_upc11 = barcode_upc11
+        if barcode_upc12 is not None:
+            self.barcode_upc12 = barcode_upc12
         if channel_partner_item_id is not None:
             self.channel_partner_item_id = channel_partner_item_id
         if cogs is not None:
@@ -482,6 +502,106 @@ class OrderItem(object):
         """
 
         self._barcode = barcode
+
+    @property
+    def barcode_gtin12(self):
+        """Gets the barcode_gtin12 of this OrderItem.  # noqa: E501
+
+        Barcode - GTIN 12  # noqa: E501
+
+        :return: The barcode_gtin12 of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._barcode_gtin12
+
+    @barcode_gtin12.setter
+    def barcode_gtin12(self, barcode_gtin12):
+        """Sets the barcode_gtin12 of this OrderItem.
+
+        Barcode - GTIN 12  # noqa: E501
+
+        :param barcode_gtin12: The barcode_gtin12 of this OrderItem.  # noqa: E501
+        :type: str
+        """
+        if barcode_gtin12 is not None and len(barcode_gtin12) > 12:
+            raise ValueError("Invalid value for `barcode_gtin12`, length must be less than or equal to `12`")  # noqa: E501
+
+        self._barcode_gtin12 = barcode_gtin12
+
+    @property
+    def barcode_gtin14(self):
+        """Gets the barcode_gtin14 of this OrderItem.  # noqa: E501
+
+        Barcode - GTIN 14  # noqa: E501
+
+        :return: The barcode_gtin14 of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._barcode_gtin14
+
+    @barcode_gtin14.setter
+    def barcode_gtin14(self, barcode_gtin14):
+        """Sets the barcode_gtin14 of this OrderItem.
+
+        Barcode - GTIN 14  # noqa: E501
+
+        :param barcode_gtin14: The barcode_gtin14 of this OrderItem.  # noqa: E501
+        :type: str
+        """
+        if barcode_gtin14 is not None and len(barcode_gtin14) > 14:
+            raise ValueError("Invalid value for `barcode_gtin14`, length must be less than or equal to `14`")  # noqa: E501
+
+        self._barcode_gtin14 = barcode_gtin14
+
+    @property
+    def barcode_upc11(self):
+        """Gets the barcode_upc11 of this OrderItem.  # noqa: E501
+
+        Barcode - UPC 11  # noqa: E501
+
+        :return: The barcode_upc11 of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._barcode_upc11
+
+    @barcode_upc11.setter
+    def barcode_upc11(self, barcode_upc11):
+        """Sets the barcode_upc11 of this OrderItem.
+
+        Barcode - UPC 11  # noqa: E501
+
+        :param barcode_upc11: The barcode_upc11 of this OrderItem.  # noqa: E501
+        :type: str
+        """
+        if barcode_upc11 is not None and len(barcode_upc11) > 11:
+            raise ValueError("Invalid value for `barcode_upc11`, length must be less than or equal to `11`")  # noqa: E501
+
+        self._barcode_upc11 = barcode_upc11
+
+    @property
+    def barcode_upc12(self):
+        """Gets the barcode_upc12 of this OrderItem.  # noqa: E501
+
+        Barcode - UPC 12  # noqa: E501
+
+        :return: The barcode_upc12 of this OrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._barcode_upc12
+
+    @barcode_upc12.setter
+    def barcode_upc12(self, barcode_upc12):
+        """Sets the barcode_upc12 of this OrderItem.
+
+        Barcode - UPC 12  # noqa: E501
+
+        :param barcode_upc12: The barcode_upc12 of this OrderItem.  # noqa: E501
+        :type: str
+        """
+        if barcode_upc12 is not None and len(barcode_upc12) > 12:
+            raise ValueError("Invalid value for `barcode_upc12`, length must be less than or equal to `12`")  # noqa: E501
+
+        self._barcode_upc12 = barcode_upc12
 
     @property
     def channel_partner_item_id(self):
