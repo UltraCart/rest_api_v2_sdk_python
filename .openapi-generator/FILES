@@ -659,6 +659,7 @@ docs/ReportDataSetColumn.md
 docs/ReportDataSetPage.md
 docs/ReportDataSetPageResponse.md
 docs/ReportDataSetQuery.md
+docs/ReportDataSetQueryOrderByColumn.md
 docs/ReportDataSetResponse.md
 docs/ReportDataSetRow.md
 docs/ReportDataSetSchema.md
@@ -1477,6 +1478,7 @@ ultracart/model/report_data_set_column.py
 ultracart/model/report_data_set_page.py
 ultracart/model/report_data_set_page_response.py
 ultracart/model/report_data_set_query.py
+ultracart/model/report_data_set_query_order_by_column.py
 ultracart/model/report_data_set_response.py
 ultracart/model/report_data_set_row.py
 ultracart/model/report_data_set_schema.py

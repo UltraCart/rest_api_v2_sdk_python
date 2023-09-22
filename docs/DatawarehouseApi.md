@@ -176,6 +176,12 @@ api_instance = GiftCertificateApi(api_client())
                         round=1,
                     ),
                 ],
+                order_by_columns=[
+                    ReportDataSetQueryOrderByColumn(
+                        ascending=True,
+                        column_name="column_name_example",
+                    ),
+                ],
                 page_size=1,
                 selected_filters=[
                     ReportFilter(
@@ -333,6 +339,12 @@ api_instance = GiftCertificateApi(api_client())
                         _as="_as_example",
                         column="column_example",
                         round=1,
+                    ),
+                ],
+                order_by_columns=[
+                    ReportDataSetQueryOrderByColumn(
+                        ascending=True,
+                        column_name="column_name_example",
                     ),
                 ],
                 page_size=1,
