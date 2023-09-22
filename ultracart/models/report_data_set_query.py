@@ -39,6 +39,7 @@ class ReportDataSetQuery(object):
         'for_object_id': 'str',
         'for_object_type': 'str',
         'metrics': 'list[ReportPageVisualizationMetric]',
+        'order_by_columns': 'list[ReportDataSetQueryOrderByColumn]',
         'page_size': 'int',
         'selected_filters': 'list[ReportFilter]',
         'skip_cache': 'bool',
@@ -54,13 +55,14 @@ class ReportDataSetQuery(object):
         'for_object_id': 'for_object_id',
         'for_object_type': 'for_object_type',
         'metrics': 'metrics',
+        'order_by_columns': 'order_by_columns',
         'page_size': 'page_size',
         'selected_filters': 'selected_filters',
         'skip_cache': 'skip_cache',
         'user_data': 'user_data'
     }
 
-    def __init__(self, comparison_results=None, data_set_query_uuid=None, data_source=None, dimensions=None, filter=None, for_object_id=None, for_object_type=None, metrics=None, page_size=None, selected_filters=None, skip_cache=None, user_data=None):  # noqa: E501
+    def __init__(self, comparison_results=None, data_set_query_uuid=None, data_source=None, dimensions=None, filter=None, for_object_id=None, for_object_type=None, metrics=None, order_by_columns=None, page_size=None, selected_filters=None, skip_cache=None, user_data=None):  # noqa: E501
         """ReportDataSetQuery - a model defined in Swagger"""  # noqa: E501
 
         self._comparison_results = None
@@ -71,6 +73,7 @@ class ReportDataSetQuery(object):
         self._for_object_id = None
         self._for_object_type = None
         self._metrics = None
+        self._order_by_columns = None
         self._page_size = None
         self._selected_filters = None
         self._skip_cache = None
@@ -93,6 +96,8 @@ class ReportDataSetQuery(object):
             self.for_object_type = for_object_type
         if metrics is not None:
             self.metrics = metrics
+        if order_by_columns is not None:
+            self.order_by_columns = order_by_columns
         if page_size is not None:
             self.page_size = page_size
         if selected_filters is not None:
@@ -283,6 +288,29 @@ class ReportDataSetQuery(object):
         """
 
         self._metrics = metrics
+
+    @property
+    def order_by_columns(self):
+        """Gets the order_by_columns of this ReportDataSetQuery.  # noqa: E501
+
+        The columns to order by in the final result.  If not specified the dimensions will be used  # noqa: E501
+
+        :return: The order_by_columns of this ReportDataSetQuery.  # noqa: E501
+        :rtype: list[ReportDataSetQueryOrderByColumn]
+        """
+        return self._order_by_columns
+
+    @order_by_columns.setter
+    def order_by_columns(self, order_by_columns):
+        """Sets the order_by_columns of this ReportDataSetQuery.
+
+        The columns to order by in the final result.  If not specified the dimensions will be used  # noqa: E501
+
+        :param order_by_columns: The order_by_columns of this ReportDataSetQuery.  # noqa: E501
+        :type: list[ReportDataSetQueryOrderByColumn]
+        """
+
+        self._order_by_columns = order_by_columns
 
     @property
     def page_size(self):
