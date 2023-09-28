@@ -13707,6 +13707,9 @@ api_instance = GiftCertificateApi(api_client())
                         event_count=1,
                         initiate_checkout_count=1,
                         order_count=1,
+                        order_ids=[
+                            "order_ids_example",
+                        ],
                         order_item_count=1,
                         page_view_count=1,
                         revenue=3.14,

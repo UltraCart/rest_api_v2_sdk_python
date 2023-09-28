@@ -88,6 +88,7 @@ class ExperimentVariationStat(ModelNormal):
             'event_count': (int,),  # noqa: E501
             'initiate_checkout_count': (int,),  # noqa: E501
             'order_count': (int,),  # noqa: E501
+            'order_ids': ([str],),  # noqa: E501
             'order_item_count': (int,),  # noqa: E501
             'page_view_count': (int,),  # noqa: E501
             'revenue': (float,),  # noqa: E501
@@ -108,6 +109,7 @@ class ExperimentVariationStat(ModelNormal):
         'event_count': 'event_count',  # noqa: E501
         'initiate_checkout_count': 'initiate_checkout_count',  # noqa: E501
         'order_count': 'order_count',  # noqa: E501
+        'order_ids': 'order_ids',  # noqa: E501
         'order_item_count': 'order_item_count',  # noqa: E501
         'page_view_count': 'page_view_count',  # noqa: E501
         'revenue': 'revenue',  # noqa: E501
@@ -163,6 +165,7 @@ class ExperimentVariationStat(ModelNormal):
             event_count (int): Total event count for this variation. [optional]  # noqa: E501
             initiate_checkout_count (int): Total initiate checkout count for this variation. [optional]  # noqa: E501
             order_count (int): Total order count for this variation. [optional]  # noqa: E501
+            order_ids ([str]): Order ID thats converted on this variation. [optional]  # noqa: E501
             order_item_count (int): Total order item count for this variation. [optional]  # noqa: E501
             page_view_count (int): Total page view count for this variation. [optional]  # noqa: E501
             revenue (float): Total revenue for this variation. [optional]  # noqa: E501
@@ -260,6 +263,7 @@ class ExperimentVariationStat(ModelNormal):
             event_count (int): Total event count for this variation. [optional]  # noqa: E501
             initiate_checkout_count (int): Total initiate checkout count for this variation. [optional]  # noqa: E501
             order_count (int): Total order count for this variation. [optional]  # noqa: E501
+            order_ids ([str]): Order ID thats converted on this variation. [optional]  # noqa: E501
             order_item_count (int): Total order item count for this variation. [optional]  # noqa: E501
             page_view_count (int): Total page view count for this variation. [optional]  # noqa: E501
             revenue (float): Total revenue for this variation. [optional]  # noqa: E501

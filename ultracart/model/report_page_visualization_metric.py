@@ -62,6 +62,7 @@ class ReportPageVisualizationMetric(ModelNormal):
             'MIN': "min",
             'MAX': "max",
             'AVG': "avg",
+            'NONE': "none",
         },
     }
 
