@@ -82,7 +82,7 @@ class ReportPageVisualizationMetric(object):
         :param aggregation: The aggregation of this ReportPageVisualizationMetric.  # noqa: E501
         :type: str
         """
-        allowed_values = ["sum", "count", "min", "max", "avg"]  # noqa: E501
+        allowed_values = ["sum", "count", "min", "max", "avg", "none"]  # noqa: E501
         if aggregation not in allowed_values:
             raise ValueError(
                 "Invalid value for `aggregation` ({0}), must be one of {1}"  # noqa: E501

@@ -37,6 +37,7 @@ class ExperimentVariationStat(object):
         'event_count': 'int',
         'initiate_checkout_count': 'int',
         'order_count': 'int',
+        'order_ids': 'list[str]',
         'order_item_count': 'int',
         'page_view_count': 'int',
         'revenue': 'float',
@@ -52,6 +53,7 @@ class ExperimentVariationStat(object):
         'event_count': 'event_count',
         'initiate_checkout_count': 'initiate_checkout_count',
         'order_count': 'order_count',
+        'order_ids': 'order_ids',
         'order_item_count': 'order_item_count',
         'page_view_count': 'page_view_count',
         'revenue': 'revenue',
@@ -60,7 +62,7 @@ class ExperimentVariationStat(object):
         'stat_dts': 'stat_dts'
     }
 
-    def __init__(self, add_to_cart_count=None, bounce_count=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, order_item_count=None, page_view_count=None, revenue=None, session_count=None, sms_opt_in_count=None, stat_dts=None):  # noqa: E501
+    def __init__(self, add_to_cart_count=None, bounce_count=None, duration_seconds_sum=None, event_count=None, initiate_checkout_count=None, order_count=None, order_ids=None, order_item_count=None, page_view_count=None, revenue=None, session_count=None, sms_opt_in_count=None, stat_dts=None):  # noqa: E501
         """ExperimentVariationStat - a model defined in Swagger"""  # noqa: E501
 
         self._add_to_cart_count = None
@@ -69,6 +71,7 @@ class ExperimentVariationStat(object):
         self._event_count = None
         self._initiate_checkout_count = None
         self._order_count = None
+        self._order_ids = None
         self._order_item_count = None
         self._page_view_count = None
         self._revenue = None
@@ -89,6 +92,8 @@ class ExperimentVariationStat(object):
             self.initiate_checkout_count = initiate_checkout_count
         if order_count is not None:
             self.order_count = order_count
+        if order_ids is not None:
+            self.order_ids = order_ids
         if order_item_count is not None:
             self.order_item_count = order_item_count
         if page_view_count is not None:
@@ -239,6 +244,29 @@ class ExperimentVariationStat(object):
         """
 
         self._order_count = order_count
+
+    @property
+    def order_ids(self):
+        """Gets the order_ids of this ExperimentVariationStat.  # noqa: E501
+
+        Order ID thats converted on this variation  # noqa: E501
+
+        :return: The order_ids of this ExperimentVariationStat.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._order_ids
+
+    @order_ids.setter
+    def order_ids(self, order_ids):
+        """Sets the order_ids of this ExperimentVariationStat.
+
+        Order ID thats converted on this variation  # noqa: E501
+
+        :param order_ids: The order_ids of this ExperimentVariationStat.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._order_ids = order_ids
 
     @property
     def order_item_count(self):
