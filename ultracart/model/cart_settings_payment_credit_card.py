@@ -83,6 +83,7 @@ class CartSettingsPaymentCreditCard(ModelNormal):
         """
         return {
             'collect_credit_card_verification_number': (bool,),  # noqa: E501
+            'collect_credit_card_verification_number_minimum': (float,),  # noqa: E501
             'credit_card_types': ([str],),  # noqa: E501
             'hosted_fields_shopping_cart_token': (str,),  # noqa: E501
         }
@@ -94,6 +95,7 @@ class CartSettingsPaymentCreditCard(ModelNormal):
 
     attribute_map = {
         'collect_credit_card_verification_number': 'collect_credit_card_verification_number',  # noqa: E501
+        'collect_credit_card_verification_number_minimum': 'collect_credit_card_verification_number_minimum',  # noqa: E501
         'credit_card_types': 'credit_card_types',  # noqa: E501
         'hosted_fields_shopping_cart_token': 'hosted_fields_shopping_cart_token',  # noqa: E501
     }
@@ -140,6 +142,7 @@ class CartSettingsPaymentCreditCard(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             collect_credit_card_verification_number (bool): True if the credit card verification number should be collected. [optional]  # noqa: E501
+            collect_credit_card_verification_number_minimum (float): If this field is null or the total is greater than or equal to this value then collect the CVV2.. [optional]  # noqa: E501
             credit_card_types ([str]): Available credit card types. [optional]  # noqa: E501
             hosted_fields_shopping_cart_token (str): The shoppingCartToken needed for proper initialization of hosted fields collection. [optional]  # noqa: E501
         """
@@ -228,6 +231,7 @@ class CartSettingsPaymentCreditCard(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             collect_credit_card_verification_number (bool): True if the credit card verification number should be collected. [optional]  # noqa: E501
+            collect_credit_card_verification_number_minimum (float): If this field is null or the total is greater than or equal to this value then collect the CVV2.. [optional]  # noqa: E501
             credit_card_types ([str]): Available credit card types. [optional]  # noqa: E501
             hosted_fields_shopping_cart_token (str): The shoppingCartToken needed for proper initialization of hosted fields collection. [optional]  # noqa: E501
         """

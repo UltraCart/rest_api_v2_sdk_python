@@ -561,6 +561,7 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 credit_card=CartSettingsPaymentCreditCard(
                     collect_credit_card_verification_number=True,
+                    collect_credit_card_verification_number_minimum=3.14,
                     credit_card_types=[
                         "credit_card_types_example",
                     ],
@@ -1399,6 +1400,7 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     credit_card=CartSettingsPaymentCreditCard(
                         collect_credit_card_verification_number=True,
+                        collect_credit_card_verification_number_minimum=3.14,
                         credit_card_types=[
                             "credit_card_types_example",
                         ],
@@ -2787,6 +2789,7 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     credit_card=CartSettingsPaymentCreditCard(
                         collect_credit_card_verification_number=True,
+                        collect_credit_card_verification_number_minimum=3.14,
                         credit_card_types=[
                             "credit_card_types_example",
                         ],
@@ -3645,6 +3648,7 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     credit_card=CartSettingsPaymentCreditCard(
                         collect_credit_card_verification_number=True,
+                        collect_credit_card_verification_number_minimum=3.14,
                         credit_card_types=[
                             "credit_card_types_example",
                         ],
@@ -4497,6 +4501,7 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 credit_card=CartSettingsPaymentCreditCard(
                     collect_credit_card_verification_number=True,
+                    collect_credit_card_verification_number_minimum=3.14,
                     credit_card_types=[
                         "credit_card_types_example",
                     ],
@@ -5347,6 +5352,7 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     credit_card=CartSettingsPaymentCreditCard(
                         collect_credit_card_verification_number=True,
+                        collect_credit_card_verification_number_minimum=3.14,
                         credit_card_types=[
                             "credit_card_types_example",
                         ],
@@ -6290,6 +6296,7 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 credit_card=CartSettingsPaymentCreditCard(
                     collect_credit_card_verification_number=True,
+                    collect_credit_card_verification_number_minimum=3.14,
                     credit_card_types=[
                         "credit_card_types_example",
                     ],
@@ -7140,6 +7147,7 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 credit_card=CartSettingsPaymentCreditCard(
                     collect_credit_card_verification_number=True,
+                    collect_credit_card_verification_number_minimum=3.14,
                     credit_card_types=[
                         "credit_card_types_example",
                     ],
@@ -8067,6 +8075,7 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 credit_card=CartSettingsPaymentCreditCard(
                     collect_credit_card_verification_number=True,
+                    collect_credit_card_verification_number_minimum=3.14,
                     credit_card_types=[
                         "credit_card_types_example",
                     ],
@@ -8917,6 +8926,7 @@ api_instance = GiftCertificateApi(api_client())
                     ),
                     credit_card=CartSettingsPaymentCreditCard(
                         collect_credit_card_verification_number=True,
+                        collect_credit_card_verification_number_minimum=3.14,
                         credit_card_types=[
                             "credit_card_types_example",
                         ],
