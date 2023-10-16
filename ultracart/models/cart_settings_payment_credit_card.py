@@ -32,26 +32,31 @@ class CartSettingsPaymentCreditCard(object):
     """
     swagger_types = {
         'collect_credit_card_verification_number': 'bool',
+        'collect_credit_card_verification_number_minimum': 'float',
         'credit_card_types': 'list[str]',
         'hosted_fields_shopping_cart_token': 'str'
     }
 
     attribute_map = {
         'collect_credit_card_verification_number': 'collect_credit_card_verification_number',
+        'collect_credit_card_verification_number_minimum': 'collect_credit_card_verification_number_minimum',
         'credit_card_types': 'credit_card_types',
         'hosted_fields_shopping_cart_token': 'hosted_fields_shopping_cart_token'
     }
 
-    def __init__(self, collect_credit_card_verification_number=None, credit_card_types=None, hosted_fields_shopping_cart_token=None):  # noqa: E501
+    def __init__(self, collect_credit_card_verification_number=None, collect_credit_card_verification_number_minimum=None, credit_card_types=None, hosted_fields_shopping_cart_token=None):  # noqa: E501
         """CartSettingsPaymentCreditCard - a model defined in Swagger"""  # noqa: E501
 
         self._collect_credit_card_verification_number = None
+        self._collect_credit_card_verification_number_minimum = None
         self._credit_card_types = None
         self._hosted_fields_shopping_cart_token = None
         self.discriminator = None
 
         if collect_credit_card_verification_number is not None:
             self.collect_credit_card_verification_number = collect_credit_card_verification_number
+        if collect_credit_card_verification_number_minimum is not None:
+            self.collect_credit_card_verification_number_minimum = collect_credit_card_verification_number_minimum
         if credit_card_types is not None:
             self.credit_card_types = credit_card_types
         if hosted_fields_shopping_cart_token is not None:
@@ -79,6 +84,29 @@ class CartSettingsPaymentCreditCard(object):
         """
 
         self._collect_credit_card_verification_number = collect_credit_card_verification_number
+
+    @property
+    def collect_credit_card_verification_number_minimum(self):
+        """Gets the collect_credit_card_verification_number_minimum of this CartSettingsPaymentCreditCard.  # noqa: E501
+
+        If this field is null or the total is greater than or equal to this value then collect the CVV2.  # noqa: E501
+
+        :return: The collect_credit_card_verification_number_minimum of this CartSettingsPaymentCreditCard.  # noqa: E501
+        :rtype: float
+        """
+        return self._collect_credit_card_verification_number_minimum
+
+    @collect_credit_card_verification_number_minimum.setter
+    def collect_credit_card_verification_number_minimum(self, collect_credit_card_verification_number_minimum):
+        """Sets the collect_credit_card_verification_number_minimum of this CartSettingsPaymentCreditCard.
+
+        If this field is null or the total is greater than or equal to this value then collect the CVV2.  # noqa: E501
+
+        :param collect_credit_card_verification_number_minimum: The collect_credit_card_verification_number_minimum of this CartSettingsPaymentCreditCard.  # noqa: E501
+        :type: float
+        """
+
+        self._collect_credit_card_verification_number_minimum = collect_credit_card_verification_number_minimum
 
     @property
     def credit_card_types(self):
