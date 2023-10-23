@@ -790,3 +790,16 @@ from ultracart.model.webhook_sample_request import WebhookSampleRequest
 from ultracart.model.webhook_sample_request_response import WebhookSampleRequestResponse
 from ultracart.model.webhooks_response import WebhooksResponse
 from ultracart.model.weight import Weight
+from ultracart.model.workflow_attachment import WorkflowAttachment
+from ultracart.model.workflow_attachment_upload_url import WorkflowAttachmentUploadUrl
+from ultracart.model.workflow_attachment_upload_url_response import WorkflowAttachmentUploadUrlResponse
+from ultracart.model.workflow_group import WorkflowGroup
+from ultracart.model.workflow_groups_response import WorkflowGroupsResponse
+from ultracart.model.workflow_note import WorkflowNote
+from ultracart.model.workflow_task import WorkflowTask
+from ultracart.model.workflow_task_history import WorkflowTaskHistory
+from ultracart.model.workflow_task_response import WorkflowTaskResponse
+from ultracart.model.workflow_tasks_request import WorkflowTasksRequest
+from ultracart.model.workflow_tasks_response import WorkflowTasksResponse
+from ultracart.model.workflow_user import WorkflowUser
+from ultracart.model.workflow_users_response import WorkflowUsersResponse
