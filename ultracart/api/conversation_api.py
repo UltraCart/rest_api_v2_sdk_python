@@ -1393,9 +1393,9 @@ class ConversationApi(object):
             collection_formats=collection_formats)
 
     def get_conversation_multimedia_upload_url(self, extension, **kwargs):  # noqa: E501
-        """Get a presigned conersation multimedia upload URL  # noqa: E501
+        """Get a presigned conversation multimedia upload URL  # noqa: E501
 
-        Get a presigned conersation multimedia upload URL   # noqa: E501
+        Get a presigned conversation multimedia upload URL   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_conversation_multimedia_upload_url(extension, async_req=True)
@@ -1415,9 +1415,9 @@ class ConversationApi(object):
             return data
 
     def get_conversation_multimedia_upload_url_with_http_info(self, extension, **kwargs):  # noqa: E501
-        """Get a presigned conersation multimedia upload URL  # noqa: E501
+        """Get a presigned conversation multimedia upload URL  # noqa: E501
 
-        Get a presigned conersation multimedia upload URL   # noqa: E501
+        Get a presigned conversation multimedia upload URL   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_conversation_multimedia_upload_url_with_http_info(extension, async_req=True)
