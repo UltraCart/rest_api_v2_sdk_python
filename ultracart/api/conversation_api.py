@@ -3037,9 +3037,9 @@ class ConversationApi(object):
         extension,
         **kwargs
     ):
-        """Get a presigned conersation multimedia upload URL  # noqa: E501
+        """Get a presigned conversation multimedia upload URL  # noqa: E501
 
-        Get a presigned conersation multimedia upload URL   # noqa: E501
+        Get a presigned conversation multimedia upload URL   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
