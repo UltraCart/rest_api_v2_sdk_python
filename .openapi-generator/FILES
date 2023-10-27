@@ -78,6 +78,7 @@ docs/CartPaymentAffirm.md
 docs/CartPaymentAmazon.md
 docs/CartPaymentCheck.md
 docs/CartPaymentCreditCard.md
+docs/CartPaymentHealthBenefitCard.md
 docs/CartPaymentPurchaseOrder.md
 docs/CartProfileLoginRequest.md
 docs/CartProfileLoginResponse.md
@@ -611,6 +612,7 @@ docs/OrderPaymentCreditCard.md
 docs/OrderPaymentCreditCardDualVaulted.md
 docs/OrderPaymentCreditCardDualVaultedProperty.md
 docs/OrderPaymentECheck.md
+docs/OrderPaymentHealthBenefitCard.md
 docs/OrderPaymentInsurance.md
 docs/OrderPaymentPurchaseOrder.md
 docs/OrderPaymentTransaction.md
@@ -925,6 +927,7 @@ ultracart/model/cart_payment_affirm.py
 ultracart/model/cart_payment_amazon.py
 ultracart/model/cart_payment_check.py
 ultracart/model/cart_payment_credit_card.py
+ultracart/model/cart_payment_health_benefit_card.py
 ultracart/model/cart_payment_purchase_order.py
 ultracart/model/cart_profile_login_request.py
 ultracart/model/cart_profile_login_response.py
@@ -1445,6 +1448,7 @@ ultracart/model/order_payment_credit_card.py
 ultracart/model/order_payment_credit_card_dual_vaulted.py
 ultracart/model/order_payment_credit_card_dual_vaulted_property.py
 ultracart/model/order_payment_e_check.py
+ultracart/model/order_payment_health_benefit_card.py
 ultracart/model/order_payment_insurance.py
 ultracart/model/order_payment_purchase_order.py
 ultracart/model/order_payment_transaction.py

@@ -1890,6 +1890,14 @@ api_instance = GiftCertificateApi(api_client())
                         drivers_license_number="drivers_license_number_example",
                         drivers_license_state="drivers_license_state_example",
                     ),
+                    health_benefit_card=OrderPaymentHealthBenefitCard(
+                        health_benefit_card_expiration_month=1,
+                        health_benefit_card_expiration_year=1,
+                        health_benefit_card_number="health_benefit_card_number_example",
+                        health_benefit_card_number_token="health_benefit_card_number_token_example",
+                        health_benefit_card_number_truncated=True,
+                        health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
+                    ),
                     hold_for_fraud_review=True,
                     insurance=OrderPaymentInsurance(
                         application_id="application_id_example",
@@ -2837,6 +2845,14 @@ api_instance = GiftCertificateApi(api_client())
                         drivers_license_dob="drivers_license_dob_example",
                         drivers_license_number="drivers_license_number_example",
                         drivers_license_state="drivers_license_state_example",
+                    ),
+                    health_benefit_card=OrderPaymentHealthBenefitCard(
+                        health_benefit_card_expiration_month=1,
+                        health_benefit_card_expiration_year=1,
+                        health_benefit_card_number="health_benefit_card_number_example",
+                        health_benefit_card_number_token="health_benefit_card_number_token_example",
+                        health_benefit_card_number_truncated=True,
+                        health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
                     ),
                     hold_for_fraud_review=True,
                     insurance=OrderPaymentInsurance(
@@ -4276,6 +4292,14 @@ api_instance = GiftCertificateApi(api_client())
                         drivers_license_number="drivers_license_number_example",
                         drivers_license_state="drivers_license_state_example",
                     ),
+                    health_benefit_card=OrderPaymentHealthBenefitCard(
+                        health_benefit_card_expiration_month=1,
+                        health_benefit_card_expiration_year=1,
+                        health_benefit_card_number="health_benefit_card_number_example",
+                        health_benefit_card_number_token="health_benefit_card_number_token_example",
+                        health_benefit_card_number_truncated=True,
+                        health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
+                    ),
                     hold_for_fraud_review=True,
                     insurance=OrderPaymentInsurance(
                         application_id="application_id_example",
@@ -5223,6 +5247,14 @@ api_instance = GiftCertificateApi(api_client())
                         drivers_license_dob="drivers_license_dob_example",
                         drivers_license_number="drivers_license_number_example",
                         drivers_license_state="drivers_license_state_example",
+                    ),
+                    health_benefit_card=OrderPaymentHealthBenefitCard(
+                        health_benefit_card_expiration_month=1,
+                        health_benefit_card_expiration_year=1,
+                        health_benefit_card_number="health_benefit_card_number_example",
+                        health_benefit_card_number_token="health_benefit_card_number_token_example",
+                        health_benefit_card_number_truncated=True,
+                        health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
                     ),
                     hold_for_fraud_review=True,
                     insurance=OrderPaymentInsurance(

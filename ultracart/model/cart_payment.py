@@ -35,11 +35,13 @@ def lazy_import():
     from ultracart.model.cart_payment_amazon import CartPaymentAmazon
     from ultracart.model.cart_payment_check import CartPaymentCheck
     from ultracart.model.cart_payment_credit_card import CartPaymentCreditCard
+    from ultracart.model.cart_payment_health_benefit_card import CartPaymentHealthBenefitCard
     from ultracart.model.cart_payment_purchase_order import CartPaymentPurchaseOrder
     globals()['CartPaymentAffirm'] = CartPaymentAffirm
     globals()['CartPaymentAmazon'] = CartPaymentAmazon
     globals()['CartPaymentCheck'] = CartPaymentCheck
     globals()['CartPaymentCreditCard'] = CartPaymentCreditCard
+    globals()['CartPaymentHealthBenefitCard'] = CartPaymentHealthBenefitCard
     globals()['CartPaymentPurchaseOrder'] = CartPaymentPurchaseOrder
 
 
@@ -100,6 +102,7 @@ class CartPayment(ModelNormal):
             'amazon': (CartPaymentAmazon,),  # noqa: E501
             'check': (CartPaymentCheck,),  # noqa: E501
             'credit_card': (CartPaymentCreditCard,),  # noqa: E501
+            'health_benefit_card': (CartPaymentHealthBenefitCard,),  # noqa: E501
             'payment_method': (str,),  # noqa: E501
             'purchase_order': (CartPaymentPurchaseOrder,),  # noqa: E501
             'rtg_code': (str,),  # noqa: E501
@@ -115,6 +118,7 @@ class CartPayment(ModelNormal):
         'amazon': 'amazon',  # noqa: E501
         'check': 'check',  # noqa: E501
         'credit_card': 'credit_card',  # noqa: E501
+        'health_benefit_card': 'health_benefit_card',  # noqa: E501
         'payment_method': 'payment_method',  # noqa: E501
         'purchase_order': 'purchase_order',  # noqa: E501
         'rtg_code': 'rtg_code',  # noqa: E501
@@ -165,6 +169,7 @@ class CartPayment(ModelNormal):
             amazon (CartPaymentAmazon): [optional]  # noqa: E501
             check (CartPaymentCheck): [optional]  # noqa: E501
             credit_card (CartPaymentCreditCard): [optional]  # noqa: E501
+            health_benefit_card (CartPaymentHealthBenefitCard): [optional]  # noqa: E501
             payment_method (str): Payment method. [optional]  # noqa: E501
             purchase_order (CartPaymentPurchaseOrder): [optional]  # noqa: E501
             rtg_code (str): Rotating transaction gateway code. [optional]  # noqa: E501
@@ -257,6 +262,7 @@ class CartPayment(ModelNormal):
             amazon (CartPaymentAmazon): [optional]  # noqa: E501
             check (CartPaymentCheck): [optional]  # noqa: E501
             credit_card (CartPaymentCreditCard): [optional]  # noqa: E501
+            health_benefit_card (CartPaymentHealthBenefitCard): [optional]  # noqa: E501
             payment_method (str): Payment method. [optional]  # noqa: E501
             purchase_order (CartPaymentPurchaseOrder): [optional]  # noqa: E501
             rtg_code (str): Rotating transaction gateway code. [optional]  # noqa: E501

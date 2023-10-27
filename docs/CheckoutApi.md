@@ -506,6 +506,14 @@ api_instance = GiftCertificateApi(api_client())
                 customer_profile_credit_card_id=1,
                 store_credit_card=True,
             ),
+            health_benefit_card=CartPaymentHealthBenefitCard(
+                health_benefit_card_expiration_month=1,
+                health_benefit_card_expiration_year=1,
+                health_benefit_card_number="health_benefit_card_number_example",
+                health_benefit_card_number_token="health_benefit_card_number_token_example",
+                health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
+            ),
             payment_method="payment_method_example",
             purchase_order=CartPaymentPurchaseOrder(
                 purchase_order_number="purchase_order_number_example",
@@ -1344,6 +1352,14 @@ api_instance = GiftCertificateApi(api_client())
                     card_verification_number_token="card_verification_number_token_example",
                     customer_profile_credit_card_id=1,
                     store_credit_card=True,
+                ),
+                health_benefit_card=CartPaymentHealthBenefitCard(
+                    health_benefit_card_expiration_month=1,
+                    health_benefit_card_expiration_year=1,
+                    health_benefit_card_number="health_benefit_card_number_example",
+                    health_benefit_card_number_token="health_benefit_card_number_token_example",
+                    health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                    health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
                 ),
                 payment_method="payment_method_example",
                 purchase_order=CartPaymentPurchaseOrder(
@@ -2734,6 +2750,14 @@ api_instance = GiftCertificateApi(api_client())
                     customer_profile_credit_card_id=1,
                     store_credit_card=True,
                 ),
+                health_benefit_card=CartPaymentHealthBenefitCard(
+                    health_benefit_card_expiration_month=1,
+                    health_benefit_card_expiration_year=1,
+                    health_benefit_card_number="health_benefit_card_number_example",
+                    health_benefit_card_number_token="health_benefit_card_number_token_example",
+                    health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                    health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
+                ),
                 payment_method="payment_method_example",
                 purchase_order=CartPaymentPurchaseOrder(
                     purchase_order_number="purchase_order_number_example",
@@ -3593,6 +3617,14 @@ api_instance = GiftCertificateApi(api_client())
                     customer_profile_credit_card_id=1,
                     store_credit_card=True,
                 ),
+                health_benefit_card=CartPaymentHealthBenefitCard(
+                    health_benefit_card_expiration_month=1,
+                    health_benefit_card_expiration_year=1,
+                    health_benefit_card_number="health_benefit_card_number_example",
+                    health_benefit_card_number_token="health_benefit_card_number_token_example",
+                    health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                    health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
+                ),
                 payment_method="payment_method_example",
                 purchase_order=CartPaymentPurchaseOrder(
                     purchase_order_number="purchase_order_number_example",
@@ -4446,6 +4478,14 @@ api_instance = GiftCertificateApi(api_client())
                 customer_profile_credit_card_id=1,
                 store_credit_card=True,
             ),
+            health_benefit_card=CartPaymentHealthBenefitCard(
+                health_benefit_card_expiration_month=1,
+                health_benefit_card_expiration_year=1,
+                health_benefit_card_number="health_benefit_card_number_example",
+                health_benefit_card_number_token="health_benefit_card_number_token_example",
+                health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
+            ),
             payment_method="payment_method_example",
             purchase_order=CartPaymentPurchaseOrder(
                 purchase_order_number="purchase_order_number_example",
@@ -5296,6 +5336,14 @@ api_instance = GiftCertificateApi(api_client())
                     card_verification_number_token="card_verification_number_token_example",
                     customer_profile_credit_card_id=1,
                     store_credit_card=True,
+                ),
+                health_benefit_card=CartPaymentHealthBenefitCard(
+                    health_benefit_card_expiration_month=1,
+                    health_benefit_card_expiration_year=1,
+                    health_benefit_card_number="health_benefit_card_number_example",
+                    health_benefit_card_number_token="health_benefit_card_number_token_example",
+                    health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                    health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
                 ),
                 payment_method="payment_method_example",
                 purchase_order=CartPaymentPurchaseOrder(
@@ -6241,6 +6289,14 @@ api_instance = GiftCertificateApi(api_client())
                 customer_profile_credit_card_id=1,
                 store_credit_card=True,
             ),
+            health_benefit_card=CartPaymentHealthBenefitCard(
+                health_benefit_card_expiration_month=1,
+                health_benefit_card_expiration_year=1,
+                health_benefit_card_number="health_benefit_card_number_example",
+                health_benefit_card_number_token="health_benefit_card_number_token_example",
+                health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
+            ),
             payment_method="payment_method_example",
             purchase_order=CartPaymentPurchaseOrder(
                 purchase_order_number="purchase_order_number_example",
@@ -7091,6 +7147,14 @@ api_instance = GiftCertificateApi(api_client())
                 card_verification_number_token="card_verification_number_token_example",
                 customer_profile_credit_card_id=1,
                 store_credit_card=True,
+            ),
+            health_benefit_card=CartPaymentHealthBenefitCard(
+                health_benefit_card_expiration_month=1,
+                health_benefit_card_expiration_year=1,
+                health_benefit_card_number="health_benefit_card_number_example",
+                health_benefit_card_number_token="health_benefit_card_number_token_example",
+                health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
             ),
             payment_method="payment_method_example",
             purchase_order=CartPaymentPurchaseOrder(
@@ -8020,6 +8084,14 @@ api_instance = GiftCertificateApi(api_client())
                 customer_profile_credit_card_id=1,
                 store_credit_card=True,
             ),
+            health_benefit_card=CartPaymentHealthBenefitCard(
+                health_benefit_card_expiration_month=1,
+                health_benefit_card_expiration_year=1,
+                health_benefit_card_number="health_benefit_card_number_example",
+                health_benefit_card_number_token="health_benefit_card_number_token_example",
+                health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
+            ),
             payment_method="payment_method_example",
             purchase_order=CartPaymentPurchaseOrder(
                 purchase_order_number="purchase_order_number_example",
@@ -8870,6 +8942,14 @@ api_instance = GiftCertificateApi(api_client())
                     card_verification_number_token="card_verification_number_token_example",
                     customer_profile_credit_card_id=1,
                     store_credit_card=True,
+                ),
+                health_benefit_card=CartPaymentHealthBenefitCard(
+                    health_benefit_card_expiration_month=1,
+                    health_benefit_card_expiration_year=1,
+                    health_benefit_card_number="health_benefit_card_number_example",
+                    health_benefit_card_number_token="health_benefit_card_number_token_example",
+                    health_benefit_card_verification_number="health_benefit_card_verification_number_example",
+                    health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
                 ),
                 payment_method="payment_method_example",
                 purchase_order=CartPaymentPurchaseOrder(

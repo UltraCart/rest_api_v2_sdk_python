@@ -35,6 +35,7 @@ def lazy_import():
     from ultracart.model.order_payment_check import OrderPaymentCheck
     from ultracart.model.order_payment_credit_card import OrderPaymentCreditCard
     from ultracart.model.order_payment_e_check import OrderPaymentECheck
+    from ultracart.model.order_payment_health_benefit_card import OrderPaymentHealthBenefitCard
     from ultracart.model.order_payment_insurance import OrderPaymentInsurance
     from ultracart.model.order_payment_purchase_order import OrderPaymentPurchaseOrder
     from ultracart.model.order_payment_transaction import OrderPaymentTransaction
@@ -42,6 +43,7 @@ def lazy_import():
     globals()['OrderPaymentCheck'] = OrderPaymentCheck
     globals()['OrderPaymentCreditCard'] = OrderPaymentCreditCard
     globals()['OrderPaymentECheck'] = OrderPaymentECheck
+    globals()['OrderPaymentHealthBenefitCard'] = OrderPaymentHealthBenefitCard
     globals()['OrderPaymentInsurance'] = OrderPaymentInsurance
     globals()['OrderPaymentPurchaseOrder'] = OrderPaymentPurchaseOrder
     globals()['OrderPaymentTransaction'] = OrderPaymentTransaction
@@ -97,6 +99,7 @@ class OrderPayment(ModelNormal):
             'VENMO': "Venmo",
             'APPLE_PAY': "Apple Pay",
             'GOOGLE_PAY': "Google Pay",
+            'HEALTH_BENEFIT_CARD': "Health Benefit Card",
         },
         ('payment_status',): {
             'UNPROCESSED': "Unprocessed",
@@ -139,6 +142,7 @@ class OrderPayment(ModelNormal):
             'check': (OrderPaymentCheck,),  # noqa: E501
             'credit_card': (OrderPaymentCreditCard,),  # noqa: E501
             'echeck': (OrderPaymentECheck,),  # noqa: E501
+            'health_benefit_card': (OrderPaymentHealthBenefitCard,),  # noqa: E501
             'hold_for_fraud_review': (bool,),  # noqa: E501
             'insurance': (OrderPaymentInsurance,),  # noqa: E501
             'payment_dts': (str,),  # noqa: E501
@@ -165,6 +169,7 @@ class OrderPayment(ModelNormal):
         'check': 'check',  # noqa: E501
         'credit_card': 'credit_card',  # noqa: E501
         'echeck': 'echeck',  # noqa: E501
+        'health_benefit_card': 'health_benefit_card',  # noqa: E501
         'hold_for_fraud_review': 'hold_for_fraud_review',  # noqa: E501
         'insurance': 'insurance',  # noqa: E501
         'payment_dts': 'payment_dts',  # noqa: E501
@@ -226,6 +231,7 @@ class OrderPayment(ModelNormal):
             check (OrderPaymentCheck): [optional]  # noqa: E501
             credit_card (OrderPaymentCreditCard): [optional]  # noqa: E501
             echeck (OrderPaymentECheck): [optional]  # noqa: E501
+            health_benefit_card (OrderPaymentHealthBenefitCard): [optional]  # noqa: E501
             hold_for_fraud_review (bool): True if order has been held for fraud review. [optional]  # noqa: E501
             insurance (OrderPaymentInsurance): [optional]  # noqa: E501
             payment_dts (str): Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true. [optional]  # noqa: E501
@@ -329,6 +335,7 @@ class OrderPayment(ModelNormal):
             check (OrderPaymentCheck): [optional]  # noqa: E501
             credit_card (OrderPaymentCreditCard): [optional]  # noqa: E501
             echeck (OrderPaymentECheck): [optional]  # noqa: E501
+            health_benefit_card (OrderPaymentHealthBenefitCard): [optional]  # noqa: E501
             hold_for_fraud_review (bool): True if order has been held for fraud review. [optional]  # noqa: E501
             insurance (OrderPaymentInsurance): [optional]  # noqa: E501
             payment_dts (str): Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true. [optional]  # noqa: E501
