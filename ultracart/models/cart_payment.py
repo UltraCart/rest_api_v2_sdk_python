@@ -35,6 +35,7 @@ class CartPayment(object):
         'amazon': 'CartPaymentAmazon',
         'check': 'CartPaymentCheck',
         'credit_card': 'CartPaymentCreditCard',
+        'health_benefit_card': 'CartPaymentHealthBenefitCard',
         'payment_method': 'str',
         'purchase_order': 'CartPaymentPurchaseOrder',
         'rtg_code': 'str'
@@ -45,18 +46,20 @@ class CartPayment(object):
         'amazon': 'amazon',
         'check': 'check',
         'credit_card': 'credit_card',
+        'health_benefit_card': 'health_benefit_card',
         'payment_method': 'payment_method',
         'purchase_order': 'purchase_order',
         'rtg_code': 'rtg_code'
     }
 
-    def __init__(self, affirm=None, amazon=None, check=None, credit_card=None, payment_method=None, purchase_order=None, rtg_code=None):  # noqa: E501
+    def __init__(self, affirm=None, amazon=None, check=None, credit_card=None, health_benefit_card=None, payment_method=None, purchase_order=None, rtg_code=None):  # noqa: E501
         """CartPayment - a model defined in Swagger"""  # noqa: E501
 
         self._affirm = None
         self._amazon = None
         self._check = None
         self._credit_card = None
+        self._health_benefit_card = None
         self._payment_method = None
         self._purchase_order = None
         self._rtg_code = None
@@ -70,6 +73,8 @@ class CartPayment(object):
             self.check = check
         if credit_card is not None:
             self.credit_card = credit_card
+        if health_benefit_card is not None:
+            self.health_benefit_card = health_benefit_card
         if payment_method is not None:
             self.payment_method = payment_method
         if purchase_order is not None:
@@ -160,6 +165,27 @@ class CartPayment(object):
         """
 
         self._credit_card = credit_card
+
+    @property
+    def health_benefit_card(self):
+        """Gets the health_benefit_card of this CartPayment.  # noqa: E501
+
+
+        :return: The health_benefit_card of this CartPayment.  # noqa: E501
+        :rtype: CartPaymentHealthBenefitCard
+        """
+        return self._health_benefit_card
+
+    @health_benefit_card.setter
+    def health_benefit_card(self, health_benefit_card):
+        """Sets the health_benefit_card of this CartPayment.
+
+
+        :param health_benefit_card: The health_benefit_card of this CartPayment.  # noqa: E501
+        :type: CartPaymentHealthBenefitCard
+        """
+
+        self._health_benefit_card = health_benefit_card
 
     @property
     def payment_method(self):

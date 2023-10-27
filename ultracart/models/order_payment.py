@@ -34,6 +34,7 @@ class OrderPayment(object):
         'check': 'OrderPaymentCheck',
         'credit_card': 'OrderPaymentCreditCard',
         'echeck': 'OrderPaymentECheck',
+        'health_benefit_card': 'OrderPaymentHealthBenefitCard',
         'hold_for_fraud_review': 'bool',
         'insurance': 'OrderPaymentInsurance',
         'payment_dts': 'str',
@@ -55,6 +56,7 @@ class OrderPayment(object):
         'check': 'check',
         'credit_card': 'credit_card',
         'echeck': 'echeck',
+        'health_benefit_card': 'health_benefit_card',
         'hold_for_fraud_review': 'hold_for_fraud_review',
         'insurance': 'insurance',
         'payment_dts': 'payment_dts',
@@ -72,12 +74,13 @@ class OrderPayment(object):
         'transactions': 'transactions'
     }
 
-    def __init__(self, check=None, credit_card=None, echeck=None, hold_for_fraud_review=None, insurance=None, payment_dts=None, payment_method=None, payment_method_accounting_code=None, payment_method_deposit_to_account=None, payment_status=None, purchase_order=None, rotating_transaction_gateway_code=None, surcharge=None, surcharge_accounting_code=None, surcharge_transaction_fee=None, surcharge_transaction_percentage=None, test_order=None, transactions=None):  # noqa: E501
+    def __init__(self, check=None, credit_card=None, echeck=None, health_benefit_card=None, hold_for_fraud_review=None, insurance=None, payment_dts=None, payment_method=None, payment_method_accounting_code=None, payment_method_deposit_to_account=None, payment_status=None, purchase_order=None, rotating_transaction_gateway_code=None, surcharge=None, surcharge_accounting_code=None, surcharge_transaction_fee=None, surcharge_transaction_percentage=None, test_order=None, transactions=None):  # noqa: E501
         """OrderPayment - a model defined in Swagger"""  # noqa: E501
 
         self._check = None
         self._credit_card = None
         self._echeck = None
+        self._health_benefit_card = None
         self._hold_for_fraud_review = None
         self._insurance = None
         self._payment_dts = None
@@ -101,6 +104,8 @@ class OrderPayment(object):
             self.credit_card = credit_card
         if echeck is not None:
             self.echeck = echeck
+        if health_benefit_card is not None:
+            self.health_benefit_card = health_benefit_card
         if hold_for_fraud_review is not None:
             self.hold_for_fraud_review = hold_for_fraud_review
         if insurance is not None:
@@ -196,6 +201,27 @@ class OrderPayment(object):
         self._echeck = echeck
 
     @property
+    def health_benefit_card(self):
+        """Gets the health_benefit_card of this OrderPayment.  # noqa: E501
+
+
+        :return: The health_benefit_card of this OrderPayment.  # noqa: E501
+        :rtype: OrderPaymentHealthBenefitCard
+        """
+        return self._health_benefit_card
+
+    @health_benefit_card.setter
+    def health_benefit_card(self, health_benefit_card):
+        """Sets the health_benefit_card of this OrderPayment.
+
+
+        :param health_benefit_card: The health_benefit_card of this OrderPayment.  # noqa: E501
+        :type: OrderPaymentHealthBenefitCard
+        """
+
+        self._health_benefit_card = health_benefit_card
+
+    @property
     def hold_for_fraud_review(self):
         """Gets the hold_for_fraud_review of this OrderPayment.  # noqa: E501
 
@@ -282,7 +308,7 @@ class OrderPayment(object):
         :param payment_method: The payment_method of this OrderPayment.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Credit Card", "eBay", "eCheck", "Google Shopping", "Insurance", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer", "Walmart", "Shop.com", "Sezzle", "Venmo", "Apple Pay", "Google Pay"]  # noqa: E501
+        allowed_values = ["Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Credit Card", "eBay", "eCheck", "Google Shopping", "Insurance", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer", "Walmart", "Shop.com", "Sezzle", "Venmo", "Apple Pay", "Google Pay", "Health Benefit Card"]  # noqa: E501
         if payment_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `payment_method` ({0}), must be one of {1}"  # noqa: E501

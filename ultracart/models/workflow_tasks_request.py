@@ -37,7 +37,8 @@ class WorkflowTasksRequest(object):
         'created_by': 'WorkflowUser',
         'created_dts_begin': 'str',
         'created_dts_end': 'str',
-        'delay_until_dts': 'str',
+        'delay_until_dts_begin': 'str',
+        'delay_until_dts_end': 'str',
         'due_dts_begin': 'str',
         'due_dts_end': 'str',
         'last_update_dts_begin': 'str',
@@ -56,7 +57,8 @@ class WorkflowTasksRequest(object):
         'created_by': 'created_by',
         'created_dts_begin': 'created_dts_begin',
         'created_dts_end': 'created_dts_end',
-        'delay_until_dts': 'delay_until_dts',
+        'delay_until_dts_begin': 'delay_until_dts_begin',
+        'delay_until_dts_end': 'delay_until_dts_end',
         'due_dts_begin': 'due_dts_begin',
         'due_dts_end': 'due_dts_end',
         'last_update_dts_begin': 'last_update_dts_begin',
@@ -68,7 +70,7 @@ class WorkflowTasksRequest(object):
         'unassigned': 'unassigned'
     }
 
-    def __init__(self, assigned_to_group_id=None, assigned_to_me=None, assigned_to_user_id=None, created_by=None, created_dts_begin=None, created_dts_end=None, delay_until_dts=None, due_dts_begin=None, due_dts_end=None, last_update_dts_begin=None, last_update_dts_end=None, object_email=None, object_type=None, priority=None, status=None, unassigned=None):  # noqa: E501
+    def __init__(self, assigned_to_group_id=None, assigned_to_me=None, assigned_to_user_id=None, created_by=None, created_dts_begin=None, created_dts_end=None, delay_until_dts_begin=None, delay_until_dts_end=None, due_dts_begin=None, due_dts_end=None, last_update_dts_begin=None, last_update_dts_end=None, object_email=None, object_type=None, priority=None, status=None, unassigned=None):  # noqa: E501
         """WorkflowTasksRequest - a model defined in Swagger"""  # noqa: E501
 
         self._assigned_to_group_id = None
@@ -77,7 +79,8 @@ class WorkflowTasksRequest(object):
         self._created_by = None
         self._created_dts_begin = None
         self._created_dts_end = None
-        self._delay_until_dts = None
+        self._delay_until_dts_begin = None
+        self._delay_until_dts_end = None
         self._due_dts_begin = None
         self._due_dts_end = None
         self._last_update_dts_begin = None
@@ -101,8 +104,10 @@ class WorkflowTasksRequest(object):
             self.created_dts_begin = created_dts_begin
         if created_dts_end is not None:
             self.created_dts_end = created_dts_end
-        if delay_until_dts is not None:
-            self.delay_until_dts = delay_until_dts
+        if delay_until_dts_begin is not None:
+            self.delay_until_dts_begin = delay_until_dts_begin
+        if delay_until_dts_end is not None:
+            self.delay_until_dts_end = delay_until_dts_end
         if due_dts_begin is not None:
             self.due_dts_begin = due_dts_begin
         if due_dts_end is not None:
@@ -259,27 +264,50 @@ class WorkflowTasksRequest(object):
         self._created_dts_end = created_dts_end
 
     @property
-    def delay_until_dts(self):
-        """Gets the delay_until_dts of this WorkflowTasksRequest.  # noqa: E501
+    def delay_until_dts_begin(self):
+        """Gets the delay_until_dts_begin of this WorkflowTasksRequest.  # noqa: E501
 
         Date/time that the workflow task should delay until  # noqa: E501
 
-        :return: The delay_until_dts of this WorkflowTasksRequest.  # noqa: E501
+        :return: The delay_until_dts_begin of this WorkflowTasksRequest.  # noqa: E501
         :rtype: str
         """
-        return self._delay_until_dts
+        return self._delay_until_dts_begin
 
-    @delay_until_dts.setter
-    def delay_until_dts(self, delay_until_dts):
-        """Sets the delay_until_dts of this WorkflowTasksRequest.
+    @delay_until_dts_begin.setter
+    def delay_until_dts_begin(self, delay_until_dts_begin):
+        """Sets the delay_until_dts_begin of this WorkflowTasksRequest.
 
         Date/time that the workflow task should delay until  # noqa: E501
 
-        :param delay_until_dts: The delay_until_dts of this WorkflowTasksRequest.  # noqa: E501
+        :param delay_until_dts_begin: The delay_until_dts_begin of this WorkflowTasksRequest.  # noqa: E501
         :type: str
         """
 
-        self._delay_until_dts = delay_until_dts
+        self._delay_until_dts_begin = delay_until_dts_begin
+
+    @property
+    def delay_until_dts_end(self):
+        """Gets the delay_until_dts_end of this WorkflowTasksRequest.  # noqa: E501
+
+        Date/time that the workflow task should delay until  # noqa: E501
+
+        :return: The delay_until_dts_end of this WorkflowTasksRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._delay_until_dts_end
+
+    @delay_until_dts_end.setter
+    def delay_until_dts_end(self, delay_until_dts_end):
+        """Sets the delay_until_dts_end of this WorkflowTasksRequest.
+
+        Date/time that the workflow task should delay until  # noqa: E501
+
+        :param delay_until_dts_end: The delay_until_dts_end of this WorkflowTasksRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._delay_until_dts_end = delay_until_dts_end
 
     @property
     def due_dts_begin(self):
