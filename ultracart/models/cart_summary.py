@@ -35,6 +35,8 @@ class CartSummary(object):
         'arbitrary_tax': 'Currency',
         'arbitrary_tax_rate': 'Currency',
         'arbitrary_taxable_subtotal': 'Currency',
+        'health_benefit_card_amount': 'Currency',
+        'internal_gift_certificate_amount': 'Currency',
         'shipping_handling': 'Currency',
         'shipping_handling_discount': 'Currency',
         'shipping_handling_with_discount': 'Currency',
@@ -54,6 +56,8 @@ class CartSummary(object):
         'arbitrary_tax': 'arbitrary_tax',
         'arbitrary_tax_rate': 'arbitrary_tax_rate',
         'arbitrary_taxable_subtotal': 'arbitrary_taxable_subtotal',
+        'health_benefit_card_amount': 'health_benefit_card_amount',
+        'internal_gift_certificate_amount': 'internal_gift_certificate_amount',
         'shipping_handling': 'shipping_handling',
         'shipping_handling_discount': 'shipping_handling_discount',
         'shipping_handling_with_discount': 'shipping_handling_with_discount',
@@ -68,13 +72,15 @@ class CartSummary(object):
         'total': 'total'
     }
 
-    def __init__(self, arbitrary_shipping_handling_total=None, arbitrary_tax=None, arbitrary_tax_rate=None, arbitrary_taxable_subtotal=None, shipping_handling=None, shipping_handling_discount=None, shipping_handling_with_discount=None, subtotal=None, subtotal_discount=None, subtotal_with_discount=None, surcharge=None, tax=None, taxable_subtotal=None, taxable_subtotal_discount=None, taxable_subtotal_with_discount=None, total=None):  # noqa: E501
+    def __init__(self, arbitrary_shipping_handling_total=None, arbitrary_tax=None, arbitrary_tax_rate=None, arbitrary_taxable_subtotal=None, health_benefit_card_amount=None, internal_gift_certificate_amount=None, shipping_handling=None, shipping_handling_discount=None, shipping_handling_with_discount=None, subtotal=None, subtotal_discount=None, subtotal_with_discount=None, surcharge=None, tax=None, taxable_subtotal=None, taxable_subtotal_discount=None, taxable_subtotal_with_discount=None, total=None):  # noqa: E501
         """CartSummary - a model defined in Swagger"""  # noqa: E501
 
         self._arbitrary_shipping_handling_total = None
         self._arbitrary_tax = None
         self._arbitrary_tax_rate = None
         self._arbitrary_taxable_subtotal = None
+        self._health_benefit_card_amount = None
+        self._internal_gift_certificate_amount = None
         self._shipping_handling = None
         self._shipping_handling_discount = None
         self._shipping_handling_with_discount = None
@@ -97,6 +103,10 @@ class CartSummary(object):
             self.arbitrary_tax_rate = arbitrary_tax_rate
         if arbitrary_taxable_subtotal is not None:
             self.arbitrary_taxable_subtotal = arbitrary_taxable_subtotal
+        if health_benefit_card_amount is not None:
+            self.health_benefit_card_amount = health_benefit_card_amount
+        if internal_gift_certificate_amount is not None:
+            self.internal_gift_certificate_amount = internal_gift_certificate_amount
         if shipping_handling is not None:
             self.shipping_handling = shipping_handling
         if shipping_handling_discount is not None:
@@ -205,6 +215,48 @@ class CartSummary(object):
         """
 
         self._arbitrary_taxable_subtotal = arbitrary_taxable_subtotal
+
+    @property
+    def health_benefit_card_amount(self):
+        """Gets the health_benefit_card_amount of this CartSummary.  # noqa: E501
+
+
+        :return: The health_benefit_card_amount of this CartSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._health_benefit_card_amount
+
+    @health_benefit_card_amount.setter
+    def health_benefit_card_amount(self, health_benefit_card_amount):
+        """Sets the health_benefit_card_amount of this CartSummary.
+
+
+        :param health_benefit_card_amount: The health_benefit_card_amount of this CartSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._health_benefit_card_amount = health_benefit_card_amount
+
+    @property
+    def internal_gift_certificate_amount(self):
+        """Gets the internal_gift_certificate_amount of this CartSummary.  # noqa: E501
+
+
+        :return: The internal_gift_certificate_amount of this CartSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._internal_gift_certificate_amount
+
+    @internal_gift_certificate_amount.setter
+    def internal_gift_certificate_amount(self, internal_gift_certificate_amount):
+        """Sets the internal_gift_certificate_amount of this CartSummary.
+
+
+        :param internal_gift_certificate_amount: The internal_gift_certificate_amount of this CartSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._internal_gift_certificate_amount = internal_gift_certificate_amount
 
     @property
     def shipping_handling(self):

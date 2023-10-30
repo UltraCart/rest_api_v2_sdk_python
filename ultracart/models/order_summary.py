@@ -35,6 +35,8 @@ class OrderSummary(object):
         'actual_payment_processing': 'Currency',
         'actual_shipping': 'Currency',
         'arbitrary_shipping_handling_total': 'Currency',
+        'health_benefit_card_amount': 'Currency',
+        'health_benefit_card_refunded': 'Currency',
         'internal_gift_certificate_amount': 'Currency',
         'internal_gift_certificate_refunded': 'Currency',
         'other_refunded': 'Currency',
@@ -58,6 +60,8 @@ class OrderSummary(object):
         'actual_payment_processing': 'actual_payment_processing',
         'actual_shipping': 'actual_shipping',
         'arbitrary_shipping_handling_total': 'arbitrary_shipping_handling_total',
+        'health_benefit_card_amount': 'health_benefit_card_amount',
+        'health_benefit_card_refunded': 'health_benefit_card_refunded',
         'internal_gift_certificate_amount': 'internal_gift_certificate_amount',
         'internal_gift_certificate_refunded': 'internal_gift_certificate_refunded',
         'other_refunded': 'other_refunded',
@@ -76,13 +80,15 @@ class OrderSummary(object):
         'total_refunded': 'total_refunded'
     }
 
-    def __init__(self, actual_fulfillment=None, actual_payment_processing=None, actual_shipping=None, arbitrary_shipping_handling_total=None, internal_gift_certificate_amount=None, internal_gift_certificate_refunded=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
+    def __init__(self, actual_fulfillment=None, actual_payment_processing=None, actual_shipping=None, arbitrary_shipping_handling_total=None, health_benefit_card_amount=None, health_benefit_card_refunded=None, internal_gift_certificate_amount=None, internal_gift_certificate_refunded=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
         """OrderSummary - a model defined in Swagger"""  # noqa: E501
 
         self._actual_fulfillment = None
         self._actual_payment_processing = None
         self._actual_shipping = None
         self._arbitrary_shipping_handling_total = None
+        self._health_benefit_card_amount = None
+        self._health_benefit_card_refunded = None
         self._internal_gift_certificate_amount = None
         self._internal_gift_certificate_refunded = None
         self._other_refunded = None
@@ -109,6 +115,10 @@ class OrderSummary(object):
             self.actual_shipping = actual_shipping
         if arbitrary_shipping_handling_total is not None:
             self.arbitrary_shipping_handling_total = arbitrary_shipping_handling_total
+        if health_benefit_card_amount is not None:
+            self.health_benefit_card_amount = health_benefit_card_amount
+        if health_benefit_card_refunded is not None:
+            self.health_benefit_card_refunded = health_benefit_card_refunded
         if internal_gift_certificate_amount is not None:
             self.internal_gift_certificate_amount = internal_gift_certificate_amount
         if internal_gift_certificate_refunded is not None:
@@ -225,6 +235,48 @@ class OrderSummary(object):
         """
 
         self._arbitrary_shipping_handling_total = arbitrary_shipping_handling_total
+
+    @property
+    def health_benefit_card_amount(self):
+        """Gets the health_benefit_card_amount of this OrderSummary.  # noqa: E501
+
+
+        :return: The health_benefit_card_amount of this OrderSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._health_benefit_card_amount
+
+    @health_benefit_card_amount.setter
+    def health_benefit_card_amount(self, health_benefit_card_amount):
+        """Sets the health_benefit_card_amount of this OrderSummary.
+
+
+        :param health_benefit_card_amount: The health_benefit_card_amount of this OrderSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._health_benefit_card_amount = health_benefit_card_amount
+
+    @property
+    def health_benefit_card_refunded(self):
+        """Gets the health_benefit_card_refunded of this OrderSummary.  # noqa: E501
+
+
+        :return: The health_benefit_card_refunded of this OrderSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._health_benefit_card_refunded
+
+    @health_benefit_card_refunded.setter
+    def health_benefit_card_refunded(self, health_benefit_card_refunded):
+        """Sets the health_benefit_card_refunded of this OrderSummary.
+
+
+        :param health_benefit_card_refunded: The health_benefit_card_refunded of this OrderSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._health_benefit_card_refunded = health_benefit_card_refunded
 
     @property
     def internal_gift_certificate_amount(self):
