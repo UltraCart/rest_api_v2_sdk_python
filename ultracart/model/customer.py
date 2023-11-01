@@ -174,6 +174,7 @@ class Customer(ModelNormal):
             'customer_profile_oid': (int,),  # noqa: E501
             'dhl_account_number': (str,),  # noqa: E501
             'dhl_duty_account_number': (str,),  # noqa: E501
+            'do_not_send_mail': (bool,),  # noqa: E501
             'edi': (CustomerEDI,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'exempt_shipping_handling_charge': (bool,),  # noqa: E501
@@ -245,6 +246,7 @@ class Customer(ModelNormal):
         'customer_profile_oid': 'customer_profile_oid',  # noqa: E501
         'dhl_account_number': 'dhl_account_number',  # noqa: E501
         'dhl_duty_account_number': 'dhl_duty_account_number',  # noqa: E501
+        'do_not_send_mail': 'do_not_send_mail',  # noqa: E501
         'edi': 'edi',  # noqa: E501
         'email': 'email',  # noqa: E501
         'exempt_shipping_handling_charge': 'exempt_shipping_handling_charge',  # noqa: E501
@@ -351,6 +353,7 @@ class Customer(ModelNormal):
             customer_profile_oid (int): Customer profile object identifier. [optional]  # noqa: E501
             dhl_account_number (str): DHL account number. [optional]  # noqa: E501
             dhl_duty_account_number (str): DHL duty account number. [optional]  # noqa: E501
+            do_not_send_mail (bool): Do not send mail (null will not update). [optional]  # noqa: E501
             edi (CustomerEDI): [optional]  # noqa: E501
             email (str): Email address of this customer profile. [optional]  # noqa: E501
             exempt_shipping_handling_charge (bool): Exempt shipping handling charge. [optional]  # noqa: E501
@@ -499,6 +502,7 @@ class Customer(ModelNormal):
             customer_profile_oid (int): Customer profile object identifier. [optional]  # noqa: E501
             dhl_account_number (str): DHL account number. [optional]  # noqa: E501
             dhl_duty_account_number (str): DHL duty account number. [optional]  # noqa: E501
+            do_not_send_mail (bool): Do not send mail (null will not update). [optional]  # noqa: E501
             edi (CustomerEDI): [optional]  # noqa: E501
             email (str): Email address of this customer profile. [optional]  # noqa: E501
             exempt_shipping_handling_charge (bool): Exempt shipping handling charge. [optional]  # noqa: E501
