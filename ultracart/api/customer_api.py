@@ -34,6 +34,9 @@ from ultracart.model.customer_query import CustomerQuery
 from ultracart.model.customer_response import CustomerResponse
 from ultracart.model.customer_store_credit_add_request import CustomerStoreCreditAddRequest
 from ultracart.model.customer_store_credit_response import CustomerStoreCreditResponse
+from ultracart.model.customer_wish_list_item import CustomerWishListItem
+from ultracart.model.customer_wish_list_item_response import CustomerWishListItemResponse
+from ultracart.model.customer_wish_list_items_response import CustomerWishListItemsResponse
 from ultracart.model.customers_response import CustomersResponse
 from ultracart.model.data_tables_server_side_response import DataTablesServerSideResponse
 from ultracart.model.email_lists_response import EmailListsResponse
@@ -226,6 +229,64 @@ class CustomerApi(object):
                 },
                 'location_map': {
                     'customer_profile_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_wish_list_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomerWishListItem,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}',
+                'operation_id': 'delete_wish_list_item',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'customer_profile_oid',
+                    'customer_wishlist_item_oid',
+                ],
+                'required': [
+                    'customer_profile_oid',
+                    'customer_wishlist_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'customer_profile_oid':
+                        (int,),
+                    'customer_wishlist_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'customer_profile_oid': 'customer_profile_oid',
+                    'customer_wishlist_item_oid': 'customer_wishlist_item_oid',
+                },
+                'location_map': {
+                    'customer_profile_oid': 'path',
+                    'customer_wishlist_item_oid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -482,6 +543,116 @@ class CustomerApi(object):
                 },
                 'location_map': {
                     'customer_profile_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_customer_wish_list_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomerWishListItemsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/customer/customers/{customer_profile_oid}/wishlist',
+                'operation_id': 'get_customer_wish_list',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'customer_profile_oid',
+                ],
+                'required': [
+                    'customer_profile_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'customer_profile_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'customer_profile_oid': 'customer_profile_oid',
+                },
+                'location_map': {
+                    'customer_profile_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_customer_wish_list_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomerWishListItemResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}',
+                'operation_id': 'get_customer_wish_list_item',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'customer_profile_oid',
+                    'customer_wishlist_item_oid',
+                ],
+                'required': [
+                    'customer_profile_oid',
+                    'customer_wishlist_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'customer_profile_oid':
+                        (int,),
+                    'customer_wishlist_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'customer_profile_oid': 'customer_profile_oid',
+                    'customer_wishlist_item_oid': 'customer_wishlist_item_oid',
+                },
+                'location_map': {
+                    'customer_profile_oid': 'path',
+                    'customer_wishlist_item_oid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -996,6 +1167,65 @@ class CustomerApi(object):
             },
             api_client=api_client
         )
+        self.insert_wish_list_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomerWishListItem,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/customer/customers/{customer_profile_oid}/wishlist',
+                'operation_id': 'insert_wish_list_item',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'customer_profile_oid',
+                    'wishlist_item',
+                ],
+                'required': [
+                    'customer_profile_oid',
+                    'wishlist_item',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'customer_profile_oid':
+                        (int,),
+                    'wishlist_item':
+                        (CustomerWishListItem,),
+                },
+                'attribute_map': {
+                    'customer_profile_oid': 'customer_profile_oid',
+                },
+                'location_map': {
+                    'customer_profile_oid': 'path',
+                    'wishlist_item': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.merge_customer_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -1223,6 +1453,71 @@ class CustomerApi(object):
                 'location_map': {
                     'customer_profile_oid': 'path',
                     'list_changes': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_wish_list_item_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomerWishListItem,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}',
+                'operation_id': 'update_wish_list_item',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'customer_profile_oid',
+                    'customer_wishlist_item_oid',
+                    'wishlist_item',
+                ],
+                'required': [
+                    'customer_profile_oid',
+                    'customer_wishlist_item_oid',
+                    'wishlist_item',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'customer_profile_oid':
+                        (int,),
+                    'customer_wishlist_item_oid':
+                        (int,),
+                    'wishlist_item':
+                        (CustomerWishListItem,),
+                },
+                'attribute_map': {
+                    'customer_profile_oid': 'customer_profile_oid',
+                    'customer_wishlist_item_oid': 'customer_wishlist_item_oid',
+                },
+                'location_map': {
+                    'customer_profile_oid': 'path',
+                    'customer_wishlist_item_oid': 'path',
+                    'wishlist_item': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1547,6 +1842,93 @@ class CustomerApi(object):
         kwargs['customer_profile_oid'] = \
             customer_profile_oid
         return self.delete_customer_endpoint.call_with_http_info(**kwargs)
+
+    def delete_wish_list_item(
+        self,
+        customer_profile_oid,
+        customer_wishlist_item_oid,
+        **kwargs
+    ):
+        """Delete a customer wishlist item  # noqa: E501
+
+        Delete a customer wishlist item   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_wish_list_item(customer_profile_oid, customer_wishlist_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            customer_profile_oid (int): The customer oid for this wishlist.
+            customer_wishlist_item_oid (int): The wishlist oid for this wishlist item to delete.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomerWishListItem
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['customer_profile_oid'] = \
+            customer_profile_oid
+        kwargs['customer_wishlist_item_oid'] = \
+            customer_wishlist_item_oid
+        return self.delete_wish_list_item_endpoint.call_with_http_info(**kwargs)
 
     def get_customer(
         self,
@@ -1954,6 +2336,176 @@ class CustomerApi(object):
         kwargs['customer_profile_oid'] = \
             customer_profile_oid
         return self.get_customer_store_credit_endpoint.call_with_http_info(**kwargs)
+
+    def get_customer_wish_list(
+        self,
+        customer_profile_oid,
+        **kwargs
+    ):
+        """Retrieve wishlist items for customer  # noqa: E501
+
+        Retrieve wishlist items for customer.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_customer_wish_list(customer_profile_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            customer_profile_oid (int): The customer oid for this wishlist.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomerWishListItemsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['customer_profile_oid'] = \
+            customer_profile_oid
+        return self.get_customer_wish_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_customer_wish_list_item(
+        self,
+        customer_profile_oid,
+        customer_wishlist_item_oid,
+        **kwargs
+    ):
+        """Retrieve wishlist item for customer  # noqa: E501
+
+        Retrieve wishlist item for customer.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_customer_wish_list_item(customer_profile_oid, customer_wishlist_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            customer_profile_oid (int): The customer oid for this wishlist.
+            customer_wishlist_item_oid (int): The wishlist oid for this wishlist item.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomerWishListItemResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['customer_profile_oid'] = \
+            customer_profile_oid
+        kwargs['customer_wishlist_item_oid'] = \
+            customer_wishlist_item_oid
+        return self.get_customer_wish_list_item_endpoint.call_with_http_info(**kwargs)
 
     def get_customers(
         self,
@@ -2486,6 +3038,93 @@ class CustomerApi(object):
             customer
         return self.insert_customer_endpoint.call_with_http_info(**kwargs)
 
+    def insert_wish_list_item(
+        self,
+        customer_profile_oid,
+        wishlist_item,
+        **kwargs
+    ):
+        """Insert a customer wishlist item  # noqa: E501
+
+        Insert a customer wishlist item   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_wish_list_item(customer_profile_oid, wishlist_item, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            customer_profile_oid (int): The customer oid for this wishlist.
+            wishlist_item (CustomerWishListItem): Wishlist item to insert
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomerWishListItem
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['customer_profile_oid'] = \
+            customer_profile_oid
+        kwargs['wishlist_item'] = \
+            wishlist_item
+        return self.insert_wish_list_item_endpoint.call_with_http_info(**kwargs)
+
     def merge_customer(
         self,
         customer_profile_oid,
@@ -2830,6 +3469,97 @@ class CustomerApi(object):
         kwargs['list_changes'] = \
             list_changes
         return self.update_customer_email_lists_endpoint.call_with_http_info(**kwargs)
+
+    def update_wish_list_item(
+        self,
+        customer_profile_oid,
+        customer_wishlist_item_oid,
+        wishlist_item,
+        **kwargs
+    ):
+        """Update a customer wishlist item  # noqa: E501
+
+        Update a customer wishlist item   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_wish_list_item(customer_profile_oid, customer_wishlist_item_oid, wishlist_item, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            customer_profile_oid (int): The customer oid for this wishlist.
+            customer_wishlist_item_oid (int): The wishlist oid for this wishlist item.
+            wishlist_item (CustomerWishListItem): Wishlist item to update
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomerWishListItem
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['customer_profile_oid'] = \
+            customer_profile_oid
+        kwargs['customer_wishlist_item_oid'] = \
+            customer_wishlist_item_oid
+        kwargs['wishlist_item'] = \
+            wishlist_item
+        return self.update_wish_list_item_endpoint.call_with_http_info(**kwargs)
 
     def validate_email_verification_token(
         self,

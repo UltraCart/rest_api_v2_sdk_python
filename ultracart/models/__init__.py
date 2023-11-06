@@ -298,6 +298,9 @@ from ultracart.model.customer_store_credit_ledger_entry import CustomerStoreCred
 from ultracart.model.customer_store_credit_response import CustomerStoreCreditResponse
 from ultracart.model.customer_tag import CustomerTag
 from ultracart.model.customer_tax_codes import CustomerTaxCodes
+from ultracart.model.customer_wish_list_item import CustomerWishListItem
+from ultracart.model.customer_wish_list_item_response import CustomerWishListItemResponse
+from ultracart.model.customer_wish_list_items_response import CustomerWishListItemsResponse
 from ultracart.model.customers_response import CustomersResponse
 from ultracart.model.data_tables_server_side_response import DataTablesServerSideResponse
 from ultracart.model.distance import Distance
