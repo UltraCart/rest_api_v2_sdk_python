@@ -359,6 +359,113 @@ class CustomerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_wish_list_item(self, customer_profile_oid, customer_wishlist_item_oid, **kwargs):  # noqa: E501
+        """Delete a customer wishlist item  # noqa: E501
+
+        Delete a customer wishlist item   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_wish_list_item(customer_profile_oid, customer_wishlist_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :param int customer_wishlist_item_oid: The wishlist oid for this wishlist item to delete. (required)
+        :return: CustomerWishListItem
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_wish_list_item_with_http_info(customer_profile_oid, customer_wishlist_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_wish_list_item_with_http_info(customer_profile_oid, customer_wishlist_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_wish_list_item_with_http_info(self, customer_profile_oid, customer_wishlist_item_oid, **kwargs):  # noqa: E501
+        """Delete a customer wishlist item  # noqa: E501
+
+        Delete a customer wishlist item   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_wish_list_item_with_http_info(customer_profile_oid, customer_wishlist_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :param int customer_wishlist_item_oid: The wishlist oid for this wishlist item to delete. (required)
+        :return: CustomerWishListItem
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['customer_profile_oid', 'customer_wishlist_item_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_wish_list_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'customer_profile_oid' is set
+        if ('customer_profile_oid' not in params or
+                params['customer_profile_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `delete_wish_list_item`")  # noqa: E501
+        # verify the required parameter 'customer_wishlist_item_oid' is set
+        if ('customer_wishlist_item_oid' not in params or
+                params['customer_wishlist_item_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_wishlist_item_oid` when calling `delete_wish_list_item`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'customer_profile_oid' in params:
+            path_params['customer_profile_oid'] = params['customer_profile_oid']  # noqa: E501
+        if 'customer_wishlist_item_oid' in params:
+            path_params['customer_wishlist_item_oid'] = params['customer_wishlist_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomerWishListItem',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_customer(self, customer_profile_oid, **kwargs):  # noqa: E501
         """Retrieve a customer  # noqa: E501
 
@@ -839,6 +946,212 @@ class CustomerApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CustomerStoreCreditResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_customer_wish_list(self, customer_profile_oid, **kwargs):  # noqa: E501
+        """Retrieve wishlist items for customer  # noqa: E501
+
+        Retrieve wishlist items for customer.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_wish_list(customer_profile_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :return: CustomerWishListItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_customer_wish_list_with_http_info(customer_profile_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_customer_wish_list_with_http_info(customer_profile_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_customer_wish_list_with_http_info(self, customer_profile_oid, **kwargs):  # noqa: E501
+        """Retrieve wishlist items for customer  # noqa: E501
+
+        Retrieve wishlist items for customer.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_wish_list_with_http_info(customer_profile_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :return: CustomerWishListItemsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['customer_profile_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_customer_wish_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'customer_profile_oid' is set
+        if ('customer_profile_oid' not in params or
+                params['customer_profile_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `get_customer_wish_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'customer_profile_oid' in params:
+            path_params['customer_profile_oid'] = params['customer_profile_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/customer/customers/{customer_profile_oid}/wishlist', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomerWishListItemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_customer_wish_list_item(self, customer_profile_oid, customer_wishlist_item_oid, **kwargs):  # noqa: E501
+        """Retrieve wishlist item for customer  # noqa: E501
+
+        Retrieve wishlist item for customer.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_wish_list_item(customer_profile_oid, customer_wishlist_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :param int customer_wishlist_item_oid: The wishlist oid for this wishlist item. (required)
+        :return: CustomerWishListItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_customer_wish_list_item_with_http_info(customer_profile_oid, customer_wishlist_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_customer_wish_list_item_with_http_info(customer_profile_oid, customer_wishlist_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_customer_wish_list_item_with_http_info(self, customer_profile_oid, customer_wishlist_item_oid, **kwargs):  # noqa: E501
+        """Retrieve wishlist item for customer  # noqa: E501
+
+        Retrieve wishlist item for customer.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_wish_list_item_with_http_info(customer_profile_oid, customer_wishlist_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :param int customer_wishlist_item_oid: The wishlist oid for this wishlist item. (required)
+        :return: CustomerWishListItemResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['customer_profile_oid', 'customer_wishlist_item_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_customer_wish_list_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'customer_profile_oid' is set
+        if ('customer_profile_oid' not in params or
+                params['customer_profile_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `get_customer_wish_list_item`")  # noqa: E501
+        # verify the required parameter 'customer_wishlist_item_oid' is set
+        if ('customer_wishlist_item_oid' not in params or
+                params['customer_wishlist_item_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_wishlist_item_oid` when calling `get_customer_wish_list_item`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'customer_profile_oid' in params:
+            path_params['customer_profile_oid'] = params['customer_profile_oid']  # noqa: E501
+        if 'customer_wishlist_item_oid' in params:
+            path_params['customer_wishlist_item_oid'] = params['customer_wishlist_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomerWishListItemResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1588,6 +1901,113 @@ class CustomerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def insert_wish_list_item(self, wishlist_item, customer_profile_oid, **kwargs):  # noqa: E501
+        """Insert a customer wishlist item  # noqa: E501
+
+        Insert a customer wishlist item   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_wish_list_item(wishlist_item, customer_profile_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomerWishListItem wishlist_item: Wishlist item to insert (required)
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :return: CustomerWishListItem
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_wish_list_item_with_http_info(wishlist_item, customer_profile_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_wish_list_item_with_http_info(wishlist_item, customer_profile_oid, **kwargs)  # noqa: E501
+            return data
+
+    def insert_wish_list_item_with_http_info(self, wishlist_item, customer_profile_oid, **kwargs):  # noqa: E501
+        """Insert a customer wishlist item  # noqa: E501
+
+        Insert a customer wishlist item   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_wish_list_item_with_http_info(wishlist_item, customer_profile_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomerWishListItem wishlist_item: Wishlist item to insert (required)
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :return: CustomerWishListItem
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['wishlist_item', 'customer_profile_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_wish_list_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'wishlist_item' is set
+        if ('wishlist_item' not in params or
+                params['wishlist_item'] is None):
+            raise ValueError("Missing the required parameter `wishlist_item` when calling `insert_wish_list_item`")  # noqa: E501
+        # verify the required parameter 'customer_profile_oid' is set
+        if ('customer_profile_oid' not in params or
+                params['customer_profile_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `insert_wish_list_item`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'customer_profile_oid' in params:
+            path_params['customer_profile_oid'] = params['customer_profile_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'wishlist_item' in params:
+            body_params = params['wishlist_item']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/customer/customers/{customer_profile_oid}/wishlist', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomerWishListItem',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def merge_customer(self, customer, customer_profile_oid, **kwargs):  # noqa: E501
         """Merge customer into this customer  # noqa: E501
 
@@ -2007,6 +2427,121 @@ class CustomerApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CustomerEmailListChanges',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_wish_list_item(self, wishlist_item, customer_profile_oid, customer_wishlist_item_oid, **kwargs):  # noqa: E501
+        """Update a customer wishlist item  # noqa: E501
+
+        Update a customer wishlist item   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_wish_list_item(wishlist_item, customer_profile_oid, customer_wishlist_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomerWishListItem wishlist_item: Wishlist item to update (required)
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :param int customer_wishlist_item_oid: The wishlist oid for this wishlist item. (required)
+        :return: CustomerWishListItem
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_wish_list_item_with_http_info(wishlist_item, customer_profile_oid, customer_wishlist_item_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_wish_list_item_with_http_info(wishlist_item, customer_profile_oid, customer_wishlist_item_oid, **kwargs)  # noqa: E501
+            return data
+
+    def update_wish_list_item_with_http_info(self, wishlist_item, customer_profile_oid, customer_wishlist_item_oid, **kwargs):  # noqa: E501
+        """Update a customer wishlist item  # noqa: E501
+
+        Update a customer wishlist item   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_wish_list_item_with_http_info(wishlist_item, customer_profile_oid, customer_wishlist_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomerWishListItem wishlist_item: Wishlist item to update (required)
+        :param int customer_profile_oid: The customer oid for this wishlist. (required)
+        :param int customer_wishlist_item_oid: The wishlist oid for this wishlist item. (required)
+        :return: CustomerWishListItem
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['wishlist_item', 'customer_profile_oid', 'customer_wishlist_item_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_wish_list_item" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'wishlist_item' is set
+        if ('wishlist_item' not in params or
+                params['wishlist_item'] is None):
+            raise ValueError("Missing the required parameter `wishlist_item` when calling `update_wish_list_item`")  # noqa: E501
+        # verify the required parameter 'customer_profile_oid' is set
+        if ('customer_profile_oid' not in params or
+                params['customer_profile_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_profile_oid` when calling `update_wish_list_item`")  # noqa: E501
+        # verify the required parameter 'customer_wishlist_item_oid' is set
+        if ('customer_wishlist_item_oid' not in params or
+                params['customer_wishlist_item_oid'] is None):
+            raise ValueError("Missing the required parameter `customer_wishlist_item_oid` when calling `update_wish_list_item`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'customer_profile_oid' in params:
+            path_params['customer_profile_oid'] = params['customer_profile_oid']  # noqa: E501
+        if 'customer_wishlist_item_oid' in params:
+            path_params['customer_wishlist_item_oid'] = params['customer_wishlist_item_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'wishlist_item' in params:
+            body_params = params['wishlist_item']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomerWishListItem',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

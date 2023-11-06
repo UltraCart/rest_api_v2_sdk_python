@@ -7,21 +7,26 @@ Method | HTTP request | Description
 [**add_customer_store_credit**](CustomerApi.md#add_customer_store_credit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 [**adjust_internal_certificate**](CustomerApi.md#adjust_internal_certificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 [**delete_customer**](CustomerApi.md#delete_customer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
+[**delete_wish_list_item**](CustomerApi.md#delete_wish_list_item) | **DELETE** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Delete a customer wishlist item
 [**get_customer**](CustomerApi.md#get_customer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**get_customer_by_email**](CustomerApi.md#get_customer_by_email) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 [**get_customer_editor_values**](CustomerApi.md#get_customer_editor_values) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**get_customer_email_lists**](CustomerApi.md#get_customer_email_lists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 [**get_customer_store_credit**](CustomerApi.md#get_customer_store_credit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
+[**get_customer_wish_list**](CustomerApi.md#get_customer_wish_list) | **GET** /customer/customers/{customer_profile_oid}/wishlist | Retrieve wishlist items for customer
+[**get_customer_wish_list_item**](CustomerApi.md#get_customer_wish_list_item) | **GET** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Retrieve wishlist item for customer
 [**get_customers**](CustomerApi.md#get_customers) | **GET** /customer/customers | Retrieve customers
 [**get_customers_by_query**](CustomerApi.md#get_customers_by_query) | **POST** /customer/customers/query | Retrieve customers by query
 [**get_customers_for_data_tables**](CustomerApi.md#get_customers_for_data_tables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**get_email_verification_token**](CustomerApi.md#get_email_verification_token) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**get_magic_link**](CustomerApi.md#get_magic_link) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
 [**insert_customer**](CustomerApi.md#insert_customer) | **POST** /customer/customers | Insert a customer
+[**insert_wish_list_item**](CustomerApi.md#insert_wish_list_item) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 [**merge_customer**](CustomerApi.md#merge_customer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 [**search_customer_profile_values**](CustomerApi.md#search_customer_profile_values) | **POST** /customer/search | Searches for all matching values (using POST)
 [**update_customer**](CustomerApi.md#update_customer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**update_customer_email_lists**](CustomerApi.md#update_customer_email_lists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
+[**update_wish_list_item**](CustomerApi.md#update_wish_list_item) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 [**validate_email_verification_token**](CustomerApi.md#validate_email_verification_token) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 
 
@@ -174,6 +179,58 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_wish_list_item**
+> CustomerWishListItem delete_wish_list_item(customer_profile_oid, customer_wishlist_item_oid)
+
+Delete a customer wishlist item
+
+Delete a customer wishlist item 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
+
+customer_profile_oid = 56 # int | The customer oid for this wishlist.
+customer_wishlist_item_oid = 56 # int | The wishlist oid for this wishlist item to delete.
+
+try:
+    # Delete a customer wishlist item
+    api_response = api_instance.delete_wish_list_item(customer_profile_oid, customer_wishlist_item_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->delete_wish_list_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. | 
+ **customer_wishlist_item_oid** | **int**| The wishlist oid for this wishlist item to delete. | 
+
+### Return type
+
+[**CustomerWishListItem**](CustomerWishListItem.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -412,6 +469,108 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomerStoreCreditResponse**](CustomerStoreCreditResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_customer_wish_list**
+> CustomerWishListItemsResponse get_customer_wish_list(customer_profile_oid)
+
+Retrieve wishlist items for customer
+
+Retrieve wishlist items for customer. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
+
+customer_profile_oid = 56 # int | The customer oid for this wishlist.
+
+try:
+    # Retrieve wishlist items for customer
+    api_response = api_instance.get_customer_wish_list(customer_profile_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->get_customer_wish_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. | 
+
+### Return type
+
+[**CustomerWishListItemsResponse**](CustomerWishListItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_customer_wish_list_item**
+> CustomerWishListItemResponse get_customer_wish_list_item(customer_profile_oid, customer_wishlist_item_oid)
+
+Retrieve wishlist item for customer
+
+Retrieve wishlist item for customer. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
+
+customer_profile_oid = 56 # int | The customer oid for this wishlist.
+customer_wishlist_item_oid = 56 # int | The wishlist oid for this wishlist item.
+
+try:
+    # Retrieve wishlist item for customer
+    api_response = api_instance.get_customer_wish_list_item(customer_profile_oid, customer_wishlist_item_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->get_customer_wish_list_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. | 
+ **customer_wishlist_item_oid** | **int**| The wishlist oid for this wishlist item. | 
+
+### Return type
+
+[**CustomerWishListItemResponse**](CustomerWishListItemResponse.md)
 
 ### Authorization
 
@@ -800,6 +959,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **insert_wish_list_item**
+> CustomerWishListItem insert_wish_list_item(wishlist_item, customer_profile_oid)
+
+Insert a customer wishlist item
+
+Insert a customer wishlist item 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
+
+wishlist_item = ultracart.CustomerWishListItem() # CustomerWishListItem | Wishlist item to insert
+customer_profile_oid = 56 # int | The customer oid for this wishlist.
+
+try:
+    # Insert a customer wishlist item
+    api_response = api_instance.insert_wish_list_item(wishlist_item, customer_profile_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->insert_wish_list_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wishlist_item** | [**CustomerWishListItem**](CustomerWishListItem.md)| Wishlist item to insert | 
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. | 
+
+### Return type
+
+[**CustomerWishListItem**](CustomerWishListItem.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **merge_customer**
 > merge_customer(customer, customer_profile_oid, expand=expand)
 
@@ -995,6 +1206,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomerEmailListChanges**](CustomerEmailListChanges.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_wish_list_item**
+> CustomerWishListItem update_wish_list_item(wishlist_item, customer_profile_oid, customer_wishlist_item_oid)
+
+Update a customer wishlist item
+
+Update a customer wishlist item 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
+
+wishlist_item = ultracart.CustomerWishListItem() # CustomerWishListItem | Wishlist item to update
+customer_profile_oid = 56 # int | The customer oid for this wishlist.
+customer_wishlist_item_oid = 56 # int | The wishlist oid for this wishlist item.
+
+try:
+    # Update a customer wishlist item
+    api_response = api_instance.update_wish_list_item(wishlist_item, customer_profile_oid, customer_wishlist_item_oid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->update_wish_list_item: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wishlist_item** | [**CustomerWishListItem**](CustomerWishListItem.md)| Wishlist item to update | 
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. | 
+ **customer_wishlist_item_oid** | **int**| The wishlist oid for this wishlist item. | 
+
+### Return type
+
+[**CustomerWishListItem**](CustomerWishListItem.md)
 
 ### Authorization
 
