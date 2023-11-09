@@ -38,6 +38,8 @@ class ItemAutoOrderStep(object):
         'managed_by': 'str',
         'pause_days': 'int',
         'pause_until_date': 'str',
+        'pause_until_day_of_month': 'int',
+        'pause_until_minimum_delay_days': 'int',
         'preshipment_notice_days': 'int',
         'recurring_merchant_item_id': 'str',
         'recurring_merchant_item_oid': 'int',
@@ -56,6 +58,8 @@ class ItemAutoOrderStep(object):
         'managed_by': 'managed_by',
         'pause_days': 'pause_days',
         'pause_until_date': 'pause_until_date',
+        'pause_until_day_of_month': 'pause_until_day_of_month',
+        'pause_until_minimum_delay_days': 'pause_until_minimum_delay_days',
         'preshipment_notice_days': 'preshipment_notice_days',
         'recurring_merchant_item_id': 'recurring_merchant_item_id',
         'recurring_merchant_item_oid': 'recurring_merchant_item_oid',
@@ -66,7 +70,7 @@ class ItemAutoOrderStep(object):
         'type': 'type'
     }
 
-    def __init__(self, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_schedules=None, grandfather_pricing=None, managed_by=None, pause_days=None, pause_until_date=None, preshipment_notice_days=None, recurring_merchant_item_id=None, recurring_merchant_item_oid=None, repeat_count=None, schedule=None, subscribe_email_list_name=None, subscribe_email_list_oid=None, type=None):  # noqa: E501
+    def __init__(self, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_schedules=None, grandfather_pricing=None, managed_by=None, pause_days=None, pause_until_date=None, pause_until_day_of_month=None, pause_until_minimum_delay_days=None, preshipment_notice_days=None, recurring_merchant_item_id=None, recurring_merchant_item_oid=None, repeat_count=None, schedule=None, subscribe_email_list_name=None, subscribe_email_list_oid=None, type=None):  # noqa: E501
         """ItemAutoOrderStep - a model defined in Swagger"""  # noqa: E501
 
         self._arbitrary_schedule_days = None
@@ -76,6 +80,8 @@ class ItemAutoOrderStep(object):
         self._managed_by = None
         self._pause_days = None
         self._pause_until_date = None
+        self._pause_until_day_of_month = None
+        self._pause_until_minimum_delay_days = None
         self._preshipment_notice_days = None
         self._recurring_merchant_item_id = None
         self._recurring_merchant_item_oid = None
@@ -100,6 +106,10 @@ class ItemAutoOrderStep(object):
             self.pause_days = pause_days
         if pause_until_date is not None:
             self.pause_until_date = pause_until_date
+        if pause_until_day_of_month is not None:
+            self.pause_until_day_of_month = pause_until_day_of_month
+        if pause_until_minimum_delay_days is not None:
+            self.pause_until_minimum_delay_days = pause_until_minimum_delay_days
         if preshipment_notice_days is not None:
             self.preshipment_notice_days = preshipment_notice_days
         if recurring_merchant_item_id is not None:
@@ -277,6 +287,52 @@ class ItemAutoOrderStep(object):
         """
 
         self._pause_until_date = pause_until_date
+
+    @property
+    def pause_until_day_of_month(self):
+        """Gets the pause_until_day_of_month of this ItemAutoOrderStep.  # noqa: E501
+
+        Pause until a specific day of the month  # noqa: E501
+
+        :return: The pause_until_day_of_month of this ItemAutoOrderStep.  # noqa: E501
+        :rtype: int
+        """
+        return self._pause_until_day_of_month
+
+    @pause_until_day_of_month.setter
+    def pause_until_day_of_month(self, pause_until_day_of_month):
+        """Sets the pause_until_day_of_month of this ItemAutoOrderStep.
+
+        Pause until a specific day of the month  # noqa: E501
+
+        :param pause_until_day_of_month: The pause_until_day_of_month of this ItemAutoOrderStep.  # noqa: E501
+        :type: int
+        """
+
+        self._pause_until_day_of_month = pause_until_day_of_month
+
+    @property
+    def pause_until_minimum_delay_days(self):
+        """Gets the pause_until_minimum_delay_days of this ItemAutoOrderStep.  # noqa: E501
+
+        Pause at least this many days between the last order and the calculated next day of month  # noqa: E501
+
+        :return: The pause_until_minimum_delay_days of this ItemAutoOrderStep.  # noqa: E501
+        :rtype: int
+        """
+        return self._pause_until_minimum_delay_days
+
+    @pause_until_minimum_delay_days.setter
+    def pause_until_minimum_delay_days(self, pause_until_minimum_delay_days):
+        """Sets the pause_until_minimum_delay_days of this ItemAutoOrderStep.
+
+        Pause at least this many days between the last order and the calculated next day of month  # noqa: E501
+
+        :param pause_until_minimum_delay_days: The pause_until_minimum_delay_days of this ItemAutoOrderStep.  # noqa: E501
+        :type: int
+        """
+
+        self._pause_until_minimum_delay_days = pause_until_minimum_delay_days
 
     @property
     def preshipment_notice_days(self):
@@ -461,7 +517,7 @@ class ItemAutoOrderStep(object):
         :param type: The type of this ItemAutoOrderStep.  # noqa: E501
         :type: str
         """
-        allowed_values = ["item", "pause", "loop", "kit only"]  # noqa: E501
+        allowed_values = ["item", "pause", "loop", "kit only", "pause until"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
