@@ -67,6 +67,7 @@ class ItemAutoOrderStep(ModelNormal):
             'PAUSE': "pause",
             'LOOP': "loop",
             'KIT_ONLY': "kit only",
+            'PAUSE_UNTIL': "pause until",
         },
     }
 
@@ -106,6 +107,8 @@ class ItemAutoOrderStep(ModelNormal):
             'managed_by': (str,),  # noqa: E501
             'pause_days': (int,),  # noqa: E501
             'pause_until_date': (str,),  # noqa: E501
+            'pause_until_day_of_month': (int,),  # noqa: E501
+            'pause_until_minimum_delay_days': (int,),  # noqa: E501
             'preshipment_notice_days': (int,),  # noqa: E501
             'recurring_merchant_item_id': (str,),  # noqa: E501
             'recurring_merchant_item_oid': (int,),  # noqa: E501
@@ -129,6 +132,8 @@ class ItemAutoOrderStep(ModelNormal):
         'managed_by': 'managed_by',  # noqa: E501
         'pause_days': 'pause_days',  # noqa: E501
         'pause_until_date': 'pause_until_date',  # noqa: E501
+        'pause_until_day_of_month': 'pause_until_day_of_month',  # noqa: E501
+        'pause_until_minimum_delay_days': 'pause_until_minimum_delay_days',  # noqa: E501
         'preshipment_notice_days': 'preshipment_notice_days',  # noqa: E501
         'recurring_merchant_item_id': 'recurring_merchant_item_id',  # noqa: E501
         'recurring_merchant_item_oid': 'recurring_merchant_item_oid',  # noqa: E501
@@ -187,6 +192,8 @@ class ItemAutoOrderStep(ModelNormal):
             managed_by (str): Managed by (defaults to UltraCart). [optional]  # noqa: E501
             pause_days (int): Number of days to pause. [optional]  # noqa: E501
             pause_until_date (str): Wait for this step to happen until the specified date. [optional]  # noqa: E501
+            pause_until_day_of_month (int): Pause until a specific day of the month. [optional]  # noqa: E501
+            pause_until_minimum_delay_days (int): Pause at least this many days between the last order and the calculated next day of month. [optional]  # noqa: E501
             preshipment_notice_days (int): If set, a pre-shipment notice is sent to the customer this many days in advance. [optional]  # noqa: E501
             recurring_merchant_item_id (str): Item id to rebill. [optional]  # noqa: E501
             recurring_merchant_item_oid (int): Item object identifier to rebill. [optional]  # noqa: E501
@@ -287,6 +294,8 @@ class ItemAutoOrderStep(ModelNormal):
             managed_by (str): Managed by (defaults to UltraCart). [optional]  # noqa: E501
             pause_days (int): Number of days to pause. [optional]  # noqa: E501
             pause_until_date (str): Wait for this step to happen until the specified date. [optional]  # noqa: E501
+            pause_until_day_of_month (int): Pause until a specific day of the month. [optional]  # noqa: E501
+            pause_until_minimum_delay_days (int): Pause at least this many days between the last order and the calculated next day of month. [optional]  # noqa: E501
             preshipment_notice_days (int): If set, a pre-shipment notice is sent to the customer this many days in advance. [optional]  # noqa: E501
             recurring_merchant_item_id (str): Item id to rebill. [optional]  # noqa: E501
             recurring_merchant_item_oid (int): Item object identifier to rebill. [optional]  # noqa: E501
