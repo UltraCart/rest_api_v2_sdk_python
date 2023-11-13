@@ -95,6 +95,7 @@ class CouponEditorValues(ModelNormal):
             'coupon_types_for_display': ([CouponType],),  # noqa: E501
             'currency_codes': ([str],),  # noqa: E501
             'deprecated_themes': ([SimpleValue],),  # noqa: E501
+            'item_tags': ([str],),  # noqa: E501
             'mix_and_match_names': ([str],),  # noqa: E501
             'shipping_methods': ([str],),  # noqa: E501
             'storefronts': ([SimpleValue],),  # noqa: E501
@@ -113,6 +114,7 @@ class CouponEditorValues(ModelNormal):
         'coupon_types_for_display': 'coupon_types_for_display',  # noqa: E501
         'currency_codes': 'currency_codes',  # noqa: E501
         'deprecated_themes': 'deprecated_themes',  # noqa: E501
+        'item_tags': 'item_tags',  # noqa: E501
         'mix_and_match_names': 'mix_and_match_names',  # noqa: E501
         'shipping_methods': 'shipping_methods',  # noqa: E501
         'storefronts': 'storefronts',  # noqa: E501
@@ -166,6 +168,7 @@ class CouponEditorValues(ModelNormal):
             coupon_types_for_display ([CouponType]): coupon_types_for_display. [optional]  # noqa: E501
             currency_codes ([str]): currency_codes. [optional]  # noqa: E501
             deprecated_themes ([SimpleValue]): deprecated_themes. [optional]  # noqa: E501
+            item_tags ([str]): Item tags. [optional]  # noqa: E501
             mix_and_match_names ([str]): mix_and_match_names. [optional]  # noqa: E501
             shipping_methods ([str]): shipping_methods. [optional]  # noqa: E501
             storefronts ([SimpleValue]): storefronts. [optional]  # noqa: E501
@@ -261,6 +264,7 @@ class CouponEditorValues(ModelNormal):
             coupon_types_for_display ([CouponType]): coupon_types_for_display. [optional]  # noqa: E501
             currency_codes ([str]): currency_codes. [optional]  # noqa: E501
             deprecated_themes ([SimpleValue]): deprecated_themes. [optional]  # noqa: E501
+            item_tags ([str]): Item tags. [optional]  # noqa: E501
             mix_and_match_names ([str]): mix_and_match_names. [optional]  # noqa: E501
             shipping_methods ([str]): shipping_methods. [optional]  # noqa: E501
             storefronts ([SimpleValue]): storefronts. [optional]  # noqa: E501
