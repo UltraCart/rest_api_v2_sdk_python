@@ -32,31 +32,41 @@ class CouponPercentOffItems(object):
     """
     swagger_types = {
         'discount_percent': 'float',
+        'excluded_item_tags': 'list[str]',
         'excluded_items': 'list[str]',
+        'item_tags': 'list[str]',
         'items': 'list[str]',
         'limit': 'int'
     }
 
     attribute_map = {
         'discount_percent': 'discount_percent',
+        'excluded_item_tags': 'excluded_item_tags',
         'excluded_items': 'excluded_items',
+        'item_tags': 'item_tags',
         'items': 'items',
         'limit': 'limit'
     }
 
-    def __init__(self, discount_percent=None, excluded_items=None, items=None, limit=None):  # noqa: E501
+    def __init__(self, discount_percent=None, excluded_item_tags=None, excluded_items=None, item_tags=None, items=None, limit=None):  # noqa: E501
         """CouponPercentOffItems - a model defined in Swagger"""  # noqa: E501
 
         self._discount_percent = None
+        self._excluded_item_tags = None
         self._excluded_items = None
+        self._item_tags = None
         self._items = None
         self._limit = None
         self.discriminator = None
 
         if discount_percent is not None:
             self.discount_percent = discount_percent
+        if excluded_item_tags is not None:
+            self.excluded_item_tags = excluded_item_tags
         if excluded_items is not None:
             self.excluded_items = excluded_items
+        if item_tags is not None:
+            self.item_tags = item_tags
         if items is not None:
             self.items = items
         if limit is not None:
@@ -86,6 +96,29 @@ class CouponPercentOffItems(object):
         self._discount_percent = discount_percent
 
     @property
+    def excluded_item_tags(self):
+        """Gets the excluded_item_tags of this CouponPercentOffItems.  # noqa: E501
+
+        A list of item tags which cannot be discounted.  # noqa: E501
+
+        :return: The excluded_item_tags of this CouponPercentOffItems.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._excluded_item_tags
+
+    @excluded_item_tags.setter
+    def excluded_item_tags(self, excluded_item_tags):
+        """Sets the excluded_item_tags of this CouponPercentOffItems.
+
+        A list of item tags which cannot be discounted.  # noqa: E501
+
+        :param excluded_item_tags: The excluded_item_tags of this CouponPercentOffItems.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._excluded_item_tags = excluded_item_tags
+
+    @property
     def excluded_items(self):
         """Gets the excluded_items of this CouponPercentOffItems.  # noqa: E501
 
@@ -107,6 +140,29 @@ class CouponPercentOffItems(object):
         """
 
         self._excluded_items = excluded_items
+
+    @property
+    def item_tags(self):
+        """Gets the item_tags of this CouponPercentOffItems.  # noqa: E501
+
+        An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.  # noqa: E501
+
+        :return: The item_tags of this CouponPercentOffItems.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._item_tags
+
+    @item_tags.setter
+    def item_tags(self, item_tags):
+        """Sets the item_tags of this CouponPercentOffItems.
+
+        An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.  # noqa: E501
+
+        :param item_tags: The item_tags of this CouponPercentOffItems.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._item_tags = item_tags
 
     @property
     def items(self):
