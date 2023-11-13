@@ -36,6 +36,7 @@ class CouponEditorValues(object):
         'coupon_types_for_display': 'list[CouponType]',
         'currency_codes': 'list[str]',
         'deprecated_themes': 'list[SimpleValue]',
+        'item_tags': 'list[str]',
         'mix_and_match_names': 'list[str]',
         'shipping_methods': 'list[str]',
         'storefronts': 'list[SimpleValue]',
@@ -49,6 +50,7 @@ class CouponEditorValues(object):
         'coupon_types_for_display': 'coupon_types_for_display',
         'currency_codes': 'currency_codes',
         'deprecated_themes': 'deprecated_themes',
+        'item_tags': 'item_tags',
         'mix_and_match_names': 'mix_and_match_names',
         'shipping_methods': 'shipping_methods',
         'storefronts': 'storefronts',
@@ -56,7 +58,7 @@ class CouponEditorValues(object):
         'valid_with_other_coupons': 'valid_with_other_coupons'
     }
 
-    def __init__(self, affiliates=None, coupon_types=None, coupon_types_for_display=None, currency_codes=None, deprecated_themes=None, mix_and_match_names=None, shipping_methods=None, storefronts=None, usable_by=None, valid_with_other_coupons=None):  # noqa: E501
+    def __init__(self, affiliates=None, coupon_types=None, coupon_types_for_display=None, currency_codes=None, deprecated_themes=None, item_tags=None, mix_and_match_names=None, shipping_methods=None, storefronts=None, usable_by=None, valid_with_other_coupons=None):  # noqa: E501
         """CouponEditorValues - a model defined in Swagger"""  # noqa: E501
 
         self._affiliates = None
@@ -64,6 +66,7 @@ class CouponEditorValues(object):
         self._coupon_types_for_display = None
         self._currency_codes = None
         self._deprecated_themes = None
+        self._item_tags = None
         self._mix_and_match_names = None
         self._shipping_methods = None
         self._storefronts = None
@@ -81,6 +84,8 @@ class CouponEditorValues(object):
             self.currency_codes = currency_codes
         if deprecated_themes is not None:
             self.deprecated_themes = deprecated_themes
+        if item_tags is not None:
+            self.item_tags = item_tags
         if mix_and_match_names is not None:
             self.mix_and_match_names = mix_and_match_names
         if shipping_methods is not None:
@@ -206,6 +211,29 @@ class CouponEditorValues(object):
         """
 
         self._deprecated_themes = deprecated_themes
+
+    @property
+    def item_tags(self):
+        """Gets the item_tags of this CouponEditorValues.  # noqa: E501
+
+        Item tags  # noqa: E501
+
+        :return: The item_tags of this CouponEditorValues.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._item_tags
+
+    @item_tags.setter
+    def item_tags(self, item_tags):
+        """Sets the item_tags of this CouponEditorValues.
+
+        Item tags  # noqa: E501
+
+        :param item_tags: The item_tags of this CouponEditorValues.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._item_tags = item_tags
 
     @property
     def mix_and_match_names(self):
