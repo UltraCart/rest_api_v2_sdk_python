@@ -1291,8 +1291,14 @@ api_instance = GiftCertificateApi(api_client())
         ),
         percent_off_items_and_free_shipping=CouponPercentOffItemsAndFreeShipping(
             discount_percent=3.14,
+            excluded_item_tags=[
+                "excluded_item_tags_example",
+            ],
             excluded_items=[
                 "excluded_items_example",
+            ],
+            item_tags=[
+                "item_tags_example",
             ],
             items=[
                 "items_example",
@@ -1785,8 +1791,14 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 percent_off_items_and_free_shipping=CouponPercentOffItemsAndFreeShipping(
                     discount_percent=3.14,
+                    excluded_item_tags=[
+                        "excluded_item_tags_example",
+                    ],
                     excluded_items=[
                         "excluded_items_example",
+                    ],
+                    item_tags=[
+                        "item_tags_example",
                     ],
                     items=[
                         "items_example",
@@ -2465,8 +2477,14 @@ api_instance = GiftCertificateApi(api_client())
         ),
         percent_off_items_and_free_shipping=CouponPercentOffItemsAndFreeShipping(
             discount_percent=3.14,
+            excluded_item_tags=[
+                "excluded_item_tags_example",
+            ],
             excluded_items=[
                 "excluded_items_example",
+            ],
+            item_tags=[
+                "item_tags_example",
             ],
             items=[
                 "items_example",
@@ -2960,8 +2978,14 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 percent_off_items_and_free_shipping=CouponPercentOffItemsAndFreeShipping(
                     discount_percent=3.14,
+                    excluded_item_tags=[
+                        "excluded_item_tags_example",
+                    ],
                     excluded_items=[
                         "excluded_items_example",
+                    ],
+                    item_tags=[
+                        "item_tags_example",
                     ],
                     items=[
                         "items_example",

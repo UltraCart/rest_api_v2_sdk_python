@@ -83,7 +83,9 @@ class CouponPercentOffItemsAndFreeShipping(ModelNormal):
         """
         return {
             'discount_percent': (float,),  # noqa: E501
+            'excluded_item_tags': ([str],),  # noqa: E501
             'excluded_items': ([str],),  # noqa: E501
+            'item_tags': ([str],),  # noqa: E501
             'items': ([str],),  # noqa: E501
         }
 
@@ -94,7 +96,9 @@ class CouponPercentOffItemsAndFreeShipping(ModelNormal):
 
     attribute_map = {
         'discount_percent': 'discount_percent',  # noqa: E501
+        'excluded_item_tags': 'excluded_item_tags',  # noqa: E501
         'excluded_items': 'excluded_items',  # noqa: E501
+        'item_tags': 'item_tags',  # noqa: E501
         'items': 'items',  # noqa: E501
     }
 
@@ -140,7 +144,9 @@ class CouponPercentOffItemsAndFreeShipping(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             discount_percent (float): The percentage of subtotal discount. [optional]  # noqa: E501
+            excluded_item_tags ([str]): A list of item tags which cannot be discounted.. [optional]  # noqa: E501
             excluded_items ([str]): A list of items which cannot be discounted.. [optional]  # noqa: E501
+            item_tags ([str]): An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
             items ([str]): An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
         """
 
@@ -228,7 +234,9 @@ class CouponPercentOffItemsAndFreeShipping(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             discount_percent (float): The percentage of subtotal discount. [optional]  # noqa: E501
+            excluded_item_tags ([str]): A list of item tags which cannot be discounted.. [optional]  # noqa: E501
             excluded_items ([str]): A list of items which cannot be discounted.. [optional]  # noqa: E501
+            item_tags ([str]): An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
             items ([str]): An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
         """
 
