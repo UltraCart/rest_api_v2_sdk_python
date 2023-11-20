@@ -270,7 +270,7 @@ class WorkflowApi(object):
         )
         self.get_workflow_task_by_object_type_endpoint = _Endpoint(
             settings={
-                'response_type': (WorkflowTaskResponse,),
+                'response_type': (WorkflowTasksResponse,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -885,7 +885,7 @@ class WorkflowApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            WorkflowTaskResponse
+            WorkflowTasksResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

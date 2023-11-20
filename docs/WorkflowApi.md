@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_workflow_task_by_object_type**
-> WorkflowTaskResponse get_workflow_task_by_object_type(object_type, object_id)
+> WorkflowTasksResponse get_workflow_task_by_object_type(object_type, object_id)
 
 Retrieve a workflow task by object type and id
 
@@ -324,7 +324,7 @@ Retrieve a workflow task by object type and id
 import time
 import ultracart
 from ultracart.api import workflow_api
-from ultracart.model.workflow_task_response import WorkflowTaskResponse
+from ultracart.model.workflow_tasks_response import WorkflowTasksResponse
 from ultracart.model.error_response import ErrorResponse
 from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkflowTaskResponse**](WorkflowTaskResponse.md)
+[**WorkflowTasksResponse**](WorkflowTasksResponse.md)
 
 ### Authorization
 

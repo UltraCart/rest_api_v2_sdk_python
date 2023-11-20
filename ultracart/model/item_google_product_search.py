@@ -96,7 +96,7 @@ class ItemGoogleProductSearch(ModelNormal):
             'max_length': 1000,
         },
         ('color',): {
-            'max_length': 20,
+            'max_length': 100,
         },
         ('condition',): {
             'max_length': 15,
