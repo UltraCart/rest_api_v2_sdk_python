@@ -454,7 +454,7 @@ class WorkflowApi(object):
         :param async_req bool
         :param str object_type: (required)
         :param str object_id: (required)
-        :return: WorkflowTaskResponse
+        :return: WorkflowTasksResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -477,7 +477,7 @@ class WorkflowApi(object):
         :param async_req bool
         :param str object_type: (required)
         :param str object_id: (required)
-        :return: WorkflowTaskResponse
+        :return: WorkflowTasksResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -541,7 +541,7 @@ class WorkflowApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='WorkflowTaskResponse',  # noqa: E501
+            response_type='WorkflowTasksResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

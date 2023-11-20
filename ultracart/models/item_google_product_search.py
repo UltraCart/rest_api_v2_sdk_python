@@ -625,8 +625,8 @@ class ItemGoogleProductSearch(object):
         :param color: The color of this ItemGoogleProductSearch.  # noqa: E501
         :type: str
         """
-        if color is not None and len(color) > 20:
-            raise ValueError("Invalid value for `color`, length must be less than or equal to `20`")  # noqa: E501
+        if color is not None and len(color) > 100:
+            raise ValueError("Invalid value for `color`, length must be less than or equal to `100`")  # noqa: E501
 
         self._color = color
 
