@@ -88,6 +88,7 @@ class CouponTieredAmountOffItems(ModelNormal):
         """
         lazy_import()
         return {
+            'item_tags': ([str],),  # noqa: E501
             'items': ([str],),  # noqa: E501
             'limit': (float,),  # noqa: E501
             'tiers': ([CouponTierQuantityAmount],),  # noqa: E501
@@ -99,6 +100,7 @@ class CouponTieredAmountOffItems(ModelNormal):
 
 
     attribute_map = {
+        'item_tags': 'item_tags',  # noqa: E501
         'items': 'items',  # noqa: E501
         'limit': 'limit',  # noqa: E501
         'tiers': 'tiers',  # noqa: E501
@@ -145,6 +147,7 @@ class CouponTieredAmountOffItems(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            item_tags ([str]): An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
             items ([str]): The items being discounted by this coupon.. [optional]  # noqa: E501
             limit (float): The maximum number of discounted items.. [optional]  # noqa: E501
             tiers ([CouponTierQuantityAmount]): A list of discount tiers.. [optional]  # noqa: E501
@@ -233,6 +236,7 @@ class CouponTieredAmountOffItems(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            item_tags ([str]): An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
             items ([str]): The items being discounted by this coupon.. [optional]  # noqa: E501
             limit (float): The maximum number of discounted items.. [optional]  # noqa: E501
             tiers ([CouponTierQuantityAmount]): A list of discount tiers.. [optional]  # noqa: E501

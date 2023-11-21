@@ -1391,6 +1391,9 @@ api_instance = GiftCertificateApi(api_client())
         start_dts="start_dts_example",
         super_coupon=True,
         tiered_amount_off_items=CouponTieredAmountOffItems(
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -1416,6 +1419,9 @@ api_instance = GiftCertificateApi(api_client())
             ],
         ),
         tiered_percent_off_items=CouponTieredPercentOffItems(
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -1891,6 +1897,9 @@ api_instance = GiftCertificateApi(api_client())
                 start_dts="start_dts_example",
                 super_coupon=True,
                 tiered_amount_off_items=CouponTieredAmountOffItems(
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
@@ -1916,6 +1925,9 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                 ),
                 tiered_percent_off_items=CouponTieredPercentOffItems(
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
@@ -2577,6 +2589,9 @@ api_instance = GiftCertificateApi(api_client())
         start_dts="start_dts_example",
         super_coupon=True,
         tiered_amount_off_items=CouponTieredAmountOffItems(
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -2602,6 +2617,9 @@ api_instance = GiftCertificateApi(api_client())
             ],
         ),
         tiered_percent_off_items=CouponTieredPercentOffItems(
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -3078,6 +3096,9 @@ api_instance = GiftCertificateApi(api_client())
                 start_dts="start_dts_example",
                 super_coupon=True,
                 tiered_amount_off_items=CouponTieredAmountOffItems(
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
@@ -3103,6 +3124,9 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                 ),
                 tiered_percent_off_items=CouponTieredPercentOffItems(
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
