@@ -31,31 +31,59 @@ class CouponTieredAmountOffItems(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'item_tags': 'list[str]',
         'items': 'list[str]',
         'limit': 'float',
         'tiers': 'list[CouponTierQuantityAmount]'
     }
 
     attribute_map = {
+        'item_tags': 'item_tags',
         'items': 'items',
         'limit': 'limit',
         'tiers': 'tiers'
     }
 
-    def __init__(self, items=None, limit=None, tiers=None):  # noqa: E501
+    def __init__(self, item_tags=None, items=None, limit=None, tiers=None):  # noqa: E501
         """CouponTieredAmountOffItems - a model defined in Swagger"""  # noqa: E501
 
+        self._item_tags = None
         self._items = None
         self._limit = None
         self._tiers = None
         self.discriminator = None
 
+        if item_tags is not None:
+            self.item_tags = item_tags
         if items is not None:
             self.items = items
         if limit is not None:
             self.limit = limit
         if tiers is not None:
             self.tiers = tiers
+
+    @property
+    def item_tags(self):
+        """Gets the item_tags of this CouponTieredAmountOffItems.  # noqa: E501
+
+        An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.  # noqa: E501
+
+        :return: The item_tags of this CouponTieredAmountOffItems.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._item_tags
+
+    @item_tags.setter
+    def item_tags(self, item_tags):
+        """Sets the item_tags of this CouponTieredAmountOffItems.
+
+        An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.  # noqa: E501
+
+        :param item_tags: The item_tags of this CouponTieredAmountOffItems.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._item_tags = item_tags
 
     @property
     def items(self):
