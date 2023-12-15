@@ -821,6 +821,7 @@ docs/WorkflowTaskResponse.md
 docs/WorkflowTasksRequest.md
 docs/WorkflowTasksResponse.md
 docs/WorkflowUser.md
+docs/WorkflowUserResponse.md
 docs/WorkflowUsersResponse.md
 git_push.sh
 requirements.txt
@@ -1654,6 +1655,7 @@ ultracart/model/workflow_task_response.py
 ultracart/model/workflow_tasks_request.py
 ultracart/model/workflow_tasks_response.py
 ultracart/model/workflow_user.py
+ultracart/model/workflow_user_response.py
 ultracart/model/workflow_users_response.py
 ultracart/model_utils.py
 ultracart/models/__init__.py
