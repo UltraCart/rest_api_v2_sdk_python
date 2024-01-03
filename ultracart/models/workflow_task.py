@@ -50,6 +50,7 @@ class WorkflowTask(object):
         'object_url': 'str',
         'priority': 'str',
         'status': 'str',
+        'task_context': 'str',
         'task_details': 'str',
         'task_name': 'str',
         'workflow_task_uuid': 'str'
@@ -75,12 +76,13 @@ class WorkflowTask(object):
         'object_url': 'object_url',
         'priority': 'priority',
         'status': 'status',
+        'task_context': 'task_context',
         'task_details': 'task_details',
         'task_name': 'task_name',
         'workflow_task_uuid': 'workflow_task_uuid'
     }
 
-    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, due_dts=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_type=None, object_url=None, priority=None, status=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
+    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, due_dts=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_type=None, object_url=None, priority=None, status=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
         """WorkflowTask - a model defined in Swagger"""  # noqa: E501
 
         self._assigned_to_group = None
@@ -102,6 +104,7 @@ class WorkflowTask(object):
         self._object_url = None
         self._priority = None
         self._status = None
+        self._task_context = None
         self._task_details = None
         self._task_name = None
         self._workflow_task_uuid = None
@@ -145,6 +148,8 @@ class WorkflowTask(object):
             self.priority = priority
         if status is not None:
             self.status = status
+        if task_context is not None:
+            self.task_context = task_context
         if task_details is not None:
             self.task_details = task_details
         if task_name is not None:
@@ -515,7 +520,7 @@ class WorkflowTask(object):
         :param object_type: The object_type of this WorkflowTask.  # noqa: E501
         :type: str
         """
-        allowed_values = ["order", "auto order", "item", "customer profile"]  # noqa: E501
+        allowed_values = ["order", "auto order", "item", "customer profile", "storefront"]  # noqa: E501
         if object_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `object_type` ({0}), must be one of {1}"  # noqa: E501
@@ -604,6 +609,29 @@ class WorkflowTask(object):
             )
 
         self._status = status
+
+    @property
+    def task_context(self):
+        """Gets the task_context of this WorkflowTask.  # noqa: E501
+
+        User friendly string of the task context  # noqa: E501
+
+        :return: The task_context of this WorkflowTask.  # noqa: E501
+        :rtype: str
+        """
+        return self._task_context
+
+    @task_context.setter
+    def task_context(self, task_context):
+        """Sets the task_context of this WorkflowTask.
+
+        User friendly string of the task context  # noqa: E501
+
+        :param task_context: The task_context of this WorkflowTask.  # noqa: E501
+        :type: str
+        """
+
+        self._task_context = task_context
 
     @property
     def task_details(self):

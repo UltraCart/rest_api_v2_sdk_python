@@ -34,6 +34,7 @@ class WorkflowTasksResponse(object):
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         'success': 'bool',
+        'task_context': 'str',
         'tasks': 'list[WorkflowTask]',
         'warning': 'Warning'
     }
@@ -42,16 +43,18 @@ class WorkflowTasksResponse(object):
         'error': 'error',
         'metadata': 'metadata',
         'success': 'success',
+        'task_context': 'task_context',
         'tasks': 'tasks',
         'warning': 'warning'
     }
 
-    def __init__(self, error=None, metadata=None, success=None, tasks=None, warning=None):  # noqa: E501
+    def __init__(self, error=None, metadata=None, success=None, task_context=None, tasks=None, warning=None):  # noqa: E501
         """WorkflowTasksResponse - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._metadata = None
         self._success = None
+        self._task_context = None
         self._tasks = None
         self._warning = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class WorkflowTasksResponse(object):
             self.metadata = metadata
         if success is not None:
             self.success = success
+        if task_context is not None:
+            self.task_context = task_context
         if tasks is not None:
             self.tasks = tasks
         if warning is not None:
@@ -131,6 +136,29 @@ class WorkflowTasksResponse(object):
         """
 
         self._success = success
+
+    @property
+    def task_context(self):
+        """Gets the task_context of this WorkflowTasksResponse.  # noqa: E501
+
+        User friendly string of the task context if querying for a specific object type/id  # noqa: E501
+
+        :return: The task_context of this WorkflowTasksResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._task_context
+
+    @task_context.setter
+    def task_context(self, task_context):
+        """Sets the task_context of this WorkflowTasksResponse.
+
+        User friendly string of the task context if querying for a specific object type/id  # noqa: E501
+
+        :param task_context: The task_context of this WorkflowTasksResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._task_context = task_context
 
     @property
     def tasks(self):
