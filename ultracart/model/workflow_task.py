@@ -71,6 +71,7 @@ class WorkflowTask(ModelNormal):
             'AUTO_ORDER': "auto order",
             'ITEM': "item",
             'CUSTOMER_PROFILE': "customer profile",
+            'STOREFRONT': "storefront",
         },
         ('priority',): {
             '1_-_LOW': "1 - low",
@@ -131,6 +132,7 @@ class WorkflowTask(ModelNormal):
             'object_url': (str,),  # noqa: E501
             'priority': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'task_context': (str,),  # noqa: E501
             'task_details': (str,),  # noqa: E501
             'task_name': (str,),  # noqa: E501
             'workflow_task_uuid': (str,),  # noqa: E501
@@ -161,6 +163,7 @@ class WorkflowTask(ModelNormal):
         'object_url': 'object_url',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'task_context': 'task_context',  # noqa: E501
         'task_details': 'task_details',  # noqa: E501
         'task_name': 'task_name',  # noqa: E501
         'workflow_task_uuid': 'workflow_task_uuid',  # noqa: E501
@@ -226,6 +229,7 @@ class WorkflowTask(ModelNormal):
             object_url (str): Object URL. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
+            task_context (str): User friendly string of the task context. [optional]  # noqa: E501
             task_details (str): Task Details. [optional]  # noqa: E501
             task_name (str): Task Name. [optional]  # noqa: E501
             workflow_task_uuid (str): Workflow Task UUID. [optional]  # noqa: E501
@@ -333,6 +337,7 @@ class WorkflowTask(ModelNormal):
             object_url (str): Object URL. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
+            task_context (str): User friendly string of the task context. [optional]  # noqa: E501
             task_details (str): Task Details. [optional]  # noqa: E501
             task_name (str): Task Name. [optional]  # noqa: E501
             workflow_task_uuid (str): Workflow Task UUID. [optional]  # noqa: E501
