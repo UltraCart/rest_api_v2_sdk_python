@@ -739,6 +739,14 @@ api_instance = GiftCertificateApi(api_client())
                 localized_formatted="localized_formatted_example",
                 value=3.14,
             ),
+            health_benefit_card_balance=Currency(
+                currency_code="currency_code_example",
+                exchange_rate=3.14,
+                localized=3.14,
+                localized_formatted="localized_formatted_example",
+                value=3.14,
+            ),
+            health_benefit_card_requirements="health_benefit_card_requirements_example",
             internal_gift_certificate_amount=Currency(
                 currency_code="currency_code_example",
                 exchange_rate=3.14,
@@ -1600,6 +1608,14 @@ api_instance = GiftCertificateApi(api_client())
                     localized_formatted="localized_formatted_example",
                     value=3.14,
                 ),
+                health_benefit_card_balance=Currency(
+                    currency_code="currency_code_example",
+                    exchange_rate=3.14,
+                    localized=3.14,
+                    localized_formatted="localized_formatted_example",
+                    value=3.14,
+                ),
+                health_benefit_card_requirements="health_benefit_card_requirements_example",
                 internal_gift_certificate_amount=Currency(
                     currency_code="currency_code_example",
                     exchange_rate=3.14,
@@ -3011,6 +3027,14 @@ api_instance = GiftCertificateApi(api_client())
                     localized_formatted="localized_formatted_example",
                     value=3.14,
                 ),
+                health_benefit_card_balance=Currency(
+                    currency_code="currency_code_example",
+                    exchange_rate=3.14,
+                    localized=3.14,
+                    localized_formatted="localized_formatted_example",
+                    value=3.14,
+                ),
+                health_benefit_card_requirements="health_benefit_card_requirements_example",
                 internal_gift_certificate_amount=Currency(
                     currency_code="currency_code_example",
                     exchange_rate=3.14,
@@ -3892,6 +3916,14 @@ api_instance = GiftCertificateApi(api_client())
                     localized_formatted="localized_formatted_example",
                     value=3.14,
                 ),
+                health_benefit_card_balance=Currency(
+                    currency_code="currency_code_example",
+                    exchange_rate=3.14,
+                    localized=3.14,
+                    localized_formatted="localized_formatted_example",
+                    value=3.14,
+                ),
+                health_benefit_card_requirements="health_benefit_card_requirements_example",
                 internal_gift_certificate_amount=Currency(
                     currency_code="currency_code_example",
                     exchange_rate=3.14,
@@ -4767,6 +4799,14 @@ api_instance = GiftCertificateApi(api_client())
                 localized_formatted="localized_formatted_example",
                 value=3.14,
             ),
+            health_benefit_card_balance=Currency(
+                currency_code="currency_code_example",
+                exchange_rate=3.14,
+                localized=3.14,
+                localized_formatted="localized_formatted_example",
+                value=3.14,
+            ),
+            health_benefit_card_requirements="health_benefit_card_requirements_example",
             internal_gift_certificate_amount=Currency(
                 currency_code="currency_code_example",
                 exchange_rate=3.14,
@@ -5640,6 +5680,14 @@ api_instance = GiftCertificateApi(api_client())
                     localized_formatted="localized_formatted_example",
                     value=3.14,
                 ),
+                health_benefit_card_balance=Currency(
+                    currency_code="currency_code_example",
+                    exchange_rate=3.14,
+                    localized=3.14,
+                    localized_formatted="localized_formatted_example",
+                    value=3.14,
+                ),
+                health_benefit_card_requirements="health_benefit_card_requirements_example",
                 internal_gift_certificate_amount=Currency(
                     currency_code="currency_code_example",
                     exchange_rate=3.14,
@@ -6606,6 +6654,14 @@ api_instance = GiftCertificateApi(api_client())
                 localized_formatted="localized_formatted_example",
                 value=3.14,
             ),
+            health_benefit_card_balance=Currency(
+                currency_code="currency_code_example",
+                exchange_rate=3.14,
+                localized=3.14,
+                localized_formatted="localized_formatted_example",
+                value=3.14,
+            ),
+            health_benefit_card_requirements="health_benefit_card_requirements_example",
             internal_gift_certificate_amount=Currency(
                 currency_code="currency_code_example",
                 exchange_rate=3.14,
@@ -7479,6 +7535,14 @@ api_instance = GiftCertificateApi(api_client())
                 localized_formatted="localized_formatted_example",
                 value=3.14,
             ),
+            health_benefit_card_balance=Currency(
+                currency_code="currency_code_example",
+                exchange_rate=3.14,
+                localized=3.14,
+                localized_formatted="localized_formatted_example",
+                value=3.14,
+            ),
+            health_benefit_card_requirements="health_benefit_card_requirements_example",
             internal_gift_certificate_amount=Currency(
                 currency_code="currency_code_example",
                 exchange_rate=3.14,
@@ -8429,6 +8493,14 @@ api_instance = GiftCertificateApi(api_client())
                 localized_formatted="localized_formatted_example",
                 value=3.14,
             ),
+            health_benefit_card_balance=Currency(
+                currency_code="currency_code_example",
+                exchange_rate=3.14,
+                localized=3.14,
+                localized_formatted="localized_formatted_example",
+                value=3.14,
+            ),
+            health_benefit_card_requirements="health_benefit_card_requirements_example",
             internal_gift_certificate_amount=Currency(
                 currency_code="currency_code_example",
                 exchange_rate=3.14,
@@ -9302,6 +9374,14 @@ api_instance = GiftCertificateApi(api_client())
                     localized_formatted="localized_formatted_example",
                     value=3.14,
                 ),
+                health_benefit_card_balance=Currency(
+                    currency_code="currency_code_example",
+                    exchange_rate=3.14,
+                    localized=3.14,
+                    localized_formatted="localized_formatted_example",
+                    value=3.14,
+                ),
+                health_benefit_card_requirements="health_benefit_card_requirements_example",
                 internal_gift_certificate_amount=Currency(
                     currency_code="currency_code_example",
                     exchange_rate=3.14,

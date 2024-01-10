@@ -610,6 +610,7 @@ api_instance = GiftCertificateApi(api_client())
         ),
         created_dts="created_dts_example",
         delay_until_dts="delay_until_dts_example",
+        dependant_workflow_task_uuid="dependant_workflow_task_uuid_example",
         due_dts="due_dts_example",
         histories=[
             WorkflowTaskHistory(
@@ -652,7 +653,11 @@ api_instance = GiftCertificateApi(api_client())
         object_type="order",
         object_url="object_url_example",
         priority="1 - low",
+        related_workflow_task_uuid="related_workflow_task_uuid_example",
         status="open",
+        tags=[
+            "tags_example",
+        ],
         task_context="task_context_example",
         task_details="task_details_example",
         task_name="task_name_example",
@@ -752,6 +757,7 @@ api_instance = GiftCertificateApi(api_client())
         ),
         created_dts="created_dts_example",
         delay_until_dts="delay_until_dts_example",
+        dependant_workflow_task_uuid="dependant_workflow_task_uuid_example",
         due_dts="due_dts_example",
         histories=[
             WorkflowTaskHistory(
@@ -794,7 +800,11 @@ api_instance = GiftCertificateApi(api_client())
         object_type="order",
         object_url="object_url_example",
         priority="1 - low",
+        related_workflow_task_uuid="related_workflow_task_uuid_example",
         status="open",
+        tags=[
+            "tags_example",
+        ],
         task_context="task_context_example",
         task_details="task_details_example",
         task_name="task_name_example",

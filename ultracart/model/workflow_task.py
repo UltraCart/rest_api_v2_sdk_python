@@ -121,6 +121,7 @@ class WorkflowTask(ModelNormal):
             'created_by': (WorkflowUser,),  # noqa: E501
             'created_dts': (str,),  # noqa: E501
             'delay_until_dts': (str,),  # noqa: E501
+            'dependant_workflow_task_uuid': (str,),  # noqa: E501
             'due_dts': (str,),  # noqa: E501
             'histories': ([WorkflowTaskHistory],),  # noqa: E501
             'last_update_dts': (str,),  # noqa: E501
@@ -131,7 +132,9 @@ class WorkflowTask(ModelNormal):
             'object_type': (str,),  # noqa: E501
             'object_url': (str,),  # noqa: E501
             'priority': (str,),  # noqa: E501
+            'related_workflow_task_uuid': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'tags': ([str],),  # noqa: E501
             'task_context': (str,),  # noqa: E501
             'task_details': (str,),  # noqa: E501
             'task_name': (str,),  # noqa: E501
@@ -152,6 +155,7 @@ class WorkflowTask(ModelNormal):
         'created_by': 'created_by',  # noqa: E501
         'created_dts': 'created_dts',  # noqa: E501
         'delay_until_dts': 'delay_until_dts',  # noqa: E501
+        'dependant_workflow_task_uuid': 'dependant_workflow_task_uuid',  # noqa: E501
         'due_dts': 'due_dts',  # noqa: E501
         'histories': 'histories',  # noqa: E501
         'last_update_dts': 'last_update_dts',  # noqa: E501
@@ -162,7 +166,9 @@ class WorkflowTask(ModelNormal):
         'object_type': 'object_type',  # noqa: E501
         'object_url': 'object_url',  # noqa: E501
         'priority': 'priority',  # noqa: E501
+        'related_workflow_task_uuid': 'related_workflow_task_uuid',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
         'task_context': 'task_context',  # noqa: E501
         'task_details': 'task_details',  # noqa: E501
         'task_name': 'task_name',  # noqa: E501
@@ -218,6 +224,7 @@ class WorkflowTask(ModelNormal):
             created_by (WorkflowUser): [optional]  # noqa: E501
             created_dts (str): Date/time that the workflow task was created. [optional]  # noqa: E501
             delay_until_dts (str): Date/time that the workflow task should delay until. [optional]  # noqa: E501
+            dependant_workflow_task_uuid (str): Dependant Workflow Task UUID (must be completed before this task can be completed). [optional]  # noqa: E501
             due_dts (str): Date/time that the workflow task is due. [optional]  # noqa: E501
             histories ([WorkflowTaskHistory]): Array of history records for the task. [optional]  # noqa: E501
             last_update_dts (str): Date/time that the workflow task was last updated. [optional]  # noqa: E501
@@ -228,7 +235,9 @@ class WorkflowTask(ModelNormal):
             object_type (str): Object Type. [optional]  # noqa: E501
             object_url (str): Object URL. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501
+            related_workflow_task_uuid (str): Related Workflow Task UUID. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
+            tags ([str]): Tags. [optional]  # noqa: E501
             task_context (str): User friendly string of the task context. [optional]  # noqa: E501
             task_details (str): Task Details. [optional]  # noqa: E501
             task_name (str): Task Name. [optional]  # noqa: E501
@@ -326,6 +335,7 @@ class WorkflowTask(ModelNormal):
             created_by (WorkflowUser): [optional]  # noqa: E501
             created_dts (str): Date/time that the workflow task was created. [optional]  # noqa: E501
             delay_until_dts (str): Date/time that the workflow task should delay until. [optional]  # noqa: E501
+            dependant_workflow_task_uuid (str): Dependant Workflow Task UUID (must be completed before this task can be completed). [optional]  # noqa: E501
             due_dts (str): Date/time that the workflow task is due. [optional]  # noqa: E501
             histories ([WorkflowTaskHistory]): Array of history records for the task. [optional]  # noqa: E501
             last_update_dts (str): Date/time that the workflow task was last updated. [optional]  # noqa: E501
@@ -336,7 +346,9 @@ class WorkflowTask(ModelNormal):
             object_type (str): Object Type. [optional]  # noqa: E501
             object_url (str): Object URL. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501
+            related_workflow_task_uuid (str): Related Workflow Task UUID. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
+            tags ([str]): Tags. [optional]  # noqa: E501
             task_context (str): User friendly string of the task context. [optional]  # noqa: E501
             task_details (str): Task Details. [optional]  # noqa: E501
             task_name (str): Task Name. [optional]  # noqa: E501

@@ -93,6 +93,8 @@ class CartSummary(ModelNormal):
             'arbitrary_tax_rate': (Currency,),  # noqa: E501
             'arbitrary_taxable_subtotal': (Currency,),  # noqa: E501
             'health_benefit_card_amount': (Currency,),  # noqa: E501
+            'health_benefit_card_balance': (Currency,),  # noqa: E501
+            'health_benefit_card_requirements': (str,),  # noqa: E501
             'internal_gift_certificate_amount': (Currency,),  # noqa: E501
             'shipping_handling': (Currency,),  # noqa: E501
             'shipping_handling_discount': (Currency,),  # noqa: E501
@@ -119,6 +121,8 @@ class CartSummary(ModelNormal):
         'arbitrary_tax_rate': 'arbitrary_tax_rate',  # noqa: E501
         'arbitrary_taxable_subtotal': 'arbitrary_taxable_subtotal',  # noqa: E501
         'health_benefit_card_amount': 'health_benefit_card_amount',  # noqa: E501
+        'health_benefit_card_balance': 'health_benefit_card_balance',  # noqa: E501
+        'health_benefit_card_requirements': 'health_benefit_card_requirements',  # noqa: E501
         'internal_gift_certificate_amount': 'internal_gift_certificate_amount',  # noqa: E501
         'shipping_handling': 'shipping_handling',  # noqa: E501
         'shipping_handling_discount': 'shipping_handling_discount',  # noqa: E501
@@ -180,6 +184,8 @@ class CartSummary(ModelNormal):
             arbitrary_tax_rate (Currency): [optional]  # noqa: E501
             arbitrary_taxable_subtotal (Currency): [optional]  # noqa: E501
             health_benefit_card_amount (Currency): [optional]  # noqa: E501
+            health_benefit_card_balance (Currency): [optional]  # noqa: E501
+            health_benefit_card_requirements (str): Health benefit card requirements. [optional]  # noqa: E501
             internal_gift_certificate_amount (Currency): [optional]  # noqa: E501
             shipping_handling (Currency): [optional]  # noqa: E501
             shipping_handling_discount (Currency): [optional]  # noqa: E501
@@ -283,6 +289,8 @@ class CartSummary(ModelNormal):
             arbitrary_tax_rate (Currency): [optional]  # noqa: E501
             arbitrary_taxable_subtotal (Currency): [optional]  # noqa: E501
             health_benefit_card_amount (Currency): [optional]  # noqa: E501
+            health_benefit_card_balance (Currency): [optional]  # noqa: E501
+            health_benefit_card_requirements (str): Health benefit card requirements. [optional]  # noqa: E501
             internal_gift_certificate_amount (Currency): [optional]  # noqa: E501
             shipping_handling (Currency): [optional]  # noqa: E501
             shipping_handling_discount (Currency): [optional]  # noqa: E501

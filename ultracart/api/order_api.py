@@ -3480,7 +3480,7 @@ class OrderApi(object):
     ):
         """Refund an order  # noqa: E501
 
-        Perform a refund operation on an order and then update the order if successful   # noqa: E501
+        Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
