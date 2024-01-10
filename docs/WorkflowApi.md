@@ -500,6 +500,9 @@ api_instance = GiftCertificateApi(api_client())
         object_type="order",
         priority="1 - low",
         status="open",
+        tags=[
+            "tags_example",
+        ],
         unassigned=True,
     ) # WorkflowTasksRequest | Workflow tasks query
     limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) if omitted the server will use the default value of 100

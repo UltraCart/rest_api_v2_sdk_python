@@ -122,6 +122,7 @@ class WorkflowTasksRequest(ModelNormal):
             'object_type': (str,),  # noqa: E501
             'priority': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'tags': ([str],),  # noqa: E501
             'unassigned': (bool,),  # noqa: E501
         }
 
@@ -147,6 +148,7 @@ class WorkflowTasksRequest(ModelNormal):
         'object_type': 'object_type',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'tags': 'tags',  # noqa: E501
         'unassigned': 'unassigned',  # noqa: E501
     }
 
@@ -207,6 +209,7 @@ class WorkflowTasksRequest(ModelNormal):
             object_type (str): Object Type. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
+            tags ([str]): Tasks that are tagged with the specified tags. [optional]  # noqa: E501
             unassigned (bool): Tasks that are unassigned to a user or group. [optional]  # noqa: E501
         """
 
@@ -309,6 +312,7 @@ class WorkflowTasksRequest(ModelNormal):
             object_type (str): Object Type. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
+            tags ([str]): Tasks that are tagged with the specified tags. [optional]  # noqa: E501
             unassigned (bool): Tasks that are unassigned to a user or group. [optional]  # noqa: E501
         """
 

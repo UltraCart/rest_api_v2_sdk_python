@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **object_type** | **str** | Object Type | [optional] 
 **priority** | **str** | Priority | [optional] 
 **status** | **str** | Status of the workflow task | [optional] 
+**tags** | **[str]** | Tasks that are tagged with the specified tags | [optional] 
 **unassigned** | **bool** | Tasks that are unassigned to a user or group | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
