@@ -39,6 +39,7 @@ class WorkflowTask(object):
         'created_by': 'WorkflowUser',
         'created_dts': 'str',
         'delay_until_dts': 'str',
+        'dependant_workflow_task_uuid': 'str',
         'due_dts': 'str',
         'histories': 'list[WorkflowTaskHistory]',
         'last_update_dts': 'str',
@@ -49,7 +50,9 @@ class WorkflowTask(object):
         'object_type': 'str',
         'object_url': 'str',
         'priority': 'str',
+        'related_workflow_task_uuid': 'str',
         'status': 'str',
+        'tags': 'list[str]',
         'task_context': 'str',
         'task_details': 'str',
         'task_name': 'str',
@@ -65,6 +68,7 @@ class WorkflowTask(object):
         'created_by': 'created_by',
         'created_dts': 'created_dts',
         'delay_until_dts': 'delay_until_dts',
+        'dependant_workflow_task_uuid': 'dependant_workflow_task_uuid',
         'due_dts': 'due_dts',
         'histories': 'histories',
         'last_update_dts': 'last_update_dts',
@@ -75,14 +79,16 @@ class WorkflowTask(object):
         'object_type': 'object_type',
         'object_url': 'object_url',
         'priority': 'priority',
+        'related_workflow_task_uuid': 'related_workflow_task_uuid',
         'status': 'status',
+        'tags': 'tags',
         'task_context': 'task_context',
         'task_details': 'task_details',
         'task_name': 'task_name',
         'workflow_task_uuid': 'workflow_task_uuid'
     }
 
-    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, due_dts=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_type=None, object_url=None, priority=None, status=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
+    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, dependant_workflow_task_uuid=None, due_dts=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_type=None, object_url=None, priority=None, related_workflow_task_uuid=None, status=None, tags=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
         """WorkflowTask - a model defined in Swagger"""  # noqa: E501
 
         self._assigned_to_group = None
@@ -93,6 +99,7 @@ class WorkflowTask(object):
         self._created_by = None
         self._created_dts = None
         self._delay_until_dts = None
+        self._dependant_workflow_task_uuid = None
         self._due_dts = None
         self._histories = None
         self._last_update_dts = None
@@ -103,7 +110,9 @@ class WorkflowTask(object):
         self._object_type = None
         self._object_url = None
         self._priority = None
+        self._related_workflow_task_uuid = None
         self._status = None
+        self._tags = None
         self._task_context = None
         self._task_details = None
         self._task_name = None
@@ -126,6 +135,8 @@ class WorkflowTask(object):
             self.created_dts = created_dts
         if delay_until_dts is not None:
             self.delay_until_dts = delay_until_dts
+        if dependant_workflow_task_uuid is not None:
+            self.dependant_workflow_task_uuid = dependant_workflow_task_uuid
         if due_dts is not None:
             self.due_dts = due_dts
         if histories is not None:
@@ -146,8 +157,12 @@ class WorkflowTask(object):
             self.object_url = object_url
         if priority is not None:
             self.priority = priority
+        if related_workflow_task_uuid is not None:
+            self.related_workflow_task_uuid = related_workflow_task_uuid
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if task_context is not None:
             self.task_context = task_context
         if task_details is not None:
@@ -338,6 +353,29 @@ class WorkflowTask(object):
         """
 
         self._delay_until_dts = delay_until_dts
+
+    @property
+    def dependant_workflow_task_uuid(self):
+        """Gets the dependant_workflow_task_uuid of this WorkflowTask.  # noqa: E501
+
+        Dependant Workflow Task UUID (must be completed before this task can be completed)  # noqa: E501
+
+        :return: The dependant_workflow_task_uuid of this WorkflowTask.  # noqa: E501
+        :rtype: str
+        """
+        return self._dependant_workflow_task_uuid
+
+    @dependant_workflow_task_uuid.setter
+    def dependant_workflow_task_uuid(self, dependant_workflow_task_uuid):
+        """Sets the dependant_workflow_task_uuid of this WorkflowTask.
+
+        Dependant Workflow Task UUID (must be completed before this task can be completed)  # noqa: E501
+
+        :param dependant_workflow_task_uuid: The dependant_workflow_task_uuid of this WorkflowTask.  # noqa: E501
+        :type: str
+        """
+
+        self._dependant_workflow_task_uuid = dependant_workflow_task_uuid
 
     @property
     def due_dts(self):
@@ -582,6 +620,29 @@ class WorkflowTask(object):
         self._priority = priority
 
     @property
+    def related_workflow_task_uuid(self):
+        """Gets the related_workflow_task_uuid of this WorkflowTask.  # noqa: E501
+
+        Related Workflow Task UUID  # noqa: E501
+
+        :return: The related_workflow_task_uuid of this WorkflowTask.  # noqa: E501
+        :rtype: str
+        """
+        return self._related_workflow_task_uuid
+
+    @related_workflow_task_uuid.setter
+    def related_workflow_task_uuid(self, related_workflow_task_uuid):
+        """Sets the related_workflow_task_uuid of this WorkflowTask.
+
+        Related Workflow Task UUID  # noqa: E501
+
+        :param related_workflow_task_uuid: The related_workflow_task_uuid of this WorkflowTask.  # noqa: E501
+        :type: str
+        """
+
+        self._related_workflow_task_uuid = related_workflow_task_uuid
+
+    @property
     def status(self):
         """Gets the status of this WorkflowTask.  # noqa: E501
 
@@ -609,6 +670,29 @@ class WorkflowTask(object):
             )
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this WorkflowTask.  # noqa: E501
+
+        Tags  # noqa: E501
+
+        :return: The tags of this WorkflowTask.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this WorkflowTask.
+
+        Tags  # noqa: E501
+
+        :param tags: The tags of this WorkflowTask.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     @property
     def task_context(self):
