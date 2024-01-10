@@ -47,6 +47,7 @@ class WorkflowTasksRequest(object):
         'object_type': 'str',
         'priority': 'str',
         'status': 'str',
+        'tags': 'list[str]',
         'unassigned': 'bool'
     }
 
@@ -67,10 +68,11 @@ class WorkflowTasksRequest(object):
         'object_type': 'object_type',
         'priority': 'priority',
         'status': 'status',
+        'tags': 'tags',
         'unassigned': 'unassigned'
     }
 
-    def __init__(self, assigned_to_group_id=None, assigned_to_me=None, assigned_to_user_id=None, created_by=None, created_dts_begin=None, created_dts_end=None, delay_until_dts_begin=None, delay_until_dts_end=None, due_dts_begin=None, due_dts_end=None, last_update_dts_begin=None, last_update_dts_end=None, object_email=None, object_type=None, priority=None, status=None, unassigned=None):  # noqa: E501
+    def __init__(self, assigned_to_group_id=None, assigned_to_me=None, assigned_to_user_id=None, created_by=None, created_dts_begin=None, created_dts_end=None, delay_until_dts_begin=None, delay_until_dts_end=None, due_dts_begin=None, due_dts_end=None, last_update_dts_begin=None, last_update_dts_end=None, object_email=None, object_type=None, priority=None, status=None, tags=None, unassigned=None):  # noqa: E501
         """WorkflowTasksRequest - a model defined in Swagger"""  # noqa: E501
 
         self._assigned_to_group_id = None
@@ -89,6 +91,7 @@ class WorkflowTasksRequest(object):
         self._object_type = None
         self._priority = None
         self._status = None
+        self._tags = None
         self._unassigned = None
         self.discriminator = None
 
@@ -124,6 +127,8 @@ class WorkflowTasksRequest(object):
             self.priority = priority
         if status is not None:
             self.status = status
+        if tags is not None:
+            self.tags = tags
         if unassigned is not None:
             self.unassigned = unassigned
 
@@ -510,6 +515,29 @@ class WorkflowTasksRequest(object):
             )
 
         self._status = status
+
+    @property
+    def tags(self):
+        """Gets the tags of this WorkflowTasksRequest.  # noqa: E501
+
+        Tasks that are tagged with the specified tags  # noqa: E501
+
+        :return: The tags of this WorkflowTasksRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this WorkflowTasksRequest.
+
+        Tasks that are tagged with the specified tags  # noqa: E501
+
+        :param tags: The tags of this WorkflowTasksRequest.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     @property
     def unassigned(self):
