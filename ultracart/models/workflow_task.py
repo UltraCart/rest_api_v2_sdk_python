@@ -50,6 +50,7 @@ class WorkflowTask(object):
         'object_type': 'str',
         'object_url': 'str',
         'priority': 'str',
+        'properties': 'list[ModelProperty]',
         'related_workflow_task_uuid': 'str',
         'status': 'str',
         'tags': 'list[str]',
@@ -79,6 +80,7 @@ class WorkflowTask(object):
         'object_type': 'object_type',
         'object_url': 'object_url',
         'priority': 'priority',
+        'properties': 'properties',
         'related_workflow_task_uuid': 'related_workflow_task_uuid',
         'status': 'status',
         'tags': 'tags',
@@ -88,7 +90,7 @@ class WorkflowTask(object):
         'workflow_task_uuid': 'workflow_task_uuid'
     }
 
-    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, dependant_workflow_task_uuid=None, due_dts=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_type=None, object_url=None, priority=None, related_workflow_task_uuid=None, status=None, tags=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
+    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, dependant_workflow_task_uuid=None, due_dts=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_type=None, object_url=None, priority=None, properties=None, related_workflow_task_uuid=None, status=None, tags=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
         """WorkflowTask - a model defined in Swagger"""  # noqa: E501
 
         self._assigned_to_group = None
@@ -110,6 +112,7 @@ class WorkflowTask(object):
         self._object_type = None
         self._object_url = None
         self._priority = None
+        self._properties = None
         self._related_workflow_task_uuid = None
         self._status = None
         self._tags = None
@@ -157,6 +160,8 @@ class WorkflowTask(object):
             self.object_url = object_url
         if priority is not None:
             self.priority = priority
+        if properties is not None:
+            self.properties = properties
         if related_workflow_task_uuid is not None:
             self.related_workflow_task_uuid = related_workflow_task_uuid
         if status is not None:
@@ -618,6 +623,29 @@ class WorkflowTask(object):
             )
 
         self._priority = priority
+
+    @property
+    def properties(self):
+        """Gets the properties of this WorkflowTask.  # noqa: E501
+
+        Properties  # noqa: E501
+
+        :return: The properties of this WorkflowTask.  # noqa: E501
+        :rtype: list[ModelProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this WorkflowTask.
+
+        Properties  # noqa: E501
+
+        :param properties: The properties of this WorkflowTask.  # noqa: E501
+        :type: list[ModelProperty]
+        """
+
+        self._properties = properties
 
     @property
     def related_workflow_task_uuid(self):
