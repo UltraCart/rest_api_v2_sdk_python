@@ -656,6 +656,12 @@ api_instance = GiftCertificateApi(api_client())
         object_type="order",
         object_url="object_url_example",
         priority="1 - low",
+        properties=[
+            ModelProperty(
+                name="name_example",
+                value="value_example",
+            ),
+        ],
         related_workflow_task_uuid="related_workflow_task_uuid_example",
         status="open",
         tags=[
@@ -803,6 +809,12 @@ api_instance = GiftCertificateApi(api_client())
         object_type="order",
         object_url="object_url_example",
         priority="1 - low",
+        properties=[
+            ModelProperty(
+                name="name_example",
+                value="value_example",
+            ),
+        ],
         related_workflow_task_uuid="related_workflow_task_uuid_example",
         status="open",
         tags=[

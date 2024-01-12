@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **object_type** | **str** | Object Type | [optional] 
 **object_url** | **str** | Object URL | [optional] 
 **priority** | **str** | Priority | [optional] 
+**properties** | [**[ModelProperty]**](ModelProperty.md) | Properties | [optional] 
 **related_workflow_task_uuid** | **str** | Related Workflow Task UUID | [optional] 
 **status** | **str** | Status of the workflow task | [optional] 
 **tags** | **[str]** | Tags | [optional] 

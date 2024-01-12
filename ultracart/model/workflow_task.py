@@ -31,10 +31,12 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.model_property import ModelProperty
     from ultracart.model.workflow_attachment import WorkflowAttachment
     from ultracart.model.workflow_note import WorkflowNote
     from ultracart.model.workflow_task_history import WorkflowTaskHistory
     from ultracart.model.workflow_user import WorkflowUser
+    globals()['ModelProperty'] = ModelProperty
     globals()['WorkflowAttachment'] = WorkflowAttachment
     globals()['WorkflowNote'] = WorkflowNote
     globals()['WorkflowTaskHistory'] = WorkflowTaskHistory
@@ -132,6 +134,7 @@ class WorkflowTask(ModelNormal):
             'object_type': (str,),  # noqa: E501
             'object_url': (str,),  # noqa: E501
             'priority': (str,),  # noqa: E501
+            'properties': ([ModelProperty],),  # noqa: E501
             'related_workflow_task_uuid': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'tags': ([str],),  # noqa: E501
@@ -166,6 +169,7 @@ class WorkflowTask(ModelNormal):
         'object_type': 'object_type',  # noqa: E501
         'object_url': 'object_url',  # noqa: E501
         'priority': 'priority',  # noqa: E501
+        'properties': 'properties',  # noqa: E501
         'related_workflow_task_uuid': 'related_workflow_task_uuid',  # noqa: E501
         'status': 'status',  # noqa: E501
         'tags': 'tags',  # noqa: E501
@@ -235,6 +239,7 @@ class WorkflowTask(ModelNormal):
             object_type (str): Object Type. [optional]  # noqa: E501
             object_url (str): Object URL. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501
+            properties ([ModelProperty]): Properties. [optional]  # noqa: E501
             related_workflow_task_uuid (str): Related Workflow Task UUID. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
             tags ([str]): Tags. [optional]  # noqa: E501
@@ -346,6 +351,7 @@ class WorkflowTask(ModelNormal):
             object_type (str): Object Type. [optional]  # noqa: E501
             object_url (str): Object URL. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501
+            properties ([ModelProperty]): Properties. [optional]  # noqa: E501
             related_workflow_task_uuid (str): Related Workflow Task UUID. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
             tags ([str]): Tags. [optional]  # noqa: E501
