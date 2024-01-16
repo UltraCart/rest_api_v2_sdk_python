@@ -41,12 +41,15 @@ class OrderQuery(object):
         'creation_date_end': 'str',
         'current_stage': 'str',
         'custom_field_1': 'str',
+        'custom_field_10': 'str',
         'custom_field_2': 'str',
         'custom_field_3': 'str',
         'custom_field_4': 'str',
         'custom_field_5': 'str',
         'custom_field_6': 'str',
         'custom_field_7': 'str',
+        'custom_field_8': 'str',
+        'custom_field_9': 'str',
         'customer_profile_oid': 'int',
         'email': 'str',
         'first_name': 'str',
@@ -83,12 +86,15 @@ class OrderQuery(object):
         'creation_date_end': 'creation_date_end',
         'current_stage': 'current_stage',
         'custom_field_1': 'custom_field_1',
+        'custom_field_10': 'custom_field_10',
         'custom_field_2': 'custom_field_2',
         'custom_field_3': 'custom_field_3',
         'custom_field_4': 'custom_field_4',
         'custom_field_5': 'custom_field_5',
         'custom_field_6': 'custom_field_6',
         'custom_field_7': 'custom_field_7',
+        'custom_field_8': 'custom_field_8',
+        'custom_field_9': 'custom_field_9',
         'customer_profile_oid': 'customer_profile_oid',
         'email': 'email',
         'first_name': 'first_name',
@@ -114,7 +120,7 @@ class OrderQuery(object):
         'total': 'total'
     }
 
-    def __init__(self, cc_email=None, channel_partner_code=None, channel_partner_order_id=None, city=None, company=None, country_code=None, creation_date_begin=None, creation_date_end=None, current_stage=None, custom_field_1=None, custom_field_2=None, custom_field_3=None, custom_field_4=None, custom_field_5=None, custom_field_6=None, custom_field_7=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, order_id=None, payment_date_begin=None, payment_date_end=None, payment_method=None, phone=None, postal_code=None, purchase_order_number=None, refund_date_begin=None, refund_date_end=None, rma=None, screen_branding_theme_code=None, shipment_date_begin=None, shipment_date_end=None, shipped_on_date_begin=None, shipped_on_date_end=None, state_region=None, storefront_host_name=None, total=None):  # noqa: E501
+    def __init__(self, cc_email=None, channel_partner_code=None, channel_partner_order_id=None, city=None, company=None, country_code=None, creation_date_begin=None, creation_date_end=None, current_stage=None, custom_field_1=None, custom_field_10=None, custom_field_2=None, custom_field_3=None, custom_field_4=None, custom_field_5=None, custom_field_6=None, custom_field_7=None, custom_field_8=None, custom_field_9=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, order_id=None, payment_date_begin=None, payment_date_end=None, payment_method=None, phone=None, postal_code=None, purchase_order_number=None, refund_date_begin=None, refund_date_end=None, rma=None, screen_branding_theme_code=None, shipment_date_begin=None, shipment_date_end=None, shipped_on_date_begin=None, shipped_on_date_end=None, state_region=None, storefront_host_name=None, total=None):  # noqa: E501
         """OrderQuery - a model defined in Swagger"""  # noqa: E501
 
         self._cc_email = None
@@ -127,12 +133,15 @@ class OrderQuery(object):
         self._creation_date_end = None
         self._current_stage = None
         self._custom_field_1 = None
+        self._custom_field_10 = None
         self._custom_field_2 = None
         self._custom_field_3 = None
         self._custom_field_4 = None
         self._custom_field_5 = None
         self._custom_field_6 = None
         self._custom_field_7 = None
+        self._custom_field_8 = None
+        self._custom_field_9 = None
         self._customer_profile_oid = None
         self._email = None
         self._first_name = None
@@ -178,6 +187,8 @@ class OrderQuery(object):
             self.current_stage = current_stage
         if custom_field_1 is not None:
             self.custom_field_1 = custom_field_1
+        if custom_field_10 is not None:
+            self.custom_field_10 = custom_field_10
         if custom_field_2 is not None:
             self.custom_field_2 = custom_field_2
         if custom_field_3 is not None:
@@ -190,6 +201,10 @@ class OrderQuery(object):
             self.custom_field_6 = custom_field_6
         if custom_field_7 is not None:
             self.custom_field_7 = custom_field_7
+        if custom_field_8 is not None:
+            self.custom_field_8 = custom_field_8
+        if custom_field_9 is not None:
+            self.custom_field_9 = custom_field_9
         if customer_profile_oid is not None:
             self.customer_profile_oid = customer_profile_oid
         if email is not None:
@@ -482,6 +497,29 @@ class OrderQuery(object):
         self._custom_field_1 = custom_field_1
 
     @property
+    def custom_field_10(self):
+        """Gets the custom_field_10 of this OrderQuery.  # noqa: E501
+
+        Custom field 10  # noqa: E501
+
+        :return: The custom_field_10 of this OrderQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_field_10
+
+    @custom_field_10.setter
+    def custom_field_10(self, custom_field_10):
+        """Sets the custom_field_10 of this OrderQuery.
+
+        Custom field 10  # noqa: E501
+
+        :param custom_field_10: The custom_field_10 of this OrderQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_field_10 = custom_field_10
+
+    @property
     def custom_field_2(self):
         """Gets the custom_field_2 of this OrderQuery.  # noqa: E501
 
@@ -618,6 +656,52 @@ class OrderQuery(object):
         """
 
         self._custom_field_7 = custom_field_7
+
+    @property
+    def custom_field_8(self):
+        """Gets the custom_field_8 of this OrderQuery.  # noqa: E501
+
+        Custom field 8  # noqa: E501
+
+        :return: The custom_field_8 of this OrderQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_field_8
+
+    @custom_field_8.setter
+    def custom_field_8(self, custom_field_8):
+        """Sets the custom_field_8 of this OrderQuery.
+
+        Custom field 8  # noqa: E501
+
+        :param custom_field_8: The custom_field_8 of this OrderQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_field_8 = custom_field_8
+
+    @property
+    def custom_field_9(self):
+        """Gets the custom_field_9 of this OrderQuery.  # noqa: E501
+
+        Custom field 9  # noqa: E501
+
+        :return: The custom_field_9 of this OrderQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_field_9
+
+    @custom_field_9.setter
+    def custom_field_9(self, custom_field_9):
+        """Sets the custom_field_9 of this OrderQuery.
+
+        Custom field 9  # noqa: E501
+
+        :param custom_field_9: The custom_field_9 of this OrderQuery.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_field_9 = custom_field_9
 
     @property
     def customer_profile_oid(self):
