@@ -160,12 +160,15 @@ class OrderQuery(ModelNormal):
             'creation_date_end': (str,),  # noqa: E501
             'current_stage': (str,),  # noqa: E501
             'custom_field_1': (str,),  # noqa: E501
+            'custom_field_10': (str,),  # noqa: E501
             'custom_field_2': (str,),  # noqa: E501
             'custom_field_3': (str,),  # noqa: E501
             'custom_field_4': (str,),  # noqa: E501
             'custom_field_5': (str,),  # noqa: E501
             'custom_field_6': (str,),  # noqa: E501
             'custom_field_7': (str,),  # noqa: E501
+            'custom_field_8': (str,),  # noqa: E501
+            'custom_field_9': (str,),  # noqa: E501
             'customer_profile_oid': (int,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'first_name': (str,),  # noqa: E501
@@ -207,12 +210,15 @@ class OrderQuery(ModelNormal):
         'creation_date_end': 'creation_date_end',  # noqa: E501
         'current_stage': 'current_stage',  # noqa: E501
         'custom_field_1': 'custom_field_1',  # noqa: E501
+        'custom_field_10': 'custom_field_10',  # noqa: E501
         'custom_field_2': 'custom_field_2',  # noqa: E501
         'custom_field_3': 'custom_field_3',  # noqa: E501
         'custom_field_4': 'custom_field_4',  # noqa: E501
         'custom_field_5': 'custom_field_5',  # noqa: E501
         'custom_field_6': 'custom_field_6',  # noqa: E501
         'custom_field_7': 'custom_field_7',  # noqa: E501
+        'custom_field_8': 'custom_field_8',  # noqa: E501
+        'custom_field_9': 'custom_field_9',  # noqa: E501
         'customer_profile_oid': 'customer_profile_oid',  # noqa: E501
         'email': 'email',  # noqa: E501
         'first_name': 'first_name',  # noqa: E501
@@ -289,12 +295,15 @@ class OrderQuery(ModelNormal):
             creation_date_end (str): Date/time that the order was created. [optional]  # noqa: E501
             current_stage (str): Current stage that the order is in.. [optional]  # noqa: E501
             custom_field_1 (str): Custom field 1. [optional]  # noqa: E501
+            custom_field_10 (str): Custom field 10. [optional]  # noqa: E501
             custom_field_2 (str): Custom field 2. [optional]  # noqa: E501
             custom_field_3 (str): Custom field 3. [optional]  # noqa: E501
             custom_field_4 (str): Custom field 4. [optional]  # noqa: E501
             custom_field_5 (str): Custom field 5. [optional]  # noqa: E501
             custom_field_6 (str): Custom field 6. [optional]  # noqa: E501
             custom_field_7 (str): Custom field 7. [optional]  # noqa: E501
+            custom_field_8 (str): Custom field 8. [optional]  # noqa: E501
+            custom_field_9 (str): Custom field 9. [optional]  # noqa: E501
             customer_profile_oid (int): The customer profile to find associated orders for. [optional]  # noqa: E501
             email (str): Email. [optional]  # noqa: E501
             first_name (str): First name. [optional]  # noqa: E501
@@ -413,12 +422,15 @@ class OrderQuery(ModelNormal):
             creation_date_end (str): Date/time that the order was created. [optional]  # noqa: E501
             current_stage (str): Current stage that the order is in.. [optional]  # noqa: E501
             custom_field_1 (str): Custom field 1. [optional]  # noqa: E501
+            custom_field_10 (str): Custom field 10. [optional]  # noqa: E501
             custom_field_2 (str): Custom field 2. [optional]  # noqa: E501
             custom_field_3 (str): Custom field 3. [optional]  # noqa: E501
             custom_field_4 (str): Custom field 4. [optional]  # noqa: E501
             custom_field_5 (str): Custom field 5. [optional]  # noqa: E501
             custom_field_6 (str): Custom field 6. [optional]  # noqa: E501
             custom_field_7 (str): Custom field 7. [optional]  # noqa: E501
+            custom_field_8 (str): Custom field 8. [optional]  # noqa: E501
+            custom_field_9 (str): Custom field 9. [optional]  # noqa: E501
             customer_profile_oid (int): The customer profile to find associated orders for. [optional]  # noqa: E501
             email (str): Email. [optional]  # noqa: E501
             first_name (str): First name. [optional]  # noqa: E501
