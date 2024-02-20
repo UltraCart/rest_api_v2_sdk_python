@@ -82,10 +82,12 @@ class CouponFreeItemWithItemPurchase(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'item_tags': ([str],),  # noqa: E501
             'items': ([str],),  # noqa: E501
             'limit': (int,),  # noqa: E501
             'match_required_purchase_item_to_free_item': (bool,),  # noqa: E501
             'required_purchase_items': ([str],),  # noqa: E501
+            'required_purchase_items_tags': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -94,10 +96,12 @@ class CouponFreeItemWithItemPurchase(ModelNormal):
 
 
     attribute_map = {
+        'item_tags': 'item_tags',  # noqa: E501
         'items': 'items',  # noqa: E501
         'limit': 'limit',  # noqa: E501
         'match_required_purchase_item_to_free_item': 'match_required_purchase_item_to_free_item',  # noqa: E501
         'required_purchase_items': 'required_purchase_items',  # noqa: E501
+        'required_purchase_items_tags': 'required_purchase_items_tags',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,10 +145,12 @@ class CouponFreeItemWithItemPurchase(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            item_tags ([str]): An optional list of item tags which will receive a discount of one of the required purchased items is purchased.. [optional]  # noqa: E501
             items ([str]): A list of free items which will receive a discount if one of the required purchase items is purchased.. [optional]  # noqa: E501
             limit (int): The (optional) maximum quantity of discounted items.. [optional]  # noqa: E501
             match_required_purchase_item_to_free_item (bool): If true then the free item is matched 1:1 with the free item in the list.. [optional]  # noqa: E501
             required_purchase_items ([str]): Required items (at least one from the list) that must be purchased for coupon to be valid. [optional]  # noqa: E501
+            required_purchase_items_tags ([str]): An optional list of item tags which are required to be purchased.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,10 +236,12 @@ class CouponFreeItemWithItemPurchase(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            item_tags ([str]): An optional list of item tags which will receive a discount of one of the required purchased items is purchased.. [optional]  # noqa: E501
             items ([str]): A list of free items which will receive a discount if one of the required purchase items is purchased.. [optional]  # noqa: E501
             limit (int): The (optional) maximum quantity of discounted items.. [optional]  # noqa: E501
             match_required_purchase_item_to_free_item (bool): If true then the free item is matched 1:1 with the free item in the list.. [optional]  # noqa: E501
             required_purchase_items ([str]): Required items (at least one from the list) that must be purchased for coupon to be valid. [optional]  # noqa: E501
+            required_purchase_items_tags ([str]): An optional list of item tags which are required to be purchased.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

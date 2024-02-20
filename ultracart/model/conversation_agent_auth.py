@@ -92,6 +92,10 @@ class ConversationAgentAuth(ModelNormal):
             'conversation_participant_name': (str,),  # noqa: E501
             'jwt': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
+            'pbx_jwt': (str,),  # noqa: E501
+            'pbx_voice_identity': (str,),  # noqa: E501
+            'pbx_voice_token': (str,),  # noqa: E501
+            'pbx_worker_token': (str,),  # noqa: E501
             'twilio_accounts': ([ConversationTwilioAccount],),  # noqa: E501
             'websocket_url': (str,),  # noqa: E501
         }
@@ -106,6 +110,10 @@ class ConversationAgentAuth(ModelNormal):
         'conversation_participant_name': 'conversation_participant_name',  # noqa: E501
         'jwt': 'jwt',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
+        'pbx_jwt': 'pbx_jwt',  # noqa: E501
+        'pbx_voice_identity': 'pbx_voice_identity',  # noqa: E501
+        'pbx_voice_token': 'pbx_voice_token',  # noqa: E501
+        'pbx_worker_token': 'pbx_worker_token',  # noqa: E501
         'twilio_accounts': 'twilio_accounts',  # noqa: E501
         'websocket_url': 'websocket_url',  # noqa: E501
     }
@@ -155,6 +163,10 @@ class ConversationAgentAuth(ModelNormal):
             conversation_participant_name (str): [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
+            pbx_jwt (str): [optional]  # noqa: E501
+            pbx_voice_identity (str): [optional]  # noqa: E501
+            pbx_voice_token (str): [optional]  # noqa: E501
+            pbx_worker_token (str): [optional]  # noqa: E501
             twilio_accounts ([ConversationTwilioAccount]): [optional]  # noqa: E501
             websocket_url (str): [optional]  # noqa: E501
         """
@@ -246,6 +258,10 @@ class ConversationAgentAuth(ModelNormal):
             conversation_participant_name (str): [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
+            pbx_jwt (str): [optional]  # noqa: E501
+            pbx_voice_identity (str): [optional]  # noqa: E501
+            pbx_voice_token (str): [optional]  # noqa: E501
+            pbx_worker_token (str): [optional]  # noqa: E501
             twilio_accounts ([ConversationTwilioAccount]): [optional]  # noqa: E501
             websocket_url (str): [optional]  # noqa: E501
         """

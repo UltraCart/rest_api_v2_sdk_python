@@ -1058,6 +1058,9 @@ api_instance = GiftCertificateApi(api_client())
         amount_off_items=CouponAmountOffItems(
             currency_code="currency_code_example",
             discount_amount=3.14,
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -1129,6 +1132,9 @@ api_instance = GiftCertificateApi(api_client())
             ],
         ),
         buy_one_get_one=CouponBuyOneGetOneLimit(
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -1142,9 +1148,15 @@ api_instance = GiftCertificateApi(api_client())
         discount_item_with_item_purchase=CouponDiscountItemWithItemPurchase(
             currency_code="currency_code_example",
             discount_item="discount_item_example",
+            discount_item_tags=[
+                "discount_item_tags_example",
+            ],
             discount_price=3.14,
             limit=1,
             required_purchase_item="required_purchase_item_example",
+            required_purchase_items_tags=[
+                "required_purchase_items_tags_example",
+            ],
         ),
         discount_items=CouponDiscountItems(
             currency_code="currency_code_example",
@@ -1167,6 +1179,9 @@ api_instance = GiftCertificateApi(api_client())
             subtotal_amount=3.14,
         ),
         free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -1174,6 +1189,9 @@ api_instance = GiftCertificateApi(api_client())
             match_required_purchase_item_to_free_item=True,
             required_purchase_items=[
                 "required_purchase_items_example",
+            ],
+            required_purchase_items_tags=[
+                "required_purchase_items_tags_example",
             ],
         ),
         free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
@@ -1306,12 +1324,18 @@ api_instance = GiftCertificateApi(api_client())
         ),
         percent_off_items_with_items_purchase=CouponPercentOffItemsWithItemsPurchase(
             discount_percent=3.14,
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
             limit=1,
             required_purchase_items=[
                 "required_purchase_items_example",
+            ],
+            required_purchase_items_tags=[
+                "required_purchase_items_tags_example",
             ],
         ),
         percent_off_msrp_items=CouponPercentOffMsrpItems(
@@ -1564,6 +1588,9 @@ api_instance = GiftCertificateApi(api_client())
                 amount_off_items=CouponAmountOffItems(
                     currency_code="currency_code_example",
                     discount_amount=3.14,
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
@@ -1635,6 +1662,9 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                 ),
                 buy_one_get_one=CouponBuyOneGetOneLimit(
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
@@ -1648,9 +1678,15 @@ api_instance = GiftCertificateApi(api_client())
                 discount_item_with_item_purchase=CouponDiscountItemWithItemPurchase(
                     currency_code="currency_code_example",
                     discount_item="discount_item_example",
+                    discount_item_tags=[
+                        "discount_item_tags_example",
+                    ],
                     discount_price=3.14,
                     limit=1,
                     required_purchase_item="required_purchase_item_example",
+                    required_purchase_items_tags=[
+                        "required_purchase_items_tags_example",
+                    ],
                 ),
                 discount_items=CouponDiscountItems(
                     currency_code="currency_code_example",
@@ -1673,6 +1709,9 @@ api_instance = GiftCertificateApi(api_client())
                     subtotal_amount=3.14,
                 ),
                 free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
@@ -1680,6 +1719,9 @@ api_instance = GiftCertificateApi(api_client())
                     match_required_purchase_item_to_free_item=True,
                     required_purchase_items=[
                         "required_purchase_items_example",
+                    ],
+                    required_purchase_items_tags=[
+                        "required_purchase_items_tags_example",
                     ],
                 ),
                 free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
@@ -1812,12 +1854,18 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 percent_off_items_with_items_purchase=CouponPercentOffItemsWithItemsPurchase(
                     discount_percent=3.14,
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
                     limit=1,
                     required_purchase_items=[
                         "required_purchase_items_example",
+                    ],
+                    required_purchase_items_tags=[
+                        "required_purchase_items_tags_example",
                     ],
                 ),
                 percent_off_msrp_items=CouponPercentOffMsrpItems(
@@ -2256,6 +2304,9 @@ api_instance = GiftCertificateApi(api_client())
         amount_off_items=CouponAmountOffItems(
             currency_code="currency_code_example",
             discount_amount=3.14,
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -2327,6 +2378,9 @@ api_instance = GiftCertificateApi(api_client())
             ],
         ),
         buy_one_get_one=CouponBuyOneGetOneLimit(
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -2340,9 +2394,15 @@ api_instance = GiftCertificateApi(api_client())
         discount_item_with_item_purchase=CouponDiscountItemWithItemPurchase(
             currency_code="currency_code_example",
             discount_item="discount_item_example",
+            discount_item_tags=[
+                "discount_item_tags_example",
+            ],
             discount_price=3.14,
             limit=1,
             required_purchase_item="required_purchase_item_example",
+            required_purchase_items_tags=[
+                "required_purchase_items_tags_example",
+            ],
         ),
         discount_items=CouponDiscountItems(
             currency_code="currency_code_example",
@@ -2365,6 +2425,9 @@ api_instance = GiftCertificateApi(api_client())
             subtotal_amount=3.14,
         ),
         free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
@@ -2372,6 +2435,9 @@ api_instance = GiftCertificateApi(api_client())
             match_required_purchase_item_to_free_item=True,
             required_purchase_items=[
                 "required_purchase_items_example",
+            ],
+            required_purchase_items_tags=[
+                "required_purchase_items_tags_example",
             ],
         ),
         free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
@@ -2504,12 +2570,18 @@ api_instance = GiftCertificateApi(api_client())
         ),
         percent_off_items_with_items_purchase=CouponPercentOffItemsWithItemsPurchase(
             discount_percent=3.14,
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
             limit=1,
             required_purchase_items=[
                 "required_purchase_items_example",
+            ],
+            required_purchase_items_tags=[
+                "required_purchase_items_tags_example",
             ],
         ),
         percent_off_msrp_items=CouponPercentOffMsrpItems(
@@ -2763,6 +2835,9 @@ api_instance = GiftCertificateApi(api_client())
                 amount_off_items=CouponAmountOffItems(
                     currency_code="currency_code_example",
                     discount_amount=3.14,
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
@@ -2834,6 +2909,9 @@ api_instance = GiftCertificateApi(api_client())
                     ],
                 ),
                 buy_one_get_one=CouponBuyOneGetOneLimit(
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
@@ -2847,9 +2925,15 @@ api_instance = GiftCertificateApi(api_client())
                 discount_item_with_item_purchase=CouponDiscountItemWithItemPurchase(
                     currency_code="currency_code_example",
                     discount_item="discount_item_example",
+                    discount_item_tags=[
+                        "discount_item_tags_example",
+                    ],
                     discount_price=3.14,
                     limit=1,
                     required_purchase_item="required_purchase_item_example",
+                    required_purchase_items_tags=[
+                        "required_purchase_items_tags_example",
+                    ],
                 ),
                 discount_items=CouponDiscountItems(
                     currency_code="currency_code_example",
@@ -2872,6 +2956,9 @@ api_instance = GiftCertificateApi(api_client())
                     subtotal_amount=3.14,
                 ),
                 free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
@@ -2879,6 +2966,9 @@ api_instance = GiftCertificateApi(api_client())
                     match_required_purchase_item_to_free_item=True,
                     required_purchase_items=[
                         "required_purchase_items_example",
+                    ],
+                    required_purchase_items_tags=[
+                        "required_purchase_items_tags_example",
                     ],
                 ),
                 free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
@@ -3011,12 +3101,18 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 percent_off_items_with_items_purchase=CouponPercentOffItemsWithItemsPurchase(
                     discount_percent=3.14,
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
                     limit=1,
                     required_purchase_items=[
                         "required_purchase_items_example",
+                    ],
+                    required_purchase_items_tags=[
+                        "required_purchase_items_tags_example",
                     ],
                 ),
                 percent_off_msrp_items=CouponPercentOffMsrpItems(

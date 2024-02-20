@@ -82,6 +82,7 @@ class CouponBuyOneGetOneLimit(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'item_tags': ([str],),  # noqa: E501
             'items': ([str],),  # noqa: E501
             'limit': (int,),  # noqa: E501
         }
@@ -92,6 +93,7 @@ class CouponBuyOneGetOneLimit(ModelNormal):
 
 
     attribute_map = {
+        'item_tags': 'item_tags',  # noqa: E501
         'items': 'items',  # noqa: E501
         'limit': 'limit',  # noqa: E501
     }
@@ -137,6 +139,7 @@ class CouponBuyOneGetOneLimit(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            item_tags ([str]): An optional list of item tags which will receive a discount.. [optional]  # noqa: E501
             items ([str]): An optional list of items of which one must be purchased to receive free quantity of the same item.. [optional]  # noqa: E501
             limit (int): The limit of free items that may be received when purchasing multiple items. [optional]  # noqa: E501
         """
@@ -224,6 +227,7 @@ class CouponBuyOneGetOneLimit(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            item_tags ([str]): An optional list of item tags which will receive a discount.. [optional]  # noqa: E501
             items ([str]): An optional list of items of which one must be purchased to receive free quantity of the same item.. [optional]  # noqa: E501
             limit (int): The limit of free items that may be received when purchasing multiple items. [optional]  # noqa: E501
         """

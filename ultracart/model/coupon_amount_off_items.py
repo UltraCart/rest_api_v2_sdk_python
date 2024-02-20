@@ -87,6 +87,7 @@ class CouponAmountOffItems(ModelNormal):
         return {
             'currency_code': (str,),  # noqa: E501
             'discount_amount': (float,),  # noqa: E501
+            'item_tags': ([str],),  # noqa: E501
             'items': ([str],),  # noqa: E501
             'limit': (int,),  # noqa: E501
         }
@@ -99,6 +100,7 @@ class CouponAmountOffItems(ModelNormal):
     attribute_map = {
         'currency_code': 'currency_code',  # noqa: E501
         'discount_amount': 'discount_amount',  # noqa: E501
+        'item_tags': 'item_tags',  # noqa: E501
         'items': 'items',  # noqa: E501
         'limit': 'limit',  # noqa: E501
     }
@@ -146,6 +148,7 @@ class CouponAmountOffItems(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             currency_code (str): The ISO-4217 three letter currency code the customer is viewing prices in. [optional]  # noqa: E501
             discount_amount (float): The amount of shipping discount. [optional]  # noqa: E501
+            item_tags ([str]): An optional list of item tags which will receive a discount.. [optional]  # noqa: E501
             items ([str]): A list of items which are eligible for the discount amount.. [optional]  # noqa: E501
             limit (int): The limit of items which are eligible for the discount amount.. [optional]  # noqa: E501
         """
@@ -235,6 +238,7 @@ class CouponAmountOffItems(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             currency_code (str): The ISO-4217 three letter currency code the customer is viewing prices in. [optional]  # noqa: E501
             discount_amount (float): The amount of shipping discount. [optional]  # noqa: E501
+            item_tags ([str]): An optional list of item tags which will receive a discount.. [optional]  # noqa: E501
             items ([str]): A list of items which are eligible for the discount amount.. [optional]  # noqa: E501
             limit (int): The limit of items which are eligible for the discount amount.. [optional]  # noqa: E501
         """

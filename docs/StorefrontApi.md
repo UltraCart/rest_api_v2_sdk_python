@@ -1103,11 +1103,20 @@ api_instance = GiftCertificateApi(api_client())
 
     twilio = Twilio(
         account_sid="account_sid_example",
+        api_key_id="api_key_id_example",
+        api_key_name="api_key_name_example",
+        api_key_secret="api_key_secret_example",
         auth_token="auth_token_example",
         esp_twilio_uuid="esp_twilio_uuid_example",
+        inbound_twiml_app_sid="inbound_twiml_app_sid_example",
+        outbound_twiml_app_sid="outbound_twiml_app_sid_example",
         phone_numbers=[
             "phone_numbers_example",
         ],
+        private_key_pem="private_key_pem_example",
+        public_key_pem="public_key_pem_example",
+        public_key_sid="public_key_sid_example",
+        twilio_workspace_sid="twilio_workspace_sid_example",
     ) # Twilio | Twilio
 
     # example passing only required values which don't have defaults set
@@ -14651,11 +14660,20 @@ api_instance = GiftCertificateApi(api_client())
     esp_twilio_uuid = "esp_twilio_uuid_example" # str | 
     twilio = Twilio(
         account_sid="account_sid_example",
+        api_key_id="api_key_id_example",
+        api_key_name="api_key_name_example",
+        api_key_secret="api_key_secret_example",
         auth_token="auth_token_example",
         esp_twilio_uuid="esp_twilio_uuid_example",
+        inbound_twiml_app_sid="inbound_twiml_app_sid_example",
+        outbound_twiml_app_sid="outbound_twiml_app_sid_example",
         phone_numbers=[
             "phone_numbers_example",
         ],
+        private_key_pem="private_key_pem_example",
+        public_key_pem="public_key_pem_example",
+        public_key_sid="public_key_sid_example",
+        twilio_workspace_sid="twilio_workspace_sid_example",
     ) # Twilio | Twilio
 
     # example passing only required values which don't have defaults set
