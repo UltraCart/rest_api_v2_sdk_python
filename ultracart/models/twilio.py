@@ -32,35 +32,80 @@ class Twilio(object):
     """
     swagger_types = {
         'account_sid': 'str',
+        'api_key_id': 'str',
+        'api_key_name': 'str',
+        'api_key_secret': 'str',
         'auth_token': 'str',
         'esp_twilio_uuid': 'str',
-        'phone_numbers': 'list[str]'
+        'inbound_twiml_app_sid': 'str',
+        'outbound_twiml_app_sid': 'str',
+        'phone_numbers': 'list[str]',
+        'private_key_pem': 'str',
+        'public_key_pem': 'str',
+        'public_key_sid': 'str',
+        'twilio_workspace_sid': 'str'
     }
 
     attribute_map = {
         'account_sid': 'account_sid',
+        'api_key_id': 'api_key_id',
+        'api_key_name': 'api_key_name',
+        'api_key_secret': 'api_key_secret',
         'auth_token': 'auth_token',
         'esp_twilio_uuid': 'esp_twilio_uuid',
-        'phone_numbers': 'phone_numbers'
+        'inbound_twiml_app_sid': 'inbound_twiml_app_sid',
+        'outbound_twiml_app_sid': 'outbound_twiml_app_sid',
+        'phone_numbers': 'phone_numbers',
+        'private_key_pem': 'private_key_pem',
+        'public_key_pem': 'public_key_pem',
+        'public_key_sid': 'public_key_sid',
+        'twilio_workspace_sid': 'twilio_workspace_sid'
     }
 
-    def __init__(self, account_sid=None, auth_token=None, esp_twilio_uuid=None, phone_numbers=None):  # noqa: E501
+    def __init__(self, account_sid=None, api_key_id=None, api_key_name=None, api_key_secret=None, auth_token=None, esp_twilio_uuid=None, inbound_twiml_app_sid=None, outbound_twiml_app_sid=None, phone_numbers=None, private_key_pem=None, public_key_pem=None, public_key_sid=None, twilio_workspace_sid=None):  # noqa: E501
         """Twilio - a model defined in Swagger"""  # noqa: E501
 
         self._account_sid = None
+        self._api_key_id = None
+        self._api_key_name = None
+        self._api_key_secret = None
         self._auth_token = None
         self._esp_twilio_uuid = None
+        self._inbound_twiml_app_sid = None
+        self._outbound_twiml_app_sid = None
         self._phone_numbers = None
+        self._private_key_pem = None
+        self._public_key_pem = None
+        self._public_key_sid = None
+        self._twilio_workspace_sid = None
         self.discriminator = None
 
         if account_sid is not None:
             self.account_sid = account_sid
+        if api_key_id is not None:
+            self.api_key_id = api_key_id
+        if api_key_name is not None:
+            self.api_key_name = api_key_name
+        if api_key_secret is not None:
+            self.api_key_secret = api_key_secret
         if auth_token is not None:
             self.auth_token = auth_token
         if esp_twilio_uuid is not None:
             self.esp_twilio_uuid = esp_twilio_uuid
+        if inbound_twiml_app_sid is not None:
+            self.inbound_twiml_app_sid = inbound_twiml_app_sid
+        if outbound_twiml_app_sid is not None:
+            self.outbound_twiml_app_sid = outbound_twiml_app_sid
         if phone_numbers is not None:
             self.phone_numbers = phone_numbers
+        if private_key_pem is not None:
+            self.private_key_pem = private_key_pem
+        if public_key_pem is not None:
+            self.public_key_pem = public_key_pem
+        if public_key_sid is not None:
+            self.public_key_sid = public_key_sid
+        if twilio_workspace_sid is not None:
+            self.twilio_workspace_sid = twilio_workspace_sid
 
     @property
     def account_sid(self):
@@ -82,6 +127,69 @@ class Twilio(object):
         """
 
         self._account_sid = account_sid
+
+    @property
+    def api_key_id(self):
+        """Gets the api_key_id of this Twilio.  # noqa: E501
+
+
+        :return: The api_key_id of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._api_key_id
+
+    @api_key_id.setter
+    def api_key_id(self, api_key_id):
+        """Sets the api_key_id of this Twilio.
+
+
+        :param api_key_id: The api_key_id of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._api_key_id = api_key_id
+
+    @property
+    def api_key_name(self):
+        """Gets the api_key_name of this Twilio.  # noqa: E501
+
+
+        :return: The api_key_name of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._api_key_name
+
+    @api_key_name.setter
+    def api_key_name(self, api_key_name):
+        """Sets the api_key_name of this Twilio.
+
+
+        :param api_key_name: The api_key_name of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._api_key_name = api_key_name
+
+    @property
+    def api_key_secret(self):
+        """Gets the api_key_secret of this Twilio.  # noqa: E501
+
+
+        :return: The api_key_secret of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._api_key_secret
+
+    @api_key_secret.setter
+    def api_key_secret(self, api_key_secret):
+        """Sets the api_key_secret of this Twilio.
+
+
+        :param api_key_secret: The api_key_secret of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._api_key_secret = api_key_secret
 
     @property
     def auth_token(self):
@@ -126,6 +234,48 @@ class Twilio(object):
         self._esp_twilio_uuid = esp_twilio_uuid
 
     @property
+    def inbound_twiml_app_sid(self):
+        """Gets the inbound_twiml_app_sid of this Twilio.  # noqa: E501
+
+
+        :return: The inbound_twiml_app_sid of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._inbound_twiml_app_sid
+
+    @inbound_twiml_app_sid.setter
+    def inbound_twiml_app_sid(self, inbound_twiml_app_sid):
+        """Sets the inbound_twiml_app_sid of this Twilio.
+
+
+        :param inbound_twiml_app_sid: The inbound_twiml_app_sid of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._inbound_twiml_app_sid = inbound_twiml_app_sid
+
+    @property
+    def outbound_twiml_app_sid(self):
+        """Gets the outbound_twiml_app_sid of this Twilio.  # noqa: E501
+
+
+        :return: The outbound_twiml_app_sid of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._outbound_twiml_app_sid
+
+    @outbound_twiml_app_sid.setter
+    def outbound_twiml_app_sid(self, outbound_twiml_app_sid):
+        """Sets the outbound_twiml_app_sid of this Twilio.
+
+
+        :param outbound_twiml_app_sid: The outbound_twiml_app_sid of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._outbound_twiml_app_sid = outbound_twiml_app_sid
+
+    @property
     def phone_numbers(self):
         """Gets the phone_numbers of this Twilio.  # noqa: E501
 
@@ -145,6 +295,90 @@ class Twilio(object):
         """
 
         self._phone_numbers = phone_numbers
+
+    @property
+    def private_key_pem(self):
+        """Gets the private_key_pem of this Twilio.  # noqa: E501
+
+
+        :return: The private_key_pem of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._private_key_pem
+
+    @private_key_pem.setter
+    def private_key_pem(self, private_key_pem):
+        """Sets the private_key_pem of this Twilio.
+
+
+        :param private_key_pem: The private_key_pem of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._private_key_pem = private_key_pem
+
+    @property
+    def public_key_pem(self):
+        """Gets the public_key_pem of this Twilio.  # noqa: E501
+
+
+        :return: The public_key_pem of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._public_key_pem
+
+    @public_key_pem.setter
+    def public_key_pem(self, public_key_pem):
+        """Sets the public_key_pem of this Twilio.
+
+
+        :param public_key_pem: The public_key_pem of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._public_key_pem = public_key_pem
+
+    @property
+    def public_key_sid(self):
+        """Gets the public_key_sid of this Twilio.  # noqa: E501
+
+
+        :return: The public_key_sid of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._public_key_sid
+
+    @public_key_sid.setter
+    def public_key_sid(self, public_key_sid):
+        """Sets the public_key_sid of this Twilio.
+
+
+        :param public_key_sid: The public_key_sid of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._public_key_sid = public_key_sid
+
+    @property
+    def twilio_workspace_sid(self):
+        """Gets the twilio_workspace_sid of this Twilio.  # noqa: E501
+
+
+        :return: The twilio_workspace_sid of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._twilio_workspace_sid
+
+    @twilio_workspace_sid.setter
+    def twilio_workspace_sid(self, twilio_workspace_sid):
+        """Sets the twilio_workspace_sid of this Twilio.
+
+
+        :param twilio_workspace_sid: The twilio_workspace_sid of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._twilio_workspace_sid = twilio_workspace_sid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

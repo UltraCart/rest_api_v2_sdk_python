@@ -33,39 +33,49 @@ class CouponDiscountItemWithItemPurchase(object):
     swagger_types = {
         'currency_code': 'str',
         'discount_item': 'str',
+        'discount_item_tags': 'list[str]',
         'discount_price': 'float',
         'limit': 'int',
-        'required_purchase_item': 'str'
+        'required_purchase_item': 'str',
+        'required_purchase_items_tags': 'list[str]'
     }
 
     attribute_map = {
         'currency_code': 'currency_code',
         'discount_item': 'discount_item',
+        'discount_item_tags': 'discount_item_tags',
         'discount_price': 'discount_price',
         'limit': 'limit',
-        'required_purchase_item': 'required_purchase_item'
+        'required_purchase_item': 'required_purchase_item',
+        'required_purchase_items_tags': 'required_purchase_items_tags'
     }
 
-    def __init__(self, currency_code=None, discount_item=None, discount_price=None, limit=None, required_purchase_item=None):  # noqa: E501
+    def __init__(self, currency_code=None, discount_item=None, discount_item_tags=None, discount_price=None, limit=None, required_purchase_item=None, required_purchase_items_tags=None):  # noqa: E501
         """CouponDiscountItemWithItemPurchase - a model defined in Swagger"""  # noqa: E501
 
         self._currency_code = None
         self._discount_item = None
+        self._discount_item_tags = None
         self._discount_price = None
         self._limit = None
         self._required_purchase_item = None
+        self._required_purchase_items_tags = None
         self.discriminator = None
 
         if currency_code is not None:
             self.currency_code = currency_code
         if discount_item is not None:
             self.discount_item = discount_item
+        if discount_item_tags is not None:
+            self.discount_item_tags = discount_item_tags
         if discount_price is not None:
             self.discount_price = discount_price
         if limit is not None:
             self.limit = limit
         if required_purchase_item is not None:
             self.required_purchase_item = required_purchase_item
+        if required_purchase_items_tags is not None:
+            self.required_purchase_items_tags = required_purchase_items_tags
 
     @property
     def currency_code(self):
@@ -114,6 +124,29 @@ class CouponDiscountItemWithItemPurchase(object):
         """
 
         self._discount_item = discount_item
+
+    @property
+    def discount_item_tags(self):
+        """Gets the discount_item_tags of this CouponDiscountItemWithItemPurchase.  # noqa: E501
+
+        An optional list of item tags which will receive a discount of one of the required purchased items is purchased.  # noqa: E501
+
+        :return: The discount_item_tags of this CouponDiscountItemWithItemPurchase.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._discount_item_tags
+
+    @discount_item_tags.setter
+    def discount_item_tags(self, discount_item_tags):
+        """Sets the discount_item_tags of this CouponDiscountItemWithItemPurchase.
+
+        An optional list of item tags which will receive a discount of one of the required purchased items is purchased.  # noqa: E501
+
+        :param discount_item_tags: The discount_item_tags of this CouponDiscountItemWithItemPurchase.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._discount_item_tags = discount_item_tags
 
     @property
     def discount_price(self):
@@ -183,6 +216,29 @@ class CouponDiscountItemWithItemPurchase(object):
         """
 
         self._required_purchase_item = required_purchase_item
+
+    @property
+    def required_purchase_items_tags(self):
+        """Gets the required_purchase_items_tags of this CouponDiscountItemWithItemPurchase.  # noqa: E501
+
+        An optional list of item tags which are required to be purchased.  # noqa: E501
+
+        :return: The required_purchase_items_tags of this CouponDiscountItemWithItemPurchase.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._required_purchase_items_tags
+
+    @required_purchase_items_tags.setter
+    def required_purchase_items_tags(self, required_purchase_items_tags):
+        """Sets the required_purchase_items_tags of this CouponDiscountItemWithItemPurchase.
+
+        An optional list of item tags which are required to be purchased.  # noqa: E501
+
+        :param required_purchase_items_tags: The required_purchase_items_tags of this CouponDiscountItemWithItemPurchase.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._required_purchase_items_tags = required_purchase_items_tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

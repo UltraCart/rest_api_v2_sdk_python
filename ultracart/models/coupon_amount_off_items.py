@@ -33,6 +33,7 @@ class CouponAmountOffItems(object):
     swagger_types = {
         'currency_code': 'str',
         'discount_amount': 'float',
+        'item_tags': 'list[str]',
         'items': 'list[str]',
         'limit': 'int'
     }
@@ -40,15 +41,17 @@ class CouponAmountOffItems(object):
     attribute_map = {
         'currency_code': 'currency_code',
         'discount_amount': 'discount_amount',
+        'item_tags': 'item_tags',
         'items': 'items',
         'limit': 'limit'
     }
 
-    def __init__(self, currency_code=None, discount_amount=None, items=None, limit=None):  # noqa: E501
+    def __init__(self, currency_code=None, discount_amount=None, item_tags=None, items=None, limit=None):  # noqa: E501
         """CouponAmountOffItems - a model defined in Swagger"""  # noqa: E501
 
         self._currency_code = None
         self._discount_amount = None
+        self._item_tags = None
         self._items = None
         self._limit = None
         self.discriminator = None
@@ -57,6 +60,8 @@ class CouponAmountOffItems(object):
             self.currency_code = currency_code
         if discount_amount is not None:
             self.discount_amount = discount_amount
+        if item_tags is not None:
+            self.item_tags = item_tags
         if items is not None:
             self.items = items
         if limit is not None:
@@ -109,6 +114,29 @@ class CouponAmountOffItems(object):
         """
 
         self._discount_amount = discount_amount
+
+    @property
+    def item_tags(self):
+        """Gets the item_tags of this CouponAmountOffItems.  # noqa: E501
+
+        An optional list of item tags which will receive a discount.  # noqa: E501
+
+        :return: The item_tags of this CouponAmountOffItems.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._item_tags
+
+    @item_tags.setter
+    def item_tags(self, item_tags):
+        """Sets the item_tags of this CouponAmountOffItems.
+
+        An optional list of item tags which will receive a discount.  # noqa: E501
+
+        :param item_tags: The item_tags of this CouponAmountOffItems.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._item_tags = item_tags
 
     @property
     def items(self):

@@ -31,26 +31,54 @@ class CouponBuyOneGetOneLimit(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'item_tags': 'list[str]',
         'items': 'list[str]',
         'limit': 'int'
     }
 
     attribute_map = {
+        'item_tags': 'item_tags',
         'items': 'items',
         'limit': 'limit'
     }
 
-    def __init__(self, items=None, limit=None):  # noqa: E501
+    def __init__(self, item_tags=None, items=None, limit=None):  # noqa: E501
         """CouponBuyOneGetOneLimit - a model defined in Swagger"""  # noqa: E501
 
+        self._item_tags = None
         self._items = None
         self._limit = None
         self.discriminator = None
 
+        if item_tags is not None:
+            self.item_tags = item_tags
         if items is not None:
             self.items = items
         if limit is not None:
             self.limit = limit
+
+    @property
+    def item_tags(self):
+        """Gets the item_tags of this CouponBuyOneGetOneLimit.  # noqa: E501
+
+        An optional list of item tags which will receive a discount.  # noqa: E501
+
+        :return: The item_tags of this CouponBuyOneGetOneLimit.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._item_tags
+
+    @item_tags.setter
+    def item_tags(self, item_tags):
+        """Sets the item_tags of this CouponBuyOneGetOneLimit.
+
+        An optional list of item tags which will receive a discount.  # noqa: E501
+
+        :param item_tags: The item_tags of this CouponBuyOneGetOneLimit.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._item_tags = item_tags
 
     @property
     def items(self):

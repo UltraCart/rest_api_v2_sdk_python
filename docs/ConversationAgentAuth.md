@@ -7,6 +7,10 @@ Name | Type | Description | Notes
 **conversation_participant_name** | **str** |  | [optional] 
 **jwt** | **str** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
+**pbx_jwt** | **str** |  | [optional] 
+**pbx_voice_identity** | **str** |  | [optional] 
+**pbx_voice_token** | **str** |  | [optional] 
+**pbx_worker_token** | **str** |  | [optional] 
 **twilio_accounts** | [**list[ConversationTwilioAccount]**](ConversationTwilioAccount.md) |  | [optional] 
 **websocket_url** | **str** |  | [optional] 
 
