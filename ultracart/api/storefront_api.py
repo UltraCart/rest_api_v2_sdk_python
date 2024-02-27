@@ -4497,6 +4497,119 @@ class StorefrontApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_email_commseq_sms_stats(self, storefront_oid, commseq_uuid, stats_request, **kwargs):  # noqa: E501
+        """Get email communication sequence sms stats  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_commseq_sms_stats(storefront_oid, commseq_uuid, stats_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str commseq_uuid: (required)
+        :param EmailStatSmsSummaryRequest stats_request: StatsRequest (required)
+        :return: EmailStatSmsSummaryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_email_commseq_sms_stats_with_http_info(storefront_oid, commseq_uuid, stats_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_email_commseq_sms_stats_with_http_info(storefront_oid, commseq_uuid, stats_request, **kwargs)  # noqa: E501
+            return data
+
+    def get_email_commseq_sms_stats_with_http_info(self, storefront_oid, commseq_uuid, stats_request, **kwargs):  # noqa: E501
+        """Get email communication sequence sms stats  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_commseq_sms_stats_with_http_info(storefront_oid, commseq_uuid, stats_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str commseq_uuid: (required)
+        :param EmailStatSmsSummaryRequest stats_request: StatsRequest (required)
+        :return: EmailStatSmsSummaryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_uuid', 'stats_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_commseq_sms_stats" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_commseq_sms_stats`")  # noqa: E501
+        # verify the required parameter 'commseq_uuid' is set
+        if ('commseq_uuid' not in params or
+                params['commseq_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_uuid` when calling `get_email_commseq_sms_stats`")  # noqa: E501
+        # verify the required parameter 'stats_request' is set
+        if ('stats_request' not in params or
+                params['stats_request'] is None):
+            raise ValueError("Missing the required parameter `stats_request` when calling `get_email_commseq_sms_stats`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'commseq_uuid' in params:
+            path_params['commseq_uuid'] = params['commseq_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'stats_request' in params:
+            body_params = params['stats_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/smsStats', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailStatSmsSummaryResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_email_commseq_stat_overall(self, storefront_oid, commseq_uuid, **kwargs):  # noqa: E501
         """Get communication sequence stats overall  # noqa: E501
 
@@ -8759,6 +8872,123 @@ class StorefrontApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='EmailSettingsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_email_sms_orders(self, storefront_oid, commseq_uuid, commseq_step_uuid, **kwargs):  # noqa: E501
+        """Get email sms orders  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_sms_orders(storefront_oid, commseq_uuid, commseq_step_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str commseq_uuid: (required)
+        :param str commseq_step_uuid: (required)
+        :param int days:
+        :return: EmailSmsOrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_email_sms_orders_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_email_sms_orders_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_email_sms_orders_with_http_info(self, storefront_oid, commseq_uuid, commseq_step_uuid, **kwargs):  # noqa: E501
+        """Get email sms orders  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_email_sms_orders_with_http_info(storefront_oid, commseq_uuid, commseq_step_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int storefront_oid: (required)
+        :param str commseq_uuid: (required)
+        :param str commseq_step_uuid: (required)
+        :param int days:
+        :return: EmailSmsOrdersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['storefront_oid', 'commseq_uuid', 'commseq_step_uuid', 'days']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_email_sms_orders" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'storefront_oid' is set
+        if ('storefront_oid' not in params or
+                params['storefront_oid'] is None):
+            raise ValueError("Missing the required parameter `storefront_oid` when calling `get_email_sms_orders`")  # noqa: E501
+        # verify the required parameter 'commseq_uuid' is set
+        if ('commseq_uuid' not in params or
+                params['commseq_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_uuid` when calling `get_email_sms_orders`")  # noqa: E501
+        # verify the required parameter 'commseq_step_uuid' is set
+        if ('commseq_step_uuid' not in params or
+                params['commseq_step_uuid'] is None):
+            raise ValueError("Missing the required parameter `commseq_step_uuid` when calling `get_email_sms_orders`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'storefront_oid' in params:
+            path_params['storefront_oid'] = params['storefront_oid']  # noqa: E501
+        if 'commseq_uuid' in params:
+            path_params['commseq_uuid'] = params['commseq_uuid']  # noqa: E501
+        if 'commseq_step_uuid' in params:
+            path_params['commseq_step_uuid'] = params['commseq_step_uuid']  # noqa: E501
+
+        query_params = []
+        if 'days' in params:
+            query_params.append(('days', params['days']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartBrowserApiKey', 'ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/sms/orders', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EmailSmsOrdersResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

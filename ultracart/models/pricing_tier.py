@@ -38,6 +38,7 @@ class PricingTier(object):
         'approval_notification': 'PricingTierNotification',
         'auto_approve_cod': 'bool',
         'auto_approve_purchase_order': 'bool',
+        'currency_code': 'str',
         'default_on_wholesale_signup': 'bool',
         'default_percentage_discount': 'float',
         'default_shipping_method_oid': 'int',
@@ -74,6 +75,7 @@ class PricingTier(object):
         'approval_notification': 'approval_notification',
         'auto_approve_cod': 'auto_approve_cod',
         'auto_approve_purchase_order': 'auto_approve_purchase_order',
+        'currency_code': 'currency_code',
         'default_on_wholesale_signup': 'default_on_wholesale_signup',
         'default_percentage_discount': 'default_percentage_discount',
         'default_shipping_method_oid': 'default_shipping_method_oid',
@@ -102,7 +104,7 @@ class PricingTier(object):
         'track_separately': 'track_separately'
     }
 
-    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, approval_notification=None, auto_approve_cod=None, auto_approve_purchase_order=None, default_on_wholesale_signup=None, default_percentage_discount=None, default_shipping_method_oid=None, default_tier=None, display_on_wholesale_signup=None, exclude_from_free_promotion=None, exempt_loyalty_rewards=None, exempt_shipping_handling_charge=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, name=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, not_valid_when_coupon_present=None, pricing_tier_oid=None, realtime_percentage_discount=None, restrict_to_distribution_center_oid=None, signup_notification=None, suppress_buysafe=None, suppress_mailing_list=None, tax_exempt=None, track_separately=None):  # noqa: E501
+    def __init__(self, allow_3rd_party_billing=None, allow_cod=None, allow_purchase_order=None, allow_quote_request=None, approval_notification=None, auto_approve_cod=None, auto_approve_purchase_order=None, currency_code=None, default_on_wholesale_signup=None, default_percentage_discount=None, default_shipping_method_oid=None, default_tier=None, display_on_wholesale_signup=None, exclude_from_free_promotion=None, exempt_loyalty_rewards=None, exempt_shipping_handling_charge=None, free_shipping=None, free_shipping_minimum=None, maximum_item_count=None, minimum_item_count=None, minimum_subtotal=None, name=None, no_coupons=None, no_free_shipping=None, no_realtime_charge=None, not_valid_when_coupon_present=None, pricing_tier_oid=None, realtime_percentage_discount=None, restrict_to_distribution_center_oid=None, signup_notification=None, suppress_buysafe=None, suppress_mailing_list=None, tax_exempt=None, track_separately=None):  # noqa: E501
         """PricingTier - a model defined in Swagger"""  # noqa: E501
 
         self._allow_3rd_party_billing = None
@@ -112,6 +114,7 @@ class PricingTier(object):
         self._approval_notification = None
         self._auto_approve_cod = None
         self._auto_approve_purchase_order = None
+        self._currency_code = None
         self._default_on_wholesale_signup = None
         self._default_percentage_discount = None
         self._default_shipping_method_oid = None
@@ -154,6 +157,8 @@ class PricingTier(object):
             self.auto_approve_cod = auto_approve_cod
         if auto_approve_purchase_order is not None:
             self.auto_approve_purchase_order = auto_approve_purchase_order
+        if currency_code is not None:
+            self.currency_code = currency_code
         if default_on_wholesale_signup is not None:
             self.default_on_wholesale_signup = default_on_wholesale_signup
         if default_percentage_discount is not None:
@@ -365,6 +370,29 @@ class PricingTier(object):
         """
 
         self._auto_approve_purchase_order = auto_approve_purchase_order
+
+    @property
+    def currency_code(self):
+        """Gets the currency_code of this PricingTier.  # noqa: E501
+
+        Any currency code specified on this pricing tier will force a shopping cart into that currency  # noqa: E501
+
+        :return: The currency_code of this PricingTier.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_code
+
+    @currency_code.setter
+    def currency_code(self, currency_code):
+        """Sets the currency_code of this PricingTier.
+
+        Any currency code specified on this pricing tier will force a shopping cart into that currency  # noqa: E501
+
+        :param currency_code: The currency_code of this PricingTier.  # noqa: E501
+        :type: str
+        """
+
+        self._currency_code = currency_code
 
     @property
     def default_on_wholesale_signup(self):
