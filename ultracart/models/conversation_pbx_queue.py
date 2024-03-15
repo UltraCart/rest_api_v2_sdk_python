@@ -48,7 +48,9 @@ class ConversationPbxQueue(object):
         'say_voice': 'str',
         'twilio_taskrouter_workflow_sid': 'str',
         'twilio_workspace_queue_sid': 'str',
-        'voicemail': 'bool'
+        'voicemail': 'bool',
+        'wait_critical_seconds': 'int',
+        'wait_warning_seconds': 'int'
     }
 
     attribute_map = {
@@ -69,10 +71,12 @@ class ConversationPbxQueue(object):
         'say_voice': 'say_voice',
         'twilio_taskrouter_workflow_sid': 'twilio_taskrouter_workflow_sid',
         'twilio_workspace_queue_sid': 'twilio_workspace_queue_sid',
-        'voicemail': 'voicemail'
+        'voicemail': 'voicemail',
+        'wait_critical_seconds': 'wait_critical_seconds',
+        'wait_warning_seconds': 'wait_warning_seconds'
     }
 
-    def __init__(self, announce_queue_position=None, conversation_pbx_queue_uuid=None, conversation_voicemail_mailbox_uuid=None, hold_conversation_pbx_audio_uuid=None, max_hold_seconds=None, members=None, merchant_id=None, name=None, no_agent_available_play_audio_uuid=None, no_agent_available_say=None, no_agent_available_say_voice=None, play_audio_uuid=None, record_call=None, say=None, say_voice=None, twilio_taskrouter_workflow_sid=None, twilio_workspace_queue_sid=None, voicemail=None):  # noqa: E501
+    def __init__(self, announce_queue_position=None, conversation_pbx_queue_uuid=None, conversation_voicemail_mailbox_uuid=None, hold_conversation_pbx_audio_uuid=None, max_hold_seconds=None, members=None, merchant_id=None, name=None, no_agent_available_play_audio_uuid=None, no_agent_available_say=None, no_agent_available_say_voice=None, play_audio_uuid=None, record_call=None, say=None, say_voice=None, twilio_taskrouter_workflow_sid=None, twilio_workspace_queue_sid=None, voicemail=None, wait_critical_seconds=None, wait_warning_seconds=None):  # noqa: E501
         """ConversationPbxQueue - a model defined in Swagger"""  # noqa: E501
 
         self._announce_queue_position = None
@@ -93,6 +97,8 @@ class ConversationPbxQueue(object):
         self._twilio_taskrouter_workflow_sid = None
         self._twilio_workspace_queue_sid = None
         self._voicemail = None
+        self._wait_critical_seconds = None
+        self._wait_warning_seconds = None
         self.discriminator = None
 
         if announce_queue_position is not None:
@@ -131,6 +137,10 @@ class ConversationPbxQueue(object):
             self.twilio_workspace_queue_sid = twilio_workspace_queue_sid
         if voicemail is not None:
             self.voicemail = voicemail
+        if wait_critical_seconds is not None:
+            self.wait_critical_seconds = wait_critical_seconds
+        if wait_warning_seconds is not None:
+            self.wait_warning_seconds = wait_warning_seconds
 
     @property
     def announce_queue_position(self):
@@ -563,6 +573,52 @@ class ConversationPbxQueue(object):
         """
 
         self._voicemail = voicemail
+
+    @property
+    def wait_critical_seconds(self):
+        """Gets the wait_critical_seconds of this ConversationPbxQueue.  # noqa: E501
+
+        Wait time in seconds before critical  # noqa: E501
+
+        :return: The wait_critical_seconds of this ConversationPbxQueue.  # noqa: E501
+        :rtype: int
+        """
+        return self._wait_critical_seconds
+
+    @wait_critical_seconds.setter
+    def wait_critical_seconds(self, wait_critical_seconds):
+        """Sets the wait_critical_seconds of this ConversationPbxQueue.
+
+        Wait time in seconds before critical  # noqa: E501
+
+        :param wait_critical_seconds: The wait_critical_seconds of this ConversationPbxQueue.  # noqa: E501
+        :type: int
+        """
+
+        self._wait_critical_seconds = wait_critical_seconds
+
+    @property
+    def wait_warning_seconds(self):
+        """Gets the wait_warning_seconds of this ConversationPbxQueue.  # noqa: E501
+
+        Wait time in seconds before warning  # noqa: E501
+
+        :return: The wait_warning_seconds of this ConversationPbxQueue.  # noqa: E501
+        :rtype: int
+        """
+        return self._wait_warning_seconds
+
+    @wait_warning_seconds.setter
+    def wait_warning_seconds(self, wait_warning_seconds):
+        """Sets the wait_warning_seconds of this ConversationPbxQueue.
+
+        Wait time in seconds before warning  # noqa: E501
+
+        :param wait_warning_seconds: The wait_warning_seconds of this ConversationPbxQueue.  # noqa: E501
+        :type: int
+        """
+
+        self._wait_warning_seconds = wait_warning_seconds
 
     def to_dict(self):
         """Returns the model properties as a dict"""
