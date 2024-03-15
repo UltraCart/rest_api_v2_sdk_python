@@ -4,6 +4,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**get_workflow_agent_websocket_authorization**](WorkflowApi.md#get_workflow_agent_websocket_authorization) | **PUT** /workflow/agent/auth | Get agent websocket authorization
 [**get_workflow_assignment_groups**](WorkflowApi.md#get_workflow_assignment_groups) | **GET** /workflow/assignment_groups | Retrieve a list of groups that workflow tasks can be assigned to
 [**get_workflow_assignment_users**](WorkflowApi.md#get_workflow_assignment_users) | **GET** /workflow/assignment_users | Retrieve a list of users that workflow tasks can be assigned to
 [**get_workflow_me**](WorkflowApi.md#get_workflow_me) | **GET** /workflow/me | Retrieve a user object for myself
@@ -15,6 +16,74 @@ Method | HTTP request | Description
 [**insert_workflow_task**](WorkflowApi.md#insert_workflow_task) | **POST** /workflow/tasks | Insert a workflow task
 [**update_workflow_task**](WorkflowApi.md#update_workflow_task) | **PUT** /workflow/tasks/{task_uuid} | Update a workflow task
 
+
+# **get_workflow_agent_websocket_authorization**
+> WorkflowAgentAuthResponse get_workflow_agent_websocket_authorization()
+
+Get agent websocket authorization
+
+Retrieve a JWT to authorize an agent to make a websocket connection. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import workflow_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.workflow_agent_auth_response import WorkflowAgentAuthResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get agent websocket authorization
+        api_response = api_instance.get_workflow_agent_websocket_authorization()
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling WorkflowApi->get_workflow_agent_websocket_authorization: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**WorkflowAgentAuthResponse**](WorkflowAgentAuthResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_workflow_assignment_groups**
 > WorkflowGroupsResponse get_workflow_assignment_groups()

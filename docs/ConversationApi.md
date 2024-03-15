@@ -4124,6 +4124,8 @@ api_instance = GiftCertificateApi(api_client())
         twilio_taskrouter_workflow_sid="twilio_taskrouter_workflow_sid_example",
         twilio_workspace_queue_sid="twilio_workspace_queue_sid_example",
         voicemail=True,
+        wait_critical_seconds=1,
+        wait_warning_seconds=1,
     ) # ConversationPbxQueue | Pbx Queue
 
     # example passing only required values which don't have defaults set
@@ -5712,6 +5714,8 @@ api_instance = GiftCertificateApi(api_client())
         twilio_taskrouter_workflow_sid="twilio_taskrouter_workflow_sid_example",
         twilio_workspace_queue_sid="twilio_workspace_queue_sid_example",
         voicemail=True,
+        wait_critical_seconds=1,
+        wait_warning_seconds=1,
     ) # ConversationPbxQueue | Pbx Queue
 
     # example passing only required values which don't have defaults set

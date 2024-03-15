@@ -844,6 +844,8 @@ docs/WebhookSampleRequest.md
 docs/WebhookSampleRequestResponse.md
 docs/WebhooksResponse.md
 docs/Weight.md
+docs/WorkflowAgentAuth.md
+docs/WorkflowAgentAuthResponse.md
 docs/WorkflowApi.md
 docs/WorkflowAttachment.md
 docs/WorkflowAttachmentUploadUrl.md
@@ -1716,6 +1718,8 @@ ultracart/model/webhook_sample_request.py
 ultracart/model/webhook_sample_request_response.py
 ultracart/model/webhooks_response.py
 ultracart/model/weight.py
+ultracart/model/workflow_agent_auth.py
+ultracart/model/workflow_agent_auth_response.py
 ultracart/model/workflow_attachment.py
 ultracart/model/workflow_attachment_upload_url.py
 ultracart/model/workflow_attachment_upload_url_response.py
