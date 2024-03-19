@@ -5969,6 +5969,105 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def reset_conversation_pbx_queue_statistics(self, queue_uuid, **kwargs):  # noqa: E501
+        """reset statistics within the queue  # noqa: E501
+
+        reset statistics within the queue   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reset_conversation_pbx_queue_statistics(queue_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str queue_uuid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.reset_conversation_pbx_queue_statistics_with_http_info(queue_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.reset_conversation_pbx_queue_statistics_with_http_info(queue_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def reset_conversation_pbx_queue_statistics_with_http_info(self, queue_uuid, **kwargs):  # noqa: E501
+        """reset statistics within the queue  # noqa: E501
+
+        reset statistics within the queue   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reset_conversation_pbx_queue_statistics_with_http_info(queue_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str queue_uuid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['queue_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method reset_conversation_pbx_queue_statistics" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'queue_uuid' is set
+        if ('queue_uuid' not in params or
+                params['queue_uuid'] is None):
+            raise ValueError("Missing the required parameter `queue_uuid` when calling `reset_conversation_pbx_queue_statistics`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'queue_uuid' in params:
+            path_params['queue_uuid'] = params['queue_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/queues/{queue_uuid}/reset_statistics', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def search_conversation_canned_messages(self, search_request, **kwargs):  # noqa: E501
         """Search for canned messages by short_code  # noqa: E501
 

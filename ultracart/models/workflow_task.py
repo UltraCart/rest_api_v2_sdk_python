@@ -41,6 +41,7 @@ class WorkflowTask(object):
         'delay_until_dts': 'str',
         'dependant_workflow_task_uuid': 'str',
         'due_dts': 'str',
+        'expiration_dts': 'str',
         'histories': 'list[WorkflowTaskHistory]',
         'last_update_dts': 'str',
         'merchant_id': 'str',
@@ -53,6 +54,7 @@ class WorkflowTask(object):
         'properties': 'list[ModelProperty]',
         'related_workflow_task_uuid': 'str',
         'status': 'str',
+        'system_task_type': 'str',
         'tags': 'list[str]',
         'task_context': 'str',
         'task_details': 'str',
@@ -71,6 +73,7 @@ class WorkflowTask(object):
         'delay_until_dts': 'delay_until_dts',
         'dependant_workflow_task_uuid': 'dependant_workflow_task_uuid',
         'due_dts': 'due_dts',
+        'expiration_dts': 'expiration_dts',
         'histories': 'histories',
         'last_update_dts': 'last_update_dts',
         'merchant_id': 'merchant_id',
@@ -83,6 +86,7 @@ class WorkflowTask(object):
         'properties': 'properties',
         'related_workflow_task_uuid': 'related_workflow_task_uuid',
         'status': 'status',
+        'system_task_type': 'system_task_type',
         'tags': 'tags',
         'task_context': 'task_context',
         'task_details': 'task_details',
@@ -90,7 +94,7 @@ class WorkflowTask(object):
         'workflow_task_uuid': 'workflow_task_uuid'
     }
 
-    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, dependant_workflow_task_uuid=None, due_dts=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_type=None, object_url=None, priority=None, properties=None, related_workflow_task_uuid=None, status=None, tags=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
+    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, dependant_workflow_task_uuid=None, due_dts=None, expiration_dts=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_type=None, object_url=None, priority=None, properties=None, related_workflow_task_uuid=None, status=None, system_task_type=None, tags=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
         """WorkflowTask - a model defined in Swagger"""  # noqa: E501
 
         self._assigned_to_group = None
@@ -103,6 +107,7 @@ class WorkflowTask(object):
         self._delay_until_dts = None
         self._dependant_workflow_task_uuid = None
         self._due_dts = None
+        self._expiration_dts = None
         self._histories = None
         self._last_update_dts = None
         self._merchant_id = None
@@ -115,6 +120,7 @@ class WorkflowTask(object):
         self._properties = None
         self._related_workflow_task_uuid = None
         self._status = None
+        self._system_task_type = None
         self._tags = None
         self._task_context = None
         self._task_details = None
@@ -142,6 +148,8 @@ class WorkflowTask(object):
             self.dependant_workflow_task_uuid = dependant_workflow_task_uuid
         if due_dts is not None:
             self.due_dts = due_dts
+        if expiration_dts is not None:
+            self.expiration_dts = expiration_dts
         if histories is not None:
             self.histories = histories
         if last_update_dts is not None:
@@ -166,6 +174,8 @@ class WorkflowTask(object):
             self.related_workflow_task_uuid = related_workflow_task_uuid
         if status is not None:
             self.status = status
+        if system_task_type is not None:
+            self.system_task_type = system_task_type
         if tags is not None:
             self.tags = tags
         if task_context is not None:
@@ -404,6 +414,29 @@ class WorkflowTask(object):
         """
 
         self._due_dts = due_dts
+
+    @property
+    def expiration_dts(self):
+        """Gets the expiration_dts of this WorkflowTask.  # noqa: E501
+
+        Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.  # noqa: E501
+
+        :return: The expiration_dts of this WorkflowTask.  # noqa: E501
+        :rtype: str
+        """
+        return self._expiration_dts
+
+    @expiration_dts.setter
+    def expiration_dts(self, expiration_dts):
+        """Sets the expiration_dts of this WorkflowTask.
+
+        Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.  # noqa: E501
+
+        :param expiration_dts: The expiration_dts of this WorkflowTask.  # noqa: E501
+        :type: str
+        """
+
+        self._expiration_dts = expiration_dts
 
     @property
     def histories(self):
@@ -690,7 +723,7 @@ class WorkflowTask(object):
         :param status: The status of this WorkflowTask.  # noqa: E501
         :type: str
         """
-        allowed_values = ["open", "closed", "delayed", "awaiting customer feedback"]  # noqa: E501
+        allowed_values = ["open", "closed", "delayed", "awaiting customer feedback", "closed - system", "closed - customer", "closed - expiration"]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
@@ -698,6 +731,35 @@ class WorkflowTask(object):
             )
 
         self._status = status
+
+    @property
+    def system_task_type(self):
+        """Gets the system_task_type of this WorkflowTask.  # noqa: E501
+
+        Constant for the type of system generated task  # noqa: E501
+
+        :return: The system_task_type of this WorkflowTask.  # noqa: E501
+        :rtype: str
+        """
+        return self._system_task_type
+
+    @system_task_type.setter
+    def system_task_type(self, system_task_type):
+        """Sets the system_task_type of this WorkflowTask.
+
+        Constant for the type of system generated task  # noqa: E501
+
+        :param system_task_type: The system_task_type of this WorkflowTask.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["order_accounts_receivable", "order_fraud_review", "auto_order_card_update_issue", "auto_order_canceled_payment", "item_low_stock", "item_out_of_stock"]  # noqa: E501
+        if system_task_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `system_task_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(system_task_type, allowed_values)
+            )
+
+        self._system_task_type = system_task_type
 
     @property
     def tags(self):
