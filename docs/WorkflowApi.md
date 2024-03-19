@@ -753,6 +753,7 @@ api_instance = GiftCertificateApi(api_client())
         delay_until_dts="delay_until_dts_example",
         dependant_workflow_task_uuid="dependant_workflow_task_uuid_example",
         due_dts="due_dts_example",
+        expiration_dts="expiration_dts_example",
         histories=[
             WorkflowTaskHistory(
                 activity_dts="activity_dts_example",
@@ -802,6 +803,7 @@ api_instance = GiftCertificateApi(api_client())
         ],
         related_workflow_task_uuid="related_workflow_task_uuid_example",
         status="open",
+        system_task_type="order_accounts_receivable",
         tags=[
             "tags_example",
         ],
@@ -906,6 +908,7 @@ api_instance = GiftCertificateApi(api_client())
         delay_until_dts="delay_until_dts_example",
         dependant_workflow_task_uuid="dependant_workflow_task_uuid_example",
         due_dts="due_dts_example",
+        expiration_dts="expiration_dts_example",
         histories=[
             WorkflowTaskHistory(
                 activity_dts="activity_dts_example",
@@ -955,6 +958,7 @@ api_instance = GiftCertificateApi(api_client())
         ],
         related_workflow_task_uuid="related_workflow_task_uuid_example",
         status="open",
+        system_task_type="order_accounts_receivable",
         tags=[
             "tags_example",
         ],

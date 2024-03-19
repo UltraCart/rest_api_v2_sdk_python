@@ -86,6 +86,17 @@ class WorkflowTask(ModelNormal):
             'CLOSED': "closed",
             'DELAYED': "delayed",
             'AWAITING_CUSTOMER_FEEDBACK': "awaiting customer feedback",
+            'CLOSED_-_SYSTEM': "closed - system",
+            'CLOSED_-_CUSTOMER': "closed - customer",
+            'CLOSED_-_EXPIRATION': "closed - expiration",
+        },
+        ('system_task_type',): {
+            'ORDER_ACCOUNTS_RECEIVABLE': "order_accounts_receivable",
+            'ORDER_FRAUD_REVIEW': "order_fraud_review",
+            'AUTO_ORDER_CARD_UPDATE_ISSUE': "auto_order_card_update_issue",
+            'AUTO_ORDER_CANCELED_PAYMENT': "auto_order_canceled_payment",
+            'ITEM_LOW_STOCK': "item_low_stock",
+            'ITEM_OUT_OF_STOCK': "item_out_of_stock",
         },
     }
 
@@ -125,6 +136,7 @@ class WorkflowTask(ModelNormal):
             'delay_until_dts': (str,),  # noqa: E501
             'dependant_workflow_task_uuid': (str,),  # noqa: E501
             'due_dts': (str,),  # noqa: E501
+            'expiration_dts': (str,),  # noqa: E501
             'histories': ([WorkflowTaskHistory],),  # noqa: E501
             'last_update_dts': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
@@ -137,6 +149,7 @@ class WorkflowTask(ModelNormal):
             'properties': ([ModelProperty],),  # noqa: E501
             'related_workflow_task_uuid': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'system_task_type': (str,),  # noqa: E501
             'tags': ([str],),  # noqa: E501
             'task_context': (str,),  # noqa: E501
             'task_details': (str,),  # noqa: E501
@@ -160,6 +173,7 @@ class WorkflowTask(ModelNormal):
         'delay_until_dts': 'delay_until_dts',  # noqa: E501
         'dependant_workflow_task_uuid': 'dependant_workflow_task_uuid',  # noqa: E501
         'due_dts': 'due_dts',  # noqa: E501
+        'expiration_dts': 'expiration_dts',  # noqa: E501
         'histories': 'histories',  # noqa: E501
         'last_update_dts': 'last_update_dts',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
@@ -172,6 +186,7 @@ class WorkflowTask(ModelNormal):
         'properties': 'properties',  # noqa: E501
         'related_workflow_task_uuid': 'related_workflow_task_uuid',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'system_task_type': 'system_task_type',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'task_context': 'task_context',  # noqa: E501
         'task_details': 'task_details',  # noqa: E501
@@ -230,6 +245,7 @@ class WorkflowTask(ModelNormal):
             delay_until_dts (str): Date/time that the workflow task should delay until. [optional]  # noqa: E501
             dependant_workflow_task_uuid (str): Dependant Workflow Task UUID (must be completed before this task can be completed). [optional]  # noqa: E501
             due_dts (str): Date/time that the workflow task is due. [optional]  # noqa: E501
+            expiration_dts (str): Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.. [optional]  # noqa: E501
             histories ([WorkflowTaskHistory]): Array of history records for the task. [optional]  # noqa: E501
             last_update_dts (str): Date/time that the workflow task was last updated. [optional]  # noqa: E501
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
@@ -242,6 +258,7 @@ class WorkflowTask(ModelNormal):
             properties ([ModelProperty]): Properties. [optional]  # noqa: E501
             related_workflow_task_uuid (str): Related Workflow Task UUID. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
+            system_task_type (str): Constant for the type of system generated task. [optional]  # noqa: E501
             tags ([str]): Tags. [optional]  # noqa: E501
             task_context (str): User friendly string of the task context. [optional]  # noqa: E501
             task_details (str): Task Details. [optional]  # noqa: E501
@@ -342,6 +359,7 @@ class WorkflowTask(ModelNormal):
             delay_until_dts (str): Date/time that the workflow task should delay until. [optional]  # noqa: E501
             dependant_workflow_task_uuid (str): Dependant Workflow Task UUID (must be completed before this task can be completed). [optional]  # noqa: E501
             due_dts (str): Date/time that the workflow task is due. [optional]  # noqa: E501
+            expiration_dts (str): Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.. [optional]  # noqa: E501
             histories ([WorkflowTaskHistory]): Array of history records for the task. [optional]  # noqa: E501
             last_update_dts (str): Date/time that the workflow task was last updated. [optional]  # noqa: E501
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
@@ -354,6 +372,7 @@ class WorkflowTask(ModelNormal):
             properties ([ModelProperty]): Properties. [optional]  # noqa: E501
             related_workflow_task_uuid (str): Related Workflow Task UUID. [optional]  # noqa: E501
             status (str): Status of the workflow task. [optional]  # noqa: E501
+            system_task_type (str): Constant for the type of system generated task. [optional]  # noqa: E501
             tags ([str]): Tags. [optional]  # noqa: E501
             task_context (str): User friendly string of the task context. [optional]  # noqa: E501
             task_details (str): Task Details. [optional]  # noqa: E501
