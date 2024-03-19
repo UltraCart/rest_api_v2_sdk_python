@@ -855,6 +855,7 @@ docs/WorkflowGroupsResponse.md
 docs/WorkflowNote.md
 docs/WorkflowTask.md
 docs/WorkflowTaskHistory.md
+docs/WorkflowTaskOpenCountResponse.md
 docs/WorkflowTaskResponse.md
 docs/WorkflowTaskTagsResponse.md
 docs/WorkflowTasksRequest.md
@@ -1728,6 +1729,7 @@ ultracart/model/workflow_groups_response.py
 ultracart/model/workflow_note.py
 ultracart/model/workflow_task.py
 ultracart/model/workflow_task_history.py
+ultracart/model/workflow_task_open_count_response.py
 ultracart/model/workflow_task_response.py
 ultracart/model/workflow_task_tags_response.py
 ultracart/model/workflow_tasks_request.py

@@ -841,6 +841,7 @@ from ultracart.model.workflow_groups_response import WorkflowGroupsResponse
 from ultracart.model.workflow_note import WorkflowNote
 from ultracart.model.workflow_task import WorkflowTask
 from ultracart.model.workflow_task_history import WorkflowTaskHistory
+from ultracart.model.workflow_task_open_count_response import WorkflowTaskOpenCountResponse
 from ultracart.model.workflow_task_response import WorkflowTaskResponse
 from ultracart.model.workflow_task_tags_response import WorkflowTaskTagsResponse
 from ultracart.model.workflow_tasks_request import WorkflowTasksRequest

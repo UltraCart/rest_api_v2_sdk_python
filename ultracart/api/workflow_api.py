@@ -27,6 +27,7 @@ from ultracart.model.workflow_agent_auth_response import WorkflowAgentAuthRespon
 from ultracart.model.workflow_attachment_upload_url_response import WorkflowAttachmentUploadUrlResponse
 from ultracart.model.workflow_groups_response import WorkflowGroupsResponse
 from ultracart.model.workflow_task import WorkflowTask
+from ultracart.model.workflow_task_open_count_response import WorkflowTaskOpenCountResponse
 from ultracart.model.workflow_task_response import WorkflowTaskResponse
 from ultracart.model.workflow_task_tags_response import WorkflowTaskTagsResponse
 from ultracart.model.workflow_tasks_request import WorkflowTasksRequest
@@ -407,6 +408,51 @@ class WorkflowApi(object):
                 'location_map': {
                     'object_type': 'path',
                     'object_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_workflow_task_open_count_endpoint = _Endpoint(
+            settings={
+                'response_type': (WorkflowTaskOpenCountResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/workflow/tasks/open_count',
+                'operation_id': 'get_workflow_task_open_count',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
                 },
                 'collection_format_map': {
                 }
@@ -1213,6 +1259,84 @@ class WorkflowApi(object):
         kwargs['object_id'] = \
             object_id
         return self.get_workflow_task_by_object_type_endpoint.call_with_http_info(**kwargs)
+
+    def get_workflow_task_open_count(
+        self,
+        **kwargs
+    ):
+        """Retrieve workflow task open count  # noqa: E501
+
+        Retrieve workflow task open count   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_workflow_task_open_count(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            WorkflowTaskOpenCountResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_workflow_task_open_count_endpoint.call_with_http_info(**kwargs)
 
     def get_workflow_task_tags(
         self,
