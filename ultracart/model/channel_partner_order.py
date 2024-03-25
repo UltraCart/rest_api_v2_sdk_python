@@ -270,6 +270,7 @@ class ChannelPartnerOrder(ModelNormal):
             'payment_method': (str,),  # noqa: E501
             'purchase_order_number': (str,),  # noqa: E501
             'rotating_transaction_gateway_code': (str,),  # noqa: E501
+            'sales_rep_code': (str,),  # noqa: E501
             'screen_branding_theme_code': (str,),  # noqa: E501
             'ship_on_date': (str,),  # noqa: E501
             'ship_to_residential': (bool,),  # noqa: E501
@@ -358,6 +359,7 @@ class ChannelPartnerOrder(ModelNormal):
         'payment_method': 'payment_method',  # noqa: E501
         'purchase_order_number': 'purchase_order_number',  # noqa: E501
         'rotating_transaction_gateway_code': 'rotating_transaction_gateway_code',  # noqa: E501
+        'sales_rep_code': 'sales_rep_code',  # noqa: E501
         'screen_branding_theme_code': 'screen_branding_theme_code',  # noqa: E501
         'ship_on_date': 'ship_on_date',  # noqa: E501
         'ship_to_residential': 'ship_to_residential',  # noqa: E501
@@ -481,6 +483,7 @@ class ChannelPartnerOrder(ModelNormal):
             payment_method (str): Payment method. [optional]  # noqa: E501
             purchase_order_number (str): Purchase order number. [optional]  # noqa: E501
             rotating_transaction_gateway_code (str): The rotating transaction gateway code for the gateway used to charge this order. [optional]  # noqa: E501
+            sales_rep_code (str): Sales rep code. [optional]  # noqa: E501
             screen_branding_theme_code (str): Screen branding theme code. [optional]  # noqa: E501
             ship_on_date (str): Date the customer is requesting that the order ship on.  Typically used for perishable product delivery.. [optional]  # noqa: E501
             ship_to_residential (bool): True if the shipping adress is residential.  Effects the methods that are available to the customer as well as the price of the shipping method.. [optional]  # noqa: E501
@@ -646,6 +649,7 @@ class ChannelPartnerOrder(ModelNormal):
             payment_method (str): Payment method. [optional]  # noqa: E501
             purchase_order_number (str): Purchase order number. [optional]  # noqa: E501
             rotating_transaction_gateway_code (str): The rotating transaction gateway code for the gateway used to charge this order. [optional]  # noqa: E501
+            sales_rep_code (str): Sales rep code. [optional]  # noqa: E501
             screen_branding_theme_code (str): Screen branding theme code. [optional]  # noqa: E501
             ship_on_date (str): Date the customer is requesting that the order ship on.  Typically used for perishable product delivery.. [optional]  # noqa: E501
             ship_to_residential (bool): True if the shipping adress is residential.  Effects the methods that are available to the customer as well as the price of the shipping method.. [optional]  # noqa: E501
