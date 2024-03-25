@@ -42,12 +42,14 @@ class WorkflowTask(object):
         'dependant_workflow_task_uuid': 'str',
         'due_dts': 'str',
         'expiration_dts': 'str',
+        'global_task_number': 'int',
         'histories': 'list[WorkflowTaskHistory]',
         'last_update_dts': 'str',
         'merchant_id': 'str',
         'notes': 'list[WorkflowNote]',
         'object_email': 'str',
         'object_id': 'str',
+        'object_task_number': 'int',
         'object_type': 'str',
         'object_url': 'str',
         'priority': 'str',
@@ -74,12 +76,14 @@ class WorkflowTask(object):
         'dependant_workflow_task_uuid': 'dependant_workflow_task_uuid',
         'due_dts': 'due_dts',
         'expiration_dts': 'expiration_dts',
+        'global_task_number': 'global_task_number',
         'histories': 'histories',
         'last_update_dts': 'last_update_dts',
         'merchant_id': 'merchant_id',
         'notes': 'notes',
         'object_email': 'object_email',
         'object_id': 'object_id',
+        'object_task_number': 'object_task_number',
         'object_type': 'object_type',
         'object_url': 'object_url',
         'priority': 'priority',
@@ -94,7 +98,7 @@ class WorkflowTask(object):
         'workflow_task_uuid': 'workflow_task_uuid'
     }
 
-    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, dependant_workflow_task_uuid=None, due_dts=None, expiration_dts=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_type=None, object_url=None, priority=None, properties=None, related_workflow_task_uuid=None, status=None, system_task_type=None, tags=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
+    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, dependant_workflow_task_uuid=None, due_dts=None, expiration_dts=None, global_task_number=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_task_number=None, object_type=None, object_url=None, priority=None, properties=None, related_workflow_task_uuid=None, status=None, system_task_type=None, tags=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
         """WorkflowTask - a model defined in Swagger"""  # noqa: E501
 
         self._assigned_to_group = None
@@ -108,12 +112,14 @@ class WorkflowTask(object):
         self._dependant_workflow_task_uuid = None
         self._due_dts = None
         self._expiration_dts = None
+        self._global_task_number = None
         self._histories = None
         self._last_update_dts = None
         self._merchant_id = None
         self._notes = None
         self._object_email = None
         self._object_id = None
+        self._object_task_number = None
         self._object_type = None
         self._object_url = None
         self._priority = None
@@ -150,6 +156,8 @@ class WorkflowTask(object):
             self.due_dts = due_dts
         if expiration_dts is not None:
             self.expiration_dts = expiration_dts
+        if global_task_number is not None:
+            self.global_task_number = global_task_number
         if histories is not None:
             self.histories = histories
         if last_update_dts is not None:
@@ -162,6 +170,8 @@ class WorkflowTask(object):
             self.object_email = object_email
         if object_id is not None:
             self.object_id = object_id
+        if object_task_number is not None:
+            self.object_task_number = object_task_number
         if object_type is not None:
             self.object_type = object_type
         if object_url is not None:
@@ -439,6 +449,29 @@ class WorkflowTask(object):
         self._expiration_dts = expiration_dts
 
     @property
+    def global_task_number(self):
+        """Gets the global_task_number of this WorkflowTask.  # noqa: E501
+
+        Global task numer  # noqa: E501
+
+        :return: The global_task_number of this WorkflowTask.  # noqa: E501
+        :rtype: int
+        """
+        return self._global_task_number
+
+    @global_task_number.setter
+    def global_task_number(self, global_task_number):
+        """Sets the global_task_number of this WorkflowTask.
+
+        Global task numer  # noqa: E501
+
+        :param global_task_number: The global_task_number of this WorkflowTask.  # noqa: E501
+        :type: int
+        """
+
+        self._global_task_number = global_task_number
+
+    @property
     def histories(self):
         """Gets the histories of this WorkflowTask.  # noqa: E501
 
@@ -575,6 +608,29 @@ class WorkflowTask(object):
         """
 
         self._object_id = object_id
+
+    @property
+    def object_task_number(self):
+        """Gets the object_task_number of this WorkflowTask.  # noqa: E501
+
+        Object specific task numer  # noqa: E501
+
+        :return: The object_task_number of this WorkflowTask.  # noqa: E501
+        :rtype: int
+        """
+        return self._object_task_number
+
+    @object_task_number.setter
+    def object_task_number(self, object_task_number):
+        """Sets the object_task_number of this WorkflowTask.
+
+        Object specific task numer  # noqa: E501
+
+        :param object_task_number: The object_task_number of this WorkflowTask.  # noqa: E501
+        :type: int
+        """
+
+        self._object_task_number = object_task_number
 
     @property
     def object_type(self):
