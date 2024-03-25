@@ -87,6 +87,7 @@ class ChannelPartnerOrder(object):
         'payment_method': 'str',
         'purchase_order_number': 'str',
         'rotating_transaction_gateway_code': 'str',
+        'sales_rep_code': 'str',
         'screen_branding_theme_code': 'str',
         'ship_on_date': 'str',
         'ship_to_residential': 'bool',
@@ -170,6 +171,7 @@ class ChannelPartnerOrder(object):
         'payment_method': 'payment_method',
         'purchase_order_number': 'purchase_order_number',
         'rotating_transaction_gateway_code': 'rotating_transaction_gateway_code',
+        'sales_rep_code': 'sales_rep_code',
         'screen_branding_theme_code': 'screen_branding_theme_code',
         'ship_on_date': 'ship_on_date',
         'ship_to_residential': 'ship_to_residential',
@@ -196,7 +198,7 @@ class ChannelPartnerOrder(object):
         'treat_warnings_as_errors': 'treat_warnings_as_errors'
     }
 
-    def __init__(self, advertising_source=None, affiliate_id=None, affiliate_sub_id=None, arbitrary_shipping_handling_total=None, arbitrary_tax=None, arbitrary_tax_rate=None, arbitrary_taxable_subtotal=None, associate_with_customer_profile_if_present=None, auto_approve_purchase_order=None, billto_address1=None, billto_address2=None, billto_city=None, billto_company=None, billto_country_code=None, billto_day_phone=None, billto_evening_phone=None, billto_first_name=None, billto_last_name=None, billto_postal_code=None, billto_state_region=None, billto_title=None, cc_email=None, channel_partner_order_id=None, consider_recurring=None, coupons=None, credit_card_authorization_amount=None, credit_card_authorization_dts=None, credit_card_authorization_number=None, credit_card_expiration_month=None, credit_card_expiration_year=None, credit_card_type=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, delivery_date=None, email=None, gift=None, gift_email=None, gift_message=None, hosted_fields_card_token=None, hosted_fields_cvv_token=None, insurance_application_id=None, insurance_claim_id=None, ip_address=None, items=None, least_cost_route=None, least_cost_route_shipping_methods=None, mailing_list_opt_in=None, no_realtime_payment_processing=None, payment_method=None, purchase_order_number=None, rotating_transaction_gateway_code=None, screen_branding_theme_code=None, ship_on_date=None, ship_to_residential=None, shipping_method=None, shipto_address1=None, shipto_address2=None, shipto_city=None, shipto_company=None, shipto_country_code=None, shipto_day_phone=None, shipto_evening_phone=None, shipto_first_name=None, shipto_last_name=None, shipto_postal_code=None, shipto_state_region=None, shipto_title=None, skip_payment_processing=None, special_instructions=None, store_completed=None, store_if_payment_declines=None, tax_county=None, tax_exempt=None, transaction=None, treat_warnings_as_errors=None):  # noqa: E501
+    def __init__(self, advertising_source=None, affiliate_id=None, affiliate_sub_id=None, arbitrary_shipping_handling_total=None, arbitrary_tax=None, arbitrary_tax_rate=None, arbitrary_taxable_subtotal=None, associate_with_customer_profile_if_present=None, auto_approve_purchase_order=None, billto_address1=None, billto_address2=None, billto_city=None, billto_company=None, billto_country_code=None, billto_day_phone=None, billto_evening_phone=None, billto_first_name=None, billto_last_name=None, billto_postal_code=None, billto_state_region=None, billto_title=None, cc_email=None, channel_partner_order_id=None, consider_recurring=None, coupons=None, credit_card_authorization_amount=None, credit_card_authorization_dts=None, credit_card_authorization_number=None, credit_card_expiration_month=None, credit_card_expiration_year=None, credit_card_type=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, delivery_date=None, email=None, gift=None, gift_email=None, gift_message=None, hosted_fields_card_token=None, hosted_fields_cvv_token=None, insurance_application_id=None, insurance_claim_id=None, ip_address=None, items=None, least_cost_route=None, least_cost_route_shipping_methods=None, mailing_list_opt_in=None, no_realtime_payment_processing=None, payment_method=None, purchase_order_number=None, rotating_transaction_gateway_code=None, sales_rep_code=None, screen_branding_theme_code=None, ship_on_date=None, ship_to_residential=None, shipping_method=None, shipto_address1=None, shipto_address2=None, shipto_city=None, shipto_company=None, shipto_country_code=None, shipto_day_phone=None, shipto_evening_phone=None, shipto_first_name=None, shipto_last_name=None, shipto_postal_code=None, shipto_state_region=None, shipto_title=None, skip_payment_processing=None, special_instructions=None, store_completed=None, store_if_payment_declines=None, tax_county=None, tax_exempt=None, transaction=None, treat_warnings_as_errors=None):  # noqa: E501
         """ChannelPartnerOrder - a model defined in Swagger"""  # noqa: E501
 
         self._advertising_source = None
@@ -255,6 +257,7 @@ class ChannelPartnerOrder(object):
         self._payment_method = None
         self._purchase_order_number = None
         self._rotating_transaction_gateway_code = None
+        self._sales_rep_code = None
         self._screen_branding_theme_code = None
         self._ship_on_date = None
         self._ship_to_residential = None
@@ -393,6 +396,8 @@ class ChannelPartnerOrder(object):
             self.purchase_order_number = purchase_order_number
         if rotating_transaction_gateway_code is not None:
             self.rotating_transaction_gateway_code = rotating_transaction_gateway_code
+        if sales_rep_code is not None:
+            self.sales_rep_code = sales_rep_code
         if screen_branding_theme_code is not None:
             self.screen_branding_theme_code = screen_branding_theme_code
         if ship_on_date is not None:
@@ -1781,6 +1786,29 @@ class ChannelPartnerOrder(object):
         """
 
         self._rotating_transaction_gateway_code = rotating_transaction_gateway_code
+
+    @property
+    def sales_rep_code(self):
+        """Gets the sales_rep_code of this ChannelPartnerOrder.  # noqa: E501
+
+        Sales rep code  # noqa: E501
+
+        :return: The sales_rep_code of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._sales_rep_code
+
+    @sales_rep_code.setter
+    def sales_rep_code(self, sales_rep_code):
+        """Sets the sales_rep_code of this ChannelPartnerOrder.
+
+        Sales rep code  # noqa: E501
+
+        :param sales_rep_code: The sales_rep_code of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._sales_rep_code = sales_rep_code
 
     @property
     def screen_branding_theme_code(self):
