@@ -823,6 +823,7 @@ api_instance = GiftCertificateApi(api_client())
         dependant_workflow_task_uuid="dependant_workflow_task_uuid_example",
         due_dts="due_dts_example",
         expiration_dts="expiration_dts_example",
+        global_task_number=1,
         histories=[
             WorkflowTaskHistory(
                 activity_dts="activity_dts_example",
@@ -861,6 +862,7 @@ api_instance = GiftCertificateApi(api_client())
         ],
         object_email="object_email_example",
         object_id="object_id_example",
+        object_task_number=1,
         object_type="order",
         object_url="object_url_example",
         priority="1 - low",
@@ -978,6 +980,7 @@ api_instance = GiftCertificateApi(api_client())
         dependant_workflow_task_uuid="dependant_workflow_task_uuid_example",
         due_dts="due_dts_example",
         expiration_dts="expiration_dts_example",
+        global_task_number=1,
         histories=[
             WorkflowTaskHistory(
                 activity_dts="activity_dts_example",
@@ -1016,6 +1019,7 @@ api_instance = GiftCertificateApi(api_client())
         ],
         object_email="object_email_example",
         object_id="object_id_example",
+        object_task_number=1,
         object_type="order",
         object_url="object_url_example",
         priority="1 - low",
