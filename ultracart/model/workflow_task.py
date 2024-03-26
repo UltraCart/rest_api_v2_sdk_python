@@ -130,6 +130,7 @@ class WorkflowTask(ModelNormal):
             'assigned_to_group_id': (int,),  # noqa: E501
             'assigned_to_user': (str,),  # noqa: E501
             'assigned_to_user_id': (int,),  # noqa: E501
+            'assigned_to_user_or_group': (str,),  # noqa: E501
             'attachments': ([WorkflowAttachment],),  # noqa: E501
             'created_by': (WorkflowUser,),  # noqa: E501
             'created_dts': (str,),  # noqa: E501
@@ -169,6 +170,7 @@ class WorkflowTask(ModelNormal):
         'assigned_to_group_id': 'assigned_to_group_id',  # noqa: E501
         'assigned_to_user': 'assigned_to_user',  # noqa: E501
         'assigned_to_user_id': 'assigned_to_user_id',  # noqa: E501
+        'assigned_to_user_or_group': 'assigned_to_user_or_group',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'created_dts': 'created_dts',  # noqa: E501
@@ -243,6 +245,7 @@ class WorkflowTask(ModelNormal):
             assigned_to_group_id (int): Assigned to group ID. [optional]  # noqa: E501
             assigned_to_user (str): Assigned to user. [optional]  # noqa: E501
             assigned_to_user_id (int): Assigned to user ID. [optional]  # noqa: E501
+            assigned_to_user_or_group (str): Assigned to user or group (used for sorting). [optional]  # noqa: E501
             attachments ([WorkflowAttachment]): Attachments to the Workflow Task. [optional]  # noqa: E501
             created_by (WorkflowUser): [optional]  # noqa: E501
             created_dts (str): Date/time that the workflow task was created. [optional]  # noqa: E501
@@ -359,6 +362,7 @@ class WorkflowTask(ModelNormal):
             assigned_to_group_id (int): Assigned to group ID. [optional]  # noqa: E501
             assigned_to_user (str): Assigned to user. [optional]  # noqa: E501
             assigned_to_user_id (int): Assigned to user ID. [optional]  # noqa: E501
+            assigned_to_user_or_group (str): Assigned to user or group (used for sorting). [optional]  # noqa: E501
             attachments ([WorkflowAttachment]): Attachments to the Workflow Task. [optional]  # noqa: E501
             created_by (WorkflowUser): [optional]  # noqa: E501
             created_dts (str): Date/time that the workflow task was created. [optional]  # noqa: E501

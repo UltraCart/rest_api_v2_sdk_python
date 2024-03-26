@@ -804,6 +804,7 @@ api_instance = GiftCertificateApi(api_client())
         assigned_to_group_id=1,
         assigned_to_user="assigned_to_user_example",
         assigned_to_user_id=1,
+        assigned_to_user_or_group="assigned_to_user_or_group_example",
         attachments=[
             WorkflowAttachment(
                 download_key="download_key_example",
@@ -961,6 +962,7 @@ api_instance = GiftCertificateApi(api_client())
         assigned_to_group_id=1,
         assigned_to_user="assigned_to_user_example",
         assigned_to_user_id=1,
+        assigned_to_user_or_group="assigned_to_user_or_group_example",
         attachments=[
             WorkflowAttachment(
                 download_key="download_key_example",
