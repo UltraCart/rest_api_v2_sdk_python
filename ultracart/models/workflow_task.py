@@ -35,6 +35,7 @@ class WorkflowTask(object):
         'assigned_to_group_id': 'int',
         'assigned_to_user': 'str',
         'assigned_to_user_id': 'int',
+        'assigned_to_user_or_group': 'str',
         'attachments': 'list[WorkflowAttachment]',
         'created_by': 'WorkflowUser',
         'created_dts': 'str',
@@ -69,6 +70,7 @@ class WorkflowTask(object):
         'assigned_to_group_id': 'assigned_to_group_id',
         'assigned_to_user': 'assigned_to_user',
         'assigned_to_user_id': 'assigned_to_user_id',
+        'assigned_to_user_or_group': 'assigned_to_user_or_group',
         'attachments': 'attachments',
         'created_by': 'created_by',
         'created_dts': 'created_dts',
@@ -98,13 +100,14 @@ class WorkflowTask(object):
         'workflow_task_uuid': 'workflow_task_uuid'
     }
 
-    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, dependant_workflow_task_uuid=None, due_dts=None, expiration_dts=None, global_task_number=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_task_number=None, object_type=None, object_url=None, priority=None, properties=None, related_workflow_task_uuid=None, status=None, system_task_type=None, tags=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
+    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_user=None, assigned_to_user_id=None, assigned_to_user_or_group=None, attachments=None, created_by=None, created_dts=None, delay_until_dts=None, dependant_workflow_task_uuid=None, due_dts=None, expiration_dts=None, global_task_number=None, histories=None, last_update_dts=None, merchant_id=None, notes=None, object_email=None, object_id=None, object_task_number=None, object_type=None, object_url=None, priority=None, properties=None, related_workflow_task_uuid=None, status=None, system_task_type=None, tags=None, task_context=None, task_details=None, task_name=None, workflow_task_uuid=None):  # noqa: E501
         """WorkflowTask - a model defined in Swagger"""  # noqa: E501
 
         self._assigned_to_group = None
         self._assigned_to_group_id = None
         self._assigned_to_user = None
         self._assigned_to_user_id = None
+        self._assigned_to_user_or_group = None
         self._attachments = None
         self._created_by = None
         self._created_dts = None
@@ -142,6 +145,8 @@ class WorkflowTask(object):
             self.assigned_to_user = assigned_to_user
         if assigned_to_user_id is not None:
             self.assigned_to_user_id = assigned_to_user_id
+        if assigned_to_user_or_group is not None:
+            self.assigned_to_user_or_group = assigned_to_user_or_group
         if attachments is not None:
             self.attachments = attachments
         if created_by is not None:
@@ -288,6 +293,29 @@ class WorkflowTask(object):
         """
 
         self._assigned_to_user_id = assigned_to_user_id
+
+    @property
+    def assigned_to_user_or_group(self):
+        """Gets the assigned_to_user_or_group of this WorkflowTask.  # noqa: E501
+
+        Assigned to user or group (used for sorting)  # noqa: E501
+
+        :return: The assigned_to_user_or_group of this WorkflowTask.  # noqa: E501
+        :rtype: str
+        """
+        return self._assigned_to_user_or_group
+
+    @assigned_to_user_or_group.setter
+    def assigned_to_user_or_group(self, assigned_to_user_or_group):
+        """Sets the assigned_to_user_or_group of this WorkflowTask.
+
+        Assigned to user or group (used for sorting)  # noqa: E501
+
+        :param assigned_to_user_or_group: The assigned_to_user_or_group of this WorkflowTask.  # noqa: E501
+        :type: str
+        """
+
+        self._assigned_to_user_or_group = assigned_to_user_or_group
 
     @property
     def attachments(self):
