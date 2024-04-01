@@ -42,7 +42,7 @@ class ConversationPbxVoicemailMailboxesResponse(object):
         'error': 'error',
         'metadata': 'metadata',
         'success': 'success',
-        'voicemail_mailboxes': 'voicemailMailboxes',
+        'voicemail_mailboxes': 'voicemail_mailboxes',
         'warning': 'warning'
     }
 

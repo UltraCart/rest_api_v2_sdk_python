@@ -288,8 +288,12 @@ class ConversationPbxVoicemailMailbox(object):
         :param voicemail_mailbox_type: The voicemail_mailbox_type of this ConversationPbxVoicemailMailbox.  # noqa: E501
         :type: str
         """
-        if voicemail_mailbox_type is not None and len(voicemail_mailbox_type) > 50:
-            raise ValueError("Invalid value for `voicemail_mailbox_type`, length must be less than or equal to `50`")  # noqa: E501
+        allowed_values = ["agent", "shared"]  # noqa: E501
+        if voicemail_mailbox_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `voicemail_mailbox_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(voicemail_mailbox_type, allowed_values)
+            )
 
         self._voicemail_mailbox_type = voicemail_mailbox_type
 

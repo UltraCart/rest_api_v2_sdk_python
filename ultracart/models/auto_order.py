@@ -48,6 +48,7 @@ class AutoOrder(object):
         'items': 'list[AutoOrderItem]',
         'logs': 'list[AutoOrderLog]',
         'management': 'AutoOrderManagement',
+        'merchant_id': 'str',
         'next_attempt': 'str',
         'original_order': 'Order',
         'original_order_id': 'str',
@@ -75,6 +76,7 @@ class AutoOrder(object):
         'items': 'items',
         'logs': 'logs',
         'management': 'management',
+        'merchant_id': 'merchant_id',
         'next_attempt': 'next_attempt',
         'original_order': 'original_order',
         'original_order_id': 'original_order_id',
@@ -84,7 +86,7 @@ class AutoOrder(object):
         'status': 'status'
     }
 
-    def __init__(self, add_ons=None, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_reason=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, logs=None, management=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
+    def __init__(self, add_ons=None, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_reason=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, logs=None, management=None, merchant_id=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
         """AutoOrder - a model defined in Swagger"""  # noqa: E501
 
         self._add_ons = None
@@ -104,6 +106,7 @@ class AutoOrder(object):
         self._items = None
         self._logs = None
         self._management = None
+        self._merchant_id = None
         self._next_attempt = None
         self._original_order = None
         self._original_order_id = None
@@ -147,6 +150,8 @@ class AutoOrder(object):
             self.logs = logs
         if management is not None:
             self.management = management
+        if merchant_id is not None:
+            self.merchant_id = merchant_id
         if next_attempt is not None:
             self.next_attempt = next_attempt
         if original_order is not None:
@@ -550,6 +555,29 @@ class AutoOrder(object):
         """
 
         self._management = management
+
+    @property
+    def merchant_id(self):
+        """Gets the merchant_id of this AutoOrder.  # noqa: E501
+
+        UltraCart merchant ID owning this order  # noqa: E501
+
+        :return: The merchant_id of this AutoOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._merchant_id
+
+    @merchant_id.setter
+    def merchant_id(self, merchant_id):
+        """Sets the merchant_id of this AutoOrder.
+
+        UltraCart merchant ID owning this order  # noqa: E501
+
+        :param merchant_id: The merchant_id of this AutoOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._merchant_id = merchant_id
 
     @property
     def next_attempt(self):

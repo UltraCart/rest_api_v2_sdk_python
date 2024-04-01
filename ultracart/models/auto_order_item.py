@@ -43,6 +43,7 @@ class AutoOrderItem(object):
         'future_schedules': 'list[AutoOrderItemFutureSchedule]',
         'last_order_dts': 'str',
         'life_time_value': 'float',
+        'next_item_id': 'str',
         'next_preshipment_notice_dts': 'str',
         'next_shipment_dts': 'str',
         'no_order_after_dts': 'str',
@@ -72,6 +73,7 @@ class AutoOrderItem(object):
         'future_schedules': 'future_schedules',
         'last_order_dts': 'last_order_dts',
         'life_time_value': 'life_time_value',
+        'next_item_id': 'next_item_id',
         'next_preshipment_notice_dts': 'next_preshipment_notice_dts',
         'next_shipment_dts': 'next_shipment_dts',
         'no_order_after_dts': 'no_order_after_dts',
@@ -88,7 +90,7 @@ class AutoOrderItem(object):
         'simple_schedule': 'simple_schedule'
     }
 
-    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, first_order_dts=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paused=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None, simple_schedule=None):  # noqa: E501
+    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, first_order_dts=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_item_id=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paused=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None, simple_schedule=None):  # noqa: E501
         """AutoOrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._arbitrary_item_id = None
@@ -103,6 +105,7 @@ class AutoOrderItem(object):
         self._future_schedules = None
         self._last_order_dts = None
         self._life_time_value = None
+        self._next_item_id = None
         self._next_preshipment_notice_dts = None
         self._next_shipment_dts = None
         self._no_order_after_dts = None
@@ -143,6 +146,8 @@ class AutoOrderItem(object):
             self.last_order_dts = last_order_dts
         if life_time_value is not None:
             self.life_time_value = life_time_value
+        if next_item_id is not None:
+            self.next_item_id = next_item_id
         if next_preshipment_notice_dts is not None:
             self.next_preshipment_notice_dts = next_preshipment_notice_dts
         if next_shipment_dts is not None:
@@ -453,6 +458,29 @@ class AutoOrderItem(object):
         """
 
         self._life_time_value = life_time_value
+
+    @property
+    def next_item_id(self):
+        """Gets the next_item_id of this AutoOrderItem.  # noqa: E501
+
+        Calculated next item id  # noqa: E501
+
+        :return: The next_item_id of this AutoOrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._next_item_id
+
+    @next_item_id.setter
+    def next_item_id(self, next_item_id):
+        """Sets the next_item_id of this AutoOrderItem.
+
+        Calculated next item id  # noqa: E501
+
+        :param next_item_id: The next_item_id of this AutoOrderItem.  # noqa: E501
+        :type: str
+        """
+
+        self._next_item_id = next_item_id
 
     @property
     def next_preshipment_notice_dts(self):

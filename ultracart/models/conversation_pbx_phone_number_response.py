@@ -41,7 +41,7 @@ class ConversationPbxPhoneNumberResponse(object):
     attribute_map = {
         'error': 'error',
         'metadata': 'metadata',
-        'phone_number': 'phoneNumber',
+        'phone_number': 'phone_number',
         'success': 'success',
         'warning': 'warning'
     }
