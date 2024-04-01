@@ -110,7 +110,7 @@ class ConversationPbxTimeBasedsResponse(ModelNormal):
         'error': 'error',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'success': 'success',  # noqa: E501
-        'time_baseds': 'timeBaseds',  # noqa: E501
+        'time_baseds': 'time_baseds',  # noqa: E501
         'warning': 'warning',  # noqa: E501
     }
 

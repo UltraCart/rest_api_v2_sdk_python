@@ -68,6 +68,8 @@ from ultracart.model.conversation_pbx_time_ranges_response import ConversationPb
 from ultracart.model.conversation_pbx_voicemail_mailbox import ConversationPbxVoicemailMailbox
 from ultracart.model.conversation_pbx_voicemail_mailbox_response import ConversationPbxVoicemailMailboxResponse
 from ultracart.model.conversation_pbx_voicemail_mailboxes_response import ConversationPbxVoicemailMailboxesResponse
+from ultracart.model.conversation_pbx_voicemail_message_response import ConversationPbxVoicemailMessageResponse
+from ultracart.model.conversation_pbx_voicemail_message_summaries_response import ConversationPbxVoicemailMessageSummariesResponse
 from ultracart.model.conversation_permissions_response import ConversationPermissionsResponse
 from ultracart.model.conversation_response import ConversationResponse
 from ultracart.model.conversation_search_request import ConversationSearchRequest
@@ -299,6 +301,58 @@ class ConversationApi(object):
                 },
                 'location_map': {
                     'conversation_pbx_agent_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_pbx_agent_voicemail_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/agent/voicemails/{recording_sid}',
+                'operation_id': 'delete_pbx_agent_voicemail',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'recording_sid',
+                ],
+                'required': [
+                    'recording_sid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'recording_sid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'recording_sid': 'recording_sid',
+                },
+                'location_map': {
+                    'recording_sid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -1729,6 +1783,103 @@ class ConversationApi(object):
             },
             api_client=api_client
         )
+        self.get_pbx_agent_voicemail_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxVoicemailMessageResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/agent/voicemails/{recording_sid}',
+                'operation_id': 'get_pbx_agent_voicemail',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'recording_sid',
+                ],
+                'required': [
+                    'recording_sid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'recording_sid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'recording_sid': 'recording_sid',
+                },
+                'location_map': {
+                    'recording_sid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_pbx_agent_voicemails_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxVoicemailMessageSummariesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/agent/voicemails',
+                'operation_id': 'get_pbx_agent_voicemails',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_pbx_agents_endpoint = _Endpoint(
             settings={
                 'response_type': (ConversationPbxAgentsResponse,),
@@ -2105,6 +2256,116 @@ class ConversationApi(object):
                 },
                 'location_map': {
                     'conversation_pbx_queue_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_pbx_queue_voicemail_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxVoicemailMessageResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}',
+                'operation_id': 'get_pbx_queue_voicemail',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'queue_uuid',
+                    'recording_sid',
+                ],
+                'required': [
+                    'queue_uuid',
+                    'recording_sid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'queue_uuid':
+                        (str,),
+                    'recording_sid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'queue_uuid': 'queue_uuid',
+                    'recording_sid': 'recording_sid',
+                },
+                'location_map': {
+                    'queue_uuid': 'path',
+                    'recording_sid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_pbx_queue_voicemails_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxVoicemailMessageSummariesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/queues/{queue_uuid}/voicemails',
+                'operation_id': 'get_pbx_queue_voicemails',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'queue_uuid',
+                ],
+                'required': [
+                    'queue_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'queue_uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'queue_uuid': 'queue_uuid',
+                },
+                'location_map': {
+                    'queue_uuid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -3134,6 +3395,58 @@ class ConversationApi(object):
                 },
                 'location_map': {
                     'conversation_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.listened_pbx_agent_voicemail_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/agent/voicemails/{recording_sid}/listened',
+                'operation_id': 'listened_pbx_agent_voicemail',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'recording_sid',
+                ],
+                'required': [
+                    'recording_sid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'recording_sid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'recording_sid': 'recording_sid',
+                },
+                'location_map': {
+                    'recording_sid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -4501,6 +4814,89 @@ class ConversationApi(object):
         kwargs['conversation_pbx_agent_uuid'] = \
             conversation_pbx_agent_uuid
         return self.delete_pbx_agent_endpoint.call_with_http_info(**kwargs)
+
+    def delete_pbx_agent_voicemail(
+        self,
+        recording_sid,
+        **kwargs
+    ):
+        """Delete Agent Voicemail  # noqa: E501
+
+        Delete pbx agent Voicemail   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_pbx_agent_voicemail(recording_sid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            recording_sid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['recording_sid'] = \
+            recording_sid
+        return self.delete_pbx_agent_voicemail_endpoint.call_with_http_info(**kwargs)
 
     def delete_pbx_audio(
         self,
@@ -6781,6 +7177,167 @@ class ConversationApi(object):
             conversation_pbx_agent_uuid
         return self.get_pbx_agent_endpoint.call_with_http_info(**kwargs)
 
+    def get_pbx_agent_voicemail(
+        self,
+        recording_sid,
+        **kwargs
+    ):
+        """Get Agent Voicemail  # noqa: E501
+
+        Retrieve pbx agent Voicemail   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_pbx_agent_voicemail(recording_sid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            recording_sid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxVoicemailMessageResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['recording_sid'] = \
+            recording_sid
+        return self.get_pbx_agent_voicemail_endpoint.call_with_http_info(**kwargs)
+
+    def get_pbx_agent_voicemails(
+        self,
+        **kwargs
+    ):
+        """Get Agent Voicemails  # noqa: E501
+
+        Retrieve pbx agent Voicemails   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_pbx_agent_voicemails(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxVoicemailMessageSummariesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_pbx_agent_voicemails_endpoint.call_with_http_info(**kwargs)
+
     def get_pbx_agents(
         self,
         **kwargs
@@ -7424,6 +7981,176 @@ class ConversationApi(object):
         kwargs['conversation_pbx_queue_uuid'] = \
             conversation_pbx_queue_uuid
         return self.get_pbx_queue_endpoint.call_with_http_info(**kwargs)
+
+    def get_pbx_queue_voicemail(
+        self,
+        queue_uuid,
+        recording_sid,
+        **kwargs
+    ):
+        """Get Queue Voicemail  # noqa: E501
+
+        Retrieve pbx queue Voicemail   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_pbx_queue_voicemail(queue_uuid, recording_sid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            queue_uuid (str):
+            recording_sid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxVoicemailMessageResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['queue_uuid'] = \
+            queue_uuid
+        kwargs['recording_sid'] = \
+            recording_sid
+        return self.get_pbx_queue_voicemail_endpoint.call_with_http_info(**kwargs)
+
+    def get_pbx_queue_voicemails(
+        self,
+        queue_uuid,
+        **kwargs
+    ):
+        """Get Queue Voicemails  # noqa: E501
+
+        Retrieve pbx queue voicemails   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_pbx_queue_voicemails(queue_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            queue_uuid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxVoicemailMessageSummariesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['queue_uuid'] = \
+            queue_uuid
+        return self.get_pbx_queue_voicemails_endpoint.call_with_http_info(**kwargs)
 
     def get_pbx_queues(
         self,
@@ -9065,6 +9792,89 @@ class ConversationApi(object):
         kwargs['conversation_uuid'] = \
             conversation_uuid
         return self.leave_conversation_endpoint.call_with_http_info(**kwargs)
+
+    def listened_pbx_agent_voicemail(
+        self,
+        recording_sid,
+        **kwargs
+    ):
+        """Listened Agent Voicemail  # noqa: E501
+
+        Listened pbx agent Voicemail   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.listened_pbx_agent_voicemail(recording_sid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            recording_sid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['recording_sid'] = \
+            recording_sid
+        return self.listened_pbx_agent_voicemail_endpoint.call_with_http_info(**kwargs)
 
     def mark_read_conversation(
         self,

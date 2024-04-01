@@ -110,7 +110,7 @@ class ConversationPbxVoicemailMailboxesResponse(ModelNormal):
         'error': 'error',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'success': 'success',  # noqa: E501
-        'voicemail_mailboxes': 'voicemailMailboxes',  # noqa: E501
+        'voicemail_mailboxes': 'voicemail_mailboxes',  # noqa: E501
         'warning': 'warning',  # noqa: E501
     }
 

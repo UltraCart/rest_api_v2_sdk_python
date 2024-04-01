@@ -118,6 +118,7 @@ class AutoOrder(ModelNormal):
             'items': ([AutoOrderItem],),  # noqa: E501
             'logs': ([AutoOrderLog],),  # noqa: E501
             'management': (AutoOrderManagement,),  # noqa: E501
+            'merchant_id': (str,),  # noqa: E501
             'next_attempt': (str,),  # noqa: E501
             'original_order': (Order,),  # noqa: E501
             'original_order_id': (str,),  # noqa: E501
@@ -150,6 +151,7 @@ class AutoOrder(ModelNormal):
         'items': 'items',  # noqa: E501
         'logs': 'logs',  # noqa: E501
         'management': 'management',  # noqa: E501
+        'merchant_id': 'merchant_id',  # noqa: E501
         'next_attempt': 'next_attempt',  # noqa: E501
         'original_order': 'original_order',  # noqa: E501
         'original_order_id': 'original_order_id',  # noqa: E501
@@ -217,6 +219,7 @@ class AutoOrder(ModelNormal):
             items ([AutoOrderItem]): The items that are setup to rebill. [optional]  # noqa: E501
             logs ([AutoOrderLog]): Logs associated with this auto order. [optional]  # noqa: E501
             management (AutoOrderManagement): [optional]  # noqa: E501
+            merchant_id (str): UltraCart merchant ID owning this order. [optional]  # noqa: E501
             next_attempt (str): The next time that the auto order will be attempted for processing. [optional]  # noqa: E501
             original_order (Order): [optional]  # noqa: E501
             original_order_id (str): The original order id that this auto order is associated with.. [optional]  # noqa: E501
@@ -326,6 +329,7 @@ class AutoOrder(ModelNormal):
             items ([AutoOrderItem]): The items that are setup to rebill. [optional]  # noqa: E501
             logs ([AutoOrderLog]): Logs associated with this auto order. [optional]  # noqa: E501
             management (AutoOrderManagement): [optional]  # noqa: E501
+            merchant_id (str): UltraCart merchant ID owning this order. [optional]  # noqa: E501
             next_attempt (str): The next time that the auto order will be attempted for processing. [optional]  # noqa: E501
             original_order (Order): [optional]  # noqa: E501
             original_order_id (str): The original order id that this auto order is associated with.. [optional]  # noqa: E501

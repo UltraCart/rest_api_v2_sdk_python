@@ -109,7 +109,7 @@ class ConversationPbxPhoneNumberResponse(ModelNormal):
     attribute_map = {
         'error': 'error',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
-        'phone_number': 'phoneNumber',  # noqa: E501
+        'phone_number': 'phone_number',  # noqa: E501
         'success': 'success',  # noqa: E501
         'warning': 'warning',  # noqa: E501
     }

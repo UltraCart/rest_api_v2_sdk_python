@@ -122,6 +122,7 @@ class AutoOrderItem(ModelNormal):
             'future_schedules': ([AutoOrderItemFutureSchedule],),  # noqa: E501
             'last_order_dts': (str,),  # noqa: E501
             'life_time_value': (float,),  # noqa: E501
+            'next_item_id': (str,),  # noqa: E501
             'next_preshipment_notice_dts': (str,),  # noqa: E501
             'next_shipment_dts': (str,),  # noqa: E501
             'no_order_after_dts': (str,),  # noqa: E501
@@ -156,6 +157,7 @@ class AutoOrderItem(ModelNormal):
         'future_schedules': 'future_schedules',  # noqa: E501
         'last_order_dts': 'last_order_dts',  # noqa: E501
         'life_time_value': 'life_time_value',  # noqa: E501
+        'next_item_id': 'next_item_id',  # noqa: E501
         'next_preshipment_notice_dts': 'next_preshipment_notice_dts',  # noqa: E501
         'next_shipment_dts': 'next_shipment_dts',  # noqa: E501
         'no_order_after_dts': 'no_order_after_dts',  # noqa: E501
@@ -225,6 +227,7 @@ class AutoOrderItem(ModelNormal):
             future_schedules ([AutoOrderItemFutureSchedule]): The future rebill schedule for this item up to the next ten rebills. [optional]  # noqa: E501
             last_order_dts (str): Date/time of the last order of this item. [optional]  # noqa: E501
             life_time_value (float): The life time value of this item including the original purchase. [optional]  # noqa: E501
+            next_item_id (str): Calculated next item id. [optional]  # noqa: E501
             next_preshipment_notice_dts (str): The date/time of when the next pre-shipment notice should be sent. [optional]  # noqa: E501
             next_shipment_dts (str): Date/time that this item is scheduled to rebill. [optional]  # noqa: E501
             no_order_after_dts (str): Date/time after which no additional rebills of this item should occur. [optional]  # noqa: E501
@@ -336,6 +339,7 @@ class AutoOrderItem(ModelNormal):
             future_schedules ([AutoOrderItemFutureSchedule]): The future rebill schedule for this item up to the next ten rebills. [optional]  # noqa: E501
             last_order_dts (str): Date/time of the last order of this item. [optional]  # noqa: E501
             life_time_value (float): The life time value of this item including the original purchase. [optional]  # noqa: E501
+            next_item_id (str): Calculated next item id. [optional]  # noqa: E501
             next_preshipment_notice_dts (str): The date/time of when the next pre-shipment notice should be sent. [optional]  # noqa: E501
             next_shipment_dts (str): Date/time that this item is scheduled to rebill. [optional]  # noqa: E501
             no_order_after_dts (str): Date/time after which no additional rebills of this item should occur. [optional]  # noqa: E501

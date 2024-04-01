@@ -110,7 +110,7 @@ class ConversationPbxTimeRangesResponse(ModelNormal):
         'error': 'error',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'success': 'success',  # noqa: E501
-        'time_ranges': 'timeRanges',  # noqa: E501
+        'time_ranges': 'time_ranges',  # noqa: E501
         'warning': 'warning',  # noqa: E501
     }
 

@@ -743,6 +743,7 @@ api_instance = GiftCertificateApi(api_client())
                 ],
                 last_order_dts="last_order_dts_example",
                 life_time_value=3.14,
+                next_item_id="next_item_id_example",
                 next_preshipment_notice_dts="next_preshipment_notice_dts_example",
                 next_shipment_dts="next_shipment_dts_example",
                 no_order_after_dts="no_order_after_dts_example",
@@ -777,6 +778,7 @@ api_instance = GiftCertificateApi(api_client())
         management=AutoOrderManagement(
             update_billing_url="update_billing_url_example",
         ),
+        merchant_id="merchant_id_example",
         next_attempt="next_attempt_example",
         original_order=Order(
             affiliates=[
@@ -833,6 +835,7 @@ api_instance = GiftCertificateApi(api_client())
                         ],
                         last_order_dts="last_order_dts_example",
                         life_time_value=3.14,
+                        next_item_id="next_item_id_example",
                         next_preshipment_notice_dts="next_preshipment_notice_dts_example",
                         next_shipment_dts="next_shipment_dts_example",
                         no_order_after_dts="no_order_after_dts_example",
@@ -2082,6 +2085,7 @@ api_instance = GiftCertificateApi(api_client())
                             ],
                             last_order_dts="last_order_dts_example",
                             life_time_value=3.14,
+                            next_item_id="next_item_id_example",
                             next_preshipment_notice_dts="next_preshipment_notice_dts_example",
                             next_shipment_dts="next_shipment_dts_example",
                             no_order_after_dts="no_order_after_dts_example",
@@ -3413,6 +3417,7 @@ api_instance = GiftCertificateApi(api_client())
                         ],
                         last_order_dts="last_order_dts_example",
                         life_time_value=3.14,
+                        next_item_id="next_item_id_example",
                         next_preshipment_notice_dts="next_preshipment_notice_dts_example",
                         next_shipment_dts="next_shipment_dts_example",
                         no_order_after_dts="no_order_after_dts_example",
@@ -3447,6 +3452,7 @@ api_instance = GiftCertificateApi(api_client())
                 management=AutoOrderManagement(
                     update_billing_url="update_billing_url_example",
                 ),
+                merchant_id="merchant_id_example",
                 next_attempt="next_attempt_example",
                 original_order=Order(
                     affiliates=[
@@ -3503,6 +3509,7 @@ api_instance = GiftCertificateApi(api_client())
                                 ],
                                 last_order_dts="last_order_dts_example",
                                 life_time_value=3.14,
+                                next_item_id="next_item_id_example",
                                 next_preshipment_notice_dts="next_preshipment_notice_dts_example",
                                 next_shipment_dts="next_shipment_dts_example",
                                 no_order_after_dts="no_order_after_dts_example",
@@ -4752,6 +4759,7 @@ api_instance = GiftCertificateApi(api_client())
                                     ],
                                     last_order_dts="last_order_dts_example",
                                     life_time_value=3.14,
+                                    next_item_id="next_item_id_example",
                                     next_preshipment_notice_dts="next_preshipment_notice_dts_example",
                                     next_shipment_dts="next_shipment_dts_example",
                                     no_order_after_dts="no_order_after_dts_example",
