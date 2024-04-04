@@ -480,7 +480,7 @@ class WorkflowTask(object):
     def global_task_number(self):
         """Gets the global_task_number of this WorkflowTask.  # noqa: E501
 
-        Global task numer  # noqa: E501
+        Global task number  # noqa: E501
 
         :return: The global_task_number of this WorkflowTask.  # noqa: E501
         :rtype: int
@@ -491,7 +491,7 @@ class WorkflowTask(object):
     def global_task_number(self, global_task_number):
         """Sets the global_task_number of this WorkflowTask.
 
-        Global task numer  # noqa: E501
+        Global task number  # noqa: E501
 
         :param global_task_number: The global_task_number of this WorkflowTask.  # noqa: E501
         :type: int
@@ -641,7 +641,7 @@ class WorkflowTask(object):
     def object_task_number(self):
         """Gets the object_task_number of this WorkflowTask.  # noqa: E501
 
-        Object specific task numer  # noqa: E501
+        Object specific task number  # noqa: E501
 
         :return: The object_task_number of this WorkflowTask.  # noqa: E501
         :rtype: int
@@ -652,7 +652,7 @@ class WorkflowTask(object):
     def object_task_number(self, object_task_number):
         """Sets the object_task_number of this WorkflowTask.
 
-        Object specific task numer  # noqa: E501
+        Object specific task number  # noqa: E501
 
         :param object_task_number: The object_task_number of this WorkflowTask.  # noqa: E501
         :type: int

@@ -31,8 +31,10 @@ class WorkflowTasksRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'assigned_to_group': 'str',
         'assigned_to_group_id': 'int',
         'assigned_to_me': 'bool',
+        'assigned_to_user': 'str',
         'assigned_to_user_id': 'int',
         'created_by': 'WorkflowUser',
         'created_dts_begin': 'str',
@@ -52,8 +54,10 @@ class WorkflowTasksRequest(object):
     }
 
     attribute_map = {
+        'assigned_to_group': 'assigned_to_group',
         'assigned_to_group_id': 'assigned_to_group_id',
         'assigned_to_me': 'assigned_to_me',
+        'assigned_to_user': 'assigned_to_user',
         'assigned_to_user_id': 'assigned_to_user_id',
         'created_by': 'created_by',
         'created_dts_begin': 'created_dts_begin',
@@ -72,11 +76,13 @@ class WorkflowTasksRequest(object):
         'unassigned': 'unassigned'
     }
 
-    def __init__(self, assigned_to_group_id=None, assigned_to_me=None, assigned_to_user_id=None, created_by=None, created_dts_begin=None, created_dts_end=None, delay_until_dts_begin=None, delay_until_dts_end=None, due_dts_begin=None, due_dts_end=None, last_update_dts_begin=None, last_update_dts_end=None, object_email=None, object_type=None, priority=None, status=None, tags=None, unassigned=None):  # noqa: E501
+    def __init__(self, assigned_to_group=None, assigned_to_group_id=None, assigned_to_me=None, assigned_to_user=None, assigned_to_user_id=None, created_by=None, created_dts_begin=None, created_dts_end=None, delay_until_dts_begin=None, delay_until_dts_end=None, due_dts_begin=None, due_dts_end=None, last_update_dts_begin=None, last_update_dts_end=None, object_email=None, object_type=None, priority=None, status=None, tags=None, unassigned=None):  # noqa: E501
         """WorkflowTasksRequest - a model defined in Swagger"""  # noqa: E501
 
+        self._assigned_to_group = None
         self._assigned_to_group_id = None
         self._assigned_to_me = None
+        self._assigned_to_user = None
         self._assigned_to_user_id = None
         self._created_by = None
         self._created_dts_begin = None
@@ -95,10 +101,14 @@ class WorkflowTasksRequest(object):
         self._unassigned = None
         self.discriminator = None
 
+        if assigned_to_group is not None:
+            self.assigned_to_group = assigned_to_group
         if assigned_to_group_id is not None:
             self.assigned_to_group_id = assigned_to_group_id
         if assigned_to_me is not None:
             self.assigned_to_me = assigned_to_me
+        if assigned_to_user is not None:
+            self.assigned_to_user = assigned_to_user
         if assigned_to_user_id is not None:
             self.assigned_to_user_id = assigned_to_user_id
         if created_by is not None:
@@ -131,6 +141,29 @@ class WorkflowTasksRequest(object):
             self.tags = tags
         if unassigned is not None:
             self.unassigned = unassigned
+
+    @property
+    def assigned_to_group(self):
+        """Gets the assigned_to_group of this WorkflowTasksRequest.  # noqa: E501
+
+        Assigned to group  # noqa: E501
+
+        :return: The assigned_to_group of this WorkflowTasksRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._assigned_to_group
+
+    @assigned_to_group.setter
+    def assigned_to_group(self, assigned_to_group):
+        """Sets the assigned_to_group of this WorkflowTasksRequest.
+
+        Assigned to group  # noqa: E501
+
+        :param assigned_to_group: The assigned_to_group of this WorkflowTasksRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._assigned_to_group = assigned_to_group
 
     @property
     def assigned_to_group_id(self):
@@ -177,6 +210,29 @@ class WorkflowTasksRequest(object):
         """
 
         self._assigned_to_me = assigned_to_me
+
+    @property
+    def assigned_to_user(self):
+        """Gets the assigned_to_user of this WorkflowTasksRequest.  # noqa: E501
+
+        Assigned to user  # noqa: E501
+
+        :return: The assigned_to_user of this WorkflowTasksRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._assigned_to_user
+
+    @assigned_to_user.setter
+    def assigned_to_user(self, assigned_to_user):
+        """Sets the assigned_to_user of this WorkflowTasksRequest.
+
+        Assigned to user  # noqa: E501
+
+        :param assigned_to_user: The assigned_to_user of this WorkflowTasksRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._assigned_to_user = assigned_to_user
 
     @property
     def assigned_to_user_id(self):

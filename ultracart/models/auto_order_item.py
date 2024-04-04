@@ -38,6 +38,7 @@ class AutoOrderItem(object):
         'arbitrary_unit_cost': 'float',
         'arbitrary_unit_cost_remaining_orders': 'int',
         'auto_order_item_oid': 'int',
+        'calculated_next_shipment_dts': 'str',
         'first_order_dts': 'str',
         'frequency': 'str',
         'future_schedules': 'list[AutoOrderItemFutureSchedule]',
@@ -68,6 +69,7 @@ class AutoOrderItem(object):
         'arbitrary_unit_cost': 'arbitrary_unit_cost',
         'arbitrary_unit_cost_remaining_orders': 'arbitrary_unit_cost_remaining_orders',
         'auto_order_item_oid': 'auto_order_item_oid',
+        'calculated_next_shipment_dts': 'calculated_next_shipment_dts',
         'first_order_dts': 'first_order_dts',
         'frequency': 'frequency',
         'future_schedules': 'future_schedules',
@@ -90,7 +92,7 @@ class AutoOrderItem(object):
         'simple_schedule': 'simple_schedule'
     }
 
-    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, first_order_dts=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_item_id=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paused=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None, simple_schedule=None):  # noqa: E501
+    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, calculated_next_shipment_dts=None, first_order_dts=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_item_id=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paused=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None, simple_schedule=None):  # noqa: E501
         """AutoOrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._arbitrary_item_id = None
@@ -100,6 +102,7 @@ class AutoOrderItem(object):
         self._arbitrary_unit_cost = None
         self._arbitrary_unit_cost_remaining_orders = None
         self._auto_order_item_oid = None
+        self._calculated_next_shipment_dts = None
         self._first_order_dts = None
         self._frequency = None
         self._future_schedules = None
@@ -136,6 +139,8 @@ class AutoOrderItem(object):
             self.arbitrary_unit_cost_remaining_orders = arbitrary_unit_cost_remaining_orders
         if auto_order_item_oid is not None:
             self.auto_order_item_oid = auto_order_item_oid
+        if calculated_next_shipment_dts is not None:
+            self.calculated_next_shipment_dts = calculated_next_shipment_dts
         if first_order_dts is not None:
             self.first_order_dts = first_order_dts
         if frequency is not None:
@@ -337,6 +342,29 @@ class AutoOrderItem(object):
         """
 
         self._auto_order_item_oid = auto_order_item_oid
+
+    @property
+    def calculated_next_shipment_dts(self):
+        """Gets the calculated_next_shipment_dts of this AutoOrderItem.  # noqa: E501
+
+        Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item  # noqa: E501
+
+        :return: The calculated_next_shipment_dts of this AutoOrderItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._calculated_next_shipment_dts
+
+    @calculated_next_shipment_dts.setter
+    def calculated_next_shipment_dts(self, calculated_next_shipment_dts):
+        """Sets the calculated_next_shipment_dts of this AutoOrderItem.
+
+        Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item  # noqa: E501
+
+        :param calculated_next_shipment_dts: The calculated_next_shipment_dts of this AutoOrderItem.  # noqa: E501
+        :type: str
+        """
+
+        self._calculated_next_shipment_dts = calculated_next_shipment_dts
 
     @property
     def first_order_dts(self):

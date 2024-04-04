@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**delete_pbx_menu**](ConversationApi.md#delete_pbx_menu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
 [**delete_pbx_phone_number**](ConversationApi.md#delete_pbx_phone_number) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
 [**delete_pbx_queue**](ConversationApi.md#delete_pbx_queue) | **DELETE** /conversation/pbx/queue/{conversationPbxQueueUuid} | Delete pbx queue
+[**delete_pbx_queue_voicemail**](ConversationApi.md#delete_pbx_queue_voicemail) | **DELETE** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Delete Queue Voicemail
 [**delete_pbx_time_based**](ConversationApi.md#delete_pbx_time_based) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
 [**delete_pbx_time_range**](ConversationApi.md#delete_pbx_time_range) | **DELETE** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Delete pbx timeRange
 [**delete_pbx_voicemail_mailbox**](ConversationApi.md#delete_pbx_voicemail_mailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
@@ -70,6 +71,7 @@ Method | HTTP request | Description
 [**join_conversation**](ConversationApi.md#join_conversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**leave_conversation**](ConversationApi.md#leave_conversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 [**listened_pbx_agent_voicemail**](ConversationApi.md#listened_pbx_agent_voicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
+[**listened_pbx_queue_voicemail**](ConversationApi.md#listened_pbx_queue_voicemail) | **GET** /conversation/pbx/{queue_uuid}/voicemails/voicemails/{recording_sid}/listened | Listened Queue Voicemail
 [**mark_read_conversation**](ConversationApi.md#mark_read_conversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
 [**reset_conversation_pbx_queue_statistics**](ConversationApi.md#reset_conversation_pbx_queue_statistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 [**search_conversation_canned_messages**](ConversationApi.md#search_conversation_canned_messages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
@@ -524,6 +526,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxQueueResponse**](ConversationPbxQueueResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_pbx_queue_voicemail**
+> delete_pbx_queue_voicemail(queue_uuid, recording_sid)
+
+Delete Queue Voicemail
+
+Delete pbx queue Voicemail 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+queue_uuid = 'queue_uuid_example' # str | 
+recording_sid = 'recording_sid_example' # str | 
+
+try:
+    # Delete Queue Voicemail
+    api_instance.delete_pbx_queue_voicemail(queue_uuid, recording_sid)
+except ApiException as e:
+    print("Exception when calling ConversationApi->delete_pbx_queue_voicemail: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **queue_uuid** | **str**|  | 
+ **recording_sid** | **str**|  | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -3305,6 +3358,57 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **recording_sid** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listened_pbx_queue_voicemail**
+> listened_pbx_queue_voicemail(queue_uuid, recording_sid)
+
+Listened Queue Voicemail
+
+Listened pbx queue Voicemail 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+queue_uuid = 'queue_uuid_example' # str | 
+recording_sid = 'recording_sid_example' # str | 
+
+try:
+    # Listened Queue Voicemail
+    api_instance.listened_pbx_queue_voicemail(queue_uuid, recording_sid)
+except ApiException as e:
+    print("Exception when calling ConversationApi->listened_pbx_queue_voicemail: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **queue_uuid** | **str**|  | 
  **recording_sid** | **str**|  | 
 
 ### Return type
