@@ -253,14 +253,14 @@ class WorkflowTask(ModelNormal):
             dependant_workflow_task_uuid (str): Dependant Workflow Task UUID (must be completed before this task can be completed). [optional]  # noqa: E501
             due_dts (str): Date/time that the workflow task is due. [optional]  # noqa: E501
             expiration_dts (str): Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.. [optional]  # noqa: E501
-            global_task_number (int): Global task numer. [optional]  # noqa: E501
+            global_task_number (int): Global task number. [optional]  # noqa: E501
             histories ([WorkflowTaskHistory]): Array of history records for the task. [optional]  # noqa: E501
             last_update_dts (str): Date/time that the workflow task was last updated. [optional]  # noqa: E501
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
             notes ([WorkflowNote]): Notes on the Workflow Task. [optional]  # noqa: E501
             object_email (str): Object is associated with customer email. [optional]  # noqa: E501
             object_id (str): Object ID. [optional]  # noqa: E501
-            object_task_number (int): Object specific task numer. [optional]  # noqa: E501
+            object_task_number (int): Object specific task number. [optional]  # noqa: E501
             object_type (str): Object Type. [optional]  # noqa: E501
             object_url (str): Object URL. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501
@@ -370,14 +370,14 @@ class WorkflowTask(ModelNormal):
             dependant_workflow_task_uuid (str): Dependant Workflow Task UUID (must be completed before this task can be completed). [optional]  # noqa: E501
             due_dts (str): Date/time that the workflow task is due. [optional]  # noqa: E501
             expiration_dts (str): Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.. [optional]  # noqa: E501
-            global_task_number (int): Global task numer. [optional]  # noqa: E501
+            global_task_number (int): Global task number. [optional]  # noqa: E501
             histories ([WorkflowTaskHistory]): Array of history records for the task. [optional]  # noqa: E501
             last_update_dts (str): Date/time that the workflow task was last updated. [optional]  # noqa: E501
             merchant_id (str): Merchant ID. [optional]  # noqa: E501
             notes ([WorkflowNote]): Notes on the Workflow Task. [optional]  # noqa: E501
             object_email (str): Object is associated with customer email. [optional]  # noqa: E501
             object_id (str): Object ID. [optional]  # noqa: E501
-            object_task_number (int): Object specific task numer. [optional]  # noqa: E501
+            object_task_number (int): Object specific task number. [optional]  # noqa: E501
             object_type (str): Object Type. [optional]  # noqa: E501
             object_url (str): Object URL. [optional]  # noqa: E501
             priority (str): Priority. [optional]  # noqa: E501

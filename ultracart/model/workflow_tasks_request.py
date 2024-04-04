@@ -106,8 +106,10 @@ class WorkflowTasksRequest(ModelNormal):
         """
         lazy_import()
         return {
+            'assigned_to_group': (str,),  # noqa: E501
             'assigned_to_group_id': (int,),  # noqa: E501
             'assigned_to_me': (bool,),  # noqa: E501
+            'assigned_to_user': (str,),  # noqa: E501
             'assigned_to_user_id': (int,),  # noqa: E501
             'created_by': (WorkflowUser,),  # noqa: E501
             'created_dts_begin': (str,),  # noqa: E501
@@ -132,8 +134,10 @@ class WorkflowTasksRequest(ModelNormal):
 
 
     attribute_map = {
+        'assigned_to_group': 'assigned_to_group',  # noqa: E501
         'assigned_to_group_id': 'assigned_to_group_id',  # noqa: E501
         'assigned_to_me': 'assigned_to_me',  # noqa: E501
+        'assigned_to_user': 'assigned_to_user',  # noqa: E501
         'assigned_to_user_id': 'assigned_to_user_id',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'created_dts_begin': 'created_dts_begin',  # noqa: E501
@@ -193,8 +197,10 @@ class WorkflowTasksRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            assigned_to_group (str): Assigned to group. [optional]  # noqa: E501
             assigned_to_group_id (int): Assigned to group ID. [optional]  # noqa: E501
             assigned_to_me (bool): Tasks are assigned to me either by direct user id or a group that the user is a member of. [optional]  # noqa: E501
+            assigned_to_user (str): Assigned to user. [optional]  # noqa: E501
             assigned_to_user_id (int): Assigned to user ID. [optional]  # noqa: E501
             created_by (WorkflowUser): [optional]  # noqa: E501
             created_dts_begin (str): Date/time that the workflow task was created. [optional]  # noqa: E501
@@ -296,8 +302,10 @@ class WorkflowTasksRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            assigned_to_group (str): Assigned to group. [optional]  # noqa: E501
             assigned_to_group_id (int): Assigned to group ID. [optional]  # noqa: E501
             assigned_to_me (bool): Tasks are assigned to me either by direct user id or a group that the user is a member of. [optional]  # noqa: E501
+            assigned_to_user (str): Assigned to user. [optional]  # noqa: E501
             assigned_to_user_id (int): Assigned to user ID. [optional]  # noqa: E501
             created_by (WorkflowUser): [optional]  # noqa: E501
             created_dts_begin (str): Date/time that the workflow task was created. [optional]  # noqa: E501

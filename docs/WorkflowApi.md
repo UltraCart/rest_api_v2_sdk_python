@@ -687,8 +687,10 @@ from pprint import pprint
 api_instance = GiftCertificateApi(api_client())
 
     workflow_tasks_query = WorkflowTasksRequest(
+        assigned_to_group="assigned_to_group_example",
         assigned_to_group_id=1,
         assigned_to_me=True,
+        assigned_to_user="assigned_to_user_example",
         assigned_to_user_id=1,
         created_by=WorkflowUser(
             user="user_example",

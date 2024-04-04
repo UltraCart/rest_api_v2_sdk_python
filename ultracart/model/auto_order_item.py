@@ -117,6 +117,7 @@ class AutoOrderItem(ModelNormal):
             'arbitrary_unit_cost': (float,),  # noqa: E501
             'arbitrary_unit_cost_remaining_orders': (int,),  # noqa: E501
             'auto_order_item_oid': (int,),  # noqa: E501
+            'calculated_next_shipment_dts': (str,),  # noqa: E501
             'first_order_dts': (str,),  # noqa: E501
             'frequency': (str,),  # noqa: E501
             'future_schedules': ([AutoOrderItemFutureSchedule],),  # noqa: E501
@@ -152,6 +153,7 @@ class AutoOrderItem(ModelNormal):
         'arbitrary_unit_cost': 'arbitrary_unit_cost',  # noqa: E501
         'arbitrary_unit_cost_remaining_orders': 'arbitrary_unit_cost_remaining_orders',  # noqa: E501
         'auto_order_item_oid': 'auto_order_item_oid',  # noqa: E501
+        'calculated_next_shipment_dts': 'calculated_next_shipment_dts',  # noqa: E501
         'first_order_dts': 'first_order_dts',  # noqa: E501
         'frequency': 'frequency',  # noqa: E501
         'future_schedules': 'future_schedules',  # noqa: E501
@@ -222,6 +224,7 @@ class AutoOrderItem(ModelNormal):
             arbitrary_unit_cost (float): Arbitrary unit cost that rebills of this item should occur at. [optional]  # noqa: E501
             arbitrary_unit_cost_remaining_orders (int): The number of rebills to give the arbitrary unit cost on before reverting to normal pricing.. [optional]  # noqa: E501
             auto_order_item_oid (int): Primary key of AutoOrderItem. [optional]  # noqa: E501
+            calculated_next_shipment_dts (str): Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item. [optional]  # noqa: E501
             first_order_dts (str): Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.. [optional]  # noqa: E501
             frequency (str): Frequency of the rebill if not a fixed schedule. [optional]  # noqa: E501
             future_schedules ([AutoOrderItemFutureSchedule]): The future rebill schedule for this item up to the next ten rebills. [optional]  # noqa: E501
@@ -334,6 +337,7 @@ class AutoOrderItem(ModelNormal):
             arbitrary_unit_cost (float): Arbitrary unit cost that rebills of this item should occur at. [optional]  # noqa: E501
             arbitrary_unit_cost_remaining_orders (int): The number of rebills to give the arbitrary unit cost on before reverting to normal pricing.. [optional]  # noqa: E501
             auto_order_item_oid (int): Primary key of AutoOrderItem. [optional]  # noqa: E501
+            calculated_next_shipment_dts (str): Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item. [optional]  # noqa: E501
             first_order_dts (str): Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.. [optional]  # noqa: E501
             frequency (str): Frequency of the rebill if not a fixed schedule. [optional]  # noqa: E501
             future_schedules ([AutoOrderItemFutureSchedule]): The future rebill schedule for this item up to the next ten rebills. [optional]  # noqa: E501

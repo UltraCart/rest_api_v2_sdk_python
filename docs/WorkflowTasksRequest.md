@@ -4,8 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**assigned_to_group** | **str** | Assigned to group | [optional] 
 **assigned_to_group_id** | **int** | Assigned to group ID | [optional] 
 **assigned_to_me** | **bool** | Tasks are assigned to me either by direct user id or a group that the user is a member of | [optional] 
+**assigned_to_user** | **str** | Assigned to user | [optional] 
 **assigned_to_user_id** | **int** | Assigned to user ID | [optional] 
 **created_by** | [**WorkflowUser**](WorkflowUser.md) |  | [optional] 
 **created_dts_begin** | **str** | Date/time that the workflow task was created | [optional] 
