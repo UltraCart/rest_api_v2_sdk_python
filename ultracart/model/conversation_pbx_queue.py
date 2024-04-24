@@ -138,6 +138,7 @@ class ConversationPbxQueue(ModelNormal):
             'voicemail': (bool,),  # noqa: E501
             'wait_critical_seconds': (int,),  # noqa: E501
             'wait_warning_seconds': (int,),  # noqa: E501
+            'wrap_up_seconds': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -166,6 +167,7 @@ class ConversationPbxQueue(ModelNormal):
         'voicemail': 'voicemail',  # noqa: E501
         'wait_critical_seconds': 'wait_critical_seconds',  # noqa: E501
         'wait_warning_seconds': 'wait_warning_seconds',  # noqa: E501
+        'wrap_up_seconds': 'wrap_up_seconds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -229,6 +231,7 @@ class ConversationPbxQueue(ModelNormal):
             voicemail (bool): If true, this queue has a voicemail associated with it. [optional]  # noqa: E501
             wait_critical_seconds (int): Wait time in seconds before critical. [optional]  # noqa: E501
             wait_warning_seconds (int): Wait time in seconds before warning. [optional]  # noqa: E501
+            wrap_up_seconds (int): Wrap up time in seconds. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -334,6 +337,7 @@ class ConversationPbxQueue(ModelNormal):
             voicemail (bool): If true, this queue has a voicemail associated with it. [optional]  # noqa: E501
             wait_critical_seconds (int): Wait time in seconds before critical. [optional]  # noqa: E501
             wait_warning_seconds (int): Wait time in seconds before warning. [optional]  # noqa: E501
+            wrap_up_seconds (int): Wrap up time in seconds. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

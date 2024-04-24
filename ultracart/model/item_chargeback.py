@@ -145,8 +145,8 @@ class ItemChargeback(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            addendums ([ItemChargebackAddendum]): Addendums. [optional]  # noqa: E501
-            adjustment_requests ([ItemChargebackAdjustmentRequest]): Adjustment requests. [optional]  # noqa: E501
+            addendums ([ItemChargebackAddendum]): Addendums (deprecated). [optional]  # noqa: E501
+            adjustment_requests ([ItemChargebackAdjustmentRequest]): Adjustment requests (deprecated). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,8 +232,8 @@ class ItemChargeback(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            addendums ([ItemChargebackAddendum]): Addendums. [optional]  # noqa: E501
-            adjustment_requests ([ItemChargebackAdjustmentRequest]): Adjustment requests. [optional]  # noqa: E501
+            addendums ([ItemChargebackAddendum]): Addendums (deprecated). [optional]  # noqa: E501
+            adjustment_requests ([ItemChargebackAdjustmentRequest]): Adjustment requests (deprecated). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

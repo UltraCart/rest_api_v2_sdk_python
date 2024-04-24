@@ -89,6 +89,14 @@ class EmailCommseqEmail(ModelNormal):
             'email_container_cjson': (str,),  # noqa: E501
             'email_container_cjson_last_modified_dts': (str,),  # noqa: E501
             'email_template_vm_path': (str,),  # noqa: E501
+            'external_generation': (bool,),  # noqa: E501
+            'external_generation_authentication': (str,),  # noqa: E501
+            'external_generation_basic_password': (str,),  # noqa: E501
+            'external_generation_basic_username': (str,),  # noqa: E501
+            'external_generation_header_name': (str,),  # noqa: E501
+            'external_generation_header_value': (str,),  # noqa: E501
+            'external_generation_id': (str,),  # noqa: E501
+            'external_generation_url': (str,),  # noqa: E501
             'filter_profile_equation_json': (str,),  # noqa: E501
             'individually_render': (bool,),  # noqa: E501
             'library_item_oid': (int,),  # noqa: E501
@@ -123,6 +131,14 @@ class EmailCommseqEmail(ModelNormal):
         'email_container_cjson': 'email_container_cjson',  # noqa: E501
         'email_container_cjson_last_modified_dts': 'email_container_cjson_last_modified_dts',  # noqa: E501
         'email_template_vm_path': 'email_template_vm_path',  # noqa: E501
+        'external_generation': 'external_generation',  # noqa: E501
+        'external_generation_authentication': 'external_generation_authentication',  # noqa: E501
+        'external_generation_basic_password': 'external_generation_basic_password',  # noqa: E501
+        'external_generation_basic_username': 'external_generation_basic_username',  # noqa: E501
+        'external_generation_header_name': 'external_generation_header_name',  # noqa: E501
+        'external_generation_header_value': 'external_generation_header_value',  # noqa: E501
+        'external_generation_id': 'external_generation_id',  # noqa: E501
+        'external_generation_url': 'external_generation_url',  # noqa: E501
         'filter_profile_equation_json': 'filter_profile_equation_json',  # noqa: E501
         'individually_render': 'individually_render',  # noqa: E501
         'library_item_oid': 'library_item_oid',  # noqa: E501
@@ -192,6 +208,14 @@ class EmailCommseqEmail(ModelNormal):
             email_container_cjson (str): Email container cjson. [optional]  # noqa: E501
             email_container_cjson_last_modified_dts (str): Timestamp the last time the container was modified.. [optional]  # noqa: E501
             email_template_vm_path (str): Email template virtual path. [optional]  # noqa: E501
+            external_generation (bool): [optional]  # noqa: E501
+            external_generation_authentication (str): [optional]  # noqa: E501
+            external_generation_basic_password (str): [optional]  # noqa: E501
+            external_generation_basic_username (str): [optional]  # noqa: E501
+            external_generation_header_name (str): [optional]  # noqa: E501
+            external_generation_header_value (str): [optional]  # noqa: E501
+            external_generation_id (str): [optional]  # noqa: E501
+            external_generation_url (str): [optional]  # noqa: E501
             filter_profile_equation_json (str): Filter profile equation json. [optional]  # noqa: E501
             individually_render (bool): Individually render. [optional]  # noqa: E501
             library_item_oid (int): If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.. [optional]  # noqa: E501
@@ -303,6 +327,14 @@ class EmailCommseqEmail(ModelNormal):
             email_container_cjson (str): Email container cjson. [optional]  # noqa: E501
             email_container_cjson_last_modified_dts (str): Timestamp the last time the container was modified.. [optional]  # noqa: E501
             email_template_vm_path (str): Email template virtual path. [optional]  # noqa: E501
+            external_generation (bool): [optional]  # noqa: E501
+            external_generation_authentication (str): [optional]  # noqa: E501
+            external_generation_basic_password (str): [optional]  # noqa: E501
+            external_generation_basic_username (str): [optional]  # noqa: E501
+            external_generation_header_name (str): [optional]  # noqa: E501
+            external_generation_header_value (str): [optional]  # noqa: E501
+            external_generation_id (str): [optional]  # noqa: E501
+            external_generation_url (str): [optional]  # noqa: E501
             filter_profile_equation_json (str): Filter profile equation json. [optional]  # noqa: E501
             individually_render (bool): Individually render. [optional]  # noqa: E501
             library_item_oid (int): If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.. [optional]  # noqa: E501

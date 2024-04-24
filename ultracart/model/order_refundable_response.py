@@ -102,6 +102,7 @@ class OrderRefundableResponse(ModelNormal):
             'metadata': (ResponseMetadata,),  # noqa: E501
             'order_level_refund_reason_required': (bool,),  # noqa: E501
             'order_level_refund_reasons': ([OrderReason],),  # noqa: E501
+            'order_level_reject_reason_required': (bool,),  # noqa: E501
             'order_level_reject_reasons': ([OrderReason],),  # noqa: E501
             'refundable': (bool,),  # noqa: E501
             'success': (bool,),  # noqa: E501
@@ -122,6 +123,7 @@ class OrderRefundableResponse(ModelNormal):
         'metadata': 'metadata',  # noqa: E501
         'order_level_refund_reason_required': 'order_level_refund_reason_required',  # noqa: E501
         'order_level_refund_reasons': 'order_level_refund_reasons',  # noqa: E501
+        'order_level_reject_reason_required': 'order_level_reject_reason_required',  # noqa: E501
         'order_level_reject_reasons': 'order_level_reject_reasons',  # noqa: E501
         'refundable': 'refundable',  # noqa: E501
         'success': 'success',  # noqa: E501
@@ -177,6 +179,7 @@ class OrderRefundableResponse(ModelNormal):
             metadata (ResponseMetadata): [optional]  # noqa: E501
             order_level_refund_reason_required (bool): True if the order level refund reason is required. [optional]  # noqa: E501
             order_level_refund_reasons ([OrderReason]): Reason codes available at the order level.. [optional]  # noqa: E501
+            order_level_reject_reason_required (bool): True if the order level reject reason is required. [optional]  # noqa: E501
             order_level_reject_reasons ([OrderReason]): Reject codes available at the order level.. [optional]  # noqa: E501
             refundable (bool): Whether the order is refundable or not.  Null should be interpreted as false.. [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
@@ -274,6 +277,7 @@ class OrderRefundableResponse(ModelNormal):
             metadata (ResponseMetadata): [optional]  # noqa: E501
             order_level_refund_reason_required (bool): True if the order level refund reason is required. [optional]  # noqa: E501
             order_level_refund_reasons ([OrderReason]): Reason codes available at the order level.. [optional]  # noqa: E501
+            order_level_reject_reason_required (bool): True if the order level reject reason is required. [optional]  # noqa: E501
             order_level_reject_reasons ([OrderReason]): Reject codes available at the order level.. [optional]  # noqa: E501
             refundable (bool): Whether the order is refundable or not.  Null should be interpreted as false.. [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501

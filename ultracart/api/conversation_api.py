@@ -3524,7 +3524,7 @@ class ConversationApi(object):
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
                 ],
-                'endpoint_path': '/conversation/pbx/{queue_uuid}/voicemails/voicemails/{recording_sid}/listened',
+                'endpoint_path': '/conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened',
                 'operation_id': 'listened_pbx_queue_voicemail',
                 'http_method': 'GET',
                 'servers': None,
