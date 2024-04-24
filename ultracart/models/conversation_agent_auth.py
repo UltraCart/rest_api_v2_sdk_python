@@ -35,7 +35,10 @@ class ConversationAgentAuth(object):
         'conversation_participant_name': 'str',
         'jwt': 'str',
         'merchant_id': 'str',
+        'pbx_admin': 'bool',
         'pbx_jwt': 'str',
+        'pbx_supervisor': 'bool',
+        'pbx_user': 'bool',
         'pbx_voice_identity': 'str',
         'pbx_voice_token': 'str',
         'pbx_worker_token': 'str',
@@ -48,7 +51,10 @@ class ConversationAgentAuth(object):
         'conversation_participant_name': 'conversation_participant_name',
         'jwt': 'jwt',
         'merchant_id': 'merchant_id',
+        'pbx_admin': 'pbx_admin',
         'pbx_jwt': 'pbx_jwt',
+        'pbx_supervisor': 'pbx_supervisor',
+        'pbx_user': 'pbx_user',
         'pbx_voice_identity': 'pbx_voice_identity',
         'pbx_voice_token': 'pbx_voice_token',
         'pbx_worker_token': 'pbx_worker_token',
@@ -56,14 +62,17 @@ class ConversationAgentAuth(object):
         'websocket_url': 'websocket_url'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, jwt=None, merchant_id=None, pbx_jwt=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, twilio_accounts=None, websocket_url=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, jwt=None, merchant_id=None, pbx_admin=None, pbx_jwt=None, pbx_supervisor=None, pbx_user=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, twilio_accounts=None, websocket_url=None):  # noqa: E501
         """ConversationAgentAuth - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
         self._conversation_participant_name = None
         self._jwt = None
         self._merchant_id = None
+        self._pbx_admin = None
         self._pbx_jwt = None
+        self._pbx_supervisor = None
+        self._pbx_user = None
         self._pbx_voice_identity = None
         self._pbx_voice_token = None
         self._pbx_worker_token = None
@@ -79,8 +88,14 @@ class ConversationAgentAuth(object):
             self.jwt = jwt
         if merchant_id is not None:
             self.merchant_id = merchant_id
+        if pbx_admin is not None:
+            self.pbx_admin = pbx_admin
         if pbx_jwt is not None:
             self.pbx_jwt = pbx_jwt
+        if pbx_supervisor is not None:
+            self.pbx_supervisor = pbx_supervisor
+        if pbx_user is not None:
+            self.pbx_user = pbx_user
         if pbx_voice_identity is not None:
             self.pbx_voice_identity = pbx_voice_identity
         if pbx_voice_token is not None:
@@ -177,6 +192,27 @@ class ConversationAgentAuth(object):
         self._merchant_id = merchant_id
 
     @property
+    def pbx_admin(self):
+        """Gets the pbx_admin of this ConversationAgentAuth.  # noqa: E501
+
+
+        :return: The pbx_admin of this ConversationAgentAuth.  # noqa: E501
+        :rtype: bool
+        """
+        return self._pbx_admin
+
+    @pbx_admin.setter
+    def pbx_admin(self, pbx_admin):
+        """Sets the pbx_admin of this ConversationAgentAuth.
+
+
+        :param pbx_admin: The pbx_admin of this ConversationAgentAuth.  # noqa: E501
+        :type: bool
+        """
+
+        self._pbx_admin = pbx_admin
+
+    @property
     def pbx_jwt(self):
         """Gets the pbx_jwt of this ConversationAgentAuth.  # noqa: E501
 
@@ -196,6 +232,48 @@ class ConversationAgentAuth(object):
         """
 
         self._pbx_jwt = pbx_jwt
+
+    @property
+    def pbx_supervisor(self):
+        """Gets the pbx_supervisor of this ConversationAgentAuth.  # noqa: E501
+
+
+        :return: The pbx_supervisor of this ConversationAgentAuth.  # noqa: E501
+        :rtype: bool
+        """
+        return self._pbx_supervisor
+
+    @pbx_supervisor.setter
+    def pbx_supervisor(self, pbx_supervisor):
+        """Sets the pbx_supervisor of this ConversationAgentAuth.
+
+
+        :param pbx_supervisor: The pbx_supervisor of this ConversationAgentAuth.  # noqa: E501
+        :type: bool
+        """
+
+        self._pbx_supervisor = pbx_supervisor
+
+    @property
+    def pbx_user(self):
+        """Gets the pbx_user of this ConversationAgentAuth.  # noqa: E501
+
+
+        :return: The pbx_user of this ConversationAgentAuth.  # noqa: E501
+        :rtype: bool
+        """
+        return self._pbx_user
+
+    @pbx_user.setter
+    def pbx_user(self, pbx_user):
+        """Sets the pbx_user of this ConversationAgentAuth.
+
+
+        :param pbx_user: The pbx_user of this ConversationAgentAuth.  # noqa: E501
+        :type: bool
+        """
+
+        self._pbx_user = pbx_user
 
     @property
     def pbx_voice_identity(self):

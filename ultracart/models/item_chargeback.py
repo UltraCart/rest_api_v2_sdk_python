@@ -56,7 +56,7 @@ class ItemChargeback(object):
     def addendums(self):
         """Gets the addendums of this ItemChargeback.  # noqa: E501
 
-        Addendums  # noqa: E501
+        Addendums (deprecated)  # noqa: E501
 
         :return: The addendums of this ItemChargeback.  # noqa: E501
         :rtype: list[ItemChargebackAddendum]
@@ -67,7 +67,7 @@ class ItemChargeback(object):
     def addendums(self, addendums):
         """Sets the addendums of this ItemChargeback.
 
-        Addendums  # noqa: E501
+        Addendums (deprecated)  # noqa: E501
 
         :param addendums: The addendums of this ItemChargeback.  # noqa: E501
         :type: list[ItemChargebackAddendum]
@@ -79,7 +79,7 @@ class ItemChargeback(object):
     def adjustment_requests(self):
         """Gets the adjustment_requests of this ItemChargeback.  # noqa: E501
 
-        Adjustment requests  # noqa: E501
+        Adjustment requests (deprecated)  # noqa: E501
 
         :return: The adjustment_requests of this ItemChargeback.  # noqa: E501
         :rtype: list[ItemChargebackAdjustmentRequest]
@@ -90,7 +90,7 @@ class ItemChargeback(object):
     def adjustment_requests(self, adjustment_requests):
         """Sets the adjustment_requests of this ItemChargeback.
 
-        Adjustment requests  # noqa: E501
+        Adjustment requests (deprecated)  # noqa: E501
 
         :param adjustment_requests: The adjustment_requests of this ItemChargeback.  # noqa: E501
         :type: list[ItemChargebackAdjustmentRequest]

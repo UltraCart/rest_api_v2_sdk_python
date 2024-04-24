@@ -50,7 +50,8 @@ class ConversationPbxQueue(object):
         'twilio_workspace_queue_sid': 'str',
         'voicemail': 'bool',
         'wait_critical_seconds': 'int',
-        'wait_warning_seconds': 'int'
+        'wait_warning_seconds': 'int',
+        'wrap_up_seconds': 'int'
     }
 
     attribute_map = {
@@ -73,10 +74,11 @@ class ConversationPbxQueue(object):
         'twilio_workspace_queue_sid': 'twilio_workspace_queue_sid',
         'voicemail': 'voicemail',
         'wait_critical_seconds': 'wait_critical_seconds',
-        'wait_warning_seconds': 'wait_warning_seconds'
+        'wait_warning_seconds': 'wait_warning_seconds',
+        'wrap_up_seconds': 'wrap_up_seconds'
     }
 
-    def __init__(self, announce_queue_position=None, conversation_pbx_queue_uuid=None, conversation_voicemail_mailbox_uuid=None, hold_conversation_pbx_audio_uuid=None, max_hold_seconds=None, members=None, merchant_id=None, name=None, no_agent_available_play_audio_uuid=None, no_agent_available_say=None, no_agent_available_say_voice=None, play_audio_uuid=None, record_call=None, say=None, say_voice=None, twilio_taskrouter_workflow_sid=None, twilio_workspace_queue_sid=None, voicemail=None, wait_critical_seconds=None, wait_warning_seconds=None):  # noqa: E501
+    def __init__(self, announce_queue_position=None, conversation_pbx_queue_uuid=None, conversation_voicemail_mailbox_uuid=None, hold_conversation_pbx_audio_uuid=None, max_hold_seconds=None, members=None, merchant_id=None, name=None, no_agent_available_play_audio_uuid=None, no_agent_available_say=None, no_agent_available_say_voice=None, play_audio_uuid=None, record_call=None, say=None, say_voice=None, twilio_taskrouter_workflow_sid=None, twilio_workspace_queue_sid=None, voicemail=None, wait_critical_seconds=None, wait_warning_seconds=None, wrap_up_seconds=None):  # noqa: E501
         """ConversationPbxQueue - a model defined in Swagger"""  # noqa: E501
 
         self._announce_queue_position = None
@@ -99,6 +101,7 @@ class ConversationPbxQueue(object):
         self._voicemail = None
         self._wait_critical_seconds = None
         self._wait_warning_seconds = None
+        self._wrap_up_seconds = None
         self.discriminator = None
 
         if announce_queue_position is not None:
@@ -141,6 +144,8 @@ class ConversationPbxQueue(object):
             self.wait_critical_seconds = wait_critical_seconds
         if wait_warning_seconds is not None:
             self.wait_warning_seconds = wait_warning_seconds
+        if wrap_up_seconds is not None:
+            self.wrap_up_seconds = wrap_up_seconds
 
     @property
     def announce_queue_position(self):
@@ -619,6 +624,29 @@ class ConversationPbxQueue(object):
         """
 
         self._wait_warning_seconds = wait_warning_seconds
+
+    @property
+    def wrap_up_seconds(self):
+        """Gets the wrap_up_seconds of this ConversationPbxQueue.  # noqa: E501
+
+        Wrap up time in seconds  # noqa: E501
+
+        :return: The wrap_up_seconds of this ConversationPbxQueue.  # noqa: E501
+        :rtype: int
+        """
+        return self._wrap_up_seconds
+
+    @wrap_up_seconds.setter
+    def wrap_up_seconds(self, wrap_up_seconds):
+        """Sets the wrap_up_seconds of this ConversationPbxQueue.
+
+        Wrap up time in seconds  # noqa: E501
+
+        :param wrap_up_seconds: The wrap_up_seconds of this ConversationPbxQueue.  # noqa: E501
+        :type: int
+        """
+
+        self._wrap_up_seconds = wrap_up_seconds
 
     def to_dict(self):
         """Returns the model properties as a dict"""

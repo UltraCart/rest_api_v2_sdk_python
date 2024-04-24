@@ -38,6 +38,14 @@ class EmailCommseqEmail(object):
         'email_container_cjson': 'str',
         'email_container_cjson_last_modified_dts': 'str',
         'email_template_vm_path': 'str',
+        'external_generation': 'bool',
+        'external_generation_authentication': 'str',
+        'external_generation_basic_password': 'str',
+        'external_generation_basic_username': 'str',
+        'external_generation_header_name': 'str',
+        'external_generation_header_value': 'str',
+        'external_generation_id': 'str',
+        'external_generation_url': 'str',
         'filter_profile_equation_json': 'str',
         'individually_render': 'bool',
         'library_item_oid': 'int',
@@ -67,6 +75,14 @@ class EmailCommseqEmail(object):
         'email_container_cjson': 'email_container_cjson',
         'email_container_cjson_last_modified_dts': 'email_container_cjson_last_modified_dts',
         'email_template_vm_path': 'email_template_vm_path',
+        'external_generation': 'external_generation',
+        'external_generation_authentication': 'external_generation_authentication',
+        'external_generation_basic_password': 'external_generation_basic_password',
+        'external_generation_basic_username': 'external_generation_basic_username',
+        'external_generation_header_name': 'external_generation_header_name',
+        'external_generation_header_value': 'external_generation_header_value',
+        'external_generation_id': 'external_generation_id',
+        'external_generation_url': 'external_generation_url',
         'filter_profile_equation_json': 'filter_profile_equation_json',
         'individually_render': 'individually_render',
         'library_item_oid': 'library_item_oid',
@@ -88,7 +104,7 @@ class EmailCommseqEmail(object):
         'version': 'version'
     }
 
-    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, filter_profile_equation_json=None, individually_render=None, library_item_oid=None, magic_link=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, smart_sending=None, storefront_oid=None, subject=None, suspended_for_spam=None, transactional_email=None, version=None):  # noqa: E501
+    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, external_generation=None, external_generation_authentication=None, external_generation_basic_password=None, external_generation_basic_username=None, external_generation_header_name=None, external_generation_header_value=None, external_generation_id=None, external_generation_url=None, filter_profile_equation_json=None, individually_render=None, library_item_oid=None, magic_link=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, smart_sending=None, storefront_oid=None, subject=None, suspended_for_spam=None, transactional_email=None, version=None):  # noqa: E501
         """EmailCommseqEmail - a model defined in Swagger"""  # noqa: E501
 
         self._deleted = None
@@ -98,6 +114,14 @@ class EmailCommseqEmail(object):
         self._email_container_cjson = None
         self._email_container_cjson_last_modified_dts = None
         self._email_template_vm_path = None
+        self._external_generation = None
+        self._external_generation_authentication = None
+        self._external_generation_basic_password = None
+        self._external_generation_basic_username = None
+        self._external_generation_header_name = None
+        self._external_generation_header_value = None
+        self._external_generation_id = None
+        self._external_generation_url = None
         self._filter_profile_equation_json = None
         self._individually_render = None
         self._library_item_oid = None
@@ -133,6 +157,22 @@ class EmailCommseqEmail(object):
             self.email_container_cjson_last_modified_dts = email_container_cjson_last_modified_dts
         if email_template_vm_path is not None:
             self.email_template_vm_path = email_template_vm_path
+        if external_generation is not None:
+            self.external_generation = external_generation
+        if external_generation_authentication is not None:
+            self.external_generation_authentication = external_generation_authentication
+        if external_generation_basic_password is not None:
+            self.external_generation_basic_password = external_generation_basic_password
+        if external_generation_basic_username is not None:
+            self.external_generation_basic_username = external_generation_basic_username
+        if external_generation_header_name is not None:
+            self.external_generation_header_name = external_generation_header_name
+        if external_generation_header_value is not None:
+            self.external_generation_header_value = external_generation_header_value
+        if external_generation_id is not None:
+            self.external_generation_id = external_generation_id
+        if external_generation_url is not None:
+            self.external_generation_url = external_generation_url
         if filter_profile_equation_json is not None:
             self.filter_profile_equation_json = filter_profile_equation_json
         if individually_render is not None:
@@ -332,6 +372,174 @@ class EmailCommseqEmail(object):
         """
 
         self._email_template_vm_path = email_template_vm_path
+
+    @property
+    def external_generation(self):
+        """Gets the external_generation of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The external_generation of this EmailCommseqEmail.  # noqa: E501
+        :rtype: bool
+        """
+        return self._external_generation
+
+    @external_generation.setter
+    def external_generation(self, external_generation):
+        """Sets the external_generation of this EmailCommseqEmail.
+
+
+        :param external_generation: The external_generation of this EmailCommseqEmail.  # noqa: E501
+        :type: bool
+        """
+
+        self._external_generation = external_generation
+
+    @property
+    def external_generation_authentication(self):
+        """Gets the external_generation_authentication of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The external_generation_authentication of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_generation_authentication
+
+    @external_generation_authentication.setter
+    def external_generation_authentication(self, external_generation_authentication):
+        """Sets the external_generation_authentication of this EmailCommseqEmail.
+
+
+        :param external_generation_authentication: The external_generation_authentication of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._external_generation_authentication = external_generation_authentication
+
+    @property
+    def external_generation_basic_password(self):
+        """Gets the external_generation_basic_password of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The external_generation_basic_password of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_generation_basic_password
+
+    @external_generation_basic_password.setter
+    def external_generation_basic_password(self, external_generation_basic_password):
+        """Sets the external_generation_basic_password of this EmailCommseqEmail.
+
+
+        :param external_generation_basic_password: The external_generation_basic_password of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._external_generation_basic_password = external_generation_basic_password
+
+    @property
+    def external_generation_basic_username(self):
+        """Gets the external_generation_basic_username of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The external_generation_basic_username of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_generation_basic_username
+
+    @external_generation_basic_username.setter
+    def external_generation_basic_username(self, external_generation_basic_username):
+        """Sets the external_generation_basic_username of this EmailCommseqEmail.
+
+
+        :param external_generation_basic_username: The external_generation_basic_username of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._external_generation_basic_username = external_generation_basic_username
+
+    @property
+    def external_generation_header_name(self):
+        """Gets the external_generation_header_name of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The external_generation_header_name of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_generation_header_name
+
+    @external_generation_header_name.setter
+    def external_generation_header_name(self, external_generation_header_name):
+        """Sets the external_generation_header_name of this EmailCommseqEmail.
+
+
+        :param external_generation_header_name: The external_generation_header_name of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._external_generation_header_name = external_generation_header_name
+
+    @property
+    def external_generation_header_value(self):
+        """Gets the external_generation_header_value of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The external_generation_header_value of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_generation_header_value
+
+    @external_generation_header_value.setter
+    def external_generation_header_value(self, external_generation_header_value):
+        """Sets the external_generation_header_value of this EmailCommseqEmail.
+
+
+        :param external_generation_header_value: The external_generation_header_value of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._external_generation_header_value = external_generation_header_value
+
+    @property
+    def external_generation_id(self):
+        """Gets the external_generation_id of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The external_generation_id of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_generation_id
+
+    @external_generation_id.setter
+    def external_generation_id(self, external_generation_id):
+        """Sets the external_generation_id of this EmailCommseqEmail.
+
+
+        :param external_generation_id: The external_generation_id of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._external_generation_id = external_generation_id
+
+    @property
+    def external_generation_url(self):
+        """Gets the external_generation_url of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The external_generation_url of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_generation_url
+
+    @external_generation_url.setter
+    def external_generation_url(self, external_generation_url):
+        """Sets the external_generation_url of this EmailCommseqEmail.
+
+
+        :param external_generation_url: The external_generation_url of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._external_generation_url = external_generation_url
 
     @property
     def filter_profile_equation_json(self):

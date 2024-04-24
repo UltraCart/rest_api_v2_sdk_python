@@ -6663,7 +6663,7 @@ class ConversationApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/conversation/pbx/{queue_uuid}/voicemails/voicemails/{recording_sid}/listened', 'GET',
+            '/conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened', 'GET',
             path_params,
             query_params,
             header_params,
