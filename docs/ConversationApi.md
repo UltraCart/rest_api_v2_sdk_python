@@ -1873,7 +1873,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_conversation_pbx_audio_upload_url**
-> ConversationMultimediaUploadUrlResponse get_conversation_pbx_audio_upload_url(extension)
+> ConversationPbxAudioUploadUrlResponse get_conversation_pbx_audio_upload_url(extension)
 
 Get a pre-signed conversation multimedia upload URL
 
@@ -1888,8 +1888,8 @@ Get a pre-signed conversation multimedia upload URL
 import time
 import ultracart
 from ultracart.api import conversation_api
-from ultracart.model.conversation_multimedia_upload_url_response import ConversationMultimediaUploadUrlResponse
 from ultracart.model.error_response import ErrorResponse
+from ultracart.model.conversation_pbx_audio_upload_url_response import ConversationPbxAudioUploadUrlResponse
 from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
 
@@ -1919,7 +1919,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
+[**ConversationPbxAudioUploadUrlResponse**](ConversationPbxAudioUploadUrlResponse.md)
 
 ### Authorization
 

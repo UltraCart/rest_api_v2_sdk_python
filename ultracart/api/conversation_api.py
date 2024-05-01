@@ -47,6 +47,7 @@ from ultracart.model.conversation_pbx_agent_response import ConversationPbxAgent
 from ultracart.model.conversation_pbx_agents_response import ConversationPbxAgentsResponse
 from ultracart.model.conversation_pbx_audio import ConversationPbxAudio
 from ultracart.model.conversation_pbx_audio_response import ConversationPbxAudioResponse
+from ultracart.model.conversation_pbx_audio_upload_url_response import ConversationPbxAudioUploadUrlResponse
 from ultracart.model.conversation_pbx_audios_response import ConversationPbxAudiosResponse
 from ultracart.model.conversation_pbx_customer_snapshot_request import ConversationPbxCustomerSnapshotRequest
 from ultracart.model.conversation_pbx_customer_snapshot_response import ConversationPbxCustomerSnapshotResponse
@@ -1380,7 +1381,7 @@ class ConversationApi(object):
         )
         self.get_conversation_pbx_audio_upload_url_endpoint = _Endpoint(
             settings={
-                'response_type': (ConversationMultimediaUploadUrlResponse,),
+                'response_type': (ConversationPbxAudioUploadUrlResponse,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -6699,7 +6700,7 @@ class ConversationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ConversationMultimediaUploadUrlResponse
+            ConversationPbxAudioUploadUrlResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

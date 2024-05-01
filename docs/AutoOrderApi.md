@@ -4,6 +4,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**consolidate_auto_orders**](AutoOrderApi.md#consolidate_auto_orders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 [**establish_auto_order_by_reference_order_id**](AutoOrderApi.md#establish_auto_order_by_reference_order_id) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 [**get_auto_order**](AutoOrderApi.md#get_auto_order) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 [**get_auto_order_by_code**](AutoOrderApi.md#get_auto_order_by_code) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
@@ -14,6 +15,96 @@ Method | HTTP request | Description
 [**update_auto_order**](AutoOrderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 [**update_auto_orders_batch**](AutoOrderApi.md#update_auto_orders_batch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
+
+# **consolidate_auto_orders**
+> AutoOrderResponse consolidate_auto_orders(auto_order_oid, auto_order_consolidate)
+
+Consolidates multiple auto orders
+
+Consolidates mutliple auto orders on the UltraCart account. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import auto_order_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.auto_order_response import AutoOrderResponse
+from ultracart.model.auto_order_consolidate import AutoOrderConsolidate
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    auto_order_oid = 1 # int | The auto order oid to consolidate into.
+    auto_order_consolidate = AutoOrderConsolidate(
+        source_auto_order_oids=[
+            1,
+        ],
+    ) # AutoOrderConsolidate | Auto orders to consolidate
+    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Consolidates multiple auto orders
+        api_response = api_instance.consolidate_auto_orders(auto_order_oid, auto_order_consolidate)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling AutoOrderApi->consolidate_auto_orders: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Consolidates multiple auto orders
+        api_response = api_instance.consolidate_auto_orders(auto_order_oid, auto_order_consolidate, expand=expand)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling AutoOrderApi->consolidate_auto_orders: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_oid** | **int**| The auto order oid to consolidate into. |
+ **auto_order_consolidate** | [**AutoOrderConsolidate**](AutoOrderConsolidate.md)| Auto orders to consolidate |
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **establish_auto_order_by_reference_order_id**
 > AutoOrderResponse establish_auto_order_by_reference_order_id(reference_order_id)
