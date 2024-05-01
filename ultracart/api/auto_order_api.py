@@ -46,6 +46,117 @@ class AutoOrderApi(object):
 
 
 
+    def consolidate_auto_orders(self, auto_order_consolidate, auto_order_oid, **kwargs):  # noqa: E501
+        """Consolidates multiple auto orders  # noqa: E501
+
+        Consolidates mutliple auto orders on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.consolidate_auto_orders(auto_order_consolidate, auto_order_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AutoOrderConsolidate auto_order_consolidate: Auto orders to consolidate (required)
+        :param int auto_order_oid: The auto order oid to consolidate into. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.consolidate_auto_orders_with_http_info(auto_order_consolidate, auto_order_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.consolidate_auto_orders_with_http_info(auto_order_consolidate, auto_order_oid, **kwargs)  # noqa: E501
+            return data
+
+    def consolidate_auto_orders_with_http_info(self, auto_order_consolidate, auto_order_oid, **kwargs):  # noqa: E501
+        """Consolidates multiple auto orders  # noqa: E501
+
+        Consolidates mutliple auto orders on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.consolidate_auto_orders_with_http_info(auto_order_consolidate, auto_order_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AutoOrderConsolidate auto_order_consolidate: Auto orders to consolidate (required)
+        :param int auto_order_oid: The auto order oid to consolidate into. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['auto_order_consolidate', 'auto_order_oid', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method consolidate_auto_orders" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'auto_order_consolidate' is set
+        if ('auto_order_consolidate' not in params or
+                params['auto_order_consolidate'] is None):
+            raise ValueError("Missing the required parameter `auto_order_consolidate` when calling `consolidate_auto_orders`")  # noqa: E501
+        # verify the required parameter 'auto_order_oid' is set
+        if ('auto_order_oid' not in params or
+                params['auto_order_oid'] is None):
+            raise ValueError("Missing the required parameter `auto_order_oid` when calling `consolidate_auto_orders`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'auto_order_oid' in params:
+            path_params['auto_order_oid'] = params['auto_order_oid']  # noqa: E501
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'auto_order_consolidate' in params:
+            body_params = params['auto_order_consolidate']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/auto_order/auto_orders/{auto_order_oid}/consolidate', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AutoOrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def establish_auto_order_by_reference_order_id(self, reference_order_id, **kwargs):  # noqa: E501
         """Establish an auto order by referencing a regular order id  # noqa: E501
 

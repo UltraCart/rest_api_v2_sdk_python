@@ -32,7 +32,7 @@ class ConversationPbxCustomerSnapshotResponse(object):
     """
     swagger_types = {
         'auto_orders': 'list[AutoOrder]',
-        'customer': 'Customer',
+        'customers': 'list[Customer]',
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         'orders': 'list[Order]',
@@ -42,7 +42,7 @@ class ConversationPbxCustomerSnapshotResponse(object):
 
     attribute_map = {
         'auto_orders': 'auto_orders',
-        'customer': 'customer',
+        'customers': 'customers',
         'error': 'error',
         'metadata': 'metadata',
         'orders': 'orders',
@@ -50,11 +50,11 @@ class ConversationPbxCustomerSnapshotResponse(object):
         'warning': 'warning'
     }
 
-    def __init__(self, auto_orders=None, customer=None, error=None, metadata=None, orders=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, auto_orders=None, customers=None, error=None, metadata=None, orders=None, success=None, warning=None):  # noqa: E501
         """ConversationPbxCustomerSnapshotResponse - a model defined in Swagger"""  # noqa: E501
 
         self._auto_orders = None
-        self._customer = None
+        self._customers = None
         self._error = None
         self._metadata = None
         self._orders = None
@@ -64,8 +64,8 @@ class ConversationPbxCustomerSnapshotResponse(object):
 
         if auto_orders is not None:
             self.auto_orders = auto_orders
-        if customer is not None:
-            self.customer = customer
+        if customers is not None:
+            self.customers = customers
         if error is not None:
             self.error = error
         if metadata is not None:
@@ -99,25 +99,25 @@ class ConversationPbxCustomerSnapshotResponse(object):
         self._auto_orders = auto_orders
 
     @property
-    def customer(self):
-        """Gets the customer of this ConversationPbxCustomerSnapshotResponse.  # noqa: E501
+    def customers(self):
+        """Gets the customers of this ConversationPbxCustomerSnapshotResponse.  # noqa: E501
 
 
-        :return: The customer of this ConversationPbxCustomerSnapshotResponse.  # noqa: E501
-        :rtype: Customer
+        :return: The customers of this ConversationPbxCustomerSnapshotResponse.  # noqa: E501
+        :rtype: list[Customer]
         """
-        return self._customer
+        return self._customers
 
-    @customer.setter
-    def customer(self, customer):
-        """Sets the customer of this ConversationPbxCustomerSnapshotResponse.
+    @customers.setter
+    def customers(self, customers):
+        """Sets the customers of this ConversationPbxCustomerSnapshotResponse.
 
 
-        :param customer: The customer of this ConversationPbxCustomerSnapshotResponse.  # noqa: E501
-        :type: Customer
+        :param customers: The customers of this ConversationPbxCustomerSnapshotResponse.  # noqa: E501
+        :type: list[Customer]
         """
 
-        self._customer = customer
+        self._customers = customers
 
     @property
     def error(self):

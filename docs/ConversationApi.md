@@ -1317,7 +1317,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_conversation_pbx_audio_upload_url**
-> ConversationMultimediaUploadUrlResponse get_conversation_pbx_audio_upload_url(extension)
+> ConversationPbxAudioUploadUrlResponse get_conversation_pbx_audio_upload_url(extension)
 
 Get a pre-signed conversation multimedia upload URL
 
@@ -1353,7 +1353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
+[**ConversationPbxAudioUploadUrlResponse**](ConversationPbxAudioUploadUrlResponse.md)
 
 ### Authorization
 
