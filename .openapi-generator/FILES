@@ -184,6 +184,7 @@ docs/ConversationPbxAudio.md
 docs/ConversationPbxAudioResponse.md
 docs/ConversationPbxAudioUploadUrl.md
 docs/ConversationPbxAudioUploadUrlResponse.md
+docs/ConversationPbxAudioUsageResponse.md
 docs/ConversationPbxAudiosResponse.md
 docs/ConversationPbxCustomerSnapshotRequest.md
 docs/ConversationPbxCustomerSnapshotResponse.md
@@ -1080,6 +1081,7 @@ ultracart/model/conversation_pbx_audio.py
 ultracart/model/conversation_pbx_audio_response.py
 ultracart/model/conversation_pbx_audio_upload_url.py
 ultracart/model/conversation_pbx_audio_upload_url_response.py
+ultracart/model/conversation_pbx_audio_usage_response.py
 ultracart/model/conversation_pbx_audios_response.py
 ultracart/model/conversation_pbx_customer_snapshot_request.py
 ultracart/model/conversation_pbx_customer_snapshot_response.py
