@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **logs** | [**[AutoOrderLog]**](AutoOrderLog.md) | Logs associated with this auto order | [optional] 
 **management** | [**AutoOrderManagement**](AutoOrderManagement.md) |  | [optional] 
 **merchant_id** | **str** | UltraCart merchant ID owning this order | [optional] 
+**merged_dts** | **str** | The date/time the auto order was merged into another auto order | [optional] 
+**merged_into_auto_order_oid** | **int** | The auto order that this auto order was merged into | [optional] 
 **next_attempt** | **str** | The next time that the auto order will be attempted for processing | [optional] 
 **original_order** | [**Order**](Order.md) |  | [optional] 
 **original_order_id** | **str** | The original order id that this auto order is associated with. | [optional] 

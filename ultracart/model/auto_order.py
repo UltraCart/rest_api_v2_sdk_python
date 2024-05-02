@@ -72,6 +72,7 @@ class AutoOrder(ModelNormal):
             'ACTIVE': "active",
             'CANCELED': "canceled",
             'DISABLED': "disabled",
+            'MERGED': "merged",
         },
     }
 
@@ -119,6 +120,8 @@ class AutoOrder(ModelNormal):
             'logs': ([AutoOrderLog],),  # noqa: E501
             'management': (AutoOrderManagement,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
+            'merged_dts': (str,),  # noqa: E501
+            'merged_into_auto_order_oid': (int,),  # noqa: E501
             'next_attempt': (str,),  # noqa: E501
             'original_order': (Order,),  # noqa: E501
             'original_order_id': (str,),  # noqa: E501
@@ -152,6 +155,8 @@ class AutoOrder(ModelNormal):
         'logs': 'logs',  # noqa: E501
         'management': 'management',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
+        'merged_dts': 'merged_dts',  # noqa: E501
+        'merged_into_auto_order_oid': 'merged_into_auto_order_oid',  # noqa: E501
         'next_attempt': 'next_attempt',  # noqa: E501
         'original_order': 'original_order',  # noqa: E501
         'original_order_id': 'original_order_id',  # noqa: E501
@@ -220,6 +225,8 @@ class AutoOrder(ModelNormal):
             logs ([AutoOrderLog]): Logs associated with this auto order. [optional]  # noqa: E501
             management (AutoOrderManagement): [optional]  # noqa: E501
             merchant_id (str): UltraCart merchant ID owning this order. [optional]  # noqa: E501
+            merged_dts (str): The date/time the auto order was merged into another auto order. [optional]  # noqa: E501
+            merged_into_auto_order_oid (int): The auto order that this auto order was merged into. [optional]  # noqa: E501
             next_attempt (str): The next time that the auto order will be attempted for processing. [optional]  # noqa: E501
             original_order (Order): [optional]  # noqa: E501
             original_order_id (str): The original order id that this auto order is associated with.. [optional]  # noqa: E501
@@ -330,6 +337,8 @@ class AutoOrder(ModelNormal):
             logs ([AutoOrderLog]): Logs associated with this auto order. [optional]  # noqa: E501
             management (AutoOrderManagement): [optional]  # noqa: E501
             merchant_id (str): UltraCart merchant ID owning this order. [optional]  # noqa: E501
+            merged_dts (str): The date/time the auto order was merged into another auto order. [optional]  # noqa: E501
+            merged_into_auto_order_oid (int): The auto order that this auto order was merged into. [optional]  # noqa: E501
             next_attempt (str): The next time that the auto order will be attempted for processing. [optional]  # noqa: E501
             original_order (Order): [optional]  # noqa: E501
             original_order_id (str): The original order id that this auto order is associated with.. [optional]  # noqa: E501

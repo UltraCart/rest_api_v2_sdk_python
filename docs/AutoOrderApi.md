@@ -871,6 +871,8 @@ api_instance = GiftCertificateApi(api_client())
             update_billing_url="update_billing_url_example",
         ),
         merchant_id="merchant_id_example",
+        merged_dts="merged_dts_example",
+        merged_into_auto_order_oid=1,
         next_attempt="next_attempt_example",
         original_order=Order(
             affiliates=[
@@ -3548,6 +3550,8 @@ api_instance = GiftCertificateApi(api_client())
                     update_billing_url="update_billing_url_example",
                 ),
                 merchant_id="merchant_id_example",
+                merged_dts="merged_dts_example",
+                merged_into_auto_order_oid=1,
                 next_attempt="next_attempt_example",
                 original_order=Order(
                     affiliates=[
