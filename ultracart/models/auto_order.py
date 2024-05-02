@@ -49,6 +49,8 @@ class AutoOrder(object):
         'logs': 'list[AutoOrderLog]',
         'management': 'AutoOrderManagement',
         'merchant_id': 'str',
+        'merged_dts': 'str',
+        'merged_into_auto_order_oid': 'int',
         'next_attempt': 'str',
         'original_order': 'Order',
         'original_order_id': 'str',
@@ -77,6 +79,8 @@ class AutoOrder(object):
         'logs': 'logs',
         'management': 'management',
         'merchant_id': 'merchant_id',
+        'merged_dts': 'merged_dts',
+        'merged_into_auto_order_oid': 'merged_into_auto_order_oid',
         'next_attempt': 'next_attempt',
         'original_order': 'original_order',
         'original_order_id': 'original_order_id',
@@ -86,7 +90,7 @@ class AutoOrder(object):
         'status': 'status'
     }
 
-    def __init__(self, add_ons=None, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_reason=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, logs=None, management=None, merchant_id=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
+    def __init__(self, add_ons=None, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_reason=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, logs=None, management=None, merchant_id=None, merged_dts=None, merged_into_auto_order_oid=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
         """AutoOrder - a model defined in Swagger"""  # noqa: E501
 
         self._add_ons = None
@@ -107,6 +111,8 @@ class AutoOrder(object):
         self._logs = None
         self._management = None
         self._merchant_id = None
+        self._merged_dts = None
+        self._merged_into_auto_order_oid = None
         self._next_attempt = None
         self._original_order = None
         self._original_order_id = None
@@ -152,6 +158,10 @@ class AutoOrder(object):
             self.management = management
         if merchant_id is not None:
             self.merchant_id = merchant_id
+        if merged_dts is not None:
+            self.merged_dts = merged_dts
+        if merged_into_auto_order_oid is not None:
+            self.merged_into_auto_order_oid = merged_into_auto_order_oid
         if next_attempt is not None:
             self.next_attempt = next_attempt
         if original_order is not None:
@@ -580,6 +590,52 @@ class AutoOrder(object):
         self._merchant_id = merchant_id
 
     @property
+    def merged_dts(self):
+        """Gets the merged_dts of this AutoOrder.  # noqa: E501
+
+        The date/time the auto order was merged into another auto order  # noqa: E501
+
+        :return: The merged_dts of this AutoOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._merged_dts
+
+    @merged_dts.setter
+    def merged_dts(self, merged_dts):
+        """Sets the merged_dts of this AutoOrder.
+
+        The date/time the auto order was merged into another auto order  # noqa: E501
+
+        :param merged_dts: The merged_dts of this AutoOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._merged_dts = merged_dts
+
+    @property
+    def merged_into_auto_order_oid(self):
+        """Gets the merged_into_auto_order_oid of this AutoOrder.  # noqa: E501
+
+        The auto order that this auto order was merged into  # noqa: E501
+
+        :return: The merged_into_auto_order_oid of this AutoOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._merged_into_auto_order_oid
+
+    @merged_into_auto_order_oid.setter
+    def merged_into_auto_order_oid(self, merged_into_auto_order_oid):
+        """Sets the merged_into_auto_order_oid of this AutoOrder.
+
+        The auto order that this auto order was merged into  # noqa: E501
+
+        :param merged_into_auto_order_oid: The merged_into_auto_order_oid of this AutoOrder.  # noqa: E501
+        :type: int
+        """
+
+        self._merged_into_auto_order_oid = merged_into_auto_order_oid
+
+    @property
     def next_attempt(self):
         """Gets the next_attempt of this AutoOrder.  # noqa: E501
 
@@ -735,7 +791,7 @@ class AutoOrder(object):
         :param status: The status of this AutoOrder.  # noqa: E501
         :type: str
         """
-        allowed_values = ["active", "canceled", "disabled"]  # noqa: E501
+        allowed_values = ["active", "canceled", "disabled", "merged"]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
