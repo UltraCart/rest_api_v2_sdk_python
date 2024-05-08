@@ -107,6 +107,7 @@ class ConversationPbxAudio(ModelNormal):
             'filename': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'mime_type': (str,),  # noqa: E501
+            'url': (str,),  # noqa: E501
             'user_id': (int,),  # noqa: E501
             'version': (int,),  # noqa: E501
         }
@@ -124,6 +125,7 @@ class ConversationPbxAudio(ModelNormal):
         'filename': 'filename',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'mime_type': 'mime_type',  # noqa: E501
+        'url': 'url',  # noqa: E501
         'user_id': 'user_id',  # noqa: E501
         'version': 'version',  # noqa: E501
     }
@@ -176,6 +178,7 @@ class ConversationPbxAudio(ModelNormal):
             filename (str): Filename. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             mime_type (str): Mime Type. [optional]  # noqa: E501
+            url (str): URL. [optional]  # noqa: E501
             user_id (int): User Id. [optional]  # noqa: E501
             version (int): Version. [optional]  # noqa: E501
         """
@@ -270,6 +273,7 @@ class ConversationPbxAudio(ModelNormal):
             filename (str): Filename. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             mime_type (str): Mime Type. [optional]  # noqa: E501
+            url (str): URL. [optional]  # noqa: E501
             user_id (int): User Id. [optional]  # noqa: E501
             version (int): Version. [optional]  # noqa: E501
         """

@@ -95,6 +95,12 @@ class OrderUtm(ModelNormal):
             'fbclid': (str,),  # noqa: E501
             'gbraid': (str,),  # noqa: E501
             'glcid': (str,),  # noqa: E501
+            'itm_campaign': (str,),  # noqa: E501
+            'itm_content': (str,),  # noqa: E501
+            'itm_id': (str,),  # noqa: E501
+            'itm_medium': (str,),  # noqa: E501
+            'itm_source': (str,),  # noqa: E501
+            'itm_term': (str,),  # noqa: E501
             'msclkid': (str,),  # noqa: E501
             'ttclid': (str,),  # noqa: E501
             'uc_message_id': (str,),  # noqa: E501
@@ -127,6 +133,12 @@ class OrderUtm(ModelNormal):
         'fbclid': 'fbclid',  # noqa: E501
         'gbraid': 'gbraid',  # noqa: E501
         'glcid': 'glcid',  # noqa: E501
+        'itm_campaign': 'itm_campaign',  # noqa: E501
+        'itm_content': 'itm_content',  # noqa: E501
+        'itm_id': 'itm_id',  # noqa: E501
+        'itm_medium': 'itm_medium',  # noqa: E501
+        'itm_source': 'itm_source',  # noqa: E501
+        'itm_term': 'itm_term',  # noqa: E501
         'msclkid': 'msclkid',  # noqa: E501
         'ttclid': 'ttclid',  # noqa: E501
         'uc_message_id': 'uc_message_id',  # noqa: E501
@@ -194,6 +206,12 @@ class OrderUtm(ModelNormal):
             fbclid (str): [optional]  # noqa: E501
             gbraid (str): [optional]  # noqa: E501
             glcid (str): [optional]  # noqa: E501
+            itm_campaign (str): [optional]  # noqa: E501
+            itm_content (str): [optional]  # noqa: E501
+            itm_id (str): [optional]  # noqa: E501
+            itm_medium (str): [optional]  # noqa: E501
+            itm_source (str): [optional]  # noqa: E501
+            itm_term (str): [optional]  # noqa: E501
             msclkid (str): [optional]  # noqa: E501
             ttclid (str): [optional]  # noqa: E501
             uc_message_id (str): [optional]  # noqa: E501
@@ -303,6 +321,12 @@ class OrderUtm(ModelNormal):
             fbclid (str): [optional]  # noqa: E501
             gbraid (str): [optional]  # noqa: E501
             glcid (str): [optional]  # noqa: E501
+            itm_campaign (str): [optional]  # noqa: E501
+            itm_content (str): [optional]  # noqa: E501
+            itm_id (str): [optional]  # noqa: E501
+            itm_medium (str): [optional]  # noqa: E501
+            itm_source (str): [optional]  # noqa: E501
+            itm_term (str): [optional]  # noqa: E501
             msclkid (str): [optional]  # noqa: E501
             ttclid (str): [optional]  # noqa: E501
             uc_message_id (str): [optional]  # noqa: E501

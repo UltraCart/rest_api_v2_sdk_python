@@ -62,12 +62,21 @@ class ChannelPartnerOrder(ModelNormal):
     """
 
     allowed_values = {
+        ('echeck_bank_account_type',): {
+            'CHECKING': "Checking",
+            'SAVINGS': "Savings",
+        },
+        ('echeck_bank_owner_type',): {
+            'BUSINESS': "Business",
+            'PERSONAL': "Personal",
+        },
         ('payment_method',): {
             'AFFIRM': "Affirm",
             'AMAZON': "Amazon",
             'CHECK': "Check",
             'COD': "COD",
             'CREDIT_CARD': "Credit Card",
+            'ECHECK': "eCheck",
             'LOANHERO': "LoanHero",
             'MONEY_ORDER': "Money Order",
             'PAYPAL': "PayPal",
@@ -253,6 +262,16 @@ class ChannelPartnerOrder(ModelNormal):
             'custom_field6': (str,),  # noqa: E501
             'custom_field7': (str,),  # noqa: E501
             'delivery_date': (str,),  # noqa: E501
+            'echeck_bank_aba_code': (str,),  # noqa: E501
+            'echeck_bank_account_name': (str,),  # noqa: E501
+            'echeck_bank_account_number': (str,),  # noqa: E501
+            'echeck_bank_account_type': (str,),  # noqa: E501
+            'echeck_bank_name': (str,),  # noqa: E501
+            'echeck_bank_owner_type': (str,),  # noqa: E501
+            'echeck_customer_tax_id': (str,),  # noqa: E501
+            'echeck_drivers_license_dob': (str,),  # noqa: E501
+            'echeck_drivers_license_number': (str,),  # noqa: E501
+            'echeck_drivers_license_state': (str,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'gift': (bool,),  # noqa: E501
             'gift_email': (str,),  # noqa: E501
@@ -342,6 +361,16 @@ class ChannelPartnerOrder(ModelNormal):
         'custom_field6': 'custom_field6',  # noqa: E501
         'custom_field7': 'custom_field7',  # noqa: E501
         'delivery_date': 'delivery_date',  # noqa: E501
+        'echeck_bank_aba_code': 'echeck_bank_aba_code',  # noqa: E501
+        'echeck_bank_account_name': 'echeck_bank_account_name',  # noqa: E501
+        'echeck_bank_account_number': 'echeck_bank_account_number',  # noqa: E501
+        'echeck_bank_account_type': 'echeck_bank_account_type',  # noqa: E501
+        'echeck_bank_name': 'echeck_bank_name',  # noqa: E501
+        'echeck_bank_owner_type': 'echeck_bank_owner_type',  # noqa: E501
+        'echeck_customer_tax_id': 'echeck_customer_tax_id',  # noqa: E501
+        'echeck_drivers_license_dob': 'echeck_drivers_license_dob',  # noqa: E501
+        'echeck_drivers_license_number': 'echeck_drivers_license_number',  # noqa: E501
+        'echeck_drivers_license_state': 'echeck_drivers_license_state',  # noqa: E501
         'email': 'email',  # noqa: E501
         'gift': 'gift',  # noqa: E501
         'gift_email': 'gift_email',  # noqa: E501
@@ -466,6 +495,16 @@ class ChannelPartnerOrder(ModelNormal):
             custom_field6 (str): Custom field 6. [optional]  # noqa: E501
             custom_field7 (str): Custom field 7. [optional]  # noqa: E501
             delivery_date (str): Date the customer is requesting delivery on. Typically used for perishable product delivery.. [optional]  # noqa: E501
+            echeck_bank_aba_code (str): eCheck bank ABA code. [optional]  # noqa: E501
+            echeck_bank_account_name (str): eCheck bank account name. [optional]  # noqa: E501
+            echeck_bank_account_number (str): eCheck bank account number. [optional]  # noqa: E501
+            echeck_bank_account_type (str): eCheck bank account type. [optional]  # noqa: E501
+            echeck_bank_name (str): eCheck bank name. [optional]  # noqa: E501
+            echeck_bank_owner_type (str): eCheck bank owner type. [optional]  # noqa: E501
+            echeck_customer_tax_id (str): eCheck customer tax id. [optional]  # noqa: E501
+            echeck_drivers_license_dob (str): eCheck drivers license dob. [optional]  # noqa: E501
+            echeck_drivers_license_number (str): eCheck drivers license number. [optional]  # noqa: E501
+            echeck_drivers_license_state (str): eCheck drivers license state. [optional]  # noqa: E501
             email (str): Email. [optional]  # noqa: E501
             gift (bool): True if this order is a gift. [optional]  # noqa: E501
             gift_email (str): Email address of the gift recipient. [optional]  # noqa: E501
@@ -632,6 +671,16 @@ class ChannelPartnerOrder(ModelNormal):
             custom_field6 (str): Custom field 6. [optional]  # noqa: E501
             custom_field7 (str): Custom field 7. [optional]  # noqa: E501
             delivery_date (str): Date the customer is requesting delivery on. Typically used for perishable product delivery.. [optional]  # noqa: E501
+            echeck_bank_aba_code (str): eCheck bank ABA code. [optional]  # noqa: E501
+            echeck_bank_account_name (str): eCheck bank account name. [optional]  # noqa: E501
+            echeck_bank_account_number (str): eCheck bank account number. [optional]  # noqa: E501
+            echeck_bank_account_type (str): eCheck bank account type. [optional]  # noqa: E501
+            echeck_bank_name (str): eCheck bank name. [optional]  # noqa: E501
+            echeck_bank_owner_type (str): eCheck bank owner type. [optional]  # noqa: E501
+            echeck_customer_tax_id (str): eCheck customer tax id. [optional]  # noqa: E501
+            echeck_drivers_license_dob (str): eCheck drivers license dob. [optional]  # noqa: E501
+            echeck_drivers_license_number (str): eCheck drivers license number. [optional]  # noqa: E501
+            echeck_drivers_license_state (str): eCheck drivers license state. [optional]  # noqa: E501
             email (str): Email. [optional]  # noqa: E501
             gift (bool): True if this order is a gift. [optional]  # noqa: E501
             gift_email (str): Email address of the gift recipient. [optional]  # noqa: E501

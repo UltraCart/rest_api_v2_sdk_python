@@ -4361,6 +4361,7 @@ api_instance = GiftCertificateApi(api_client())
         filename="filename_example",
         merchant_id="merchant_id_example",
         mime_type="mime_type_example",
+        url="url_example",
         user_id=1,
         version=1,
     ) # ConversationPbxAudio | Pbx Audio
@@ -6155,6 +6156,7 @@ api_instance = GiftCertificateApi(api_client())
         filename="filename_example",
         merchant_id="merchant_id_example",
         mime_type="mime_type_example",
+        url="url_example",
         user_id=1,
         version=1,
     ) # ConversationPbxAudio | Pbx Audio

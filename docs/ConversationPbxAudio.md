@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **filename** | **str** | Filename | [optional] 
 **merchant_id** | **str** | Merchant Id | [optional] 
 **mime_type** | **str** | Mime Type | [optional] 
+**url** | **str** | URL | [optional] 
 **user_id** | **int** | User Id | [optional] 
 **version** | **int** | Version | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
