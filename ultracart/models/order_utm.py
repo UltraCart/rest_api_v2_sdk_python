@@ -44,6 +44,12 @@ class OrderUtm(object):
         'fbclid': 'str',
         'gbraid': 'str',
         'glcid': 'str',
+        'itm_campaign': 'str',
+        'itm_content': 'str',
+        'itm_id': 'str',
+        'itm_medium': 'str',
+        'itm_source': 'str',
+        'itm_term': 'str',
         'msclkid': 'str',
         'ttclid': 'str',
         'uc_message_id': 'str',
@@ -71,6 +77,12 @@ class OrderUtm(object):
         'fbclid': 'fbclid',
         'gbraid': 'gbraid',
         'glcid': 'glcid',
+        'itm_campaign': 'itm_campaign',
+        'itm_content': 'itm_content',
+        'itm_id': 'itm_id',
+        'itm_medium': 'itm_medium',
+        'itm_source': 'itm_source',
+        'itm_term': 'itm_term',
         'msclkid': 'msclkid',
         'ttclid': 'ttclid',
         'uc_message_id': 'uc_message_id',
@@ -84,7 +96,7 @@ class OrderUtm(object):
         'wbraid': 'wbraid'
     }
 
-    def __init__(self, attribution_first_click_subtotal=None, attribution_first_click_total=None, attribution_last_click_subtotal=None, attribution_last_click_total=None, attribution_linear_subtotal=None, attribution_linear_total=None, attribution_position_based_subtotal=None, attribution_position_based_total=None, click_dts=None, facebook_ad_id=None, fbclid=None, gbraid=None, glcid=None, msclkid=None, ttclid=None, uc_message_id=None, utm_campaign=None, utm_content=None, utm_id=None, utm_medium=None, utm_source=None, utm_term=None, vmcid=None, wbraid=None):  # noqa: E501
+    def __init__(self, attribution_first_click_subtotal=None, attribution_first_click_total=None, attribution_last_click_subtotal=None, attribution_last_click_total=None, attribution_linear_subtotal=None, attribution_linear_total=None, attribution_position_based_subtotal=None, attribution_position_based_total=None, click_dts=None, facebook_ad_id=None, fbclid=None, gbraid=None, glcid=None, itm_campaign=None, itm_content=None, itm_id=None, itm_medium=None, itm_source=None, itm_term=None, msclkid=None, ttclid=None, uc_message_id=None, utm_campaign=None, utm_content=None, utm_id=None, utm_medium=None, utm_source=None, utm_term=None, vmcid=None, wbraid=None):  # noqa: E501
         """OrderUtm - a model defined in Swagger"""  # noqa: E501
 
         self._attribution_first_click_subtotal = None
@@ -100,6 +112,12 @@ class OrderUtm(object):
         self._fbclid = None
         self._gbraid = None
         self._glcid = None
+        self._itm_campaign = None
+        self._itm_content = None
+        self._itm_id = None
+        self._itm_medium = None
+        self._itm_source = None
+        self._itm_term = None
         self._msclkid = None
         self._ttclid = None
         self._uc_message_id = None
@@ -139,6 +157,18 @@ class OrderUtm(object):
             self.gbraid = gbraid
         if glcid is not None:
             self.glcid = glcid
+        if itm_campaign is not None:
+            self.itm_campaign = itm_campaign
+        if itm_content is not None:
+            self.itm_content = itm_content
+        if itm_id is not None:
+            self.itm_id = itm_id
+        if itm_medium is not None:
+            self.itm_medium = itm_medium
+        if itm_source is not None:
+            self.itm_source = itm_source
+        if itm_term is not None:
+            self.itm_term = itm_term
         if msclkid is not None:
             self.msclkid = msclkid
         if ttclid is not None:
@@ -436,6 +466,132 @@ class OrderUtm(object):
         """
 
         self._glcid = glcid
+
+    @property
+    def itm_campaign(self):
+        """Gets the itm_campaign of this OrderUtm.  # noqa: E501
+
+
+        :return: The itm_campaign of this OrderUtm.  # noqa: E501
+        :rtype: str
+        """
+        return self._itm_campaign
+
+    @itm_campaign.setter
+    def itm_campaign(self, itm_campaign):
+        """Sets the itm_campaign of this OrderUtm.
+
+
+        :param itm_campaign: The itm_campaign of this OrderUtm.  # noqa: E501
+        :type: str
+        """
+
+        self._itm_campaign = itm_campaign
+
+    @property
+    def itm_content(self):
+        """Gets the itm_content of this OrderUtm.  # noqa: E501
+
+
+        :return: The itm_content of this OrderUtm.  # noqa: E501
+        :rtype: str
+        """
+        return self._itm_content
+
+    @itm_content.setter
+    def itm_content(self, itm_content):
+        """Sets the itm_content of this OrderUtm.
+
+
+        :param itm_content: The itm_content of this OrderUtm.  # noqa: E501
+        :type: str
+        """
+
+        self._itm_content = itm_content
+
+    @property
+    def itm_id(self):
+        """Gets the itm_id of this OrderUtm.  # noqa: E501
+
+
+        :return: The itm_id of this OrderUtm.  # noqa: E501
+        :rtype: str
+        """
+        return self._itm_id
+
+    @itm_id.setter
+    def itm_id(self, itm_id):
+        """Sets the itm_id of this OrderUtm.
+
+
+        :param itm_id: The itm_id of this OrderUtm.  # noqa: E501
+        :type: str
+        """
+
+        self._itm_id = itm_id
+
+    @property
+    def itm_medium(self):
+        """Gets the itm_medium of this OrderUtm.  # noqa: E501
+
+
+        :return: The itm_medium of this OrderUtm.  # noqa: E501
+        :rtype: str
+        """
+        return self._itm_medium
+
+    @itm_medium.setter
+    def itm_medium(self, itm_medium):
+        """Sets the itm_medium of this OrderUtm.
+
+
+        :param itm_medium: The itm_medium of this OrderUtm.  # noqa: E501
+        :type: str
+        """
+
+        self._itm_medium = itm_medium
+
+    @property
+    def itm_source(self):
+        """Gets the itm_source of this OrderUtm.  # noqa: E501
+
+
+        :return: The itm_source of this OrderUtm.  # noqa: E501
+        :rtype: str
+        """
+        return self._itm_source
+
+    @itm_source.setter
+    def itm_source(self, itm_source):
+        """Sets the itm_source of this OrderUtm.
+
+
+        :param itm_source: The itm_source of this OrderUtm.  # noqa: E501
+        :type: str
+        """
+
+        self._itm_source = itm_source
+
+    @property
+    def itm_term(self):
+        """Gets the itm_term of this OrderUtm.  # noqa: E501
+
+
+        :return: The itm_term of this OrderUtm.  # noqa: E501
+        :rtype: str
+        """
+        return self._itm_term
+
+    @itm_term.setter
+    def itm_term(self, itm_term):
+        """Sets the itm_term of this OrderUtm.
+
+
+        :param itm_term: The itm_term of this OrderUtm.  # noqa: E501
+        :type: str
+        """
+
+        self._itm_term = itm_term
 
     @property
     def msclkid(self):

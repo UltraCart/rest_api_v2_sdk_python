@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **filename** | **str** | Filename | [optional] 
 **merchant_id** | **str** | Merchant Id | [optional] 
 **mime_type** | **str** | Mime Type | [optional] 
+**url** | **str** | URL | [optional] 
 **user_id** | **int** | User Id | [optional] 
 **version** | **int** | Version | [optional] 
 

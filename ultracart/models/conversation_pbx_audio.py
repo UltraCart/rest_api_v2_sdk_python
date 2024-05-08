@@ -38,6 +38,7 @@ class ConversationPbxAudio(object):
         'filename': 'str',
         'merchant_id': 'str',
         'mime_type': 'str',
+        'url': 'str',
         'user_id': 'int',
         'version': 'int'
     }
@@ -50,11 +51,12 @@ class ConversationPbxAudio(object):
         'filename': 'filename',
         'merchant_id': 'merchant_id',
         'mime_type': 'mime_type',
+        'url': 'url',
         'user_id': 'user_id',
         'version': 'version'
     }
 
-    def __init__(self, audio_s3_listing_key=None, conversation_pbx_audio_uuid=None, default_hold_music=None, description=None, filename=None, merchant_id=None, mime_type=None, user_id=None, version=None):  # noqa: E501
+    def __init__(self, audio_s3_listing_key=None, conversation_pbx_audio_uuid=None, default_hold_music=None, description=None, filename=None, merchant_id=None, mime_type=None, url=None, user_id=None, version=None):  # noqa: E501
         """ConversationPbxAudio - a model defined in Swagger"""  # noqa: E501
 
         self._audio_s3_listing_key = None
@@ -64,6 +66,7 @@ class ConversationPbxAudio(object):
         self._filename = None
         self._merchant_id = None
         self._mime_type = None
+        self._url = None
         self._user_id = None
         self._version = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class ConversationPbxAudio(object):
             self.merchant_id = merchant_id
         if mime_type is not None:
             self.mime_type = mime_type
+        if url is not None:
+            self.url = url
         if user_id is not None:
             self.user_id = user_id
         if version is not None:
@@ -259,6 +264,29 @@ class ConversationPbxAudio(object):
             raise ValueError("Invalid value for `mime_type`, length must be less than or equal to `100`")  # noqa: E501
 
         self._mime_type = mime_type
+
+    @property
+    def url(self):
+        """Gets the url of this ConversationPbxAudio.  # noqa: E501
+
+        URL  # noqa: E501
+
+        :return: The url of this ConversationPbxAudio.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this ConversationPbxAudio.
+
+        URL  # noqa: E501
+
+        :param url: The url of this ConversationPbxAudio.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
 
     @property
     def user_id(self):

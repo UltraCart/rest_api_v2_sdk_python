@@ -70,6 +70,16 @@ class ChannelPartnerOrder(object):
         'custom_field6': 'str',
         'custom_field7': 'str',
         'delivery_date': 'str',
+        'echeck_bank_aba_code': 'str',
+        'echeck_bank_account_name': 'str',
+        'echeck_bank_account_number': 'str',
+        'echeck_bank_account_type': 'str',
+        'echeck_bank_name': 'str',
+        'echeck_bank_owner_type': 'str',
+        'echeck_customer_tax_id': 'str',
+        'echeck_drivers_license_dob': 'str',
+        'echeck_drivers_license_number': 'str',
+        'echeck_drivers_license_state': 'str',
         'email': 'str',
         'gift': 'bool',
         'gift_email': 'str',
@@ -154,6 +164,16 @@ class ChannelPartnerOrder(object):
         'custom_field6': 'custom_field6',
         'custom_field7': 'custom_field7',
         'delivery_date': 'delivery_date',
+        'echeck_bank_aba_code': 'echeck_bank_aba_code',
+        'echeck_bank_account_name': 'echeck_bank_account_name',
+        'echeck_bank_account_number': 'echeck_bank_account_number',
+        'echeck_bank_account_type': 'echeck_bank_account_type',
+        'echeck_bank_name': 'echeck_bank_name',
+        'echeck_bank_owner_type': 'echeck_bank_owner_type',
+        'echeck_customer_tax_id': 'echeck_customer_tax_id',
+        'echeck_drivers_license_dob': 'echeck_drivers_license_dob',
+        'echeck_drivers_license_number': 'echeck_drivers_license_number',
+        'echeck_drivers_license_state': 'echeck_drivers_license_state',
         'email': 'email',
         'gift': 'gift',
         'gift_email': 'gift_email',
@@ -198,7 +218,7 @@ class ChannelPartnerOrder(object):
         'treat_warnings_as_errors': 'treat_warnings_as_errors'
     }
 
-    def __init__(self, advertising_source=None, affiliate_id=None, affiliate_sub_id=None, arbitrary_shipping_handling_total=None, arbitrary_tax=None, arbitrary_tax_rate=None, arbitrary_taxable_subtotal=None, associate_with_customer_profile_if_present=None, auto_approve_purchase_order=None, billto_address1=None, billto_address2=None, billto_city=None, billto_company=None, billto_country_code=None, billto_day_phone=None, billto_evening_phone=None, billto_first_name=None, billto_last_name=None, billto_postal_code=None, billto_state_region=None, billto_title=None, cc_email=None, channel_partner_order_id=None, consider_recurring=None, coupons=None, credit_card_authorization_amount=None, credit_card_authorization_dts=None, credit_card_authorization_number=None, credit_card_expiration_month=None, credit_card_expiration_year=None, credit_card_type=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, delivery_date=None, email=None, gift=None, gift_email=None, gift_message=None, hosted_fields_card_token=None, hosted_fields_cvv_token=None, insurance_application_id=None, insurance_claim_id=None, ip_address=None, items=None, least_cost_route=None, least_cost_route_shipping_methods=None, mailing_list_opt_in=None, no_realtime_payment_processing=None, payment_method=None, purchase_order_number=None, rotating_transaction_gateway_code=None, sales_rep_code=None, screen_branding_theme_code=None, ship_on_date=None, ship_to_residential=None, shipping_method=None, shipto_address1=None, shipto_address2=None, shipto_city=None, shipto_company=None, shipto_country_code=None, shipto_day_phone=None, shipto_evening_phone=None, shipto_first_name=None, shipto_last_name=None, shipto_postal_code=None, shipto_state_region=None, shipto_title=None, skip_payment_processing=None, special_instructions=None, store_completed=None, store_if_payment_declines=None, tax_county=None, tax_exempt=None, transaction=None, treat_warnings_as_errors=None):  # noqa: E501
+    def __init__(self, advertising_source=None, affiliate_id=None, affiliate_sub_id=None, arbitrary_shipping_handling_total=None, arbitrary_tax=None, arbitrary_tax_rate=None, arbitrary_taxable_subtotal=None, associate_with_customer_profile_if_present=None, auto_approve_purchase_order=None, billto_address1=None, billto_address2=None, billto_city=None, billto_company=None, billto_country_code=None, billto_day_phone=None, billto_evening_phone=None, billto_first_name=None, billto_last_name=None, billto_postal_code=None, billto_state_region=None, billto_title=None, cc_email=None, channel_partner_order_id=None, consider_recurring=None, coupons=None, credit_card_authorization_amount=None, credit_card_authorization_dts=None, credit_card_authorization_number=None, credit_card_expiration_month=None, credit_card_expiration_year=None, credit_card_type=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, delivery_date=None, echeck_bank_aba_code=None, echeck_bank_account_name=None, echeck_bank_account_number=None, echeck_bank_account_type=None, echeck_bank_name=None, echeck_bank_owner_type=None, echeck_customer_tax_id=None, echeck_drivers_license_dob=None, echeck_drivers_license_number=None, echeck_drivers_license_state=None, email=None, gift=None, gift_email=None, gift_message=None, hosted_fields_card_token=None, hosted_fields_cvv_token=None, insurance_application_id=None, insurance_claim_id=None, ip_address=None, items=None, least_cost_route=None, least_cost_route_shipping_methods=None, mailing_list_opt_in=None, no_realtime_payment_processing=None, payment_method=None, purchase_order_number=None, rotating_transaction_gateway_code=None, sales_rep_code=None, screen_branding_theme_code=None, ship_on_date=None, ship_to_residential=None, shipping_method=None, shipto_address1=None, shipto_address2=None, shipto_city=None, shipto_company=None, shipto_country_code=None, shipto_day_phone=None, shipto_evening_phone=None, shipto_first_name=None, shipto_last_name=None, shipto_postal_code=None, shipto_state_region=None, shipto_title=None, skip_payment_processing=None, special_instructions=None, store_completed=None, store_if_payment_declines=None, tax_county=None, tax_exempt=None, transaction=None, treat_warnings_as_errors=None):  # noqa: E501
         """ChannelPartnerOrder - a model defined in Swagger"""  # noqa: E501
 
         self._advertising_source = None
@@ -240,6 +260,16 @@ class ChannelPartnerOrder(object):
         self._custom_field6 = None
         self._custom_field7 = None
         self._delivery_date = None
+        self._echeck_bank_aba_code = None
+        self._echeck_bank_account_name = None
+        self._echeck_bank_account_number = None
+        self._echeck_bank_account_type = None
+        self._echeck_bank_name = None
+        self._echeck_bank_owner_type = None
+        self._echeck_customer_tax_id = None
+        self._echeck_drivers_license_dob = None
+        self._echeck_drivers_license_number = None
+        self._echeck_drivers_license_state = None
         self._email = None
         self._gift = None
         self._gift_email = None
@@ -362,6 +392,26 @@ class ChannelPartnerOrder(object):
             self.custom_field7 = custom_field7
         if delivery_date is not None:
             self.delivery_date = delivery_date
+        if echeck_bank_aba_code is not None:
+            self.echeck_bank_aba_code = echeck_bank_aba_code
+        if echeck_bank_account_name is not None:
+            self.echeck_bank_account_name = echeck_bank_account_name
+        if echeck_bank_account_number is not None:
+            self.echeck_bank_account_number = echeck_bank_account_number
+        if echeck_bank_account_type is not None:
+            self.echeck_bank_account_type = echeck_bank_account_type
+        if echeck_bank_name is not None:
+            self.echeck_bank_name = echeck_bank_name
+        if echeck_bank_owner_type is not None:
+            self.echeck_bank_owner_type = echeck_bank_owner_type
+        if echeck_customer_tax_id is not None:
+            self.echeck_customer_tax_id = echeck_customer_tax_id
+        if echeck_drivers_license_dob is not None:
+            self.echeck_drivers_license_dob = echeck_drivers_license_dob
+        if echeck_drivers_license_number is not None:
+            self.echeck_drivers_license_number = echeck_drivers_license_number
+        if echeck_drivers_license_state is not None:
+            self.echeck_drivers_license_state = echeck_drivers_license_state
         if email is not None:
             self.email = email
         if gift is not None:
@@ -1385,6 +1435,248 @@ class ChannelPartnerOrder(object):
         self._delivery_date = delivery_date
 
     @property
+    def echeck_bank_aba_code(self):
+        """Gets the echeck_bank_aba_code of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck bank ABA code  # noqa: E501
+
+        :return: The echeck_bank_aba_code of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_bank_aba_code
+
+    @echeck_bank_aba_code.setter
+    def echeck_bank_aba_code(self, echeck_bank_aba_code):
+        """Sets the echeck_bank_aba_code of this ChannelPartnerOrder.
+
+        eCheck bank ABA code  # noqa: E501
+
+        :param echeck_bank_aba_code: The echeck_bank_aba_code of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._echeck_bank_aba_code = echeck_bank_aba_code
+
+    @property
+    def echeck_bank_account_name(self):
+        """Gets the echeck_bank_account_name of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck bank account name  # noqa: E501
+
+        :return: The echeck_bank_account_name of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_bank_account_name
+
+    @echeck_bank_account_name.setter
+    def echeck_bank_account_name(self, echeck_bank_account_name):
+        """Sets the echeck_bank_account_name of this ChannelPartnerOrder.
+
+        eCheck bank account name  # noqa: E501
+
+        :param echeck_bank_account_name: The echeck_bank_account_name of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._echeck_bank_account_name = echeck_bank_account_name
+
+    @property
+    def echeck_bank_account_number(self):
+        """Gets the echeck_bank_account_number of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck bank account number  # noqa: E501
+
+        :return: The echeck_bank_account_number of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_bank_account_number
+
+    @echeck_bank_account_number.setter
+    def echeck_bank_account_number(self, echeck_bank_account_number):
+        """Sets the echeck_bank_account_number of this ChannelPartnerOrder.
+
+        eCheck bank account number  # noqa: E501
+
+        :param echeck_bank_account_number: The echeck_bank_account_number of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._echeck_bank_account_number = echeck_bank_account_number
+
+    @property
+    def echeck_bank_account_type(self):
+        """Gets the echeck_bank_account_type of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck bank account type  # noqa: E501
+
+        :return: The echeck_bank_account_type of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_bank_account_type
+
+    @echeck_bank_account_type.setter
+    def echeck_bank_account_type(self, echeck_bank_account_type):
+        """Sets the echeck_bank_account_type of this ChannelPartnerOrder.
+
+        eCheck bank account type  # noqa: E501
+
+        :param echeck_bank_account_type: The echeck_bank_account_type of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Checking", "Savings"]  # noqa: E501
+        if echeck_bank_account_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `echeck_bank_account_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(echeck_bank_account_type, allowed_values)
+            )
+
+        self._echeck_bank_account_type = echeck_bank_account_type
+
+    @property
+    def echeck_bank_name(self):
+        """Gets the echeck_bank_name of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck bank name  # noqa: E501
+
+        :return: The echeck_bank_name of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_bank_name
+
+    @echeck_bank_name.setter
+    def echeck_bank_name(self, echeck_bank_name):
+        """Sets the echeck_bank_name of this ChannelPartnerOrder.
+
+        eCheck bank name  # noqa: E501
+
+        :param echeck_bank_name: The echeck_bank_name of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._echeck_bank_name = echeck_bank_name
+
+    @property
+    def echeck_bank_owner_type(self):
+        """Gets the echeck_bank_owner_type of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck bank owner type  # noqa: E501
+
+        :return: The echeck_bank_owner_type of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_bank_owner_type
+
+    @echeck_bank_owner_type.setter
+    def echeck_bank_owner_type(self, echeck_bank_owner_type):
+        """Sets the echeck_bank_owner_type of this ChannelPartnerOrder.
+
+        eCheck bank owner type  # noqa: E501
+
+        :param echeck_bank_owner_type: The echeck_bank_owner_type of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Business", "Personal"]  # noqa: E501
+        if echeck_bank_owner_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `echeck_bank_owner_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(echeck_bank_owner_type, allowed_values)
+            )
+
+        self._echeck_bank_owner_type = echeck_bank_owner_type
+
+    @property
+    def echeck_customer_tax_id(self):
+        """Gets the echeck_customer_tax_id of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck customer tax id  # noqa: E501
+
+        :return: The echeck_customer_tax_id of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_customer_tax_id
+
+    @echeck_customer_tax_id.setter
+    def echeck_customer_tax_id(self, echeck_customer_tax_id):
+        """Sets the echeck_customer_tax_id of this ChannelPartnerOrder.
+
+        eCheck customer tax id  # noqa: E501
+
+        :param echeck_customer_tax_id: The echeck_customer_tax_id of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._echeck_customer_tax_id = echeck_customer_tax_id
+
+    @property
+    def echeck_drivers_license_dob(self):
+        """Gets the echeck_drivers_license_dob of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck drivers license dob  # noqa: E501
+
+        :return: The echeck_drivers_license_dob of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_drivers_license_dob
+
+    @echeck_drivers_license_dob.setter
+    def echeck_drivers_license_dob(self, echeck_drivers_license_dob):
+        """Sets the echeck_drivers_license_dob of this ChannelPartnerOrder.
+
+        eCheck drivers license dob  # noqa: E501
+
+        :param echeck_drivers_license_dob: The echeck_drivers_license_dob of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._echeck_drivers_license_dob = echeck_drivers_license_dob
+
+    @property
+    def echeck_drivers_license_number(self):
+        """Gets the echeck_drivers_license_number of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck drivers license number  # noqa: E501
+
+        :return: The echeck_drivers_license_number of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_drivers_license_number
+
+    @echeck_drivers_license_number.setter
+    def echeck_drivers_license_number(self, echeck_drivers_license_number):
+        """Sets the echeck_drivers_license_number of this ChannelPartnerOrder.
+
+        eCheck drivers license number  # noqa: E501
+
+        :param echeck_drivers_license_number: The echeck_drivers_license_number of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._echeck_drivers_license_number = echeck_drivers_license_number
+
+    @property
+    def echeck_drivers_license_state(self):
+        """Gets the echeck_drivers_license_state of this ChannelPartnerOrder.  # noqa: E501
+
+        eCheck drivers license state  # noqa: E501
+
+        :return: The echeck_drivers_license_state of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._echeck_drivers_license_state
+
+    @echeck_drivers_license_state.setter
+    def echeck_drivers_license_state(self, echeck_drivers_license_state):
+        """Sets the echeck_drivers_license_state of this ChannelPartnerOrder.
+
+        eCheck drivers license state  # noqa: E501
+
+        :param echeck_drivers_license_state: The echeck_drivers_license_state of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._echeck_drivers_license_state = echeck_drivers_license_state
+
+    @property
     def email(self):
         """Gets the email of this ChannelPartnerOrder.  # noqa: E501
 
@@ -1732,7 +2024,7 @@ class ChannelPartnerOrder(object):
         :param payment_method: The payment_method of this ChannelPartnerOrder.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Affirm", "Amazon", "Check", "COD", "Credit Card", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Wire Transfer"]  # noqa: E501
+        allowed_values = ["Affirm", "Amazon", "Check", "COD", "Credit Card", "eCheck", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Wire Transfer"]  # noqa: E501
         if payment_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `payment_method` ({0}), must be one of {1}"  # noqa: E501
