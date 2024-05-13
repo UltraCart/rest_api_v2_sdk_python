@@ -100,10 +100,10 @@ class ConversationPbxTimeBased(ModelNormal):
 
 
     attribute_map = {
-        'conversation_pbx_time_based_uuid': 'conversationPbxTimeBasedUuid',  # noqa: E501
-        'mapping_config': 'mappingConfig',  # noqa: E501
-        'merchant_id': 'merchantId',  # noqa: E501
-        'time_based_name': 'timeBasedName',  # noqa: E501
+        'conversation_pbx_time_based_uuid': 'conversation_pbx_time_based_uuid',  # noqa: E501
+        'mapping_config': 'mapping_config',  # noqa: E501
+        'merchant_id': 'merchant_id',  # noqa: E501
+        'time_based_name': 'time_based_name',  # noqa: E501
     }
 
     read_only_vars = {
