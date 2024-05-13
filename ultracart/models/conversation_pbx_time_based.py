@@ -38,10 +38,10 @@ class ConversationPbxTimeBased(object):
     }
 
     attribute_map = {
-        'conversation_pbx_time_based_uuid': 'conversationPbxTimeBasedUuid',
-        'mapping_config': 'mappingConfig',
-        'merchant_id': 'merchantId',
-        'time_based_name': 'timeBasedName'
+        'conversation_pbx_time_based_uuid': 'conversation_pbx_time_based_uuid',
+        'mapping_config': 'mapping_config',
+        'merchant_id': 'merchant_id',
+        'time_based_name': 'time_based_name'
     }
 
     def __init__(self, conversation_pbx_time_based_uuid=None, mapping_config=None, merchant_id=None, time_based_name=None):  # noqa: E501
