@@ -122,6 +122,7 @@ class CartCheckout(ModelNormal):
         """
         return {
             'comments': (str,),  # noqa: E501
+            'current_step': (str,),  # noqa: E501
             'custom_field1': (str,),  # noqa: E501
             'custom_field10': (str,),  # noqa: E501
             'custom_field2': (str,),  # noqa: E501
@@ -147,6 +148,7 @@ class CartCheckout(ModelNormal):
 
     attribute_map = {
         'comments': 'comments',  # noqa: E501
+        'current_step': 'current_step',  # noqa: E501
         'custom_field1': 'custom_field1',  # noqa: E501
         'custom_field10': 'custom_field10',  # noqa: E501
         'custom_field2': 'custom_field2',  # noqa: E501
@@ -207,6 +209,7 @@ class CartCheckout(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             comments (str): Comments from the customer.  Rarely used on the single page checkout.. [optional]  # noqa: E501
+            current_step (str): Current step of the checkout (read only). [optional]  # noqa: E501
             custom_field1 (str): Custom field 1. [optional]  # noqa: E501
             custom_field10 (str): Custom field 10. [optional]  # noqa: E501
             custom_field2 (str): Custom field 2. [optional]  # noqa: E501
@@ -309,6 +312,7 @@ class CartCheckout(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             comments (str): Comments from the customer.  Rarely used on the single page checkout.. [optional]  # noqa: E501
+            current_step (str): Current step of the checkout (read only). [optional]  # noqa: E501
             custom_field1 (str): Custom field 1. [optional]  # noqa: E501
             custom_field10 (str): Custom field 10. [optional]  # noqa: E501
             custom_field2 (str): Custom field 2. [optional]  # noqa: E501
