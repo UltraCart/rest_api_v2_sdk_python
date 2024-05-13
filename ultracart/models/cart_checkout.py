@@ -32,6 +32,7 @@ class CartCheckout(object):
     """
     swagger_types = {
         'comments': 'str',
+        'current_step': 'str',
         'custom_field1': 'str',
         'custom_field10': 'str',
         'custom_field2': 'str',
@@ -52,6 +53,7 @@ class CartCheckout(object):
 
     attribute_map = {
         'comments': 'comments',
+        'current_step': 'current_step',
         'custom_field1': 'custom_field1',
         'custom_field10': 'custom_field10',
         'custom_field2': 'custom_field2',
@@ -70,10 +72,11 @@ class CartCheckout(object):
         'user_agent': 'user_agent'
     }
 
-    def __init__(self, comments=None, custom_field1=None, custom_field10=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, custom_field8=None, custom_field9=None, ip_address=None, return_code=None, return_url=None, screen_branding_theme_code=None, storefront_host_name=None, user_agent=None):  # noqa: E501
+    def __init__(self, comments=None, current_step=None, custom_field1=None, custom_field10=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, custom_field8=None, custom_field9=None, ip_address=None, return_code=None, return_url=None, screen_branding_theme_code=None, storefront_host_name=None, user_agent=None):  # noqa: E501
         """CartCheckout - a model defined in Swagger"""  # noqa: E501
 
         self._comments = None
+        self._current_step = None
         self._custom_field1 = None
         self._custom_field10 = None
         self._custom_field2 = None
@@ -94,6 +97,8 @@ class CartCheckout(object):
 
         if comments is not None:
             self.comments = comments
+        if current_step is not None:
+            self.current_step = current_step
         if custom_field1 is not None:
             self.custom_field1 = custom_field1
         if custom_field10 is not None:
@@ -151,6 +156,29 @@ class CartCheckout(object):
             raise ValueError("Invalid value for `comments`, length must be less than or equal to `2000`")  # noqa: E501
 
         self._comments = comments
+
+    @property
+    def current_step(self):
+        """Gets the current_step of this CartCheckout.  # noqa: E501
+
+        Current step of the checkout (read only)  # noqa: E501
+
+        :return: The current_step of this CartCheckout.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_step
+
+    @current_step.setter
+    def current_step(self, current_step):
+        """Sets the current_step of this CartCheckout.
+
+        Current step of the checkout (read only)  # noqa: E501
+
+        :param current_step: The current_step of this CartCheckout.  # noqa: E501
+        :type: str
+        """
+
+        self._current_step = current_step
 
     @property
     def custom_field1(self):
