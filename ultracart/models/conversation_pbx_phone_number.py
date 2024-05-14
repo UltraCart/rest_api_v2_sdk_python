@@ -87,8 +87,12 @@ class ConversationPbxPhoneNumber(object):
         :param action: The action of this ConversationPbxPhoneNumber.  # noqa: E501
         :type: str
         """
-        if action is not None and len(action) > 30:
-            raise ValueError("Invalid value for `action`, length must be less than or equal to `30`")  # noqa: E501
+        allowed_values = ["time based", "menu", "queue", "voicemail", "agent"]  # noqa: E501
+        if action not in allowed_values:
+            raise ValueError(
+                "Invalid value for `action` ({0}), must be one of {1}"  # noqa: E501
+                .format(action, allowed_values)
+            )
 
         self._action = action
 
@@ -96,7 +100,7 @@ class ConversationPbxPhoneNumber(object):
     def action_target(self):
         """Gets the action_target of this ConversationPbxPhoneNumber.  # noqa: E501
 
-        Action target  # noqa: E501
+        Action target.  This is the UUID associated with the configuration object of that particular type.  # noqa: E501
 
         :return: The action_target of this ConversationPbxPhoneNumber.  # noqa: E501
         :rtype: str
@@ -107,7 +111,7 @@ class ConversationPbxPhoneNumber(object):
     def action_target(self, action_target):
         """Sets the action_target of this ConversationPbxPhoneNumber.
 
-        Action target  # noqa: E501
+        Action target.  This is the UUID associated with the configuration object of that particular type.  # noqa: E501
 
         :param action_target: The action_target of this ConversationPbxPhoneNumber.  # noqa: E501
         :type: str

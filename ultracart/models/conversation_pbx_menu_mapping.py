@@ -82,6 +82,12 @@ class ConversationPbxMenuMapping(object):
         :param action: The action of this ConversationPbxMenuMapping.  # noqa: E501
         :type: str
         """
+        allowed_values = ["time based", "menu", "queue", "voicemail", "agent"]  # noqa: E501
+        if action not in allowed_values:
+            raise ValueError(
+                "Invalid value for `action` ({0}), must be one of {1}"  # noqa: E501
+                .format(action, allowed_values)
+            )
 
         self._action = action
 
@@ -89,7 +95,7 @@ class ConversationPbxMenuMapping(object):
     def action_target(self):
         """Gets the action_target of this ConversationPbxMenuMapping.  # noqa: E501
 
-        Action target  # noqa: E501
+        Action target.  This is the UUID associated with the configuration object of that particular type.  # noqa: E501
 
         :return: The action_target of this ConversationPbxMenuMapping.  # noqa: E501
         :rtype: str
@@ -100,11 +106,13 @@ class ConversationPbxMenuMapping(object):
     def action_target(self, action_target):
         """Sets the action_target of this ConversationPbxMenuMapping.
 
-        Action target  # noqa: E501
+        Action target.  This is the UUID associated with the configuration object of that particular type.  # noqa: E501
 
         :param action_target: The action_target of this ConversationPbxMenuMapping.  # noqa: E501
         :type: str
         """
+        if action_target is not None and len(action_target) > 50:
+            raise ValueError("Invalid value for `action_target`, length must be less than or equal to `50`")  # noqa: E501
 
         self._action_target = action_target
 
