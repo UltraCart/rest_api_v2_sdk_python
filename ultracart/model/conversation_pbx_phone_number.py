@@ -56,6 +56,13 @@ class ConversationPbxPhoneNumber(ModelNormal):
     """
 
     allowed_values = {
+        ('action',): {
+            'TIME_BASED': "time based",
+            'MENU': "menu",
+            'QUEUE': "queue",
+            'VOICEMAIL': "voicemail",
+            'AGENT': "agent",
+        },
     }
 
     validations = {
@@ -159,7 +166,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
-            action_target (str): Action target. [optional]  # noqa: E501
+            action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             conversation_pbx_time_range_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             phone_number (str): Phone number. [optional]  # noqa: E501
@@ -249,7 +256,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
-            action_target (str): Action target. [optional]  # noqa: E501
+            action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             conversation_pbx_time_range_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             phone_number (str): Phone number. [optional]  # noqa: E501

@@ -56,6 +56,13 @@ class ConversationPbxTimeBasedMapping(ModelNormal):
     """
 
     allowed_values = {
+        ('action',): {
+            'TIME_BASED': "time based",
+            'MENU': "menu",
+            'QUEUE': "queue",
+            'VOICEMAIL': "voicemail",
+            'AGENT': "agent",
+        },
     }
 
     validations = {
@@ -154,7 +161,7 @@ class ConversationPbxTimeBasedMapping(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
-            action_target (str): Action target. [optional]  # noqa: E501
+            action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             name (str): Name. [optional]  # noqa: E501
             time_range_uuid (str): Time range UUID. [optional]  # noqa: E501
         """
@@ -243,7 +250,7 @@ class ConversationPbxTimeBasedMapping(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
-            action_target (str): Action target. [optional]  # noqa: E501
+            action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             name (str): Name. [optional]  # noqa: E501
             time_range_uuid (str): Time range UUID. [optional]  # noqa: E501
         """

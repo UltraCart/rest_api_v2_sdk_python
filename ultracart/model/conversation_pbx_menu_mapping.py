@@ -56,9 +56,22 @@ class ConversationPbxMenuMapping(ModelNormal):
     """
 
     allowed_values = {
+        ('action',): {
+            'TIME_BASED': "time based",
+            'MENU': "menu",
+            'QUEUE': "queue",
+            'VOICEMAIL': "voicemail",
+            'AGENT': "agent",
+        },
     }
 
     validations = {
+        ('action',): {
+            'max_length': 30,
+        },
+        ('action_target',): {
+            'max_length': 50,
+        },
     }
 
     @cached_property
@@ -142,7 +155,7 @@ class ConversationPbxMenuMapping(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
-            action_target (str): Action target. [optional]  # noqa: E501
+            action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             digits (int): Digits. [optional]  # noqa: E501
             speech (str): Speech. [optional]  # noqa: E501
         """
@@ -231,7 +244,7 @@ class ConversationPbxMenuMapping(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
-            action_target (str): Action target. [optional]  # noqa: E501
+            action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             digits (int): Digits. [optional]  # noqa: E501
             speech (str): Speech. [optional]  # noqa: E501
         """

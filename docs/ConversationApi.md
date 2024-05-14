@@ -4444,7 +4444,7 @@ api_instance = GiftCertificateApi(api_client())
         default_action_target="default_action_target_example",
         mappings=[
             ConversationPbxMenuMapping(
-                action="action_example",
+                action="time based",
                 action_target="action_target_example",
                 digits=1,
                 speech="speech_example",
@@ -4529,7 +4529,7 @@ from pprint import pprint
 api_instance = GiftCertificateApi(api_client())
 
     pbx_phone_number = ConversationPbxPhoneNumber(
-        action="action_example",
+        action="time based",
         action_target="action_target_example",
         conversation_pbx_time_range_uuid="conversation_pbx_time_range_uuid_example",
         merchant_id="merchant_id_example",
@@ -4713,14 +4713,14 @@ api_instance = GiftCertificateApi(api_client())
         conversation_pbx_time_based_uuid="conversation_pbx_time_based_uuid_example",
         mapping_config=ConversationPbxTimeBasedMappingConfig(
             default=ConversationPbxTimeBasedMapping(
-                action="action_example",
+                action="time based",
                 action_target="action_target_example",
                 name="name_example",
                 time_range_uuid="time_range_uuid_example",
             ),
             mappings=[
                 ConversationPbxTimeBasedMapping(
-                    action="action_example",
+                    action="time based",
                     action_target="action_target_example",
                     name="name_example",
                     time_range_uuid="time_range_uuid_example",
@@ -6241,7 +6241,7 @@ api_instance = GiftCertificateApi(api_client())
         default_action_target="default_action_target_example",
         mappings=[
             ConversationPbxMenuMapping(
-                action="action_example",
+                action="time based",
                 action_target="action_target_example",
                 digits=1,
                 speech="speech_example",
@@ -6328,7 +6328,7 @@ api_instance = GiftCertificateApi(api_client())
 
     conversation_pbx_phone_number_uuid = "conversationPbxPhoneNumberUuid_example" # str | 
     pbx_phone_number = ConversationPbxPhoneNumber(
-        action="action_example",
+        action="time based",
         action_target="action_target_example",
         conversation_pbx_time_range_uuid="conversation_pbx_time_range_uuid_example",
         merchant_id="merchant_id_example",
@@ -6516,14 +6516,14 @@ api_instance = GiftCertificateApi(api_client())
         conversation_pbx_time_based_uuid="conversation_pbx_time_based_uuid_example",
         mapping_config=ConversationPbxTimeBasedMappingConfig(
             default=ConversationPbxTimeBasedMapping(
-                action="action_example",
+                action="time based",
                 action_target="action_target_example",
                 name="name_example",
                 time_range_uuid="time_range_uuid_example",
             ),
             mappings=[
                 ConversationPbxTimeBasedMapping(
-                    action="action_example",
+                    action="time based",
                     action_target="action_target_example",
                     name="name_example",
                     time_range_uuid="time_range_uuid_example",
