@@ -34,10 +34,16 @@ class ConversationPbxAgent(object):
         'cellphone': 'str',
         'conversation_pbx_agent_uuid': 'str',
         'conversation_pbx_voicemail_mailbox_uuid': 'str',
+        'extension': 'int',
         'forward_calls_to_cellphone': 'bool',
+        'full_name': 'str',
+        'login': 'str',
         'merchant_id': 'str',
         'record_outgoing_automatically': 'bool',
         'twilio_taskrouter_worker_id': 'str',
+        'unavailable_play_audio_uuid': 'str',
+        'unavailable_say': 'str',
+        'unavailable_say_voice': 'str',
         'user_id': 'int',
         'voicemail': 'bool'
     }
@@ -46,24 +52,36 @@ class ConversationPbxAgent(object):
         'cellphone': 'cellphone',
         'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',
         'conversation_pbx_voicemail_mailbox_uuid': 'conversation_pbx_voicemail_mailbox_uuid',
+        'extension': 'extension',
         'forward_calls_to_cellphone': 'forward_calls_to_cellphone',
+        'full_name': 'full_name',
+        'login': 'login',
         'merchant_id': 'merchant_id',
         'record_outgoing_automatically': 'record_outgoing_automatically',
         'twilio_taskrouter_worker_id': 'twilio_taskrouter_worker_id',
+        'unavailable_play_audio_uuid': 'unavailable_play_audio_uuid',
+        'unavailable_say': 'unavailable_say',
+        'unavailable_say_voice': 'unavailable_say_voice',
         'user_id': 'user_id',
         'voicemail': 'voicemail'
     }
 
-    def __init__(self, cellphone=None, conversation_pbx_agent_uuid=None, conversation_pbx_voicemail_mailbox_uuid=None, forward_calls_to_cellphone=None, merchant_id=None, record_outgoing_automatically=None, twilio_taskrouter_worker_id=None, user_id=None, voicemail=None):  # noqa: E501
+    def __init__(self, cellphone=None, conversation_pbx_agent_uuid=None, conversation_pbx_voicemail_mailbox_uuid=None, extension=None, forward_calls_to_cellphone=None, full_name=None, login=None, merchant_id=None, record_outgoing_automatically=None, twilio_taskrouter_worker_id=None, unavailable_play_audio_uuid=None, unavailable_say=None, unavailable_say_voice=None, user_id=None, voicemail=None):  # noqa: E501
         """ConversationPbxAgent - a model defined in Swagger"""  # noqa: E501
 
         self._cellphone = None
         self._conversation_pbx_agent_uuid = None
         self._conversation_pbx_voicemail_mailbox_uuid = None
+        self._extension = None
         self._forward_calls_to_cellphone = None
+        self._full_name = None
+        self._login = None
         self._merchant_id = None
         self._record_outgoing_automatically = None
         self._twilio_taskrouter_worker_id = None
+        self._unavailable_play_audio_uuid = None
+        self._unavailable_say = None
+        self._unavailable_say_voice = None
         self._user_id = None
         self._voicemail = None
         self.discriminator = None
@@ -74,14 +92,26 @@ class ConversationPbxAgent(object):
             self.conversation_pbx_agent_uuid = conversation_pbx_agent_uuid
         if conversation_pbx_voicemail_mailbox_uuid is not None:
             self.conversation_pbx_voicemail_mailbox_uuid = conversation_pbx_voicemail_mailbox_uuid
+        if extension is not None:
+            self.extension = extension
         if forward_calls_to_cellphone is not None:
             self.forward_calls_to_cellphone = forward_calls_to_cellphone
+        if full_name is not None:
+            self.full_name = full_name
+        if login is not None:
+            self.login = login
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if record_outgoing_automatically is not None:
             self.record_outgoing_automatically = record_outgoing_automatically
         if twilio_taskrouter_worker_id is not None:
             self.twilio_taskrouter_worker_id = twilio_taskrouter_worker_id
+        if unavailable_play_audio_uuid is not None:
+            self.unavailable_play_audio_uuid = unavailable_play_audio_uuid
+        if unavailable_say is not None:
+            self.unavailable_say = unavailable_say
+        if unavailable_say_voice is not None:
+            self.unavailable_say_voice = unavailable_say_voice
         if user_id is not None:
             self.user_id = user_id
         if voicemail is not None:
@@ -161,6 +191,29 @@ class ConversationPbxAgent(object):
         self._conversation_pbx_voicemail_mailbox_uuid = conversation_pbx_voicemail_mailbox_uuid
 
     @property
+    def extension(self):
+        """Gets the extension of this ConversationPbxAgent.  # noqa: E501
+
+        Extension  # noqa: E501
+
+        :return: The extension of this ConversationPbxAgent.  # noqa: E501
+        :rtype: int
+        """
+        return self._extension
+
+    @extension.setter
+    def extension(self, extension):
+        """Sets the extension of this ConversationPbxAgent.
+
+        Extension  # noqa: E501
+
+        :param extension: The extension of this ConversationPbxAgent.  # noqa: E501
+        :type: int
+        """
+
+        self._extension = extension
+
+    @property
     def forward_calls_to_cellphone(self):
         """Gets the forward_calls_to_cellphone of this ConversationPbxAgent.  # noqa: E501
 
@@ -182,6 +235,52 @@ class ConversationPbxAgent(object):
         """
 
         self._forward_calls_to_cellphone = forward_calls_to_cellphone
+
+    @property
+    def full_name(self):
+        """Gets the full_name of this ConversationPbxAgent.  # noqa: E501
+
+        Full name  # noqa: E501
+
+        :return: The full_name of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._full_name
+
+    @full_name.setter
+    def full_name(self, full_name):
+        """Sets the full_name of this ConversationPbxAgent.
+
+        Full name  # noqa: E501
+
+        :param full_name: The full_name of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+
+        self._full_name = full_name
+
+    @property
+    def login(self):
+        """Gets the login of this ConversationPbxAgent.  # noqa: E501
+
+        Agent login  # noqa: E501
+
+        :return: The login of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._login
+
+    @login.setter
+    def login(self, login):
+        """Sets the login of this ConversationPbxAgent.
+
+        Agent login  # noqa: E501
+
+        :param login: The login of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+
+        self._login = login
 
     @property
     def merchant_id(self):
@@ -255,6 +354,79 @@ class ConversationPbxAgent(object):
             raise ValueError("Invalid value for `twilio_taskrouter_worker_id`, length must be less than or equal to `100`")  # noqa: E501
 
         self._twilio_taskrouter_worker_id = twilio_taskrouter_worker_id
+
+    @property
+    def unavailable_play_audio_uuid(self):
+        """Gets the unavailable_play_audio_uuid of this ConversationPbxAgent.  # noqa: E501
+
+        Unavailable play audio UUID  # noqa: E501
+
+        :return: The unavailable_play_audio_uuid of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._unavailable_play_audio_uuid
+
+    @unavailable_play_audio_uuid.setter
+    def unavailable_play_audio_uuid(self, unavailable_play_audio_uuid):
+        """Sets the unavailable_play_audio_uuid of this ConversationPbxAgent.
+
+        Unavailable play audio UUID  # noqa: E501
+
+        :param unavailable_play_audio_uuid: The unavailable_play_audio_uuid of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+        if unavailable_play_audio_uuid is not None and len(unavailable_play_audio_uuid) > 50:
+            raise ValueError("Invalid value for `unavailable_play_audio_uuid`, length must be less than or equal to `50`")  # noqa: E501
+
+        self._unavailable_play_audio_uuid = unavailable_play_audio_uuid
+
+    @property
+    def unavailable_say(self):
+        """Gets the unavailable_say of this ConversationPbxAgent.  # noqa: E501
+
+        Unavailable say  # noqa: E501
+
+        :return: The unavailable_say of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._unavailable_say
+
+    @unavailable_say.setter
+    def unavailable_say(self, unavailable_say):
+        """Sets the unavailable_say of this ConversationPbxAgent.
+
+        Unavailable say  # noqa: E501
+
+        :param unavailable_say: The unavailable_say of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+
+        self._unavailable_say = unavailable_say
+
+    @property
+    def unavailable_say_voice(self):
+        """Gets the unavailable_say_voice of this ConversationPbxAgent.  # noqa: E501
+
+        Unavailable say voice  # noqa: E501
+
+        :return: The unavailable_say_voice of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._unavailable_say_voice
+
+    @unavailable_say_voice.setter
+    def unavailable_say_voice(self, unavailable_say_voice):
+        """Sets the unavailable_say_voice of this ConversationPbxAgent.
+
+        Unavailable say voice  # noqa: E501
+
+        :param unavailable_say_voice: The unavailable_say_voice of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+        if unavailable_say_voice is not None and len(unavailable_say_voice) > 50:
+            raise ValueError("Invalid value for `unavailable_say_voice`, length must be less than or equal to `50`")  # noqa: E501
+
+        self._unavailable_say_voice = unavailable_say_voice
 
     @property
     def user_id(self):

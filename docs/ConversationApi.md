@@ -7,11 +7,9 @@ Method | HTTP request | Description
 [**delete_conversation_canned_message**](ConversationApi.md#delete_conversation_canned_message) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 [**delete_department**](ConversationApi.md#delete_department) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 [**delete_engagement**](ConversationApi.md#delete_engagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
-[**delete_pbx_agent**](ConversationApi.md#delete_pbx_agent) | **DELETE** /conversation/pbx/agent/{conversationPbxAgentUuid} | Delete pbx agent
 [**delete_pbx_agent_voicemail**](ConversationApi.md#delete_pbx_agent_voicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 [**delete_pbx_audio**](ConversationApi.md#delete_pbx_audio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
 [**delete_pbx_menu**](ConversationApi.md#delete_pbx_menu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
-[**delete_pbx_phone_number**](ConversationApi.md#delete_pbx_phone_number) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
 [**delete_pbx_queue**](ConversationApi.md#delete_pbx_queue) | **DELETE** /conversation/pbx/queue/{conversationPbxQueueUuid} | Delete pbx queue
 [**delete_pbx_queue_voicemail**](ConversationApi.md#delete_pbx_queue_voicemail) | **DELETE** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Delete Queue Voicemail
 [**delete_pbx_time_based**](ConversationApi.md#delete_pbx_time_based) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
@@ -61,10 +59,8 @@ Method | HTTP request | Description
 [**insert_conversation_canned_message**](ConversationApi.md#insert_conversation_canned_message) | **POST** /conversation/canned_messages | Insert a canned message
 [**insert_conversation_department**](ConversationApi.md#insert_conversation_department) | **POST** /conversation/departments | Insert a department
 [**insert_conversation_engagement**](ConversationApi.md#insert_conversation_engagement) | **POST** /conversation/engagements | Insert a engagement
-[**insert_pbx_agent**](ConversationApi.md#insert_pbx_agent) | **POST** /conversation/pbx/agent | Insert pbx agent
 [**insert_pbx_audio**](ConversationApi.md#insert_pbx_audio) | **POST** /conversation/pbx/audio | Insert pbx audio
 [**insert_pbx_menu**](ConversationApi.md#insert_pbx_menu) | **POST** /conversation/pbx/menu | Insert pbx menu
-[**insert_pbx_phone_number**](ConversationApi.md#insert_pbx_phone_number) | **POST** /conversation/pbx/phone_number | Insert pbx phoneNumber
 [**insert_pbx_queue**](ConversationApi.md#insert_pbx_queue) | **POST** /conversation/pbx/queue | Insert pbx queue
 [**insert_pbx_time_based**](ConversationApi.md#insert_pbx_time_based) | **POST** /conversation/pbx/time_based | Insert pbx timeBased
 [**insert_pbx_time_range**](ConversationApi.md#insert_pbx_time_range) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
@@ -240,56 +236,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_pbx_agent**
-> ConversationPbxAgentResponse delete_pbx_agent(conversation_pbx_agent_uuid)
-
-Delete pbx agent
-
-Delete a pbx agent 
-
-### Example
-```python
-from __future__ import print_function
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
-
-conversation_pbx_agent_uuid = 'conversation_pbx_agent_uuid_example' # str | 
-
-try:
-    # Delete pbx agent
-    api_response = api_instance.delete_pbx_agent(conversation_pbx_agent_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConversationApi->delete_pbx_agent: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **conversation_pbx_agent_uuid** | **str**|  | 
-
-### Return type
-
-[**ConversationPbxAgentResponse**](ConversationPbxAgentResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **delete_pbx_agent_voicemail**
 > delete_pbx_agent_voicemail(recording_sid)
 
@@ -427,56 +373,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxMenuResponse**](ConversationPbxMenuResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **delete_pbx_phone_number**
-> ConversationPbxPhoneNumberResponse delete_pbx_phone_number(conversation_pbx_phone_number_uuid)
-
-Delete pbx phoneNumber
-
-Delete a pbx phoneNumber 
-
-### Example
-```python
-from __future__ import print_function
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
-
-conversation_pbx_phone_number_uuid = 'conversation_pbx_phone_number_uuid_example' # str | 
-
-try:
-    # Delete pbx phoneNumber
-    api_response = api_instance.delete_pbx_phone_number(conversation_pbx_phone_number_uuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConversationApi->delete_pbx_phone_number: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **conversation_pbx_phone_number_uuid** | **str**|  | 
-
-### Return type
-
-[**ConversationPbxPhoneNumberResponse**](ConversationPbxPhoneNumberResponse.md)
 
 ### Authorization
 
@@ -2877,56 +2773,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **insert_pbx_agent**
-> ConversationPbxAgentResponse insert_pbx_agent(pbx_agent)
-
-Insert pbx agent
-
-Insert a pbx agent 
-
-### Example
-```python
-from __future__ import print_function
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
-
-pbx_agent = ultracart.ConversationPbxAgent() # ConversationPbxAgent | Pbx Agent
-
-try:
-    # Insert pbx agent
-    api_response = api_instance.insert_pbx_agent(pbx_agent)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConversationApi->insert_pbx_agent: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbx_agent** | [**ConversationPbxAgent**](ConversationPbxAgent.md)| Pbx Agent | 
-
-### Return type
-
-[**ConversationPbxAgentResponse**](ConversationPbxAgentResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **insert_pbx_audio**
 > ConversationPbxAudioResponse insert_pbx_audio(pbx_audio)
 
@@ -3015,56 +2861,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxMenuResponse**](ConversationPbxMenuResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **insert_pbx_phone_number**
-> ConversationPbxPhoneNumberResponse insert_pbx_phone_number(pbx_phone_number)
-
-Insert pbx phoneNumber
-
-Insert a pbx phoneNumber 
-
-### Example
-```python
-from __future__ import print_function
-import time
-import ultracart
-from ultracart.rest import ApiException
-from pprint import pprint
-
-# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
-api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
-
-pbx_phone_number = ultracart.ConversationPbxPhoneNumber() # ConversationPbxPhoneNumber | Pbx PhoneNumber
-
-try:
-    # Insert pbx phoneNumber
-    api_response = api_instance.insert_pbx_phone_number(pbx_phone_number)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ConversationApi->insert_pbx_phone_number: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbx_phone_number** | [**ConversationPbxPhoneNumber**](ConversationPbxPhoneNumber.md)| Pbx PhoneNumber | 
-
-### Return type
-
-[**ConversationPbxPhoneNumberResponse**](ConversationPbxPhoneNumberResponse.md)
 
 ### Authorization
 
