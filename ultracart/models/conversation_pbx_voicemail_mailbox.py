@@ -35,13 +35,14 @@ class ConversationPbxVoicemailMailbox(object):
         'merchant_id': 'str',
         'send_notices_to_email': 'str',
         'user_id': 'int',
-        'voicemail_follow_play_audio_uuid': 'str',
+        'voicemail_followup_play_audio_uuid': 'str',
         'voicemail_followup_say': 'str',
+        'voicemail_followup_say_voice': 'str',
         'voicemail_mailbox_id': 'str',
         'voicemail_mailbox_type': 'str',
         'voicemail_prompt_play_audio_uuid': 'str',
         'voicemail_prompt_say': 'str',
-        'voicemail_say_voice': 'str'
+        'voicemail_prompt_say_voice': 'str'
     }
 
     attribute_map = {
@@ -49,29 +50,31 @@ class ConversationPbxVoicemailMailbox(object):
         'merchant_id': 'merchant_id',
         'send_notices_to_email': 'send_notices_to_email',
         'user_id': 'user_id',
-        'voicemail_follow_play_audio_uuid': 'voicemail_follow_play_audio_uuid',
+        'voicemail_followup_play_audio_uuid': 'voicemail_followup_play_audio_uuid',
         'voicemail_followup_say': 'voicemail_followup_say',
+        'voicemail_followup_say_voice': 'voicemail_followup_say_voice',
         'voicemail_mailbox_id': 'voicemail_mailbox_id',
         'voicemail_mailbox_type': 'voicemail_mailbox_type',
         'voicemail_prompt_play_audio_uuid': 'voicemail_prompt_play_audio_uuid',
         'voicemail_prompt_say': 'voicemail_prompt_say',
-        'voicemail_say_voice': 'voicemail_say_voice'
+        'voicemail_prompt_say_voice': 'voicemail_prompt_say_voice'
     }
 
-    def __init__(self, conversation_pbx_voicemail_mailbox_uuid=None, merchant_id=None, send_notices_to_email=None, user_id=None, voicemail_follow_play_audio_uuid=None, voicemail_followup_say=None, voicemail_mailbox_id=None, voicemail_mailbox_type=None, voicemail_prompt_play_audio_uuid=None, voicemail_prompt_say=None, voicemail_say_voice=None):  # noqa: E501
+    def __init__(self, conversation_pbx_voicemail_mailbox_uuid=None, merchant_id=None, send_notices_to_email=None, user_id=None, voicemail_followup_play_audio_uuid=None, voicemail_followup_say=None, voicemail_followup_say_voice=None, voicemail_mailbox_id=None, voicemail_mailbox_type=None, voicemail_prompt_play_audio_uuid=None, voicemail_prompt_say=None, voicemail_prompt_say_voice=None):  # noqa: E501
         """ConversationPbxVoicemailMailbox - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_pbx_voicemail_mailbox_uuid = None
         self._merchant_id = None
         self._send_notices_to_email = None
         self._user_id = None
-        self._voicemail_follow_play_audio_uuid = None
+        self._voicemail_followup_play_audio_uuid = None
         self._voicemail_followup_say = None
+        self._voicemail_followup_say_voice = None
         self._voicemail_mailbox_id = None
         self._voicemail_mailbox_type = None
         self._voicemail_prompt_play_audio_uuid = None
         self._voicemail_prompt_say = None
-        self._voicemail_say_voice = None
+        self._voicemail_prompt_say_voice = None
         self.discriminator = None
 
         if conversation_pbx_voicemail_mailbox_uuid is not None:
@@ -82,10 +85,12 @@ class ConversationPbxVoicemailMailbox(object):
             self.send_notices_to_email = send_notices_to_email
         if user_id is not None:
             self.user_id = user_id
-        if voicemail_follow_play_audio_uuid is not None:
-            self.voicemail_follow_play_audio_uuid = voicemail_follow_play_audio_uuid
+        if voicemail_followup_play_audio_uuid is not None:
+            self.voicemail_followup_play_audio_uuid = voicemail_followup_play_audio_uuid
         if voicemail_followup_say is not None:
             self.voicemail_followup_say = voicemail_followup_say
+        if voicemail_followup_say_voice is not None:
+            self.voicemail_followup_say_voice = voicemail_followup_say_voice
         if voicemail_mailbox_id is not None:
             self.voicemail_mailbox_id = voicemail_mailbox_id
         if voicemail_mailbox_type is not None:
@@ -94,8 +99,8 @@ class ConversationPbxVoicemailMailbox(object):
             self.voicemail_prompt_play_audio_uuid = voicemail_prompt_play_audio_uuid
         if voicemail_prompt_say is not None:
             self.voicemail_prompt_say = voicemail_prompt_say
-        if voicemail_say_voice is not None:
-            self.voicemail_say_voice = voicemail_say_voice
+        if voicemail_prompt_say_voice is not None:
+            self.voicemail_prompt_say_voice = voicemail_prompt_say_voice
 
     @property
     def conversation_pbx_voicemail_mailbox_uuid(self):
@@ -196,29 +201,29 @@ class ConversationPbxVoicemailMailbox(object):
         self._user_id = user_id
 
     @property
-    def voicemail_follow_play_audio_uuid(self):
-        """Gets the voicemail_follow_play_audio_uuid of this ConversationPbxVoicemailMailbox.  # noqa: E501
+    def voicemail_followup_play_audio_uuid(self):
+        """Gets the voicemail_followup_play_audio_uuid of this ConversationPbxVoicemailMailbox.  # noqa: E501
 
         Voicemail follow play audio UUID  # noqa: E501
 
-        :return: The voicemail_follow_play_audio_uuid of this ConversationPbxVoicemailMailbox.  # noqa: E501
+        :return: The voicemail_followup_play_audio_uuid of this ConversationPbxVoicemailMailbox.  # noqa: E501
         :rtype: str
         """
-        return self._voicemail_follow_play_audio_uuid
+        return self._voicemail_followup_play_audio_uuid
 
-    @voicemail_follow_play_audio_uuid.setter
-    def voicemail_follow_play_audio_uuid(self, voicemail_follow_play_audio_uuid):
-        """Sets the voicemail_follow_play_audio_uuid of this ConversationPbxVoicemailMailbox.
+    @voicemail_followup_play_audio_uuid.setter
+    def voicemail_followup_play_audio_uuid(self, voicemail_followup_play_audio_uuid):
+        """Sets the voicemail_followup_play_audio_uuid of this ConversationPbxVoicemailMailbox.
 
         Voicemail follow play audio UUID  # noqa: E501
 
-        :param voicemail_follow_play_audio_uuid: The voicemail_follow_play_audio_uuid of this ConversationPbxVoicemailMailbox.  # noqa: E501
+        :param voicemail_followup_play_audio_uuid: The voicemail_followup_play_audio_uuid of this ConversationPbxVoicemailMailbox.  # noqa: E501
         :type: str
         """
-        if voicemail_follow_play_audio_uuid is not None and len(voicemail_follow_play_audio_uuid) > 50:
-            raise ValueError("Invalid value for `voicemail_follow_play_audio_uuid`, length must be less than or equal to `50`")  # noqa: E501
+        if voicemail_followup_play_audio_uuid is not None and len(voicemail_followup_play_audio_uuid) > 50:
+            raise ValueError("Invalid value for `voicemail_followup_play_audio_uuid`, length must be less than or equal to `50`")  # noqa: E501
 
-        self._voicemail_follow_play_audio_uuid = voicemail_follow_play_audio_uuid
+        self._voicemail_followup_play_audio_uuid = voicemail_followup_play_audio_uuid
 
     @property
     def voicemail_followup_say(self):
@@ -242,6 +247,31 @@ class ConversationPbxVoicemailMailbox(object):
         """
 
         self._voicemail_followup_say = voicemail_followup_say
+
+    @property
+    def voicemail_followup_say_voice(self):
+        """Gets the voicemail_followup_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
+
+        Voicemail followup say voice  # noqa: E501
+
+        :return: The voicemail_followup_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
+        :rtype: str
+        """
+        return self._voicemail_followup_say_voice
+
+    @voicemail_followup_say_voice.setter
+    def voicemail_followup_say_voice(self, voicemail_followup_say_voice):
+        """Sets the voicemail_followup_say_voice of this ConversationPbxVoicemailMailbox.
+
+        Voicemail followup say voice  # noqa: E501
+
+        :param voicemail_followup_say_voice: The voicemail_followup_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
+        :type: str
+        """
+        if voicemail_followup_say_voice is not None and len(voicemail_followup_say_voice) > 50:
+            raise ValueError("Invalid value for `voicemail_followup_say_voice`, length must be less than or equal to `50`")  # noqa: E501
+
+        self._voicemail_followup_say_voice = voicemail_followup_say_voice
 
     @property
     def voicemail_mailbox_id(self):
@@ -346,29 +376,29 @@ class ConversationPbxVoicemailMailbox(object):
         self._voicemail_prompt_say = voicemail_prompt_say
 
     @property
-    def voicemail_say_voice(self):
-        """Gets the voicemail_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
+    def voicemail_prompt_say_voice(self):
+        """Gets the voicemail_prompt_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
 
-        Voicemail say voice  # noqa: E501
+        Voicemail prompt say voice  # noqa: E501
 
-        :return: The voicemail_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
+        :return: The voicemail_prompt_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
         :rtype: str
         """
-        return self._voicemail_say_voice
+        return self._voicemail_prompt_say_voice
 
-    @voicemail_say_voice.setter
-    def voicemail_say_voice(self, voicemail_say_voice):
-        """Sets the voicemail_say_voice of this ConversationPbxVoicemailMailbox.
+    @voicemail_prompt_say_voice.setter
+    def voicemail_prompt_say_voice(self, voicemail_prompt_say_voice):
+        """Sets the voicemail_prompt_say_voice of this ConversationPbxVoicemailMailbox.
 
-        Voicemail say voice  # noqa: E501
+        Voicemail prompt say voice  # noqa: E501
 
-        :param voicemail_say_voice: The voicemail_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
+        :param voicemail_prompt_say_voice: The voicemail_prompt_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
         :type: str
         """
-        if voicemail_say_voice is not None and len(voicemail_say_voice) > 50:
-            raise ValueError("Invalid value for `voicemail_say_voice`, length must be less than or equal to `50`")  # noqa: E501
+        if voicemail_prompt_say_voice is not None and len(voicemail_prompt_say_voice) > 50:
+            raise ValueError("Invalid value for `voicemail_prompt_say_voice`, length must be less than or equal to `50`")  # noqa: E501
 
-        self._voicemail_say_voice = voicemail_say_voice
+        self._voicemail_prompt_say_voice = voicemail_prompt_say_voice
 
     def to_dict(self):
         """Returns the model properties as a dict"""
