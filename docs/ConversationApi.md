@@ -7,11 +7,9 @@ Method | HTTP request | Description
 [**delete_conversation_canned_message**](ConversationApi.md#delete_conversation_canned_message) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 [**delete_department**](ConversationApi.md#delete_department) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 [**delete_engagement**](ConversationApi.md#delete_engagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
-[**delete_pbx_agent**](ConversationApi.md#delete_pbx_agent) | **DELETE** /conversation/pbx/agent/{conversationPbxAgentUuid} | Delete pbx agent
 [**delete_pbx_agent_voicemail**](ConversationApi.md#delete_pbx_agent_voicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 [**delete_pbx_audio**](ConversationApi.md#delete_pbx_audio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
 [**delete_pbx_menu**](ConversationApi.md#delete_pbx_menu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
-[**delete_pbx_phone_number**](ConversationApi.md#delete_pbx_phone_number) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
 [**delete_pbx_queue**](ConversationApi.md#delete_pbx_queue) | **DELETE** /conversation/pbx/queue/{conversationPbxQueueUuid} | Delete pbx queue
 [**delete_pbx_queue_voicemail**](ConversationApi.md#delete_pbx_queue_voicemail) | **DELETE** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Delete Queue Voicemail
 [**delete_pbx_time_based**](ConversationApi.md#delete_pbx_time_based) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
@@ -61,10 +59,8 @@ Method | HTTP request | Description
 [**insert_conversation_canned_message**](ConversationApi.md#insert_conversation_canned_message) | **POST** /conversation/canned_messages | Insert a canned message
 [**insert_conversation_department**](ConversationApi.md#insert_conversation_department) | **POST** /conversation/departments | Insert a department
 [**insert_conversation_engagement**](ConversationApi.md#insert_conversation_engagement) | **POST** /conversation/engagements | Insert a engagement
-[**insert_pbx_agent**](ConversationApi.md#insert_pbx_agent) | **POST** /conversation/pbx/agent | Insert pbx agent
 [**insert_pbx_audio**](ConversationApi.md#insert_pbx_audio) | **POST** /conversation/pbx/audio | Insert pbx audio
 [**insert_pbx_menu**](ConversationApi.md#insert_pbx_menu) | **POST** /conversation/pbx/menu | Insert pbx menu
-[**insert_pbx_phone_number**](ConversationApi.md#insert_pbx_phone_number) | **POST** /conversation/pbx/phone_number | Insert pbx phoneNumber
 [**insert_pbx_queue**](ConversationApi.md#insert_pbx_queue) | **POST** /conversation/pbx/queue | Insert pbx queue
 [**insert_pbx_time_based**](ConversationApi.md#insert_pbx_time_based) | **POST** /conversation/pbx/time_based | Insert pbx timeBased
 [**insert_pbx_time_range**](ConversationApi.md#insert_pbx_time_range) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
@@ -300,78 +296,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_pbx_agent**
-> ConversationPbxAgentResponse delete_pbx_agent(conversation_pbx_agent_uuid)
-
-Delete pbx agent
-
-Delete a pbx agent 
-
-### Example
-
-* OAuth Authentication (ultraCartOauth):
-* Api Key Authentication (ultraCartSimpleApiKey):
-
-```python
-import time
-import ultracart
-from ultracart.api import conversation_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.conversation_pbx_agent_response import ConversationPbxAgentResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    conversation_pbx_agent_uuid = "conversationPbxAgentUuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete pbx agent
-        api_response = api_instance.delete_pbx_agent(conversation_pbx_agent_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ConversationApi->delete_pbx_agent: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **conversation_pbx_agent_uuid** | **str**|  |
-
-### Return type
-
-[**ConversationPbxAgentResponse**](ConversationPbxAgentResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **delete_pbx_agent_voicemail**
 > delete_pbx_agent_voicemail(recording_sid)
 
@@ -561,78 +485,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxMenuResponse**](ConversationPbxMenuResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **delete_pbx_phone_number**
-> ConversationPbxPhoneNumberResponse delete_pbx_phone_number(conversation_pbx_phone_number_uuid)
-
-Delete pbx phoneNumber
-
-Delete a pbx phoneNumber 
-
-### Example
-
-* OAuth Authentication (ultraCartOauth):
-* Api Key Authentication (ultraCartSimpleApiKey):
-
-```python
-import time
-import ultracart
-from ultracart.api import conversation_api
-from ultracart.model.conversation_pbx_phone_number_response import ConversationPbxPhoneNumberResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    conversation_pbx_phone_number_uuid = "conversationPbxPhoneNumberUuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete pbx phoneNumber
-        api_response = api_instance.delete_pbx_phone_number(conversation_pbx_phone_number_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ConversationApi->delete_pbx_phone_number: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **conversation_pbx_phone_number_uuid** | **str**|  |
-
-### Return type
-
-[**ConversationPbxPhoneNumberResponse**](ConversationPbxPhoneNumberResponse.md)
 
 ### Authorization
 
@@ -4242,89 +4094,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **insert_pbx_agent**
-> ConversationPbxAgentResponse insert_pbx_agent(pbx_agent)
-
-Insert pbx agent
-
-Insert a pbx agent 
-
-### Example
-
-* OAuth Authentication (ultraCartOauth):
-* Api Key Authentication (ultraCartSimpleApiKey):
-
-```python
-import time
-import ultracart
-from ultracart.api import conversation_api
-from ultracart.model.conversation_pbx_agent import ConversationPbxAgent
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.conversation_pbx_agent_response import ConversationPbxAgentResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    pbx_agent = ConversationPbxAgent(
-        cellphone="cellphone_example",
-        conversation_pbx_agent_uuid="conversation_pbx_agent_uuid_example",
-        conversation_pbx_voicemail_mailbox_uuid="conversation_pbx_voicemail_mailbox_uuid_example",
-        forward_calls_to_cellphone=True,
-        merchant_id="merchant_id_example",
-        record_outgoing_automatically=True,
-        twilio_taskrouter_worker_id="twilio_taskrouter_worker_id_example",
-        user_id=1,
-        voicemail=True,
-    ) # ConversationPbxAgent | Pbx Agent
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert pbx agent
-        api_response = api_instance.insert_pbx_agent(pbx_agent)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ConversationApi->insert_pbx_agent: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbx_agent** | [**ConversationPbxAgent**](ConversationPbxAgent.md)| Pbx Agent |
-
-### Return type
-
-[**ConversationPbxAgentResponse**](ConversationPbxAgentResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **insert_pbx_audio**
 > ConversationPbxAudioResponse insert_pbx_audio(pbx_audio)
 
@@ -4476,85 +4245,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxMenuResponse**](ConversationPbxMenuResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **insert_pbx_phone_number**
-> ConversationPbxPhoneNumberResponse insert_pbx_phone_number(pbx_phone_number)
-
-Insert pbx phoneNumber
-
-Insert a pbx phoneNumber 
-
-### Example
-
-* OAuth Authentication (ultraCartOauth):
-* Api Key Authentication (ultraCartSimpleApiKey):
-
-```python
-import time
-import ultracart
-from ultracart.api import conversation_api
-from ultracart.model.conversation_pbx_phone_number import ConversationPbxPhoneNumber
-from ultracart.model.conversation_pbx_phone_number_response import ConversationPbxPhoneNumberResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    pbx_phone_number = ConversationPbxPhoneNumber(
-        action="time based",
-        action_target="action_target_example",
-        conversation_pbx_time_range_uuid="conversation_pbx_time_range_uuid_example",
-        merchant_id="merchant_id_example",
-        phone_number="phone_number_example",
-    ) # ConversationPbxPhoneNumber | Pbx PhoneNumber
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert pbx phoneNumber
-        api_response = api_instance.insert_pbx_phone_number(pbx_phone_number)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ConversationApi->insert_pbx_phone_number: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbx_phone_number** | [**ConversationPbxPhoneNumber**](ConversationPbxPhoneNumber.md)| Pbx PhoneNumber |
-
-### Return type
-
-[**ConversationPbxPhoneNumberResponse**](ConversationPbxPhoneNumberResponse.md)
 
 ### Authorization
 
@@ -6067,10 +5757,16 @@ api_instance = GiftCertificateApi(api_client())
         cellphone="cellphone_example",
         conversation_pbx_agent_uuid="conversation_pbx_agent_uuid_example",
         conversation_pbx_voicemail_mailbox_uuid="conversation_pbx_voicemail_mailbox_uuid_example",
+        extension=1,
         forward_calls_to_cellphone=True,
+        full_name="full_name_example",
+        login="login_example",
         merchant_id="merchant_id_example",
         record_outgoing_automatically=True,
         twilio_taskrouter_worker_id="twilio_taskrouter_worker_id_example",
+        unavailable_play_audio_uuid="unavailable_play_audio_uuid_example",
+        unavailable_say="unavailable_say_example",
+        unavailable_say_voice="unavailable_say_voice_example",
         user_id=1,
         voicemail=True,
     ) # ConversationPbxAgent | Pbx Agent

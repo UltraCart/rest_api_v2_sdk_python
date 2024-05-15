@@ -71,6 +71,12 @@ class ConversationPbxAgent(ModelNormal):
         ('twilio_taskrouter_worker_id',): {
             'max_length': 100,
         },
+        ('unavailable_play_audio_uuid',): {
+            'max_length': 50,
+        },
+        ('unavailable_say_voice',): {
+            'max_length': 50,
+        },
     }
 
     @cached_property
@@ -97,10 +103,16 @@ class ConversationPbxAgent(ModelNormal):
             'cellphone': (str,),  # noqa: E501
             'conversation_pbx_agent_uuid': (str,),  # noqa: E501
             'conversation_pbx_voicemail_mailbox_uuid': (str,),  # noqa: E501
+            'extension': (int,),  # noqa: E501
             'forward_calls_to_cellphone': (bool,),  # noqa: E501
+            'full_name': (str,),  # noqa: E501
+            'login': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'record_outgoing_automatically': (bool,),  # noqa: E501
             'twilio_taskrouter_worker_id': (str,),  # noqa: E501
+            'unavailable_play_audio_uuid': (str,),  # noqa: E501
+            'unavailable_say': (str,),  # noqa: E501
+            'unavailable_say_voice': (str,),  # noqa: E501
             'user_id': (int,),  # noqa: E501
             'voicemail': (bool,),  # noqa: E501
         }
@@ -114,10 +126,16 @@ class ConversationPbxAgent(ModelNormal):
         'cellphone': 'cellphone',  # noqa: E501
         'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',  # noqa: E501
         'conversation_pbx_voicemail_mailbox_uuid': 'conversation_pbx_voicemail_mailbox_uuid',  # noqa: E501
+        'extension': 'extension',  # noqa: E501
         'forward_calls_to_cellphone': 'forward_calls_to_cellphone',  # noqa: E501
+        'full_name': 'full_name',  # noqa: E501
+        'login': 'login',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'record_outgoing_automatically': 'record_outgoing_automatically',  # noqa: E501
         'twilio_taskrouter_worker_id': 'twilio_taskrouter_worker_id',  # noqa: E501
+        'unavailable_play_audio_uuid': 'unavailable_play_audio_uuid',  # noqa: E501
+        'unavailable_say': 'unavailable_say',  # noqa: E501
+        'unavailable_say_voice': 'unavailable_say_voice',  # noqa: E501
         'user_id': 'user_id',  # noqa: E501
         'voicemail': 'voicemail',  # noqa: E501
     }
@@ -166,10 +184,16 @@ class ConversationPbxAgent(ModelNormal):
             cellphone (str): Cellphone number of agent in E.164 format. [optional]  # noqa: E501
             conversation_pbx_agent_uuid (str): Conversation Pbx Agent unique identifier. [optional]  # noqa: E501
             conversation_pbx_voicemail_mailbox_uuid (str): Conversation Pbx Voicemail Mailbox UUID. [optional]  # noqa: E501
+            extension (int): Extension. [optional]  # noqa: E501
             forward_calls_to_cellphone (bool): True if calls to this agent should be forwarded to their cellphone. [optional]  # noqa: E501
+            full_name (str): Full name. [optional]  # noqa: E501
+            login (str): Agent login. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             record_outgoing_automatically (bool): True if outgoing calls should be automatically recorded. [optional]  # noqa: E501
             twilio_taskrouter_worker_id (str): Twilio taskrouter worker Id. [optional]  # noqa: E501
+            unavailable_play_audio_uuid (str): Unavailable play audio UUID. [optional]  # noqa: E501
+            unavailable_say (str): Unavailable say. [optional]  # noqa: E501
+            unavailable_say_voice (str): Unavailable say voice. [optional]  # noqa: E501
             user_id (int): User Id. [optional]  # noqa: E501
             voicemail (bool): True if this agent has voicemail configured. [optional]  # noqa: E501
         """
@@ -260,10 +284,16 @@ class ConversationPbxAgent(ModelNormal):
             cellphone (str): Cellphone number of agent in E.164 format. [optional]  # noqa: E501
             conversation_pbx_agent_uuid (str): Conversation Pbx Agent unique identifier. [optional]  # noqa: E501
             conversation_pbx_voicemail_mailbox_uuid (str): Conversation Pbx Voicemail Mailbox UUID. [optional]  # noqa: E501
+            extension (int): Extension. [optional]  # noqa: E501
             forward_calls_to_cellphone (bool): True if calls to this agent should be forwarded to their cellphone. [optional]  # noqa: E501
+            full_name (str): Full name. [optional]  # noqa: E501
+            login (str): Agent login. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             record_outgoing_automatically (bool): True if outgoing calls should be automatically recorded. [optional]  # noqa: E501
             twilio_taskrouter_worker_id (str): Twilio taskrouter worker Id. [optional]  # noqa: E501
+            unavailable_play_audio_uuid (str): Unavailable play audio UUID. [optional]  # noqa: E501
+            unavailable_say (str): Unavailable say. [optional]  # noqa: E501
+            unavailable_say_voice (str): Unavailable say voice. [optional]  # noqa: E501
             user_id (int): User Id. [optional]  # noqa: E501
             voicemail (bool): True if this agent has voicemail configured. [optional]  # noqa: E501
         """
