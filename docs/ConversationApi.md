@@ -4585,13 +4585,14 @@ api_instance = GiftCertificateApi(api_client())
         merchant_id="merchant_id_example",
         send_notices_to_email="send_notices_to_email_example",
         user_id=1,
-        voicemail_follow_play_audio_uuid="voicemail_follow_play_audio_uuid_example",
+        voicemail_followup_play_audio_uuid="voicemail_followup_play_audio_uuid_example",
         voicemail_followup_say="voicemail_followup_say_example",
+        voicemail_followup_say_voice="voicemail_followup_say_voice_example",
         voicemail_mailbox_id="voicemail_mailbox_id_example",
         voicemail_mailbox_type="agent",
         voicemail_prompt_play_audio_uuid="voicemail_prompt_play_audio_uuid_example",
         voicemail_prompt_say="voicemail_prompt_say_example",
-        voicemail_say_voice="voicemail_say_voice_example",
+        voicemail_prompt_say_voice="voicemail_prompt_say_voice_example",
     ) # ConversationPbxVoicemailMailbox | Pbx VoicemailMailbox
 
     # example passing only required values which don't have defaults set
@@ -6398,13 +6399,14 @@ api_instance = GiftCertificateApi(api_client())
         merchant_id="merchant_id_example",
         send_notices_to_email="send_notices_to_email_example",
         user_id=1,
-        voicemail_follow_play_audio_uuid="voicemail_follow_play_audio_uuid_example",
+        voicemail_followup_play_audio_uuid="voicemail_followup_play_audio_uuid_example",
         voicemail_followup_say="voicemail_followup_say_example",
+        voicemail_followup_say_voice="voicemail_followup_say_voice_example",
         voicemail_mailbox_id="voicemail_mailbox_id_example",
         voicemail_mailbox_type="agent",
         voicemail_prompt_play_audio_uuid="voicemail_prompt_play_audio_uuid_example",
         voicemail_prompt_say="voicemail_prompt_say_example",
-        voicemail_say_voice="voicemail_say_voice_example",
+        voicemail_prompt_say_voice="voicemail_prompt_say_voice_example",
     ) # ConversationPbxVoicemailMailbox | Pbx VoicemailMailbox
 
     # example passing only required values which don't have defaults set

@@ -72,7 +72,10 @@ class ConversationPbxVoicemailMailbox(ModelNormal):
         ('send_notices_to_email',): {
             'max_length': 250,
         },
-        ('voicemail_follow_play_audio_uuid',): {
+        ('voicemail_followup_play_audio_uuid',): {
+            'max_length': 50,
+        },
+        ('voicemail_followup_say_voice',): {
             'max_length': 50,
         },
         ('voicemail_mailbox_id',): {
@@ -84,7 +87,7 @@ class ConversationPbxVoicemailMailbox(ModelNormal):
         ('voicemail_prompt_play_audio_uuid',): {
             'max_length': 50,
         },
-        ('voicemail_say_voice',): {
+        ('voicemail_prompt_say_voice',): {
             'max_length': 50,
         },
     }
@@ -114,13 +117,14 @@ class ConversationPbxVoicemailMailbox(ModelNormal):
             'merchant_id': (str,),  # noqa: E501
             'send_notices_to_email': (str,),  # noqa: E501
             'user_id': (int,),  # noqa: E501
-            'voicemail_follow_play_audio_uuid': (str,),  # noqa: E501
+            'voicemail_followup_play_audio_uuid': (str,),  # noqa: E501
             'voicemail_followup_say': (str,),  # noqa: E501
+            'voicemail_followup_say_voice': (str,),  # noqa: E501
             'voicemail_mailbox_id': (str,),  # noqa: E501
             'voicemail_mailbox_type': (str,),  # noqa: E501
             'voicemail_prompt_play_audio_uuid': (str,),  # noqa: E501
             'voicemail_prompt_say': (str,),  # noqa: E501
-            'voicemail_say_voice': (str,),  # noqa: E501
+            'voicemail_prompt_say_voice': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -133,13 +137,14 @@ class ConversationPbxVoicemailMailbox(ModelNormal):
         'merchant_id': 'merchant_id',  # noqa: E501
         'send_notices_to_email': 'send_notices_to_email',  # noqa: E501
         'user_id': 'user_id',  # noqa: E501
-        'voicemail_follow_play_audio_uuid': 'voicemail_follow_play_audio_uuid',  # noqa: E501
+        'voicemail_followup_play_audio_uuid': 'voicemail_followup_play_audio_uuid',  # noqa: E501
         'voicemail_followup_say': 'voicemail_followup_say',  # noqa: E501
+        'voicemail_followup_say_voice': 'voicemail_followup_say_voice',  # noqa: E501
         'voicemail_mailbox_id': 'voicemail_mailbox_id',  # noqa: E501
         'voicemail_mailbox_type': 'voicemail_mailbox_type',  # noqa: E501
         'voicemail_prompt_play_audio_uuid': 'voicemail_prompt_play_audio_uuid',  # noqa: E501
         'voicemail_prompt_say': 'voicemail_prompt_say',  # noqa: E501
-        'voicemail_say_voice': 'voicemail_say_voice',  # noqa: E501
+        'voicemail_prompt_say_voice': 'voicemail_prompt_say_voice',  # noqa: E501
     }
 
     read_only_vars = {
@@ -187,13 +192,14 @@ class ConversationPbxVoicemailMailbox(ModelNormal):
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             send_notices_to_email (str): Send notices to email. [optional]  # noqa: E501
             user_id (int): User Id. [optional]  # noqa: E501
-            voicemail_follow_play_audio_uuid (str): Voicemail follow play audio UUID. [optional]  # noqa: E501
+            voicemail_followup_play_audio_uuid (str): Voicemail follow play audio UUID. [optional]  # noqa: E501
             voicemail_followup_say (str): Voicemail followup say. [optional]  # noqa: E501
+            voicemail_followup_say_voice (str): Voicemail followup say voice. [optional]  # noqa: E501
             voicemail_mailbox_id (str): Voicemail mailbox id. [optional]  # noqa: E501
             voicemail_mailbox_type (str): Voicemail mailbox type. [optional]  # noqa: E501
             voicemail_prompt_play_audio_uuid (str): Voicemail prompt play audio UUID. [optional]  # noqa: E501
             voicemail_prompt_say (str): Voicemail prompt say. [optional]  # noqa: E501
-            voicemail_say_voice (str): Voicemail say voice. [optional]  # noqa: E501
+            voicemail_prompt_say_voice (str): Voicemail prompt say voice. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -283,13 +289,14 @@ class ConversationPbxVoicemailMailbox(ModelNormal):
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             send_notices_to_email (str): Send notices to email. [optional]  # noqa: E501
             user_id (int): User Id. [optional]  # noqa: E501
-            voicemail_follow_play_audio_uuid (str): Voicemail follow play audio UUID. [optional]  # noqa: E501
+            voicemail_followup_play_audio_uuid (str): Voicemail follow play audio UUID. [optional]  # noqa: E501
             voicemail_followup_say (str): Voicemail followup say. [optional]  # noqa: E501
+            voicemail_followup_say_voice (str): Voicemail followup say voice. [optional]  # noqa: E501
             voicemail_mailbox_id (str): Voicemail mailbox id. [optional]  # noqa: E501
             voicemail_mailbox_type (str): Voicemail mailbox type. [optional]  # noqa: E501
             voicemail_prompt_play_audio_uuid (str): Voicemail prompt play audio UUID. [optional]  # noqa: E501
             voicemail_prompt_say (str): Voicemail prompt say. [optional]  # noqa: E501
-            voicemail_say_voice (str): Voicemail say voice. [optional]  # noqa: E501
+            voicemail_prompt_say_voice (str): Voicemail prompt say voice. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
