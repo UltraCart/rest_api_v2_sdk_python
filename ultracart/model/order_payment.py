@@ -77,6 +77,7 @@ class OrderPayment(ModelNormal):
         ('payment_method',): {
             'AFFIRM': "Affirm",
             'AMAZON': "Amazon",
+            'AMAZON_PAY': "Amazon Pay",
             'AMAZON_SC': "Amazon SC",
             'CASH': "Cash",
             'CHECK': "Check",
@@ -86,6 +87,7 @@ class OrderPayment(ModelNormal):
             'ECHECK': "eCheck",
             'GOOGLE_SHOPPING': "Google Shopping",
             'INSURANCE': "Insurance",
+            'LINK': "Link",
             'LOANHERO': "LoanHero",
             'MONEY_ORDER': "Money Order",
             'PAYPAL': "PayPal",
