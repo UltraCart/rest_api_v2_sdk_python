@@ -31,47 +31,47 @@ class ConversationPbxTimeBasedMappingConfig(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default': 'ConversationPbxTimeBasedMapping',
+        'default_mapping': 'ConversationPbxTimeBasedMapping',
         'mappings': 'list[ConversationPbxTimeBasedMapping]'
     }
 
     attribute_map = {
-        'default': 'default',
+        'default_mapping': 'default_mapping',
         'mappings': 'mappings'
     }
 
-    def __init__(self, default=None, mappings=None):  # noqa: E501
+    def __init__(self, default_mapping=None, mappings=None):  # noqa: E501
         """ConversationPbxTimeBasedMappingConfig - a model defined in Swagger"""  # noqa: E501
 
-        self._default = None
+        self._default_mapping = None
         self._mappings = None
         self.discriminator = None
 
-        if default is not None:
-            self.default = default
+        if default_mapping is not None:
+            self.default_mapping = default_mapping
         if mappings is not None:
             self.mappings = mappings
 
     @property
-    def default(self):
-        """Gets the default of this ConversationPbxTimeBasedMappingConfig.  # noqa: E501
+    def default_mapping(self):
+        """Gets the default_mapping of this ConversationPbxTimeBasedMappingConfig.  # noqa: E501
 
 
-        :return: The default of this ConversationPbxTimeBasedMappingConfig.  # noqa: E501
+        :return: The default_mapping of this ConversationPbxTimeBasedMappingConfig.  # noqa: E501
         :rtype: ConversationPbxTimeBasedMapping
         """
-        return self._default
+        return self._default_mapping
 
-    @default.setter
-    def default(self, default):
-        """Sets the default of this ConversationPbxTimeBasedMappingConfig.
+    @default_mapping.setter
+    def default_mapping(self, default_mapping):
+        """Sets the default_mapping of this ConversationPbxTimeBasedMappingConfig.
 
 
-        :param default: The default of this ConversationPbxTimeBasedMappingConfig.  # noqa: E501
+        :param default_mapping: The default_mapping of this ConversationPbxTimeBasedMappingConfig.  # noqa: E501
         :type: ConversationPbxTimeBasedMapping
         """
 
-        self._default = default
+        self._default_mapping = default_mapping
 
     @property
     def mappings(self):
