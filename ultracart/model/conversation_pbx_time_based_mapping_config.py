@@ -88,7 +88,7 @@ class ConversationPbxTimeBasedMappingConfig(ModelNormal):
         """
         lazy_import()
         return {
-            'default': (ConversationPbxTimeBasedMapping,),  # noqa: E501
+            'default_mapping': (ConversationPbxTimeBasedMapping,),  # noqa: E501
             'mappings': ([ConversationPbxTimeBasedMapping],),  # noqa: E501
         }
 
@@ -98,7 +98,7 @@ class ConversationPbxTimeBasedMappingConfig(ModelNormal):
 
 
     attribute_map = {
-        'default': 'default',  # noqa: E501
+        'default_mapping': 'default_mapping',  # noqa: E501
         'mappings': 'mappings',  # noqa: E501
     }
 
@@ -143,7 +143,7 @@ class ConversationPbxTimeBasedMappingConfig(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            default (ConversationPbxTimeBasedMapping): [optional]  # noqa: E501
+            default_mapping (ConversationPbxTimeBasedMapping): [optional]  # noqa: E501
             mappings ([ConversationPbxTimeBasedMapping]): Mappings. [optional]  # noqa: E501
         """
 
@@ -230,7 +230,7 @@ class ConversationPbxTimeBasedMappingConfig(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            default (ConversationPbxTimeBasedMapping): [optional]  # noqa: E501
+            default_mapping (ConversationPbxTimeBasedMapping): [optional]  # noqa: E501
             mappings ([ConversationPbxTimeBasedMapping]): Mappings. [optional]  # noqa: E501
         """
 
