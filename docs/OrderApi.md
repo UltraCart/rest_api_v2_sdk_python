@@ -1392,6 +1392,7 @@ api_instance = GiftCertificateApi(api_client())
         phone="phone_example",
         postal_code="postal_code_example",
         purchase_order_number="purchase_order_number_example",
+        query_target="origin",
         refund_date_begin="refund_date_begin_example",
         refund_date_end="refund_date_end_example",
         rma="rma_example",

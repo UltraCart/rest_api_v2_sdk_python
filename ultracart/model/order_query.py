@@ -88,6 +88,10 @@ class OrderQuery(ModelNormal):
             'APPLE_PAY': "Apple Pay",
             '_GOOGLE_PAY': " Google Pay",
         },
+        ('query_target',): {
+            'ORIGIN': "origin",
+            'CACHE': "cache",
+        },
     }
 
     validations = {
@@ -181,6 +185,7 @@ class OrderQuery(ModelNormal):
             'phone': (str,),  # noqa: E501
             'postal_code': (str,),  # noqa: E501
             'purchase_order_number': (str,),  # noqa: E501
+            'query_target': (str,),  # noqa: E501
             'refund_date_begin': (str,),  # noqa: E501
             'refund_date_end': (str,),  # noqa: E501
             'rma': (str,),  # noqa: E501
@@ -231,6 +236,7 @@ class OrderQuery(ModelNormal):
         'phone': 'phone',  # noqa: E501
         'postal_code': 'postal_code',  # noqa: E501
         'purchase_order_number': 'purchase_order_number',  # noqa: E501
+        'query_target': 'query_target',  # noqa: E501
         'refund_date_begin': 'refund_date_begin',  # noqa: E501
         'refund_date_end': 'refund_date_end',  # noqa: E501
         'rma': 'rma',  # noqa: E501
@@ -316,6 +322,7 @@ class OrderQuery(ModelNormal):
             phone (str): Phone. [optional]  # noqa: E501
             postal_code (str): Postal code. [optional]  # noqa: E501
             purchase_order_number (str): Purchase order number. [optional]  # noqa: E501
+            query_target (str): Query Target. [optional]  # noqa: E501
             refund_date_begin (str): Date/time that the order was refunded. [optional]  # noqa: E501
             refund_date_end (str): Date/time that the order was refunded. [optional]  # noqa: E501
             rma (str): RMA number. [optional]  # noqa: E501
@@ -443,6 +450,7 @@ class OrderQuery(ModelNormal):
             phone (str): Phone. [optional]  # noqa: E501
             postal_code (str): Postal code. [optional]  # noqa: E501
             purchase_order_number (str): Purchase order number. [optional]  # noqa: E501
+            query_target (str): Query Target. [optional]  # noqa: E501
             refund_date_begin (str): Date/time that the order was refunded. [optional]  # noqa: E501
             refund_date_end (str): Date/time that the order was refunded. [optional]  # noqa: E501
             rma (str): RMA number. [optional]  # noqa: E501
