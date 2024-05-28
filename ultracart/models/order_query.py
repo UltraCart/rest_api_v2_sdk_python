@@ -62,6 +62,7 @@ class OrderQuery(object):
         'phone': 'str',
         'postal_code': 'str',
         'purchase_order_number': 'str',
+        'query_target': 'str',
         'refund_date_begin': 'str',
         'refund_date_end': 'str',
         'rma': 'str',
@@ -107,6 +108,7 @@ class OrderQuery(object):
         'phone': 'phone',
         'postal_code': 'postal_code',
         'purchase_order_number': 'purchase_order_number',
+        'query_target': 'query_target',
         'refund_date_begin': 'refund_date_begin',
         'refund_date_end': 'refund_date_end',
         'rma': 'rma',
@@ -120,7 +122,7 @@ class OrderQuery(object):
         'total': 'total'
     }
 
-    def __init__(self, cc_email=None, channel_partner_code=None, channel_partner_order_id=None, city=None, company=None, country_code=None, creation_date_begin=None, creation_date_end=None, current_stage=None, custom_field_1=None, custom_field_10=None, custom_field_2=None, custom_field_3=None, custom_field_4=None, custom_field_5=None, custom_field_6=None, custom_field_7=None, custom_field_8=None, custom_field_9=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, order_id=None, payment_date_begin=None, payment_date_end=None, payment_method=None, phone=None, postal_code=None, purchase_order_number=None, refund_date_begin=None, refund_date_end=None, rma=None, screen_branding_theme_code=None, shipment_date_begin=None, shipment_date_end=None, shipped_on_date_begin=None, shipped_on_date_end=None, state_region=None, storefront_host_name=None, total=None):  # noqa: E501
+    def __init__(self, cc_email=None, channel_partner_code=None, channel_partner_order_id=None, city=None, company=None, country_code=None, creation_date_begin=None, creation_date_end=None, current_stage=None, custom_field_1=None, custom_field_10=None, custom_field_2=None, custom_field_3=None, custom_field_4=None, custom_field_5=None, custom_field_6=None, custom_field_7=None, custom_field_8=None, custom_field_9=None, customer_profile_oid=None, email=None, first_name=None, item_id=None, last_name=None, order_id=None, payment_date_begin=None, payment_date_end=None, payment_method=None, phone=None, postal_code=None, purchase_order_number=None, query_target=None, refund_date_begin=None, refund_date_end=None, rma=None, screen_branding_theme_code=None, shipment_date_begin=None, shipment_date_end=None, shipped_on_date_begin=None, shipped_on_date_end=None, state_region=None, storefront_host_name=None, total=None):  # noqa: E501
         """OrderQuery - a model defined in Swagger"""  # noqa: E501
 
         self._cc_email = None
@@ -154,6 +156,7 @@ class OrderQuery(object):
         self._phone = None
         self._postal_code = None
         self._purchase_order_number = None
+        self._query_target = None
         self._refund_date_begin = None
         self._refund_date_end = None
         self._rma = None
@@ -229,6 +232,8 @@ class OrderQuery(object):
             self.postal_code = postal_code
         if purchase_order_number is not None:
             self.purchase_order_number = purchase_order_number
+        if query_target is not None:
+            self.query_target = query_target
         if refund_date_begin is not None:
             self.refund_date_begin = refund_date_begin
         if refund_date_end is not None:
@@ -994,6 +999,35 @@ class OrderQuery(object):
         """
 
         self._purchase_order_number = purchase_order_number
+
+    @property
+    def query_target(self):
+        """Gets the query_target of this OrderQuery.  # noqa: E501
+
+        Query Target  # noqa: E501
+
+        :return: The query_target of this OrderQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._query_target
+
+    @query_target.setter
+    def query_target(self, query_target):
+        """Sets the query_target of this OrderQuery.
+
+        Query Target  # noqa: E501
+
+        :param query_target: The query_target of this OrderQuery.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["origin", "cache"]  # noqa: E501
+        if query_target not in allowed_values:
+            raise ValueError(
+                "Invalid value for `query_target` ({0}), must be one of {1}"  # noqa: E501
+                .format(query_target, allowed_values)
+            )
+
+        self._query_target = query_target
 
     @property
     def refund_date_begin(self):
