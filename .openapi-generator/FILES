@@ -429,6 +429,8 @@ docs/EmailPlanResponse.md
 docs/EmailPostcardStat.md
 docs/EmailPostcardTracking.md
 docs/EmailPostcardTrackingResponse.md
+docs/EmailRateLimiter.md
+docs/EmailRateLimitersResponse.md
 docs/EmailSegment.md
 docs/EmailSegmentArchiveResponse.md
 docs/EmailSegmentCustomer.md
@@ -1323,6 +1325,8 @@ ultracart/model/email_plan_response.py
 ultracart/model/email_postcard_stat.py
 ultracart/model/email_postcard_tracking.py
 ultracart/model/email_postcard_tracking_response.py
+ultracart/model/email_rate_limiter.py
+ultracart/model/email_rate_limiters_response.py
 ultracart/model/email_segment.py
 ultracart/model/email_segment_archive_response.py
 ultracart/model/email_segment_customer.py

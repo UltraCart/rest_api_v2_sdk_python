@@ -427,6 +427,8 @@ from ultracart.model.email_plan_response import EmailPlanResponse
 from ultracart.model.email_postcard_stat import EmailPostcardStat
 from ultracart.model.email_postcard_tracking import EmailPostcardTracking
 from ultracart.model.email_postcard_tracking_response import EmailPostcardTrackingResponse
+from ultracart.model.email_rate_limiter import EmailRateLimiter
+from ultracart.model.email_rate_limiters_response import EmailRateLimitersResponse
 from ultracart.model.email_segment import EmailSegment
 from ultracart.model.email_segment_archive_response import EmailSegmentArchiveResponse
 from ultracart.model.email_segment_customer import EmailSegmentCustomer
