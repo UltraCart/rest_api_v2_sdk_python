@@ -31,6 +31,7 @@ class ItemShippingDestinationMarkup(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'adult_signature_required': 'bool',
         'country_code': 'str',
         'flat_fee': 'float',
         'per_item': 'float',
@@ -40,6 +41,7 @@ class ItemShippingDestinationMarkup(object):
     }
 
     attribute_map = {
+        'adult_signature_required': 'adult_signature_required',
         'country_code': 'country_code',
         'flat_fee': 'flat_fee',
         'per_item': 'per_item',
@@ -48,9 +50,10 @@ class ItemShippingDestinationMarkup(object):
         'state': 'state'
     }
 
-    def __init__(self, country_code=None, flat_fee=None, per_item=None, postal_code=None, shipping_method=None, state=None):  # noqa: E501
+    def __init__(self, adult_signature_required=None, country_code=None, flat_fee=None, per_item=None, postal_code=None, shipping_method=None, state=None):  # noqa: E501
         """ItemShippingDestinationMarkup - a model defined in Swagger"""  # noqa: E501
 
+        self._adult_signature_required = None
         self._country_code = None
         self._flat_fee = None
         self._per_item = None
@@ -59,6 +62,8 @@ class ItemShippingDestinationMarkup(object):
         self._state = None
         self.discriminator = None
 
+        if adult_signature_required is not None:
+            self.adult_signature_required = adult_signature_required
         if country_code is not None:
             self.country_code = country_code
         if flat_fee is not None:
@@ -71,6 +76,29 @@ class ItemShippingDestinationMarkup(object):
             self.shipping_method = shipping_method
         if state is not None:
             self.state = state
+
+    @property
+    def adult_signature_required(self):
+        """Gets the adult_signature_required of this ItemShippingDestinationMarkup.  # noqa: E501
+
+        Adult Signature Required (only updated if not-null value provided)  # noqa: E501
+
+        :return: The adult_signature_required of this ItemShippingDestinationMarkup.  # noqa: E501
+        :rtype: bool
+        """
+        return self._adult_signature_required
+
+    @adult_signature_required.setter
+    def adult_signature_required(self, adult_signature_required):
+        """Sets the adult_signature_required of this ItemShippingDestinationMarkup.
+
+        Adult Signature Required (only updated if not-null value provided)  # noqa: E501
+
+        :param adult_signature_required: The adult_signature_required of this ItemShippingDestinationMarkup.  # noqa: E501
+        :type: bool
+        """
+
+        self._adult_signature_required = adult_signature_required
 
     @property
     def country_code(self):
