@@ -91,6 +91,7 @@ class ItemShippingDestinationMarkup(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'adult_signature_required': (bool,),  # noqa: E501
             'country_code': (str,),  # noqa: E501
             'flat_fee': (float,),  # noqa: E501
             'per_item': (float,),  # noqa: E501
@@ -105,6 +106,7 @@ class ItemShippingDestinationMarkup(ModelNormal):
 
 
     attribute_map = {
+        'adult_signature_required': 'adult_signature_required',  # noqa: E501
         'country_code': 'country_code',  # noqa: E501
         'flat_fee': 'flat_fee',  # noqa: E501
         'per_item': 'per_item',  # noqa: E501
@@ -154,6 +156,7 @@ class ItemShippingDestinationMarkup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            adult_signature_required (bool): Adult Signature Required (only updated if not-null value provided). [optional]  # noqa: E501
             country_code (str): Country code (ISO-3166 two letter). [optional]  # noqa: E501
             flat_fee (float): Flat fee. [optional]  # noqa: E501
             per_item (float): Per item. [optional]  # noqa: E501
@@ -245,6 +248,7 @@ class ItemShippingDestinationMarkup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            adult_signature_required (bool): Adult Signature Required (only updated if not-null value provided). [optional]  # noqa: E501
             country_code (str): Country code (ISO-3166 two letter). [optional]  # noqa: E501
             flat_fee (float): Flat fee. [optional]  # noqa: E501
             per_item (float): Per item. [optional]  # noqa: E501

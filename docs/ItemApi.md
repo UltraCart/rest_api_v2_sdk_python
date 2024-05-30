@@ -1844,6 +1844,7 @@ api_instance = GiftCertificateApi(api_client())
             delivery_on_wednesday=True,
             destination_markups=[
                 ItemShippingDestinationMarkup(
+                    adult_signature_required=True,
                     country_code="country_code_example",
                     flat_fee=3.14,
                     per_item=3.14,
@@ -3086,6 +3087,7 @@ api_instance = GiftCertificateApi(api_client())
             delivery_on_wednesday=True,
             destination_markups=[
                 ItemShippingDestinationMarkup(
+                    adult_signature_required=True,
                     country_code="country_code_example",
                     flat_fee=3.14,
                     per_item=3.14,
@@ -4042,6 +4044,7 @@ api_instance = GiftCertificateApi(api_client())
                     delivery_on_wednesday=True,
                     destination_markups=[
                         ItemShippingDestinationMarkup(
+                            adult_signature_required=True,
                             country_code="country_code_example",
                             flat_fee=3.14,
                             per_item=3.14,
