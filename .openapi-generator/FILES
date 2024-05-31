@@ -552,6 +552,9 @@ docs/ItemIdentifiers.md
 docs/ItemInstantPaymentNotification.md
 docs/ItemInstantPaymentNotifications.md
 docs/ItemInternal.md
+docs/ItemInventorySnapshot.md
+docs/ItemInventorySnapshotDistributionCenter.md
+docs/ItemInventorySnapshotResponse.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -1444,6 +1447,9 @@ ultracart/model/item_identifiers.py
 ultracart/model/item_instant_payment_notification.py
 ultracart/model/item_instant_payment_notifications.py
 ultracart/model/item_internal.py
+ultracart/model/item_inventory_snapshot.py
+ultracart/model/item_inventory_snapshot_distribution_center.py
+ultracart/model/item_inventory_snapshot_response.py
 ultracart/model/item_kit_component.py
 ultracart/model/item_kit_definition.py
 ultracart/model/item_option.py
