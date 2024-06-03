@@ -33,7 +33,7 @@ class ConversationPbxPhoneNumber(object):
     swagger_types = {
         'action': 'str',
         'action_target': 'str',
-        'conversation_pbx_time_range_uuid': 'str',
+        'conversation_pbx_phone_number_uuid': 'str',
         'merchant_id': 'str',
         'phone_number': 'str'
     }
@@ -41,17 +41,17 @@ class ConversationPbxPhoneNumber(object):
     attribute_map = {
         'action': 'action',
         'action_target': 'action_target',
-        'conversation_pbx_time_range_uuid': 'conversation_pbx_time_range_uuid',
+        'conversation_pbx_phone_number_uuid': 'conversation_pbx_phone_number_uuid',
         'merchant_id': 'merchant_id',
         'phone_number': 'phone_number'
     }
 
-    def __init__(self, action=None, action_target=None, conversation_pbx_time_range_uuid=None, merchant_id=None, phone_number=None):  # noqa: E501
+    def __init__(self, action=None, action_target=None, conversation_pbx_phone_number_uuid=None, merchant_id=None, phone_number=None):  # noqa: E501
         """ConversationPbxPhoneNumber - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
         self._action_target = None
-        self._conversation_pbx_time_range_uuid = None
+        self._conversation_pbx_phone_number_uuid = None
         self._merchant_id = None
         self._phone_number = None
         self.discriminator = None
@@ -60,8 +60,8 @@ class ConversationPbxPhoneNumber(object):
             self.action = action
         if action_target is not None:
             self.action_target = action_target
-        if conversation_pbx_time_range_uuid is not None:
-            self.conversation_pbx_time_range_uuid = conversation_pbx_time_range_uuid
+        if conversation_pbx_phone_number_uuid is not None:
+            self.conversation_pbx_phone_number_uuid = conversation_pbx_phone_number_uuid
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if phone_number is not None:
@@ -122,29 +122,29 @@ class ConversationPbxPhoneNumber(object):
         self._action_target = action_target
 
     @property
-    def conversation_pbx_time_range_uuid(self):
-        """Gets the conversation_pbx_time_range_uuid of this ConversationPbxPhoneNumber.  # noqa: E501
+    def conversation_pbx_phone_number_uuid(self):
+        """Gets the conversation_pbx_phone_number_uuid of this ConversationPbxPhoneNumber.  # noqa: E501
 
         Conversation Pbx Phone Number UUID  # noqa: E501
 
-        :return: The conversation_pbx_time_range_uuid of this ConversationPbxPhoneNumber.  # noqa: E501
+        :return: The conversation_pbx_phone_number_uuid of this ConversationPbxPhoneNumber.  # noqa: E501
         :rtype: str
         """
-        return self._conversation_pbx_time_range_uuid
+        return self._conversation_pbx_phone_number_uuid
 
-    @conversation_pbx_time_range_uuid.setter
-    def conversation_pbx_time_range_uuid(self, conversation_pbx_time_range_uuid):
-        """Sets the conversation_pbx_time_range_uuid of this ConversationPbxPhoneNumber.
+    @conversation_pbx_phone_number_uuid.setter
+    def conversation_pbx_phone_number_uuid(self, conversation_pbx_phone_number_uuid):
+        """Sets the conversation_pbx_phone_number_uuid of this ConversationPbxPhoneNumber.
 
         Conversation Pbx Phone Number UUID  # noqa: E501
 
-        :param conversation_pbx_time_range_uuid: The conversation_pbx_time_range_uuid of this ConversationPbxPhoneNumber.  # noqa: E501
+        :param conversation_pbx_phone_number_uuid: The conversation_pbx_phone_number_uuid of this ConversationPbxPhoneNumber.  # noqa: E501
         :type: str
         """
-        if conversation_pbx_time_range_uuid is not None and len(conversation_pbx_time_range_uuid) > 50:
-            raise ValueError("Invalid value for `conversation_pbx_time_range_uuid`, length must be less than or equal to `50`")  # noqa: E501
+        if conversation_pbx_phone_number_uuid is not None and len(conversation_pbx_phone_number_uuid) > 50:
+            raise ValueError("Invalid value for `conversation_pbx_phone_number_uuid`, length must be less than or equal to `50`")  # noqa: E501
 
-        self._conversation_pbx_time_range_uuid = conversation_pbx_time_range_uuid
+        self._conversation_pbx_phone_number_uuid = conversation_pbx_phone_number_uuid
 
     @property
     def merchant_id(self):

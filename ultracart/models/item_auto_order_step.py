@@ -455,7 +455,7 @@ class ItemAutoOrderStep(object):
     def subscribe_email_list_name(self):
         """Gets the subscribe_email_list_name of this ItemAutoOrderStep.  # noqa: E501
 
-        Email list name to subscribe the customer to when the rebill occurs  # noqa: E501
+        Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)  # noqa: E501
 
         :return: The subscribe_email_list_name of this ItemAutoOrderStep.  # noqa: E501
         :rtype: str
@@ -466,7 +466,7 @@ class ItemAutoOrderStep(object):
     def subscribe_email_list_name(self, subscribe_email_list_name):
         """Sets the subscribe_email_list_name of this ItemAutoOrderStep.
 
-        Email list name to subscribe the customer to when the rebill occurs  # noqa: E501
+        Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)  # noqa: E501
 
         :param subscribe_email_list_name: The subscribe_email_list_name of this ItemAutoOrderStep.  # noqa: E501
         :type: str
@@ -478,7 +478,7 @@ class ItemAutoOrderStep(object):
     def subscribe_email_list_oid(self):
         """Gets the subscribe_email_list_oid of this ItemAutoOrderStep.  # noqa: E501
 
-        Email list identifier to subscribe the customer to when this rebill occurs  # noqa: E501
+        Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)  # noqa: E501
 
         :return: The subscribe_email_list_oid of this ItemAutoOrderStep.  # noqa: E501
         :rtype: int
@@ -489,7 +489,7 @@ class ItemAutoOrderStep(object):
     def subscribe_email_list_oid(self, subscribe_email_list_oid):
         """Sets the subscribe_email_list_oid of this ItemAutoOrderStep.
 
-        Email list identifier to subscribe the customer to when this rebill occurs  # noqa: E501
+        Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)  # noqa: E501
 
         :param subscribe_email_list_oid: The subscribe_email_list_oid of this ItemAutoOrderStep.  # noqa: E501
         :type: int
