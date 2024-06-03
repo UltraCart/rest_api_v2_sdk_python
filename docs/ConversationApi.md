@@ -6027,7 +6027,7 @@ api_instance = GiftCertificateApi(api_client())
     pbx_phone_number = ConversationPbxPhoneNumber(
         action="time based",
         action_target="action_target_example",
-        conversation_pbx_time_range_uuid="conversation_pbx_time_range_uuid_example",
+        conversation_pbx_phone_number_uuid="conversation_pbx_phone_number_uuid_example",
         merchant_id="merchant_id_example",
         phone_number="phone_number_example",
     ) # ConversationPbxPhoneNumber | Pbx PhoneNumber

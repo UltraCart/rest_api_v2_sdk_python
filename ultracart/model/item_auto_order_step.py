@@ -199,8 +199,8 @@ class ItemAutoOrderStep(ModelNormal):
             recurring_merchant_item_oid (int): Item object identifier to rebill. [optional]  # noqa: E501
             repeat_count (int): Number of times to rebill.  Last step can be null for infinite. [optional]  # noqa: E501
             schedule (str): Frequency of the rebill. [optional]  # noqa: E501
-            subscribe_email_list_name (str): Email list name to subscribe the customer to when the rebill occurs. [optional]  # noqa: E501
-            subscribe_email_list_oid (int): Email list identifier to subscribe the customer to when this rebill occurs. [optional]  # noqa: E501
+            subscribe_email_list_name (str): Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine). [optional]  # noqa: E501
+            subscribe_email_list_oid (int): Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine). [optional]  # noqa: E501
             type (str): Type of step (item, kit only, loop or pause). [optional]  # noqa: E501
         """
 
@@ -301,8 +301,8 @@ class ItemAutoOrderStep(ModelNormal):
             recurring_merchant_item_oid (int): Item object identifier to rebill. [optional]  # noqa: E501
             repeat_count (int): Number of times to rebill.  Last step can be null for infinite. [optional]  # noqa: E501
             schedule (str): Frequency of the rebill. [optional]  # noqa: E501
-            subscribe_email_list_name (str): Email list name to subscribe the customer to when the rebill occurs. [optional]  # noqa: E501
-            subscribe_email_list_oid (int): Email list identifier to subscribe the customer to when this rebill occurs. [optional]  # noqa: E501
+            subscribe_email_list_name (str): Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine). [optional]  # noqa: E501
+            subscribe_email_list_oid (int): Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine). [optional]  # noqa: E501
             type (str): Type of step (item, kit only, loop or pause). [optional]  # noqa: E501
         """
 

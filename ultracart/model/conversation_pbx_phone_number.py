@@ -72,7 +72,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
         ('action_target',): {
             'max_length': 50,
         },
-        ('conversation_pbx_time_range_uuid',): {
+        ('conversation_pbx_phone_number_uuid',): {
             'max_length': 50,
         },
         ('merchant_id',): {
@@ -106,7 +106,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
         return {
             'action': (str,),  # noqa: E501
             'action_target': (str,),  # noqa: E501
-            'conversation_pbx_time_range_uuid': (str,),  # noqa: E501
+            'conversation_pbx_phone_number_uuid': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'phone_number': (str,),  # noqa: E501
         }
@@ -119,7 +119,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
     attribute_map = {
         'action': 'action',  # noqa: E501
         'action_target': 'action_target',  # noqa: E501
-        'conversation_pbx_time_range_uuid': 'conversation_pbx_time_range_uuid',  # noqa: E501
+        'conversation_pbx_phone_number_uuid': 'conversation_pbx_phone_number_uuid',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'phone_number': 'phone_number',  # noqa: E501
     }
@@ -167,7 +167,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
-            conversation_pbx_time_range_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
+            conversation_pbx_phone_number_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             phone_number (str): Phone number. [optional]  # noqa: E501
         """
@@ -257,7 +257,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
-            conversation_pbx_time_range_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
+            conversation_pbx_phone_number_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             phone_number (str): Phone number. [optional]  # noqa: E501
         """

@@ -2879,9 +2879,9 @@ class ItemApi(object):
         self,
         **kwargs
     ):
-        """Retrieve a list of item inventories  # noqa: E501
+        """Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.  # noqa: E501
 
-        Retrieves a list of item inventories.   # noqa: E501
+        Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**insert_item**](ItemApi.md#insert_item) | **POST** /item/items | Create an item
 [**insert_review**](ItemApi.md#insert_review) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**insert_update_item_content_attribute**](ItemApi.md#insert_update_item_content_attribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
-[**rest_item_inventory_snapshot_response**](ItemApi.md#rest_item_inventory_snapshot_response) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories
+[**rest_item_inventory_snapshot_response**](ItemApi.md#rest_item_inventory_snapshot_response) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**update_digital_item**](ItemApi.md#update_digital_item) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**update_items**](ItemApi.md#update_items) | **PUT** /item/items/batch | Update multiple items
@@ -2269,9 +2269,9 @@ void (empty response body)
 # **rest_item_inventory_snapshot_response**
 > ItemInventorySnapshotResponse rest_item_inventory_snapshot_response()
 
-Retrieve a list of item inventories
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 
-Retrieves a list of item inventories. 
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
 
 ### Example
 
@@ -2296,7 +2296,7 @@ api_instance = GiftCertificateApi(api_client())
 
     # example, this endpoint has no required or optional parameters
     try:
-        # Retrieve a list of item inventories
+        # Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
         api_response = api_instance.rest_item_inventory_snapshot_response()
         pprint(api_response)
     except ultracart.ApiException as e:
