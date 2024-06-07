@@ -138,7 +138,7 @@ class ItemReporting(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             report_as_upsell (bool): Report as an upsell. [optional]  # noqa: E501
-            report_pickable_quantities ([int]): Report pickable quantities. [optional]  # noqa: E501
+            report_pickable_quantities ([int]): Report pickable quantities (deprecated). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,7 +225,7 @@ class ItemReporting(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             report_as_upsell (bool): Report as an upsell. [optional]  # noqa: E501
-            report_pickable_quantities ([int]): Report pickable quantities. [optional]  # noqa: E501
+            report_pickable_quantities ([int]): Report pickable quantities (deprecated). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
