@@ -33,13 +33,14 @@ class ConversationPbxAgent(object):
     swagger_types = {
         'cellphone': 'str',
         'conversation_pbx_agent_uuid': 'str',
-        'conversation_pbx_voicemail_mailbox_uuid': 'str',
         'extension': 'int',
         'forward_calls_to_cellphone': 'bool',
         'full_name': 'str',
         'login': 'str',
         'merchant_id': 'str',
+        'personal_conversation_pbx_voicemail_mailbox_uuid': 'str',
         'record_outgoing_automatically': 'bool',
+        'shared_conversation_pbx_voicemail_mailbox_uuid': 'str',
         'twilio_taskrouter_worker_id': 'str',
         'unavailable_play_audio_uuid': 'str',
         'unavailable_say': 'str',
@@ -51,13 +52,14 @@ class ConversationPbxAgent(object):
     attribute_map = {
         'cellphone': 'cellphone',
         'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',
-        'conversation_pbx_voicemail_mailbox_uuid': 'conversation_pbx_voicemail_mailbox_uuid',
         'extension': 'extension',
         'forward_calls_to_cellphone': 'forward_calls_to_cellphone',
         'full_name': 'full_name',
         'login': 'login',
         'merchant_id': 'merchant_id',
+        'personal_conversation_pbx_voicemail_mailbox_uuid': 'personal_conversation_pbx_voicemail_mailbox_uuid',
         'record_outgoing_automatically': 'record_outgoing_automatically',
+        'shared_conversation_pbx_voicemail_mailbox_uuid': 'shared_conversation_pbx_voicemail_mailbox_uuid',
         'twilio_taskrouter_worker_id': 'twilio_taskrouter_worker_id',
         'unavailable_play_audio_uuid': 'unavailable_play_audio_uuid',
         'unavailable_say': 'unavailable_say',
@@ -66,18 +68,19 @@ class ConversationPbxAgent(object):
         'voicemail': 'voicemail'
     }
 
-    def __init__(self, cellphone=None, conversation_pbx_agent_uuid=None, conversation_pbx_voicemail_mailbox_uuid=None, extension=None, forward_calls_to_cellphone=None, full_name=None, login=None, merchant_id=None, record_outgoing_automatically=None, twilio_taskrouter_worker_id=None, unavailable_play_audio_uuid=None, unavailable_say=None, unavailable_say_voice=None, user_id=None, voicemail=None):  # noqa: E501
+    def __init__(self, cellphone=None, conversation_pbx_agent_uuid=None, extension=None, forward_calls_to_cellphone=None, full_name=None, login=None, merchant_id=None, personal_conversation_pbx_voicemail_mailbox_uuid=None, record_outgoing_automatically=None, shared_conversation_pbx_voicemail_mailbox_uuid=None, twilio_taskrouter_worker_id=None, unavailable_play_audio_uuid=None, unavailable_say=None, unavailable_say_voice=None, user_id=None, voicemail=None):  # noqa: E501
         """ConversationPbxAgent - a model defined in Swagger"""  # noqa: E501
 
         self._cellphone = None
         self._conversation_pbx_agent_uuid = None
-        self._conversation_pbx_voicemail_mailbox_uuid = None
         self._extension = None
         self._forward_calls_to_cellphone = None
         self._full_name = None
         self._login = None
         self._merchant_id = None
+        self._personal_conversation_pbx_voicemail_mailbox_uuid = None
         self._record_outgoing_automatically = None
+        self._shared_conversation_pbx_voicemail_mailbox_uuid = None
         self._twilio_taskrouter_worker_id = None
         self._unavailable_play_audio_uuid = None
         self._unavailable_say = None
@@ -90,8 +93,6 @@ class ConversationPbxAgent(object):
             self.cellphone = cellphone
         if conversation_pbx_agent_uuid is not None:
             self.conversation_pbx_agent_uuid = conversation_pbx_agent_uuid
-        if conversation_pbx_voicemail_mailbox_uuid is not None:
-            self.conversation_pbx_voicemail_mailbox_uuid = conversation_pbx_voicemail_mailbox_uuid
         if extension is not None:
             self.extension = extension
         if forward_calls_to_cellphone is not None:
@@ -102,8 +103,12 @@ class ConversationPbxAgent(object):
             self.login = login
         if merchant_id is not None:
             self.merchant_id = merchant_id
+        if personal_conversation_pbx_voicemail_mailbox_uuid is not None:
+            self.personal_conversation_pbx_voicemail_mailbox_uuid = personal_conversation_pbx_voicemail_mailbox_uuid
         if record_outgoing_automatically is not None:
             self.record_outgoing_automatically = record_outgoing_automatically
+        if shared_conversation_pbx_voicemail_mailbox_uuid is not None:
+            self.shared_conversation_pbx_voicemail_mailbox_uuid = shared_conversation_pbx_voicemail_mailbox_uuid
         if twilio_taskrouter_worker_id is not None:
             self.twilio_taskrouter_worker_id = twilio_taskrouter_worker_id
         if unavailable_play_audio_uuid is not None:
@@ -164,31 +169,6 @@ class ConversationPbxAgent(object):
         """
 
         self._conversation_pbx_agent_uuid = conversation_pbx_agent_uuid
-
-    @property
-    def conversation_pbx_voicemail_mailbox_uuid(self):
-        """Gets the conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.  # noqa: E501
-
-        Conversation Pbx Voicemail Mailbox UUID  # noqa: E501
-
-        :return: The conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.  # noqa: E501
-        :rtype: str
-        """
-        return self._conversation_pbx_voicemail_mailbox_uuid
-
-    @conversation_pbx_voicemail_mailbox_uuid.setter
-    def conversation_pbx_voicemail_mailbox_uuid(self, conversation_pbx_voicemail_mailbox_uuid):
-        """Sets the conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.
-
-        Conversation Pbx Voicemail Mailbox UUID  # noqa: E501
-
-        :param conversation_pbx_voicemail_mailbox_uuid: The conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.  # noqa: E501
-        :type: str
-        """
-        if conversation_pbx_voicemail_mailbox_uuid is not None and len(conversation_pbx_voicemail_mailbox_uuid) > 50:
-            raise ValueError("Invalid value for `conversation_pbx_voicemail_mailbox_uuid`, length must be less than or equal to `50`")  # noqa: E501
-
-        self._conversation_pbx_voicemail_mailbox_uuid = conversation_pbx_voicemail_mailbox_uuid
 
     @property
     def extension(self):
@@ -308,6 +288,31 @@ class ConversationPbxAgent(object):
         self._merchant_id = merchant_id
 
     @property
+    def personal_conversation_pbx_voicemail_mailbox_uuid(self):
+        """Gets the personal_conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.  # noqa: E501
+
+        Personal Conversation Pbx Voicemail Mailbox UUID  # noqa: E501
+
+        :return: The personal_conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._personal_conversation_pbx_voicemail_mailbox_uuid
+
+    @personal_conversation_pbx_voicemail_mailbox_uuid.setter
+    def personal_conversation_pbx_voicemail_mailbox_uuid(self, personal_conversation_pbx_voicemail_mailbox_uuid):
+        """Sets the personal_conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.
+
+        Personal Conversation Pbx Voicemail Mailbox UUID  # noqa: E501
+
+        :param personal_conversation_pbx_voicemail_mailbox_uuid: The personal_conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+        if personal_conversation_pbx_voicemail_mailbox_uuid is not None and len(personal_conversation_pbx_voicemail_mailbox_uuid) > 50:
+            raise ValueError("Invalid value for `personal_conversation_pbx_voicemail_mailbox_uuid`, length must be less than or equal to `50`")  # noqa: E501
+
+        self._personal_conversation_pbx_voicemail_mailbox_uuid = personal_conversation_pbx_voicemail_mailbox_uuid
+
+    @property
     def record_outgoing_automatically(self):
         """Gets the record_outgoing_automatically of this ConversationPbxAgent.  # noqa: E501
 
@@ -329,6 +334,31 @@ class ConversationPbxAgent(object):
         """
 
         self._record_outgoing_automatically = record_outgoing_automatically
+
+    @property
+    def shared_conversation_pbx_voicemail_mailbox_uuid(self):
+        """Gets the shared_conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.  # noqa: E501
+
+        Shared Conversation Pbx Voicemail Mailbox UUID  # noqa: E501
+
+        :return: The shared_conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._shared_conversation_pbx_voicemail_mailbox_uuid
+
+    @shared_conversation_pbx_voicemail_mailbox_uuid.setter
+    def shared_conversation_pbx_voicemail_mailbox_uuid(self, shared_conversation_pbx_voicemail_mailbox_uuid):
+        """Sets the shared_conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.
+
+        Shared Conversation Pbx Voicemail Mailbox UUID  # noqa: E501
+
+        :param shared_conversation_pbx_voicemail_mailbox_uuid: The shared_conversation_pbx_voicemail_mailbox_uuid of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+        if shared_conversation_pbx_voicemail_mailbox_uuid is not None and len(shared_conversation_pbx_voicemail_mailbox_uuid) > 50:
+            raise ValueError("Invalid value for `shared_conversation_pbx_voicemail_mailbox_uuid`, length must be less than or equal to `50`")  # noqa: E501
+
+        self._shared_conversation_pbx_voicemail_mailbox_uuid = shared_conversation_pbx_voicemail_mailbox_uuid
 
     @property
     def twilio_taskrouter_worker_id(self):

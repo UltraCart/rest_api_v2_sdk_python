@@ -79,7 +79,7 @@ class ItemReporting(object):
     def report_pickable_quantities(self):
         """Gets the report_pickable_quantities of this ItemReporting.  # noqa: E501
 
-        Report pickable quantities  # noqa: E501
+        Report pickable quantities (deprecated)  # noqa: E501
 
         :return: The report_pickable_quantities of this ItemReporting.  # noqa: E501
         :rtype: list[int]
@@ -90,7 +90,7 @@ class ItemReporting(object):
     def report_pickable_quantities(self, report_pickable_quantities):
         """Sets the report_pickable_quantities of this ItemReporting.
 
-        Report pickable quantities  # noqa: E501
+        Report pickable quantities (deprecated)  # noqa: E501
 
         :param report_pickable_quantities: The report_pickable_quantities of this ItemReporting.  # noqa: E501
         :type: list[int]
