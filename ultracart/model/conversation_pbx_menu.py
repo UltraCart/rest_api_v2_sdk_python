@@ -60,6 +60,10 @@ class ConversationPbxMenu(ModelNormal):
     """
 
     allowed_values = {
+        ('say_voice',): {
+            'MAN': "man",
+            'WOMAN': "woman",
+        },
     }
 
     validations = {
@@ -79,6 +83,9 @@ class ConversationPbxMenu(ModelNormal):
             'max_length': 50,
         },
         ('play_audio_uuid',): {
+            'max_length': 50,
+        },
+        ('say_voice',): {
             'max_length': 50,
         },
     }
@@ -115,6 +122,7 @@ class ConversationPbxMenu(ModelNormal):
             'name': (str,),  # noqa: E501
             'play_audio_uuid': (str,),  # noqa: E501
             'say': (str,),  # noqa: E501
+            'say_voice': (str,),  # noqa: E501
             'timeout': (int,),  # noqa: E501
         }
 
@@ -133,6 +141,7 @@ class ConversationPbxMenu(ModelNormal):
         'name': 'name',  # noqa: E501
         'play_audio_uuid': 'play_audio_uuid',  # noqa: E501
         'say': 'say',  # noqa: E501
+        'say_voice': 'say_voice',  # noqa: E501
         'timeout': 'timeout',  # noqa: E501
     }
 
@@ -186,6 +195,7 @@ class ConversationPbxMenu(ModelNormal):
             name (str): Menu name. [optional]  # noqa: E501
             play_audio_uuid (str): An optional audio clip that plays when a customer enters this menu. [optional]  # noqa: E501
             say (str): An optional saying that plays when a customer enters this menu. [optional]  # noqa: E501
+            say_voice (str): say voice. [optional]  # noqa: E501
             timeout (int): The idle seconds before this menu times out. [optional]  # noqa: E501
         """
 
@@ -281,6 +291,7 @@ class ConversationPbxMenu(ModelNormal):
             name (str): Menu name. [optional]  # noqa: E501
             play_audio_uuid (str): An optional audio clip that plays when a customer enters this menu. [optional]  # noqa: E501
             say (str): An optional saying that plays when a customer enters this menu. [optional]  # noqa: E501
+            say_voice (str): say voice. [optional]  # noqa: E501
             timeout (int): The idle seconds before this menu times out. [optional]  # noqa: E501
         """
 

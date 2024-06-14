@@ -56,9 +56,17 @@ class ConversationPbxVoicemailMailbox(ModelNormal):
     """
 
     allowed_values = {
+        ('voicemail_followup_say_voice',): {
+            'MAN': "man",
+            'WOMAN': "woman",
+        },
         ('voicemail_mailbox_type',): {
             'AGENT': "agent",
             'SHARED': "shared",
+        },
+        ('voicemail_prompt_say_voice',): {
+            'MAN': "man",
+            'WOMAN': "woman",
         },
     }
 

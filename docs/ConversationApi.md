@@ -4223,6 +4223,7 @@ api_instance = GiftCertificateApi(api_client())
         name="name_example",
         play_audio_uuid="play_audio_uuid_example",
         say="say_example",
+        say_voice="man",
         timeout=1,
     ) # ConversationPbxMenu | Pbx Menu
 
@@ -4587,12 +4588,12 @@ api_instance = GiftCertificateApi(api_client())
         user_id=1,
         voicemail_followup_play_audio_uuid="voicemail_followup_play_audio_uuid_example",
         voicemail_followup_say="voicemail_followup_say_example",
-        voicemail_followup_say_voice="voicemail_followup_say_voice_example",
+        voicemail_followup_say_voice="man",
         voicemail_mailbox_id="voicemail_mailbox_id_example",
         voicemail_mailbox_type="agent",
         voicemail_prompt_play_audio_uuid="voicemail_prompt_play_audio_uuid_example",
         voicemail_prompt_say="voicemail_prompt_say_example",
-        voicemail_prompt_say_voice="voicemail_prompt_say_voice_example",
+        voicemail_prompt_say_voice="man",
     ) # ConversationPbxVoicemailMailbox | Pbx VoicemailMailbox
 
     # example passing only required values which don't have defaults set
@@ -5949,6 +5950,7 @@ api_instance = GiftCertificateApi(api_client())
         name="name_example",
         play_audio_uuid="play_audio_uuid_example",
         say="say_example",
+        say_voice="man",
         timeout=1,
     ) # ConversationPbxMenu | Pbx Menu
 
@@ -6402,12 +6404,12 @@ api_instance = GiftCertificateApi(api_client())
         user_id=1,
         voicemail_followup_play_audio_uuid="voicemail_followup_play_audio_uuid_example",
         voicemail_followup_say="voicemail_followup_say_example",
-        voicemail_followup_say_voice="voicemail_followup_say_voice_example",
+        voicemail_followup_say_voice="man",
         voicemail_mailbox_id="voicemail_mailbox_id_example",
         voicemail_mailbox_type="agent",
         voicemail_prompt_play_audio_uuid="voicemail_prompt_play_audio_uuid_example",
         voicemail_prompt_say="voicemail_prompt_say_example",
-        voicemail_prompt_say_voice="voicemail_prompt_say_voice_example",
+        voicemail_prompt_say_voice="man",
     ) # ConversationPbxVoicemailMailbox | Pbx VoicemailMailbox
 
     # example passing only required values which don't have defaults set

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **name** | **str** | Menu name | [optional] 
 **play_audio_uuid** | **str** | An optional audio clip that plays when a customer enters this menu | [optional] 
 **say** | **str** | An optional saying that plays when a customer enters this menu | [optional] 
+**say_voice** | **str** | say voice | [optional] 
 **timeout** | **int** | The idle seconds before this menu times out | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
