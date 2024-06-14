@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **name** | **str** | Menu name | [optional] 
 **play_audio_uuid** | **str** | An optional audio clip that plays when a customer enters this menu | [optional] 
 **say** | **str** | An optional saying that plays when a customer enters this menu | [optional] 
+**say_voice** | **str** | say voice | [optional] 
 **timeout** | **int** | The idle seconds before this menu times out | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

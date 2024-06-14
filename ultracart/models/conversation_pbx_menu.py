@@ -40,6 +40,7 @@ class ConversationPbxMenu(object):
         'name': 'str',
         'play_audio_uuid': 'str',
         'say': 'str',
+        'say_voice': 'str',
         'timeout': 'int'
     }
 
@@ -53,10 +54,11 @@ class ConversationPbxMenu(object):
         'name': 'name',
         'play_audio_uuid': 'play_audio_uuid',
         'say': 'say',
+        'say_voice': 'say_voice',
         'timeout': 'timeout'
     }
 
-    def __init__(self, allow_direct_extensions=None, conversation_pbx_menu_uuid=None, default_action=None, default_action_target=None, mappings=None, merchant_id=None, name=None, play_audio_uuid=None, say=None, timeout=None):  # noqa: E501
+    def __init__(self, allow_direct_extensions=None, conversation_pbx_menu_uuid=None, default_action=None, default_action_target=None, mappings=None, merchant_id=None, name=None, play_audio_uuid=None, say=None, say_voice=None, timeout=None):  # noqa: E501
         """ConversationPbxMenu - a model defined in Swagger"""  # noqa: E501
 
         self._allow_direct_extensions = None
@@ -68,6 +70,7 @@ class ConversationPbxMenu(object):
         self._name = None
         self._play_audio_uuid = None
         self._say = None
+        self._say_voice = None
         self._timeout = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class ConversationPbxMenu(object):
             self.play_audio_uuid = play_audio_uuid
         if say is not None:
             self.say = say
+        if say_voice is not None:
+            self.say_voice = say_voice
         if timeout is not None:
             self.timeout = timeout
 
@@ -310,6 +315,35 @@ class ConversationPbxMenu(object):
         """
 
         self._say = say
+
+    @property
+    def say_voice(self):
+        """Gets the say_voice of this ConversationPbxMenu.  # noqa: E501
+
+        say voice  # noqa: E501
+
+        :return: The say_voice of this ConversationPbxMenu.  # noqa: E501
+        :rtype: str
+        """
+        return self._say_voice
+
+    @say_voice.setter
+    def say_voice(self, say_voice):
+        """Sets the say_voice of this ConversationPbxMenu.
+
+        say voice  # noqa: E501
+
+        :param say_voice: The say_voice of this ConversationPbxMenu.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["man", "woman"]  # noqa: E501
+        if say_voice not in allowed_values:
+            raise ValueError(
+                "Invalid value for `say_voice` ({0}), must be one of {1}"  # noqa: E501
+                .format(say_voice, allowed_values)
+            )
+
+        self._say_voice = say_voice
 
     @property
     def timeout(self):

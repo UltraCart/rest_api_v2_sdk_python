@@ -268,8 +268,12 @@ class ConversationPbxVoicemailMailbox(object):
         :param voicemail_followup_say_voice: The voicemail_followup_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
         :type: str
         """
-        if voicemail_followup_say_voice is not None and len(voicemail_followup_say_voice) > 50:
-            raise ValueError("Invalid value for `voicemail_followup_say_voice`, length must be less than or equal to `50`")  # noqa: E501
+        allowed_values = ["man", "woman"]  # noqa: E501
+        if voicemail_followup_say_voice not in allowed_values:
+            raise ValueError(
+                "Invalid value for `voicemail_followup_say_voice` ({0}), must be one of {1}"  # noqa: E501
+                .format(voicemail_followup_say_voice, allowed_values)
+            )
 
         self._voicemail_followup_say_voice = voicemail_followup_say_voice
 
@@ -395,8 +399,12 @@ class ConversationPbxVoicemailMailbox(object):
         :param voicemail_prompt_say_voice: The voicemail_prompt_say_voice of this ConversationPbxVoicemailMailbox.  # noqa: E501
         :type: str
         """
-        if voicemail_prompt_say_voice is not None and len(voicemail_prompt_say_voice) > 50:
-            raise ValueError("Invalid value for `voicemail_prompt_say_voice`, length must be less than or equal to `50`")  # noqa: E501
+        allowed_values = ["man", "woman"]  # noqa: E501
+        if voicemail_prompt_say_voice not in allowed_values:
+            raise ValueError(
+                "Invalid value for `voicemail_prompt_say_voice` ({0}), must be one of {1}"  # noqa: E501
+                .format(voicemail_prompt_say_voice, allowed_values)
+            )
 
         self._voicemail_prompt_say_voice = voicemail_prompt_say_voice
 
