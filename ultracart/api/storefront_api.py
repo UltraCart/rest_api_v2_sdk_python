@@ -9098,6 +9098,65 @@ class StorefrontApi(object):
             },
             api_client=api_client
         )
+        self.sunset_email_segment_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartBrowserApiKey',
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/storefront/{storefront_oid}/email/segments/{email_segment_uuid}/sunset',
+                'operation_id': 'sunset_email_segment',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'email_segment_uuid',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'email_segment_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'email_segment_uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'email_segment_uuid': 'email_segment_uuid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'email_segment_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.unfavorite_screen_recording_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -23543,6 +23602,92 @@ class StorefrontApi(object):
         kwargs['customers'] = \
             customers
         return self.subscribe_to_email_list_endpoint.call_with_http_info(**kwargs)
+
+    def sunset_email_segment(
+        self,
+        storefront_oid,
+        email_segment_uuid,
+        **kwargs
+    ):
+        """Sunset email segment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.sunset_email_segment(storefront_oid, email_segment_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            email_segment_uuid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['email_segment_uuid'] = \
+            email_segment_uuid
+        return self.sunset_email_segment_endpoint.call_with_http_info(**kwargs)
 
     def unfavorite_screen_recording(
         self,

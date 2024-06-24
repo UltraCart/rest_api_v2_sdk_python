@@ -154,6 +154,7 @@ Method | HTTP request | Description
 [**sequence_test**](StorefrontApi.md#sequence_test) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 [**start_email_campaign**](StorefrontApi.md#start_email_campaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 [**subscribe_to_email_list**](StorefrontApi.md#subscribe_to_email_list) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
+[**sunset_email_segment**](StorefrontApi.md#sunset_email_segment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/sunset | Sunset email segment
 [**unfavorite_screen_recording**](StorefrontApi.md#unfavorite_screen_recording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
 [**update_email_campaign**](StorefrontApi.md#update_email_campaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
 [**update_email_campaign_folder**](StorefrontApi.md#update_email_campaign_folder) | **PUT** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Update email campaign folder
@@ -1109,7 +1110,6 @@ api_instance = GiftCertificateApi(api_client())
         account_sid="account_sid_example",
         api_key_id="api_key_id_example",
         api_key_name="api_key_name_example",
-        api_key_secret="api_key_secret_example",
         auth_token="auth_token_example",
         esp_twilio_uuid="esp_twilio_uuid_example",
         inbound_twiml_app_sid="inbound_twiml_app_sid_example",
@@ -1117,9 +1117,6 @@ api_instance = GiftCertificateApi(api_client())
         phone_numbers=[
             "phone_numbers_example",
         ],
-        private_key_pem="private_key_pem_example",
-        public_key_pem="public_key_pem_example",
-        public_key_sid="public_key_sid_example",
         twilio_workspace_sid="twilio_workspace_sid_example",
     ) # Twilio | Twilio
 
@@ -12475,6 +12472,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **sunset_email_segment**
+> sunset_email_segment(storefront_oid, email_segment_uuid)
+
+Sunset email segment
+
+### Example
+
+* Api Key Authentication (ultraCartBrowserApiKey):
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import storefront_api
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    storefront_oid = 1 # int | 
+    email_segment_uuid = "email_segment_uuid_example" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Sunset email segment
+        api_instance.sunset_email_segment(storefront_oid, email_segment_uuid)
+    except ultracart.ApiException as e:
+        print("Exception when calling StorefrontApi->sunset_email_segment: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_segment_uuid** | **str**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **unfavorite_screen_recording**
 > unfavorite_screen_recording(storefront_oid, screen_recording_uuid)
 
@@ -14992,7 +15059,6 @@ api_instance = GiftCertificateApi(api_client())
         account_sid="account_sid_example",
         api_key_id="api_key_id_example",
         api_key_name="api_key_name_example",
-        api_key_secret="api_key_secret_example",
         auth_token="auth_token_example",
         esp_twilio_uuid="esp_twilio_uuid_example",
         inbound_twiml_app_sid="inbound_twiml_app_sid_example",
@@ -15000,9 +15066,6 @@ api_instance = GiftCertificateApi(api_client())
         phone_numbers=[
             "phone_numbers_example",
         ],
-        private_key_pem="private_key_pem_example",
-        public_key_pem="public_key_pem_example",
-        public_key_sid="public_key_sid_example",
         twilio_workspace_sid="twilio_workspace_sid_example",
     ) # Twilio | Twilio
 

@@ -85,15 +85,11 @@ class Twilio(ModelNormal):
             'account_sid': (str,),  # noqa: E501
             'api_key_id': (str,),  # noqa: E501
             'api_key_name': (str,),  # noqa: E501
-            'api_key_secret': (str,),  # noqa: E501
             'auth_token': (str,),  # noqa: E501
             'esp_twilio_uuid': (str,),  # noqa: E501
             'inbound_twiml_app_sid': (str,),  # noqa: E501
             'outbound_twiml_app_sid': (str,),  # noqa: E501
             'phone_numbers': ([str],),  # noqa: E501
-            'private_key_pem': (str,),  # noqa: E501
-            'public_key_pem': (str,),  # noqa: E501
-            'public_key_sid': (str,),  # noqa: E501
             'twilio_workspace_sid': (str,),  # noqa: E501
         }
 
@@ -106,15 +102,11 @@ class Twilio(ModelNormal):
         'account_sid': 'account_sid',  # noqa: E501
         'api_key_id': 'api_key_id',  # noqa: E501
         'api_key_name': 'api_key_name',  # noqa: E501
-        'api_key_secret': 'api_key_secret',  # noqa: E501
         'auth_token': 'auth_token',  # noqa: E501
         'esp_twilio_uuid': 'esp_twilio_uuid',  # noqa: E501
         'inbound_twiml_app_sid': 'inbound_twiml_app_sid',  # noqa: E501
         'outbound_twiml_app_sid': 'outbound_twiml_app_sid',  # noqa: E501
         'phone_numbers': 'phone_numbers',  # noqa: E501
-        'private_key_pem': 'private_key_pem',  # noqa: E501
-        'public_key_pem': 'public_key_pem',  # noqa: E501
-        'public_key_sid': 'public_key_sid',  # noqa: E501
         'twilio_workspace_sid': 'twilio_workspace_sid',  # noqa: E501
     }
 
@@ -162,15 +154,11 @@ class Twilio(ModelNormal):
             account_sid (str): [optional]  # noqa: E501
             api_key_id (str): [optional]  # noqa: E501
             api_key_name (str): [optional]  # noqa: E501
-            api_key_secret (str): [optional]  # noqa: E501
             auth_token (str): [optional]  # noqa: E501
             esp_twilio_uuid (str): [optional]  # noqa: E501
             inbound_twiml_app_sid (str): [optional]  # noqa: E501
             outbound_twiml_app_sid (str): [optional]  # noqa: E501
             phone_numbers ([str]): [optional]  # noqa: E501
-            private_key_pem (str): [optional]  # noqa: E501
-            public_key_pem (str): [optional]  # noqa: E501
-            public_key_sid (str): [optional]  # noqa: E501
             twilio_workspace_sid (str): [optional]  # noqa: E501
         """
 
@@ -260,15 +248,11 @@ class Twilio(ModelNormal):
             account_sid (str): [optional]  # noqa: E501
             api_key_id (str): [optional]  # noqa: E501
             api_key_name (str): [optional]  # noqa: E501
-            api_key_secret (str): [optional]  # noqa: E501
             auth_token (str): [optional]  # noqa: E501
             esp_twilio_uuid (str): [optional]  # noqa: E501
             inbound_twiml_app_sid (str): [optional]  # noqa: E501
             outbound_twiml_app_sid (str): [optional]  # noqa: E501
             phone_numbers ([str]): [optional]  # noqa: E501
-            private_key_pem (str): [optional]  # noqa: E501
-            public_key_pem (str): [optional]  # noqa: E501
-            public_key_sid (str): [optional]  # noqa: E501
             twilio_workspace_sid (str): [optional]  # noqa: E501
         """
 
