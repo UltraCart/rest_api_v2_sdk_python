@@ -1276,6 +1276,7 @@ api_instance = GiftCertificateApi(api_client())
         order_ids=[
             "order_ids_example",
         ],
+        query_target="origin",
     ) # OrderQueryBatch | Order batch
     expand = "_expand_example" # str | The object expansion to perform on the result. (optional)
 
@@ -4242,6 +4243,7 @@ api_instance = GiftCertificateApi(api_client())
     manual_refund = False # bool | Consider a manual refund done externally (optional) if omitted the server will use the default value of False
     reverse_affiliate_transactions = True # bool | Reverse affiliate transactions (optional) if omitted the server will use the default value of True
     issue_store_credit = False # bool | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional) if omitted the server will use the default value of False
+    auto_order_cancel_reason = "auto_order_cancel_reason_example" # str | Reason for auto orders cancellation (optional)
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
     # example passing only required values which don't have defaults set
@@ -4256,7 +4258,7 @@ api_instance = GiftCertificateApi(api_client())
     # and optional values
     try:
         # Refund an order
-        api_response = api_instance.refund_order(order_id, order, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, expand=expand)
+        api_response = api_instance.refund_order(order_id, order, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, auto_order_cancel_reason=auto_order_cancel_reason, expand=expand)
         pprint(api_response)
     except ultracart.ApiException as e:
         print("Exception when calling OrderApi->refund_order: %s\n" % e)
@@ -4275,6 +4277,7 @@ Name | Type | Description  | Notes
  **manual_refund** | **bool**| Consider a manual refund done externally | [optional] if omitted the server will use the default value of False
  **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional] if omitted the server will use the default value of True
  **issue_store_credit** | **bool**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] if omitted the server will use the default value of False
+ **auto_order_cancel_reason** | **str**| Reason for auto orders cancellation | [optional]
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

@@ -56,6 +56,10 @@ class OrderQueryBatch(ModelNormal):
     """
 
     allowed_values = {
+        ('query_target',): {
+            'ORIGIN': "origin",
+            'CACHE': "cache",
+        },
     }
 
     validations = {
@@ -83,6 +87,7 @@ class OrderQueryBatch(ModelNormal):
         """
         return {
             'order_ids': ([str],),  # noqa: E501
+            'query_target': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +97,7 @@ class OrderQueryBatch(ModelNormal):
 
     attribute_map = {
         'order_ids': 'order_ids',  # noqa: E501
+        'query_target': 'query_target',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +142,7 @@ class OrderQueryBatch(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             order_ids ([str]): Order IDs. [optional]  # noqa: E501
+            query_target (str): Query Target. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,6 +229,7 @@ class OrderQueryBatch(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             order_ids ([str]): Order IDs. [optional]  # noqa: E501
+            query_target (str): Query Target. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

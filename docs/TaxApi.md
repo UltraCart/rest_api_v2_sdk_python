@@ -1620,6 +1620,8 @@ api_instance = GiftCertificateApi(api_client())
 
     tax_provider_self = TaxProviderSelf(
         configuration=SelfConfig(
+            exempt_from_colorado_retail_delivery_fee=True,
+            exempt_from_minnesota_retail_delivery_fee=True,
             tax_billing=True,
         ),
         countries=[
@@ -2489,6 +2491,8 @@ api_instance = GiftCertificateApi(api_client())
 
     tax_provider_ultracart = TaxProviderUltraCart(
         configuration=UltraCartConfig(
+            exempt_from_colorado_retail_delivery_fee=True,
+            exempt_from_minnesota_retail_delivery_fee=True,
             tax_billing=True,
         ),
         description="description_example",

@@ -82,6 +82,8 @@ class SelfConfig(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'exempt_from_colorado_retail_delivery_fee': (bool,),  # noqa: E501
+            'exempt_from_minnesota_retail_delivery_fee': (bool,),  # noqa: E501
             'tax_billing': (bool,),  # noqa: E501
         }
 
@@ -91,6 +93,8 @@ class SelfConfig(ModelNormal):
 
 
     attribute_map = {
+        'exempt_from_colorado_retail_delivery_fee': 'exempt_from_colorado_retail_delivery_fee',  # noqa: E501
+        'exempt_from_minnesota_retail_delivery_fee': 'exempt_from_minnesota_retail_delivery_fee',  # noqa: E501
         'tax_billing': 'tax_billing',  # noqa: E501
     }
 
@@ -135,6 +139,8 @@ class SelfConfig(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            exempt_from_colorado_retail_delivery_fee (bool): True if the Colorado Retail Delivery Fee should not be collected. [optional]  # noqa: E501
+            exempt_from_minnesota_retail_delivery_fee (bool): True if the Minnesota Retail Delivery Fee should not be collected. [optional]  # noqa: E501
             tax_billing (bool): True if sales tax should be collected based on billing address instead of shipping address. [optional]  # noqa: E501
         """
 
@@ -221,6 +227,8 @@ class SelfConfig(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            exempt_from_colorado_retail_delivery_fee (bool): True if the Colorado Retail Delivery Fee should not be collected. [optional]  # noqa: E501
+            exempt_from_minnesota_retail_delivery_fee (bool): True if the Minnesota Retail Delivery Fee should not be collected. [optional]  # noqa: E501
             tax_billing (bool): True if sales tax should be collected based on billing address instead of shipping address. [optional]  # noqa: E501
         """
 

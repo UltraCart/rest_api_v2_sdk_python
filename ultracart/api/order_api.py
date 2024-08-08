@@ -1361,6 +1361,7 @@ class OrderApi(object):
                     'manual_refund',
                     'reverse_affiliate_transactions',
                     'issue_store_credit',
+                    'auto_order_cancel_reason',
                     'expand',
                 ],
                 'required': [
@@ -1396,6 +1397,8 @@ class OrderApi(object):
                         (bool,),
                     'issue_store_credit':
                         (bool,),
+                    'auto_order_cancel_reason':
+                        (str,),
                     'expand':
                         (str,),
                 },
@@ -1407,6 +1410,7 @@ class OrderApi(object):
                     'manual_refund': 'manual_refund',
                     'reverse_affiliate_transactions': 'reverse_affiliate_transactions',
                     'issue_store_credit': 'issue_store_credit',
+                    'auto_order_cancel_reason': 'auto_order_cancel_reason',
                     'expand': '_expand',
                 },
                 'location_map': {
@@ -1418,6 +1422,7 @@ class OrderApi(object):
                     'manual_refund': 'query',
                     'reverse_affiliate_transactions': 'query',
                     'issue_store_credit': 'query',
+                    'auto_order_cancel_reason': 'query',
                     'expand': 'query',
                 },
                 'collection_format_map': {
@@ -3498,6 +3503,7 @@ class OrderApi(object):
             manual_refund (bool): Consider a manual refund done externally. [optional] if omitted the server will use the default value of False
             reverse_affiliate_transactions (bool): Reverse affiliate transactions. [optional] if omitted the server will use the default value of True
             issue_store_credit (bool): Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account. [optional] if omitted the server will use the default value of False
+            auto_order_cancel_reason (str): Reason for auto orders cancellation. [optional]
             expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
