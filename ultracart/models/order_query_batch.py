@@ -31,21 +31,26 @@ class OrderQueryBatch(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'order_ids': 'list[str]'
+        'order_ids': 'list[str]',
+        'query_target': 'str'
     }
 
     attribute_map = {
-        'order_ids': 'order_ids'
+        'order_ids': 'order_ids',
+        'query_target': 'query_target'
     }
 
-    def __init__(self, order_ids=None):  # noqa: E501
+    def __init__(self, order_ids=None, query_target=None):  # noqa: E501
         """OrderQueryBatch - a model defined in Swagger"""  # noqa: E501
 
         self._order_ids = None
+        self._query_target = None
         self.discriminator = None
 
         if order_ids is not None:
             self.order_ids = order_ids
+        if query_target is not None:
+            self.query_target = query_target
 
     @property
     def order_ids(self):
@@ -69,6 +74,35 @@ class OrderQueryBatch(object):
         """
 
         self._order_ids = order_ids
+
+    @property
+    def query_target(self):
+        """Gets the query_target of this OrderQueryBatch.  # noqa: E501
+
+        Query Target  # noqa: E501
+
+        :return: The query_target of this OrderQueryBatch.  # noqa: E501
+        :rtype: str
+        """
+        return self._query_target
+
+    @query_target.setter
+    def query_target(self, query_target):
+        """Sets the query_target of this OrderQueryBatch.
+
+        Query Target  # noqa: E501
+
+        :param query_target: The query_target of this OrderQueryBatch.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["origin", "cache"]  # noqa: E501
+        if query_target not in allowed_values:
+            raise ValueError(
+                "Invalid value for `query_target` ({0}), must be one of {1}"  # noqa: E501
+                .format(query_target, allowed_values)
+            )
+
+        self._query_target = query_target
 
     def to_dict(self):
         """Returns the model properties as a dict"""

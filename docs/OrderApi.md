@@ -1121,7 +1121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **refund_order**
-> OrderResponse refund_order(order, order_id, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, expand=expand)
+> OrderResponse refund_order(order, order_id, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, auto_order_cancel_reason=auto_order_cancel_reason, expand=expand)
 
 Refund an order
 
@@ -1147,11 +1147,12 @@ auto_order_cancel = false # bool | Cancel associated auto orders (optional) (def
 manual_refund = false # bool | Consider a manual refund done externally (optional) (default to false)
 reverse_affiliate_transactions = true # bool | Reverse affiliate transactions (optional) (default to true)
 issue_store_credit = false # bool | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional) (default to false)
+auto_order_cancel_reason = 'auto_order_cancel_reason_example' # str | Reason for auto orders cancellation (optional)
 expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
 try:
     # Refund an order
-    api_response = api_instance.refund_order(order, order_id, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, expand=expand)
+    api_response = api_instance.refund_order(order, order_id, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, auto_order_cancel_reason=auto_order_cancel_reason, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrderApi->refund_order: %s\n" % e)
@@ -1169,6 +1170,7 @@ Name | Type | Description  | Notes
  **manual_refund** | **bool**| Consider a manual refund done externally | [optional] [default to false]
  **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional] [default to true]
  **issue_store_credit** | **bool**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
+ **auto_order_cancel_reason** | **str**| Reason for auto orders cancellation | [optional] 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

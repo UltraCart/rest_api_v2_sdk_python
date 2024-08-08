@@ -31,21 +31,77 @@ class UltraCartConfig(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'exempt_from_colorado_retail_delivery_fee': 'bool',
+        'exempt_from_minnesota_retail_delivery_fee': 'bool',
         'tax_billing': 'bool'
     }
 
     attribute_map = {
+        'exempt_from_colorado_retail_delivery_fee': 'exempt_from_colorado_retail_delivery_fee',
+        'exempt_from_minnesota_retail_delivery_fee': 'exempt_from_minnesota_retail_delivery_fee',
         'tax_billing': 'tax_billing'
     }
 
-    def __init__(self, tax_billing=None):  # noqa: E501
+    def __init__(self, exempt_from_colorado_retail_delivery_fee=None, exempt_from_minnesota_retail_delivery_fee=None, tax_billing=None):  # noqa: E501
         """UltraCartConfig - a model defined in Swagger"""  # noqa: E501
 
+        self._exempt_from_colorado_retail_delivery_fee = None
+        self._exempt_from_minnesota_retail_delivery_fee = None
         self._tax_billing = None
         self.discriminator = None
 
+        if exempt_from_colorado_retail_delivery_fee is not None:
+            self.exempt_from_colorado_retail_delivery_fee = exempt_from_colorado_retail_delivery_fee
+        if exempt_from_minnesota_retail_delivery_fee is not None:
+            self.exempt_from_minnesota_retail_delivery_fee = exempt_from_minnesota_retail_delivery_fee
         if tax_billing is not None:
             self.tax_billing = tax_billing
+
+    @property
+    def exempt_from_colorado_retail_delivery_fee(self):
+        """Gets the exempt_from_colorado_retail_delivery_fee of this UltraCartConfig.  # noqa: E501
+
+        True if the Colorado Retail Delivery Fee should not be collected  # noqa: E501
+
+        :return: The exempt_from_colorado_retail_delivery_fee of this UltraCartConfig.  # noqa: E501
+        :rtype: bool
+        """
+        return self._exempt_from_colorado_retail_delivery_fee
+
+    @exempt_from_colorado_retail_delivery_fee.setter
+    def exempt_from_colorado_retail_delivery_fee(self, exempt_from_colorado_retail_delivery_fee):
+        """Sets the exempt_from_colorado_retail_delivery_fee of this UltraCartConfig.
+
+        True if the Colorado Retail Delivery Fee should not be collected  # noqa: E501
+
+        :param exempt_from_colorado_retail_delivery_fee: The exempt_from_colorado_retail_delivery_fee of this UltraCartConfig.  # noqa: E501
+        :type: bool
+        """
+
+        self._exempt_from_colorado_retail_delivery_fee = exempt_from_colorado_retail_delivery_fee
+
+    @property
+    def exempt_from_minnesota_retail_delivery_fee(self):
+        """Gets the exempt_from_minnesota_retail_delivery_fee of this UltraCartConfig.  # noqa: E501
+
+        True if the Minnesota Retail Delivery Fee should not be collected  # noqa: E501
+
+        :return: The exempt_from_minnesota_retail_delivery_fee of this UltraCartConfig.  # noqa: E501
+        :rtype: bool
+        """
+        return self._exempt_from_minnesota_retail_delivery_fee
+
+    @exempt_from_minnesota_retail_delivery_fee.setter
+    def exempt_from_minnesota_retail_delivery_fee(self, exempt_from_minnesota_retail_delivery_fee):
+        """Sets the exempt_from_minnesota_retail_delivery_fee of this UltraCartConfig.
+
+        True if the Minnesota Retail Delivery Fee should not be collected  # noqa: E501
+
+        :param exempt_from_minnesota_retail_delivery_fee: The exempt_from_minnesota_retail_delivery_fee of this UltraCartConfig.  # noqa: E501
+        :type: bool
+        """
+
+        self._exempt_from_minnesota_retail_delivery_fee = exempt_from_minnesota_retail_delivery_fee
 
     @property
     def tax_billing(self):

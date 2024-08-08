@@ -2228,6 +2228,7 @@ class OrderApi(object):
         :param bool manual_refund: Consider a manual refund done externally
         :param bool reverse_affiliate_transactions: Reverse affiliate transactions
         :param bool issue_store_credit: Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
+        :param str auto_order_cancel_reason: Reason for auto orders cancellation
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: OrderResponse
                  If the method is called asynchronously,
@@ -2258,13 +2259,14 @@ class OrderApi(object):
         :param bool manual_refund: Consider a manual refund done externally
         :param bool reverse_affiliate_transactions: Reverse affiliate transactions
         :param bool issue_store_credit: Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
+        :param str auto_order_cancel_reason: Reason for auto orders cancellation
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: OrderResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['order', 'order_id', 'reject_after_refund', 'skip_customer_notification', 'auto_order_cancel', 'manual_refund', 'reverse_affiliate_transactions', 'issue_store_credit', 'expand']  # noqa: E501
+        all_params = ['order', 'order_id', 'reject_after_refund', 'skip_customer_notification', 'auto_order_cancel', 'manual_refund', 'reverse_affiliate_transactions', 'issue_store_credit', 'auto_order_cancel_reason', 'expand']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2307,6 +2309,8 @@ class OrderApi(object):
             query_params.append(('reverse_affiliate_transactions', params['reverse_affiliate_transactions']))  # noqa: E501
         if 'issue_store_credit' in params:
             query_params.append(('issue_store_credit', params['issue_store_credit']))  # noqa: E501
+        if 'auto_order_cancel_reason' in params:
+            query_params.append(('auto_order_cancel_reason', params['auto_order_cancel_reason']))  # noqa: E501
         if 'expand' in params:
             query_params.append(('_expand', params['expand']))  # noqa: E501
 
