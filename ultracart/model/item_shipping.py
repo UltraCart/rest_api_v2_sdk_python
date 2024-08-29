@@ -128,6 +128,7 @@ class ItemShipping(ModelNormal):
             'free_shipping': (bool,),  # noqa: E501
             'freight_class': (str,),  # noqa: E501
             'hazmat': (bool,),  # noqa: E501
+            'hold_for_transmission': (bool,),  # noqa: E501
             'made_to_order': (bool,),  # noqa: E501
             'made_to_order_lead_time': (int,),  # noqa: E501
             'max_days_time_in_transit': (int,),  # noqa: E501
@@ -184,6 +185,7 @@ class ItemShipping(ModelNormal):
         'free_shipping': 'free_shipping',  # noqa: E501
         'freight_class': 'freight_class',  # noqa: E501
         'hazmat': 'hazmat',  # noqa: E501
+        'hold_for_transmission': 'hold_for_transmission',  # noqa: E501
         'made_to_order': 'made_to_order',  # noqa: E501
         'made_to_order_lead_time': 'made_to_order_lead_time',  # noqa: E501
         'max_days_time_in_transit': 'max_days_time_in_transit',  # noqa: E501
@@ -275,6 +277,7 @@ class ItemShipping(ModelNormal):
             free_shipping (bool): Qualifies for free shipping. [optional]  # noqa: E501
             freight_class (str): Freight class. [optional]  # noqa: E501
             hazmat (bool): Hazardous material. [optional]  # noqa: E501
+            hold_for_transmission (bool): Hold for transmission. [optional]  # noqa: E501
             made_to_order (bool): True if this item is made to order. [optional]  # noqa: E501
             made_to_order_lead_time (int): Number of days lead time it takes to make the item before ite can ship. [optional]  # noqa: E501
             max_days_time_in_transit (int): Maximum days allowed in transit. [optional]  # noqa: E501
@@ -408,6 +411,7 @@ class ItemShipping(ModelNormal):
             free_shipping (bool): Qualifies for free shipping. [optional]  # noqa: E501
             freight_class (str): Freight class. [optional]  # noqa: E501
             hazmat (bool): Hazardous material. [optional]  # noqa: E501
+            hold_for_transmission (bool): Hold for transmission. [optional]  # noqa: E501
             made_to_order (bool): True if this item is made to order. [optional]  # noqa: E501
             made_to_order_lead_time (int): Number of days lead time it takes to make the item before ite can ship. [optional]  # noqa: E501
             max_days_time_in_transit (int): Maximum days allowed in transit. [optional]  # noqa: E501
