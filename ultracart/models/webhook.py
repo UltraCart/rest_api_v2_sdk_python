@@ -230,7 +230,7 @@ class Webhook(object):
         :param authentication_type: The authentication_type of this Webhook.  # noqa: E501
         :type: str
         """
-        allowed_values = ["none", "basic"]  # noqa: E501
+        allowed_values = ["none", "basic", "api user", "aws iam"]  # noqa: E501
         if authentication_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `authentication_type` ({0}), must be one of {1}"  # noqa: E501
