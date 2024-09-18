@@ -68,6 +68,8 @@ class Webhook(ModelNormal):
         ('authentication_type',): {
             'NONE': "none",
             'BASIC': "basic",
+            'API_USER': "api user",
+            'AWS_IAM': "aws iam",
         },
     }
 
