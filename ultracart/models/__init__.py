@@ -795,6 +795,7 @@ from ultracart.models.sovos_config import SovosConfig
 from ultracart.models.state_province import StateProvince
 from ultracart.models.step_waiting import StepWaiting
 from ultracart.models.store_front import StoreFront
+from ultracart.models.store_front_page_content_attribute import StoreFrontPageContentAttribute
 from ultracart.models.store_fronts_response import StoreFrontsResponse
 from ultracart.models.tax_city import TaxCity
 from ultracart.models.tax_country import TaxCountry
