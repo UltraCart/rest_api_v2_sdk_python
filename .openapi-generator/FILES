@@ -797,6 +797,7 @@ docs/SsoApi.md
 docs/StateProvince.md
 docs/StepWaiting.md
 docs/StoreFront.md
+docs/StoreFrontPageContentAttribute.md
 docs/StoreFrontsResponse.md
 docs/StorefrontApi.md
 docs/TaxApi.md
@@ -1689,6 +1690,7 @@ ultracart/model/sovos_config.py
 ultracart/model/state_province.py
 ultracart/model/step_waiting.py
 ultracart/model/store_front.py
+ultracart/model/store_front_page_content_attribute.py
 ultracart/model/store_fronts_response.py
 ultracart/model/tax_city.py
 ultracart/model/tax_country.py

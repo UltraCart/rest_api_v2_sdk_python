@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **itm_source** | **str** |  | [optional] 
 **itm_term** | **str** |  | [optional] 
 **msclkid** | **str** |  | [optional] 
+**short_code** | **str** |  | [optional] 
+**short_code_backup** | **bool** |  | [optional] 
 **ttclid** | **str** |  | [optional] 
 **uc_message_id** | **str** |  | [optional] 
 **utm_campaign** | **str** |  | [optional] 
