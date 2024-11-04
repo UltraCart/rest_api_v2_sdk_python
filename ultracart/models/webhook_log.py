@@ -41,7 +41,8 @@ class WebhookLog(object):
         'response_headers': 'list[HTTPHeader]',
         'status_code': 'int',
         'success': 'bool',
-        'uri': 'str'
+        'uri': 'str',
+        'webhook_oid': 'int'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class WebhookLog(object):
         'response_headers': 'response_headers',
         'status_code': 'status_code',
         'success': 'success',
-        'uri': 'uri'
+        'uri': 'uri',
+        'webhook_oid': 'webhook_oid'
     }
 
-    def __init__(self, delivery_dts=None, duration=None, queue_delay=None, request=None, request_headers=None, request_id=None, response=None, response_headers=None, status_code=None, success=None, uri=None):  # noqa: E501
+    def __init__(self, delivery_dts=None, duration=None, queue_delay=None, request=None, request_headers=None, request_id=None, response=None, response_headers=None, status_code=None, success=None, uri=None, webhook_oid=None):  # noqa: E501
         """WebhookLog - a model defined in Swagger"""  # noqa: E501
 
         self._delivery_dts = None
@@ -72,6 +74,7 @@ class WebhookLog(object):
         self._status_code = None
         self._success = None
         self._uri = None
+        self._webhook_oid = None
         self.discriminator = None
 
         if delivery_dts is not None:
@@ -96,6 +99,8 @@ class WebhookLog(object):
             self.success = success
         if uri is not None:
             self.uri = uri
+        if webhook_oid is not None:
+            self.webhook_oid = webhook_oid
 
     @property
     def delivery_dts(self):
@@ -349,6 +354,29 @@ class WebhookLog(object):
         """
 
         self._uri = uri
+
+    @property
+    def webhook_oid(self):
+        """Gets the webhook_oid of this WebhookLog.  # noqa: E501
+
+        webhook oid  # noqa: E501
+
+        :return: The webhook_oid of this WebhookLog.  # noqa: E501
+        :rtype: int
+        """
+        return self._webhook_oid
+
+    @webhook_oid.setter
+    def webhook_oid(self, webhook_oid):
+        """Sets the webhook_oid of this WebhookLog.
+
+        webhook oid  # noqa: E501
+
+        :param webhook_oid: The webhook_oid of this WebhookLog.  # noqa: E501
+        :type: int
+        """
+
+        self._webhook_oid = webhook_oid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

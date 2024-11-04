@@ -77,7 +77,7 @@ class AutoOrderItemSimpleSchedule(object):
         :param frequency: The frequency of this AutoOrderItemSimpleSchedule.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Weekly", "Biweekly", "Every...", "Every 10 Days", "Every 24 Days", "Every 28 Days", "Monthly", "Every 45 Days", "Every 2 Months", "Every 3 Months", "Every 4 Months", "Every 6 Months", "Yearly", "Every 4 Weeks", "Every 6 Weeks", "Every 8 Weeks"]  # noqa: E501
+        allowed_values = ["Weekly", "Biweekly", "Every...", "Every 10 Days", "Every 24 Days", "Every 28 Days", "Monthly", "Every 45 Days", "Every 2 Months", "Every 3 Months", "Every 4 Months", "Every 5 Months", "Every 6 Months", "Yearly", "Every 4 Weeks", "Every 6 Weeks", "Every 8 Weeks"]  # noqa: E501
         if frequency not in allowed_values:
             raise ValueError(
                 "Invalid value for `frequency` ({0}), must be one of {1}"  # noqa: E501
