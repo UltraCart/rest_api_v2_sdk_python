@@ -99,6 +99,7 @@ class WebhookLog(ModelNormal):
             'status_code': (int,),  # noqa: E501
             'success': (bool,),  # noqa: E501
             'uri': (str,),  # noqa: E501
+            'webhook_oid': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -118,6 +119,7 @@ class WebhookLog(ModelNormal):
         'status_code': 'status_code',  # noqa: E501
         'success': 'success',  # noqa: E501
         'uri': 'uri',  # noqa: E501
+        'webhook_oid': 'webhook_oid',  # noqa: E501
     }
 
     read_only_vars = {
@@ -172,6 +174,7 @@ class WebhookLog(ModelNormal):
             status_code (int): HTTP status code received from the server. [optional]  # noqa: E501
             success (bool): True if the delivery was successful. [optional]  # noqa: E501
             uri (str): URI of the webhook delivered to. [optional]  # noqa: E501
+            webhook_oid (int): webhook oid. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -268,6 +271,7 @@ class WebhookLog(ModelNormal):
             status_code (int): HTTP status code received from the server. [optional]  # noqa: E501
             success (bool): True if the delivery was successful. [optional]  # noqa: E501
             uri (str): URI of the webhook delivered to. [optional]  # noqa: E501
+            webhook_oid (int): webhook oid. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

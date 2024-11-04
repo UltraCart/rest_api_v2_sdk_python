@@ -76,6 +76,7 @@ class AutoOrderItem(ModelNormal):
             'EVERY_2_MONTHS': "Every 2 Months",
             'EVERY_3_MONTHS': "Every 3 Months",
             'EVERY_4_MONTHS': "Every 4 Months",
+            'EVERY_5_MONTHS': "Every 5 Months",
             'EVERY_6_MONTHS': "Every 6 Months",
             'YEARLY': "Yearly",
             'EVERY_4_WEEKS': "Every 4 Weeks",
