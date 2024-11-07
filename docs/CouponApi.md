@@ -1282,12 +1282,18 @@ api_instance = GiftCertificateApi(api_client())
         ),
         percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
             discount_percent=3.14,
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
             limit=1,
             required_purchase_items=[
                 "required_purchase_items_example",
+            ],
+            required_purchase_items_tags=[
+                "required_purchase_items_tags_example",
             ],
             required_purchase_quantity=1,
         ),
@@ -1812,12 +1818,18 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
                     discount_percent=3.14,
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
                     limit=1,
                     required_purchase_items=[
                         "required_purchase_items_example",
+                    ],
+                    required_purchase_items_tags=[
+                        "required_purchase_items_tags_example",
                     ],
                     required_purchase_quantity=1,
                 ),
@@ -2528,12 +2540,18 @@ api_instance = GiftCertificateApi(api_client())
         ),
         percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
             discount_percent=3.14,
+            item_tags=[
+                "item_tags_example",
+            ],
             items=[
                 "items_example",
             ],
             limit=1,
             required_purchase_items=[
                 "required_purchase_items_example",
+            ],
+            required_purchase_items_tags=[
+                "required_purchase_items_tags_example",
             ],
             required_purchase_quantity=1,
         ),
@@ -3059,12 +3077,18 @@ api_instance = GiftCertificateApi(api_client())
                 ),
                 percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
                     discount_percent=3.14,
+                    item_tags=[
+                        "item_tags_example",
+                    ],
                     items=[
                         "items_example",
                     ],
                     limit=1,
                     required_purchase_items=[
                         "required_purchase_items_example",
+                    ],
+                    required_purchase_items_tags=[
+                        "required_purchase_items_tags_example",
                     ],
                     required_purchase_quantity=1,
                 ),

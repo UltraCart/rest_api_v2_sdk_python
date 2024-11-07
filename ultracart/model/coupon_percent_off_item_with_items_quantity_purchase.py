@@ -83,9 +83,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase(ModelNormal):
         """
         return {
             'discount_percent': (float,),  # noqa: E501
+            'item_tags': ([str],),  # noqa: E501
             'items': ([str],),  # noqa: E501
             'limit': (int,),  # noqa: E501
             'required_purchase_items': ([str],),  # noqa: E501
+            'required_purchase_items_tags': ([str],),  # noqa: E501
             'required_purchase_quantity': (int,),  # noqa: E501
         }
 
@@ -96,9 +98,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase(ModelNormal):
 
     attribute_map = {
         'discount_percent': 'discount_percent',  # noqa: E501
+        'item_tags': 'item_tags',  # noqa: E501
         'items': 'items',  # noqa: E501
         'limit': 'limit',  # noqa: E501
         'required_purchase_items': 'required_purchase_items',  # noqa: E501
+        'required_purchase_items_tags': 'required_purchase_items_tags',  # noqa: E501
         'required_purchase_quantity': 'required_purchase_quantity',  # noqa: E501
     }
 
@@ -144,9 +148,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             discount_percent (float): The percentage of subtotal discount. [optional]  # noqa: E501
+            item_tags ([str]): An optional list of item tags which will receive a discount if one of the required purchased items is purchased.. [optional]  # noqa: E501
             items ([str]): A list of items which will receive a discount if one of the required purchase items is purchased.. [optional]  # noqa: E501
             limit (int): The (optional) maximum quantity of discounted items.. [optional]  # noqa: E501
             required_purchase_items ([str]): Required items (at least one from the list) that must be purchased for coupon to be valid. [optional]  # noqa: E501
+            required_purchase_items_tags ([str]): Required item tags (at least one from the list) that must be purchase for coupon to be valid.. [optional]  # noqa: E501
             required_purchase_quantity (int): The quantity of items that must be purchased for the discount to be applied.. [optional]  # noqa: E501
         """
 
@@ -234,9 +240,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             discount_percent (float): The percentage of subtotal discount. [optional]  # noqa: E501
+            item_tags ([str]): An optional list of item tags which will receive a discount if one of the required purchased items is purchased.. [optional]  # noqa: E501
             items ([str]): A list of items which will receive a discount if one of the required purchase items is purchased.. [optional]  # noqa: E501
             limit (int): The (optional) maximum quantity of discounted items.. [optional]  # noqa: E501
             required_purchase_items ([str]): Required items (at least one from the list) that must be purchased for coupon to be valid. [optional]  # noqa: E501
+            required_purchase_items_tags ([str]): Required item tags (at least one from the list) that must be purchase for coupon to be valid.. [optional]  # noqa: E501
             required_purchase_quantity (int): The quantity of items that must be purchased for the discount to be applied.. [optional]  # noqa: E501
         """
 
