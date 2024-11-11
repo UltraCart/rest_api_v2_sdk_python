@@ -103,6 +103,9 @@ class ItemContent(ModelNormal):
             'exclude_from_top_sellers': (bool,),  # noqa: E501
             'extended_description': (str,),  # noqa: E501
             'extended_description_translated_text_instance_oid': (int,),  # noqa: E501
+            'meta_description': (str,),  # noqa: E501
+            'meta_keywords': (str,),  # noqa: E501
+            'meta_title': (str,),  # noqa: E501
             'multimedia': ([ItemContentMultimedia],),  # noqa: E501
             'new_item': (bool,),  # noqa: E501
             'new_item_end': (str,),  # noqa: E501
@@ -124,6 +127,9 @@ class ItemContent(ModelNormal):
         'exclude_from_top_sellers': 'exclude_from_top_sellers',  # noqa: E501
         'extended_description': 'extended_description',  # noqa: E501
         'extended_description_translated_text_instance_oid': 'extended_description_translated_text_instance_oid',  # noqa: E501
+        'meta_description': 'meta_description',  # noqa: E501
+        'meta_keywords': 'meta_keywords',  # noqa: E501
+        'meta_title': 'meta_title',  # noqa: E501
         'multimedia': 'multimedia',  # noqa: E501
         'new_item': 'new_item',  # noqa: E501
         'new_item_end': 'new_item_end',  # noqa: E501
@@ -179,7 +185,10 @@ class ItemContent(ModelNormal):
             exclude_from_sitemap (bool): Exclude from the sitemap for the StoreFront. [optional]  # noqa: E501
             exclude_from_top_sellers (bool): Exclude from the top sellers list in the StoreFront. [optional]  # noqa: E501
             extended_description (str): Extended description (max 10000 characters). [optional]  # noqa: E501
-            extended_description_translated_text_instance_oid (int): Extneded description text translation instance identifier. [optional]  # noqa: E501
+            extended_description_translated_text_instance_oid (int): Extended description text translation instance identifier. [optional]  # noqa: E501
+            meta_description (str): SEO meta description used by Storefronts. [optional]  # noqa: E501
+            meta_keywords (str): SEO meta keywords used by Storefronts. [optional]  # noqa: E501
+            meta_title (str): SEO meta title used by Storefronts. [optional]  # noqa: E501
             multimedia ([ItemContentMultimedia]): Multimedia. [optional]  # noqa: E501
             new_item (bool): True if the item is new. [optional]  # noqa: E501
             new_item_end (str): The date the item should no longer be considered new. [optional]  # noqa: E501
@@ -277,7 +286,10 @@ class ItemContent(ModelNormal):
             exclude_from_sitemap (bool): Exclude from the sitemap for the StoreFront. [optional]  # noqa: E501
             exclude_from_top_sellers (bool): Exclude from the top sellers list in the StoreFront. [optional]  # noqa: E501
             extended_description (str): Extended description (max 10000 characters). [optional]  # noqa: E501
-            extended_description_translated_text_instance_oid (int): Extneded description text translation instance identifier. [optional]  # noqa: E501
+            extended_description_translated_text_instance_oid (int): Extended description text translation instance identifier. [optional]  # noqa: E501
+            meta_description (str): SEO meta description used by Storefronts. [optional]  # noqa: E501
+            meta_keywords (str): SEO meta keywords used by Storefronts. [optional]  # noqa: E501
+            meta_title (str): SEO meta title used by Storefronts. [optional]  # noqa: E501
             multimedia ([ItemContentMultimedia]): Multimedia. [optional]  # noqa: E501
             new_item (bool): True if the item is new. [optional]  # noqa: E501
             new_item_end (str): The date the item should no longer be considered new. [optional]  # noqa: E501

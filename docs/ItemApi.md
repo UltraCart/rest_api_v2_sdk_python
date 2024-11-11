@@ -1298,6 +1298,9 @@ api_instance = GiftCertificateApi(api_client())
             exclude_from_top_sellers=True,
             extended_description="extended_description_example",
             extended_description_translated_text_instance_oid=1,
+            meta_description="meta_description_example",
+            meta_keywords="meta_keywords_example",
+            meta_title="meta_title_example",
             multimedia=[
                 ItemContentMultimedia(
                     cloud_url="cloud_url_example",
@@ -2610,6 +2613,9 @@ api_instance = GiftCertificateApi(api_client())
             exclude_from_top_sellers=True,
             extended_description="extended_description_example",
             extended_description_translated_text_instance_oid=1,
+            meta_description="meta_description_example",
+            meta_keywords="meta_keywords_example",
+            meta_title="meta_title_example",
             multimedia=[
                 ItemContentMultimedia(
                     cloud_url="cloud_url_example",
@@ -3568,6 +3574,9 @@ api_instance = GiftCertificateApi(api_client())
                     exclude_from_top_sellers=True,
                     extended_description="extended_description_example",
                     extended_description_translated_text_instance_oid=1,
+                    meta_description="meta_description_example",
+                    meta_keywords="meta_keywords_example",
+                    meta_title="meta_title_example",
                     multimedia=[
                         ItemContentMultimedia(
                             cloud_url="cloud_url_example",
