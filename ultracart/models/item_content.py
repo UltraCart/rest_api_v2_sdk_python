@@ -39,6 +39,9 @@ class ItemContent(object):
         'exclude_from_top_sellers': 'bool',
         'extended_description': 'str',
         'extended_description_translated_text_instance_oid': 'int',
+        'meta_description': 'str',
+        'meta_keywords': 'str',
+        'meta_title': 'str',
         'multimedia': 'list[ItemContentMultimedia]',
         'new_item': 'bool',
         'new_item_end': 'str',
@@ -55,6 +58,9 @@ class ItemContent(object):
         'exclude_from_top_sellers': 'exclude_from_top_sellers',
         'extended_description': 'extended_description',
         'extended_description_translated_text_instance_oid': 'extended_description_translated_text_instance_oid',
+        'meta_description': 'meta_description',
+        'meta_keywords': 'meta_keywords',
+        'meta_title': 'meta_title',
         'multimedia': 'multimedia',
         'new_item': 'new_item',
         'new_item_end': 'new_item_end',
@@ -62,7 +68,7 @@ class ItemContent(object):
         'view_url': 'view_url'
     }
 
-    def __init__(self, assignments=None, attributes=None, custom_thank_you_url=None, exclude_from_search=None, exclude_from_sitemap=None, exclude_from_top_sellers=None, extended_description=None, extended_description_translated_text_instance_oid=None, multimedia=None, new_item=None, new_item_end=None, new_item_start=None, view_url=None):  # noqa: E501
+    def __init__(self, assignments=None, attributes=None, custom_thank_you_url=None, exclude_from_search=None, exclude_from_sitemap=None, exclude_from_top_sellers=None, extended_description=None, extended_description_translated_text_instance_oid=None, meta_description=None, meta_keywords=None, meta_title=None, multimedia=None, new_item=None, new_item_end=None, new_item_start=None, view_url=None):  # noqa: E501
         """ItemContent - a model defined in Swagger"""  # noqa: E501
 
         self._assignments = None
@@ -73,6 +79,9 @@ class ItemContent(object):
         self._exclude_from_top_sellers = None
         self._extended_description = None
         self._extended_description_translated_text_instance_oid = None
+        self._meta_description = None
+        self._meta_keywords = None
+        self._meta_title = None
         self._multimedia = None
         self._new_item = None
         self._new_item_end = None
@@ -96,6 +105,12 @@ class ItemContent(object):
             self.extended_description = extended_description
         if extended_description_translated_text_instance_oid is not None:
             self.extended_description_translated_text_instance_oid = extended_description_translated_text_instance_oid
+        if meta_description is not None:
+            self.meta_description = meta_description
+        if meta_keywords is not None:
+            self.meta_keywords = meta_keywords
+        if meta_title is not None:
+            self.meta_title = meta_title
         if multimedia is not None:
             self.multimedia = multimedia
         if new_item is not None:
@@ -274,7 +289,7 @@ class ItemContent(object):
     def extended_description_translated_text_instance_oid(self):
         """Gets the extended_description_translated_text_instance_oid of this ItemContent.  # noqa: E501
 
-        Extneded description text translation instance identifier  # noqa: E501
+        Extended description text translation instance identifier  # noqa: E501
 
         :return: The extended_description_translated_text_instance_oid of this ItemContent.  # noqa: E501
         :rtype: int
@@ -285,13 +300,82 @@ class ItemContent(object):
     def extended_description_translated_text_instance_oid(self, extended_description_translated_text_instance_oid):
         """Sets the extended_description_translated_text_instance_oid of this ItemContent.
 
-        Extneded description text translation instance identifier  # noqa: E501
+        Extended description text translation instance identifier  # noqa: E501
 
         :param extended_description_translated_text_instance_oid: The extended_description_translated_text_instance_oid of this ItemContent.  # noqa: E501
         :type: int
         """
 
         self._extended_description_translated_text_instance_oid = extended_description_translated_text_instance_oid
+
+    @property
+    def meta_description(self):
+        """Gets the meta_description of this ItemContent.  # noqa: E501
+
+        SEO meta description used by Storefronts  # noqa: E501
+
+        :return: The meta_description of this ItemContent.  # noqa: E501
+        :rtype: str
+        """
+        return self._meta_description
+
+    @meta_description.setter
+    def meta_description(self, meta_description):
+        """Sets the meta_description of this ItemContent.
+
+        SEO meta description used by Storefronts  # noqa: E501
+
+        :param meta_description: The meta_description of this ItemContent.  # noqa: E501
+        :type: str
+        """
+
+        self._meta_description = meta_description
+
+    @property
+    def meta_keywords(self):
+        """Gets the meta_keywords of this ItemContent.  # noqa: E501
+
+        SEO meta keywords used by Storefronts  # noqa: E501
+
+        :return: The meta_keywords of this ItemContent.  # noqa: E501
+        :rtype: str
+        """
+        return self._meta_keywords
+
+    @meta_keywords.setter
+    def meta_keywords(self, meta_keywords):
+        """Sets the meta_keywords of this ItemContent.
+
+        SEO meta keywords used by Storefronts  # noqa: E501
+
+        :param meta_keywords: The meta_keywords of this ItemContent.  # noqa: E501
+        :type: str
+        """
+
+        self._meta_keywords = meta_keywords
+
+    @property
+    def meta_title(self):
+        """Gets the meta_title of this ItemContent.  # noqa: E501
+
+        SEO meta title used by Storefronts  # noqa: E501
+
+        :return: The meta_title of this ItemContent.  # noqa: E501
+        :rtype: str
+        """
+        return self._meta_title
+
+    @meta_title.setter
+    def meta_title(self, meta_title):
+        """Sets the meta_title of this ItemContent.
+
+        SEO meta title used by Storefronts  # noqa: E501
+
+        :param meta_title: The meta_title of this ItemContent.  # noqa: E501
+        :type: str
+        """
+
+        self._meta_title = meta_title
 
     @property
     def multimedia(self):
