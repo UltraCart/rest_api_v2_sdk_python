@@ -90,6 +90,7 @@ class ConversationAgentAuth(ModelNormal):
         return {
             'conversation_participant_arn': (str,),  # noqa: E501
             'conversation_participant_name': (str,),  # noqa: E501
+            'group_ids': ([int],),  # noqa: E501
             'jwt': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'pbx_admin': (bool,),  # noqa: E501
@@ -100,6 +101,7 @@ class ConversationAgentAuth(ModelNormal):
             'pbx_voice_token': (str,),  # noqa: E501
             'pbx_worker_token': (str,),  # noqa: E501
             'twilio_accounts': ([ConversationTwilioAccount],),  # noqa: E501
+            'user_id': (int,),  # noqa: E501
             'websocket_url': (str,),  # noqa: E501
         }
 
@@ -111,6 +113,7 @@ class ConversationAgentAuth(ModelNormal):
     attribute_map = {
         'conversation_participant_arn': 'conversation_participant_arn',  # noqa: E501
         'conversation_participant_name': 'conversation_participant_name',  # noqa: E501
+        'group_ids': 'group_ids',  # noqa: E501
         'jwt': 'jwt',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'pbx_admin': 'pbx_admin',  # noqa: E501
@@ -121,6 +124,7 @@ class ConversationAgentAuth(ModelNormal):
         'pbx_voice_token': 'pbx_voice_token',  # noqa: E501
         'pbx_worker_token': 'pbx_worker_token',  # noqa: E501
         'twilio_accounts': 'twilio_accounts',  # noqa: E501
+        'user_id': 'user_id',  # noqa: E501
         'websocket_url': 'websocket_url',  # noqa: E501
     }
 
@@ -167,6 +171,7 @@ class ConversationAgentAuth(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
+            group_ids ([int]): UltraCart Groups this user belongs to. [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             pbx_admin (bool): [optional]  # noqa: E501
@@ -177,6 +182,7 @@ class ConversationAgentAuth(ModelNormal):
             pbx_voice_token (str): [optional]  # noqa: E501
             pbx_worker_token (str): [optional]  # noqa: E501
             twilio_accounts ([ConversationTwilioAccount]): [optional]  # noqa: E501
+            user_id (int): UltraCart User ID. [optional]  # noqa: E501
             websocket_url (str): [optional]  # noqa: E501
         """
 
@@ -265,6 +271,7 @@ class ConversationAgentAuth(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
+            group_ids ([int]): UltraCart Groups this user belongs to. [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
             pbx_admin (bool): [optional]  # noqa: E501
@@ -275,6 +282,7 @@ class ConversationAgentAuth(ModelNormal):
             pbx_voice_token (str): [optional]  # noqa: E501
             pbx_worker_token (str): [optional]  # noqa: E501
             twilio_accounts ([ConversationTwilioAccount]): [optional]  # noqa: E501
+            user_id (int): UltraCart User ID. [optional]  # noqa: E501
             websocket_url (str): [optional]  # noqa: E501
         """
 

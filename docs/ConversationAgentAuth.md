@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conversation_participant_arn** | **str** |  | [optional] 
 **conversation_participant_name** | **str** |  | [optional] 
+**group_ids** | **[int]** | UltraCart Groups this user belongs to | [optional] 
 **jwt** | **str** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **pbx_admin** | **bool** |  | [optional] 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **pbx_voice_token** | **str** |  | [optional] 
 **pbx_worker_token** | **str** |  | [optional] 
 **twilio_accounts** | [**[ConversationTwilioAccount]**](ConversationTwilioAccount.md) |  | [optional] 
+**user_id** | **int** | UltraCart User ID | [optional] 
 **websocket_url** | **str** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
