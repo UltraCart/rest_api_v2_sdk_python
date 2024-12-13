@@ -33,6 +33,7 @@ class ConversationAgentAuth(object):
     swagger_types = {
         'conversation_participant_arn': 'str',
         'conversation_participant_name': 'str',
+        'group_ids': 'list[int]',
         'jwt': 'str',
         'merchant_id': 'str',
         'pbx_admin': 'bool',
@@ -43,12 +44,14 @@ class ConversationAgentAuth(object):
         'pbx_voice_token': 'str',
         'pbx_worker_token': 'str',
         'twilio_accounts': 'list[ConversationTwilioAccount]',
+        'user_id': 'int',
         'websocket_url': 'str'
     }
 
     attribute_map = {
         'conversation_participant_arn': 'conversation_participant_arn',
         'conversation_participant_name': 'conversation_participant_name',
+        'group_ids': 'group_ids',
         'jwt': 'jwt',
         'merchant_id': 'merchant_id',
         'pbx_admin': 'pbx_admin',
@@ -59,14 +62,16 @@ class ConversationAgentAuth(object):
         'pbx_voice_token': 'pbx_voice_token',
         'pbx_worker_token': 'pbx_worker_token',
         'twilio_accounts': 'twilio_accounts',
+        'user_id': 'user_id',
         'websocket_url': 'websocket_url'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, jwt=None, merchant_id=None, pbx_admin=None, pbx_jwt=None, pbx_supervisor=None, pbx_user=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, twilio_accounts=None, websocket_url=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, group_ids=None, jwt=None, merchant_id=None, pbx_admin=None, pbx_jwt=None, pbx_supervisor=None, pbx_user=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, twilio_accounts=None, user_id=None, websocket_url=None):  # noqa: E501
         """ConversationAgentAuth - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
         self._conversation_participant_name = None
+        self._group_ids = None
         self._jwt = None
         self._merchant_id = None
         self._pbx_admin = None
@@ -77,6 +82,7 @@ class ConversationAgentAuth(object):
         self._pbx_voice_token = None
         self._pbx_worker_token = None
         self._twilio_accounts = None
+        self._user_id = None
         self._websocket_url = None
         self.discriminator = None
 
@@ -84,6 +90,8 @@ class ConversationAgentAuth(object):
             self.conversation_participant_arn = conversation_participant_arn
         if conversation_participant_name is not None:
             self.conversation_participant_name = conversation_participant_name
+        if group_ids is not None:
+            self.group_ids = group_ids
         if jwt is not None:
             self.jwt = jwt
         if merchant_id is not None:
@@ -104,6 +112,8 @@ class ConversationAgentAuth(object):
             self.pbx_worker_token = pbx_worker_token
         if twilio_accounts is not None:
             self.twilio_accounts = twilio_accounts
+        if user_id is not None:
+            self.user_id = user_id
         if websocket_url is not None:
             self.websocket_url = websocket_url
 
@@ -148,6 +158,29 @@ class ConversationAgentAuth(object):
         """
 
         self._conversation_participant_name = conversation_participant_name
+
+    @property
+    def group_ids(self):
+        """Gets the group_ids of this ConversationAgentAuth.  # noqa: E501
+
+        UltraCart Groups this user belongs to  # noqa: E501
+
+        :return: The group_ids of this ConversationAgentAuth.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._group_ids
+
+    @group_ids.setter
+    def group_ids(self, group_ids):
+        """Sets the group_ids of this ConversationAgentAuth.
+
+        UltraCart Groups this user belongs to  # noqa: E501
+
+        :param group_ids: The group_ids of this ConversationAgentAuth.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._group_ids = group_ids
 
     @property
     def jwt(self):
@@ -358,6 +391,29 @@ class ConversationAgentAuth(object):
         """
 
         self._twilio_accounts = twilio_accounts
+
+    @property
+    def user_id(self):
+        """Gets the user_id of this ConversationAgentAuth.  # noqa: E501
+
+        UltraCart User ID  # noqa: E501
+
+        :return: The user_id of this ConversationAgentAuth.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this ConversationAgentAuth.
+
+        UltraCart User ID  # noqa: E501
+
+        :param user_id: The user_id of this ConversationAgentAuth.  # noqa: E501
+        :type: int
+        """
+
+        self._user_id = user_id
 
     @property
     def websocket_url(self):
