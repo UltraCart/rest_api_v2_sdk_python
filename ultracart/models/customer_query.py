@@ -43,6 +43,7 @@ class CustomerQuery(object):
         'billing_postal_code': 'str',
         'billing_state': 'str',
         'email': 'str',
+        'emails': 'list[str]',
         'last_modified_dts_end': 'str',
         'last_modified_dts_start': 'str',
         'pricing_tier_name': 'str',
@@ -75,6 +76,7 @@ class CustomerQuery(object):
         'billing_postal_code': 'billing_postal_code',
         'billing_state': 'billing_state',
         'email': 'email',
+        'emails': 'emails',
         'last_modified_dts_end': 'last_modified_dts_end',
         'last_modified_dts_start': 'last_modified_dts_start',
         'pricing_tier_name': 'pricing_tier_name',
@@ -94,7 +96,7 @@ class CustomerQuery(object):
         'signup_dts_start': 'signup_dts_start'
     }
 
-    def __init__(self, all_tags=None, any_tags=None, billing_city=None, billing_company=None, billing_country_code=None, billing_day_phone=None, billing_evening_phone=None, billing_first_name=None, billing_last_name=None, billing_postal_code=None, billing_state=None, email=None, last_modified_dts_end=None, last_modified_dts_start=None, pricing_tier_name=None, pricing_tier_oid=None, qb_class=None, quickbooks_code=None, shipping_city=None, shipping_company=None, shipping_country_code=None, shipping_day_phone=None, shipping_evening_phone=None, shipping_first_name=None, shipping_last_name=None, shipping_postal_code=None, shipping_state=None, signup_dts_end=None, signup_dts_start=None):  # noqa: E501
+    def __init__(self, all_tags=None, any_tags=None, billing_city=None, billing_company=None, billing_country_code=None, billing_day_phone=None, billing_evening_phone=None, billing_first_name=None, billing_last_name=None, billing_postal_code=None, billing_state=None, email=None, emails=None, last_modified_dts_end=None, last_modified_dts_start=None, pricing_tier_name=None, pricing_tier_oid=None, qb_class=None, quickbooks_code=None, shipping_city=None, shipping_company=None, shipping_country_code=None, shipping_day_phone=None, shipping_evening_phone=None, shipping_first_name=None, shipping_last_name=None, shipping_postal_code=None, shipping_state=None, signup_dts_end=None, signup_dts_start=None):  # noqa: E501
         """CustomerQuery - a model defined in Swagger"""  # noqa: E501
 
         self._all_tags = None
@@ -109,6 +111,7 @@ class CustomerQuery(object):
         self._billing_postal_code = None
         self._billing_state = None
         self._email = None
+        self._emails = None
         self._last_modified_dts_end = None
         self._last_modified_dts_start = None
         self._pricing_tier_name = None
@@ -152,6 +155,8 @@ class CustomerQuery(object):
             self.billing_state = billing_state
         if email is not None:
             self.email = email
+        if emails is not None:
+            self.emails = emails
         if last_modified_dts_end is not None:
             self.last_modified_dts_end = last_modified_dts_end
         if last_modified_dts_start is not None:
@@ -480,6 +485,29 @@ class CustomerQuery(object):
         """
 
         self._email = email
+
+    @property
+    def emails(self):
+        """Gets the emails of this CustomerQuery.  # noqa: E501
+
+        Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property.  # noqa: E501
+
+        :return: The emails of this CustomerQuery.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._emails
+
+    @emails.setter
+    def emails(self, emails):
+        """Sets the emails of this CustomerQuery.
+
+        Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property.  # noqa: E501
+
+        :param emails: The emails of this CustomerQuery.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._emails = emails
 
     @property
     def last_modified_dts_end(self):

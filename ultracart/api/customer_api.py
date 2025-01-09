@@ -1196,6 +1196,7 @@ class CustomerApi(object):
         :param str shipping_evening_phone: Shipping evening phone
         :param int pricing_tier_oid: Pricing tier oid
         :param str pricing_tier_name: Pricing tier name
+        :param object emails: Emails
         :param int limit: The maximum number of records to return on this one API call. (Max 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str since: Fetch customers that have been created/modified since this date/time.
@@ -1249,6 +1250,7 @@ class CustomerApi(object):
         :param str shipping_evening_phone: Shipping evening phone
         :param int pricing_tier_oid: Pricing tier oid
         :param str pricing_tier_name: Pricing tier name
+        :param object emails: Emails
         :param int limit: The maximum number of records to return on this one API call. (Max 200)
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str since: Fetch customers that have been created/modified since this date/time.
@@ -1259,7 +1261,7 @@ class CustomerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['email', 'qb_class', 'quickbooks_code', 'last_modified_dts_start', 'last_modified_dts_end', 'signup_dts_start', 'signup_dts_end', 'billing_first_name', 'billing_last_name', 'billing_company', 'billing_city', 'billing_state', 'billing_postal_code', 'billing_country_code', 'billing_day_phone', 'billing_evening_phone', 'shipping_first_name', 'shipping_last_name', 'shipping_company', 'shipping_city', 'shipping_state', 'shipping_postal_code', 'shipping_country_code', 'shipping_day_phone', 'shipping_evening_phone', 'pricing_tier_oid', 'pricing_tier_name', 'limit', 'offset', 'since', 'sort', 'expand']  # noqa: E501
+        all_params = ['email', 'qb_class', 'quickbooks_code', 'last_modified_dts_start', 'last_modified_dts_end', 'signup_dts_start', 'signup_dts_end', 'billing_first_name', 'billing_last_name', 'billing_company', 'billing_city', 'billing_state', 'billing_postal_code', 'billing_country_code', 'billing_day_phone', 'billing_evening_phone', 'shipping_first_name', 'shipping_last_name', 'shipping_company', 'shipping_city', 'shipping_state', 'shipping_postal_code', 'shipping_country_code', 'shipping_day_phone', 'shipping_evening_phone', 'pricing_tier_oid', 'pricing_tier_name', 'emails', 'limit', 'offset', 'since', 'sort', 'expand']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1334,6 +1336,8 @@ class CustomerApi(object):
             query_params.append(('pricing_tier_oid', params['pricing_tier_oid']))  # noqa: E501
         if 'pricing_tier_name' in params:
             query_params.append(('pricing_tier_name', params['pricing_tier_name']))  # noqa: E501
+        if 'emails' in params:
+            query_params.append(('emails', params['emails']))  # noqa: E501
         if 'limit' in params:
             query_params.append(('_limit', params['limit']))  # noqa: E501
         if 'offset' in params:

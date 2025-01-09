@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customers**
-> CustomersResponse get_customers(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+> CustomersResponse get_customers(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, emails=emails, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
 
 Retrieve customers
 
@@ -629,6 +629,7 @@ shipping_day_phone = 'shipping_day_phone_example' # str | Shipping day phone (op
 shipping_evening_phone = 'shipping_evening_phone_example' # str | Shipping evening phone (optional)
 pricing_tier_oid = 56 # int | Pricing tier oid (optional)
 pricing_tier_name = 'pricing_tier_name_example' # str | Pricing tier name (optional)
+emails = NULL # object | Emails (optional)
 limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 since = 'since_example' # str | Fetch customers that have been created/modified since this date/time. (optional)
@@ -637,7 +638,7 @@ expand = 'expand_example' # str | The object expansion to perform on the result.
 
 try:
     # Retrieve customers
-    api_response = api_instance.get_customers(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+    api_response = api_instance.get_customers(email=email, qb_class=qb_class, quickbooks_code=quickbooks_code, last_modified_dts_start=last_modified_dts_start, last_modified_dts_end=last_modified_dts_end, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, billing_first_name=billing_first_name, billing_last_name=billing_last_name, billing_company=billing_company, billing_city=billing_city, billing_state=billing_state, billing_postal_code=billing_postal_code, billing_country_code=billing_country_code, billing_day_phone=billing_day_phone, billing_evening_phone=billing_evening_phone, shipping_first_name=shipping_first_name, shipping_last_name=shipping_last_name, shipping_company=shipping_company, shipping_city=shipping_city, shipping_state=shipping_state, shipping_postal_code=shipping_postal_code, shipping_country_code=shipping_country_code, shipping_day_phone=shipping_day_phone, shipping_evening_phone=shipping_evening_phone, pricing_tier_oid=pricing_tier_oid, pricing_tier_name=pricing_tier_name, emails=emails, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CustomerApi->get_customers: %s\n" % e)
@@ -674,6 +675,7 @@ Name | Type | Description  | Notes
  **shipping_evening_phone** | **str**| Shipping evening phone | [optional] 
  **pricing_tier_oid** | **int**| Pricing tier oid | [optional] 
  **pricing_tier_name** | **str**| Pricing tier name | [optional] 
+ **emails** | [**object**](.md)| Emails | [optional] 
  **limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **since** | **str**| Fetch customers that have been created/modified since this date/time. | [optional] 

@@ -549,6 +549,212 @@ class ChannelPartnerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_channel_partner_order(self, order_id, **kwargs):  # noqa: E501
+        """Retrieve a channel partner order  # noqa: E501
+
+        Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_channel_partner_order(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_channel_partner_order_with_http_info(order_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_channel_partner_order_with_http_info(order_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_channel_partner_order_with_http_info(self, order_id, **kwargs):  # noqa: E501
+        """Retrieve a channel partner order  # noqa: E501
+
+        Retrieves a single order using the specified order id.  Only orders belonging to this channel partner may be retrieved.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_channel_partner_order_with_http_info(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_channel_partner_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `get_channel_partner_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/channel_partner/orders/{order_id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_channel_partner_order_by_channel_partner_order_id(self, order_id, **kwargs):  # noqa: E501
+        """Retrieve a channel partner order by the channel partner order id  # noqa: E501
+
+        Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_channel_partner_order_by_channel_partner_order_id(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The channel partner order id to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_channel_partner_order_by_channel_partner_order_id_with_http_info(order_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_channel_partner_order_by_channel_partner_order_id_with_http_info(order_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_channel_partner_order_by_channel_partner_order_id_with_http_info(self, order_id, **kwargs):  # noqa: E501
+        """Retrieve a channel partner order by the channel partner order id  # noqa: E501
+
+        Retrieves a single order using the channel partner order id, not the ultracart order id.  Only orders belonging to this channel partner may be retrieved.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_channel_partner_order_by_channel_partner_order_id_with_http_info(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The channel partner order id to retrieve. (required)
+        :param str expand: The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_channel_partner_order_by_channel_partner_order_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `get_channel_partner_order_by_channel_partner_order_id`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/channel_partner/orders/by_channel_partner_order_id/{order_id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_channel_partner_ship_to_preference(self, channel_partner_oid, channel_partner_ship_to_preference_oid, **kwargs):  # noqa: E501
         """Retrieve the ship to preference associated with the channel partner and the specific id.  # noqa: E501
 
@@ -1045,6 +1251,145 @@ class ChannelPartnerApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ChannelPartnerShipToPreferenceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def refund_channel_partner_order(self, order, order_id, **kwargs):  # noqa: E501
+        """Refund a channel partner order  # noqa: E501
+
+        Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.refund_channel_partner_order(order, order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Order order: Order to refund (required)
+        :param str order_id: The order id to refund. (required)
+        :param bool reject_after_refund: Reject order after refund
+        :param bool skip_customer_notification: Skip customer email notification
+        :param bool auto_order_cancel: Cancel associated auto orders
+        :param bool manual_refund: Consider a manual refund done externally
+        :param bool reverse_affiliate_transactions: Reverse affiliate transactions
+        :param bool issue_store_credit: Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
+        :param str auto_order_cancel_reason: Reason for auto orders cancellation
+        :param str expand: The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.refund_channel_partner_order_with_http_info(order, order_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.refund_channel_partner_order_with_http_info(order, order_id, **kwargs)  # noqa: E501
+            return data
+
+    def refund_channel_partner_order_with_http_info(self, order, order_id, **kwargs):  # noqa: E501
+        """Refund a channel partner order  # noqa: E501
+
+        Perform a refund operation on a channel partner order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.refund_channel_partner_order_with_http_info(order, order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Order order: Order to refund (required)
+        :param str order_id: The order id to refund. (required)
+        :param bool reject_after_refund: Reject order after refund
+        :param bool skip_customer_notification: Skip customer email notification
+        :param bool auto_order_cancel: Cancel associated auto orders
+        :param bool manual_refund: Consider a manual refund done externally
+        :param bool reverse_affiliate_transactions: Reverse affiliate transactions
+        :param bool issue_store_credit: Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
+        :param str auto_order_cancel_reason: Reason for auto orders cancellation
+        :param str expand: The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order', 'order_id', 'reject_after_refund', 'skip_customer_notification', 'auto_order_cancel', 'manual_refund', 'reverse_affiliate_transactions', 'issue_store_credit', 'auto_order_cancel_reason', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method refund_channel_partner_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order' is set
+        if ('order' not in params or
+                params['order'] is None):
+            raise ValueError("Missing the required parameter `order` when calling `refund_channel_partner_order`")  # noqa: E501
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `refund_channel_partner_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+        if 'reject_after_refund' in params:
+            query_params.append(('reject_after_refund', params['reject_after_refund']))  # noqa: E501
+        if 'skip_customer_notification' in params:
+            query_params.append(('skip_customer_notification', params['skip_customer_notification']))  # noqa: E501
+        if 'auto_order_cancel' in params:
+            query_params.append(('auto_order_cancel', params['auto_order_cancel']))  # noqa: E501
+        if 'manual_refund' in params:
+            query_params.append(('manual_refund', params['manual_refund']))  # noqa: E501
+        if 'reverse_affiliate_transactions' in params:
+            query_params.append(('reverse_affiliate_transactions', params['reverse_affiliate_transactions']))  # noqa: E501
+        if 'issue_store_credit' in params:
+            query_params.append(('issue_store_credit', params['issue_store_credit']))  # noqa: E501
+        if 'auto_order_cancel_reason' in params:
+            query_params.append(('auto_order_cancel_reason', params['auto_order_cancel_reason']))  # noqa: E501
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'order' in params:
+            body_params = params['order']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/channel_partner/orders/{order_id}/refund', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
