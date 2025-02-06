@@ -500,6 +500,13 @@ api_instance = GiftCertificateApi(api_client())
             creation_dts="creation_dts_example",
             currency_code="currency_code_example",
             current_stage="Accounts Receivable",
+            current_stage_histories=[
+                OrderCurrentStageHistory(
+                    after_stage="Accounts Receivable",
+                    before_stage="Accounts Receivable",
+                    transition_dts="transition_dts_example",
+                ),
+            ],
             customer_profile=Customer(
                 activity=CustomerActivity(
                     activities=[
@@ -924,6 +931,13 @@ api_instance = GiftCertificateApi(api_client())
                     activation_codes=[
                         "activation_codes_example",
                     ],
+                    actual_cogs=Currency(
+                        currency_code="currency_code_example",
+                        exchange_rate=3.14,
+                        localized=3.14,
+                        localized_formatted="localized_formatted_example",
+                        value=3.14,
+                    ),
                     arbitrary_unit_cost=Currency(
                         currency_code="currency_code_example",
                         exchange_rate=3.14,
@@ -1353,6 +1367,13 @@ api_instance = GiftCertificateApi(api_client())
                     localized_formatted="localized_formatted_example",
                     value=3.14,
                 ),
+                actual_other_cost=Currency(
+                    currency_code="currency_code_example",
+                    exchange_rate=3.14,
+                    localized=3.14,
+                    localized_formatted="localized_formatted_example",
+                    value=3.14,
+                ),
                 actual_payment_processing=Currency(
                     currency_code="currency_code_example",
                     exchange_rate=3.14,
@@ -1360,6 +1381,15 @@ api_instance = GiftCertificateApi(api_client())
                     localized_formatted="localized_formatted_example",
                     value=3.14,
                 ),
+                actual_profit=Currency(
+                    currency_code="currency_code_example",
+                    exchange_rate=3.14,
+                    localized=3.14,
+                    localized_formatted="localized_formatted_example",
+                    value=3.14,
+                ),
+                actual_profit_analyzed=True,
+                actual_profit_review=True,
                 actual_shipping=Currency(
                     currency_code="currency_code_example",
                     exchange_rate=3.14,
@@ -1864,6 +1894,13 @@ api_instance = GiftCertificateApi(api_client())
             creation_dts="creation_dts_example",
             currency_code="currency_code_example",
             current_stage="Accounts Receivable",
+            current_stage_histories=[
+                OrderCurrentStageHistory(
+                    after_stage="Accounts Receivable",
+                    before_stage="Accounts Receivable",
+                    transition_dts="transition_dts_example",
+                ),
+            ],
             customer_profile=Customer(
                 activity=CustomerActivity(
                     activities=[
@@ -2288,6 +2325,13 @@ api_instance = GiftCertificateApi(api_client())
                     activation_codes=[
                         "activation_codes_example",
                     ],
+                    actual_cogs=Currency(
+                        currency_code="currency_code_example",
+                        exchange_rate=3.14,
+                        localized=3.14,
+                        localized_formatted="localized_formatted_example",
+                        value=3.14,
+                    ),
                     arbitrary_unit_cost=Currency(
                         currency_code="currency_code_example",
                         exchange_rate=3.14,
@@ -2717,6 +2761,13 @@ api_instance = GiftCertificateApi(api_client())
                     localized_formatted="localized_formatted_example",
                     value=3.14,
                 ),
+                actual_other_cost=Currency(
+                    currency_code="currency_code_example",
+                    exchange_rate=3.14,
+                    localized=3.14,
+                    localized_formatted="localized_formatted_example",
+                    value=3.14,
+                ),
                 actual_payment_processing=Currency(
                     currency_code="currency_code_example",
                     exchange_rate=3.14,
@@ -2724,6 +2775,15 @@ api_instance = GiftCertificateApi(api_client())
                     localized_formatted="localized_formatted_example",
                     value=3.14,
                 ),
+                actual_profit=Currency(
+                    currency_code="currency_code_example",
+                    exchange_rate=3.14,
+                    localized=3.14,
+                    localized_formatted="localized_formatted_example",
+                    value=3.14,
+                ),
+                actual_profit_analyzed=True,
+                actual_profit_review=True,
                 actual_shipping=Currency(
                     currency_code="currency_code_example",
                     exchange_rate=3.14,

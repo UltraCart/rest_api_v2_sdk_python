@@ -39,6 +39,7 @@ def lazy_import():
     from ultracart.model.order_channel_partner import OrderChannelPartner
     from ultracart.model.order_checkout import OrderCheckout
     from ultracart.model.order_coupon import OrderCoupon
+    from ultracart.model.order_current_stage_history import OrderCurrentStageHistory
     from ultracart.model.order_digital_order import OrderDigitalOrder
     from ultracart.model.order_edi import OrderEdi
     from ultracart.model.order_fraud_score import OrderFraudScore
@@ -66,6 +67,7 @@ def lazy_import():
     globals()['OrderChannelPartner'] = OrderChannelPartner
     globals()['OrderCheckout'] = OrderCheckout
     globals()['OrderCoupon'] = OrderCoupon
+    globals()['OrderCurrentStageHistory'] = OrderCurrentStageHistory
     globals()['OrderDigitalOrder'] = OrderDigitalOrder
     globals()['OrderEdi'] = OrderEdi
     globals()['OrderFraudScore'] = OrderFraudScore
@@ -171,6 +173,7 @@ class Order(ModelNormal):
             'creation_dts': (str,),  # noqa: E501
             'currency_code': (str,),  # noqa: E501
             'current_stage': (str,),  # noqa: E501
+            'current_stage_histories': ([OrderCurrentStageHistory],),  # noqa: E501
             'customer_profile': (Customer,),  # noqa: E501
             'digital_order': (OrderDigitalOrder,),  # noqa: E501
             'edi': (OrderEdi,),  # noqa: E501
@@ -217,6 +220,7 @@ class Order(ModelNormal):
         'creation_dts': 'creation_dts',  # noqa: E501
         'currency_code': 'currency_code',  # noqa: E501
         'current_stage': 'current_stage',  # noqa: E501
+        'current_stage_histories': 'current_stage_histories',  # noqa: E501
         'customer_profile': 'customer_profile',  # noqa: E501
         'digital_order': 'digital_order',  # noqa: E501
         'edi': 'edi',  # noqa: E501
@@ -298,6 +302,7 @@ class Order(ModelNormal):
             creation_dts (str): Date/time that the order was created. [optional]  # noqa: E501
             currency_code (str): Currency code that the customer used if different than the merchant's base currency code. [optional]  # noqa: E501
             current_stage (str): Current stage that the order is in.. [optional]  # noqa: E501
+            current_stage_histories ([OrderCurrentStageHistory]): History of the changes to the current_stage field. [optional]  # noqa: E501
             customer_profile (Customer): [optional]  # noqa: E501
             digital_order (OrderDigitalOrder): [optional]  # noqa: E501
             edi (OrderEdi): [optional]  # noqa: E501
@@ -421,6 +426,7 @@ class Order(ModelNormal):
             creation_dts (str): Date/time that the order was created. [optional]  # noqa: E501
             currency_code (str): Currency code that the customer used if different than the merchant's base currency code. [optional]  # noqa: E501
             current_stage (str): Current stage that the order is in.. [optional]  # noqa: E501
+            current_stage_histories ([OrderCurrentStageHistory]): History of the changes to the current_stage field. [optional]  # noqa: E501
             customer_profile (Customer): [optional]  # noqa: E501
             digital_order (OrderDigitalOrder): [optional]  # noqa: E501
             edi (OrderEdi): [optional]  # noqa: E501

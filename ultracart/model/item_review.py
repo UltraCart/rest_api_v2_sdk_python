@@ -65,6 +65,9 @@ class ItemReview(ModelNormal):
     }
 
     validations = {
+        ('merchant_reply',): {
+            'max_length': 10000,
+        },
         ('rating_name1',): {
             'max_length': 100,
         },
@@ -140,6 +143,7 @@ class ItemReview(ModelNormal):
             'featured': (bool,),  # noqa: E501
             'helperful_no_votes': (int,),  # noqa: E501
             'helpful_yes_votes': (int,),  # noqa: E501
+            'merchant_reply': (str,),  # noqa: E501
             'order_id': (str,),  # noqa: E501
             'overall': (float,),  # noqa: E501
             'rating_name1': (str,),  # noqa: E501
@@ -185,6 +189,7 @@ class ItemReview(ModelNormal):
         'featured': 'featured',  # noqa: E501
         'helperful_no_votes': 'helperful_no_votes',  # noqa: E501
         'helpful_yes_votes': 'helpful_yes_votes',  # noqa: E501
+        'merchant_reply': 'merchant_reply',  # noqa: E501
         'order_id': 'order_id',  # noqa: E501
         'overall': 'overall',  # noqa: E501
         'rating_name1': 'rating_name1',  # noqa: E501
@@ -265,6 +270,7 @@ class ItemReview(ModelNormal):
             featured (bool): [optional]  # noqa: E501
             helperful_no_votes (int): [optional]  # noqa: E501
             helpful_yes_votes (int): [optional]  # noqa: E501
+            merchant_reply (str): Merchant Reply (set to an empty string to remove). [optional]  # noqa: E501
             order_id (str): [optional]  # noqa: E501
             overall (float): [optional]  # noqa: E501
             rating_name1 (str): Rating Name 1. [optional]  # noqa: E501
@@ -387,6 +393,7 @@ class ItemReview(ModelNormal):
             featured (bool): [optional]  # noqa: E501
             helperful_no_votes (int): [optional]  # noqa: E501
             helpful_yes_votes (int): [optional]  # noqa: E501
+            merchant_reply (str): Merchant Reply (set to an empty string to remove). [optional]  # noqa: E501
             order_id (str): [optional]  # noqa: E501
             overall (float): [optional]  # noqa: E501
             rating_name1 (str): Rating Name 1. [optional]  # noqa: E501

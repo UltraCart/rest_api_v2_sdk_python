@@ -141,6 +141,7 @@ class OrderItem(ModelNormal):
         return {
             'accounting_code': (str,),  # noqa: E501
             'activation_codes': ([str],),  # noqa: E501
+            'actual_cogs': (Currency,),  # noqa: E501
             'arbitrary_unit_cost': (Currency,),  # noqa: E501
             'auto_order_last_rebill_dts': (str,),  # noqa: E501
             'auto_order_schedule': (str,),  # noqa: E501
@@ -214,6 +215,7 @@ class OrderItem(ModelNormal):
     attribute_map = {
         'accounting_code': 'accounting_code',  # noqa: E501
         'activation_codes': 'activation_codes',  # noqa: E501
+        'actual_cogs': 'actual_cogs',  # noqa: E501
         'arbitrary_unit_cost': 'arbitrary_unit_cost',  # noqa: E501
         'auto_order_last_rebill_dts': 'auto_order_last_rebill_dts',  # noqa: E501
         'auto_order_schedule': 'auto_order_schedule',  # noqa: E501
@@ -322,6 +324,7 @@ class OrderItem(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             accounting_code (str): QuickBooks code. [optional]  # noqa: E501
             activation_codes ([str]): Activation codes assigned to this item. [optional]  # noqa: E501
+            actual_cogs (Currency): [optional]  # noqa: E501
             arbitrary_unit_cost (Currency): [optional]  # noqa: E501
             auto_order_last_rebill_dts (str): Date/time of the last rebill, used only during order insert to help project future rebills. [optional]  # noqa: E501
             auto_order_schedule (str): Auto order schedule, used only during inserts supplying the recurring schedule. [optional]  # noqa: E501
@@ -472,6 +475,7 @@ class OrderItem(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             accounting_code (str): QuickBooks code. [optional]  # noqa: E501
             activation_codes ([str]): Activation codes assigned to this item. [optional]  # noqa: E501
+            actual_cogs (Currency): [optional]  # noqa: E501
             arbitrary_unit_cost (Currency): [optional]  # noqa: E501
             auto_order_last_rebill_dts (str): Date/time of the last rebill, used only during order insert to help project future rebills. [optional]  # noqa: E501
             auto_order_schedule (str): Auto order schedule, used only during inserts supplying the recurring schedule. [optional]  # noqa: E501

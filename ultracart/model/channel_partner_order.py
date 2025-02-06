@@ -310,6 +310,7 @@ class ChannelPartnerOrder(ModelNormal):
             'special_instructions': (str,),  # noqa: E501
             'store_completed': (bool,),  # noqa: E501
             'store_if_payment_declines': (bool,),  # noqa: E501
+            'storefront_host_name': (str,),  # noqa: E501
             'tax_county': (str,),  # noqa: E501
             'tax_exempt': (bool,),  # noqa: E501
             'transaction': (ChannelPartnerOrderTransaction,),  # noqa: E501
@@ -409,6 +410,7 @@ class ChannelPartnerOrder(ModelNormal):
         'special_instructions': 'special_instructions',  # noqa: E501
         'store_completed': 'store_completed',  # noqa: E501
         'store_if_payment_declines': 'store_if_payment_declines',  # noqa: E501
+        'storefront_host_name': 'storefront_host_name',  # noqa: E501
         'tax_county': 'tax_county',  # noqa: E501
         'tax_exempt': 'tax_exempt',  # noqa: E501
         'transaction': 'transaction',  # noqa: E501
@@ -543,6 +545,7 @@ class ChannelPartnerOrder(ModelNormal):
             special_instructions (str): Special instructions from the customer regarding shipping. [optional]  # noqa: E501
             store_completed (bool): If true the order bypasses shipping and is marked completed. [optional]  # noqa: E501
             store_if_payment_declines (bool): If true any failed payments are placed into Accounts Receivable.  If false any failed payments result in a rejected order resulting in errors thrown during the insert routine. [optional]  # noqa: E501
+            storefront_host_name (str): StoreFront host name associated with the order. [optional]  # noqa: E501
             tax_county (str): The optional shipping county used to determine exact taxes. [optional]  # noqa: E501
             tax_exempt (bool): If true this order is marked as being tax exempt. [optional]  # noqa: E501
             transaction (ChannelPartnerOrderTransaction): [optional]  # noqa: E501
@@ -719,6 +722,7 @@ class ChannelPartnerOrder(ModelNormal):
             special_instructions (str): Special instructions from the customer regarding shipping. [optional]  # noqa: E501
             store_completed (bool): If true the order bypasses shipping and is marked completed. [optional]  # noqa: E501
             store_if_payment_declines (bool): If true any failed payments are placed into Accounts Receivable.  If false any failed payments result in a rejected order resulting in errors thrown during the insert routine. [optional]  # noqa: E501
+            storefront_host_name (str): StoreFront host name associated with the order. [optional]  # noqa: E501
             tax_county (str): The optional shipping county used to determine exact taxes. [optional]  # noqa: E501
             tax_exempt (bool): If true this order is marked as being tax exempt. [optional]  # noqa: E501
             transaction (ChannelPartnerOrderTransaction): [optional]  # noqa: E501

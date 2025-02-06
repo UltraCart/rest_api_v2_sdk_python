@@ -89,7 +89,11 @@ class OrderSummary(ModelNormal):
         lazy_import()
         return {
             'actual_fulfillment': (Currency,),  # noqa: E501
+            'actual_other_cost': (Currency,),  # noqa: E501
             'actual_payment_processing': (Currency,),  # noqa: E501
+            'actual_profit': (Currency,),  # noqa: E501
+            'actual_profit_analyzed': (bool,),  # noqa: E501
+            'actual_profit_review': (bool,),  # noqa: E501
             'actual_shipping': (Currency,),  # noqa: E501
             'arbitrary_shipping_handling_total': (Currency,),  # noqa: E501
             'health_benefit_card_amount': (Currency,),  # noqa: E501
@@ -119,7 +123,11 @@ class OrderSummary(ModelNormal):
 
     attribute_map = {
         'actual_fulfillment': 'actual_fulfillment',  # noqa: E501
+        'actual_other_cost': 'actual_other_cost',  # noqa: E501
         'actual_payment_processing': 'actual_payment_processing',  # noqa: E501
+        'actual_profit': 'actual_profit',  # noqa: E501
+        'actual_profit_analyzed': 'actual_profit_analyzed',  # noqa: E501
+        'actual_profit_review': 'actual_profit_review',  # noqa: E501
         'actual_shipping': 'actual_shipping',  # noqa: E501
         'arbitrary_shipping_handling_total': 'arbitrary_shipping_handling_total',  # noqa: E501
         'health_benefit_card_amount': 'health_benefit_card_amount',  # noqa: E501
@@ -184,7 +192,11 @@ class OrderSummary(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             actual_fulfillment (Currency): [optional]  # noqa: E501
+            actual_other_cost (Currency): [optional]  # noqa: E501
             actual_payment_processing (Currency): [optional]  # noqa: E501
+            actual_profit (Currency): [optional]  # noqa: E501
+            actual_profit_analyzed (bool): Actual profit has been analyzed. [optional]  # noqa: E501
+            actual_profit_review (bool): Actual profit needs review. [optional]  # noqa: E501
             actual_shipping (Currency): [optional]  # noqa: E501
             arbitrary_shipping_handling_total (Currency): [optional]  # noqa: E501
             health_benefit_card_amount (Currency): [optional]  # noqa: E501
@@ -291,7 +303,11 @@ class OrderSummary(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             actual_fulfillment (Currency): [optional]  # noqa: E501
+            actual_other_cost (Currency): [optional]  # noqa: E501
             actual_payment_processing (Currency): [optional]  # noqa: E501
+            actual_profit (Currency): [optional]  # noqa: E501
+            actual_profit_analyzed (bool): Actual profit has been analyzed. [optional]  # noqa: E501
+            actual_profit_review (bool): Actual profit needs review. [optional]  # noqa: E501
             actual_shipping (Currency): [optional]  # noqa: E501
             arbitrary_shipping_handling_total (Currency): [optional]  # noqa: E501
             health_benefit_card_amount (Currency): [optional]  # noqa: E501
