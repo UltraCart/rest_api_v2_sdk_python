@@ -41,6 +41,7 @@ class Order(object):
         'creation_dts': 'str',
         'currency_code': 'str',
         'current_stage': 'str',
+        'current_stage_histories': 'list[OrderCurrentStageHistory]',
         'customer_profile': 'Customer',
         'digital_order': 'OrderDigitalOrder',
         'edi': 'OrderEdi',
@@ -82,6 +83,7 @@ class Order(object):
         'creation_dts': 'creation_dts',
         'currency_code': 'currency_code',
         'current_stage': 'current_stage',
+        'current_stage_histories': 'current_stage_histories',
         'customer_profile': 'customer_profile',
         'digital_order': 'digital_order',
         'edi': 'edi',
@@ -112,7 +114,7 @@ class Order(object):
         'utms': 'utms'
     }
 
-    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, point_of_sale=None, properties=None, quote=None, refund_dts=None, refund_reason=None, reject_dts=None, reject_reason=None, salesforce=None, shipping=None, summary=None, tags=None, taxes=None, utms=None):  # noqa: E501
+    def __init__(self, affiliates=None, auto_order=None, billing=None, buysafe=None, channel_partner=None, checkout=None, coupons=None, creation_dts=None, currency_code=None, current_stage=None, current_stage_histories=None, customer_profile=None, digital_order=None, edi=None, exchange_rate=None, fraud_score=None, gift=None, gift_certificate=None, internal=None, items=None, language_iso_code=None, linked_shipment=None, marketing=None, merchant_id=None, order_id=None, payment=None, point_of_sale=None, properties=None, quote=None, refund_dts=None, refund_reason=None, reject_dts=None, reject_reason=None, salesforce=None, shipping=None, summary=None, tags=None, taxes=None, utms=None):  # noqa: E501
         """Order - a model defined in Swagger"""  # noqa: E501
 
         self._affiliates = None
@@ -125,6 +127,7 @@ class Order(object):
         self._creation_dts = None
         self._currency_code = None
         self._current_stage = None
+        self._current_stage_histories = None
         self._customer_profile = None
         self._digital_order = None
         self._edi = None
@@ -175,6 +178,8 @@ class Order(object):
             self.currency_code = currency_code
         if current_stage is not None:
             self.current_stage = current_stage
+        if current_stage_histories is not None:
+            self.current_stage_histories = current_stage_histories
         if customer_profile is not None:
             self.customer_profile = customer_profile
         if digital_order is not None:
@@ -459,6 +464,29 @@ class Order(object):
             )
 
         self._current_stage = current_stage
+
+    @property
+    def current_stage_histories(self):
+        """Gets the current_stage_histories of this Order.  # noqa: E501
+
+        History of the changes to the current_stage field  # noqa: E501
+
+        :return: The current_stage_histories of this Order.  # noqa: E501
+        :rtype: list[OrderCurrentStageHistory]
+        """
+        return self._current_stage_histories
+
+    @current_stage_histories.setter
+    def current_stage_histories(self, current_stage_histories):
+        """Sets the current_stage_histories of this Order.
+
+        History of the changes to the current_stage field  # noqa: E501
+
+        :param current_stage_histories: The current_stage_histories of this Order.  # noqa: E501
+        :type: list[OrderCurrentStageHistory]
+        """
+
+        self._current_stage_histories = current_stage_histories
 
     @property
     def customer_profile(self):

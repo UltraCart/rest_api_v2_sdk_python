@@ -118,6 +118,7 @@ class ChannelPartnerOrder(object):
         'special_instructions': 'str',
         'store_completed': 'bool',
         'store_if_payment_declines': 'bool',
+        'storefront_host_name': 'str',
         'tax_county': 'str',
         'tax_exempt': 'bool',
         'transaction': 'ChannelPartnerOrderTransaction',
@@ -212,13 +213,14 @@ class ChannelPartnerOrder(object):
         'special_instructions': 'special_instructions',
         'store_completed': 'store_completed',
         'store_if_payment_declines': 'store_if_payment_declines',
+        'storefront_host_name': 'storefront_host_name',
         'tax_county': 'tax_county',
         'tax_exempt': 'tax_exempt',
         'transaction': 'transaction',
         'treat_warnings_as_errors': 'treat_warnings_as_errors'
     }
 
-    def __init__(self, advertising_source=None, affiliate_id=None, affiliate_sub_id=None, arbitrary_shipping_handling_total=None, arbitrary_tax=None, arbitrary_tax_rate=None, arbitrary_taxable_subtotal=None, associate_with_customer_profile_if_present=None, auto_approve_purchase_order=None, billto_address1=None, billto_address2=None, billto_city=None, billto_company=None, billto_country_code=None, billto_day_phone=None, billto_evening_phone=None, billto_first_name=None, billto_last_name=None, billto_postal_code=None, billto_state_region=None, billto_title=None, cc_email=None, channel_partner_order_id=None, consider_recurring=None, coupons=None, credit_card_authorization_amount=None, credit_card_authorization_dts=None, credit_card_authorization_number=None, credit_card_expiration_month=None, credit_card_expiration_year=None, credit_card_type=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, delivery_date=None, echeck_bank_aba_code=None, echeck_bank_account_name=None, echeck_bank_account_number=None, echeck_bank_account_type=None, echeck_bank_name=None, echeck_bank_owner_type=None, echeck_customer_tax_id=None, echeck_drivers_license_dob=None, echeck_drivers_license_number=None, echeck_drivers_license_state=None, email=None, gift=None, gift_email=None, gift_message=None, hosted_fields_card_token=None, hosted_fields_cvv_token=None, insurance_application_id=None, insurance_claim_id=None, ip_address=None, items=None, least_cost_route=None, least_cost_route_shipping_methods=None, mailing_list_opt_in=None, no_realtime_payment_processing=None, payment_method=None, purchase_order_number=None, rotating_transaction_gateway_code=None, sales_rep_code=None, screen_branding_theme_code=None, ship_on_date=None, ship_to_residential=None, shipping_method=None, shipto_address1=None, shipto_address2=None, shipto_city=None, shipto_company=None, shipto_country_code=None, shipto_day_phone=None, shipto_evening_phone=None, shipto_first_name=None, shipto_last_name=None, shipto_postal_code=None, shipto_state_region=None, shipto_title=None, skip_payment_processing=None, special_instructions=None, store_completed=None, store_if_payment_declines=None, tax_county=None, tax_exempt=None, transaction=None, treat_warnings_as_errors=None):  # noqa: E501
+    def __init__(self, advertising_source=None, affiliate_id=None, affiliate_sub_id=None, arbitrary_shipping_handling_total=None, arbitrary_tax=None, arbitrary_tax_rate=None, arbitrary_taxable_subtotal=None, associate_with_customer_profile_if_present=None, auto_approve_purchase_order=None, billto_address1=None, billto_address2=None, billto_city=None, billto_company=None, billto_country_code=None, billto_day_phone=None, billto_evening_phone=None, billto_first_name=None, billto_last_name=None, billto_postal_code=None, billto_state_region=None, billto_title=None, cc_email=None, channel_partner_order_id=None, consider_recurring=None, coupons=None, credit_card_authorization_amount=None, credit_card_authorization_dts=None, credit_card_authorization_number=None, credit_card_expiration_month=None, credit_card_expiration_year=None, credit_card_type=None, custom_field1=None, custom_field2=None, custom_field3=None, custom_field4=None, custom_field5=None, custom_field6=None, custom_field7=None, delivery_date=None, echeck_bank_aba_code=None, echeck_bank_account_name=None, echeck_bank_account_number=None, echeck_bank_account_type=None, echeck_bank_name=None, echeck_bank_owner_type=None, echeck_customer_tax_id=None, echeck_drivers_license_dob=None, echeck_drivers_license_number=None, echeck_drivers_license_state=None, email=None, gift=None, gift_email=None, gift_message=None, hosted_fields_card_token=None, hosted_fields_cvv_token=None, insurance_application_id=None, insurance_claim_id=None, ip_address=None, items=None, least_cost_route=None, least_cost_route_shipping_methods=None, mailing_list_opt_in=None, no_realtime_payment_processing=None, payment_method=None, purchase_order_number=None, rotating_transaction_gateway_code=None, sales_rep_code=None, screen_branding_theme_code=None, ship_on_date=None, ship_to_residential=None, shipping_method=None, shipto_address1=None, shipto_address2=None, shipto_city=None, shipto_company=None, shipto_country_code=None, shipto_day_phone=None, shipto_evening_phone=None, shipto_first_name=None, shipto_last_name=None, shipto_postal_code=None, shipto_state_region=None, shipto_title=None, skip_payment_processing=None, special_instructions=None, store_completed=None, store_if_payment_declines=None, storefront_host_name=None, tax_county=None, tax_exempt=None, transaction=None, treat_warnings_as_errors=None):  # noqa: E501
         """ChannelPartnerOrder - a model defined in Swagger"""  # noqa: E501
 
         self._advertising_source = None
@@ -308,6 +310,7 @@ class ChannelPartnerOrder(object):
         self._special_instructions = None
         self._store_completed = None
         self._store_if_payment_declines = None
+        self._storefront_host_name = None
         self._tax_county = None
         self._tax_exempt = None
         self._transaction = None
@@ -488,6 +491,8 @@ class ChannelPartnerOrder(object):
             self.store_completed = store_completed
         if store_if_payment_declines is not None:
             self.store_if_payment_declines = store_if_payment_declines
+        if storefront_host_name is not None:
+            self.storefront_host_name = storefront_host_name
         if tax_county is not None:
             self.tax_county = tax_county
         if tax_exempt is not None:
@@ -2589,6 +2594,29 @@ class ChannelPartnerOrder(object):
         """
 
         self._store_if_payment_declines = store_if_payment_declines
+
+    @property
+    def storefront_host_name(self):
+        """Gets the storefront_host_name of this ChannelPartnerOrder.  # noqa: E501
+
+        StoreFront host name associated with the order  # noqa: E501
+
+        :return: The storefront_host_name of this ChannelPartnerOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._storefront_host_name
+
+    @storefront_host_name.setter
+    def storefront_host_name(self, storefront_host_name):
+        """Sets the storefront_host_name of this ChannelPartnerOrder.
+
+        StoreFront host name associated with the order  # noqa: E501
+
+        :param storefront_host_name: The storefront_host_name of this ChannelPartnerOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._storefront_host_name = storefront_host_name
 
     @property
     def tax_county(self):

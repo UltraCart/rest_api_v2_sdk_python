@@ -33,6 +33,7 @@ class OrderItem(object):
     swagger_types = {
         'accounting_code': 'str',
         'activation_codes': 'list[str]',
+        'actual_cogs': 'Currency',
         'arbitrary_unit_cost': 'Currency',
         'auto_order_last_rebill_dts': 'str',
         'auto_order_schedule': 'str',
@@ -101,6 +102,7 @@ class OrderItem(object):
     attribute_map = {
         'accounting_code': 'accounting_code',
         'activation_codes': 'activation_codes',
+        'actual_cogs': 'actual_cogs',
         'arbitrary_unit_cost': 'arbitrary_unit_cost',
         'auto_order_last_rebill_dts': 'auto_order_last_rebill_dts',
         'auto_order_schedule': 'auto_order_schedule',
@@ -166,11 +168,12 @@ class OrderItem(object):
         'width': 'width'
     }
 
-    def __init__(self, accounting_code=None, activation_codes=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, barcode_gtin12=None, barcode_gtin14=None, barcode_upc11=None, barcode_upc12=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_index=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, parent_item_index=None, parent_merchant_item_id=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, refund_reason=None, return_reason=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, shipping_status=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
+    def __init__(self, accounting_code=None, activation_codes=None, actual_cogs=None, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, barcode=None, barcode_gtin12=None, barcode_gtin14=None, barcode_upc11=None, barcode_upc12=None, channel_partner_item_id=None, cogs=None, component_unit_value=None, cost=None, country_code_of_origin=None, customs_description=None, description=None, discount=None, discount_quantity=None, discount_shipping_weight=None, distribution_center_code=None, edi=None, exclude_coupon=None, free_shipping=None, hazmat=None, height=None, item_index=None, item_reference_oid=None, kit=None, kit_component=None, length=None, manufacturer_sku=None, max_days_time_in_transit=None, merchant_item_id=None, mix_and_match_group_name=None, mix_and_match_group_oid=None, no_shipping_discount=None, options=None, packed_by_user=None, parent_item_index=None, parent_merchant_item_id=None, perishable_class=None, pricing_tier_name=None, properties=None, quantity=None, quantity_refunded=None, quickbooks_class=None, refund_reason=None, return_reason=None, ship_separately=None, shipped_by_user=None, shipped_dts=None, shipping_status=None, special_product_type=None, tags=None, tax_free=None, tax_product_type=None, taxable_cost=None, total_cost_with_discount=None, total_refunded=None, transmitted_to_distribution_center_dts=None, unit_cost_with_discount=None, upsell=None, weight=None, width=None):  # noqa: E501
         """OrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._accounting_code = None
         self._activation_codes = None
+        self._actual_cogs = None
         self._arbitrary_unit_cost = None
         self._auto_order_last_rebill_dts = None
         self._auto_order_schedule = None
@@ -240,6 +243,8 @@ class OrderItem(object):
             self.accounting_code = accounting_code
         if activation_codes is not None:
             self.activation_codes = activation_codes
+        if actual_cogs is not None:
+            self.actual_cogs = actual_cogs
         if arbitrary_unit_cost is not None:
             self.arbitrary_unit_cost = arbitrary_unit_cost
         if auto_order_last_rebill_dts is not None:
@@ -412,6 +417,27 @@ class OrderItem(object):
         """
 
         self._activation_codes = activation_codes
+
+    @property
+    def actual_cogs(self):
+        """Gets the actual_cogs of this OrderItem.  # noqa: E501
+
+
+        :return: The actual_cogs of this OrderItem.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._actual_cogs
+
+    @actual_cogs.setter
+    def actual_cogs(self, actual_cogs):
+        """Sets the actual_cogs of this OrderItem.
+
+
+        :param actual_cogs: The actual_cogs of this OrderItem.  # noqa: E501
+        :type: Currency
+        """
+
+        self._actual_cogs = actual_cogs
 
     @property
     def arbitrary_unit_cost(self):

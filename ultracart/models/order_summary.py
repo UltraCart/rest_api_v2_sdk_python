@@ -32,7 +32,11 @@ class OrderSummary(object):
     """
     swagger_types = {
         'actual_fulfillment': 'Currency',
+        'actual_other_cost': 'Currency',
         'actual_payment_processing': 'Currency',
+        'actual_profit': 'Currency',
+        'actual_profit_analyzed': 'bool',
+        'actual_profit_review': 'bool',
         'actual_shipping': 'Currency',
         'arbitrary_shipping_handling_total': 'Currency',
         'health_benefit_card_amount': 'Currency',
@@ -57,7 +61,11 @@ class OrderSummary(object):
 
     attribute_map = {
         'actual_fulfillment': 'actual_fulfillment',
+        'actual_other_cost': 'actual_other_cost',
         'actual_payment_processing': 'actual_payment_processing',
+        'actual_profit': 'actual_profit',
+        'actual_profit_analyzed': 'actual_profit_analyzed',
+        'actual_profit_review': 'actual_profit_review',
         'actual_shipping': 'actual_shipping',
         'arbitrary_shipping_handling_total': 'arbitrary_shipping_handling_total',
         'health_benefit_card_amount': 'health_benefit_card_amount',
@@ -80,11 +88,15 @@ class OrderSummary(object):
         'total_refunded': 'total_refunded'
     }
 
-    def __init__(self, actual_fulfillment=None, actual_payment_processing=None, actual_shipping=None, arbitrary_shipping_handling_total=None, health_benefit_card_amount=None, health_benefit_card_refunded=None, internal_gift_certificate_amount=None, internal_gift_certificate_refunded=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
+    def __init__(self, actual_fulfillment=None, actual_other_cost=None, actual_payment_processing=None, actual_profit=None, actual_profit_analyzed=None, actual_profit_review=None, actual_shipping=None, arbitrary_shipping_handling_total=None, health_benefit_card_amount=None, health_benefit_card_refunded=None, internal_gift_certificate_amount=None, internal_gift_certificate_refunded=None, other_refunded=None, shipping_handling_refunded=None, shipping_handling_total=None, shipping_handling_total_discount=None, subtotal=None, subtotal_discount=None, subtotal_discount_refunded=None, subtotal_refunded=None, tax=None, tax_refunded=None, taxable_subtotal=None, taxable_subtotal_discount=None, total=None, total_refunded=None):  # noqa: E501
         """OrderSummary - a model defined in Swagger"""  # noqa: E501
 
         self._actual_fulfillment = None
+        self._actual_other_cost = None
         self._actual_payment_processing = None
+        self._actual_profit = None
+        self._actual_profit_analyzed = None
+        self._actual_profit_review = None
         self._actual_shipping = None
         self._arbitrary_shipping_handling_total = None
         self._health_benefit_card_amount = None
@@ -109,8 +121,16 @@ class OrderSummary(object):
 
         if actual_fulfillment is not None:
             self.actual_fulfillment = actual_fulfillment
+        if actual_other_cost is not None:
+            self.actual_other_cost = actual_other_cost
         if actual_payment_processing is not None:
             self.actual_payment_processing = actual_payment_processing
+        if actual_profit is not None:
+            self.actual_profit = actual_profit
+        if actual_profit_analyzed is not None:
+            self.actual_profit_analyzed = actual_profit_analyzed
+        if actual_profit_review is not None:
+            self.actual_profit_review = actual_profit_review
         if actual_shipping is not None:
             self.actual_shipping = actual_shipping
         if arbitrary_shipping_handling_total is not None:
@@ -174,6 +194,27 @@ class OrderSummary(object):
         self._actual_fulfillment = actual_fulfillment
 
     @property
+    def actual_other_cost(self):
+        """Gets the actual_other_cost of this OrderSummary.  # noqa: E501
+
+
+        :return: The actual_other_cost of this OrderSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._actual_other_cost
+
+    @actual_other_cost.setter
+    def actual_other_cost(self, actual_other_cost):
+        """Sets the actual_other_cost of this OrderSummary.
+
+
+        :param actual_other_cost: The actual_other_cost of this OrderSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._actual_other_cost = actual_other_cost
+
+    @property
     def actual_payment_processing(self):
         """Gets the actual_payment_processing of this OrderSummary.  # noqa: E501
 
@@ -193,6 +234,73 @@ class OrderSummary(object):
         """
 
         self._actual_payment_processing = actual_payment_processing
+
+    @property
+    def actual_profit(self):
+        """Gets the actual_profit of this OrderSummary.  # noqa: E501
+
+
+        :return: The actual_profit of this OrderSummary.  # noqa: E501
+        :rtype: Currency
+        """
+        return self._actual_profit
+
+    @actual_profit.setter
+    def actual_profit(self, actual_profit):
+        """Sets the actual_profit of this OrderSummary.
+
+
+        :param actual_profit: The actual_profit of this OrderSummary.  # noqa: E501
+        :type: Currency
+        """
+
+        self._actual_profit = actual_profit
+
+    @property
+    def actual_profit_analyzed(self):
+        """Gets the actual_profit_analyzed of this OrderSummary.  # noqa: E501
+
+        Actual profit has been analyzed  # noqa: E501
+
+        :return: The actual_profit_analyzed of this OrderSummary.  # noqa: E501
+        :rtype: bool
+        """
+        return self._actual_profit_analyzed
+
+    @actual_profit_analyzed.setter
+    def actual_profit_analyzed(self, actual_profit_analyzed):
+        """Sets the actual_profit_analyzed of this OrderSummary.
+
+        Actual profit has been analyzed  # noqa: E501
+
+        :param actual_profit_analyzed: The actual_profit_analyzed of this OrderSummary.  # noqa: E501
+        :type: bool
+        """
+
+        self._actual_profit_analyzed = actual_profit_analyzed
+
+    @property
+    def actual_profit_review(self):
+        """Gets the actual_profit_review of this OrderSummary.  # noqa: E501
+
+        Actual profit needs review  # noqa: E501
+
+        :return: The actual_profit_review of this OrderSummary.  # noqa: E501
+        :rtype: bool
+        """
+        return self._actual_profit_review
+
+    @actual_profit_review.setter
+    def actual_profit_review(self, actual_profit_review):
+        """Sets the actual_profit_review of this OrderSummary.
+
+        Actual profit needs review  # noqa: E501
+
+        :param actual_profit_review: The actual_profit_review of this OrderSummary.  # noqa: E501
+        :type: bool
+        """
+
+        self._actual_profit_review = actual_profit_review
 
     @property
     def actual_shipping(self):

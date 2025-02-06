@@ -140,7 +140,7 @@ class CustomerAttachment(object):
     def mime_type(self):
         """Gets the mime_type of this CustomerAttachment.  # noqa: E501
 
-        Mime typoe  # noqa: E501
+        Mime type  # noqa: E501
 
         :return: The mime_type of this CustomerAttachment.  # noqa: E501
         :rtype: str
@@ -151,7 +151,7 @@ class CustomerAttachment(object):
     def mime_type(self, mime_type):
         """Sets the mime_type of this CustomerAttachment.
 
-        Mime typoe  # noqa: E501
+        Mime type  # noqa: E501
 
         :param mime_type: The mime_type of this CustomerAttachment.  # noqa: E501
         :type: str

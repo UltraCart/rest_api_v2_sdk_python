@@ -35,6 +35,7 @@ class ItemReview(object):
         'featured': 'bool',
         'helperful_no_votes': 'int',
         'helpful_yes_votes': 'int',
+        'merchant_reply': 'str',
         'order_id': 'str',
         'overall': 'float',
         'rating_name1': 'str',
@@ -75,6 +76,7 @@ class ItemReview(object):
         'featured': 'featured',
         'helperful_no_votes': 'helperful_no_votes',
         'helpful_yes_votes': 'helpful_yes_votes',
+        'merchant_reply': 'merchant_reply',
         'order_id': 'order_id',
         'overall': 'overall',
         'rating_name1': 'rating_name1',
@@ -110,13 +112,14 @@ class ItemReview(object):
         'title': 'title'
     }
 
-    def __init__(self, customer_profile_oid=None, featured=None, helperful_no_votes=None, helpful_yes_votes=None, order_id=None, overall=None, rating_name1=None, rating_name10=None, rating_name2=None, rating_name3=None, rating_name4=None, rating_name5=None, rating_name6=None, rating_name7=None, rating_name8=None, rating_name9=None, rating_score1=None, rating_score10=None, rating_score2=None, rating_score3=None, rating_score4=None, rating_score5=None, rating_score6=None, rating_score7=None, rating_score8=None, rating_score9=None, recommend_store_to_friend=None, recommend_to_friend=None, review=None, review_oid=None, reviewed_nickname=None, reviewer_email=None, reviewer_location=None, status=None, store_feedback=None, submitted_dts=None, title=None):  # noqa: E501
+    def __init__(self, customer_profile_oid=None, featured=None, helperful_no_votes=None, helpful_yes_votes=None, merchant_reply=None, order_id=None, overall=None, rating_name1=None, rating_name10=None, rating_name2=None, rating_name3=None, rating_name4=None, rating_name5=None, rating_name6=None, rating_name7=None, rating_name8=None, rating_name9=None, rating_score1=None, rating_score10=None, rating_score2=None, rating_score3=None, rating_score4=None, rating_score5=None, rating_score6=None, rating_score7=None, rating_score8=None, rating_score9=None, recommend_store_to_friend=None, recommend_to_friend=None, review=None, review_oid=None, reviewed_nickname=None, reviewer_email=None, reviewer_location=None, status=None, store_feedback=None, submitted_dts=None, title=None):  # noqa: E501
         """ItemReview - a model defined in Swagger"""  # noqa: E501
 
         self._customer_profile_oid = None
         self._featured = None
         self._helperful_no_votes = None
         self._helpful_yes_votes = None
+        self._merchant_reply = None
         self._order_id = None
         self._overall = None
         self._rating_name1 = None
@@ -160,6 +163,8 @@ class ItemReview(object):
             self.helperful_no_votes = helperful_no_votes
         if helpful_yes_votes is not None:
             self.helpful_yes_votes = helpful_yes_votes
+        if merchant_reply is not None:
+            self.merchant_reply = merchant_reply
         if order_id is not None:
             self.order_id = order_id
         if overall is not None:
@@ -312,6 +317,31 @@ class ItemReview(object):
         """
 
         self._helpful_yes_votes = helpful_yes_votes
+
+    @property
+    def merchant_reply(self):
+        """Gets the merchant_reply of this ItemReview.  # noqa: E501
+
+        Merchant Reply (set to an empty string to remove)  # noqa: E501
+
+        :return: The merchant_reply of this ItemReview.  # noqa: E501
+        :rtype: str
+        """
+        return self._merchant_reply
+
+    @merchant_reply.setter
+    def merchant_reply(self, merchant_reply):
+        """Sets the merchant_reply of this ItemReview.
+
+        Merchant Reply (set to an empty string to remove)  # noqa: E501
+
+        :param merchant_reply: The merchant_reply of this ItemReview.  # noqa: E501
+        :type: str
+        """
+        if merchant_reply is not None and len(merchant_reply) > 10000:
+            raise ValueError("Invalid value for `merchant_reply`, length must be less than or equal to `10000`")  # noqa: E501
+
+        self._merchant_reply = merchant_reply
 
     @property
     def order_id(self):

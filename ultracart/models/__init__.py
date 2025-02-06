@@ -634,6 +634,7 @@ from ultracart.models.order_by_token_query import OrderByTokenQuery
 from ultracart.models.order_channel_partner import OrderChannelPartner
 from ultracart.models.order_checkout import OrderCheckout
 from ultracart.models.order_coupon import OrderCoupon
+from ultracart.models.order_current_stage_history import OrderCurrentStageHistory
 from ultracart.models.order_digital_item import OrderDigitalItem
 from ultracart.models.order_digital_order import OrderDigitalOrder
 from ultracart.models.order_edi import OrderEdi
