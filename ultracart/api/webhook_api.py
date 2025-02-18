@@ -26,8 +26,8 @@ from ultracart.model.error_response import ErrorResponse
 from ultracart.model.webhook import Webhook
 from ultracart.model.webhook_log_response import WebhookLogResponse
 from ultracart.model.webhook_log_summaries_response import WebhookLogSummariesResponse
+from ultracart.model.webhook_reflow_response import WebhookReflowResponse
 from ultracart.model.webhook_response import WebhookResponse
-from ultracart.model.webhook_sample_request_response import WebhookSampleRequestResponse
 from ultracart.model.webhooks_response import WebhooksResponse
 
 
@@ -408,7 +408,7 @@ class WebhookApi(object):
         )
         self.resend_event_endpoint = _Endpoint(
             settings={
-                'response_type': (WebhookSampleRequestResponse,),
+                'response_type': (WebhookReflowResponse,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -1086,7 +1086,7 @@ class WebhookApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            WebhookSampleRequestResponse
+            WebhookReflowResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

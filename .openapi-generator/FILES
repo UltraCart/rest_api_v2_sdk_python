@@ -854,9 +854,9 @@ docs/WebhookLog.md
 docs/WebhookLogResponse.md
 docs/WebhookLogSummariesResponse.md
 docs/WebhookLogSummary.md
+docs/WebhookReflow.md
+docs/WebhookReflowResponse.md
 docs/WebhookResponse.md
-docs/WebhookSampleRequest.md
-docs/WebhookSampleRequestResponse.md
 docs/WebhooksResponse.md
 docs/Weight.md
 docs/WorkflowAgentAuth.md
@@ -1744,9 +1744,9 @@ ultracart/model/webhook_log.py
 ultracart/model/webhook_log_response.py
 ultracart/model/webhook_log_summaries_response.py
 ultracart/model/webhook_log_summary.py
+ultracart/model/webhook_reflow.py
+ultracart/model/webhook_reflow_response.py
 ultracart/model/webhook_response.py
-ultracart/model/webhook_sample_request.py
-ultracart/model/webhook_sample_request_response.py
 ultracart/model/webhooks_response.py
 ultracart/model/weight.py
 ultracart/model/workflow_agent_auth.py

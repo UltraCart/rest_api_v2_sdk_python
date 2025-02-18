@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **resend_event**
-> WebhookSampleRequestResponse resend_event(webhook_oid, event_name)
+> WebhookReflowResponse resend_event(webhook_oid, event_name)
 
 Resend events to the webhook endpoint.
 
@@ -596,7 +596,7 @@ import time
 import ultracart
 from ultracart.api import webhook_api
 from ultracart.model.error_response import ErrorResponse
-from ultracart.model.webhook_sample_request_response import WebhookSampleRequestResponse
+from ultracart.model.webhook_reflow_response import WebhookReflowResponse
 from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
 
@@ -628,7 +628,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebhookSampleRequestResponse**](WebhookSampleRequestResponse.md)
+[**WebhookReflowResponse**](WebhookReflowResponse.md)
 
 ### Authorization
 

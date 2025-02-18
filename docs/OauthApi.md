@@ -39,7 +39,7 @@ api_instance = GiftCertificateApi(api_client())
     client_id = "client_id_example" # str | The OAuth application client_id.
     grant_type = "grant_type_example" # str | Type of grant
     code = "code_example" # str | Authorization code received back from the browser redirect (optional)
-    redirect_uri = "redirect_uri_example" # str | The URI that you redirect the browser to to start the authorization process (optional)
+    redirect_uri = "redirect_uri_example" # str | The URI that you redirect the browser to start the authorization process (optional)
     refresh_token = "refresh_token_example" # str | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token (optional)
 
     # example passing only required values which don't have defaults set
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
  **client_id** | **str**| The OAuth application client_id. |
  **grant_type** | **str**| Type of grant |
  **code** | **str**| Authorization code received back from the browser redirect | [optional]
- **redirect_uri** | **str**| The URI that you redirect the browser to to start the authorization process | [optional]
+ **redirect_uri** | **str**| The URI that you redirect the browser to start the authorization process | [optional]
  **refresh_token** | **str**| The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token | [optional]
 
 ### Return type

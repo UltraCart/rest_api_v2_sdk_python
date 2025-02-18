@@ -208,7 +208,7 @@ class OauthApi(object):
 
         Keyword Args:
             code (str): Authorization code received back from the browser redirect. [optional]
-            redirect_uri (str): The URI that you redirect the browser to to start the authorization process. [optional]
+            redirect_uri (str): The URI that you redirect the browser to start the authorization process. [optional]
             refresh_token (str): The refresh token received during the original grant_type=authorization_code that can be used to return a new access token. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

@@ -841,9 +841,9 @@ from ultracart.model.webhook_log import WebhookLog
 from ultracart.model.webhook_log_response import WebhookLogResponse
 from ultracart.model.webhook_log_summaries_response import WebhookLogSummariesResponse
 from ultracart.model.webhook_log_summary import WebhookLogSummary
+from ultracart.model.webhook_reflow import WebhookReflow
+from ultracart.model.webhook_reflow_response import WebhookReflowResponse
 from ultracart.model.webhook_response import WebhookResponse
-from ultracart.model.webhook_sample_request import WebhookSampleRequest
-from ultracart.model.webhook_sample_request_response import WebhookSampleRequestResponse
 from ultracart.model.webhooks_response import WebhooksResponse
 from ultracart.model.weight import Weight
 from ultracart.model.workflow_agent_auth import WorkflowAgentAuth

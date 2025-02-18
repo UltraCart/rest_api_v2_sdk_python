@@ -83,6 +83,7 @@ class ItemPaymentProcessing(ModelNormal):
         """
         return {
             'block_prepaid': (bool,),  # noqa: E501
+            'block_refunds': (bool,),  # noqa: E501
             'credit_card_transaction_type': (str,),  # noqa: E501
             'no_realtime_charge': (bool,),  # noqa: E501
             'payment_method_validity': ([str],),  # noqa: E501
@@ -96,6 +97,7 @@ class ItemPaymentProcessing(ModelNormal):
 
     attribute_map = {
         'block_prepaid': 'block_prepaid',  # noqa: E501
+        'block_refunds': 'block_refunds',  # noqa: E501
         'credit_card_transaction_type': 'credit_card_transaction_type',  # noqa: E501
         'no_realtime_charge': 'no_realtime_charge',  # noqa: E501
         'payment_method_validity': 'payment_method_validity',  # noqa: E501
@@ -144,6 +146,7 @@ class ItemPaymentProcessing(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             block_prepaid (bool): True if prepaid cards should be blocked from buying this item. [optional]  # noqa: E501
+            block_refunds (bool): True if this item should block any refund attempts. [optional]  # noqa: E501
             credit_card_transaction_type (str): Credit card transaction type. [optional]  # noqa: E501
             no_realtime_charge (bool): True if no real-time charge should be performed on this item.. [optional]  # noqa: E501
             payment_method_validity ([str]): Payment method validity. [optional]  # noqa: E501
@@ -234,6 +237,7 @@ class ItemPaymentProcessing(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             block_prepaid (bool): True if prepaid cards should be blocked from buying this item. [optional]  # noqa: E501
+            block_refunds (bool): True if this item should block any refund attempts. [optional]  # noqa: E501
             credit_card_transaction_type (str): Credit card transaction type. [optional]  # noqa: E501
             no_realtime_charge (bool): True if no real-time charge should be performed on this item.. [optional]  # noqa: E501
             payment_method_validity ([str]): Payment method validity. [optional]  # noqa: E501

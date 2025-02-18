@@ -26,6 +26,7 @@ from ultracart.model.distribution_centers_response import DistributionCentersRes
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.fulfillment_inventory import FulfillmentInventory
 from ultracart.model.fulfillment_shipment import FulfillmentShipment
+from ultracart.model.order_packing_slip_response import OrderPackingSlipResponse
 from ultracart.model.orders_response import OrdersResponse
 
 
@@ -112,7 +113,7 @@ class FulfillmentApi(object):
         )
         self.generate_packing_slip_endpoint = _Endpoint(
             settings={
-                'response_type': (OrdersResponse,),
+                'response_type': (OrderPackingSlipResponse,),
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -523,7 +524,7 @@ class FulfillmentApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            OrdersResponse
+            OrderPackingSlipResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -565,7 +566,7 @@ class FulfillmentApi(object):
     ):
         """Retrieve orders queued up for this distribution center.  # noqa: E501
 
-        Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes.   # noqa: E501
+        Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

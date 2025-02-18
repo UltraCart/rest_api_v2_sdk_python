@@ -87,7 +87,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_packing_slip**
-> OrdersResponse generate_packing_slip(distribution_center_code, order_id)
+> OrderPackingSlipResponse generate_packing_slip(distribution_center_code, order_id)
 
 Generate a packing slip for this order for the given distribution center.
 
@@ -102,8 +102,8 @@ The packing slip PDF that is returned is base 64 encoded
 import time
 import ultracart
 from ultracart.api import fulfillment_api
+from ultracart.model.order_packing_slip_response import OrderPackingSlipResponse
 from ultracart.model.error_response import ErrorResponse
-from ultracart.model.orders_response import OrdersResponse
 from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrdersResponse**](OrdersResponse.md)
+[**OrderPackingSlipResponse**](OrderPackingSlipResponse.md)
 
 ### Authorization
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 Retrieve orders queued up for this distribution center.
 
-Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
+Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
 
 ### Example
 
