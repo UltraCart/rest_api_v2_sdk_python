@@ -684,7 +684,7 @@ class WebhookApi(object):
         :param async_req bool
         :param int webhook_oid: The webhook oid that is receiving the reflowed events. (required)
         :param str event_name: The event to reflow. (required)
-        :return: WebhookSampleRequestResponse
+        :return: WebhookReflowResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -707,7 +707,7 @@ class WebhookApi(object):
         :param async_req bool
         :param int webhook_oid: The webhook oid that is receiving the reflowed events. (required)
         :param str event_name: The event to reflow. (required)
-        :return: WebhookSampleRequestResponse
+        :return: WebhookReflowResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -771,7 +771,7 @@ class WebhookApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='WebhookSampleRequestResponse',  # noqa: E501
+            response_type='WebhookReflowResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

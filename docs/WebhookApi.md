@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **resend_event**
-> WebhookSampleRequestResponse resend_event(webhook_oid, event_name)
+> WebhookReflowResponse resend_event(webhook_oid, event_name)
 
 Resend events to the webhook endpoint.
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebhookSampleRequestResponse**](WebhookSampleRequestResponse.md)
+[**WebhookReflowResponse**](WebhookReflowResponse.md)
 
 ### Authorization
 

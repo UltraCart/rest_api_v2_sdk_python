@@ -165,7 +165,7 @@ class FulfillmentApi(object):
         :param async_req bool
         :param str distribution_center_code: Distribution center code (required)
         :param str order_id: Order ID (required)
-        :return: OrdersResponse
+        :return: OrderPackingSlipResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -188,7 +188,7 @@ class FulfillmentApi(object):
         :param async_req bool
         :param str distribution_center_code: Distribution center code (required)
         :param str order_id: Order ID (required)
-        :return: OrdersResponse
+        :return: OrderPackingSlipResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -252,7 +252,7 @@ class FulfillmentApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrdersResponse',  # noqa: E501
+            response_type='OrderPackingSlipResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -263,7 +263,7 @@ class FulfillmentApi(object):
     def get_distribution_center_orders(self, distribution_center_code, **kwargs):  # noqa: E501
         """Retrieve orders queued up for this distribution center.  # noqa: E501
 
-        Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes.   # noqa: E501
+        Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_distribution_center_orders(distribution_center_code, async_req=True)
@@ -285,7 +285,7 @@ class FulfillmentApi(object):
     def get_distribution_center_orders_with_http_info(self, distribution_center_code, **kwargs):  # noqa: E501
         """Retrieve orders queued up for this distribution center.  # noqa: E501
 
-        Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes.   # noqa: E501
+        Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_distribution_center_orders_with_http_info(distribution_center_code, async_req=True)

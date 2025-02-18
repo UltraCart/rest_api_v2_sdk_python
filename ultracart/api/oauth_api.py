@@ -59,7 +59,7 @@ class OauthApi(object):
         :param str client_id: The OAuth application client_id. (required)
         :param str grant_type: Type of grant (required)
         :param str code: Authorization code received back from the browser redirect
-        :param str redirect_uri: The URI that you redirect the browser to to start the authorization process
+        :param str redirect_uri: The URI that you redirect the browser to start the authorization process
         :param str refresh_token: The refresh token received during the original grant_type=authorization_code that can be used to return a new access token
         :return: OauthTokenResponse
                  If the method is called asynchronously,
@@ -85,7 +85,7 @@ class OauthApi(object):
         :param str client_id: The OAuth application client_id. (required)
         :param str grant_type: Type of grant (required)
         :param str code: Authorization code received back from the browser redirect
-        :param str redirect_uri: The URI that you redirect the browser to to start the authorization process
+        :param str redirect_uri: The URI that you redirect the browser to start the authorization process
         :param str refresh_token: The refresh token received during the original grant_type=authorization_code that can be used to return a new access token
         :return: OauthTokenResponse
                  If the method is called asynchronously,

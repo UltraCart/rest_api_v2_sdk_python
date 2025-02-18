@@ -32,6 +32,7 @@ class ItemPaymentProcessing(object):
     """
     swagger_types = {
         'block_prepaid': 'bool',
+        'block_refunds': 'bool',
         'credit_card_transaction_type': 'str',
         'no_realtime_charge': 'bool',
         'payment_method_validity': 'list[str]',
@@ -40,16 +41,18 @@ class ItemPaymentProcessing(object):
 
     attribute_map = {
         'block_prepaid': 'block_prepaid',
+        'block_refunds': 'block_refunds',
         'credit_card_transaction_type': 'credit_card_transaction_type',
         'no_realtime_charge': 'no_realtime_charge',
         'payment_method_validity': 'payment_method_validity',
         'rotating_transaction_gateway_codes': 'rotating_transaction_gateway_codes'
     }
 
-    def __init__(self, block_prepaid=None, credit_card_transaction_type=None, no_realtime_charge=None, payment_method_validity=None, rotating_transaction_gateway_codes=None):  # noqa: E501
+    def __init__(self, block_prepaid=None, block_refunds=None, credit_card_transaction_type=None, no_realtime_charge=None, payment_method_validity=None, rotating_transaction_gateway_codes=None):  # noqa: E501
         """ItemPaymentProcessing - a model defined in Swagger"""  # noqa: E501
 
         self._block_prepaid = None
+        self._block_refunds = None
         self._credit_card_transaction_type = None
         self._no_realtime_charge = None
         self._payment_method_validity = None
@@ -58,6 +61,8 @@ class ItemPaymentProcessing(object):
 
         if block_prepaid is not None:
             self.block_prepaid = block_prepaid
+        if block_refunds is not None:
+            self.block_refunds = block_refunds
         if credit_card_transaction_type is not None:
             self.credit_card_transaction_type = credit_card_transaction_type
         if no_realtime_charge is not None:
@@ -89,6 +94,29 @@ class ItemPaymentProcessing(object):
         """
 
         self._block_prepaid = block_prepaid
+
+    @property
+    def block_refunds(self):
+        """Gets the block_refunds of this ItemPaymentProcessing.  # noqa: E501
+
+        True if this item should block any refund attempts  # noqa: E501
+
+        :return: The block_refunds of this ItemPaymentProcessing.  # noqa: E501
+        :rtype: bool
+        """
+        return self._block_refunds
+
+    @block_refunds.setter
+    def block_refunds(self, block_refunds):
+        """Sets the block_refunds of this ItemPaymentProcessing.
+
+        True if this item should block any refund attempts  # noqa: E501
+
+        :param block_refunds: The block_refunds of this ItemPaymentProcessing.  # noqa: E501
+        :type: bool
+        """
+
+        self._block_refunds = block_refunds
 
     @property
     def credit_card_transaction_type(self):
