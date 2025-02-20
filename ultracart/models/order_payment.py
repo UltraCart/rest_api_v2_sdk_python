@@ -42,6 +42,7 @@ class OrderPayment(object):
         'payment_method_accounting_code': 'str',
         'payment_method_deposit_to_account': 'str',
         'payment_status': 'str',
+        'paypal': 'OrderPaymentPayPal',
         'purchase_order': 'OrderPaymentPurchaseOrder',
         'rotating_transaction_gateway_code': 'str',
         'surcharge': 'Currency',
@@ -64,6 +65,7 @@ class OrderPayment(object):
         'payment_method_accounting_code': 'payment_method_accounting_code',
         'payment_method_deposit_to_account': 'payment_method_deposit_to_account',
         'payment_status': 'payment_status',
+        'paypal': 'paypal',
         'purchase_order': 'purchase_order',
         'rotating_transaction_gateway_code': 'rotating_transaction_gateway_code',
         'surcharge': 'surcharge',
@@ -74,7 +76,7 @@ class OrderPayment(object):
         'transactions': 'transactions'
     }
 
-    def __init__(self, check=None, credit_card=None, echeck=None, health_benefit_card=None, hold_for_fraud_review=None, insurance=None, payment_dts=None, payment_method=None, payment_method_accounting_code=None, payment_method_deposit_to_account=None, payment_status=None, purchase_order=None, rotating_transaction_gateway_code=None, surcharge=None, surcharge_accounting_code=None, surcharge_transaction_fee=None, surcharge_transaction_percentage=None, test_order=None, transactions=None):  # noqa: E501
+    def __init__(self, check=None, credit_card=None, echeck=None, health_benefit_card=None, hold_for_fraud_review=None, insurance=None, payment_dts=None, payment_method=None, payment_method_accounting_code=None, payment_method_deposit_to_account=None, payment_status=None, paypal=None, purchase_order=None, rotating_transaction_gateway_code=None, surcharge=None, surcharge_accounting_code=None, surcharge_transaction_fee=None, surcharge_transaction_percentage=None, test_order=None, transactions=None):  # noqa: E501
         """OrderPayment - a model defined in Swagger"""  # noqa: E501
 
         self._check = None
@@ -88,6 +90,7 @@ class OrderPayment(object):
         self._payment_method_accounting_code = None
         self._payment_method_deposit_to_account = None
         self._payment_status = None
+        self._paypal = None
         self._purchase_order = None
         self._rotating_transaction_gateway_code = None
         self._surcharge = None
@@ -120,6 +123,8 @@ class OrderPayment(object):
             self.payment_method_deposit_to_account = payment_method_deposit_to_account
         if payment_status is not None:
             self.payment_status = payment_status
+        if paypal is not None:
+            self.paypal = paypal
         if purchase_order is not None:
             self.purchase_order = purchase_order
         if rotating_transaction_gateway_code is not None:
@@ -391,6 +396,27 @@ class OrderPayment(object):
             )
 
         self._payment_status = payment_status
+
+    @property
+    def paypal(self):
+        """Gets the paypal of this OrderPayment.  # noqa: E501
+
+
+        :return: The paypal of this OrderPayment.  # noqa: E501
+        :rtype: OrderPaymentPayPal
+        """
+        return self._paypal
+
+    @paypal.setter
+    def paypal(self, paypal):
+        """Sets the paypal of this OrderPayment.
+
+
+        :param paypal: The paypal of this OrderPayment.  # noqa: E501
+        :type: OrderPaymentPayPal
+        """
+
+        self._paypal = paypal
 
     @property
     def purchase_order(self):
