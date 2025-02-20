@@ -2390,6 +2390,10 @@ api_instance = GiftCertificateApi(api_client())
             payment_method_accounting_code="payment_method_accounting_code_example",
             payment_method_deposit_to_account="payment_method_deposit_to_account_example",
             payment_status="Unprocessed",
+            paypal=OrderPaymentPayPal(
+                customer_id="customer_id_example",
+                vault_id="vault_id_example",
+            ),
             purchase_order=OrderPaymentPurchaseOrder(
                 purchase_order_number="purchase_order_number_example",
             ),
@@ -3910,6 +3914,10 @@ api_instance = GiftCertificateApi(api_client())
             payment_method_accounting_code="payment_method_accounting_code_example",
             payment_method_deposit_to_account="payment_method_deposit_to_account_example",
             payment_status="Unprocessed",
+            paypal=OrderPaymentPayPal(
+                customer_id="customer_id_example",
+                vault_id="vault_id_example",
+            ),
             purchase_order=OrderPaymentPurchaseOrder(
                 purchase_order_number="purchase_order_number_example",
             ),
@@ -5639,6 +5647,10 @@ api_instance = GiftCertificateApi(api_client())
             payment_method_accounting_code="payment_method_accounting_code_example",
             payment_method_deposit_to_account="payment_method_deposit_to_account_example",
             payment_status="Unprocessed",
+            paypal=OrderPaymentPayPal(
+                customer_id="customer_id_example",
+                vault_id="vault_id_example",
+            ),
             purchase_order=OrderPaymentPurchaseOrder(
                 purchase_order_number="purchase_order_number_example",
             ),
@@ -7013,6 +7025,10 @@ api_instance = GiftCertificateApi(api_client())
                 payment_method_accounting_code="payment_method_accounting_code_example",
                 payment_method_deposit_to_account="payment_method_deposit_to_account_example",
                 payment_status="Unprocessed",
+                paypal=OrderPaymentPayPal(
+                    customer_id="customer_id_example",
+                    vault_id="vault_id_example",
+                ),
                 purchase_order=OrderPaymentPurchaseOrder(
                     purchase_order_number="purchase_order_number_example",
                 ),

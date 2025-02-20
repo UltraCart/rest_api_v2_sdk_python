@@ -667,6 +667,7 @@ docs/OrderPaymentCreditCardDualVaultedProperty.md
 docs/OrderPaymentECheck.md
 docs/OrderPaymentHealthBenefitCard.md
 docs/OrderPaymentInsurance.md
+docs/OrderPaymentPayPal.md
 docs/OrderPaymentPurchaseOrder.md
 docs/OrderPaymentTransaction.md
 docs/OrderPaymentTransactionDetail.md
@@ -1562,6 +1563,7 @@ ultracart/model/order_payment_credit_card_dual_vaulted_property.py
 ultracart/model/order_payment_e_check.py
 ultracart/model/order_payment_health_benefit_card.py
 ultracart/model/order_payment_insurance.py
+ultracart/model/order_payment_pay_pal.py
 ultracart/model/order_payment_purchase_order.py
 ultracart/model/order_payment_transaction.py
 ultracart/model/order_payment_transaction_detail.py

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **payment_method_accounting_code** | **str** | Payment method QuickBooks code | [optional] 
 **payment_method_deposit_to_account** | **str** | Payment method QuickBooks deposit account | [optional] 
 **payment_status** | **str** | Payment status | [optional] 
+**paypal** | [**OrderPaymentPayPal**](OrderPaymentPayPal.md) |  | [optional] 
 **purchase_order** | [**OrderPaymentPurchaseOrder**](OrderPaymentPurchaseOrder.md) |  | [optional] 
 **rotating_transaction_gateway_code** | **str** | Rotating transaction gateway code used to process this order | [optional] 
 **surcharge** | [**Currency**](Currency.md) |  | [optional] 

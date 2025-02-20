@@ -659,6 +659,7 @@ from ultracart.model.order_payment_credit_card_dual_vaulted_property import Orde
 from ultracart.model.order_payment_e_check import OrderPaymentECheck
 from ultracart.model.order_payment_health_benefit_card import OrderPaymentHealthBenefitCard
 from ultracart.model.order_payment_insurance import OrderPaymentInsurance
+from ultracart.model.order_payment_pay_pal import OrderPaymentPayPal
 from ultracart.model.order_payment_purchase_order import OrderPaymentPurchaseOrder
 from ultracart.model.order_payment_transaction import OrderPaymentTransaction
 from ultracart.model.order_payment_transaction_detail import OrderPaymentTransactionDetail
