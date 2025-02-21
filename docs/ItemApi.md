@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_digital_item**](ItemApi.md#get_digital_item) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**get_digital_items**](ItemApi.md#get_digital_items) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**get_digital_items_by_external_id**](ItemApi.md#get_digital_items_by_external_id) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+[**get_inventory_snapshot**](ItemApi.md#get_inventory_snapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**get_item**](ItemApi.md#get_item) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**get_item_by_merchant_item_id**](ItemApi.md#get_item_by_merchant_item_id) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
@@ -21,7 +22,6 @@ Method | HTTP request | Description
 [**insert_item**](ItemApi.md#insert_item) | **POST** /item/items | Create an item
 [**insert_review**](ItemApi.md#insert_review) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**insert_update_item_content_attribute**](ItemApi.md#insert_update_item_content_attribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
-[**rest_item_inventory_snapshot_response**](ItemApi.md#rest_item_inventory_snapshot_response) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**update_digital_item**](ItemApi.md#update_digital_item) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**update_items**](ItemApi.md#update_items) | **PUT** /item/items/batch | Update multiple items
@@ -443,6 +443,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemDigitalItemsResponse**](ItemDigitalItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_inventory_snapshot**
+> ItemInventorySnapshotResponse get_inventory_snapshot()
+
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import item_api
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.item_inventory_snapshot_response import ItemInventorySnapshotResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+        api_response = api_instance.get_inventory_snapshot()
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ItemApi->get_inventory_snapshot: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ItemInventorySnapshotResponse**](ItemInventorySnapshotResponse.md)
 
 ### Authorization
 
@@ -2265,74 +2333,6 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rest_item_inventory_snapshot_response**
-> ItemInventorySnapshotResponse rest_item_inventory_snapshot_response()
-
-Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-
-Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response. 
-
-### Example
-
-* OAuth Authentication (ultraCartOauth):
-* Api Key Authentication (ultraCartSimpleApiKey):
-
-```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_inventory_snapshot_response import ItemInventorySnapshotResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-        api_response = api_instance.rest_item_inventory_snapshot_response()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->rest_item_inventory_snapshot_response: %s\n" % e)
-```
-
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ItemInventorySnapshotResponse**](ItemInventorySnapshotResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
 **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
