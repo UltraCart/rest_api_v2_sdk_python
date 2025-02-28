@@ -146,7 +146,7 @@ class ItemPaymentProcessing(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             block_prepaid (bool): True if prepaid cards should be blocked from buying this item. [optional]  # noqa: E501
-            block_refunds (bool): True if this item should block any refund attempts. [optional]  # noqa: E501
+            block_refunds (bool): True if this item should block any refund attempts, set to false otherwise, null value will not update the field. [optional]  # noqa: E501
             credit_card_transaction_type (str): Credit card transaction type. [optional]  # noqa: E501
             no_realtime_charge (bool): True if no real-time charge should be performed on this item.. [optional]  # noqa: E501
             payment_method_validity ([str]): Payment method validity. [optional]  # noqa: E501
@@ -237,7 +237,7 @@ class ItemPaymentProcessing(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             block_prepaid (bool): True if prepaid cards should be blocked from buying this item. [optional]  # noqa: E501
-            block_refunds (bool): True if this item should block any refund attempts. [optional]  # noqa: E501
+            block_refunds (bool): True if this item should block any refund attempts, set to false otherwise, null value will not update the field. [optional]  # noqa: E501
             credit_card_transaction_type (str): Credit card transaction type. [optional]  # noqa: E501
             no_realtime_charge (bool): True if no real-time charge should be performed on this item.. [optional]  # noqa: E501
             payment_method_validity ([str]): Payment method validity. [optional]  # noqa: E501

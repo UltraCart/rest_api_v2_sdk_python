@@ -153,7 +153,7 @@ class OrderCoupon(ModelNormal):
             automatically_applied (bool): Whether or not the coupon was automatically applied to the order. [optional]  # noqa: E501
             base_coupon_code (str): Coupon code configured by the merchant.  Will differ if the customer used a one time coupon code generated off this base coupon. [optional]  # noqa: E501
             coupon_code (str): Coupon code entered by the customer. [optional]  # noqa: E501
-            hdie_from_customer (bool): True if this coupon is hidde from the customer. [optional]  # noqa: E501
+            hdie_from_customer (bool): True if this coupon is hide from the customer. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -243,7 +243,7 @@ class OrderCoupon(ModelNormal):
             automatically_applied (bool): Whether or not the coupon was automatically applied to the order. [optional]  # noqa: E501
             base_coupon_code (str): Coupon code configured by the merchant.  Will differ if the customer used a one time coupon code generated off this base coupon. [optional]  # noqa: E501
             coupon_code (str): Coupon code entered by the customer. [optional]  # noqa: E501
-            hdie_from_customer (bool): True if this coupon is hidde from the customer. [optional]  # noqa: E501
+            hdie_from_customer (bool): True if this coupon is hide from the customer. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
