@@ -167,7 +167,7 @@ class OrderCoupon(object):
     def hdie_from_customer(self):
         """Gets the hdie_from_customer of this OrderCoupon.  # noqa: E501
 
-        True if this coupon is hidde from the customer  # noqa: E501
+        True if this coupon is hide from the customer  # noqa: E501
 
         :return: The hdie_from_customer of this OrderCoupon.  # noqa: E501
         :rtype: bool
@@ -178,7 +178,7 @@ class OrderCoupon(object):
     def hdie_from_customer(self, hdie_from_customer):
         """Sets the hdie_from_customer of this OrderCoupon.
 
-        True if this coupon is hidde from the customer  # noqa: E501
+        True if this coupon is hide from the customer  # noqa: E501
 
         :param hdie_from_customer: The hdie_from_customer of this OrderCoupon.  # noqa: E501
         :type: bool

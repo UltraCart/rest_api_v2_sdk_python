@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get_auto_orders**](AutoOrderApi.md#get_auto_orders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 [**get_auto_orders_batch**](AutoOrderApi.md#get_auto_orders_batch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 [**get_auto_orders_by_query**](AutoOrderApi.md#get_auto_orders_by_query) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
+[**pause_auto_order**](AutoOrderApi.md#pause_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid}/pause | Pause auto order
 [**update_auto_order**](AutoOrderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 [**update_auto_orders_batch**](AutoOrderApi.md#update_auto_orders_batch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
@@ -478,6 +479,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **pause_auto_order**
+> AutoOrderResponse pause_auto_order(auto_order, auto_order_oid, expand=expand)
+
+Pause auto order
+
+Completely pause an auto order 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.AutoOrderApi.fromApiKey(simple_key, False, True)
+
+auto_order = ultracart.AutoOrder() # AutoOrder | Auto orders to pause
+auto_order_oid = 56 # int | The auto order oid to pause.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try:
+    # Pause auto order
+    api_response = api_instance.pause_auto_order(auto_order, auto_order_oid, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AutoOrderApi->pause_auto_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order** | [**AutoOrder**](AutoOrder.md)| Auto orders to pause | 
+ **auto_order_oid** | **int**| The auto order oid to pause. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

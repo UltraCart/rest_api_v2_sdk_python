@@ -970,6 +970,117 @@ class AutoOrderApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def pause_auto_order(self, auto_order, auto_order_oid, **kwargs):  # noqa: E501
+        """Pause auto order  # noqa: E501
+
+        Completely pause an auto order   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.pause_auto_order(auto_order, auto_order_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AutoOrder auto_order: Auto orders to pause (required)
+        :param int auto_order_oid: The auto order oid to pause. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.pause_auto_order_with_http_info(auto_order, auto_order_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.pause_auto_order_with_http_info(auto_order, auto_order_oid, **kwargs)  # noqa: E501
+            return data
+
+    def pause_auto_order_with_http_info(self, auto_order, auto_order_oid, **kwargs):  # noqa: E501
+        """Pause auto order  # noqa: E501
+
+        Completely pause an auto order   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.pause_auto_order_with_http_info(auto_order, auto_order_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AutoOrder auto_order: Auto orders to pause (required)
+        :param int auto_order_oid: The auto order oid to pause. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: AutoOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['auto_order', 'auto_order_oid', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method pause_auto_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'auto_order' is set
+        if ('auto_order' not in params or
+                params['auto_order'] is None):
+            raise ValueError("Missing the required parameter `auto_order` when calling `pause_auto_order`")  # noqa: E501
+        # verify the required parameter 'auto_order_oid' is set
+        if ('auto_order_oid' not in params or
+                params['auto_order_oid'] is None):
+            raise ValueError("Missing the required parameter `auto_order_oid` when calling `pause_auto_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'auto_order_oid' in params:
+            path_params['auto_order_oid'] = params['auto_order_oid']  # noqa: E501
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'auto_order' in params:
+            body_params = params['auto_order']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/auto_order/auto_orders/{auto_order_oid}/pause', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AutoOrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_auto_order(self, auto_order, auto_order_oid, **kwargs):  # noqa: E501
         """Update an auto order  # noqa: E501
 

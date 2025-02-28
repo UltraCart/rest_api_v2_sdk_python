@@ -99,7 +99,7 @@ class ItemPaymentProcessing(object):
     def block_refunds(self):
         """Gets the block_refunds of this ItemPaymentProcessing.  # noqa: E501
 
-        True if this item should block any refund attempts  # noqa: E501
+        True if this item should block any refund attempts, set to false otherwise, null value will not update the field  # noqa: E501
 
         :return: The block_refunds of this ItemPaymentProcessing.  # noqa: E501
         :rtype: bool
@@ -110,7 +110,7 @@ class ItemPaymentProcessing(object):
     def block_refunds(self, block_refunds):
         """Sets the block_refunds of this ItemPaymentProcessing.
 
-        True if this item should block any refund attempts  # noqa: E501
+        True if this item should block any refund attempts, set to false otherwise, null value will not update the field  # noqa: E501
 
         :param block_refunds: The block_refunds of this ItemPaymentProcessing.  # noqa: E501
         :type: bool
