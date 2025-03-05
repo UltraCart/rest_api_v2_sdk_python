@@ -315,6 +315,7 @@ class ChannelPartnerOrder(ModelNormal):
             'tax_exempt': (bool,),  # noqa: E501
             'transaction': (ChannelPartnerOrderTransaction,),  # noqa: E501
             'treat_warnings_as_errors': (bool,),  # noqa: E501
+            'use_prior_payment_information_from_order_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -415,6 +416,7 @@ class ChannelPartnerOrder(ModelNormal):
         'tax_exempt': 'tax_exempt',  # noqa: E501
         'transaction': 'transaction',  # noqa: E501
         'treat_warnings_as_errors': 'treat_warnings_as_errors',  # noqa: E501
+        'use_prior_payment_information_from_order_id': 'use_prior_payment_information_from_order_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -550,6 +552,7 @@ class ChannelPartnerOrder(ModelNormal):
             tax_exempt (bool): If true this order is marked as being tax exempt. [optional]  # noqa: E501
             transaction (ChannelPartnerOrderTransaction): [optional]  # noqa: E501
             treat_warnings_as_errors (bool): If true all warnings are considered errors, this is true by default. [optional]  # noqa: E501
+            use_prior_payment_information_from_order_id (str): An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -727,6 +730,7 @@ class ChannelPartnerOrder(ModelNormal):
             tax_exempt (bool): If true this order is marked as being tax exempt. [optional]  # noqa: E501
             transaction (ChannelPartnerOrderTransaction): [optional]  # noqa: E501
             treat_warnings_as_errors (bool): If true all warnings are considered errors, this is true by default. [optional]  # noqa: E501
+            use_prior_payment_information_from_order_id (str): An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

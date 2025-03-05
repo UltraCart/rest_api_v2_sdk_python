@@ -383,6 +383,7 @@ api_instance = GiftCertificateApi(api_client())
             successful=True,
         ),
         treat_warnings_as_errors=True,
+        use_prior_payment_information_from_order_id="use_prior_payment_information_from_order_id_example",
     ) # ChannelPartnerOrder | Order needing shipping estimate
 
     # example passing only required values which don't have defaults set
@@ -576,6 +577,7 @@ api_instance = GiftCertificateApi(api_client())
             successful=True,
         ),
         treat_warnings_as_errors=True,
+        use_prior_payment_information_from_order_id="use_prior_payment_information_from_order_id_example",
     ) # ChannelPartnerOrder | Order needing tax estimate
 
     # example passing only required values which don't have defaults set
@@ -1149,6 +1151,7 @@ api_instance = GiftCertificateApi(api_client())
             successful=True,
         ),
         treat_warnings_as_errors=True,
+        use_prior_payment_information_from_order_id="use_prior_payment_information_from_order_id_example",
     ) # ChannelPartnerOrder | Order to insert
 
     # example passing only required values which don't have defaults set
