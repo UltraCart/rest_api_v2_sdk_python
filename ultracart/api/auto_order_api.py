@@ -980,7 +980,7 @@ class AutoOrderApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AutoOrder auto_order: Auto orders to pause (required)
+        :param AutoOrder auto_order: Auto order to pause (required)
         :param int auto_order_oid: The auto order oid to pause. (required)
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: AutoOrderResponse
@@ -1004,7 +1004,7 @@ class AutoOrderApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AutoOrder auto_order: Auto orders to pause (required)
+        :param AutoOrder auto_order: Auto order to pause (required)
         :param int auto_order_oid: The auto order oid to pause. (required)
         :param str expand: The object expansion to perform on the result.  See documentation for examples
         :return: AutoOrderResponse
