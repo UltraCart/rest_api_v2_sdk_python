@@ -1552,7 +1552,7 @@ class AutoOrderApi(object):
 
         Args:
             auto_order_oid (int): The auto order oid to pause.
-            auto_order (AutoOrder): Auto orders to pause
+            auto_order (AutoOrder): Auto order to pause
 
         Keyword Args:
             expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]

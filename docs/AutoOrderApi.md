@@ -3459,7 +3459,7 @@ api_instance = GiftCertificateApi(api_client())
         ],
         rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
         status="active",
-    ) # AutoOrder | Auto orders to pause
+    ) # AutoOrder | Auto order to pause
     expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
     # example passing only required values which don't have defaults set
@@ -3486,7 +3486,7 @@ api_instance = GiftCertificateApi(api_client())
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_order_oid** | **int**| The auto order oid to pause. |
- **auto_order** | [**AutoOrder**](AutoOrder.md)| Auto orders to pause |
+ **auto_order** | [**AutoOrder**](AutoOrder.md)| Auto order to pause |
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
