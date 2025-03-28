@@ -83,6 +83,7 @@ class ChannelPartnerOrder(ModelNormal):
             'PURCHASE_ORDER': "Purchase Order",
             'QUOTE_REQUEST': "Quote Request",
             'WIRE_TRANSFER': "Wire Transfer",
+            'PAYPAL_FASTLANE': "PayPal Fastlane",
         },
     }
 

@@ -87,6 +87,7 @@ class OrderQuery(ModelNormal):
             'VENMO': "Venmo",
             'APPLE_PAY': "Apple Pay",
             '_GOOGLE_PAY': " Google Pay",
+            'PAYPAL_FASTLANE': "PayPal Fastlane",
         },
         ('query_target',): {
             'ORIGIN': "origin",

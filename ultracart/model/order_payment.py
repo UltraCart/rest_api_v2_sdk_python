@@ -104,6 +104,7 @@ class OrderPayment(ModelNormal):
             'APPLE_PAY': "Apple Pay",
             'GOOGLE_PAY': "Google Pay",
             'HEALTH_BENEFIT_CARD': "Health Benefit Card",
+            'PAYPAL_FASTLANE': "PayPal Fastlane",
         },
         ('payment_status',): {
             'UNPROCESSED': "Unprocessed",
