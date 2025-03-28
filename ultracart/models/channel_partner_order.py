@@ -2034,7 +2034,7 @@ class ChannelPartnerOrder(object):
         :param payment_method: The payment_method of this ChannelPartnerOrder.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Affirm", "Amazon", "Check", "COD", "Credit Card", "eCheck", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Wire Transfer"]  # noqa: E501
+        allowed_values = ["Affirm", "Amazon", "Check", "COD", "Credit Card", "eCheck", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Wire Transfer", "PayPal Fastlane"]  # noqa: E501
         if payment_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `payment_method` ({0}), must be one of {1}"  # noqa: E501
