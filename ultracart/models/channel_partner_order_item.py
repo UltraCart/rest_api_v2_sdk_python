@@ -36,6 +36,7 @@ class ChannelPartnerOrderItem(object):
         'auto_order_schedule': 'str',
         'merchant_item_id': 'str',
         'options': 'list[ChannelPartnerOrderItemOption]',
+        'properties': 'list[ChannelPartnerOrderItemProperty]',
         'quantity': 'float',
         'upsell': 'bool'
     }
@@ -46,11 +47,12 @@ class ChannelPartnerOrderItem(object):
         'auto_order_schedule': 'auto_order_schedule',
         'merchant_item_id': 'merchant_item_id',
         'options': 'options',
+        'properties': 'properties',
         'quantity': 'quantity',
         'upsell': 'upsell'
     }
 
-    def __init__(self, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, merchant_item_id=None, options=None, quantity=None, upsell=None):  # noqa: E501
+    def __init__(self, arbitrary_unit_cost=None, auto_order_last_rebill_dts=None, auto_order_schedule=None, merchant_item_id=None, options=None, properties=None, quantity=None, upsell=None):  # noqa: E501
         """ChannelPartnerOrderItem - a model defined in Swagger"""  # noqa: E501
 
         self._arbitrary_unit_cost = None
@@ -58,6 +60,7 @@ class ChannelPartnerOrderItem(object):
         self._auto_order_schedule = None
         self._merchant_item_id = None
         self._options = None
+        self._properties = None
         self._quantity = None
         self._upsell = None
         self.discriminator = None
@@ -72,6 +75,8 @@ class ChannelPartnerOrderItem(object):
             self.merchant_item_id = merchant_item_id
         if options is not None:
             self.options = options
+        if properties is not None:
+            self.properties = properties
         if quantity is not None:
             self.quantity = quantity
         if upsell is not None:
@@ -199,6 +204,29 @@ class ChannelPartnerOrderItem(object):
         """
 
         self._options = options
+
+    @property
+    def properties(self):
+        """Gets the properties of this ChannelPartnerOrderItem.  # noqa: E501
+
+        Properties  # noqa: E501
+
+        :return: The properties of this ChannelPartnerOrderItem.  # noqa: E501
+        :rtype: list[ChannelPartnerOrderItemProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this ChannelPartnerOrderItem.
+
+        Properties  # noqa: E501
+
+        :param properties: The properties of this ChannelPartnerOrderItem.  # noqa: E501
+        :type: list[ChannelPartnerOrderItemProperty]
+        """
+
+        self._properties = properties
 
     @property
     def quantity(self):

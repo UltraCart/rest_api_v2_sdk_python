@@ -2349,6 +2349,141 @@ class OrderApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def refund_order_completely(self, order_id, **kwargs):  # noqa: E501
+        """Refund an order completely  # noqa: E501
+
+        Perform a refund operation on an order and then update the order if successful.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.refund_order_completely(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to refund. (required)
+        :param bool reject_after_refund: Reject order after refund
+        :param bool skip_customer_notification: Skip customer email notification
+        :param bool auto_order_cancel: Cancel associated auto orders
+        :param bool manual_refund: Consider a manual refund done externally
+        :param bool reverse_affiliate_transactions: Reverse affiliate transactions
+        :param bool issue_store_credit: Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
+        :param str auto_order_cancel_reason: Reason for auto orders cancellation
+        :param str refund_reason: Reason for refund
+        :param str reject_reason: Reason for reject
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.refund_order_completely_with_http_info(order_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.refund_order_completely_with_http_info(order_id, **kwargs)  # noqa: E501
+            return data
+
+    def refund_order_completely_with_http_info(self, order_id, **kwargs):  # noqa: E501
+        """Refund an order completely  # noqa: E501
+
+        Perform a refund operation on an order and then update the order if successful.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.refund_order_completely_with_http_info(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to refund. (required)
+        :param bool reject_after_refund: Reject order after refund
+        :param bool skip_customer_notification: Skip customer email notification
+        :param bool auto_order_cancel: Cancel associated auto orders
+        :param bool manual_refund: Consider a manual refund done externally
+        :param bool reverse_affiliate_transactions: Reverse affiliate transactions
+        :param bool issue_store_credit: Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
+        :param str auto_order_cancel_reason: Reason for auto orders cancellation
+        :param str refund_reason: Reason for refund
+        :param str reject_reason: Reason for reject
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'reject_after_refund', 'skip_customer_notification', 'auto_order_cancel', 'manual_refund', 'reverse_affiliate_transactions', 'issue_store_credit', 'auto_order_cancel_reason', 'refund_reason', 'reject_reason']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method refund_order_completely" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `refund_order_completely`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+        if 'reject_after_refund' in params:
+            query_params.append(('reject_after_refund', params['reject_after_refund']))  # noqa: E501
+        if 'skip_customer_notification' in params:
+            query_params.append(('skip_customer_notification', params['skip_customer_notification']))  # noqa: E501
+        if 'auto_order_cancel' in params:
+            query_params.append(('auto_order_cancel', params['auto_order_cancel']))  # noqa: E501
+        if 'manual_refund' in params:
+            query_params.append(('manual_refund', params['manual_refund']))  # noqa: E501
+        if 'reverse_affiliate_transactions' in params:
+            query_params.append(('reverse_affiliate_transactions', params['reverse_affiliate_transactions']))  # noqa: E501
+        if 'issue_store_credit' in params:
+            query_params.append(('issue_store_credit', params['issue_store_credit']))  # noqa: E501
+        if 'auto_order_cancel_reason' in params:
+            query_params.append(('auto_order_cancel_reason', params['auto_order_cancel_reason']))  # noqa: E501
+        if 'refund_reason' in params:
+            query_params.append(('refund_reason', params['refund_reason']))  # noqa: E501
+        if 'reject_reason' in params:
+            query_params.append(('reject_reason', params['reject_reason']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/order/orders/{order_id}/refund_completely', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def replacement(self, order_id, replacement, **kwargs):  # noqa: E501
         """Replacement order  # noqa: E501
 
