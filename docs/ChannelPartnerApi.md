@@ -336,6 +336,14 @@ api_instance = GiftCertificateApi(api_client())
                         value="value_example",
                     ),
                 ],
+                properties=[
+                    ChannelPartnerOrderItemProperty(
+                        display=True,
+                        expiration_dts="expiration_dts_example",
+                        name="name_example",
+                        value="value_example",
+                    ),
+                ],
                 quantity=3.14,
                 upsell=True,
             ),
@@ -526,6 +534,14 @@ api_instance = GiftCertificateApi(api_client())
                 merchant_item_id="merchant_item_id_example",
                 options=[
                     ChannelPartnerOrderItemOption(
+                        name="name_example",
+                        value="value_example",
+                    ),
+                ],
+                properties=[
+                    ChannelPartnerOrderItemProperty(
+                        display=True,
+                        expiration_dts="expiration_dts_example",
                         name="name_example",
                         value="value_example",
                     ),
@@ -1100,6 +1116,14 @@ api_instance = GiftCertificateApi(api_client())
                 merchant_item_id="merchant_item_id_example",
                 options=[
                     ChannelPartnerOrderItemOption(
+                        name="name_example",
+                        value="value_example",
+                    ),
+                ],
+                properties=[
+                    ChannelPartnerOrderItemProperty(
+                        display=True,
+                        expiration_dts="expiration_dts_example",
                         name="name_example",
                         value="value_example",
                     ),

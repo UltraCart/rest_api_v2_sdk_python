@@ -116,6 +116,7 @@ docs/ChannelPartnerImportResponse.md
 docs/ChannelPartnerOrder.md
 docs/ChannelPartnerOrderItem.md
 docs/ChannelPartnerOrderItemOption.md
+docs/ChannelPartnerOrderItemProperty.md
 docs/ChannelPartnerOrderTransaction.md
 docs/ChannelPartnerOrderTransactionDetail.md
 docs/ChannelPartnerShipToPreference.md
@@ -1024,6 +1025,7 @@ ultracart/model/channel_partner_import_response.py
 ultracart/model/channel_partner_order.py
 ultracart/model/channel_partner_order_item.py
 ultracart/model/channel_partner_order_item_option.py
+ultracart/model/channel_partner_order_item_property.py
 ultracart/model/channel_partner_order_transaction.py
 ultracart/model/channel_partner_order_transaction_detail.py
 ultracart/model/channel_partner_ship_to_preference.py

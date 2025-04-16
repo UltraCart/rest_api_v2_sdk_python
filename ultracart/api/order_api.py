@@ -1438,6 +1438,103 @@ class OrderApi(object):
             },
             api_client=api_client
         )
+        self.refund_order_completely_endpoint = _Endpoint(
+            settings={
+                'response_type': (OrderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/order/orders/{order_id}/refund_completely',
+                'operation_id': 'refund_order_completely',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'order_id',
+                    'reject_after_refund',
+                    'skip_customer_notification',
+                    'auto_order_cancel',
+                    'manual_refund',
+                    'reverse_affiliate_transactions',
+                    'issue_store_credit',
+                    'auto_order_cancel_reason',
+                    'refund_reason',
+                    'reject_reason',
+                ],
+                'required': [
+                    'order_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'order_id':
+                        (str,),
+                    'reject_after_refund':
+                        (bool,),
+                    'skip_customer_notification':
+                        (bool,),
+                    'auto_order_cancel':
+                        (bool,),
+                    'manual_refund':
+                        (bool,),
+                    'reverse_affiliate_transactions':
+                        (bool,),
+                    'issue_store_credit':
+                        (bool,),
+                    'auto_order_cancel_reason':
+                        (str,),
+                    'refund_reason':
+                        (str,),
+                    'reject_reason':
+                        (str,),
+                },
+                'attribute_map': {
+                    'order_id': 'order_id',
+                    'reject_after_refund': 'reject_after_refund',
+                    'skip_customer_notification': 'skip_customer_notification',
+                    'auto_order_cancel': 'auto_order_cancel',
+                    'manual_refund': 'manual_refund',
+                    'reverse_affiliate_transactions': 'reverse_affiliate_transactions',
+                    'issue_store_credit': 'issue_store_credit',
+                    'auto_order_cancel_reason': 'auto_order_cancel_reason',
+                    'refund_reason': 'refund_reason',
+                    'reject_reason': 'reject_reason',
+                },
+                'location_map': {
+                    'order_id': 'path',
+                    'reject_after_refund': 'query',
+                    'skip_customer_notification': 'query',
+                    'auto_order_cancel': 'query',
+                    'manual_refund': 'query',
+                    'reverse_affiliate_transactions': 'query',
+                    'issue_store_credit': 'query',
+                    'auto_order_cancel_reason': 'query',
+                    'refund_reason': 'query',
+                    'reject_reason': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.replacement_endpoint = _Endpoint(
             settings={
                 'response_type': (OrderReplacementResponse,),
@@ -3571,6 +3668,98 @@ class OrderApi(object):
         kwargs['order'] = \
             order
         return self.refund_order_endpoint.call_with_http_info(**kwargs)
+
+    def refund_order_completely(
+        self,
+        order_id,
+        **kwargs
+    ):
+        """Refund an order completely  # noqa: E501
+
+        Perform a refund operation on an order and then update the order if successful.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.refund_order_completely(order_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            order_id (str): The order id to refund.
+
+        Keyword Args:
+            reject_after_refund (bool): Reject order after refund. [optional] if omitted the server will use the default value of False
+            skip_customer_notification (bool): Skip customer email notification. [optional] if omitted the server will use the default value of False
+            auto_order_cancel (bool): Cancel associated auto orders. [optional] if omitted the server will use the default value of False
+            manual_refund (bool): Consider a manual refund done externally. [optional] if omitted the server will use the default value of False
+            reverse_affiliate_transactions (bool): Reverse affiliate transactions. [optional] if omitted the server will use the default value of True
+            issue_store_credit (bool): Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account. [optional] if omitted the server will use the default value of False
+            auto_order_cancel_reason (str): Reason for auto orders cancellation. [optional]
+            refund_reason (str): Reason for refund. [optional]
+            reject_reason (str): Reason for reject. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            OrderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['order_id'] = \
+            order_id
+        return self.refund_order_completely_endpoint.call_with_http_info(**kwargs)
 
     def replacement(
         self,
