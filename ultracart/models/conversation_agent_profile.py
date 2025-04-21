@@ -31,6 +31,10 @@ class ConversationAgentProfile(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ai': 'bool',
+        'ai_chat_instructions': 'str',
+        'ai_persona': 'str',
+        'ai_sms_instructions': 'str',
         'chat_limit': 'int',
         'default_language_iso_code': 'str',
         'default_status': 'str',
@@ -41,6 +45,10 @@ class ConversationAgentProfile(object):
     }
 
     attribute_map = {
+        'ai': 'ai',
+        'ai_chat_instructions': 'ai_chat_instructions',
+        'ai_persona': 'ai_persona',
+        'ai_sms_instructions': 'ai_sms_instructions',
         'chat_limit': 'chat_limit',
         'default_language_iso_code': 'default_language_iso_code',
         'default_status': 'default_status',
@@ -50,9 +58,13 @@ class ConversationAgentProfile(object):
         'profile_image_url': 'profile_image_url'
     }
 
-    def __init__(self, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None):  # noqa: E501
+    def __init__(self, ai=None, ai_chat_instructions=None, ai_persona=None, ai_sms_instructions=None, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None):  # noqa: E501
         """ConversationAgentProfile - a model defined in Swagger"""  # noqa: E501
 
+        self._ai = None
+        self._ai_chat_instructions = None
+        self._ai_persona = None
+        self._ai_sms_instructions = None
         self._chat_limit = None
         self._default_language_iso_code = None
         self._default_status = None
@@ -62,6 +74,14 @@ class ConversationAgentProfile(object):
         self._profile_image_url = None
         self.discriminator = None
 
+        if ai is not None:
+            self.ai = ai
+        if ai_chat_instructions is not None:
+            self.ai_chat_instructions = ai_chat_instructions
+        if ai_persona is not None:
+            self.ai_persona = ai_persona
+        if ai_sms_instructions is not None:
+            self.ai_sms_instructions = ai_sms_instructions
         if chat_limit is not None:
             self.chat_limit = chat_limit
         if default_language_iso_code is not None:
@@ -76,6 +96,98 @@ class ConversationAgentProfile(object):
             self.profile_image_upload_key = profile_image_upload_key
         if profile_image_url is not None:
             self.profile_image_url = profile_image_url
+
+    @property
+    def ai(self):
+        """Gets the ai of this ConversationAgentProfile.  # noqa: E501
+
+        AI powered chat bot  # noqa: E501
+
+        :return: The ai of this ConversationAgentProfile.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ai
+
+    @ai.setter
+    def ai(self, ai):
+        """Sets the ai of this ConversationAgentProfile.
+
+        AI powered chat bot  # noqa: E501
+
+        :param ai: The ai of this ConversationAgentProfile.  # noqa: E501
+        :type: bool
+        """
+
+        self._ai = ai
+
+    @property
+    def ai_chat_instructions(self):
+        """Gets the ai_chat_instructions of this ConversationAgentProfile.  # noqa: E501
+
+        Additional instructions for this AI when handle web chats  # noqa: E501
+
+        :return: The ai_chat_instructions of this ConversationAgentProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._ai_chat_instructions
+
+    @ai_chat_instructions.setter
+    def ai_chat_instructions(self, ai_chat_instructions):
+        """Sets the ai_chat_instructions of this ConversationAgentProfile.
+
+        Additional instructions for this AI when handle web chats  # noqa: E501
+
+        :param ai_chat_instructions: The ai_chat_instructions of this ConversationAgentProfile.  # noqa: E501
+        :type: str
+        """
+
+        self._ai_chat_instructions = ai_chat_instructions
+
+    @property
+    def ai_persona(self):
+        """Gets the ai_persona of this ConversationAgentProfile.  # noqa: E501
+
+        Persona of this AI agent  # noqa: E501
+
+        :return: The ai_persona of this ConversationAgentProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._ai_persona
+
+    @ai_persona.setter
+    def ai_persona(self, ai_persona):
+        """Sets the ai_persona of this ConversationAgentProfile.
+
+        Persona of this AI agent  # noqa: E501
+
+        :param ai_persona: The ai_persona of this ConversationAgentProfile.  # noqa: E501
+        :type: str
+        """
+
+        self._ai_persona = ai_persona
+
+    @property
+    def ai_sms_instructions(self):
+        """Gets the ai_sms_instructions of this ConversationAgentProfile.  # noqa: E501
+
+        Additional instructions for this AI when handle SMS messages  # noqa: E501
+
+        :return: The ai_sms_instructions of this ConversationAgentProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._ai_sms_instructions
+
+    @ai_sms_instructions.setter
+    def ai_sms_instructions(self, ai_sms_instructions):
+        """Sets the ai_sms_instructions of this ConversationAgentProfile.
+
+        Additional instructions for this AI when handle SMS messages  # noqa: E501
+
+        :param ai_sms_instructions: The ai_sms_instructions of this ConversationAgentProfile.  # noqa: E501
+        :type: str
+        """
+
+        self._ai_sms_instructions = ai_sms_instructions
 
     @property
     def chat_limit(self):
