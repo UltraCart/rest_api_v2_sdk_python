@@ -87,6 +87,10 @@ class ConversationAgentProfile(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'ai': (bool,),  # noqa: E501
+            'ai_chat_instructions': (str,),  # noqa: E501
+            'ai_persona': (str,),  # noqa: E501
+            'ai_sms_instructions': (str,),  # noqa: E501
             'chat_limit': (int,),  # noqa: E501
             'default_language_iso_code': (str,),  # noqa: E501
             'default_status': (str,),  # noqa: E501
@@ -102,6 +106,10 @@ class ConversationAgentProfile(ModelNormal):
 
 
     attribute_map = {
+        'ai': 'ai',  # noqa: E501
+        'ai_chat_instructions': 'ai_chat_instructions',  # noqa: E501
+        'ai_persona': 'ai_persona',  # noqa: E501
+        'ai_sms_instructions': 'ai_sms_instructions',  # noqa: E501
         'chat_limit': 'chat_limit',  # noqa: E501
         'default_language_iso_code': 'default_language_iso_code',  # noqa: E501
         'default_status': 'default_status',  # noqa: E501
@@ -152,6 +160,10 @@ class ConversationAgentProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai (bool): AI powered chat bot. [optional]  # noqa: E501
+            ai_chat_instructions (str): Additional instructions for this AI when handle web chats. [optional]  # noqa: E501
+            ai_persona (str): Persona of this AI agent. [optional]  # noqa: E501
+            ai_sms_instructions (str): Additional instructions for this AI when handle SMS messages. [optional]  # noqa: E501
             chat_limit (int): The number of engagement chats that can be pushed on them at any given time.. [optional]  # noqa: E501
             default_language_iso_code (str): The default language the agent is chatting in. [optional]  # noqa: E501
             default_status (str): Default status when the agent loads conversations app.. [optional]  # noqa: E501
@@ -244,6 +256,10 @@ class ConversationAgentProfile(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai (bool): AI powered chat bot. [optional]  # noqa: E501
+            ai_chat_instructions (str): Additional instructions for this AI when handle web chats. [optional]  # noqa: E501
+            ai_persona (str): Persona of this AI agent. [optional]  # noqa: E501
+            ai_sms_instructions (str): Additional instructions for this AI when handle SMS messages. [optional]  # noqa: E501
             chat_limit (int): The number of engagement chats that can be pushed on them at any given time.. [optional]  # noqa: E501
             default_language_iso_code (str): The default language the agent is chatting in. [optional]  # noqa: E501
             default_status (str): Default status when the agent loads conversations app.. [optional]  # noqa: E501

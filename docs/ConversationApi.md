@@ -5321,6 +5321,10 @@ from pprint import pprint
 api_instance = GiftCertificateApi(api_client())
 
     profile_request = ConversationAgentProfile(
+        ai=True,
+        ai_chat_instructions="ai_chat_instructions_example",
+        ai_persona="ai_persona_example",
+        ai_sms_instructions="ai_sms_instructions_example",
         chat_limit=1,
         default_language_iso_code="default_language_iso_code_example",
         default_status="available",
