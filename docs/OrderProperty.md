@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**created_by** | **str** | Created by user | [optional] 
+**created_dts** | **str** | The date/time that the property was created by the user | [optional] 
 **display** | **bool** | True if this property is displayed to the customer | [optional] 
 **expiration_dts** | **str** | The date/time that the property expires and is deleted | [optional] 
 **name** | **str** | Name | [optional] 

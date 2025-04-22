@@ -755,6 +755,105 @@ class ChannelPartnerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_channel_partner_reason_codes(self, channel_partner_oid, **kwargs):  # noqa: E501
+        """Retrieve reject and refund reason codes.  # noqa: E501
+
+        Retrieve reject and refund reason codes.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_channel_partner_reason_codes(channel_partner_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int channel_partner_oid: (required)
+        :return: ChanelPartnerReasonCodesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_channel_partner_reason_codes_with_http_info(channel_partner_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_channel_partner_reason_codes_with_http_info(channel_partner_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_channel_partner_reason_codes_with_http_info(self, channel_partner_oid, **kwargs):  # noqa: E501
+        """Retrieve reject and refund reason codes.  # noqa: E501
+
+        Retrieve reject and refund reason codes.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_channel_partner_reason_codes_with_http_info(channel_partner_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int channel_partner_oid: (required)
+        :return: ChanelPartnerReasonCodesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['channel_partner_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_channel_partner_reason_codes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'channel_partner_oid' is set
+        if ('channel_partner_oid' not in params or
+                params['channel_partner_oid'] is None):
+            raise ValueError("Missing the required parameter `channel_partner_oid` when calling `get_channel_partner_reason_codes`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'channel_partner_oid' in params:
+            path_params['channel_partner_oid'] = params['channel_partner_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/channel_partner/channel_partners/{channel_partner_oid}/reason_codes', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ChanelPartnerReasonCodesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_channel_partner_ship_to_preference(self, channel_partner_oid, channel_partner_ship_to_preference_oid, **kwargs):  # noqa: E501
         """Retrieve the ship to preference associated with the channel partner and the specific id.  # noqa: E501
 

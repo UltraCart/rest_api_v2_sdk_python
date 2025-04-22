@@ -31,6 +31,8 @@ class OrderProperty(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'created_by': 'str',
+        'created_dts': 'str',
         'display': 'bool',
         'expiration_dts': 'str',
         'name': 'str',
@@ -38,21 +40,29 @@ class OrderProperty(object):
     }
 
     attribute_map = {
+        'created_by': 'created_by',
+        'created_dts': 'created_dts',
         'display': 'display',
         'expiration_dts': 'expiration_dts',
         'name': 'name',
         'value': 'value'
     }
 
-    def __init__(self, display=None, expiration_dts=None, name=None, value=None):  # noqa: E501
+    def __init__(self, created_by=None, created_dts=None, display=None, expiration_dts=None, name=None, value=None):  # noqa: E501
         """OrderProperty - a model defined in Swagger"""  # noqa: E501
 
+        self._created_by = None
+        self._created_dts = None
         self._display = None
         self._expiration_dts = None
         self._name = None
         self._value = None
         self.discriminator = None
 
+        if created_by is not None:
+            self.created_by = created_by
+        if created_dts is not None:
+            self.created_dts = created_dts
         if display is not None:
             self.display = display
         if expiration_dts is not None:
@@ -61,6 +71,54 @@ class OrderProperty(object):
             self.name = name
         if value is not None:
             self.value = value
+
+    @property
+    def created_by(self):
+        """Gets the created_by of this OrderProperty.  # noqa: E501
+
+        Created by user  # noqa: E501
+
+        :return: The created_by of this OrderProperty.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_by
+
+    @created_by.setter
+    def created_by(self, created_by):
+        """Sets the created_by of this OrderProperty.
+
+        Created by user  # noqa: E501
+
+        :param created_by: The created_by of this OrderProperty.  # noqa: E501
+        :type: str
+        """
+        if created_by is not None and len(created_by) > 20:
+            raise ValueError("Invalid value for `created_by`, length must be less than or equal to `20`")  # noqa: E501
+
+        self._created_by = created_by
+
+    @property
+    def created_dts(self):
+        """Gets the created_dts of this OrderProperty.  # noqa: E501
+
+        The date/time that the property was created by the user  # noqa: E501
+
+        :return: The created_dts of this OrderProperty.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_dts
+
+    @created_dts.setter
+    def created_dts(self, created_dts):
+        """Sets the created_dts of this OrderProperty.
+
+        The date/time that the property was created by the user  # noqa: E501
+
+        :param created_dts: The created_dts of this OrderProperty.  # noqa: E501
+        :type: str
+        """
+
+        self._created_dts = created_dts
 
     @property
     def display(self):
