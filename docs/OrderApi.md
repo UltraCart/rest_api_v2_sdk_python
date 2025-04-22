@@ -2459,6 +2459,8 @@ api_instance = GiftCertificateApi(api_client())
         ),
         properties=[
             OrderProperty(
+                created_by="created_by_example",
+                created_dts="created_dts_example",
                 display=True,
                 expiration_dts="expiration_dts_example",
                 name="name_example",
@@ -3983,6 +3985,8 @@ api_instance = GiftCertificateApi(api_client())
         ),
         properties=[
             OrderProperty(
+                created_by="created_by_example",
+                created_dts="created_dts_example",
                 display=True,
                 expiration_dts="expiration_dts_example",
                 name="name_example",
@@ -5815,6 +5819,8 @@ api_instance = GiftCertificateApi(api_client())
         ),
         properties=[
             OrderProperty(
+                created_by="created_by_example",
+                created_dts="created_dts_example",
                 display=True,
                 expiration_dts="expiration_dts_example",
                 name="name_example",
@@ -7193,6 +7199,8 @@ api_instance = GiftCertificateApi(api_client())
             ),
             properties=[
                 OrderProperty(
+                    created_by="created_by_example",
+                    created_dts="created_dts_example",
                     display=True,
                     expiration_dts="expiration_dts_example",
                     name="name_example",

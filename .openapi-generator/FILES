@@ -107,6 +107,7 @@ docs/CartTaxes.md
 docs/CartUpsellAfter.md
 docs/CartValidationRequest.md
 docs/CartValidationResponse.md
+docs/ChanelPartnerReasonCodesResponse.md
 docs/ChannelPartner.md
 docs/ChannelPartnerApi.md
 docs/ChannelPartnerCancelResponse.md
@@ -1017,6 +1018,7 @@ ultracart/model/cart_taxes.py
 ultracart/model/cart_upsell_after.py
 ultracart/model/cart_validation_request.py
 ultracart/model/cart_validation_response.py
+ultracart/model/chanel_partner_reason_codes_response.py
 ultracart/model/channel_partner.py
 ultracart/model/channel_partner_cancel_response.py
 ultracart/model/channel_partner_estimate_shipping_response.py
