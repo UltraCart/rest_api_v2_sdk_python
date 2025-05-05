@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_log_summaries**
-> WebhookLogSummariesResponse get_webhook_log_summaries(webhook_oid, limit=limit, offset=offset, since=since)
+> WebhookLogSummariesResponse get_webhook_log_summaries(webhook_oid, request_id=request_id, begin_date=begin_date, end_date=end_date, status=status, event=event, order_id=order_id, request=request, duration=duration, limit=limit, offset=offset, since=since)
 
 Retrieve the log summaries
 
@@ -185,13 +185,21 @@ simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
 api_instance = ultracart.WebhookApi.fromApiKey(simple_key, False, True)
 
 webhook_oid = 56 # int | The webhook oid to retrieve log summaries for.
+request_id = 'request_id_example' # str |  (optional)
+begin_date = 'begin_date_example' # str |  (optional)
+end_date = 'end_date_example' # str |  (optional)
+status = 'status_example' # str |  (optional)
+event = 'event_example' # str |  (optional)
+order_id = 'order_id_example' # str |  (optional)
+request = 'request_example' # str |  (optional)
+duration = 56 # int |  (optional)
 limit = 100 # int | The maximum number of records to return on this one API call. (optional) (default to 100)
 offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
 since = 'since_example' # str | Fetch log summaries that have been delivered since this date/time. (optional)
 
 try:
     # Retrieve the log summaries
-    api_response = api_instance.get_webhook_log_summaries(webhook_oid, limit=limit, offset=offset, since=since)
+    api_response = api_instance.get_webhook_log_summaries(webhook_oid, request_id=request_id, begin_date=begin_date, end_date=end_date, status=status, event=event, order_id=order_id, request=request, duration=duration, limit=limit, offset=offset, since=since)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling WebhookApi->get_webhook_log_summaries: %s\n" % e)
@@ -202,6 +210,14 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook_oid** | **int**| The webhook oid to retrieve log summaries for. | 
+ **request_id** | **str**|  | [optional] 
+ **begin_date** | **str**|  | [optional] 
+ **end_date** | **str**|  | [optional] 
+ **status** | **str**|  | [optional] 
+ **event** | **str**|  | [optional] 
+ **order_id** | **str**|  | [optional] 
+ **request** | **str**|  | [optional] 
+ **duration** | **int**|  | [optional] 
  **limit** | **int**| The maximum number of records to return on this one API call. | [optional] [default to 100]
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **since** | **str**| Fetch log summaries that have been delivered since this date/time. | [optional] 

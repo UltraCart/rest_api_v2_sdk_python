@@ -362,6 +362,14 @@ class WebhookApi(object):
 
         :param async_req bool
         :param int webhook_oid: The webhook oid to retrieve log summaries for. (required)
+        :param str request_id:
+        :param str begin_date:
+        :param str end_date:
+        :param str status:
+        :param str event:
+        :param str order_id:
+        :param str request:
+        :param int duration:
         :param int limit: The maximum number of records to return on this one API call.
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str since: Fetch log summaries that have been delivered since this date/time.
@@ -387,6 +395,14 @@ class WebhookApi(object):
 
         :param async_req bool
         :param int webhook_oid: The webhook oid to retrieve log summaries for. (required)
+        :param str request_id:
+        :param str begin_date:
+        :param str end_date:
+        :param str status:
+        :param str event:
+        :param str order_id:
+        :param str request:
+        :param int duration:
         :param int limit: The maximum number of records to return on this one API call.
         :param int offset: Pagination of the record set.  Offset is a zero based index.
         :param str since: Fetch log summaries that have been delivered since this date/time.
@@ -395,7 +411,7 @@ class WebhookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['webhook_oid', 'limit', 'offset', 'since']  # noqa: E501
+        all_params = ['webhook_oid', 'request_id', 'begin_date', 'end_date', 'status', 'event', 'order_id', 'request', 'duration', 'limit', 'offset', 'since']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -422,6 +438,22 @@ class WebhookApi(object):
             path_params['webhookOid'] = params['webhook_oid']  # noqa: E501
 
         query_params = []
+        if 'request_id' in params:
+            query_params.append(('requestId', params['request_id']))  # noqa: E501
+        if 'begin_date' in params:
+            query_params.append(('beginDate', params['begin_date']))  # noqa: E501
+        if 'end_date' in params:
+            query_params.append(('endDate', params['end_date']))  # noqa: E501
+        if 'status' in params:
+            query_params.append(('status', params['status']))  # noqa: E501
+        if 'event' in params:
+            query_params.append(('event', params['event']))  # noqa: E501
+        if 'order_id' in params:
+            query_params.append(('orderId', params['order_id']))  # noqa: E501
+        if 'request' in params:
+            query_params.append(('request', params['request']))  # noqa: E501
+        if 'duration' in params:
+            query_params.append(('duration', params['duration']))  # noqa: E501
         if 'limit' in params:
             query_params.append(('_limit', params['limit']))  # noqa: E501
         if 'offset' in params:
