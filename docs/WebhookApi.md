@@ -308,6 +308,14 @@ from pprint import pprint
 api_instance = GiftCertificateApi(api_client())
 
     webhook_oid = 1 # int | The webhook oid to retrieve log summaries for.
+    request_id = "requestId_example" # str |  (optional)
+    begin_date = "beginDate_example" # str |  (optional)
+    end_date = "endDate_example" # str |  (optional)
+    status = "status_example" # str |  (optional)
+    event = "event_example" # str |  (optional)
+    order_id = "orderId_example" # str |  (optional)
+    request = "request_example" # str |  (optional)
+    duration = 1 # int |  (optional)
     limit = 100 # int | The maximum number of records to return on this one API call. (optional) if omitted the server will use the default value of 100
     offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
     since = "_since_example" # str | Fetch log summaries that have been delivered since this date/time. (optional)
@@ -324,7 +332,7 @@ api_instance = GiftCertificateApi(api_client())
     # and optional values
     try:
         # Retrieve the log summaries
-        api_response = api_instance.get_webhook_log_summaries(webhook_oid, limit=limit, offset=offset, since=since)
+        api_response = api_instance.get_webhook_log_summaries(webhook_oid, request_id=request_id, begin_date=begin_date, end_date=end_date, status=status, event=event, order_id=order_id, request=request, duration=duration, limit=limit, offset=offset, since=since)
         pprint(api_response)
     except ultracart.ApiException as e:
         print("Exception when calling WebhookApi->get_webhook_log_summaries: %s\n" % e)
@@ -336,6 +344,14 @@ api_instance = GiftCertificateApi(api_client())
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook_oid** | **int**| The webhook oid to retrieve log summaries for. |
+ **request_id** | **str**|  | [optional]
+ **begin_date** | **str**|  | [optional]
+ **end_date** | **str**|  | [optional]
+ **status** | **str**|  | [optional]
+ **event** | **str**|  | [optional]
+ **order_id** | **str**|  | [optional]
+ **request** | **str**|  | [optional]
+ **duration** | **int**|  | [optional]
  **limit** | **int**| The maximum number of records to return on this one API call. | [optional] if omitted the server will use the default value of 100
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
  **since** | **str**| Fetch log summaries that have been delivered since this date/time. | [optional]
