@@ -98,6 +98,7 @@ class ConversationAgentProfile(ModelNormal):
             'name': (str,),  # noqa: E501
             'profile_image_upload_key': (str,),  # noqa: E501
             'profile_image_url': (str,),  # noqa: E501
+            'user_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -117,6 +118,7 @@ class ConversationAgentProfile(ModelNormal):
         'name': 'name',  # noqa: E501
         'profile_image_upload_key': 'profile_image_upload_key',  # noqa: E501
         'profile_image_url': 'profile_image_url',  # noqa: E501
+        'user_id': 'user_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -171,6 +173,7 @@ class ConversationAgentProfile(ModelNormal):
             name (str): Their actual user name for profile settings display as placeholder test. [optional]  # noqa: E501
             profile_image_upload_key (str): An upload key used to update the profile image.. [optional]  # noqa: E501
             profile_image_url (str): Their current profile image URL. [optional]  # noqa: E501
+            user_id (int): User ID associated with the agent.  Populated by getAgentProfiles call only.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -267,6 +270,7 @@ class ConversationAgentProfile(ModelNormal):
             name (str): Their actual user name for profile settings display as placeholder test. [optional]  # noqa: E501
             profile_image_upload_key (str): An upload key used to update the profile image.. [optional]  # noqa: E501
             profile_image_url (str): Their current profile image URL. [optional]  # noqa: E501
+            user_id (int): User ID associated with the agent.  Populated by getAgentProfiles call only.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

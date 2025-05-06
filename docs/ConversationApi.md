@@ -5401,6 +5401,7 @@ api_instance = GiftCertificateApi(api_client())
         name="name_example",
         profile_image_upload_key="profile_image_upload_key_example",
         profile_image_url="profile_image_url_example",
+        user_id=1,
     ) # ConversationAgentProfile | Profile request
 
     # example passing only required values which don't have defaults set
