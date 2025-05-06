@@ -41,7 +41,8 @@ class ConversationAgentProfile(object):
         'display_name': 'str',
         'name': 'str',
         'profile_image_upload_key': 'str',
-        'profile_image_url': 'str'
+        'profile_image_url': 'str',
+        'user_id': 'int'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class ConversationAgentProfile(object):
         'display_name': 'display_name',
         'name': 'name',
         'profile_image_upload_key': 'profile_image_upload_key',
-        'profile_image_url': 'profile_image_url'
+        'profile_image_url': 'profile_image_url',
+        'user_id': 'user_id'
     }
 
-    def __init__(self, ai=None, ai_chat_instructions=None, ai_persona=None, ai_sms_instructions=None, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None):  # noqa: E501
+    def __init__(self, ai=None, ai_chat_instructions=None, ai_persona=None, ai_sms_instructions=None, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None, user_id=None):  # noqa: E501
         """ConversationAgentProfile - a model defined in Swagger"""  # noqa: E501
 
         self._ai = None
@@ -72,6 +74,7 @@ class ConversationAgentProfile(object):
         self._name = None
         self._profile_image_upload_key = None
         self._profile_image_url = None
+        self._user_id = None
         self.discriminator = None
 
         if ai is not None:
@@ -96,6 +99,8 @@ class ConversationAgentProfile(object):
             self.profile_image_upload_key = profile_image_upload_key
         if profile_image_url is not None:
             self.profile_image_url = profile_image_url
+        if user_id is not None:
+            self.user_id = user_id
 
     @property
     def ai(self):
@@ -355,6 +360,29 @@ class ConversationAgentProfile(object):
         """
 
         self._profile_image_url = profile_image_url
+
+    @property
+    def user_id(self):
+        """Gets the user_id of this ConversationAgentProfile.  # noqa: E501
+
+        User ID associated with the agent.  Populated by getAgentProfiles call only.  # noqa: E501
+
+        :return: The user_id of this ConversationAgentProfile.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this ConversationAgentProfile.
+
+        User ID associated with the agent.  Populated by getAgentProfiles call only.  # noqa: E501
+
+        :param user_id: The user_id of this ConversationAgentProfile.  # noqa: E501
+        :type: int
+        """
+
+        self._user_id = user_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
