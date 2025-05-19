@@ -57,6 +57,7 @@ Method | HTTP request | Description
 [**get_pbx_time_ranges**](ConversationApi.md#get_pbx_time_ranges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
 [**get_pbx_voicemail_mailbox**](ConversationApi.md#get_pbx_voicemail_mailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 [**get_pbx_voicemail_mailboxes**](ConversationApi.md#get_pbx_voicemail_mailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
+[**get_virtual_agent_budget**](ConversationApi.md#get_virtual_agent_budget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 [**insert_conversation_canned_message**](ConversationApi.md#insert_conversation_canned_message) | **POST** /conversation/canned_messages | Insert a canned message
 [**insert_conversation_department**](ConversationApi.md#insert_conversation_department) | **POST** /conversation/departments | Insert a department
 [**insert_conversation_engagement**](ConversationApi.md#insert_conversation_engagement) | **POST** /conversation/engagements | Insert a engagement
@@ -88,6 +89,7 @@ Method | HTTP request | Description
 [**update_pbx_time_based**](ConversationApi.md#update_pbx_time_based) | **PUT** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Update pbx timeBased
 [**update_pbx_time_range**](ConversationApi.md#update_pbx_time_range) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
 [**update_pbx_voicemail_mailbox**](ConversationApi.md#update_pbx_voicemail_mailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
+[**update_virtual_agent_budget**](ConversationApi.md#update_virtual_agent_budget) | **PUT** /conversation/virtualagent/budget | Update virtual agent budget
 
 
 # **delete_conversation_canned_message**
@@ -3890,6 +3892,74 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_virtual_agent_budget**
+> ConversationVirtualAgentBudgetResponse get_virtual_agent_budget()
+
+Get virtual agent budget
+
+Retrieve virtual agent budget 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import conversation_api
+from ultracart.model.conversation_virtual_agent_budget_response import ConversationVirtualAgentBudgetResponse
+from ultracart.model.error_response import ErrorResponse
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get virtual agent budget
+        api_response = api_instance.get_virtual_agent_budget()
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ConversationApi->get_virtual_agent_budget: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationVirtualAgentBudgetResponse**](ConversationVirtualAgentBudgetResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **insert_conversation_canned_message**
 > ConversationCannedMessageResponse insert_conversation_canned_message(canned_message)
 
@@ -6506,6 +6576,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxVoicemailMailboxResponse**](ConversationPbxVoicemailMailboxResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_virtual_agent_budget**
+> ConversationVirtualAgentBudgetResponse update_virtual_agent_budget(virtual_agent_budget)
+
+Update virtual agent budget
+
+Update virtual agent budget 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+```python
+import time
+import ultracart
+from ultracart.api import conversation_api
+from ultracart.model.conversation_virtual_agent_budget_response import ConversationVirtualAgentBudgetResponse
+from ultracart.model.error_response import ErrorResponse
+from ultracart.model.conversation_virtual_agent_budget import ConversationVirtualAgentBudget
+from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from pprint import pprint
+
+# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+# As such, this might not be the best way to use this object.
+# Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+api_instance = GiftCertificateApi(api_client())
+
+    virtual_agent_budget = ConversationVirtualAgentBudget(
+        budget_daily=3.14,
+        budget_monthly=3.14,
+        used_daily=3.14,
+        used_monthly=3.14,
+    ) # ConversationVirtualAgentBudget | Virtual Agent Budget
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update virtual agent budget
+        api_response = api_instance.update_virtual_agent_budget(virtual_agent_budget)
+        pprint(api_response)
+    except ultracart.ApiException as e:
+        print("Exception when calling ConversationApi->update_virtual_agent_budget: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **virtual_agent_budget** | [**ConversationVirtualAgentBudget**](ConversationVirtualAgentBudget.md)| Virtual Agent Budget |
+
+### Return type
+
+[**ConversationVirtualAgentBudgetResponse**](ConversationVirtualAgentBudgetResponse.md)
 
 ### Authorization
 
