@@ -81,6 +81,8 @@ from ultracart.model.conversation_start_request import ConversationStartRequest
 from ultracart.model.conversation_start_response import ConversationStartResponse
 from ultracart.model.conversation_virtual_agent_budget import ConversationVirtualAgentBudget
 from ultracart.model.conversation_virtual_agent_budget_response import ConversationVirtualAgentBudgetResponse
+from ultracart.model.conversation_virtual_agent_capabilities import ConversationVirtualAgentCapabilities
+from ultracart.model.conversation_virtual_agent_capabilities_response import ConversationVirtualAgentCapabilitiesResponse
 from ultracart.model.conversation_webchat_context import ConversationWebchatContext
 from ultracart.model.conversation_webchat_queue_status_update_request import ConversationWebchatQueueStatusUpdateRequest
 from ultracart.model.conversation_webchat_queue_statuses_response import ConversationWebchatQueueStatusesResponse
@@ -2815,6 +2817,51 @@ class ConversationApi(object):
             },
             api_client=api_client
         )
+        self.get_virtual_agent_capabilities_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationVirtualAgentCapabilitiesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/virtualagent/capabilities',
+                'operation_id': 'get_virtual_agent_capabilities',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.insert_conversation_canned_message_endpoint = _Endpoint(
             settings={
                 'response_type': (ConversationCannedMessageResponse,),
@@ -4574,6 +4621,59 @@ class ConversationApi(object):
                 },
                 'location_map': {
                     'virtual_agent_budget': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_virtual_agent_capabilities_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationVirtualAgentCapabilitiesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/virtualagent/capabilities',
+                'operation_id': 'update_virtual_agent_capabilities',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'virtual_agent_capabilities',
+                ],
+                'required': [
+                    'virtual_agent_capabilities',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'virtual_agent_capabilities':
+                        (ConversationVirtualAgentCapabilities,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'virtual_agent_capabilities': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -8979,6 +9079,84 @@ class ConversationApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_virtual_agent_budget_endpoint.call_with_http_info(**kwargs)
 
+    def get_virtual_agent_capabilities(
+        self,
+        **kwargs
+    ):
+        """Get virtual agent capabilities  # noqa: E501
+
+        Retrieve virtual agent capabilities   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_virtual_agent_capabilities(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationVirtualAgentCapabilitiesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_virtual_agent_capabilities_endpoint.call_with_http_info(**kwargs)
+
     def insert_conversation_canned_message(
         self,
         canned_message,
@@ -11687,4 +11865,87 @@ class ConversationApi(object):
         kwargs['virtual_agent_budget'] = \
             virtual_agent_budget
         return self.update_virtual_agent_budget_endpoint.call_with_http_info(**kwargs)
+
+    def update_virtual_agent_capabilities(
+        self,
+        virtual_agent_capabilities,
+        **kwargs
+    ):
+        """Update virtual agent capabilities  # noqa: E501
+
+        Update virtual agent capabilities   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_virtual_agent_capabilities(virtual_agent_capabilities, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            virtual_agent_capabilities (ConversationVirtualAgentCapabilities): Virtual Agent Capabilities
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationVirtualAgentCapabilitiesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['virtual_agent_capabilities'] = \
+            virtual_agent_capabilities
+        return self.update_virtual_agent_capabilities_endpoint.call_with_http_info(**kwargs)
 

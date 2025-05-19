@@ -230,6 +230,8 @@ docs/ConversationSummary.md
 docs/ConversationTwilioAccount.md
 docs/ConversationVirtualAgentBudget.md
 docs/ConversationVirtualAgentBudgetResponse.md
+docs/ConversationVirtualAgentCapabilities.md
+docs/ConversationVirtualAgentCapabilitiesResponse.md
 docs/ConversationWebchatContext.md
 docs/ConversationWebchatQueueStatus.md
 docs/ConversationWebchatQueueStatusAgent.md
@@ -1140,6 +1142,8 @@ ultracart/model/conversation_summary.py
 ultracart/model/conversation_twilio_account.py
 ultracart/model/conversation_virtual_agent_budget.py
 ultracart/model/conversation_virtual_agent_budget_response.py
+ultracart/model/conversation_virtual_agent_capabilities.py
+ultracart/model/conversation_virtual_agent_capabilities_response.py
 ultracart/model/conversation_webchat_context.py
 ultracart/model/conversation_webchat_queue_status.py
 ultracart/model/conversation_webchat_queue_status_agent.py
