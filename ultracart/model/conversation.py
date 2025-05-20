@@ -114,6 +114,8 @@ class Conversation(ModelNormal):
             'sentiment': (ConversationSentiment,),  # noqa: E501
             'start_dts': (str,),  # noqa: E501
             'unread_messages': (bool,),  # noqa: E501
+            'virtual_agent': (bool,),  # noqa: E501
+            'virtual_agent_cost': (float,),  # noqa: E501
             'visible': (bool,),  # noqa: E501
         }
 
@@ -141,6 +143,8 @@ class Conversation(ModelNormal):
         'sentiment': 'sentiment',  # noqa: E501
         'start_dts': 'start_dts',  # noqa: E501
         'unread_messages': 'unread_messages',  # noqa: E501
+        'virtual_agent': 'virtual_agent',  # noqa: E501
+        'virtual_agent_cost': 'virtual_agent_cost',  # noqa: E501
         'visible': 'visible',  # noqa: E501
     }
 
@@ -203,6 +207,8 @@ class Conversation(ModelNormal):
             sentiment (ConversationSentiment): [optional]  # noqa: E501
             start_dts (str): Start of the conversation date/time. [optional]  # noqa: E501
             unread_messages (bool): [optional]  # noqa: E501
+            virtual_agent (bool): True if a virtual agent answered the conversation. [optional]  # noqa: E501
+            virtual_agent_cost (float): The cost of this conversation performed by the virtual agent. [optional]  # noqa: E501
             visible (bool): [optional]  # noqa: E501
         """
 
@@ -307,6 +313,8 @@ class Conversation(ModelNormal):
             sentiment (ConversationSentiment): [optional]  # noqa: E501
             start_dts (str): Start of the conversation date/time. [optional]  # noqa: E501
             unread_messages (bool): [optional]  # noqa: E501
+            virtual_agent (bool): True if a virtual agent answered the conversation. [optional]  # noqa: E501
+            virtual_agent_cost (float): The cost of this conversation performed by the virtual agent. [optional]  # noqa: E501
             visible (bool): [optional]  # noqa: E501
         """
 

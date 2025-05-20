@@ -90,6 +90,7 @@ class ItemRestriction(ModelNormal):
         return {
             'exclude_coupon': (bool,),  # noqa: E501
             'exclude_from_free_promotion': (bool,),  # noqa: E501
+            'exclude_from_loyalty': (bool,),  # noqa: E501
             'items': ([ItemRestrictionItem],),  # noqa: E501
             'maximum_quantity': (int,),  # noqa: E501
             'minimum_quantity': (int,),  # noqa: E501
@@ -106,6 +107,7 @@ class ItemRestriction(ModelNormal):
     attribute_map = {
         'exclude_coupon': 'exclude_coupon',  # noqa: E501
         'exclude_from_free_promotion': 'exclude_from_free_promotion',  # noqa: E501
+        'exclude_from_loyalty': 'exclude_from_loyalty',  # noqa: E501
         'items': 'items',  # noqa: E501
         'maximum_quantity': 'maximum_quantity',  # noqa: E501
         'minimum_quantity': 'minimum_quantity',  # noqa: E501
@@ -157,6 +159,7 @@ class ItemRestriction(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             exclude_coupon (bool): Exclude coupons. [optional]  # noqa: E501
             exclude_from_free_promotion (bool): Exclude from free promotion. [optional]  # noqa: E501
+            exclude_from_loyalty (bool): Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility. [optional]  # noqa: E501
             items ([ItemRestrictionItem]): Items. [optional]  # noqa: E501
             maximum_quantity (int): Maximum quantity. [optional]  # noqa: E501
             minimum_quantity (int): Minimum quantity (defaults to 1). [optional]  # noqa: E501
@@ -250,6 +253,7 @@ class ItemRestriction(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             exclude_coupon (bool): Exclude coupons. [optional]  # noqa: E501
             exclude_from_free_promotion (bool): Exclude from free promotion. [optional]  # noqa: E501
+            exclude_from_loyalty (bool): Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility. [optional]  # noqa: E501
             items ([ItemRestrictionItem]): Items. [optional]  # noqa: E501
             maximum_quantity (int): Maximum quantity. [optional]  # noqa: E501
             minimum_quantity (int): Minimum quantity (defaults to 1). [optional]  # noqa: E501

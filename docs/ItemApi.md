@@ -1813,6 +1813,7 @@ api_instance = GiftCertificateApi(api_client())
         restriction=ItemRestriction(
             exclude_coupon=True,
             exclude_from_free_promotion=True,
+            exclude_from_loyalty=True,
             items=[
                 ItemRestrictionItem(
                     restrict_merchant_item_id="restrict_merchant_item_id_example",
@@ -3063,6 +3064,7 @@ api_instance = GiftCertificateApi(api_client())
         restriction=ItemRestriction(
             exclude_coupon=True,
             exclude_from_free_promotion=True,
+            exclude_from_loyalty=True,
             items=[
                 ItemRestrictionItem(
                     restrict_merchant_item_id="restrict_merchant_item_id_example",
@@ -4026,6 +4028,7 @@ api_instance = GiftCertificateApi(api_client())
                 restriction=ItemRestriction(
                     exclude_coupon=True,
                     exclude_from_free_promotion=True,
+                    exclude_from_loyalty=True,
                     items=[
                         ItemRestrictionItem(
                             restrict_merchant_item_id="restrict_merchant_item_id_example",
