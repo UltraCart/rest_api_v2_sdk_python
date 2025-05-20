@@ -33,6 +33,7 @@ class ItemRestriction(object):
     swagger_types = {
         'exclude_coupon': 'bool',
         'exclude_from_free_promotion': 'bool',
+        'exclude_from_loyalty': 'bool',
         'items': 'list[ItemRestrictionItem]',
         'maximum_quantity': 'int',
         'minimum_quantity': 'int',
@@ -44,6 +45,7 @@ class ItemRestriction(object):
     attribute_map = {
         'exclude_coupon': 'exclude_coupon',
         'exclude_from_free_promotion': 'exclude_from_free_promotion',
+        'exclude_from_loyalty': 'exclude_from_loyalty',
         'items': 'items',
         'maximum_quantity': 'maximum_quantity',
         'minimum_quantity': 'minimum_quantity',
@@ -52,11 +54,12 @@ class ItemRestriction(object):
         'purchase_separately': 'purchase_separately'
     }
 
-    def __init__(self, exclude_coupon=None, exclude_from_free_promotion=None, items=None, maximum_quantity=None, minimum_quantity=None, multiple_quantity=None, one_per_customer=None, purchase_separately=None):  # noqa: E501
+    def __init__(self, exclude_coupon=None, exclude_from_free_promotion=None, exclude_from_loyalty=None, items=None, maximum_quantity=None, minimum_quantity=None, multiple_quantity=None, one_per_customer=None, purchase_separately=None):  # noqa: E501
         """ItemRestriction - a model defined in Swagger"""  # noqa: E501
 
         self._exclude_coupon = None
         self._exclude_from_free_promotion = None
+        self._exclude_from_loyalty = None
         self._items = None
         self._maximum_quantity = None
         self._minimum_quantity = None
@@ -69,6 +72,8 @@ class ItemRestriction(object):
             self.exclude_coupon = exclude_coupon
         if exclude_from_free_promotion is not None:
             self.exclude_from_free_promotion = exclude_from_free_promotion
+        if exclude_from_loyalty is not None:
+            self.exclude_from_loyalty = exclude_from_loyalty
         if items is not None:
             self.items = items
         if maximum_quantity is not None:
@@ -127,6 +132,29 @@ class ItemRestriction(object):
         """
 
         self._exclude_from_free_promotion = exclude_from_free_promotion
+
+    @property
+    def exclude_from_loyalty(self):
+        """Gets the exclude_from_loyalty of this ItemRestriction.  # noqa: E501
+
+        Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility  # noqa: E501
+
+        :return: The exclude_from_loyalty of this ItemRestriction.  # noqa: E501
+        :rtype: bool
+        """
+        return self._exclude_from_loyalty
+
+    @exclude_from_loyalty.setter
+    def exclude_from_loyalty(self, exclude_from_loyalty):
+        """Sets the exclude_from_loyalty of this ItemRestriction.
+
+        Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility  # noqa: E501
+
+        :param exclude_from_loyalty: The exclude_from_loyalty of this ItemRestriction.  # noqa: E501
+        :type: bool
+        """
+
+        self._exclude_from_loyalty = exclude_from_loyalty
 
     @property
     def items(self):

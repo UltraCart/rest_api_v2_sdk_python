@@ -49,6 +49,8 @@ class Conversation(object):
         'sentiment': 'ConversationSentiment',
         'start_dts': 'str',
         'unread_messages': 'bool',
+        'virtual_agent': 'bool',
+        'virtual_agent_cost': 'float',
         'visible': 'bool'
     }
 
@@ -71,10 +73,12 @@ class Conversation(object):
         'sentiment': 'sentiment',
         'start_dts': 'start_dts',
         'unread_messages': 'unread_messages',
+        'virtual_agent': 'virtual_agent',
+        'virtual_agent_cost': 'virtual_agent_cost',
         'visible': 'visible'
     }
 
-    def __init__(self, base_language_iso_code=None, closed=None, conversation_arn=None, conversation_uuid=None, customer_first_message_unresponded_to_dts=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_interactive_message_dts=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, messages=None, participants=None, sentiment=None, start_dts=None, unread_messages=None, visible=None):  # noqa: E501
+    def __init__(self, base_language_iso_code=None, closed=None, conversation_arn=None, conversation_uuid=None, customer_first_message_unresponded_to_dts=None, last_conversation_message_body=None, last_conversation_participant_arn=None, last_conversation_participant_name=None, last_interactive_message_dts=None, last_message_dts=None, medium=None, merchant_id=None, message_count=None, messages=None, participants=None, sentiment=None, start_dts=None, unread_messages=None, virtual_agent=None, virtual_agent_cost=None, visible=None):  # noqa: E501
         """Conversation - a model defined in Swagger"""  # noqa: E501
 
         self._base_language_iso_code = None
@@ -95,6 +99,8 @@ class Conversation(object):
         self._sentiment = None
         self._start_dts = None
         self._unread_messages = None
+        self._virtual_agent = None
+        self._virtual_agent_cost = None
         self._visible = None
         self.discriminator = None
 
@@ -134,6 +140,10 @@ class Conversation(object):
             self.start_dts = start_dts
         if unread_messages is not None:
             self.unread_messages = unread_messages
+        if virtual_agent is not None:
+            self.virtual_agent = virtual_agent
+        if virtual_agent_cost is not None:
+            self.virtual_agent_cost = virtual_agent_cost
         if visible is not None:
             self.visible = visible
 
@@ -532,6 +542,52 @@ class Conversation(object):
         """
 
         self._unread_messages = unread_messages
+
+    @property
+    def virtual_agent(self):
+        """Gets the virtual_agent of this Conversation.  # noqa: E501
+
+        True if a virtual agent answered the conversation  # noqa: E501
+
+        :return: The virtual_agent of this Conversation.  # noqa: E501
+        :rtype: bool
+        """
+        return self._virtual_agent
+
+    @virtual_agent.setter
+    def virtual_agent(self, virtual_agent):
+        """Sets the virtual_agent of this Conversation.
+
+        True if a virtual agent answered the conversation  # noqa: E501
+
+        :param virtual_agent: The virtual_agent of this Conversation.  # noqa: E501
+        :type: bool
+        """
+
+        self._virtual_agent = virtual_agent
+
+    @property
+    def virtual_agent_cost(self):
+        """Gets the virtual_agent_cost of this Conversation.  # noqa: E501
+
+        The cost of this conversation performed by the virtual agent  # noqa: E501
+
+        :return: The virtual_agent_cost of this Conversation.  # noqa: E501
+        :rtype: float
+        """
+        return self._virtual_agent_cost
+
+    @virtual_agent_cost.setter
+    def virtual_agent_cost(self, virtual_agent_cost):
+        """Sets the virtual_agent_cost of this Conversation.
+
+        The cost of this conversation performed by the virtual agent  # noqa: E501
+
+        :param virtual_agent_cost: The virtual_agent_cost of this Conversation.  # noqa: E501
+        :type: float
+        """
+
+        self._virtual_agent_cost = virtual_agent_cost
 
     @property
     def visible(self):
