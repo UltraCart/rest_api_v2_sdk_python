@@ -21,50 +21,9 @@ Retrieves a group of clicks from the account based on a query object.  If no par
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import affiliate_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.affiliate_clicks_response import AffiliateClicksResponse
-from ultracart.model.affiliate_click_query import AffiliateClickQuery
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    click_query = AffiliateClickQuery(
-        affiliate_link_oid=1,
-        affiliate_oid=1,
-        click_dts_begin="click_dts_begin_example",
-        click_dts_end="click_dts_end_example",
-        ip_address="ip_address_example",
-        sub_id="sub_id_example",
-    ) # AffiliateClickQuery | Click query
-    limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) if omitted the server will use the default value of 10000
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    expand = "_expand_example" # str | The object expansion to perform on the result.  Only option is link. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve clicks
-        api_response = api_instance.get_clicks_by_query(click_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling AffiliateApi->get_clicks_by_query: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve clicks
-        api_response = api_instance.get_clicks_by_query(click_query, limit=limit, offset=offset, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling AffiliateApi->get_clicks_by_query: %s\n" % e)
+# Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -116,50 +75,9 @@ Retrieves a group of ledger entries from the account based on a query object.  I
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import affiliate_api
-from ultracart.model.affiliate_ledger_query import AffiliateLedgerQuery
-from ultracart.model.affiliate_ledgers_response import AffiliateLedgersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    ledger_query = AffiliateLedgerQuery(
-        affiliate_oid=1,
-        item_id="item_id_example",
-        order_id="order_id_example",
-        sub_id="sub_id_example",
-        transaction_dts_begin="transaction_dts_begin_example",
-        transaction_dts_end="transaction_dts_end_example",
-    ) # AffiliateLedgerQuery | Ledger query
-    limit = 100 # int | The maximum number of records to return on this one API call. (Maximum 200) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    expand = "_expand_example" # str | The object expansion to perform on the result.  Only option is link. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve ledger entries
-        api_response = api_instance.get_ledgers_by_query(ledger_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling AffiliateApi->get_ledgers_by_query: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve ledger entries
-        api_response = api_instance.get_ledgers_by_query(ledger_query, limit=limit, offset=offset, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling AffiliateApi->get_ledgers_by_query: %s\n" % e)
+# Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters

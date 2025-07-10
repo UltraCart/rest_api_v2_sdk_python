@@ -27,39 +27,39 @@ Adds a ledger entry for this gift certificate.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import gift_certificate_api
-from ultracart.model.gift_certificate_response import GiftCertificateResponse
-from ultracart.model.error_response import ErrorResponse
+#  add a gift certificate ledger entry.  this is how you affect the remaining balance.
+from ultracart.apis import GiftCertificateApi
 from ultracart.model.gift_certificate_ledger_entry import GiftCertificateLedgerEntry
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from ultracart.rest import ApiException
 from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from samples import api_client
+from datetime import datetime
 
 api_instance = GiftCertificateApi(api_client())
 
-    gift_certificate_oid = 1 # int | 
-    gift_certificate_ledger_entry = GiftCertificateLedgerEntry(
-        amount=3.14,
-        description="description_example",
-        entry_dts="entry_dts_example",
-        gift_certificate_ledger_oid=1,
-        gift_certificate_oid=1,
-        reference_order_id="reference_order_id_example",
-    ) # GiftCertificateLedgerEntry | Gift certificate ledger entry
+try:
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Add a gift certificate ledger entry
-        api_response = api_instance.add_gift_certificate_ledger_entry(gift_certificate_oid, gift_certificate_ledger_entry)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling GiftCertificateApi->add_gift_certificate_ledger_entry: %s\n" % e)
+    amount = -65.35  # this is the change in the gc.  this is not a balance.  it will be subtracted from it.
+    description = "Customer bought something."
+    entry_dts = datetime.now().astimezone().isoformat('T', 'milliseconds')
+    gift_certificate_oid = 676713  # this is an existing gift certificate oid.  I created it using create_gift_certificate.py
+    reference_order_id = 'BLAH-12345'  # if this ledger entry is related to an order, add it here, else use null.
+    ledger_entry = GiftCertificateLedgerEntry(amount=amount,
+                                              description=description,
+                                              entry_dts=entry_dts,
+                                              gift_certificate_oid=gift_certificate_oid,
+                                              reference_order_id=reference_order_id)
+
+    # create does not take an expansion variable.  it will return the entire object by default.
+    gc_response = api_instance.add_gift_certificate_ledger_entry(gift_certificate_oid, ledger_entry)
+    gift_certificate = gc_response.gift_certificate
+
+    pprint(gift_certificate)
+
+except ApiException as e:
+    print("Exception when calling GiftCertificateApi->add_gift_certificate_ledger_entry: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -109,37 +109,41 @@ Creates a gift certificate for this merchant account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import gift_certificate_api
-from ultracart.model.gift_certificate_response import GiftCertificateResponse
-from ultracart.model.error_response import ErrorResponse
+# create a gift certificate
+from ultracart.apis import GiftCertificateApi
 from ultracart.model.gift_certificate_create_request import GiftCertificateCreateRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from ultracart.rest import ApiException
 from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from samples import api_client
+from datetime import datetime, timedelta
 
 api_instance = GiftCertificateApi(api_client())
 
-    gift_certificate_create_request = GiftCertificateCreateRequest(
-        amount=3.14,
-        email="email_example",
-        expiration_dts="expiration_dts_example",
-        initial_ledger_description="initial_ledger_description_example",
-        merchant_note="merchant_note_example",
-    ) # GiftCertificateCreateRequest | Gift certificate create request
+try:
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a gift certificate
-        api_response = api_instance.create_gift_certificate(gift_certificate_create_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling GiftCertificateApi->create_gift_certificate: %s\n" % e)
+    amount = 150.75
+    expiration_dts = datetime.now() + timedelta(days=180)
+    expiration_dts_iso8601 = expiration_dts.astimezone().isoformat('T', 'milliseconds')
+    initial_ledger_description = "Issued instead of refund"
+    merchant_note = 'Problem Order: blah-12345\nIssued gift certificate due to stale product.' \
+                    '\nIssued By: Customer Service Rep Joe Smith'
+    email = 'support@ultracart.com'
+    gc_create_request = GiftCertificateCreateRequest(amount=amount,
+                                                     email=email,
+                                                     expiration_dts_iso8601=expiration_dts_iso8601,
+                                                     initial_ledger_description=initial_ledger_description,
+                                                     merchant_note=merchant_note)
+
+    # create does not take an expansion variable.  it will return the entire object by default.
+    gc_response = api_instance.create_gift_certificate(gc_create_request)
+    gift_certificate = gc_response.gift_certificate
+
+    pprint(gift_certificate)
+
+except ApiException as e:
+    print("Exception when calling GiftCertificateApi->create_gift_certificate: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -188,28 +192,32 @@ Deletes a gift certificate for this merchant account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import gift_certificate_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# delete a gift certificate
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import GiftCertificateApi
+from ultracart.rest import ApiException
+from pprint import pprint
+from samples import api_client
 
 api_instance = GiftCertificateApi(api_client())
 
-    gift_certificate_oid = 1 # int | 
+try:
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a gift certificate
-        api_instance.delete_gift_certificate(gift_certificate_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling GiftCertificateApi->delete_gift_certificate: %s\n" % e)
+    gift_certificate_oid = 676777
+
+    # by_code does not take an expansion variable.  it will return the entire object by default.
+    api_instance.delete_gift_certificate(gift_certificate_oid)
+
+    # if I query the gift certificate now, it will still return to me, but the deleted property will be True
+    gc_response = api_instance.get_gift_certificate_by_oid(gift_certificate_oid)
+    gift_certificate = gc_response.gift_certificate
+
+    pprint(gift_certificate)
+
+except ApiException as e:
+    print("Exception when calling GiftCertificateApi->delete_gift_certificate: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -257,30 +265,29 @@ Retrieves a gift certificate from the account based on the code (the value the c
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import gift_certificate_api
-from ultracart.model.gift_certificate_response import GiftCertificateResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# get a gift certificate by code.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import GiftCertificateApi
+from ultracart.rest import ApiException
+from pprint import pprint
+from samples import api_client
 
 api_instance = GiftCertificateApi(api_client())
 
-    code = "code_example" # str | 
+try:
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve gift certificate by code
-        api_response = api_instance.get_gift_certificate_by_code(code)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling GiftCertificateApi->get_gift_certificate_by_code: %s\n" % e)
+    code = 'NRQPHPCFVK'
+
+    # by_code does not take an expansion variable.  it will return the entire object by default.
+    gc_response = api_instance.get_gift_certificate_by_code(code)
+    gift_certificate = gc_response.gift_certificate
+
+    pprint(gift_certificate)
+
+except ApiException as e:
+    print("Exception when calling GiftCertificateApi->get_gift_certificate_by_code: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -329,30 +336,30 @@ Retrieves a gift certificate from the account based on the internal primary key.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import gift_certificate_api
-from ultracart.model.gift_certificate_response import GiftCertificateResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# get a gift certificate by gift_certificate_oid.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import GiftCertificateApi
+from ultracart.rest import ApiException
+from pprint import pprint
+from samples import api_client
+
 
 api_instance = GiftCertificateApi(api_client())
 
-    gift_certificate_oid = 1 # int | 
+try:
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve gift certificate by oid
-        api_response = api_instance.get_gift_certificate_by_oid(gift_certificate_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling GiftCertificateApi->get_gift_certificate_by_oid: %s\n" % e)
+    gift_certificate_oid = 676713
+
+    # by_oid does not take an expansion variable.  it will return the entire object by default.
+    gc_response = api_instance.get_gift_certificate_by_oid(gift_certificate_oid)
+    gift_certificate = gc_response.gift_certificate
+
+    pprint(gift_certificate)
+
+except ApiException as e:
+    print("Exception when calling GiftCertificateApi->get_gift_certificate_by_oid: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -401,30 +408,29 @@ Retrieves all gift certificates from the account based on customer email.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import gift_certificate_api
-from ultracart.model.gift_certificates_response import GiftCertificatesResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# get a gift certificate by gift_certificate_oid.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import GiftCertificateApi
+from ultracart.rest import ApiException
+from pprint import pprint
+from samples import api_client
 
 api_instance = GiftCertificateApi(api_client())
 
-    email = "email_example" # str | 
+try:
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve gift certificate by email
-        api_response = api_instance.get_gift_certificates_by_email(email)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling GiftCertificateApi->get_gift_certificates_by_email: %s\n" % e)
+    email = "support@ultracart.com"
+
+    # by_email does not take an expansion variable.  it will return the entire object by default.
+    gc_response = api_instance.get_gift_certificates_by_email(email)
+    gift_certificates = gc_response.gift_certificates
+
+    pprint(gift_certificates)
+
+except ApiException as e:
+    print("Exception when calling GiftCertificateApi->get_gift_certificates_by_email: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -473,55 +479,55 @@ Retrieves gift certificates from the account.  If no parameters are specified, a
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import gift_certificate_api
-from ultracart.model.gift_certificate_query import GiftCertificateQuery
-from ultracart.model.gift_certificates_response import GiftCertificatesResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# retrieve all items using chunking if necessary
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import GiftCertificateApi
+from ultracart.model.gift_certificate_query import GiftCertificateQuery
+from ultracart.rest import ApiException
+from samples import api_client
+import time
 
 api_instance = GiftCertificateApi(api_client())
 
-    gift_certificate_query = GiftCertificateQuery(
-        code="code_example",
-        email="email_example",
-        expiration_dts_end="expiration_dts_end_example",
-        expiration_dts_start="expiration_dts_start_example",
-        original_balance_end=3.14,
-        original_balance_start=3.14,
-        reference_order_id="reference_order_id_example",
-        remaining_balance_end=3.14,
-        remaining_balance_start=3.14,
-    ) # GiftCertificateQuery | Gift certificates query
-    limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    since = "_since_example" # str | Fetch customers that have been created/modified since this date/time. (optional)
-    sort = "_sort_example" # str | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+expand = 'ledger'
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve gift certificates by query
-        api_response = api_instance.get_gift_certificates_by_query(gift_certificate_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling GiftCertificateApi->get_gift_certificates_by_query: %s\n" % e)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve gift certificates by query
-        api_response = api_instance.get_gift_certificates_by_query(gift_certificate_query, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling GiftCertificateApi->get_gift_certificates_by_query: %s\n" % e)
+def get_gift_certificates_chunk(_offset=0, _limit=200):
+    gc_query = GiftCertificateQuery()
+    gc_response = api_instance.get_gift_certificates_by_query(gc_query, offset=_offset, limit=_limit, expand=expand)
+    if gc_response.success:
+        return gc_response.gift_certificates
+    # if unsuccessful, return empty array
+    return []
+
+
+gift_certificates = []
+try:
+
+    iteration = 1
+    offset = 0
+    limit = 200
+    need_more_records = True
+
+    while need_more_records:
+        print("executing iteration " + str(iteration))
+        block_of_certs = get_gift_certificates_chunk(offset, limit)
+        gift_certificates.extend(block_of_certs)
+        offset = offset + limit
+        need_more_records = len(block_of_certs) == limit
+        iteration = iteration + 1
+        time.sleep(3)  # pace your calls or the rate limiter was slam down on your script.
+
+    # pprint(gift_certificates)
+    rec_num = 1
+    for gc in gift_certificates:
+        print(rec_num, ") oid: ", gc.gift_certificate_oid, ", code: ", gc.code)
+        rec_num = rec_num + 1
+
+except ApiException as e:
+    print("Exception when calling GiftCertificateApi->get_gift_certificates_by_query: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -575,56 +581,34 @@ Update a gift certificate for this merchant account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import gift_certificate_api
-from ultracart.model.gift_certificate import GiftCertificate
-from ultracart.model.gift_certificate_response import GiftCertificateResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# update a gift certificate
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import GiftCertificateApi
+from ultracart.rest import ApiException
+from pprint import pprint
+from samples import api_client
 
 api_instance = GiftCertificateApi(api_client())
 
-    gift_certificate_oid = 1 # int | 
-    gift_certificate = GiftCertificate(
-        activated=True,
-        code="code_example",
-        customer_profile_oid=1,
-        deleted=True,
-        email="email_example",
-        expiration_dts="expiration_dts_example",
-        gift_certificate_oid=1,
-        internal=True,
-        ledger_entries=[
-            GiftCertificateLedgerEntry(
-                amount=3.14,
-                description="description_example",
-                entry_dts="entry_dts_example",
-                gift_certificate_ledger_oid=1,
-                gift_certificate_oid=1,
-                reference_order_id="reference_order_id_example",
-            ),
-        ],
-        merchant_id="merchant_id_example",
-        merchant_note="merchant_note_example",
-        original_balance=3.14,
-        reference_order_id="reference_order_id_example",
-        remaining_balance=3.14,
-    ) # GiftCertificate | Gift certificate
+try:
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a gift certificate
-        api_response = api_instance.update_gift_certificate(gift_certificate_oid, gift_certificate)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling GiftCertificateApi->update_gift_certificate: %s\n" % e)
+    gift_certificate_oid = 676713
+
+    # by_oid does not take an expansion variable.  it will return the entire object by default.
+    gc_response = api_instance.get_gift_certificate_by_oid(gift_certificate_oid)
+    gift_certificate = gc_response.gift_certificate
+
+    gift_certificate.email = 'support@ultracart.com'
+
+    gc_response = api_instance.update_gift_certificate(gift_certificate_oid, gift_certificate)
+    gift_certificate = gc_response.gift_certificate
+
+    pprint(gift_certificate)
+
+except ApiException as e:
+    print("Exception when calling GiftCertificateApi->update_gift_certificate: %s\n" % e)
 ```
+
 
 
 ### Parameters

@@ -38,28 +38,15 @@ Delete a coupon on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
+coupon_oid = 123456789
 
-api_instance = GiftCertificateApi(api_client())
-
-    coupon_oid = 1 # int | The coupon_oid to delete.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a coupon
-        api_instance.delete_coupon(coupon_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->delete_coupon: %s\n" % e)
+coupon_api.delete_coupon(coupon_oid)
 ```
+
 
 
 ### Parameters
@@ -107,36 +94,18 @@ Delete coupons on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.coupon_deletes_request import CouponDeletesRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import CouponDeletesRequest
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
+merchant_code = '10OFF'
+delete_request = CouponDeletesRequest()
+delete_request.coupon_codes = [merchant_code]
 
-api_instance = GiftCertificateApi(api_client())
-
-    coupon_delete_request = CouponDeletesRequest(
-        coupon_codes=[
-            "coupon_codes_example",
-        ],
-        coupon_oids=[
-            1,
-        ],
-    ) # CouponDeletesRequest | Coupon oids to delete
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Deletes multiple coupons
-        api_instance.delete_coupons_by_code(coupon_delete_request)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->delete_coupons_by_code: %s\n" % e)
+coupon_api.delete_coupons_by_code(delete_request)
 ```
+
 
 
 ### Parameters
@@ -184,36 +153,20 @@ Delete coupons on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.coupon_deletes_request import CouponDeletesRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import CouponDeletesRequest
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# This method is useful if you have the coupons stored in your own system along with their coupon_oids.  If not,
+# just use delete_coupons_by_code()
 
-api_instance = GiftCertificateApi(api_client())
+coupon_api = CouponApi(api_client())
+delete_request = CouponDeletesRequest()
+delete_request.coupon_oids = [1234567, 2345678, 3456789]
 
-    coupon_delete_request = CouponDeletesRequest(
-        coupon_codes=[
-            "coupon_codes_example",
-        ],
-        coupon_oids=[
-            1,
-        ],
-    ) # CouponDeletesRequest | Coupon oids to delete
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Deletes multiple coupons
-        api_instance.delete_coupons_by_oid(coupon_delete_request)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->delete_coupons_by_oid: %s\n" % e)
+coupon_api.delete_coupons_by_oid(delete_request)
 ```
+
 
 
 ### Parameters
@@ -261,30 +214,18 @@ Determines if a coupon merchant code already exists.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupon_exists_response import CouponExistsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
+merchant_code = '10OFF'
 
-api_instance = GiftCertificateApi(api_client())
+api_response = coupon_api.does_coupon_code_exist(merchant_code)
+coupon_exists = api_response.exists
 
-    merchant_code = "merchant_code_example" # str | The coupon merchant code to examine.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Determines if a coupon merchant code already exists
-        api_response = api_instance.does_coupon_code_exist(merchant_code)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->does_coupon_code_exist: %s\n" % e)
+print(api_response)
 ```
+
 
 
 ### Parameters
@@ -333,59 +274,24 @@ Generate one time codes for a coupon
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupon_codes_response import CouponCodesResponse
-from ultracart.model.coupon_codes_request import CouponCodesRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import CouponCodesRequest
+from samples import api_client
+from datetime import datetime, timedelta
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
+coupon_oid = 12345678  # if you don't know your coupon_oid, use generate_one_time_codes_by_merchant_code.  same results
 
-api_instance = GiftCertificateApi(api_client())
+codes_request = CouponCodesRequest()
+codes_request.quantity = 100  # give me 100 codes.
+expiration_date = (datetime.now() + timedelta(days=90)).strftime('%Y-%m-%dT00:00:00+00:00')
+codes_request.expiration_dts = expiration_date  # do you want the codes to expire?
+# codes_request.expiration_seconds = None  # also an option for short-lived coupons
 
-    coupon_oid = 1 # int | The coupon oid to generate codes.
-    coupon_codes_request = CouponCodesRequest(
-        error=Error(
-            developer_message="developer_message_example",
-            error_code="error_code_example",
-            more_info="more_info_example",
-            object_id="object_id_example",
-            user_message="user_message_example",
-        ),
-        expiration_dts="expiration_dts_example",
-        expiration_seconds=1,
-        metadata=ResponseMetadata(
-            payload_name="payload_name_example",
-            result_set=ResultSet(
-                count=1,
-                limit=1,
-                more=True,
-                next_offset=1,
-                offset=1,
-                total_records=1,
-            ),
-        ),
-        quantity=1,
-        success=True,
-        warning=Warning(
-            more_info="more_info_example",
-            warning_message="warning_message_example",
-        ),
-    ) # CouponCodesRequest | Coupon code generation parameters
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Generates one time codes for a coupon
-        api_response = api_instance.generate_coupon_codes(coupon_oid, coupon_codes_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->generate_coupon_codes: %s\n" % e)
+api_response = coupon_api.generate_coupon_codes(coupon_oid, codes_request)
+coupon_codes = api_response.coupon_codes
 ```
+
 
 
 ### Parameters
@@ -435,59 +341,24 @@ Generate one time codes by merchant code
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupon_codes_response import CouponCodesResponse
-from ultracart.model.coupon_codes_request import CouponCodesRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import CouponCodesRequest
+from samples import api_client
+from datetime import datetime, timedelta
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
+merchant_code = '10OFF'
 
-api_instance = GiftCertificateApi(api_client())
+codes_request = CouponCodesRequest()
+codes_request.quantity = 100  # give me 100 codes.
+expiration_date = (datetime.now() + timedelta(days=90)).strftime('%Y-%m-%dT00:00:00+00:00')
+codes_request.expiration_dts = expiration_date  # do you want the codes to expire?
+# codes_request.expiration_seconds = None  # also an option for short-lived coupons
 
-    merchant_code = "merchant_code_example" # str | The merchant code to generate one time codes.
-    coupon_codes_request = CouponCodesRequest(
-        error=Error(
-            developer_message="developer_message_example",
-            error_code="error_code_example",
-            more_info="more_info_example",
-            object_id="object_id_example",
-            user_message="user_message_example",
-        ),
-        expiration_dts="expiration_dts_example",
-        expiration_seconds=1,
-        metadata=ResponseMetadata(
-            payload_name="payload_name_example",
-            result_set=ResultSet(
-                count=1,
-                limit=1,
-                more=True,
-                next_offset=1,
-                offset=1,
-                total_records=1,
-            ),
-        ),
-        quantity=1,
-        success=True,
-        warning=Warning(
-            more_info="more_info_example",
-            warning_message="warning_message_example",
-        ),
-    ) # CouponCodesRequest | Coupon code generation parameters
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Generates one time codes by merchant code
-        api_response = api_instance.generate_one_time_codes_by_merchant_code(merchant_code, coupon_codes_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->generate_one_time_codes_by_merchant_code: %s\n" % e)
+api_response = coupon_api.generate_one_time_codes_by_merchant_code(merchant_code, codes_request)
+coupon_codes = api_response.coupon_codes
 ```
+
 
 
 ### Parameters
@@ -537,29 +408,29 @@ Retrieve auto apply rules and conditions
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupon_auto_apply_conditions import CouponAutoApplyConditions
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+getAutoApply returns back the items and subtotals that trigger "auto coupons", i.e. coupons that are automatically
+added to a shopping cart.  The manual configuration of auto coupons is at the bottom of the main coupons screen.
+See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1376525/Coupons#Coupons-Navigation
+"""
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import CouponApi
+from samples import api_client
 
-api_instance = GiftCertificateApi(api_client())
+coupon_api = CouponApi(api_client())
+api_response = coupon_api.get_auto_apply()
 
+print('These are the subtotal levels:')
+for subtotal_level in api_response.subtotal_levels:
+    print(subtotal_level)
+    print()
 
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Retrieve auto apply rules and conditions
-        api_response = api_instance.get_auto_apply()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->get_auto_apply: %s\n" % e)
+print('These are the item triggers:')
+for required_item in api_response.required_items:
+    print(required_item)
+    print()
 ```
+
 
 
 ### Parameters
@@ -605,40 +476,18 @@ Retrieves a single coupon using the specified coupon profile oid.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupon_response import CouponResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
+coupon_oid = 123456789
 
-api_instance = GiftCertificateApi(api_client())
+expand = None  # coupons do not have expansions
+api_response = coupon_api.get_coupon(coupon_oid, expand=expand)
 
-    coupon_oid = 1 # int | The coupon oid to retrieve.
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a coupon
-        api_response = api_instance.get_coupon(coupon_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->get_coupon: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve a coupon
-        api_response = api_instance.get_coupon(coupon_oid, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->get_coupon: %s\n" % e)
+print(api_response)
 ```
+
 
 
 ### Parameters
@@ -688,40 +537,15 @@ Retrieves a single coupon using the specified merchant code.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupon_response import CouponResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
+api_response = coupon_api.get_coupon_by_merchant_code('10OFF')
 
-api_instance = GiftCertificateApi(api_client())
-
-    merchant_code = "merchant_code_example" # str | The coupon merchant code to retrieve.
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a coupon by merchant code
-        api_response = api_instance.get_coupon_by_merchant_code(merchant_code)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->get_coupon_by_merchant_code: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve a coupon by merchant code
-        api_response = api_instance.get_coupon_by_merchant_code(merchant_code, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->get_coupon_by_merchant_code: %s\n" % e)
+print(api_response)
 ```
+
 
 
 ### Parameters
@@ -771,43 +595,95 @@ Retrieves coupons for this account.  If no parameters are specified, all coupons
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupons_response import CouponsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+# Error help: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/39077885/Troubleshooting+API+Errors
+# Additional Docs: https://www.ultracart.com/api/#introduction.html
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# This is an old example.  Please see get_coupons_by_query as they do essentially the same thing, but
+# get_coupons_by_query is easier to use.
 
-api_instance = GiftCertificateApi(api_client())
+from ultracart.apis import CouponApi
+from ultracart.exceptions import ApiException
+from ultracart.models import Coupon
+from typing import List
+from samples import api_client
 
-    merchant_code = "merchant_code_example" # str | Merchant code (optional)
-    description = "description_example" # str | Description (optional)
-    coupon_type = "coupon_type_example" # str | Coupon type (optional)
-    start_date_begin = "start_date_begin_example" # str | Start date begin (optional)
-    start_date_end = "start_date_end_example" # str | Start date end (optional)
-    expiration_date_begin = "expiration_date_begin_example" # str | Expiration date begin (optional)
-    expiration_date_end = "expiration_date_end_example" # str | Expiration date end (optional)
-    affiliate_oid = 1 # int | Affiliate oid (optional)
-    exclude_expired = True # bool | Exclude expired (optional)
-    limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+def get_coupons_chunk(coupon_api: CouponApi, offset: int = 0, limit: int = 200) -> List[Coupon]:
+    """
+    Returns a block of customers
+
+    Args:
+        coupon_api: CouponApi instance
+        offset: pagination variable
+        limit: pagination variable. max server will allow is 200
+
+    Returns:
+        List of Coupon objects
+
+    Raises:
+        ApiException
+    """
+
+    # TODO: consider using get_coupons_by_query() as it does not require all search parameters
+    merchant_code = None
+    description = None
+    coupon_type = None
+    start_date_begin = None
+    start_date_end = None
+    expiration_date_begin = None
+    expiration_date_end = None
+    affiliate_oid = None
+    exclude_expired = None
+
+    limit = limit
+    offset = offset
+    sort = None
+    expand = None  # getCoupons doesn't have any expansions. full record is always returned.
+
+    get_response = coupon_api.get_coupons(merchant_code, description, coupon_type, start_date_begin, start_date_end,
+                                          expiration_date_begin, expiration_date_end, affiliate_oid, exclude_expired,
+                                          limit=limit, offset=offset, sort=sort, expand=expand)
+    if get_response.success:
+        return get_response.coupons
+
+    return []
+
+
+def main():
+    coupon_api = CouponApi(api_client())
+    coupons = []
+
     try:
-        # Retrieve coupons
-        api_response = api_instance.get_coupons(merchant_code=merchant_code, description=description, coupon_type=coupon_type, start_date_begin=start_date_begin, start_date_end=start_date_end, expiration_date_begin=expiration_date_begin, expiration_date_end=expiration_date_end, affiliate_oid=affiliate_oid, exclude_expired=exclude_expired, limit=limit, offset=offset, sort=sort, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->get_coupons: %s\n" % e)
+        iteration = 1
+        offset = 0
+        limit = 200
+        need_more_records = True
+
+        while need_more_records:
+            print(f"executing iteration #{iteration}")
+            iteration += 1
+
+            block_of_customers = get_coupons_chunk(coupon_api, offset, limit)
+            coupons.extend(block_of_customers)
+
+            offset += limit
+            need_more_records = len(block_of_customers) == limit
+            # time.sleep(1)  # I'm testing rate limiter headers. this should probably be uncommented. maybe.
+
+    except ApiException as e:
+        print('API Exception when calling CouponApi->get_coupons:', e.message)
+        print(e.response_body)
+    except Exception as e:
+        print('Exception when calling CouponApi->get_coupons:', str(e))
+
+    print(coupons)
+
+
+if __name__ == '__main__':
+    main()
 ```
+
 
 
 ### Parameters
@@ -868,55 +744,66 @@ Retrieves coupons from the account.  If no parameters are specified, all coupons
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupons_response import CouponsResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.coupon_query import CouponQuery
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import CouponQuery
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Initialize the API
+coupon_api = CouponApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
 
-    coupon_query = CouponQuery(
-        affiliate_oid=1,
-        coupon_type="coupon_type_example",
-        description="description_example",
-        exclude_expired=True,
-        expiration_dts_begin="expiration_dts_begin_example",
-        expiration_dts_end="expiration_dts_end_example",
-        merchant_code="merchant_code_example",
-        merchant_code_or_description="merchant_code_or_description_example",
-        start_dts_begin="start_dts_begin_example",
-        start_dts_end="start_dts_end_example",
-    ) # CouponQuery | Coupon query
-    limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+def get_coupon_chunk(coupon_api: CouponApi, offset: int, limit: int) -> list:
+    """
+    Retrieve a chunk of coupons based on the specified query parameters.
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve coupons by query
-        api_response = api_instance.get_coupons_by_query(coupon_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->get_coupons_by_query: %s\n" % e)
+    Args:
+        coupon_api: The CouponApi instance
+        offset: Starting position for the query
+        limit: Maximum number of records to return
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve coupons by query
-        api_response = api_instance.get_coupons_by_query(coupon_query, limit=limit, offset=offset, sort=sort, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->get_coupons_by_query: %s\n" % e)
+    Returns:
+        List of coupon objects
+    """
+    query = CouponQuery()
+    query.merchant_code = '10OFF'  # supports partial matching
+    query.description = 'Saturday'  # supports partial matching
+    # query.coupon_type = None  # see the note at the top of the sample
+    # query.start_dts_begin = (datetime.now() - timedelta(days=2000)).strftime('%Y-%m-%dT00:00:00+00:00')
+    # query.start_dts_end = datetime.now().strftime('%Y-%m-%dT00:00:00+00:00')
+    # query.expiration_dts_begin = None
+    # query.expiration_dts_end = None
+    # query.affiliate_oid = 0  # this requires an affiliate_oid. Contact support for help finding an affiliate's oid
+    query.exclude_expired = True
+
+    expand = None  # coupons do not have expansions
+    sort = "merchant_code"  # Possible sorts: "coupon_type", "merchant_code", "description", "start_dts", "expiration_dts", "quickbooks_code"
+
+    api_response = coupon_api.get_coupons_by_query(query, limit=limit, offset=offset, sort=sort, expand=expand)
+    return api_response.coupons if api_response.coupons is not None else []
+
+
+def main():
+    coupons = []
+    iteration = 1
+    offset = 0
+    limit = 200
+    more_records_to_fetch = True
+
+    while more_records_to_fetch:
+        print(f"executing iteration {iteration}")
+        chunk_of_coupons = get_coupon_chunk(coupon_api, offset, limit)
+        coupons.extend(chunk_of_coupons)
+        offset += limit
+        more_records_to_fetch = len(chunk_of_coupons) == limit
+        iteration += 1
+
+    print(coupons)  # This could get verbose...
+
+
+if __name__ == "__main__":
+    main()
 ```
+
 
 
 ### Parameters
@@ -969,29 +856,11 @@ Retrieve values needed for a coupon editor
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.coupon_editor_values import CouponEditorValues
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Retrieve values needed for a coupon editor
-        api_response = api_instance.get_editor_values()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->get_editor_values: %s\n" % e)
+# This is an internal method used by our Coupon management screen.  It returns back all the static data needed
+# for our dropdown lists, such as coupon constants.  You can call it if you like, but the data won't be
+# of much use.
 ```
+
 
 
 ### Parameters
@@ -1037,491 +906,81 @@ Insert a coupon on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupon_response import CouponResponse
-from ultracart.model.coupon import Coupon
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import Coupon, CouponAmountOffSubtotal
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Initialize the API
+coupon_api = CouponApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
+# Create the main coupon object
+coupon = Coupon()
+coupon.merchant_code = '11OFF'
+coupon.description = "Eleven dollars off subtotal"
 
-    coupon = Coupon(
-        affiliate_oid=1,
-        allow_multiple_one_time_codes=True,
-        amount_off_items=CouponAmountOffItems(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        amount_off_shipping=CouponAmountOffShipping(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        amount_off_shipping_with_items_purchase=CouponAmountOffShippingWithItemsPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            items=[
-                "items_example",
-            ],
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        amount_off_subtotal=CouponAmountOffSubtotal(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-        ),
-        amount_off_subtotal_and_free_shipping=CouponAmountOffSubtotalFreeShippingWithPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            purchase_amount=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        amount_off_subtotal_and_shipping=CouponAmountOffSubtotalAndShipping(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-        ),
-        amount_off_subtotal_with_block_purchase=CouponAmountOffSubtotalWithBlockPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            required_purchase_item="required_purchase_item_example",
-            required_purchase_quantity=1,
-        ),
-        amount_off_subtotal_with_items_purchase=CouponAmountOffSubtotalWithItemsPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            items=[
-                "items_example",
-            ],
-            required_purchase_quantity=1,
-        ),
-        amount_off_subtotal_with_purchase=CouponAmountOffSubtotalWithPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            purchase_amount=3.14,
-        ),
-        amount_shipping_with_subtotal=CouponAmountShippingWithSubtotal(
-            currency_code="currency_code_example",
-            purchase_amount=3.14,
-            shipping_amount=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        automatically_apply_coupon_codes=CouponAutomaticallyApplyCouponCodes(
-            coupon_codes=[
-                "coupon_codes_example",
-            ],
-        ),
-        buy_one_get_one=CouponBuyOneGetOneLimit(
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        calculated_description="calculated_description_example",
-        can_be_used_with_other_coupons=True,
-        coupon_oid=1,
-        coupon_type="coupon_type_example",
-        description="description_example",
-        discount_item_with_item_purchase=CouponDiscountItemWithItemPurchase(
-            currency_code="currency_code_example",
-            discount_item="discount_item_example",
-            discount_item_tags=[
-                "discount_item_tags_example",
-            ],
-            discount_price=3.14,
-            limit=1,
-            required_purchase_item="required_purchase_item_example",
-            required_purchase_items_tags=[
-                "required_purchase_items_tags_example",
-            ],
-        ),
-        discount_items=CouponDiscountItems(
-            currency_code="currency_code_example",
-            discount_price=3.14,
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        expiration_dts="expiration_dts_example",
-        free_item_and_shipping_with_subtotal=CouponFreeItemAndShippingWithSubtotal(
-            currency_code="currency_code_example",
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-            subtotal_amount=3.14,
-        ),
-        free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            match_required_purchase_item_to_free_item=True,
-            required_purchase_items=[
-                "required_purchase_items_example",
-            ],
-            required_purchase_items_tags=[
-                "required_purchase_items_tags_example",
-            ],
-        ),
-        free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            match_required_purchase_item_to_free_item=True,
-            required_purchase_items=[
-                "required_purchase_items_example",
-            ],
-        ),
-        free_item_with_subtotal=CouponFreeItemWithSubtotal(
-            currency_code="currency_code_example",
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            subtotal_amount=3.14,
-        ),
-        free_items_with_item_purchase=CouponFreeItemsWithItemPurchase(
-            free_item="free_item_example",
-            free_quantity=1,
-            limit=1,
-            required_purchase_item="required_purchase_item_example",
-            required_purchase_quantity=1,
-        ),
-        free_items_with_mixmatch_purchase=CouponFreeItemsWithMixMatchPurchase(
-            free_item="free_item_example",
-            free_quantity=1,
-            limit=1,
-            required_purchase_mix_and_match_group="required_purchase_mix_and_match_group_example",
-            required_purchase_quantity=1,
-        ),
-        free_shipping=CouponFreeShipping(
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        free_shipping_specific_items=CouponFreeShippingSpecificItems(
-            items=[
-                "items_example",
-            ],
-        ),
-        free_shipping_with_items_purchase=CouponFreeShippingWithItemsPurchase(
-            items=[
-                "items_example",
-            ],
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        free_shipping_with_subtotal=CouponFreeShippingWithSubtotal(
-            currency_code="currency_code_example",
-            purchase_amount=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        hide_from_customer=True,
-        merchant_code="merchant_code_example",
-        merchant_notes="merchant_notes_example",
-        more_loyalty_cashback=CouponMoreLoyaltyCashback(
-            loyalty_cashback=3.14,
-        ),
-        more_loyalty_points=CouponMoreLoyaltyPoints(
-            loyalty_points=3.14,
-        ),
-        multiple_amounts_off_items=CouponMultipleAmountsOffItems(
-            discounts=[
-                CouponTierItemDiscount(
-                    discount_amount=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                ),
-            ],
-            limit=1,
-        ),
-        no_discount=CouponNoDiscount(
-            ignore_this_property=True,
-        ),
-        percent_more_loyalty_cashback=CouponPercentMoreLoyaltyCashback(
-            percent_more_loyalty_cashback=3.14,
-        ),
-        percent_more_loyalty_points=CouponPercentMoreLoyaltyPoints(
-            percent_more_loyalty_points=3.14,
-        ),
-        percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
-            discount_percent=3.14,
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            required_purchase_items=[
-                "required_purchase_items_example",
-            ],
-            required_purchase_items_tags=[
-                "required_purchase_items_tags_example",
-            ],
-            required_purchase_quantity=1,
-        ),
-        percent_off_items=CouponPercentOffItems(
-            discount_percent=3.14,
-            excluded_item_tags=[
-                "excluded_item_tags_example",
-            ],
-            excluded_items=[
-                "excluded_items_example",
-            ],
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        percent_off_items_and_free_shipping=CouponPercentOffItemsAndFreeShipping(
-            discount_percent=3.14,
-            excluded_item_tags=[
-                "excluded_item_tags_example",
-            ],
-            excluded_items=[
-                "excluded_items_example",
-            ],
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-        ),
-        percent_off_items_with_items_purchase=CouponPercentOffItemsWithItemsPurchase(
-            discount_percent=3.14,
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            required_purchase_items=[
-                "required_purchase_items_example",
-            ],
-            required_purchase_items_tags=[
-                "required_purchase_items_tags_example",
-            ],
-        ),
-        percent_off_msrp_items=CouponPercentOffMsrpItems(
-            discount_percent=3.14,
-            excluded_items=[
-                "excluded_items_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            minimum_cumulative_msrp=3.14,
-            minimum_subtotal=3.14,
-        ),
-        percent_off_retail_price_items=CouponPercentOffRetailPriceItems(
-            discount_percent=3.14,
-            excluded_items=[
-                "excluded_items_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        percent_off_shipping=CouponPercentOffShipping(
-            discount_percent=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        percent_off_subtotal=CouponPercentOffSubtotal(
-            discount_percent=3.14,
-        ),
-        percent_off_subtotal_and_free_shipping=CouponPercentOffSubtotalAndFreeShipping(
-            discount_percent=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        percent_off_subtotal_limit=CouponPercentOffSubtotalLimit(
-            currency_code="currency_code_example",
-            discount_percent=3.14,
-            limit=3.14,
-        ),
-        percent_off_subtotal_with_items_purchase=CouponPercentOffSubtotalWithItemsPurchase(
-            discount_percent=3.14,
-            items=[
-                "items_example",
-            ],
-        ),
-        percent_off_subtotal_with_subtotal=CouponPercentOffSubtotalWithSubtotal(
-            currency_code="currency_code_example",
-            discount_percent=3.14,
-            subtotal_amount=3.14,
-        ),
-        quickbooks_code="quickbooks_code_example",
-        restrict_by_postal_codes=[
-            "restrict_by_postal_codes_example",
-        ],
-        restrict_by_screen_branding_theme_codes=[
-            CouponRestriction(
-                invalid_for_this=True,
-                name="name_example",
-                valid_for_this=True,
-                valid_only_for_this=True,
-            ),
-        ],
-        restrict_by_storefronts=[
-            CouponRestriction(
-                invalid_for_this=True,
-                name="name_example",
-                valid_for_this=True,
-                valid_only_for_this=True,
-            ),
-        ],
-        skip_on_rebill=True,
-        start_dts="start_dts_example",
-        super_coupon=True,
-        tiered_amount_off_items=CouponTieredAmountOffItems(
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=3.14,
-            tiers=[
-                CouponTierQuantityAmount(
-                    discount_amount=3.14,
-                    item_quantity=1,
-                    quickbooks_code="quickbooks_code_example",
-                ),
-            ],
-        ),
-        tiered_amount_off_subtotal=CouponTieredAmountOffSubtotal(
-            items=[
-                "items_example",
-            ],
-            tiers=[
-                CouponTierAmount(
-                    discount_amount=3.14,
-                    quickbooks_code="quickbooks_code_example",
-                    subtotal_amount=3.14,
-                ),
-            ],
-        ),
-        tiered_percent_off_items=CouponTieredPercentOffItems(
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=3.14,
-            tiers=[
-                CouponTierQuantityPercent(
-                    discount_percent=3.14,
-                    item_quantity=1,
-                    quickbooks_code="quickbooks_code_example",
-                ),
-            ],
-        ),
-        tiered_percent_off_shipping=CouponTieredPercentOffShipping(
-            quickbooks_code="quickbooks_code_example",
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-            tiers=[
-                CouponTierPercent(
-                    discount_percent=3.14,
-                    quickbooks_code="quickbooks_code_example",
-                    subtotal_amount=3.14,
-                ),
-            ],
-        ),
-        tiered_percent_off_subtotal=CouponTieredPercentOffSubtotal(
-            items=[
-                "items_example",
-            ],
-            tiers=[
-                CouponTierPercent(
-                    discount_percent=3.14,
-                    quickbooks_code="quickbooks_code_example",
-                    subtotal_amount=3.14,
-                ),
-            ],
-        ),
-        tiered_percent_off_subtotal_based_on_msrp=CouponTieredPercentOffSubtotalBasedOnMSRP(
-            items=[
-                "items_example",
-            ],
-            tiers=[
-                CouponTierPercent(
-                    discount_percent=3.14,
-                    quickbooks_code="quickbooks_code_example",
-                    subtotal_amount=3.14,
-                ),
-            ],
-        ),
-        usable_by="Anyone",
-    ) # Coupon | Coupon to insert
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+# Each coupon must have a 'type' defined by creating a child object directly beneath the main Coupon object.
+# This is complex and there are a LOT of coupon types. See the backend (secure.ultracart.com) coupon screens
+# to get an idea of what functionality each coupon possesses. If you're not sure, contact UltraCart support.
+coupon.amount_off_subtotal = CouponAmountOffSubtotal()
+coupon.amount_off_subtotal.discount_amount = 11
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert a coupon
-        api_response = api_instance.insert_coupon(coupon)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->insert_coupon: %s\n" % e)
+# Here are the different coupon types, but beware that new coupons are added frequently.
+# CouponAmountOffItems
+# CouponAmountOffShipping
+# CouponAmountOffShippingWithItemsPurchase
+# CouponAmountOffSubtotal
+# CouponAmountOffSubtotalAndShipping
+# CouponAmountOffSubtotalFreeShippingWithPurchase
+# CouponAmountOffSubtotalWithBlockPurchase
+# CouponAmountOffSubtotalWithItemsPurchase
+# CouponAmountOffSubtotalWithPurchase
+# CouponAmountShippingWithSubtotal
+# CouponDiscountItems
+# CouponDiscountItemWithItemPurchase
+# CouponFreeItemAndShippingWithSubtotal
+# CouponFreeItemsWithItemPurchase
+# CouponFreeItemsWithMixMatchPurchase
+# CouponFreeItemWithItemPurchase
+# CouponFreeItemWithItemPurchaseAndFreeShipping
+# CouponFreeItemWithSubtotal
+# CouponFreeShipping
+# CouponFreeShippingSpecificItems
+# CouponFreeShippingWithItemsPurchase
+# CouponFreeShippingWithSubtotal
+# CouponMoreLoyaltyCashback
+# CouponMoreLoyaltyPoints
+# CouponMultipleAmountsOffItems
+# CouponNoDiscount
+# CouponPercentMoreLoyaltyCashback
+# CouponPercentMoreLoyaltyPoints
+# CouponPercentOffItems
+# CouponPercentOffItemsAndFreeShipping
+# CouponPercentOffItemsWithItemsPurchase
+# CouponPercentOffItemWithItemsQuantityPurchase
+# CouponPercentOffMsrpItems
+# CouponPercentOffRetailPriceItems
+# CouponPercentOffShipping
+# CouponPercentOffSubtotal
+# CouponPercentOffSubtotalAndFreeShipping
+# CouponPercentOffSubtotalLimit
+# CouponPercentOffSubtotalWithItemsPurchase
+# CouponPercentOffSubtotalWithSubtotal
+# CouponTieredAmountOffItems
+# CouponTieredAmountOffSubtotal
+# CouponTieredPercentOffItems
+# CouponTieredPercentOffShipping
+# CouponTieredPercentOffSubtotal
+# CouponTieredPercentOffSubtotalBasedOnMSRP
+# CouponTierItemDiscount
+# CouponTierPercent
+# CouponTierQuantityAmount
+# CouponTierQuantityPercent
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Insert a coupon
-        api_response = api_instance.insert_coupon(coupon, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->insert_coupon: %s\n" % e)
+expand = None  # coupons do not have expansions
+api_response = coupon_api.insert_coupon(coupon, expand=expand)
+print(api_response)
 ```
+
 
 
 ### Parameters
@@ -1571,496 +1030,31 @@ Insert multiple coupon on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupons_request import CouponsRequest
-from ultracart.model.coupons_response import CouponsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import CouponsRequest
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+Similar to insert_coupon except this method takes a request object containing up to 50 coupons.
+Please see insert_coupon for a detailed example on creating a coupon. It is not repeated here.
+"""
 
-api_instance = GiftCertificateApi(api_client())
+# Initialize the API
+coupon_api = CouponApi(api_client())
 
-    coupons_request = CouponsRequest(
-        coupons=[
-            Coupon(
-                affiliate_oid=1,
-                allow_multiple_one_time_codes=True,
-                amount_off_items=CouponAmountOffItems(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                amount_off_shipping=CouponAmountOffShipping(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                amount_off_shipping_with_items_purchase=CouponAmountOffShippingWithItemsPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                amount_off_subtotal=CouponAmountOffSubtotal(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                ),
-                amount_off_subtotal_and_free_shipping=CouponAmountOffSubtotalFreeShippingWithPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    purchase_amount=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                amount_off_subtotal_and_shipping=CouponAmountOffSubtotalAndShipping(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                ),
-                amount_off_subtotal_with_block_purchase=CouponAmountOffSubtotalWithBlockPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    required_purchase_item="required_purchase_item_example",
-                    required_purchase_quantity=1,
-                ),
-                amount_off_subtotal_with_items_purchase=CouponAmountOffSubtotalWithItemsPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                    required_purchase_quantity=1,
-                ),
-                amount_off_subtotal_with_purchase=CouponAmountOffSubtotalWithPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    purchase_amount=3.14,
-                ),
-                amount_shipping_with_subtotal=CouponAmountShippingWithSubtotal(
-                    currency_code="currency_code_example",
-                    purchase_amount=3.14,
-                    shipping_amount=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                automatically_apply_coupon_codes=CouponAutomaticallyApplyCouponCodes(
-                    coupon_codes=[
-                        "coupon_codes_example",
-                    ],
-                ),
-                buy_one_get_one=CouponBuyOneGetOneLimit(
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                calculated_description="calculated_description_example",
-                can_be_used_with_other_coupons=True,
-                coupon_oid=1,
-                coupon_type="coupon_type_example",
-                description="description_example",
-                discount_item_with_item_purchase=CouponDiscountItemWithItemPurchase(
-                    currency_code="currency_code_example",
-                    discount_item="discount_item_example",
-                    discount_item_tags=[
-                        "discount_item_tags_example",
-                    ],
-                    discount_price=3.14,
-                    limit=1,
-                    required_purchase_item="required_purchase_item_example",
-                    required_purchase_items_tags=[
-                        "required_purchase_items_tags_example",
-                    ],
-                ),
-                discount_items=CouponDiscountItems(
-                    currency_code="currency_code_example",
-                    discount_price=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                expiration_dts="expiration_dts_example",
-                free_item_and_shipping_with_subtotal=CouponFreeItemAndShippingWithSubtotal(
-                    currency_code="currency_code_example",
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                    subtotal_amount=3.14,
-                ),
-                free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    match_required_purchase_item_to_free_item=True,
-                    required_purchase_items=[
-                        "required_purchase_items_example",
-                    ],
-                    required_purchase_items_tags=[
-                        "required_purchase_items_tags_example",
-                    ],
-                ),
-                free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    match_required_purchase_item_to_free_item=True,
-                    required_purchase_items=[
-                        "required_purchase_items_example",
-                    ],
-                ),
-                free_item_with_subtotal=CouponFreeItemWithSubtotal(
-                    currency_code="currency_code_example",
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    subtotal_amount=3.14,
-                ),
-                free_items_with_item_purchase=CouponFreeItemsWithItemPurchase(
-                    free_item="free_item_example",
-                    free_quantity=1,
-                    limit=1,
-                    required_purchase_item="required_purchase_item_example",
-                    required_purchase_quantity=1,
-                ),
-                free_items_with_mixmatch_purchase=CouponFreeItemsWithMixMatchPurchase(
-                    free_item="free_item_example",
-                    free_quantity=1,
-                    limit=1,
-                    required_purchase_mix_and_match_group="required_purchase_mix_and_match_group_example",
-                    required_purchase_quantity=1,
-                ),
-                free_shipping=CouponFreeShipping(
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                free_shipping_specific_items=CouponFreeShippingSpecificItems(
-                    items=[
-                        "items_example",
-                    ],
-                ),
-                free_shipping_with_items_purchase=CouponFreeShippingWithItemsPurchase(
-                    items=[
-                        "items_example",
-                    ],
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                free_shipping_with_subtotal=CouponFreeShippingWithSubtotal(
-                    currency_code="currency_code_example",
-                    purchase_amount=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                hide_from_customer=True,
-                merchant_code="merchant_code_example",
-                merchant_notes="merchant_notes_example",
-                more_loyalty_cashback=CouponMoreLoyaltyCashback(
-                    loyalty_cashback=3.14,
-                ),
-                more_loyalty_points=CouponMoreLoyaltyPoints(
-                    loyalty_points=3.14,
-                ),
-                multiple_amounts_off_items=CouponMultipleAmountsOffItems(
-                    discounts=[
-                        CouponTierItemDiscount(
-                            discount_amount=3.14,
-                            items=[
-                                "items_example",
-                            ],
-                        ),
-                    ],
-                    limit=1,
-                ),
-                no_discount=CouponNoDiscount(
-                    ignore_this_property=True,
-                ),
-                percent_more_loyalty_cashback=CouponPercentMoreLoyaltyCashback(
-                    percent_more_loyalty_cashback=3.14,
-                ),
-                percent_more_loyalty_points=CouponPercentMoreLoyaltyPoints(
-                    percent_more_loyalty_points=3.14,
-                ),
-                percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
-                    discount_percent=3.14,
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    required_purchase_items=[
-                        "required_purchase_items_example",
-                    ],
-                    required_purchase_items_tags=[
-                        "required_purchase_items_tags_example",
-                    ],
-                    required_purchase_quantity=1,
-                ),
-                percent_off_items=CouponPercentOffItems(
-                    discount_percent=3.14,
-                    excluded_item_tags=[
-                        "excluded_item_tags_example",
-                    ],
-                    excluded_items=[
-                        "excluded_items_example",
-                    ],
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                percent_off_items_and_free_shipping=CouponPercentOffItemsAndFreeShipping(
-                    discount_percent=3.14,
-                    excluded_item_tags=[
-                        "excluded_item_tags_example",
-                    ],
-                    excluded_items=[
-                        "excluded_items_example",
-                    ],
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                ),
-                percent_off_items_with_items_purchase=CouponPercentOffItemsWithItemsPurchase(
-                    discount_percent=3.14,
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    required_purchase_items=[
-                        "required_purchase_items_example",
-                    ],
-                    required_purchase_items_tags=[
-                        "required_purchase_items_tags_example",
-                    ],
-                ),
-                percent_off_msrp_items=CouponPercentOffMsrpItems(
-                    discount_percent=3.14,
-                    excluded_items=[
-                        "excluded_items_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    minimum_cumulative_msrp=3.14,
-                    minimum_subtotal=3.14,
-                ),
-                percent_off_retail_price_items=CouponPercentOffRetailPriceItems(
-                    discount_percent=3.14,
-                    excluded_items=[
-                        "excluded_items_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                percent_off_shipping=CouponPercentOffShipping(
-                    discount_percent=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                percent_off_subtotal=CouponPercentOffSubtotal(
-                    discount_percent=3.14,
-                ),
-                percent_off_subtotal_and_free_shipping=CouponPercentOffSubtotalAndFreeShipping(
-                    discount_percent=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                percent_off_subtotal_limit=CouponPercentOffSubtotalLimit(
-                    currency_code="currency_code_example",
-                    discount_percent=3.14,
-                    limit=3.14,
-                ),
-                percent_off_subtotal_with_items_purchase=CouponPercentOffSubtotalWithItemsPurchase(
-                    discount_percent=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                ),
-                percent_off_subtotal_with_subtotal=CouponPercentOffSubtotalWithSubtotal(
-                    currency_code="currency_code_example",
-                    discount_percent=3.14,
-                    subtotal_amount=3.14,
-                ),
-                quickbooks_code="quickbooks_code_example",
-                restrict_by_postal_codes=[
-                    "restrict_by_postal_codes_example",
-                ],
-                restrict_by_screen_branding_theme_codes=[
-                    CouponRestriction(
-                        invalid_for_this=True,
-                        name="name_example",
-                        valid_for_this=True,
-                        valid_only_for_this=True,
-                    ),
-                ],
-                restrict_by_storefronts=[
-                    CouponRestriction(
-                        invalid_for_this=True,
-                        name="name_example",
-                        valid_for_this=True,
-                        valid_only_for_this=True,
-                    ),
-                ],
-                skip_on_rebill=True,
-                start_dts="start_dts_example",
-                super_coupon=True,
-                tiered_amount_off_items=CouponTieredAmountOffItems(
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=3.14,
-                    tiers=[
-                        CouponTierQuantityAmount(
-                            discount_amount=3.14,
-                            item_quantity=1,
-                            quickbooks_code="quickbooks_code_example",
-                        ),
-                    ],
-                ),
-                tiered_amount_off_subtotal=CouponTieredAmountOffSubtotal(
-                    items=[
-                        "items_example",
-                    ],
-                    tiers=[
-                        CouponTierAmount(
-                            discount_amount=3.14,
-                            quickbooks_code="quickbooks_code_example",
-                            subtotal_amount=3.14,
-                        ),
-                    ],
-                ),
-                tiered_percent_off_items=CouponTieredPercentOffItems(
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=3.14,
-                    tiers=[
-                        CouponTierQuantityPercent(
-                            discount_percent=3.14,
-                            item_quantity=1,
-                            quickbooks_code="quickbooks_code_example",
-                        ),
-                    ],
-                ),
-                tiered_percent_off_shipping=CouponTieredPercentOffShipping(
-                    quickbooks_code="quickbooks_code_example",
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                    tiers=[
-                        CouponTierPercent(
-                            discount_percent=3.14,
-                            quickbooks_code="quickbooks_code_example",
-                            subtotal_amount=3.14,
-                        ),
-                    ],
-                ),
-                tiered_percent_off_subtotal=CouponTieredPercentOffSubtotal(
-                    items=[
-                        "items_example",
-                    ],
-                    tiers=[
-                        CouponTierPercent(
-                            discount_percent=3.14,
-                            quickbooks_code="quickbooks_code_example",
-                            subtotal_amount=3.14,
-                        ),
-                    ],
-                ),
-                tiered_percent_off_subtotal_based_on_msrp=CouponTieredPercentOffSubtotalBasedOnMSRP(
-                    items=[
-                        "items_example",
-                    ],
-                    tiers=[
-                        CouponTierPercent(
-                            discount_percent=3.14,
-                            quickbooks_code="quickbooks_code_example",
-                            subtotal_amount=3.14,
-                        ),
-                    ],
-                ),
-                usable_by="Anyone",
-            ),
-        ],
-    ) # CouponsRequest | Coupons to insert (maximum 50)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+# Create the request object
+coupons_request = CouponsRequest()
+coupons = []
+# TODO: add Coupon() objects to this list (see insert_coupon sample for help)
+coupons_request.coupons = coupons
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert multiple coupons
-        api_response = api_instance.insert_coupons(coupons_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->insert_coupons: %s\n" % e)
+expand = None  # coupons do not have expansions
+placeholders = None  # coupons do not have placeholders
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Insert multiple coupons
-        api_response = api_instance.insert_coupons(coupons_request, expand=expand, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->insert_coupons: %s\n" % e)
+api_response = coupon_api.insert_coupons(coupons_request, expand=expand, placeholders=placeholders)
+print(api_response)
 ```
+
 
 
 ### Parameters
@@ -2111,32 +1105,11 @@ Searches for items to display within a coupon editor and assign to coupons
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.coupon_item_search_results_response import CouponItemSearchResultsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    s = "s_example" # str |  (optional)
-    m = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Searches for items to display within a coupon editor and assign to coupons
-        api_response = api_instance.search_items(s=s, m=m)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->search_items: %s\n" % e)
+# This is an internal method used by our Coupon management screen.  It searches merchant items to display in
+# some of the coupon editor dropdowns.  See ItemApi.getItemsByQuery if you need to search items.  This method
+# is inflexible and geared toward our UI.
 ```
+
 
 
 ### Parameters
@@ -2186,67 +1159,30 @@ Update auto apply rules and conditions
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupon_auto_apply_conditions import CouponAutoApplyConditions
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import CouponAutoApplyCondition, CouponAutoApplyConditions
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
+auto_apply = CouponAutoApplyConditions()
 
-    conditions = CouponAutoApplyConditions(
-        error=Error(
-            developer_message="developer_message_example",
-            error_code="error_code_example",
-            more_info="more_info_example",
-            object_id="object_id_example",
-            user_message="user_message_example",
-        ),
-        metadata=ResponseMetadata(
-            payload_name="payload_name_example",
-            result_set=ResultSet(
-                count=1,
-                limit=1,
-                more=True,
-                next_offset=1,
-                offset=1,
-                total_records=1,
-            ),
-        ),
-        required_items=[
-            CouponAutoApplyCondition(
-                coupon_code="coupon_code_example",
-                minimum_subtotal=3.14,
-                required_item_id="required_item_id_example",
-            ),
-        ],
-        subtotal_levels=[
-            CouponAutoApplyCondition(
-                coupon_code="coupon_code_example",
-                minimum_subtotal=3.14,
-                required_item_id="required_item_id_example",
-            ),
-        ],
-        success=True,
-        warning=Warning(
-            more_info="more_info_example",
-            warning_message="warning_message_example",
-        ),
-    ) # CouponAutoApplyConditions | Conditions
+item_condition = CouponAutoApplyCondition()
+item_condition.required_item_id = 'ITEM_ABC'
+item_condition.coupon_code = '10OFF'
+item_conditions = [item_condition]
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update auto apply rules and conditions
-        api_instance.update_auto_apply(conditions)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->update_auto_apply: %s\n" % e)
+subtotal_condition = CouponAutoApplyCondition()
+subtotal_condition.minimum_subtotal = 50  # must spend fifty dollars
+subtotal_condition.coupon_code = '5OFF'  # Fixed bug: was setting on item_condition in PHP
+subtotal_conditions = [subtotal_condition]
+
+auto_apply.required_items = item_conditions
+auto_apply.subtotal_levels = subtotal_conditions
+
+coupon_api.update_auto_apply(auto_apply)
 ```
+
 
 
 ### Parameters
@@ -2294,492 +1230,27 @@ Update a coupon on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupon_response import CouponResponse
-from ultracart.model.coupon import Coupon
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from samples import api_client
+from datetime import datetime, timedelta
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
+coupon_oid = 123456789
 
-api_instance = GiftCertificateApi(api_client())
+expand = None  # coupons do not have expansions
+api_response = coupon_api.get_coupon(coupon_oid, expand=expand)
+coupon = api_response.coupon
 
-    coupon_oid = 1 # int | The coupon_oid to update.
-    coupon = Coupon(
-        affiliate_oid=1,
-        allow_multiple_one_time_codes=True,
-        amount_off_items=CouponAmountOffItems(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        amount_off_shipping=CouponAmountOffShipping(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        amount_off_shipping_with_items_purchase=CouponAmountOffShippingWithItemsPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            items=[
-                "items_example",
-            ],
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        amount_off_subtotal=CouponAmountOffSubtotal(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-        ),
-        amount_off_subtotal_and_free_shipping=CouponAmountOffSubtotalFreeShippingWithPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            purchase_amount=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        amount_off_subtotal_and_shipping=CouponAmountOffSubtotalAndShipping(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-        ),
-        amount_off_subtotal_with_block_purchase=CouponAmountOffSubtotalWithBlockPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            required_purchase_item="required_purchase_item_example",
-            required_purchase_quantity=1,
-        ),
-        amount_off_subtotal_with_items_purchase=CouponAmountOffSubtotalWithItemsPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            items=[
-                "items_example",
-            ],
-            required_purchase_quantity=1,
-        ),
-        amount_off_subtotal_with_purchase=CouponAmountOffSubtotalWithPurchase(
-            currency_code="currency_code_example",
-            discount_amount=3.14,
-            purchase_amount=3.14,
-        ),
-        amount_shipping_with_subtotal=CouponAmountShippingWithSubtotal(
-            currency_code="currency_code_example",
-            purchase_amount=3.14,
-            shipping_amount=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        automatically_apply_coupon_codes=CouponAutomaticallyApplyCouponCodes(
-            coupon_codes=[
-                "coupon_codes_example",
-            ],
-        ),
-        buy_one_get_one=CouponBuyOneGetOneLimit(
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        calculated_description="calculated_description_example",
-        can_be_used_with_other_coupons=True,
-        coupon_oid=1,
-        coupon_type="coupon_type_example",
-        description="description_example",
-        discount_item_with_item_purchase=CouponDiscountItemWithItemPurchase(
-            currency_code="currency_code_example",
-            discount_item="discount_item_example",
-            discount_item_tags=[
-                "discount_item_tags_example",
-            ],
-            discount_price=3.14,
-            limit=1,
-            required_purchase_item="required_purchase_item_example",
-            required_purchase_items_tags=[
-                "required_purchase_items_tags_example",
-            ],
-        ),
-        discount_items=CouponDiscountItems(
-            currency_code="currency_code_example",
-            discount_price=3.14,
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        expiration_dts="expiration_dts_example",
-        free_item_and_shipping_with_subtotal=CouponFreeItemAndShippingWithSubtotal(
-            currency_code="currency_code_example",
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-            subtotal_amount=3.14,
-        ),
-        free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            match_required_purchase_item_to_free_item=True,
-            required_purchase_items=[
-                "required_purchase_items_example",
-            ],
-            required_purchase_items_tags=[
-                "required_purchase_items_tags_example",
-            ],
-        ),
-        free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            match_required_purchase_item_to_free_item=True,
-            required_purchase_items=[
-                "required_purchase_items_example",
-            ],
-        ),
-        free_item_with_subtotal=CouponFreeItemWithSubtotal(
-            currency_code="currency_code_example",
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            subtotal_amount=3.14,
-        ),
-        free_items_with_item_purchase=CouponFreeItemsWithItemPurchase(
-            free_item="free_item_example",
-            free_quantity=1,
-            limit=1,
-            required_purchase_item="required_purchase_item_example",
-            required_purchase_quantity=1,
-        ),
-        free_items_with_mixmatch_purchase=CouponFreeItemsWithMixMatchPurchase(
-            free_item="free_item_example",
-            free_quantity=1,
-            limit=1,
-            required_purchase_mix_and_match_group="required_purchase_mix_and_match_group_example",
-            required_purchase_quantity=1,
-        ),
-        free_shipping=CouponFreeShipping(
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        free_shipping_specific_items=CouponFreeShippingSpecificItems(
-            items=[
-                "items_example",
-            ],
-        ),
-        free_shipping_with_items_purchase=CouponFreeShippingWithItemsPurchase(
-            items=[
-                "items_example",
-            ],
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        free_shipping_with_subtotal=CouponFreeShippingWithSubtotal(
-            currency_code="currency_code_example",
-            purchase_amount=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        hide_from_customer=True,
-        merchant_code="merchant_code_example",
-        merchant_notes="merchant_notes_example",
-        more_loyalty_cashback=CouponMoreLoyaltyCashback(
-            loyalty_cashback=3.14,
-        ),
-        more_loyalty_points=CouponMoreLoyaltyPoints(
-            loyalty_points=3.14,
-        ),
-        multiple_amounts_off_items=CouponMultipleAmountsOffItems(
-            discounts=[
-                CouponTierItemDiscount(
-                    discount_amount=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                ),
-            ],
-            limit=1,
-        ),
-        no_discount=CouponNoDiscount(
-            ignore_this_property=True,
-        ),
-        percent_more_loyalty_cashback=CouponPercentMoreLoyaltyCashback(
-            percent_more_loyalty_cashback=3.14,
-        ),
-        percent_more_loyalty_points=CouponPercentMoreLoyaltyPoints(
-            percent_more_loyalty_points=3.14,
-        ),
-        percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
-            discount_percent=3.14,
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            required_purchase_items=[
-                "required_purchase_items_example",
-            ],
-            required_purchase_items_tags=[
-                "required_purchase_items_tags_example",
-            ],
-            required_purchase_quantity=1,
-        ),
-        percent_off_items=CouponPercentOffItems(
-            discount_percent=3.14,
-            excluded_item_tags=[
-                "excluded_item_tags_example",
-            ],
-            excluded_items=[
-                "excluded_items_example",
-            ],
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        percent_off_items_and_free_shipping=CouponPercentOffItemsAndFreeShipping(
-            discount_percent=3.14,
-            excluded_item_tags=[
-                "excluded_item_tags_example",
-            ],
-            excluded_items=[
-                "excluded_items_example",
-            ],
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-        ),
-        percent_off_items_with_items_purchase=CouponPercentOffItemsWithItemsPurchase(
-            discount_percent=3.14,
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            required_purchase_items=[
-                "required_purchase_items_example",
-            ],
-            required_purchase_items_tags=[
-                "required_purchase_items_tags_example",
-            ],
-        ),
-        percent_off_msrp_items=CouponPercentOffMsrpItems(
-            discount_percent=3.14,
-            excluded_items=[
-                "excluded_items_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-            minimum_cumulative_msrp=3.14,
-            minimum_subtotal=3.14,
-        ),
-        percent_off_retail_price_items=CouponPercentOffRetailPriceItems(
-            discount_percent=3.14,
-            excluded_items=[
-                "excluded_items_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=1,
-        ),
-        percent_off_shipping=CouponPercentOffShipping(
-            discount_percent=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        percent_off_subtotal=CouponPercentOffSubtotal(
-            discount_percent=3.14,
-        ),
-        percent_off_subtotal_and_free_shipping=CouponPercentOffSubtotalAndFreeShipping(
-            discount_percent=3.14,
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-        ),
-        percent_off_subtotal_limit=CouponPercentOffSubtotalLimit(
-            currency_code="currency_code_example",
-            discount_percent=3.14,
-            limit=3.14,
-        ),
-        percent_off_subtotal_with_items_purchase=CouponPercentOffSubtotalWithItemsPurchase(
-            discount_percent=3.14,
-            items=[
-                "items_example",
-            ],
-        ),
-        percent_off_subtotal_with_subtotal=CouponPercentOffSubtotalWithSubtotal(
-            currency_code="currency_code_example",
-            discount_percent=3.14,
-            subtotal_amount=3.14,
-        ),
-        quickbooks_code="quickbooks_code_example",
-        restrict_by_postal_codes=[
-            "restrict_by_postal_codes_example",
-        ],
-        restrict_by_screen_branding_theme_codes=[
-            CouponRestriction(
-                invalid_for_this=True,
-                name="name_example",
-                valid_for_this=True,
-                valid_only_for_this=True,
-            ),
-        ],
-        restrict_by_storefronts=[
-            CouponRestriction(
-                invalid_for_this=True,
-                name="name_example",
-                valid_for_this=True,
-                valid_only_for_this=True,
-            ),
-        ],
-        skip_on_rebill=True,
-        start_dts="start_dts_example",
-        super_coupon=True,
-        tiered_amount_off_items=CouponTieredAmountOffItems(
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=3.14,
-            tiers=[
-                CouponTierQuantityAmount(
-                    discount_amount=3.14,
-                    item_quantity=1,
-                    quickbooks_code="quickbooks_code_example",
-                ),
-            ],
-        ),
-        tiered_amount_off_subtotal=CouponTieredAmountOffSubtotal(
-            items=[
-                "items_example",
-            ],
-            tiers=[
-                CouponTierAmount(
-                    discount_amount=3.14,
-                    quickbooks_code="quickbooks_code_example",
-                    subtotal_amount=3.14,
-                ),
-            ],
-        ),
-        tiered_percent_off_items=CouponTieredPercentOffItems(
-            item_tags=[
-                "item_tags_example",
-            ],
-            items=[
-                "items_example",
-            ],
-            limit=3.14,
-            tiers=[
-                CouponTierQuantityPercent(
-                    discount_percent=3.14,
-                    item_quantity=1,
-                    quickbooks_code="quickbooks_code_example",
-                ),
-            ],
-        ),
-        tiered_percent_off_shipping=CouponTieredPercentOffShipping(
-            quickbooks_code="quickbooks_code_example",
-            shipping_methods=[
-                "shipping_methods_example",
-            ],
-            tiers=[
-                CouponTierPercent(
-                    discount_percent=3.14,
-                    quickbooks_code="quickbooks_code_example",
-                    subtotal_amount=3.14,
-                ),
-            ],
-        ),
-        tiered_percent_off_subtotal=CouponTieredPercentOffSubtotal(
-            items=[
-                "items_example",
-            ],
-            tiers=[
-                CouponTierPercent(
-                    discount_percent=3.14,
-                    quickbooks_code="quickbooks_code_example",
-                    subtotal_amount=3.14,
-                ),
-            ],
-        ),
-        tiered_percent_off_subtotal_based_on_msrp=CouponTieredPercentOffSubtotalBasedOnMSRP(
-            items=[
-                "items_example",
-            ],
-            tiers=[
-                CouponTierPercent(
-                    discount_percent=3.14,
-                    quickbooks_code="quickbooks_code_example",
-                    subtotal_amount=3.14,
-                ),
-            ],
-        ),
-        usable_by="Anyone",
-    ) # Coupon | Coupon to update
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+# update the coupon.  this can be difficult given the complexity of coupons.  see insertCoupon sample for details.
+expiration_date = (datetime.now() + timedelta(days=90)).strftime('%Y-%m-%dT00:00:00+00:00')
+coupon.expiration_dts = expiration_date
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a coupon
-        api_response = api_instance.update_coupon(coupon_oid, coupon)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->update_coupon: %s\n" % e)
+api_response = coupon_api.update_coupon(coupon_oid, coupon, expand=expand)
+updated_coupon = api_response.coupon
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Update a coupon
-        api_response = api_instance.update_coupon(coupon_oid, coupon, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->update_coupon: %s\n" % e)
+print(updated_coupon)
 ```
+
 
 
 ### Parameters
@@ -2830,497 +1301,34 @@ Update multiple coupon on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.coupons_request import CouponsRequest
-from ultracart.model.coupons_response import CouponsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import CouponsRequest
+from samples import api_client
+from datetime import datetime, timedelta
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+coupon_api = CouponApi(api_client())
+coupon_oid = 123456789
 
-api_instance = GiftCertificateApi(api_client())
+expand = None  # coupons do not have expansions
+placeholders = None  # coupons do not use placeholders
 
-    coupons_request = CouponsRequest(
-        coupons=[
-            Coupon(
-                affiliate_oid=1,
-                allow_multiple_one_time_codes=True,
-                amount_off_items=CouponAmountOffItems(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                amount_off_shipping=CouponAmountOffShipping(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                amount_off_shipping_with_items_purchase=CouponAmountOffShippingWithItemsPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                amount_off_subtotal=CouponAmountOffSubtotal(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                ),
-                amount_off_subtotal_and_free_shipping=CouponAmountOffSubtotalFreeShippingWithPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    purchase_amount=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                amount_off_subtotal_and_shipping=CouponAmountOffSubtotalAndShipping(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                ),
-                amount_off_subtotal_with_block_purchase=CouponAmountOffSubtotalWithBlockPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    required_purchase_item="required_purchase_item_example",
-                    required_purchase_quantity=1,
-                ),
-                amount_off_subtotal_with_items_purchase=CouponAmountOffSubtotalWithItemsPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                    required_purchase_quantity=1,
-                ),
-                amount_off_subtotal_with_purchase=CouponAmountOffSubtotalWithPurchase(
-                    currency_code="currency_code_example",
-                    discount_amount=3.14,
-                    purchase_amount=3.14,
-                ),
-                amount_shipping_with_subtotal=CouponAmountShippingWithSubtotal(
-                    currency_code="currency_code_example",
-                    purchase_amount=3.14,
-                    shipping_amount=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                automatically_apply_coupon_codes=CouponAutomaticallyApplyCouponCodes(
-                    coupon_codes=[
-                        "coupon_codes_example",
-                    ],
-                ),
-                buy_one_get_one=CouponBuyOneGetOneLimit(
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                calculated_description="calculated_description_example",
-                can_be_used_with_other_coupons=True,
-                coupon_oid=1,
-                coupon_type="coupon_type_example",
-                description="description_example",
-                discount_item_with_item_purchase=CouponDiscountItemWithItemPurchase(
-                    currency_code="currency_code_example",
-                    discount_item="discount_item_example",
-                    discount_item_tags=[
-                        "discount_item_tags_example",
-                    ],
-                    discount_price=3.14,
-                    limit=1,
-                    required_purchase_item="required_purchase_item_example",
-                    required_purchase_items_tags=[
-                        "required_purchase_items_tags_example",
-                    ],
-                ),
-                discount_items=CouponDiscountItems(
-                    currency_code="currency_code_example",
-                    discount_price=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                expiration_dts="expiration_dts_example",
-                free_item_and_shipping_with_subtotal=CouponFreeItemAndShippingWithSubtotal(
-                    currency_code="currency_code_example",
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                    subtotal_amount=3.14,
-                ),
-                free_item_with_item_purchase=CouponFreeItemWithItemPurchase(
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    match_required_purchase_item_to_free_item=True,
-                    required_purchase_items=[
-                        "required_purchase_items_example",
-                    ],
-                    required_purchase_items_tags=[
-                        "required_purchase_items_tags_example",
-                    ],
-                ),
-                free_item_with_item_purchase_and_free_shipping=CouponFreeItemWithItemPurchaseAndFreeShipping(
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    match_required_purchase_item_to_free_item=True,
-                    required_purchase_items=[
-                        "required_purchase_items_example",
-                    ],
-                ),
-                free_item_with_subtotal=CouponFreeItemWithSubtotal(
-                    currency_code="currency_code_example",
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    subtotal_amount=3.14,
-                ),
-                free_items_with_item_purchase=CouponFreeItemsWithItemPurchase(
-                    free_item="free_item_example",
-                    free_quantity=1,
-                    limit=1,
-                    required_purchase_item="required_purchase_item_example",
-                    required_purchase_quantity=1,
-                ),
-                free_items_with_mixmatch_purchase=CouponFreeItemsWithMixMatchPurchase(
-                    free_item="free_item_example",
-                    free_quantity=1,
-                    limit=1,
-                    required_purchase_mix_and_match_group="required_purchase_mix_and_match_group_example",
-                    required_purchase_quantity=1,
-                ),
-                free_shipping=CouponFreeShipping(
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                free_shipping_specific_items=CouponFreeShippingSpecificItems(
-                    items=[
-                        "items_example",
-                    ],
-                ),
-                free_shipping_with_items_purchase=CouponFreeShippingWithItemsPurchase(
-                    items=[
-                        "items_example",
-                    ],
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                free_shipping_with_subtotal=CouponFreeShippingWithSubtotal(
-                    currency_code="currency_code_example",
-                    purchase_amount=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                hide_from_customer=True,
-                merchant_code="merchant_code_example",
-                merchant_notes="merchant_notes_example",
-                more_loyalty_cashback=CouponMoreLoyaltyCashback(
-                    loyalty_cashback=3.14,
-                ),
-                more_loyalty_points=CouponMoreLoyaltyPoints(
-                    loyalty_points=3.14,
-                ),
-                multiple_amounts_off_items=CouponMultipleAmountsOffItems(
-                    discounts=[
-                        CouponTierItemDiscount(
-                            discount_amount=3.14,
-                            items=[
-                                "items_example",
-                            ],
-                        ),
-                    ],
-                    limit=1,
-                ),
-                no_discount=CouponNoDiscount(
-                    ignore_this_property=True,
-                ),
-                percent_more_loyalty_cashback=CouponPercentMoreLoyaltyCashback(
-                    percent_more_loyalty_cashback=3.14,
-                ),
-                percent_more_loyalty_points=CouponPercentMoreLoyaltyPoints(
-                    percent_more_loyalty_points=3.14,
-                ),
-                percent_off_item_with_items_quantity_purchase=CouponPercentOffItemWithItemsQuantityPurchase(
-                    discount_percent=3.14,
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    required_purchase_items=[
-                        "required_purchase_items_example",
-                    ],
-                    required_purchase_items_tags=[
-                        "required_purchase_items_tags_example",
-                    ],
-                    required_purchase_quantity=1,
-                ),
-                percent_off_items=CouponPercentOffItems(
-                    discount_percent=3.14,
-                    excluded_item_tags=[
-                        "excluded_item_tags_example",
-                    ],
-                    excluded_items=[
-                        "excluded_items_example",
-                    ],
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                percent_off_items_and_free_shipping=CouponPercentOffItemsAndFreeShipping(
-                    discount_percent=3.14,
-                    excluded_item_tags=[
-                        "excluded_item_tags_example",
-                    ],
-                    excluded_items=[
-                        "excluded_items_example",
-                    ],
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                ),
-                percent_off_items_with_items_purchase=CouponPercentOffItemsWithItemsPurchase(
-                    discount_percent=3.14,
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    required_purchase_items=[
-                        "required_purchase_items_example",
-                    ],
-                    required_purchase_items_tags=[
-                        "required_purchase_items_tags_example",
-                    ],
-                ),
-                percent_off_msrp_items=CouponPercentOffMsrpItems(
-                    discount_percent=3.14,
-                    excluded_items=[
-                        "excluded_items_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                    minimum_cumulative_msrp=3.14,
-                    minimum_subtotal=3.14,
-                ),
-                percent_off_retail_price_items=CouponPercentOffRetailPriceItems(
-                    discount_percent=3.14,
-                    excluded_items=[
-                        "excluded_items_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=1,
-                ),
-                percent_off_shipping=CouponPercentOffShipping(
-                    discount_percent=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                percent_off_subtotal=CouponPercentOffSubtotal(
-                    discount_percent=3.14,
-                ),
-                percent_off_subtotal_and_free_shipping=CouponPercentOffSubtotalAndFreeShipping(
-                    discount_percent=3.14,
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                ),
-                percent_off_subtotal_limit=CouponPercentOffSubtotalLimit(
-                    currency_code="currency_code_example",
-                    discount_percent=3.14,
-                    limit=3.14,
-                ),
-                percent_off_subtotal_with_items_purchase=CouponPercentOffSubtotalWithItemsPurchase(
-                    discount_percent=3.14,
-                    items=[
-                        "items_example",
-                    ],
-                ),
-                percent_off_subtotal_with_subtotal=CouponPercentOffSubtotalWithSubtotal(
-                    currency_code="currency_code_example",
-                    discount_percent=3.14,
-                    subtotal_amount=3.14,
-                ),
-                quickbooks_code="quickbooks_code_example",
-                restrict_by_postal_codes=[
-                    "restrict_by_postal_codes_example",
-                ],
-                restrict_by_screen_branding_theme_codes=[
-                    CouponRestriction(
-                        invalid_for_this=True,
-                        name="name_example",
-                        valid_for_this=True,
-                        valid_only_for_this=True,
-                    ),
-                ],
-                restrict_by_storefronts=[
-                    CouponRestriction(
-                        invalid_for_this=True,
-                        name="name_example",
-                        valid_for_this=True,
-                        valid_only_for_this=True,
-                    ),
-                ],
-                skip_on_rebill=True,
-                start_dts="start_dts_example",
-                super_coupon=True,
-                tiered_amount_off_items=CouponTieredAmountOffItems(
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=3.14,
-                    tiers=[
-                        CouponTierQuantityAmount(
-                            discount_amount=3.14,
-                            item_quantity=1,
-                            quickbooks_code="quickbooks_code_example",
-                        ),
-                    ],
-                ),
-                tiered_amount_off_subtotal=CouponTieredAmountOffSubtotal(
-                    items=[
-                        "items_example",
-                    ],
-                    tiers=[
-                        CouponTierAmount(
-                            discount_amount=3.14,
-                            quickbooks_code="quickbooks_code_example",
-                            subtotal_amount=3.14,
-                        ),
-                    ],
-                ),
-                tiered_percent_off_items=CouponTieredPercentOffItems(
-                    item_tags=[
-                        "item_tags_example",
-                    ],
-                    items=[
-                        "items_example",
-                    ],
-                    limit=3.14,
-                    tiers=[
-                        CouponTierQuantityPercent(
-                            discount_percent=3.14,
-                            item_quantity=1,
-                            quickbooks_code="quickbooks_code_example",
-                        ),
-                    ],
-                ),
-                tiered_percent_off_shipping=CouponTieredPercentOffShipping(
-                    quickbooks_code="quickbooks_code_example",
-                    shipping_methods=[
-                        "shipping_methods_example",
-                    ],
-                    tiers=[
-                        CouponTierPercent(
-                            discount_percent=3.14,
-                            quickbooks_code="quickbooks_code_example",
-                            subtotal_amount=3.14,
-                        ),
-                    ],
-                ),
-                tiered_percent_off_subtotal=CouponTieredPercentOffSubtotal(
-                    items=[
-                        "items_example",
-                    ],
-                    tiers=[
-                        CouponTierPercent(
-                            discount_percent=3.14,
-                            quickbooks_code="quickbooks_code_example",
-                            subtotal_amount=3.14,
-                        ),
-                    ],
-                ),
-                tiered_percent_off_subtotal_based_on_msrp=CouponTieredPercentOffSubtotalBasedOnMSRP(
-                    items=[
-                        "items_example",
-                    ],
-                    tiers=[
-                        CouponTierPercent(
-                            discount_percent=3.14,
-                            quickbooks_code="quickbooks_code_example",
-                            subtotal_amount=3.14,
-                        ),
-                    ],
-                ),
-                usable_by="Anyone",
-            ),
-        ],
-    ) # CouponsRequest | Coupons to update (synchronous maximum 50 / asynchronous maximum 100)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-    _async = True # bool | True if the operation should be run async.  No result returned (optional)
+api_response = coupon_api.get_coupon(coupon_oid, expand=expand)
+coupon = api_response.coupon
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update multiple coupons
-        api_response = api_instance.update_coupons(coupons_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->update_coupons: %s\n" % e)
+# update the coupon.  this can be difficult given the complexity of coupons.  see insertCoupon sample for details.
+expiration_date = (datetime.now() + timedelta(days=90)).strftime('%Y-%m-%dT00:00:00+00:00')
+coupon.expiration_dts = expiration_date
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Update multiple coupons
-        api_response = api_instance.update_coupons(coupons_request, expand=expand, placeholders=placeholders, _async=_async)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->update_coupons: %s\n" % e)
+# This example only has one coupon.  But it's a trivial matter to add more coupons
+coupons_request = CouponsRequest()
+coupons_request.coupons = [coupon]
+
+api_response = coupon_api.update_coupons(coupons_request, expand=expand, placeholders=placeholders)
+updated_coupons = api_response.coupons
+
+print(updated_coupons)
 ```
+
 
 
 ### Parameters
@@ -3372,59 +1380,32 @@ Upload one-time codes for a coupon
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import coupon_api
-from ultracart.model.upload_coupon_codes_response import UploadCouponCodesResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.upload_coupon_codes_request import UploadCouponCodesRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import CouponApi
+from ultracart.models import UploadCouponCodesRequest
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+uploadCouponCodes allows a merchant to upload one-time use codes and associate them with a merchant code (i.e. a coupon).
+UltraCart has methods for generating one-time codes, and they work well, but this method exists when the merchant generates
+them themselves.  This frequently occurs when a merchant sends out a mailer with unique coupon codes on the mailer.  The
+merchant can then upload those codes with this method.
+"""
 
-api_instance = GiftCertificateApi(api_client())
+coupon_api = CouponApi(api_client())
+coupon_oid = 12345678  # if you don't know your coupon_oid, use generateOneTimeCodesByMerchantCode.  same results
 
-    coupon_oid = 1 # int | The coupon oid to associate with the provided one-time codes.
-    upload_coupon_codes_request = UploadCouponCodesRequest(
-        coupon_codes=[
-            "coupon_codes_example",
-        ],
-        error=Error(
-            developer_message="developer_message_example",
-            error_code="error_code_example",
-            more_info="more_info_example",
-            object_id="object_id_example",
-            user_message="user_message_example",
-        ),
-        metadata=ResponseMetadata(
-            payload_name="payload_name_example",
-            result_set=ResultSet(
-                count=1,
-                limit=1,
-                more=True,
-                next_offset=1,
-                offset=1,
-                total_records=1,
-            ),
-        ),
-        success=True,
-        warning=Warning(
-            more_info="more_info_example",
-            warning_message="warning_message_example",
-        ),
-    ) # UploadCouponCodesRequest | One-time coupon codes
+codes_request = UploadCouponCodesRequest()
+codes_request.coupon_codes = ['code1', 'code2', 'code3']
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Upload one-time codes for a coupon
-        api_response = api_instance.upload_coupon_codes(coupon_oid, upload_coupon_codes_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling CouponApi->upload_coupon_codes: %s\n" % e)
+api_response = coupon_api.upload_coupon_codes(coupon_oid, codes_request)
+print('Uploaded codes:')
+print(api_response.uploaded_codes)
+print('Duplicated codes:')
+print(api_response.duplicate_codes)
+print('Rejected codes:')
+print(api_response.rejected_codes)
 ```
+
 
 
 ### Parameters

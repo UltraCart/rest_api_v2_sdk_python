@@ -23,29 +23,9 @@ This is the equivalent of logging out of the single sign on session
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import sso_api
-from ultracart.model.user import User
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get single sign on session user
-        api_response = api_instance.get_sso_session_user()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling SsoApi->get_sso_session_user: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -91,34 +71,9 @@ Starts the process of authorizing a single sign on session.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import sso_api
-from ultracart.model.single_sign_on_authorize_response import SingleSignOnAuthorizeResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.single_sign_on_authorize_request import SingleSignOnAuthorizeRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    authorization_request = SingleSignOnAuthorizeRequest(
-        redirect_uri="redirect_uri_example",
-        state="state_example",
-    ) # SingleSignOnAuthorizeRequest | Authorization request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Authorize a single sign on session
-        api_response = api_instance.sso_authorize(authorization_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling SsoApi->sso_authorize: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -167,27 +122,9 @@ This is the equivalent of logging out of the single sign on session
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import sso_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Revoke single sign on session
-        api_instance.sso_session_revoke()
-    except ultracart.ApiException as e:
-        print("Exception when calling SsoApi->sso_session_revoke: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -232,34 +169,9 @@ Called by your application after receiving the code back on the redirect URI to 
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import sso_api
-from ultracart.model.single_sign_on_token_request import SingleSignOnTokenRequest
-from ultracart.model.single_sign_on_token_response import SingleSignOnTokenResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    token_request = SingleSignOnTokenRequest(
-        code="code_example",
-        grant_type="grant_type_example",
-    ) # SingleSignOnTokenRequest | Token request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Exchange a single sign on code for a simple key token
-        api_response = api_instance.sso_token(token_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling SsoApi->sso_token: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters

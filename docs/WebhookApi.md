@@ -27,28 +27,26 @@ Delete a webhook on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import webhook_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+deletes a webhook
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+You will need the webhook_oid to call this method.  Call getWebhooks() if you don't know your oid.
+Returns status code 204 (No Content) on success
+"""
 
-api_instance = GiftCertificateApi(api_client())
+from ultracart.apis import WebhookApi
+from samples import api_client
 
-    webhook_oid = 1 # int | The webhook oid to delete.
+# Create Webhook API instance
+webhook_api = WebhookApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a webhook
-        api_instance.delete_webhook(webhook_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->delete_webhook: %s\n" % e)
+# webhook_oid to delete (call getWebhooks if you don't know this)
+webhook_oid = 123456789
+
+# Delete the webhook
+webhook_api.delete_webhook(webhook_oid=webhook_oid)
 ```
+
 
 
 ### Parameters
@@ -97,80 +95,37 @@ Delete a webhook based upon the URL on the webhook_url matching an existing webh
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import webhook_api
-from ultracart.model.webhook import Webhook
-from ultracart.model.webhook_response import WebhookResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+This method can be confusing due to its payload.  The method does indeed delete a webhook by url, but you need to
+pass a webhook object in as the payload.  However, only the url is used.  UltraCart does this to avoid any confusion
+with the rest url versus the webhook url.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+To use:
+Get your webhook url.
+Create a Webhook object.
+Set the Webhook url property.
+Pass the webhook to deleteWebhookByUrl()
 
-api_instance = GiftCertificateApi(api_client())
+Returns status code 204 (No Content) on success
+"""
 
-    webhook = Webhook(
-        api_user_oid=1,
-        api_version="2017-03-01",
-        application_profile=ApiUserApplicationProfile(
-            api_application_logo_url="api_application_logo_url_example",
-            application_description="application_description_example",
-            application_name="application_name_example",
-            developer_name="developer_name_example",
-            developer_website="developer_website_example",
-        ),
-        authentication_type="none",
-        basic_password="basic_password_example",
-        basic_username="basic_username_example",
-        compress_events=True,
-        consecutive_failures=1,
-        disabled=True,
-        event_categories=[
-            WebhookEventCategory(
-                any_subscribed=True,
-                available_expansions=[
-                    "available_expansions_example",
-                ],
-                event_category="event_category_example",
-                events=[
-                    WebhookEventSubscription(
-                        comments="comments_example",
-                        deprecated_flag=True,
-                        discontinued_flag=True,
-                        event_description="event_description_example",
-                        event_name="event_name_example",
-                        event_ruler="event_ruler_example",
-                        expansion="expansion_example",
-                        subscribed=True,
-                        supports_reflow=True,
-                        webhook_event_oid=1,
-                    ),
-                ],
-                subscribed=True,
-            ),
-        ],
-        iam_access_key="iam_access_key_example",
-        iam_secret_key="iam_secret_key_example",
-        maximum_events=1,
-        maximum_size=1,
-        merchant_id="merchant_id_example",
-        next_retry_after="next_retry_after_example",
-        pending=1,
-        webhook_oid=1,
-        webhook_url="webhook_url_example",
-    ) # Webhook | Webhook to delete
+from ultracart.apis import WebhookApi
+from ultracart.models import Webhook
+from samples import api_client
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a webhook by URL
-        api_response = api_instance.delete_webhook_by_url(webhook)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->delete_webhook_by_url: %s\n" % e)
+# Create Webhook API instance
+webhook_api = WebhookApi(api_client())
+
+# Webhook URL to delete
+webhook_url = "https://www.mywebiste.com/page/to/call/when/this/webhook/fires.php"
+
+# Create Webhook object with the URL
+webhook = Webhook(webhook_url=webhook_url)
+
+# Delete webhook by URL
+webhook_api.delete_webhook_by_url(webhook)
 ```
+
 
 
 ### Parameters
@@ -219,31 +174,36 @@ Retrieves an individual log for a webhook given the webhook oid the request id.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import webhook_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.webhook_log_response import WebhookLogResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+getWebhookLog() provides a detail log of a webhook event.  It is used in tandem with getWebhookLogSummaries to audit
+webhook events.  This method call will require the webhook_oid and the request_id.  The webhook_oid can be discerned
+from the results of getWebhooks() and the request_id can be found from getWebhookLogSummaries().  see those examples
+if needed.
+"""
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import WebhookApi
+from samples import api_client
 
-api_instance = GiftCertificateApi(api_client())
+# Create Webhook API instance
+webhook_api = WebhookApi(api_client())
 
-    webhook_oid = 1 # int | The webhook oid that owns the log.
-    request_id = "requestId_example" # str | The request id associated with the log to view.
+# webhook_oid and request_id (call getWebhooks and getWebhookLogSummaries if you don't know these)
+webhook_oid = 123456789
+request_id = '987654321'
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve an individual log
-        api_response = api_instance.get_webhook_log(webhook_oid, request_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->get_webhook_log: %s\n" % e)
+# Get webhook log
+api_response = webhook_api.get_webhook_log(webhook_oid=webhook_oid, request_id=request_id)
+webhook_log = api_response.webhook_log
+
+# Check for errors
+if api_response.error:
+   print(f"Developer Message: {api_response.error.developer_message}")
+   print(f"User Message: {api_response.error.user_message}")
+else:
+   # Print webhook log
+   print(webhook_log)
 ```
+
 
 
 ### Parameters
@@ -293,50 +253,62 @@ Retrieves the log summary information for a given webhook.  This is useful for d
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import webhook_api
-from ultracart.model.webhook_log_summaries_response import WebhookLogSummariesResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+This example illustrates how to retrieve webhook log summaries.
+"""
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from datetime import datetime, timedelta
+from ultracart.apis import WebhookApi
+from ultracart.exceptions import ApiException
+from samples import api_client
 
-api_instance = GiftCertificateApi(api_client())
 
-    webhook_oid = 1 # int | The webhook oid to retrieve log summaries for.
-    request_id = "requestId_example" # str |  (optional)
-    begin_date = "beginDate_example" # str |  (optional)
-    end_date = "endDate_example" # str |  (optional)
-    status = "status_example" # str |  (optional)
-    event = "event_example" # str |  (optional)
-    order_id = "orderId_example" # str |  (optional)
-    request = "request_example" # str |  (optional)
-    duration = 1 # int |  (optional)
-    limit = 100 # int | The maximum number of records to return on this one API call. (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    since = "_since_example" # str | Fetch log summaries that have been delivered since this date/time. (optional)
+def get_summary_chunk(webhook_api, offset, limit):
+    """Retrieve a chunk of webhook log summaries."""
+    webhook_oid = 123456789  # Use getWebhooks to find your webhook's oid
+    _since = (datetime.now() - timedelta(days=10)).strftime('%Y-%m-%dT00:00:00+00:00')
 
-    # example passing only required values which don't have defaults set
+    api_response = webhook_api.get_webhook_log_summaries(webhook_oid=webhook_oid, limit=limit, offset=offset,
+                                                         since=_since)
+    return api_response.webhook_log_summaries or []
+
+
+def retrieve_all_summaries():
+    """Retrieve all webhook log summaries in chunks."""
+    webhook_api = WebhookApi(api_client())
+
+    summaries = []
+    iteration = 1
+    offset = 0
+    limit = 200
+
     try:
-        # Retrieve the log summaries
-        api_response = api_instance.get_webhook_log_summaries(webhook_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->get_webhook_log_summaries: %s\n" % e)
+        while True:
+            print(f"executing iteration {iteration}")
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve the log summaries
-        api_response = api_instance.get_webhook_log_summaries(webhook_oid, request_id=request_id, begin_date=begin_date, end_date=end_date, status=status, event=event, order_id=order_id, request=request, duration=duration, limit=limit, offset=offset, since=since)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->get_webhook_log_summaries: %s\n" % e)
+            chunk_of_summaries = get_summary_chunk(webhook_api, offset, limit)
+            summaries.extend(chunk_of_summaries)
+
+            offset += limit
+            if len(chunk_of_summaries) < limit:
+                break
+
+            iteration += 1
+
+    except ApiException as e:
+        print(f'ApiException occurred on iteration {iteration}')
+        print(e)
+        return None
+
+    return summaries
+
+
+# Retrieve and print summaries
+all_summaries = retrieve_all_summaries()
+if all_summaries is not None:
+    print(all_summaries)
 ```
+
 
 
 ### Parameters
@@ -396,34 +368,60 @@ Retrieves the webhooks associated with this application.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import webhook_api
-from ultracart.model.webhooks_response import WebhooksResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+This example illustrates how to retrieve all webhooks.
+"""
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import WebhookApi
+from ultracart.exceptions import ApiException
+from samples import api_client
 
-api_instance = GiftCertificateApi(api_client())
 
-    limit = 100 # int | The maximum number of records to return on this one API call. (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the webhooks.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+def get_webhook_chunk(webhook_api, offset, limit):
+    """Retrieve a chunk of webhooks."""
+    _sort = None  # default sorting is webhook_url, disabled
+    _placeholders = None  # useful for UI displays, but not needed here
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+    api_response = webhook_api.get_webhooks(limit=limit, offset=offset, sort=_sort, placeholders=_placeholders)
+    return api_response.webhooks or []
+
+
+def retrieve_all_webhooks():
+    """Retrieve all webhooks in chunks."""
+    webhook_api = WebhookApi(api_client())
+
+    webhooks = []
+    iteration = 1
+    offset = 0
+    limit = 200
+
     try:
-        # Retrieve webhooks
-        api_response = api_instance.get_webhooks(limit=limit, offset=offset, sort=sort, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->get_webhooks: %s\n" % e)
+        while True:
+            print(f"executing iteration {iteration}")
+
+            chunk_of_webhooks = get_webhook_chunk(webhook_api, offset, limit)
+            webhooks.extend(chunk_of_webhooks)
+
+            offset += limit
+            if len(chunk_of_webhooks) < limit:
+                break
+
+            iteration += 1
+
+    except ApiException as e:
+        print(f'ApiException occurred on iteration {iteration}')
+        print(e)
+        return None
+
+    return webhooks
+
+
+# Retrieve and print webhooks
+all_webhooks = retrieve_all_webhooks()
+if all_webhooks is not None:
+    print(all_webhooks)
 ```
+
 
 
 ### Parameters
@@ -475,90 +473,76 @@ Adds a new webhook on the account.  If you add a new webhook with the authentica
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import webhook_api
-from ultracart.model.webhook import Webhook
-from ultracart.model.webhook_response import WebhookResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+Adds a new webhook on the account with multiple event subscriptions.
+"""
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import WebhookApi
+from ultracart.models import Webhook, WebhookEventCategory, WebhookEventSubscription
+from samples import api_client
 
-api_instance = GiftCertificateApi(api_client())
+def create_webhook():
+    webhook_api = WebhookApi(api_client())
 
+    # Configure webhook
     webhook = Webhook(
-        api_user_oid=1,
+        webhook_url="https://www.mywebiste.com/page/to/call/when/this/webhook/fires.php",
+        authentication_type="basic",
+        basic_username="george",
+        basic_password="LlamaLlamaRedPajama",
+        maximum_events=10,
+        maximum_size=5242880,  # 5 MB
         api_version="2017-03-01",
-        application_profile=ApiUserApplicationProfile(
-            api_application_logo_url="api_application_logo_url_example",
-            application_description="application_description_example",
-            application_name="application_name_example",
-            developer_name="developer_name_example",
-            developer_website="developer_website_example",
+        compress_events=True
+    )
+
+    # Define event subscriptions
+    event_subs = [
+        WebhookEventSubscription(
+            event_name="order_create",
+            event_description="when an order is placed",
+            expansion="shipping,billing,item,coupon,summary",
+            event_ruler=None,
+            comments="Merchant specific comment about webhook"
         ),
-        authentication_type="none",
-        basic_password="basic_password_example",
-        basic_username="basic_username_example",
-        compress_events=True,
-        consecutive_failures=1,
-        disabled=True,
-        event_categories=[
-            WebhookEventCategory(
-                any_subscribed=True,
-                available_expansions=[
-                    "available_expansions_example",
-                ],
-                event_category="event_category_example",
-                events=[
-                    WebhookEventSubscription(
-                        comments="comments_example",
-                        deprecated_flag=True,
-                        discontinued_flag=True,
-                        event_description="event_description_example",
-                        event_name="event_name_example",
-                        event_ruler="event_ruler_example",
-                        expansion="expansion_example",
-                        subscribed=True,
-                        supports_reflow=True,
-                        webhook_event_oid=1,
-                    ),
-                ],
-                subscribed=True,
-            ),
-        ],
-        iam_access_key="iam_access_key_example",
-        iam_secret_key="iam_secret_key_example",
-        maximum_events=1,
-        maximum_size=1,
-        merchant_id="merchant_id_example",
-        next_retry_after="next_retry_after_example",
-        pending=1,
-        webhook_oid=1,
-        webhook_url="webhook_url_example",
-    ) # Webhook | Webhook to create
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+        WebhookEventSubscription(
+            event_name="order_update",
+            event_description="when an order is modified",
+            expansion="shipping,billing,item,coupon,summary",
+            event_ruler=None,
+            comments="Merchant specific comment about webhook"
+        ),
+        WebhookEventSubscription(
+            event_name="order_delete",
+            event_description="when an order is deleted",
+            expansion="",
+            event_ruler=None,
+            comments="Merchant specific comment about webhook"
+        )
+    ]
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Add a webhook
-        api_response = api_instance.insert_webhook(webhook)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->insert_webhook: %s\n" % e)
+    # Create event category
+    event_category = WebhookEventCategory(
+        event_category="order",
+        events=event_subs
+    )
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Add a webhook
-        api_response = api_instance.insert_webhook(webhook, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->insert_webhook: %s\n" % e)
+    # Insert webhook
+    api_response = webhook_api.insert_webhook(webhook, False)
+
+    if api_response.error:
+        print(f"Developer Message: {api_response.error.developer_message}")
+        print(f"User Message: {api_response.error.user_message}")
+        return None
+
+    return api_response.webhook
+
+# Execute webhook creation
+created_webhook = create_webhook()
+if created_webhook:
+    print(created_webhook)
 ```
+
 
 
 ### Parameters
@@ -608,31 +592,38 @@ This method will resend events to the webhook endpoint.  This method can be used
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import webhook_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.webhook_reflow_response import WebhookReflowResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+Resend a specific event for a webhook to reflow all historical data.
+Supports 'item_update' and 'order_create' events.
+"""
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import WebhookApi
+from samples import api_client
 
-api_instance = GiftCertificateApi(api_client())
+def resend_webhook_event():
+   webhook_api = WebhookApi(api_client())
 
-    webhook_oid = 1 # int | The webhook oid that is receiving the reflowed events.
-    event_name = "eventName_example" # str | The event to reflow.
+   webhook_oid = 123456789  # Use getWebhooks to find your webhook's oid
+   event_name = "item_update"  # or "order_create"
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Resend events to the webhook endpoint.
-        api_response = api_instance.resend_event(webhook_oid, event_name)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->resend_event: %s\n" % e)
+   api_response = webhook_api.resend_event(webhook_oid=webhook_oid, event_name=event_name)
+
+   if api_response.error:
+       print(f"Developer Message: {api_response.error.developer_message}")
+       print(f"User Message: {api_response.error.user_message}")
+       return None
+
+   reflow = api_response.reflow
+   success = reflow.queued
+
+   return api_response
+
+# Execute event resend
+result = resend_webhook_event()
+if result:
+   print(result)
 ```
+
 
 
 ### Parameters
@@ -682,91 +673,46 @@ Update a webhook on the account
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import webhook_api
-from ultracart.model.webhook import Webhook
-from ultracart.model.webhook_response import WebhookResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+Update a webhook's basic password by retrieving the existing webhook first.
+"""
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import WebhookApi
+from samples import api_client
 
-api_instance = GiftCertificateApi(api_client())
+def update_webhook():
+   webhook_api = WebhookApi(api_client())
 
-    webhook_oid = 1 # int | The webhook oid to update.
-    webhook = Webhook(
-        api_user_oid=1,
-        api_version="2017-03-01",
-        application_profile=ApiUserApplicationProfile(
-            api_application_logo_url="api_application_logo_url_example",
-            application_description="application_description_example",
-            application_name="application_name_example",
-            developer_name="developer_name_example",
-            developer_website="developer_website_example",
-        ),
-        authentication_type="none",
-        basic_password="basic_password_example",
-        basic_username="basic_username_example",
-        compress_events=True,
-        consecutive_failures=1,
-        disabled=True,
-        event_categories=[
-            WebhookEventCategory(
-                any_subscribed=True,
-                available_expansions=[
-                    "available_expansions_example",
-                ],
-                event_category="event_category_example",
-                events=[
-                    WebhookEventSubscription(
-                        comments="comments_example",
-                        deprecated_flag=True,
-                        discontinued_flag=True,
-                        event_description="event_description_example",
-                        event_name="event_name_example",
-                        event_ruler="event_ruler_example",
-                        expansion="expansion_example",
-                        subscribed=True,
-                        supports_reflow=True,
-                        webhook_event_oid=1,
-                    ),
-                ],
-                subscribed=True,
-            ),
-        ],
-        iam_access_key="iam_access_key_example",
-        iam_secret_key="iam_secret_key_example",
-        maximum_events=1,
-        maximum_size=1,
-        merchant_id="merchant_id_example",
-        next_retry_after="next_retry_after_example",
-        pending=1,
-        webhook_oid=1,
-        webhook_url="webhook_url_example",
-    ) # Webhook | Webhook to update
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+   # Webhook OID to update
+   webhook_oid = 123456789
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a webhook
-        api_response = api_instance.update_webhook(webhook_oid, webhook)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->update_webhook: %s\n" % e)
+   # Retrieve existing webhooks and find the target
+   webhooks = webhook_api.get_webhooks(limit=100, offset=0).webhooks
+   webhook_to_update = next((w for w in webhooks if w.webhook_oid == webhook_oid), None)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Update a webhook
-        api_response = api_instance.update_webhook(webhook_oid, webhook, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WebhookApi->update_webhook: %s\n" % e)
+   if not webhook_to_update:
+       print(f"Webhook with OID {webhook_oid} not found")
+       return None
+
+   # Update basic password
+   webhook_to_update.basic_password = "new password here"
+
+   # Perform update
+   api_response = webhook_api.update_webhook(webhook_oid=webhook_oid, webhook=webhook_to_update)
+
+   if api_response.error:
+       print(f"Developer Message: {api_response.error.developer_message}")
+       print(f"User Message: {api_response.error.user_message}")
+       return None
+
+   return api_response.webhook
+
+# Execute webhook update
+updated_webhook = update_webhook()
+if updated_webhook:
+   print(updated_webhook)
 ```
+
 
 
 ### Parameters

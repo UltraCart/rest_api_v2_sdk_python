@@ -22,43 +22,73 @@ The final leg in the OAuth process which exchanges the specified access token fo
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import oauth_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.oauth_token_response import OauthTokenResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import OauthApi
+from flask import request
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+The first step in implementing an OAuth authorization to your UltraCart Developer Application is
+creating a Client ID and Secret.  See the following doc for instructions on doing so:
+https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/3488907265/Developer+Applications+-+Creating+a+Client+ID+and+Secret+for+an+OAuth+Application
 
-api_instance = GiftCertificateApi(api_client())
+The second step is to construct an authorize url for your customers to follow and authorize your application.
+See the oauthAuthorize.php for an example on constructing that url.
 
-    client_id = "client_id_example" # str | The OAuth application client_id.
-    grant_type = "grant_type_example" # str | Type of grant
-    code = "code_example" # str | Authorization code received back from the browser redirect (optional)
-    redirect_uri = "redirect_uri_example" # str | The URI that you redirect the browser to start the authorization process (optional)
-    refresh_token = "refresh_token_example" # str | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token (optional)
+This method, OAuth.oauthAccessToken() will be called from within your redirect script, i.e. that web page the
+customer is redirected to by UltraCart after successfully authorizing your application.
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Exchange authorization code for access token.
-        api_response = api_instance.oauth_access_token(client_id, grant_type)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OauthApi->oauth_access_token: %s\n" % e)
+This example illustrates how to retrieve the code parameter and exchange it for an access_token and refresh_token.
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Exchange authorization code for access token.
-        api_response = api_instance.oauth_access_token(client_id, grant_type, code=code, redirect_uri=redirect_uri, refresh_token=refresh_token)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OauthApi->oauth_access_token: %s\n" % e)
+Once you have your Client ID and Secret created, our OAuth security follows the industry standards.
+1. Construct an authorize url for your customers.
+2. Your customers will follow the link and authorize your application.
+3. Store their oauth credentials as best fits your application.
+
+Parameters this script should expect:
+code -> used to exchange for an access token
+state -> whatever you passed in your authorize url
+error -> if you have a problem with your application configure.  Possible values are:
+    invalid_request -> your authorize url has expired
+    access_denied -> user said 'no' and did not grant access.
+
+Parameters you will use to retrieve a token:
+code -> the value provided as a query parameter from UltraCart, required if grant_type is 'authorization_code'
+client_id -> your client id (see doc link at top of this file)
+grant_type -> 'authorization_code' or 'refresh_token'
+redirect_url -> The URI that you redirect the browser to start the authorization process
+refresh_token -> if grant_type = 'refresh_token', you have to provide the refresh token.  makes sense, yes?
+
+See OauthTokenResponse for fields that are returned from this call.
+All SDKs have the same field names with slight differences in capitalization and underscores.
+https://github.com/UltraCart/rest_api_v2_sdk_csharp/blob/master/src/com.ultracart.admin.v2/Model/OauthTokenResponse.cs
+"""
+
+# this is given to you when you create your application (see the doc link above)
+client_id = "5e31ce86e17f02015a35257c47151544"
+grant_type = "authorization_code"
+redirect_url = "https://www.mywebsite.com/oauth/redirect_here.php"
+state = "denmark"  # this is whatever you used when you created your authorize url (see oauthAuthorize.php)
+
+# Get the code from the request
+code = request.args.get('code')
+refresh_token = None
+
+# Create OAuth API instance
+oauth_api = OauthApi(api_client())
+
+# Call the OAuth access token method
+api_response = oauth_api.oauth_access_token(client_id=client_id, grant_type=grant_type,
+                                            code=code, redirect_url=redirect_url,
+                                            refresh_token=refresh_token)
+
+# api_response is an OauthTokenResponse object.
+print(api_response)
+
+# Extract refresh token and expiration
+refresh_token = api_response.refresh_token
+expires_in = api_response.expires_in
 ```
+
 
 
 ### Parameters
@@ -109,31 +139,38 @@ Revokes the OAuth application associated with the specified client_id and token.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import oauth_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.oauth_revoke_success_response import OauthRevokeSuccessResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+This is a last feature of the UltraCart OAuth Security Implementation.
+oauthRevoke is used to kill an access token.
+Call this method when a customer desires to terminate using your Developer Application.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+The first step in implementing an OAuth authorization to your UltraCart Developer Application is
+creating a Client ID and Secret.  See the following doc for instructions on doing so:
+https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/3488907265/Developer+Applications+-+Creating+a+Client+ID+and+Secret+for+an+OAuth+Application
+"""
 
-api_instance = GiftCertificateApi(api_client())
+from ultracart.apis import OauthApi
+from samples import api_client
 
-    client_id = "client_id_example" # str | The OAuth application client_id.
-    token = "token_example" # str | The OAuth access token that is to be revoked..
+# this is given to you when you create your application (see the doc link above)
+client_id = "5e31ce86e17f02015a35257c47151544"
+# this is stored by your application somewhere somehow.
+access_token = "123456789012345678901234567890"
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Revoke this OAuth application.
-        api_response = api_instance.oauth_revoke(client_id, token)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OauthApi->oauth_revoke: %s\n" % e)
+# Create OAuth API instance
+oauth_api = OauthApi(api_client())
+
+# Call the OAuth revoke method
+api_response = oauth_api.oauth_revoke(client_id=client_id, access_token=access_token)
+
+# api_response is an OauthRevokeSuccessResponse object.
+print(api_response)
+
+# Extract success status and message
+successful = api_response.successful
+message = api_response.message
 ```
+
 
 
 ### Parameters

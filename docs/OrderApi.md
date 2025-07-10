@@ -47,31 +47,50 @@ Adjusts an order total.  Adjusts individual items appropriately and considers ta
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+OrderApi.adjustOrderTotal() takes a desired order total and performs goal-seeking to adjust all items and taxes
+appropriately.  This method was created for merchants dealing with Medicare and Medicaid.  When selling their
+medical devices, they would often run into limits approved by Medicare.  As such, they needed to adjust the
+order total to match the approved amount.  This is a convenience method to adjust individual items and their
+taxes to match the desired total.
+"""
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from samples import api_client
+from ultracart.apis import OrderApi
+from ultracart import ApiException
+import logging
 
-api_instance = GiftCertificateApi(api_client())
+# Configure logging
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger(__name__)
 
-    order_id = "order_id_example" # str | The order id to cancel.
-    desired_total = "desired_total_example" # str | The desired total with no formatting. example 123.45
+try:
+    # Initialize Order API
+    order_api = OrderApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Adjusts an order total
-        api_response = api_instance.adjust_order_total(order_id, desired_total)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->adjust_order_total: %s\n" % e)
+    # Set order details
+    order_id = 'DEMO-0009104390'
+    desired_total = '21.99'
+
+    # Adjust order total
+    api_response = order_api.adjust_order_total(order_id, desired_total)
+
+    # Check for errors
+    if api_response.error:
+        logger.error(api_response.error.developer_message)
+        logger.error(api_response.error.user_message)
+        print('Order could not be adjusted. See Python error log.')
+        exit()
+
+    # Check success
+    if api_response.success:
+        print('Order was adjusted successfully. Use get_order() to retrieve the order if needed.')
+
+except ApiException as e:
+    logger.error(f"API Exception: {e}")
+    print('Order could not be adjusted due to an API error.')
 ```
+
 
 
 ### Parameters
@@ -121,41 +140,51 @@ Cancel an order on the UltraCart account.  If the success flag is false, then co
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+OrderApi.cancelOrder() cancels an order by rejecting it.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+Restrictions:
+1) Cannot cancel completed orders
+2) Cannot cancel already rejected orders
+3) Cannot cancel orders transmitted to fulfillment center
+4) Cannot cancel orders queued for distribution center transmission
+"""
 
-api_instance = GiftCertificateApi(api_client())
+from samples import api_client
+from ultracart.apis import OrderApi
+from ultracart import ApiException
+import logging
 
-    order_id = "order_id_example" # str | The order id to cancel.
-    lock_self_ship_orders = True # bool | Flag to prevent a order shipping during a refund process (optional)
-    skip_refund_and_hold = True # bool | Skip refund and move order to Held Orders department (optional)
+# Configure logging
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger(__name__)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Cancel an order
-        api_response = api_instance.cancel_order(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->cancel_order: %s\n" % e)
+try:
+    # Initialize Order API
+    order_api = OrderApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Cancel an order
-        api_response = api_instance.cancel_order(order_id, lock_self_ship_orders=lock_self_ship_orders, skip_refund_and_hold=skip_refund_and_hold)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->cancel_order: %s\n" % e)
+    # Set order to cancel
+    order_id = 'DEMO-0009104390'
+
+    # Cancel order
+    api_response = order_api.cancel_order(order_id)
+
+    # Check for errors
+    if api_response.error:
+        logger.error(api_response.error.developer_message)
+        logger.error(api_response.error.user_message)
+        print('Order could not be canceled. See Python error log.')
+        exit()
+
+    # Check success
+    if api_response.success:
+        print('Order was canceled successfully.')
+
+except ApiException as e:
+    logger.error(f"API Exception: {e}")
+    print('Order could not be canceled due to an API error.')
 ```
+
 
 
 ### Parameters
@@ -206,28 +235,36 @@ Delete an order on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+OrderApi.deleteOrder() deletes an order. While rejecting orders is often preferred for audit trails,
+deleting test orders can help maintain a tidy order history.
+"""
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from samples import api_client
+from ultracart.apis import OrderApi
+from ultracart import ApiException
+import logging
 
-api_instance = GiftCertificateApi(api_client())
+# Configure logging
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger(__name__)
 
-    order_id = "order_id_example" # str | The order id to delete.
+try:
+    # Initialize Order API
+    order_api = OrderApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete an order
-        api_instance.delete_order(order_id)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->delete_order: %s\n" % e)
+    # Set order to delete
+    order_id = 'DEMO-0008104390'
+
+    # Delete order
+    order_api.delete_order(order_id)
+    print('Order was deleted successfully.')
+
+except ApiException as e:
+    logger.error(f"API Exception: {e}")
+    print('Order could not be deleted.')
 ```
+
 
 
 ### Parameters
@@ -276,40 +313,80 @@ Perform a duplicate of the specified order_id and return a new order located in 
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from ultracart.apis import OrderApi
+from ultracart.model.currency import Currency
+from ultracart.model.order_item import OrderItem
+from ultracart.model.order_process_payment_request import OrderProcessPaymentRequest
+from ultracart.model.weight import Weight
 from pprint import pprint
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# These are the steps for cloning an existing order and charging the customer for it.
+# 1. duplicateOrder
+# 2. updateOrder (if you wish to change any part of it)
+# 3. processPayment to charge the customer.
+#
+# As a reminder, if you wish to create a new order from scratch, use the CheckoutApi.
+# The OrderApi is for managing existing orders.
 
-api_instance = GiftCertificateApi(api_client())
+api_instance = OrderApi(api_client())
 
-    order_id = "order_id_example" # str | The order id to duplicate.
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+expansion = "items"
+# for this example, we're going to change the items after we duplicate the order, so
+# the only expansion properties we need are the items.
+# See: https://www.ultracart.com/api/  for a list of all expansions.
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Duplicate an order
-        api_response = api_instance.duplicate_order(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->duplicate_order: %s\n" % e)
+# Step 1. Duplicate the order
+order_id_to_duplicate = 'DEMO-0009104436'
+api_response = api_instance.duplicate_order(order_id_to_duplicate, expand=expansion)
+new_order = api_response.order
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Duplicate an order
-        api_response = api_instance.duplicate_order(order_id, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->duplicate_order: %s\n" % e)
+
+# Step 2. Update the items.  I will create a new items array and assign it to the order to remove the old ones completely.
+items = []
+item = OrderItem()
+item.merchant_item_id = 'simple_teapot'
+item.quantity = 1.0
+item.description = "A lovely teapot"
+item.distribution_center_code = 'DFLT'  # where is this item shipping out of?
+
+cost = Currency()
+cost.currency_code = 'USD'
+cost.value = 9.99
+item.cost = cost
+
+weight = Weight()
+weight.uom = 'OZ'
+weight.value = 6.0
+item.weight = weight
+
+items.append(item)
+new_order.items = items
+update_response = api_instance.update_order(order_id=new_order.order_id, order=new_order, expand=expansion)
+updated_order = update_response.order
+
+
+# Step 3. process the payment.
+# the request object below takes two optional arguments.
+# The first is an amount if you wish to bill for an amount different from the order.  We do not.
+# The second is card_verification_number_token, which is a token you can create by using our hosted fields to
+# upload a CVV value.  This will create a token you may use here.  However, most merchants using the duplicate
+# order method will be setting up an auto order for a customer.  Those will not make use of the CVV, so we're
+# not including it here.  That is why the request object below is does not have any values set.
+# For more info on hosted fields, see: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377775/UltraCart+Hosted+Credit+Card+Fields
+
+process_payment_request = OrderProcessPaymentRequest()
+payment_response = api_instance.process_payment(new_order.order_id, process_payment_request)
+if payment_response.error:
+    print(payment_response.error.developer_message)
+else:
+    transaction_details = payment_response.payment_transaction  # do whatever you wish with this.
+    pprint(updated_order)
+    pprint(transaction_details)
+
+
 ```
+
 
 
 ### Parameters
@@ -359,49 +436,64 @@ Format the order for display at text or html
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order_format_response import OrderFormatResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_format import OrderFormat
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+Format an order for display with various customization options.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+Returns a text or HTML-formatted block similar to a receipt page.
+"""
 
-api_instance = GiftCertificateApi(api_client())
+from samples import api_client
+from ultracart.apis import OrderApi
+from ultracart.models import OrderFormat
+from ultracart import ApiException
+import logging
 
-    order_id = "order_id_example" # str | The order id to format
+# Configure logging
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger(__name__)
+
+try:
+    # Initialize Order API
+    order_api = OrderApi(api_client())
+
+    # Configure format options
     format_options = OrderFormat(
-        context="context_example",
-        dont_link_email_to_search=True,
+        context='receipt',  # Options: unknown,receipt,shipment,refund,quote-request,quote
+        format='table',     # Options: text,div,table,email
+        show_contact_info=False,
+        show_payment_info=False,
+        show_merchant_notes=False,
         email_as_link=True,
-        filter_distribution_center_oid=1,
-        filter_to_items_in_container_oid=1,
-        format="text",
-        hide_bill_to_address=True,
-        hide_price_information=True,
         link_file_attachments=True,
-        show_contact_info=True,
-        show_in_merchant_currency=True,
         show_internal_information=True,
-        show_merchant_notes=True,
         show_non_sensitive_payment_info=True,
-        show_payment_info=True,
-        translate=True,
-    ) # OrderFormat | Format options
+        show_in_merchant_currency=True,
+        hide_bill_to_address=False,
+        dont_link_email_to_search=True,
+        translate=False
+    )
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Format order
-        api_response = api_instance.format(order_id, format_options)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->format: %s\n" % e)
+    # Specify order ID
+    order_id = 'DEMO-0009104390'
+
+    # Format the order
+    api_response = order_api.format(order_id, format_options)
+
+    # Get formatted result
+    formatted_result = api_response.formatted_result
+
+    # Print CSS links (if needed)
+    for link in api_response.css_links:
+        print(f'CSS Link: {link}')
+
+    # Print formatted result
+    print(formatted_result)
+
+except ApiException as e:
+    logger.error(f"API Exception: {e}")
+    print('Order formatting failed.')
 ```
+
 
 
 ### Parameters
@@ -451,30 +543,28 @@ The invoice PDF that is returned is base 64 encoded
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order_invoice_response import OrderInvoiceResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import OrderApi
+from samples import api_client
+import base64
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Create Order API instance
+order_api = OrderApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
+# Define order ID
+order_id = 'DEMO-0009104976'
 
-    order_id = "order_id_example" # str | Order ID
+# Generate invoice (returns a base64-encoded PDF)
+api_response = order_api.generate_invoice(order_id)
+base64_pdf = api_response.pdf_base64
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Generate an invoice for this order.
-        api_response = api_instance.generate_invoice(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->generate_invoice: %s\n" % e)
+# Decode and save the PDF
+decoded_pdf = base64.b64decode(base64_pdf)
+with open('invoice.pdf', 'wb') as pdf_file:
+    pdf_file.write(decoded_pdf)
+
+print("Invoice PDF saved as 'invoice.pdf'.")
 ```
+
 
 
 ### Parameters
@@ -523,30 +613,26 @@ Retrieves a single order token for a given order id.  The token can be used with
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order_token_response import OrderTokenResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import OrderApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Create Order API instance
+order_api = OrderApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
+# Define order ID
+order_id = 'DEMO-0009104436'
 
-    order_id = "order_id_example" # str | The order id to generate a token for.
+# Generate order token
+order_token_response = order_api.generate_order_token(order_id)
+order_token = order_token_response.order_token
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Generate an order token for a given order id
-        api_response = api_instance.generate_order_token(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->generate_order_token: %s\n" % e)
+# Print the order token
+print(f"Order Token is: {order_token}")
+
+# Example token format:
+# DEMO:UJZOGiIRLqgE3a10yp5wmEozLPNsGrDHNPiHfxsi0iAEcxgo9H74J/l6SR3X8g==
 ```
+
 
 
 ### Parameters
@@ -594,31 +680,9 @@ The packing slip PDF that is returned is base 64 encoded
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
-```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order_packing_slip_response import OrderPackingSlipResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-api_instance = GiftCertificateApi(api_client())
-
-    order_id = "order_id_example" # str | Order ID
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Generate a packing slip for this order across all distribution centers.
-        api_response = api_instance.generate_packing_slip_all_dc(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->generate_packing_slip_all_dc: %s\n" % e)
-```
 
 
 ### Parameters
@@ -666,32 +730,9 @@ The packing slip PDF that is returned is base 64 encoded
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
-```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order_packing_slip_response import OrderPackingSlipResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-api_instance = GiftCertificateApi(api_client())
-
-    distribution_center_code = "distribution_center_code_example" # str | Distribution center code
-    order_id = "order_id_example" # str | Order ID
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Generate a packing slip for this order for the given distribution center.
-        api_response = api_instance.generate_packing_slip_specific_dc(distribution_center_code, order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->generate_packing_slip_specific_dc: %s\n" % e)
-```
 
 
 ### Parameters
@@ -741,29 +782,10 @@ Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.accounts_receivable_retry_config_response import AccountsReceivableRetryConfigResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Retrieve A/R Retry Configuration
-        api_response = api_instance.get_accounts_receivable_retry_config()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_accounts_receivable_retry_config: %s\n" % e)
+# This is primarily an internal API call.  It is doubtful you would ever need to use it.
+# We do not provide an example for this call.
 ```
+
 
 
 ### Parameters
@@ -809,32 +831,10 @@ Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is do
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.accounts_receivable_retry_stats_response import AccountsReceivableRetryStatsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    _from = "from_example" # str |  (optional)
-    to = "to_example" # str |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve A/R Retry Statistics
-        api_response = api_instance.get_accounts_receivable_retry_stats(_from=_from, to=to)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_accounts_receivable_retry_stats: %s\n" % e)
+# This is primarily an internal API call.  It is doubtful you would ever need to use it.
+# We do not provide an example for this call.
 ```
+
 
 
 ### Parameters
@@ -884,40 +884,49 @@ Retrieves a single order using the specified order id.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import OrderApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Create Order API instance
+order_api = OrderApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
+# The expand variable instructs UltraCart how much information to return. The order object is large and
+# while it's easily manageable for a single order, when querying thousands of orders, it is useful to reduce
+# payload size.
+# See www.ultracart.com/api/ for all the expansion fields available (this list below may become stale).
+#
+# Possible Order Expansions:
+# affiliate           affiliate.ledger                    auto_order
+# billing             channel_partner                     checkout
+# coupon              customer_profile                    digital_order
+# edi                 fraud_score                         gift
+# gift_certificate    internal                            item
+# linked_shipment     marketing                           payment
+# payment.transaction quote                               salesforce
+# shipping            shipping.tracking_number_details    summary
+# taxes
 
-    order_id = "order_id_example" # str | The order id to retrieve.
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+expand = "item,summary,billing,shipping,shipping.tracking_number_details"
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve an order
-        api_response = api_instance.get_order(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_order: %s\n" % e)
+# Define order ID
+order_id = 'DEMO-0009104390'
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve an order
-        api_response = api_instance.get_order(order_id, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_order: %s\n" % e)
+# Retrieve order
+api_response = order_api.get_order(order_id, expand=expand)
+
+# Check for errors
+if api_response.error:
+    print(f"Developer Message: {api_response.error.developer_message}")
+    print(f"User Message: {api_response.error.user_message}")
+    exit()
+
+# Extract order details
+order = api_response.order
+
+# Print order details
+print(order)
 ```
+
 
 
 ### Parameters
@@ -967,43 +976,63 @@ Retrieves a single order using the specified order token.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
+from ultracart.apis import OrderApi
 from ultracart.model.order_by_token_query import OrderByTokenQuery
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# OrderApi.get_order_by_token() was created for use within a custom thank-you page.
+# The built-in StoreFront thank-you page displays the customer receipt and allows for unlimited customization.
+# However, many merchants wish to process the receipt page on their own servers to do custom processing.
+#
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377199/Custom+Thank+You+Page+URL
+#
+# When setting up a custom thank-you URL in the StoreFronts, you will provide a query parameter that will hold
+# this order token. You may extract that from the request parameters and then call get_order_by_token()
+# to get the order object.
 
-api_instance = GiftCertificateApi(api_client())
+# Create Order API instance
+order_api = OrderApi(api_client())
 
-    order_by_token_query = OrderByTokenQuery(
-        order_token="order_token_example",
-    ) # OrderByTokenQuery | Order by token query
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+# The expand variable instructs UltraCart how much information to return. The order object is large and
+# while it's easily manageable for a single order, when querying thousands of orders, it is useful to reduce
+# payload size.
+# See www.ultracart.com/api/ for all the expansion fields available (this list below may become stale).
+#
+# Possible Order Expansions:
+# affiliate           affiliate.ledger                    auto_order
+# billing             channel_partner                     checkout
+# coupon              customer_profile                    digital_order
+# edi                 fraud_score                         gift
+# gift_certificate    internal                            item
+# linked_shipment     marketing                           payment
+# payment.transaction quote                               salesforce
+# shipping            shipping.tracking_number_details    summary
+# taxes
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve an order using a token
-        api_response = api_instance.get_order_by_token(order_by_token_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_order_by_token: %s\n" % e)
+expand = "billing,checkout,coupon,customer_profile,item,payment,shipping,summary,taxes"
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve an order using a token
-        api_response = api_instance.get_order_by_token(order_by_token_query, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_order_by_token: %s\n" % e)
+# The token will be in a request parameter defined by you within your storefront.
+# StoreFront -> Privacy and Tracking -> Advanced -> CustomThankYouUrl
+# Example would be: www.mysite.com/receipt?orderToken=[OrderToken]
+
+# TODO: Handle retrieving the order token from request parameters
+order_token = "DEMO:UZBOGywSKKwD2a5wx5JwmkwyIPNsGrDHNPiHfxsi0iAEcxgo9H74J/l6SR3X8g=="  # Replace with actual order token
+
+# To generate an order token manually for testing, refer to generate_order_token.py
+# TODO: Handle missing order token (e.g., if this page is called incorrectly by a search engine, etc.)
+
+order_token_query = OrderByTokenQuery(order_token=order_token)
+
+# Retrieve order
+api_response = order_api.get_order_by_token(order_token_query, expand=expand)
+
+# Extract order details
+order = api_response.order
+
+# Print order details
+print(order)
 ```
+
 
 
 ### Parameters
@@ -1053,30 +1082,27 @@ Retrieve EDI documents associated with this order.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_edi_documents_response import OrderEdiDocumentsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import OrderApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# get_order_edi_documents() returns all EDI documents associated with an order.
+#
+# Possible Errors:
+# Order.channel_partner_oid is null -> "Order is not associated with an EDI channel partner."
 
-api_instance = GiftCertificateApi(api_client())
+# Create Order API instance
+order_api = OrderApi(api_client())
 
-    order_id = "order_id_example" # str | The order id to retrieve EDI documents for.
+# Order ID to retrieve EDI documents for
+order_id = "DEMO-0009104976"
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve EDI documents associated with this order.
-        api_response = api_instance.get_order_edi_documents(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_order_edi_documents: %s\n" % e)
+# Retrieve EDI documents
+edi_documents = order_api.get_order_edi_documents(order_id).edi_documents
+
+# Print EDI documents
+print(edi_documents)
 ```
+
 
 
 ### Parameters
@@ -1126,60 +1152,113 @@ Retrieves a group of orders from the account.  If no parameters are specified, t
 
 ```python
 import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.orders_response import OrdersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Increase time limit, pulling all orders could take a long time.
+time_limit = 3000
+# Set max execution time
+time.sleep(time_limit)
+# Set display errors
+display_errors = 1
 
-api_instance = GiftCertificateApi(api_client())
+# getOrders was the first order query provided by UltraCart. It still functions well, but it is extremely verbose
+# because the query call takes a variable for every possible filter. You are advised to use getOrdersByQuery().
+# It is easier to use and will result in less code. Still, we provide an example here to be thorough.
+#
+# For this email, we will query all orders for a particular email address. The getOrdersByQuery() example
+# illustrates using a date range to filter and select orders.
 
-    order_id = "order_id_example" # str | Order Id (optional)
-    payment_method = "payment_method_example" # str | Payment Method (optional)
-    company = "company_example" # str | Company (optional)
-    first_name = "first_name_example" # str | First Name (optional)
-    last_name = "last_name_example" # str | Last Name (optional)
-    city = "city_example" # str | City (optional)
-    state_region = "state_region_example" # str | State/Region (optional)
-    postal_code = "postal_code_example" # str | Postal Code (optional)
-    country_code = "country_code_example" # str | Country Code (ISO-3166 two letter) (optional)
-    phone = "phone_example" # str | Phone (optional)
-    email = "email_example" # str | Email (optional)
-    cc_email = "cc_email_example" # str | CC Email (optional)
-    total = 3.14 # float | Total (optional)
-    screen_branding_theme_code = "screen_branding_theme_code_example" # str | Screen Branding Theme Code (optional)
-    storefront_host_name = "storefront_host_name_example" # str | StoreFront Host Name (optional)
-    creation_date_begin = "creation_date_begin_example" # str | Creation Date Begin (optional)
-    creation_date_end = "creation_date_end_example" # str | Creation Date End (optional)
-    payment_date_begin = "payment_date_begin_example" # str | Payment Date Begin (optional)
-    payment_date_end = "payment_date_end_example" # str | Payment Date End (optional)
-    shipment_date_begin = "shipment_date_begin_example" # str | Shipment Date Begin (optional)
-    shipment_date_end = "shipment_date_end_example" # str | Shipment Date End (optional)
-    rma = "rma_example" # str | RMA (optional)
-    purchase_order_number = "purchase_order_number_example" # str | Purchase Order Number (optional)
-    item_id = "item_id_example" # str | Item Id (optional)
-    current_stage = "current_stage_example" # str | Current Stage (optional)
-    channel_partner_code = "channel_partner_code_example" # str | Channel Partner Code (optional)
-    channel_partner_order_id = "channel_partner_order_id_example" # str | Channel Partner Order ID (optional)
-    limit = 100 # int | The maximum number of records to return on this one API call. (Maximum 200) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result. (optional)
+# Using the API key to initialize the order API
+order_api = OrderApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+def get_order_chunk(order_api, offset, limit):
+    expand = "item,summary,billing,shipping,shipping.tracking_number_details"
+    # See www.ultracart.com/api/ for all the expansion fields available (this list below may become stale)
+    # Possible Order Expansions:
+    # affiliate           affiliate.ledger                    auto_order
+    # billing             channel_partner                     checkout
+    # coupon              customer_profile                    digital_order
+    # edi                 fraud_score                         gift
+    # gift_certificate    internal                            item
+    # linked_shipment     marketing                           payment
+    # payment.transaction quote                               salesforce
+    # shipping            shipping.tracking_number_details    summary
+    # taxes
+
+    order_id = None
+    payment_method = None
+    company = None
+    first_name = None
+    last_name = None
+    city = None
+    state_region = None
+    postal_code = None
+    country_code = None
+    phone = None
+    email = 'support@ultracart.com'  # <-- this is the only filter we're using.
+    cc_email = None
+    total = None
+    screen_branding_theme_code = None
+    storefront_host_name = None
+    creation_date_begin = None
+    creation_date_end = None
+    payment_date_begin = None
+    payment_date_end = None
+    shipment_date_begin = None
+    shipment_date_end = None
+    rma = None
+    purchase_order_number = None
+    item_id = None
+    current_stage = None
+    channel_partner_code = None
+    channel_partner_order_id = None
+    _sort = None
+
+    # See all these parameters? That is why you should use getOrdersByQuery() instead of getOrders()
     try:
-        # Retrieve orders
-        api_response = api_instance.get_orders(order_id=order_id, payment_method=payment_method, company=company, first_name=first_name, last_name=last_name, city=city, state_region=state_region, postal_code=postal_code, country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total, screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name, creation_date_begin=creation_date_begin, creation_date_end=creation_date_end, payment_date_begin=payment_date_begin, payment_date_end=payment_date_end, shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma, purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage, channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id, limit=limit, offset=offset, sort=sort, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_orders: %s\n" % e)
+        api_response = order_api.get_orders(
+            order_id=order_id, payment_method=payment_method, company=company, first_name=first_name,
+            last_name=last_name, city=city, state_region=state_region, postal_code=postal_code,
+            country_code=country_code, phone=phone, email=email, cc_email=cc_email, total=total,
+            screen_branding_theme_code=screen_branding_theme_code, storefront_host_name=storefront_host_name,
+            creation_date_begin=creation_date_begin, creation_date_end=creation_date_end,
+            payment_date_begin=payment_date_begin, payment_date_end=payment_date_end,
+            shipment_date_begin=shipment_date_begin, shipment_date_end=shipment_date_end, rma=rma,
+            purchase_order_number=purchase_order_number, item_id=item_id, current_stage=current_stage,
+            channel_partner_code=channel_partner_code, channel_partner_order_id=channel_partner_order_id,
+            limit=limit, offset=offset, _sort=_sort, expand=expand
+        )
+    except ApiException as e:
+        print(f"Exception when calling OrderApi->get_orders: {e}")
+        return []
+
+    if api_response.orders is not None:
+        return api_response.orders
+    return []
+
+# Initialize empty list to hold orders
+orders = []
+
+iteration = 1
+offset = 0
+limit = 200
+more_records_to_fetch = True
+
+while more_records_to_fetch:
+    print(f"executing iteration {iteration}")
+    chunk_of_orders = get_order_chunk(order_api, offset, limit)
+    orders.extend(chunk_of_orders)
+    offset += limit
+    more_records_to_fetch = len(chunk_of_orders) == limit
+    iteration += 1
+
+# This could get verbose...
+import pprint
+pprint.pprint(orders)
 ```
+
 
 
 ### Parameters
@@ -1258,46 +1337,56 @@ Retrieves a group of orders from the account based on an array of order ids.  If
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
+from ultracart.apis import OrderApi
 from ultracart.model.order_query_batch import OrderQueryBatch
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.orders_response import OrdersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
 from pprint import pprint
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+api_instance = OrderApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
+## This example shows how to request up to 500 orders by passing in their order ids.
 
-    order_batch = OrderQueryBatch(
-        order_ids=[
-            "order_ids_example",
-        ],
-        query_target="origin",
-    ) # OrderQueryBatch | Order batch
-    expand = "_expand_example" # str | The object expansion to perform on the result. (optional)
+# expansion = "item,summary,billing,shipping,shipping.tracking_number_details"
+expansion = 'auto_order,billing,channel_partner,checkout,coupon,edi,gift,gift_certificate,internal,item,payment,payment.transaction,point_of_sale,properties,quote,shipping,shipping.tracking_number_details,summary,taxes,utms'
+## see www.ultracart.com/api/ for all the expansion fields available (this list below may become stale)
+##
+## Possible Order Expansions:
+## affiliate           affiliate.ledger                    auto_order
+## billing             channel_partner                     checkout
+## coupon              customer_profile                    digital_order
+## edi                 fraud_score                         gift
+## gift_certificate    internal                            item
+## linked_shipment     marketing                           payment
+## payment.transaction quote                               salesforce
+## shipping            shipping.tracking_number_details    summary
+## taxes
+##
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve order batch
-        api_response = api_instance.get_orders_batch(order_batch)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_orders_batch: %s\n" % e)
+order_batch = OrderQueryBatch()
+order_batch.limit = 500
+order_batch.limit = 500
+order_batch.query_target = "cache"
+order_batch.order_ids = [
+    'DEMO-0009103110',
+    'DEMO-0009103116',
+    'DEMO-0009103121',
+    'DEMO-0009103416',
+    'DEMO-0009103422',
+    'DEMO-0009103423',
+    'DEMO-0009103424',
+    'DEMO-0009103426',
+    'DEMO-0009103427'
+]
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve order batch
-        api_response = api_instance.get_orders_batch(order_batch, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_orders_batch: %s\n" % e)
+api_response = api_instance.get_orders_batch(order_batch=order_batch, expand=expansion)
+orders = api_response.orders
+
+# pprint(orders)
+for order in orders:
+    pprint(order)
+print(f"{len(orders)} were returned.")
 ```
+
 
 
 ### Parameters
@@ -1347,88 +1436,101 @@ Retrieves a group of orders from the account based on a query object.  If no par
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
+from ultracart.apis import OrderApi
 from ultracart.model.order_query import OrderQuery
-from ultracart.model.orders_response import OrdersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
+from ultracart.model.order import Order
+from ultracart.rest import ApiException
 from pprint import pprint
+from samples import api_client
+from datetime import datetime, timedelta
+import time
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+start_time = time.time()
+api_instance = OrderApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
+## This example illustrates how to query the OrderQuery object to select a range of records.  It uses a subroutine
+## to aggregate the records that span multiple API calls.  This specific example illustrates a work-around to selecting
+## all rejected orders.  Because the UltraCart SDK does not have a way to query orders based on whether they
+## were rejected, we can instead query based on the rejected_dts, which is null if the order is not rejected.
+## So we will simply use a large time frame to ensure we query all rejections.
 
-    order_query = OrderQuery(
-        cc_email="cc_email_example",
-        channel_partner_code="channel_partner_code_example",
-        channel_partner_order_id="channel_partner_order_id_example",
-        city="city_example",
-        company="company_example",
-        country_code="country_code_example",
-        creation_date_begin="creation_date_begin_example",
-        creation_date_end="creation_date_end_example",
-        current_stage="Accounts Receivable",
-        custom_field_1="custom_field_1_example",
-        custom_field_10="custom_field_10_example",
-        custom_field_2="custom_field_2_example",
-        custom_field_3="custom_field_3_example",
-        custom_field_4="custom_field_4_example",
-        custom_field_5="custom_field_5_example",
-        custom_field_6="custom_field_6_example",
-        custom_field_7="custom_field_7_example",
-        custom_field_8="custom_field_8_example",
-        custom_field_9="custom_field_9_example",
-        customer_profile_oid=1,
-        email="email_example",
-        first_name="first_name_example",
-        item_id="item_id_example",
-        last_name="last_name_example",
-        order_id="order_id_example",
-        payment_date_begin="payment_date_begin_example",
-        payment_date_end="payment_date_end_example",
-        payment_method="Affirm",
-        phone="phone_example",
-        postal_code="postal_code_example",
-        purchase_order_number="purchase_order_number_example",
-        query_target="origin",
-        refund_date_begin="refund_date_begin_example",
-        refund_date_end="refund_date_end_example",
-        rma="rma_example",
-        screen_branding_theme_code="screen_branding_theme_code_example",
-        shipment_date_begin="shipment_date_begin_example",
-        shipment_date_end="shipment_date_end_example",
-        shipped_on_date_begin="shipped_on_date_begin_example",
-        shipped_on_date_end="shipped_on_date_end_example",
-        state_region="state_region_example",
-        storefront_host_name="storefront_host_name_example",
-        total=3.14,
-    ) # OrderQuery | Order query
-    limit = 100 # int | The maximum number of records to return on this one API call. (Maximum 200) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result. (optional)
+iteration = 1
+offset = 0
+limit = 1000
+more_records_to_fetch = True
+orders = []
+date_field = 'payment'
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve orders by query
-        api_response = api_instance.get_orders_by_query(order_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_orders_by_query: %s\n" % e)
+def get_order_chunk():
+    # expansion = "item,summary,billing,shipping,shipping.tracking_number_details"
+    expansion = 'auto_order,billing,channel_partner,checkout,coupon,edi,gift,gift_certificate,internal,item,payment,payment.transaction,point_of_sale,properties,quote,shipping,shipping.tracking_number_details,summary,taxes,utms'
+    ## see www.ultracart.com/api/ for all the expansion fields available (this list below may become stale)
+    ##
+    ## Possible Order Expansions:
+    ## affiliate           affiliate.ledger                    auto_order
+    ## billing             channel_partner                     checkout
+    ## coupon              customer_profile                    digital_order
+    ## edi                 fraud_score                         gift
+    ## gift_certificate    internal                            item
+    ## linked_shipment     marketing                           payment
+    ## payment.transaction quote                               salesforce
+    ## shipping            shipping.tracking_number_details    summary
+    ## taxes
+    ##
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve orders by query
-        api_response = api_instance.get_orders_by_query(order_query, limit=limit, offset=offset, sort=sort, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->get_orders_by_query: %s\n" % e)
+    query = OrderQuery()
+    ## Uncomment the next line to retrieve a single order.  But there are simpler methods to retrieve a single order than getOrdersByQuery
+    ## order_query.order_id = "DEMO-0009104390"
+
+    now = datetime.now()
+    six_hours_ago = now - timedelta(hours=6)
+    # begin_dts = datetime.strptime('2000-01-01', '%Y-%m-%d').astimezone().isoformat('T', 'milliseconds')
+    begin_dts = six_hours_ago.astimezone().isoformat('T', 'milliseconds')
+
+    end_dts = datetime.now().astimezone().isoformat('T', 'milliseconds')
+    print(f"Date range: {begin_dts} to {end_dts}")
+
+    if date_field == 'reject':
+        query.refund_date_begin = begin_dts
+        query.refund_date_end = end_dts
+    elif date_field == 'shipment':
+        query.shipment_date_begin = begin_dts
+        query.shipment_date_end = end_dts
+    else:
+        query.payment_date_begin = begin_dts
+        query.payment_date_end = end_dts
+
+    query.query_target = 'cache'  # cache is much faster, but may be missing the last few minutes of orders.
+
+    api_response = api_instance.get_orders_by_query(order_query=query, limit=limit, offset=offset, expand=expansion, sort='+shipping.state_region,-shipping.city')
+    if api_response.orders is not None:
+        return api_response.orders
+    return []
+
+
+while more_records_to_fetch:
+    print(f"executing iteration {iteration} ")
+    chunk_of_orders = get_order_chunk()
+    orders.extend(chunk_of_orders)
+    offset = offset + limit
+    more_records_to_fetch = len(chunk_of_orders) == limit
+    iteration = iteration + 1
+
+# pprint(orders)
+for order in orders:
+    shipping = getattr(order, 'shipping')
+    # pprint(shipping)
+    print(f"{getattr(shipping, 'state_region', 'NULL')} {getattr(shipping, 'city', 'NULL')} {order.order_id}")
+    # pprint(order)
+print(f"{len(orders)} were returned.")
+
+# pprint(orders[0])
+
+end_time = time.time()
+elapsed_time = end_time - start_time
+print(f"The {date_field} date range query took {elapsed_time} seconds to execute.")
 ```
+
 
 
 ### Parameters
@@ -1481,1332 +1583,28 @@ Inserts a new order on the UltraCart account.  This is probably NOT the method y
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order import Order
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    order = Order(
-        affiliates=[
-            OrderAffiliate(
-                affiliate_oid=1,
-                ledger_entries=[
-                    OrderAffiliateLedger(
-                        assigned_by_user="assigned_by_user_example",
-                        item_id="item_id_example",
-                        tier_number=1,
-                        transaction_amount=3.14,
-                        transaction_amount_paid=3.14,
-                        transaction_dts="transaction_dts_example",
-                        transaction_memo="transaction_memo_example",
-                        transaction_percentage=3.14,
-                        transaction_state="Pending",
-                    ),
-                ],
-                sub_id="sub_id_example",
-            ),
-        ],
-        auto_order=OrderAutoOrder(
-            auto_order_code="auto_order_code_example",
-            auto_order_oid=1,
-            cancel_after_next_x_orders=1,
-            cancel_downgrade=True,
-            cancel_reason="cancel_reason_example",
-            cancel_upgrade=True,
-            canceled_by_user="canceled_by_user_example",
-            canceled_dts="canceled_dts_example",
-            completed=True,
-            credit_card_attempt=1,
-            disabled_dts="disabled_dts_example",
-            enabled=True,
-            failure_reason="failure_reason_example",
-            items=[
-                AutoOrderItem(
-                    arbitrary_item_id="arbitrary_item_id_example",
-                    arbitrary_percentage_discount=3.14,
-                    arbitrary_quantity=3.14,
-                    arbitrary_schedule_days=1,
-                    arbitrary_unit_cost=3.14,
-                    arbitrary_unit_cost_remaining_orders=1,
-                    auto_order_item_oid=1,
-                    calculated_next_shipment_dts="calculated_next_shipment_dts_example",
-                    first_order_dts="first_order_dts_example",
-                    frequency="Weekly",
-                    future_schedules=[
-                        AutoOrderItemFutureSchedule(
-                            item_id="item_id_example",
-                            rebill_count=1,
-                            shipment_dts="shipment_dts_example",
-                            unit_cost=3.14,
-                        ),
-                    ],
-                    last_order_dts="last_order_dts_example",
-                    life_time_value=3.14,
-                    next_item_id="next_item_id_example",
-                    next_preshipment_notice_dts="next_preshipment_notice_dts_example",
-                    next_shipment_dts="next_shipment_dts_example",
-                    no_order_after_dts="no_order_after_dts_example",
-                    number_of_rebills=1,
-                    options=[
-                        AutoOrderItemOption(
-                            label="label_example",
-                            value="value_example",
-                        ),
-                    ],
-                    original_item_id="original_item_id_example",
-                    original_quantity=3.14,
-                    paused=True,
-                    paypal_payer_id="paypal_payer_id_example",
-                    paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
-                    preshipment_notice_sent=True,
-                    rebill_value=3.14,
-                    remaining_repeat_count=1,
-                    simple_schedule=AutoOrderItemSimpleSchedule(
-                        frequency="Weekly",
-                        item_id="item_id_example",
-                        repeat_count=1,
-                    ),
-                ),
-            ],
-            next_attempt="next_attempt_example",
-            original_order_id="original_order_id_example",
-            override_affiliate_id=1,
-            rebill_orders=[
-                Order(),
-            ],
-            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-            status="active",
-        ),
-        billing=OrderBilling(
-            address1="address1_example",
-            address2="address2_example",
-            cc_emails=[
-                "cc_emails_example",
-            ],
-            cell_phone="cell_phone_example",
-            cell_phone_e164="cell_phone_e164_example",
-            city="city_example",
-            company="company_example",
-            country_code="country_code_example",
-            day_phone="day_phone_example",
-            day_phone_e164="day_phone_e164_example",
-            email="email_example",
-            evening_phone="evening_phone_example",
-            evening_phone_e164="evening_phone_e164_example",
-            first_name="first_name_example",
-            last_name="last_name_example",
-            postal_code="postal_code_example",
-            state_region="state_region_example",
-            title="title_example",
-        ),
-        buysafe=OrderBuysafe(
-            buysafe_bond_available=True,
-            buysafe_bond_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            buysafe_bond_free=True,
-            buysafe_bond_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            buysafe_bond_wanted=True,
-            buysafe_shopping_cart_id="buysafe_shopping_cart_id_example",
-        ),
-        channel_partner=OrderChannelPartner(
-            auto_approve_purchase_order=True,
-            channel_partner_code="channel_partner_code_example",
-            channel_partner_data="channel_partner_data_example",
-            channel_partner_oid=1,
-            channel_partner_order_id="channel_partner_order_id_example",
-            ignore_invalid_shipping_method=True,
-            no_realtime_payment_processing=True,
-            skip_payment_processing=True,
-            store_completed=True,
-            store_if_payment_declines=True,
-            treat_warnings_as_errors=True,
-        ),
-        checkout=OrderCheckout(
-            browser=Browser(
-                device=BrowserDevice(
-                    family="family_example",
-                ),
-                os=BrowserOS(
-                    family="family_example",
-                    major="major_example",
-                    minor="minor_example",
-                    patch="patch_example",
-                    patch_minor="patch_minor_example",
-                ),
-                user_agent=BrowserUserAgent(
-                    family="family_example",
-                    major="major_example",
-                    minor="minor_example",
-                    patch="patch_example",
-                ),
-            ),
-            comments="comments_example",
-            custom_field1="custom_field1_example",
-            custom_field10="custom_field10_example",
-            custom_field2="custom_field2_example",
-            custom_field3="custom_field3_example",
-            custom_field4="custom_field4_example",
-            custom_field5="custom_field5_example",
-            custom_field6="custom_field6_example",
-            custom_field7="custom_field7_example",
-            custom_field8="custom_field8_example",
-            custom_field9="custom_field9_example",
-            customer_ip_address="customer_ip_address_example",
-            screen_branding_theme_code="screen_branding_theme_code_example",
-            screen_size="screen_size_example",
-            storefront_host_name="storefront_host_name_example",
-            upsell_path_code="upsell_path_code_example",
-        ),
-        coupons=[
-            OrderCoupon(
-                accounting_code="accounting_code_example",
-                automatically_applied=True,
-                base_coupon_code="base_coupon_code_example",
-                coupon_code="coupon_code_example",
-                hdie_from_customer=True,
-            ),
-        ],
-        creation_dts="creation_dts_example",
-        currency_code="currency_code_example",
-        current_stage="Accounts Receivable",
-        current_stage_histories=[
-            OrderCurrentStageHistory(
-                after_stage="Accounts Receivable",
-                before_stage="Accounts Receivable",
-                transition_dts="transition_dts_example",
-            ),
-        ],
-        customer_profile=Customer(
-            activity=CustomerActivity(
-                activities=[
-                    Activity(
-                        action="action_example",
-                        channel="channel_example",
-                        metric="metric_example",
-                        storefront_oid=1,
-                        subject="subject_example",
-                        ts=1,
-                        type="type_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                global_unsubscribed=True,
-                global_unsubscribed_dts="global_unsubscribed_dts_example",
-                memberships=[
-                    ListSegmentMembership(
-                        name="name_example",
-                        type="type_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                metrics=[
-                    Metric(
-                        all_time=3.14,
-                        all_time_formatted="all_time_formatted_example",
-                        last_30=3.14,
-                        last_30_formatted="last_30_formatted_example",
-                        name="name_example",
-                        prior_30=3.14,
-                        prior_30_formatted="prior_30_formatted_example",
-                        type="type_example",
-                    ),
-                ],
-                properties_list=[
-                    ModelProperty(
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                spam_complaint=True,
-                spam_complaint_dts="spam_complaint_dts_example",
-            ),
-            affiliate_oid=1,
-            allow_3rd_party_billing=True,
-            allow_cod=True,
-            allow_drop_shipping=True,
-            allow_purchase_order=True,
-            allow_quote_request=True,
-            allow_selection_of_address_type=True,
-            attachments=[
-                CustomerAttachment(
-                    customer_profile_attachment_oid=1,
-                    description="description_example",
-                    file_name="file_name_example",
-                    mime_type="mime_type_example",
-                    upload_dts="upload_dts_example",
-                ),
-            ],
-            auto_approve_cod=True,
-            auto_approve_purchase_order=True,
-            automatic_merchant_notes="automatic_merchant_notes_example",
-            billing=[
-                CustomerBilling(
-                    address1="address1_example",
-                    address2="address2_example",
-                    city="city_example",
-                    company="company_example",
-                    country_code="country_code_example",
-                    customer_billing_oid=1,
-                    customer_profile_oid=1,
-                    day_phone="day_phone_example",
-                    default_billing=True,
-                    evening_phone="evening_phone_example",
-                    first_name="first_name_example",
-                    last_name="last_name_example",
-                    last_used_dts="last_used_dts_example",
-                    postal_code="postal_code_example",
-                    state_region="state_region_example",
-                    tax_county="tax_county_example",
-                    title="title_example",
-                ),
-            ],
-            business_notes="business_notes_example",
-            cards=[
-                CustomerCard(
-                    card_expiration_month=1,
-                    card_expiration_year=1,
-                    card_number="card_number_example",
-                    card_number_token="card_number_token_example",
-                    card_type="card_type_example",
-                    customer_profile_credit_card_id=1,
-                    customer_profile_oid=1,
-                    last_used_dts="last_used_dts_example",
-                ),
-            ],
-            cc_emails=[
-                CustomerEmail(
-                    customer_profile_email_oid=1,
-                    email="email_example",
-                    label="label_example",
-                    receipt_notification=True,
-                    refund_notification=True,
-                    shipment_notification=True,
-                ),
-            ],
-            customer_profile_oid=1,
-            dhl_account_number="dhl_account_number_example",
-            dhl_duty_account_number="dhl_duty_account_number_example",
-            do_not_send_mail=True,
-            edi=CustomerEDI(
-                channel_partner_oid=1,
-                distribution_center_number="distribution_center_number_example",
-                store_number="store_number_example",
-            ),
-            email="email_example",
-            exempt_shipping_handling_charge=True,
-            fedex_account_number="fedex_account_number_example",
-            free_shipping=True,
-            free_shipping_minimum=3.14,
-            last_modified_by="last_modified_by_example",
-            last_modified_dts="last_modified_dts_example",
-            loyalty=CustomerLoyalty(
-                current_points=1,
-                internal_gift_certificate=GiftCertificate(
-                    activated=True,
-                    code="code_example",
-                    customer_profile_oid=1,
-                    deleted=True,
-                    email="email_example",
-                    expiration_dts="expiration_dts_example",
-                    gift_certificate_oid=1,
-                    internal=True,
-                    ledger_entries=[
-                        GiftCertificateLedgerEntry(
-                            amount=3.14,
-                            description="description_example",
-                            entry_dts="entry_dts_example",
-                            gift_certificate_ledger_oid=1,
-                            gift_certificate_oid=1,
-                            reference_order_id="reference_order_id_example",
-                        ),
-                    ],
-                    merchant_id="merchant_id_example",
-                    merchant_note="merchant_note_example",
-                    original_balance=3.14,
-                    reference_order_id="reference_order_id_example",
-                    remaining_balance=3.14,
-                ),
-                internal_gift_certificate_balance="internal_gift_certificate_balance_example",
-                internal_gift_certificate_oid=1,
-                ledger_entries=[
-                    CustomerLoyaltyLedger(
-                        created_by="created_by_example",
-                        created_dts="created_dts_example",
-                        description="description_example",
-                        email="email_example",
-                        item_id="item_id_example",
-                        item_index=1,
-                        ledger_dts="ledger_dts_example",
-                        loyalty_campaign_oid=1,
-                        loyalty_ledger_oid=1,
-                        loyalty_points=1,
-                        modified_by="modified_by_example",
-                        modified_dts="modified_dts_example",
-                        order_id="order_id_example",
-                        quantity=1,
-                        vesting_dts="vesting_dts_example",
-                    ),
-                ],
-                pending_points=1,
-                redemptions=[
-                    CustomerLoyaltyRedemption(
-                        coupon_code="coupon_code_example",
-                        coupon_code_oid=1,
-                        coupon_used=True,
-                        description_for_customer="description_for_customer_example",
-                        expiration_dts="expiration_dts_example",
-                        gift_certificate_code="gift_certificate_code_example",
-                        gift_certificate_oid=1,
-                        loyalty_ledger_oid=1,
-                        loyalty_points=1,
-                        loyalty_redemption_oid=1,
-                        order_id="order_id_example",
-                        redemption_dts="redemption_dts_example",
-                        remaining_balance=3.14,
-                    ),
-                ],
-            ),
-            maximum_item_count=1,
-            merchant_id="merchant_id_example",
-            minimum_item_count=1,
-            minimum_subtotal=3.14,
-            no_coupons=True,
-            no_free_shipping=True,
-            no_realtime_charge=True,
-            orders=[
-                Order(),
-            ],
-            orders_summary=CustomerOrdersSummary(
-                first_order_dts="first_order_dts_example",
-                last_order_dts="last_order_dts_example",
-                order_count=1,
-                total=3.14,
-            ),
-            password="password_example",
-            pricing_tiers=[
-                CustomerPricingTier(
-                    name="name_example",
-                    pricing_tier_oid=1,
-                ),
-            ],
-            privacy=CustomerPrivacy(
-                last_update_dts="last_update_dts_example",
-                marketing=True,
-                preference=True,
-                statistics=True,
-            ),
-            properties=[
-                CustomerProperty(
-                    customer_profile_property_oid=1,
-                    expiration_dts="expiration_dts_example",
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            qb_class="qb_class_example",
-            qb_code="qb_code_example",
-            qb_tax_exemption_reason_code=1,
-            quotes=[
-                Order(),
-            ],
-            quotes_summary=CustomerQuotesSummary(
-                first_quote_dts="first_quote_dts_example",
-                last_quote_dts="last_quote_dts_example",
-                quote_count=1,
-                total=3.14,
-            ),
-            referral_source="referral_source_example",
-            reviewer=CustomerReviewer(
-                auto_approve=True,
-                average_overall_rating=3.14,
-                expert=True,
-                first_review="first_review_example",
-                last_review="last_review_example",
-                location="location_example",
-                nickname="nickname_example",
-                number_helpful_review_votes=1,
-                rank=1,
-                reviews_contributed=1,
-            ),
-            sales_rep_code="sales_rep_code_example",
-            send_signup_notification=True,
-            shipping=[
-                CustomerShipping(
-                    address1="address1_example",
-                    address2="address2_example",
-                    city="city_example",
-                    company="company_example",
-                    country_code="country_code_example",
-                    customer_profile_oid=1,
-                    customer_shipping_oid=1,
-                    day_phone="day_phone_example",
-                    default_shipping=True,
-                    evening_phone="evening_phone_example",
-                    first_name="first_name_example",
-                    last_name="last_name_example",
-                    last_used_dts="last_used_dts_example",
-                    postal_code="postal_code_example",
-                    state_region="state_region_example",
-                    tax_county="tax_county_example",
-                    title="title_example",
-                ),
-            ],
-            signup_dts="signup_dts_example",
-            software_entitlements=[
-                CustomerSoftwareEntitlement(
-                    activation_code="activation_code_example",
-                    activation_dts="activation_dts_example",
-                    customer_software_entitlement_oid=1,
-                    expiration_dts="expiration_dts_example",
-                    purchased_via_item_description="purchased_via_item_description_example",
-                    purchased_via_item_id="purchased_via_item_id_example",
-                    purchased_via_order_id="purchased_via_order_id_example",
-                    software_sku="software_sku_example",
-                ),
-            ],
-            suppress_buysafe=True,
-            tags=[
-                CustomerTag(
-                    tag_value="tag_value_example",
-                ),
-            ],
-            tax_codes=CustomerTaxCodes(
-                avalara_customer_code="avalara_customer_code_example",
-                avalara_entity_use_code="avalara_entity_use_code_example",
-                sovos_customer_code="sovos_customer_code_example",
-                taxjar_customer_id="taxjar_customer_id_example",
-                taxjar_exemption_type="taxjar_exemption_type_example",
-            ),
-            tax_exempt=True,
-            tax_id="tax_id_example",
-            terms="terms_example",
-            track_separately=True,
-            unapproved=True,
-            ups_account_number="ups_account_number_example",
-            website_url="website_url_example",
-        ),
-        digital_order=OrderDigitalOrder(
-            creation_dts="creation_dts_example",
-            expiration_dts="expiration_dts_example",
-            items=[
-                OrderDigitalItem(
-                    file_size=1,
-                    last_download="last_download_example",
-                    last_download_ip_address="last_download_ip_address_example",
-                    original_filename="original_filename_example",
-                    product_code="product_code_example",
-                    product_description="product_description_example",
-                    remaining_downloads=1,
-                    url="url_example",
-                ),
-            ],
-            url="url_example",
-            url_id="url_id_example",
-        ),
-        edi=OrderEdi(
-            bill_to_edi_code="bill_to_edi_code_example",
-            edi_department="edi_department_example",
-            edi_internal_vendor_number="edi_internal_vendor_number_example",
-            ship_to_edi_code="ship_to_edi_code_example",
-        ),
-        exchange_rate=3.14,
-        fraud_score=OrderFraudScore(
-            anonymous_proxy=True,
-            bin_match="NA",
-            carder_email=True,
-            country_code="country_code_example",
-            country_match=True,
-            customer_phone_in_billing_location="customer_phone_in_billing_location_example",
-            distance_km=1,
-            free_email=True,
-            high_risk_country=True,
-            ip_city="ip_city_example",
-            ip_isp="ip_isp_example",
-            ip_latitude="ip_latitude_example",
-            ip_longitude="ip_longitude_example",
-            ip_org="ip_org_example",
-            ip_region="ip_region_example",
-            proxy_score=3.14,
-            score=3.14,
-            ship_forwarder=True,
-            spam_score=3.14,
-            transparent_proxy=True,
-        ),
-        gift=OrderGift(
-            gift=True,
-            gift_charge=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_charge_accounting_code="gift_charge_accounting_code_example",
-            gift_charge_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_email="gift_email_example",
-            gift_message="gift_message_example",
-            gift_wrap_accounting_code="gift_wrap_accounting_code_example",
-            gift_wrap_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_wrap_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_wrap_title="gift_wrap_title_example",
-        ),
-        gift_certificate=OrderGiftCertificate(
-            gift_certificate_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_certificate_code="gift_certificate_code_example",
-            gift_certificate_oid=1,
-        ),
-        internal=OrderInternal(
-            exported_to_accounting=True,
-            merchant_notes="merchant_notes_example",
-            placed_by_user="placed_by_user_example",
-            refund_by_user="refund_by_user_example",
-            sales_rep_code="sales_rep_code_example",
-            transactional_merchant_notes=[
-                OrderTransactionalMerchantNote(
-                    ip_address="ip_address_example",
-                    note="note_example",
-                    note_dts="note_dts_example",
-                    user="user_example",
-                ),
-            ],
-        ),
-        items=[
-            OrderItem(
-                accounting_code="accounting_code_example",
-                activation_codes=[
-                    "activation_codes_example",
-                ],
-                actual_cogs=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                arbitrary_unit_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                auto_order_last_rebill_dts="auto_order_last_rebill_dts_example",
-                auto_order_schedule="auto_order_schedule_example",
-                barcode="barcode_example",
-                barcode_gtin12="barcode_gtin12_example",
-                barcode_gtin14="barcode_gtin14_example",
-                barcode_upc11="barcode_upc11_example",
-                barcode_upc12="barcode_upc12_example",
-                channel_partner_item_id="channel_partner_item_id_example",
-                cogs=3.14,
-                component_unit_value=3.14,
-                cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                country_code_of_origin="country_code_of_origin_example",
-                customs_description="customs_description_example",
-                description="description_example",
-                discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                discount_quantity=3.14,
-                discount_shipping_weight=Weight(
-                    uom="KG",
-                    value=3.14,
-                ),
-                distribution_center_code="distribution_center_code_example",
-                edi=OrderItemEdi(
-                    identifications=[
-                        OrderItemEdiIdentification(
-                            identification="identification_example",
-                            quantity=1,
-                        ),
-                    ],
-                    lots=[
-                        OrderItemEdiLot(
-                            lot_expiration="lot_expiration_example",
-                            lot_number="lot_number_example",
-                            lot_quantity=1,
-                        ),
-                    ],
-                ),
-                exclude_coupon=True,
-                free_shipping=True,
-                hazmat=True,
-                height=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-                item_index=1,
-                item_reference_oid=1,
-                kit=True,
-                kit_component=True,
-                length=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-                manufacturer_sku="manufacturer_sku_example",
-                max_days_time_in_transit=1,
-                merchant_item_id="merchant_item_id_example",
-                mix_and_match_group_name="mix_and_match_group_name_example",
-                mix_and_match_group_oid=1,
-                no_shipping_discount=True,
-                options=[
-                    OrderItemOption(
-                        additional_dimension_application="none",
-                        cost_change=Currency(
-                            currency_code="currency_code_example",
-                            exchange_rate=3.14,
-                            localized=3.14,
-                            localized_formatted="localized_formatted_example",
-                            value=3.14,
-                        ),
-                        file_attachment=OrderItemOptionFileAttachment(
-                            expiration_dts="expiration_dts_example",
-                            file_name="file_name_example",
-                            mime_type="mime_type_example",
-                            size=1,
-                        ),
-                        height=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        hidden=True,
-                        label="label_example",
-                        length=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        one_time_fee=True,
-                        value="value_example",
-                        weight_change=Weight(
-                            uom="KG",
-                            value=3.14,
-                        ),
-                        width=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                    ),
-                ],
-                packed_by_user="packed_by_user_example",
-                parent_item_index=1,
-                parent_merchant_item_id="parent_merchant_item_id_example",
-                perishable_class="perishable_class_example",
-                pricing_tier_name="pricing_tier_name_example",
-                properties=[
-                    OrderItemProperty(
-                        display=True,
-                        expiration_dts="expiration_dts_example",
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                quantity=3.14,
-                quantity_refunded=3.14,
-                quickbooks_class="quickbooks_class_example",
-                refund_reason="refund_reason_example",
-                return_reason="return_reason_example",
-                ship_separately=True,
-                shipped_by_user="shipped_by_user_example",
-                shipped_dts="shipped_dts_example",
-                shipping_status="shipping_status_example",
-                special_product_type="special_product_type_example",
-                tags=[
-                    OrderItemTag(
-                        tag_value="tag_value_example",
-                    ),
-                ],
-                tax_free=True,
-                tax_product_type="",
-                taxable_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total_cost_with_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                transmitted_to_distribution_center_dts="transmitted_to_distribution_center_dts_example",
-                unit_cost_with_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                upsell=True,
-                weight=Weight(
-                    uom="KG",
-                    value=3.14,
-                ),
-                width=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-            ),
-        ],
-        language_iso_code="language_iso_code_example",
-        linked_shipment=OrderLinkedShipment(
-            has_linked_shipment=True,
-            linked_shipment=True,
-            linked_shipment_channel_partner_order_ids=[
-                "linked_shipment_channel_partner_order_ids_example",
-            ],
-            linked_shipment_order_ids=[
-                "linked_shipment_order_ids_example",
-            ],
-            linked_shipment_to_order_id="linked_shipment_to_order_id_example",
-        ),
-        marketing=OrderMarketing(
-            advertising_source="advertising_source_example",
-            cell_phone_opt_in=True,
-            mailing_list=True,
-            referral_code="referral_code_example",
-        ),
-        merchant_id="merchant_id_example",
-        order_id="order_id_example",
-        payment=OrderPayment(
-            check=OrderPaymentCheck(
-                check_number="check_number_example",
-            ),
-            credit_card=OrderPaymentCreditCard(
-                card_auth_ticket="card_auth_ticket_example",
-                card_authorization_amount=3.14,
-                card_authorization_dts="card_authorization_dts_example",
-                card_authorization_reference_number="card_authorization_reference_number_example",
-                card_expiration_month=1,
-                card_expiration_year=1,
-                card_number="card_number_example",
-                card_number_token="card_number_token_example",
-                card_number_truncated=True,
-                card_type="AMEX",
-                card_verification_number_token="card_verification_number_token_example",
-                dual_vaulted=OrderPaymentCreditCardDualVaulted(
-                    gateway_name="gateway_name_example",
-                    properties=[
-                        OrderPaymentCreditCardDualVaultedProperty(
-                            name="name_example",
-                            value="value_example",
-                        ),
-                    ],
-                    rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-                ),
-            ),
-            echeck=OrderPaymentECheck(
-                bank_aba_code="bank_aba_code_example",
-                bank_account_name="bank_account_name_example",
-                bank_account_number="bank_account_number_example",
-                bank_account_type="Checking",
-                bank_name="bank_name_example",
-                bank_owner_type="Personal",
-                customer_tax_id="customer_tax_id_example",
-                drivers_license_dob="drivers_license_dob_example",
-                drivers_license_number="drivers_license_number_example",
-                drivers_license_state="drivers_license_state_example",
-            ),
-            health_benefit_card=OrderPaymentHealthBenefitCard(
-                health_benefit_card_expiration_month=1,
-                health_benefit_card_expiration_year=1,
-                health_benefit_card_number="health_benefit_card_number_example",
-                health_benefit_card_number_token="health_benefit_card_number_token_example",
-                health_benefit_card_number_truncated=True,
-                health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
-            ),
-            hold_for_fraud_review=True,
-            insurance=OrderPaymentInsurance(
-                application_id="application_id_example",
-                claim_id="claim_id_example",
-                insurance_type="insurance_type_example",
-                refund_claim_id="refund_claim_id_example",
-            ),
-            payment_dts="payment_dts_example",
-            payment_method="Affirm",
-            payment_method_accounting_code="payment_method_accounting_code_example",
-            payment_method_deposit_to_account="payment_method_deposit_to_account_example",
-            payment_status="Unprocessed",
-            paypal=OrderPaymentPayPal(
-                customer_id="customer_id_example",
-                vault_id="vault_id_example",
-            ),
-            purchase_order=OrderPaymentPurchaseOrder(
-                purchase_order_number="purchase_order_number_example",
-            ),
-            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-            surcharge=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            surcharge_accounting_code="surcharge_accounting_code_example",
-            surcharge_transaction_fee=3.14,
-            surcharge_transaction_percentage=3.14,
-            test_order=True,
-            transactions=[
-                OrderPaymentTransaction(
-                    details=[
-                        OrderPaymentTransactionDetail(
-                            name="name_example",
-                            type="type_example",
-                            value="value_example",
-                        ),
-                    ],
-                    successful=True,
-                    transaction_gateway="transaction_gateway_example",
-                    transaction_id=1,
-                    transaction_timestamp="transaction_timestamp_example",
-                ),
-            ],
-        ),
-        point_of_sale=OrderPointOfSale(
-            location=PointOfSaleLocation(
-                adddress2="adddress2_example",
-                address1="address1_example",
-                city="city_example",
-                country="country_example",
-                distribution_center_code="distribution_center_code_example",
-                external_id="external_id_example",
-                merchant_id="merchant_id_example",
-                pos_location_oid=1,
-                postal_code="postal_code_example",
-                state_province="state_province_example",
-            ),
-            reader=PointOfSaleReader(
-                device_type="device_type_example",
-                label="label_example",
-                merchant_id="merchant_id_example",
-                payment_provider="stripe",
-                pos_reader_id=1,
-                pos_register_oid=1,
-                serial_number="serial_number_example",
-                stripe_account_id="stripe_account_id_example",
-                stripe_reader_id="stripe_reader_id_example",
-            ),
-            register=PointOfSaleRegister(
-                merchant_id="merchant_id_example",
-                name="name_example",
-                pos_location_oid=1,
-                pos_register_oid=1,
-            ),
-        ),
-        properties=[
-            OrderProperty(
-                created_by="created_by_example",
-                created_dts="created_dts_example",
-                display=True,
-                expiration_dts="expiration_dts_example",
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        quote=OrderQuote(
-            quote_expiration_dts="quote_expiration_dts_example",
-            quoted_by="quoted_by_example",
-            quoted_dts="quoted_dts_example",
-        ),
-        refund_dts="refund_dts_example",
-        refund_reason="refund_reason_example",
-        reject_dts="reject_dts_example",
-        reject_reason="reject_reason_example",
-        salesforce=OrderSalesforce(
-            salesforce_opportunity_id="salesforce_opportunity_id_example",
-        ),
-        shipping=OrderShipping(
-            address1="address1_example",
-            address2="address2_example",
-            city="city_example",
-            company="company_example",
-            country_code="country_code_example",
-            day_phone="day_phone_example",
-            day_phone_e164="day_phone_e164_example",
-            delivery_date="delivery_date_example",
-            evening_phone="evening_phone_example",
-            evening_phone_e164="evening_phone_e164_example",
-            first_name="first_name_example",
-            last_name="last_name_example",
-            least_cost_route=True,
-            least_cost_route_shipping_methods=[
-                "least_cost_route_shipping_methods_example",
-            ],
-            lift_gate=True,
-            pickup_dts="pickup_dts_example",
-            postal_code="postal_code_example",
-            rma="rma_example",
-            ship_on_date="ship_on_date_example",
-            ship_to_residential=True,
-            shipping_3rd_party_account_number="shipping_3rd_party_account_number_example",
-            shipping_date="shipping_date_example",
-            shipping_department_status="shipping_department_status_example",
-            shipping_method="shipping_method_example",
-            shipping_method_accounting_code="shipping_method_accounting_code_example",
-            special_instructions="special_instructions_example",
-            state_region="state_region_example",
-            title="title_example",
-            tracking_number_details=[
-                OrderTrackingNumberDetails(
-                    actual_delivery_date="actual_delivery_date_example",
-                    actual_delivery_date_formatted="actual_delivery_date_formatted_example",
-                    details=[
-                        OrderTrackingNumberDetail(
-                            city="city_example",
-                            event_dts="event_dts_example",
-                            event_local_date="event_local_date_example",
-                            event_local_time="event_local_time_example",
-                            event_timezone_id="event_timezone_id_example",
-                            state="state_example",
-                            subtag="subtag_example",
-                            subtag_message="subtag_message_example",
-                            tag="tag_example",
-                            tag_description="tag_description_example",
-                            tag_icon="tag_icon_example",
-                            zip="zip_example",
-                        ),
-                    ],
-                    easypost_tracker_id="easypost_tracker_id_example",
-                    expected_delivery_date="expected_delivery_date_example",
-                    expected_delivery_date_formatted="expected_delivery_date_formatted_example",
-                    map_url="map_url_example",
-                    order_placed_date="order_placed_date_example",
-                    order_placed_date_formatted="order_placed_date_formatted_example",
-                    payment_processed_date="payment_processed_date_example",
-                    payment_processed_date_formatted="payment_processed_date_formatted_example",
-                    shipped_date="shipped_date_example",
-                    shipped_date_formatted="shipped_date_formatted_example",
-                    shipping_method="shipping_method_example",
-                    status="status_example",
-                    status_description="status_description_example",
-                    tracking_number="tracking_number_example",
-                    tracking_url="tracking_url_example",
-                ),
-            ],
-            tracking_numbers=[
-                "tracking_numbers_example",
-            ],
-            weight=Weight(
-                uom="KG",
-                value=3.14,
-            ),
-        ),
-        summary=OrderSummary(
-            actual_fulfillment=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_other_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_payment_processing=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_profit=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_profit_analyzed=True,
-            actual_profit_review=True,
-            actual_shipping=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            arbitrary_shipping_handling_total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            health_benefit_card_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            health_benefit_card_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            internal_gift_certificate_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            internal_gift_certificate_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            other_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_total_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_discount_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            tax=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            tax_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            taxable_subtotal=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            taxable_subtotal_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            total_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-        ),
-        tags=[
-            OrderTag(
-                tag_value="tag_value_example",
-            ),
-        ],
-        taxes=OrderTaxes(
-            arbitrary_tax=3.14,
-            arbitrary_tax_rate=3.14,
-            arbitrary_taxable_subtotal=3.14,
-            tax_city_accounting_code="tax_city_accounting_code_example",
-            tax_country_accounting_code="tax_country_accounting_code_example",
-            tax_county="tax_county_example",
-            tax_county_accounting_code="tax_county_accounting_code_example",
-            tax_gift_charge=True,
-            tax_postal_code_accounting_code="tax_postal_code_accounting_code_example",
-            tax_rate=3.14,
-            tax_rate_city=3.14,
-            tax_rate_country=3.14,
-            tax_rate_county=3.14,
-            tax_rate_postal_code=3.14,
-            tax_rate_state=3.14,
-            tax_shipping=True,
-            tax_state_accounting_code="tax_state_accounting_code_example",
-        ),
-        utms=[
-            OrderUtm(
-                attribution_first_click_subtotal=3.14,
-                attribution_first_click_total=3.14,
-                attribution_last_click_subtotal=3.14,
-                attribution_last_click_total=3.14,
-                attribution_linear_subtotal=3.14,
-                attribution_linear_total=3.14,
-                attribution_position_based_subtotal=3.14,
-                attribution_position_based_total=3.14,
-                click_dts="click_dts_example",
-                facebook_ad_id="facebook_ad_id_example",
-                fbclid="fbclid_example",
-                gbraid="gbraid_example",
-                glcid="glcid_example",
-                itm_campaign="itm_campaign_example",
-                itm_content="itm_content_example",
-                itm_id="itm_id_example",
-                itm_medium="itm_medium_example",
-                itm_source="itm_source_example",
-                itm_term="itm_term_example",
-                msclkid="msclkid_example",
-                short_code="short_code_example",
-                short_code_backup=True,
-                ttclid="ttclid_example",
-                uc_message_id="uc_message_id_example",
-                utm_campaign="utm_campaign_example",
-                utm_content="utm_content_example",
-                utm_id="utm_id_example",
-                utm_medium="utm_medium_example",
-                utm_source="utm_source_example",
-                utm_term="utm_term_example",
-                vmcid="vmcid_example",
-                wbraid="wbraid_example",
-            ),
-        ],
-    ) # Order | Order to insert
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert an order
-        api_response = api_instance.insert_order(order)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->insert_order: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Insert an order
-        api_response = api_instance.insert_order(order, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->insert_order: %s\n" % e)
+"""
+ * Please do not use OrderApi.insertOrder()
+ * This method was provided in the first release of our REST API.
+ * It was replaced with our ChannelPartnerApi.importChannelPartnerOrder()
+ *
+ * Here are your options:
+ * If you need to add regular orders that still require payment processing, use the CheckoutApi.
+ *    The CheckoutApi has fantastic support for payment processing.
+ *
+ * If you need to add channel partner orders (eBay, Amazon, your call center, etc), use the ChannelPartnerApi.
+ *    The ChannelPartnerApi has appropriate support for processing such orders.
+ *
+ * We support our entire API forever, so this method remains active.  But, we do not provide any samples for it.
+ * You may use it, but we believe it will require extra time and effort and possibly much frustration.
+ *
+ * Reminder: The ONLY way to provide credit card numbers and cvv numbers to the UltraCart system is through
+ * hosted fields.
+ * See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377775/UltraCart+Hosted+Credit+Card+Fields
+ * See: https://github.com/UltraCart/sdk_samples/blob/master/hosted_fields/hosted_fields.html
+"""
 ```
+
 
 
 ### Parameters
@@ -2856,30 +1654,36 @@ Determine if an order can be refunded based upon payment method and age
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order_refundable_response import OrderRefundableResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+import logging
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Enable error logging
+logging.basicConfig(level=logging.DEBUG)
 
-api_instance = GiftCertificateApi(api_client())
+# isRefundable queries the UltraCart system whether an order is refundable or not.
+# In addition to a simple boolean response, UltraCart also returns back any reasons why
+# an order is not refundable.
+# Finally, the response also contains any refund or return reasons configured on the account
+# in the event that this merchant account is configured to require a reason for a return or refund.
 
-    order_id = "order_id_example" # str | The order id to check for refundable order.
+# Using the API key to initialize the order API
+order_api = OrderApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Determine if an order can be refunded
-        api_response = api_instance.is_refundable_order(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->is_refundable_order: %s\n" % e)
+order_id = 'DEMO-0009104976'
+
+try:
+    api_response = order_api.is_refundable_order(order_id)
+except ApiException as e:
+    logging.error(f"Exception when calling OrderApi->is_refundable_order: {e}")
+    exit()
+
+# This could get verbose...
+import pprint
+pprint.pprint(api_response)
 ```
+
 
 
 ### Parameters
@@ -2928,35 +1732,100 @@ Process payment on order
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order_process_payment_request import OrderProcessPaymentRequest
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_process_payment_response import OrderProcessPaymentResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+import logging
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from ultracart.models import OrderItem, Currency, Weight, OrderProcessPaymentRequest
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Enable error logging
+logging.basicConfig(level=logging.DEBUG)
 
-api_instance = GiftCertificateApi(api_client())
+# OrderApi.processPayment() was designed to charge a customer for an order. It was created to work in tandem with
+# duplicateOrder(), which does not accomplish payment on its own. The use-case for this method is to
+# duplicate a customer's order and then charge them for it. duplicateOrder() does not charge the customer again,
+# which is why processPayment() exists.
+#
+# These are the steps for cloning an existing order and charging the customer for it.
+# 1. duplicateOrder
+# 2. updateOrder (if you wish to change any part of it)
+# 3. processPayment to charge the customer.
+#
+# As a reminder, if you wish to create a new order from scratch, use the CheckoutApi or ChannelPartnerApi.
+# The OrderApi is for managing existing orders.
 
-    order_id = "order_id_example" # str | The order id to process payment on
-    process_payment_request = OrderProcessPaymentRequest(
-        amount=3.14,
-        card_verification_number_token="card_verification_number_token_example",
-    ) # OrderProcessPaymentRequest | Process payment parameters
+# Using the API key to initialize the order API
+order_api = OrderApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Process payment
-        api_response = api_instance.process_payment(order_id, process_payment_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->process_payment: %s\n" % e)
+expand = "items"   # For this example, we're going to change the items after we duplicate the order, so
+# the only expansion properties we need are the items.
+# See: https://www.ultracart.com/api/ for a list of all expansions.
+
+# Step 1. Duplicate the order
+order_id_to_duplicate = 'DEMO-0009104436'
+try:
+    api_response = order_api.duplicate_order(order_id_to_duplicate, expand=expand)
+except ApiException as e:
+    logging.error(f"Exception when calling OrderApi->duplicate_order: {e}")
+    exit()
+
+new_order = api_response.order
+
+# Step 2. Update the items. I will create a new items array and assign it to the order to remove the old ones completely.
+items = []
+item = OrderItem()
+item.merchant_item_id = 'simple_teapot'
+item.quantity = 1
+item.description = "A lovely teapot"
+item.distribution_center_code = 'DFLT'  # Where is this item shipping out of?
+
+cost = Currency()
+cost.currency_code = 'USD'
+cost.value = 9.99
+item.cost = cost
+
+weight = Weight()
+weight.uom = "OZ"
+weight.value = 6
+item.weight = weight
+
+items.append(item)
+new_order.items = items
+
+try:
+    update_response = order_api.update_order(new_order.order_id, new_order, expand=expand)
+except ApiException as e:
+    logging.error(f"Exception when calling OrderApi->update_order: {e}")
+    exit()
+
+updated_order = update_response.order
+
+# Step 3. Process the payment.
+# The request object below takes two optional arguments.
+# The first is an amount if you wish to bill for an amount different from the order.
+# We do not bill differently in this example.
+# The second is card_verification_number_token, which is a token you can create by using our hosted fields to
+# upload a CVV value. This will create a token you may use here. However, most merchants using the duplicate
+# order method will be setting up an auto order for a customer. Those will not make use of the CVV, so we're
+# not including it here. That is why the request object below is does not have any values set.
+
+process_payment_request = OrderProcessPaymentRequest()
+try:
+    payment_response = order_api.process_payment(new_order.order_id, process_payment_request)
+except ApiException as e:
+    logging.error(f"Exception when calling OrderApi->process_payment: {e}")
+    exit()
+
+transaction_details = payment_response.payment_transaction  # Do whatever you wish with this.
+
+# This could get verbose...
+import pprint
+print("New Order (after updated items):")
+pprint.pprint(updated_order)
+print("\nPayment Response:")
+pprint.pprint(payment_response)
 ```
+
 
 
 ### Parameters
@@ -3006,1340 +1875,68 @@ Perform a refund operation on an order and then update the order if successful. 
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order import Order
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+import logging
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from ultracart.models import OrderItem
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Enable error logging
+logging.basicConfig(level=logging.DEBUG)
 
-api_instance = GiftCertificateApi(api_client())
+# refundOrder() allows for both partial and complete refunds. Both are accomplished with the same steps.
+# 1) Retrieve an order object using the SDK.
+# 2) Input the refunded quantities for any or all items.
+# 3) Call refundOrder, passing in the modified object.
+# 4) To do a full refund, set all item refund quantities to their purchased quantities.
+#
+# This example will perform a full refund.
 
-    order_id = "order_id_example" # str | The order id to refund.
-    order = Order(
-        affiliates=[
-            OrderAffiliate(
-                affiliate_oid=1,
-                ledger_entries=[
-                    OrderAffiliateLedger(
-                        assigned_by_user="assigned_by_user_example",
-                        item_id="item_id_example",
-                        tier_number=1,
-                        transaction_amount=3.14,
-                        transaction_amount_paid=3.14,
-                        transaction_dts="transaction_dts_example",
-                        transaction_memo="transaction_memo_example",
-                        transaction_percentage=3.14,
-                        transaction_state="Pending",
-                    ),
-                ],
-                sub_id="sub_id_example",
-            ),
-        ],
-        auto_order=OrderAutoOrder(
-            auto_order_code="auto_order_code_example",
-            auto_order_oid=1,
-            cancel_after_next_x_orders=1,
-            cancel_downgrade=True,
-            cancel_reason="cancel_reason_example",
-            cancel_upgrade=True,
-            canceled_by_user="canceled_by_user_example",
-            canceled_dts="canceled_dts_example",
-            completed=True,
-            credit_card_attempt=1,
-            disabled_dts="disabled_dts_example",
-            enabled=True,
-            failure_reason="failure_reason_example",
-            items=[
-                AutoOrderItem(
-                    arbitrary_item_id="arbitrary_item_id_example",
-                    arbitrary_percentage_discount=3.14,
-                    arbitrary_quantity=3.14,
-                    arbitrary_schedule_days=1,
-                    arbitrary_unit_cost=3.14,
-                    arbitrary_unit_cost_remaining_orders=1,
-                    auto_order_item_oid=1,
-                    calculated_next_shipment_dts="calculated_next_shipment_dts_example",
-                    first_order_dts="first_order_dts_example",
-                    frequency="Weekly",
-                    future_schedules=[
-                        AutoOrderItemFutureSchedule(
-                            item_id="item_id_example",
-                            rebill_count=1,
-                            shipment_dts="shipment_dts_example",
-                            unit_cost=3.14,
-                        ),
-                    ],
-                    last_order_dts="last_order_dts_example",
-                    life_time_value=3.14,
-                    next_item_id="next_item_id_example",
-                    next_preshipment_notice_dts="next_preshipment_notice_dts_example",
-                    next_shipment_dts="next_shipment_dts_example",
-                    no_order_after_dts="no_order_after_dts_example",
-                    number_of_rebills=1,
-                    options=[
-                        AutoOrderItemOption(
-                            label="label_example",
-                            value="value_example",
-                        ),
-                    ],
-                    original_item_id="original_item_id_example",
-                    original_quantity=3.14,
-                    paused=True,
-                    paypal_payer_id="paypal_payer_id_example",
-                    paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
-                    preshipment_notice_sent=True,
-                    rebill_value=3.14,
-                    remaining_repeat_count=1,
-                    simple_schedule=AutoOrderItemSimpleSchedule(
-                        frequency="Weekly",
-                        item_id="item_id_example",
-                        repeat_count=1,
-                    ),
-                ),
-            ],
-            next_attempt="next_attempt_example",
-            original_order_id="original_order_id_example",
-            override_affiliate_id=1,
-            rebill_orders=[
-                Order(),
-            ],
-            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-            status="active",
-        ),
-        billing=OrderBilling(
-            address1="address1_example",
-            address2="address2_example",
-            cc_emails=[
-                "cc_emails_example",
-            ],
-            cell_phone="cell_phone_example",
-            cell_phone_e164="cell_phone_e164_example",
-            city="city_example",
-            company="company_example",
-            country_code="country_code_example",
-            day_phone="day_phone_example",
-            day_phone_e164="day_phone_e164_example",
-            email="email_example",
-            evening_phone="evening_phone_example",
-            evening_phone_e164="evening_phone_e164_example",
-            first_name="first_name_example",
-            last_name="last_name_example",
-            postal_code="postal_code_example",
-            state_region="state_region_example",
-            title="title_example",
-        ),
-        buysafe=OrderBuysafe(
-            buysafe_bond_available=True,
-            buysafe_bond_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            buysafe_bond_free=True,
-            buysafe_bond_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            buysafe_bond_wanted=True,
-            buysafe_shopping_cart_id="buysafe_shopping_cart_id_example",
-        ),
-        channel_partner=OrderChannelPartner(
-            auto_approve_purchase_order=True,
-            channel_partner_code="channel_partner_code_example",
-            channel_partner_data="channel_partner_data_example",
-            channel_partner_oid=1,
-            channel_partner_order_id="channel_partner_order_id_example",
-            ignore_invalid_shipping_method=True,
-            no_realtime_payment_processing=True,
-            skip_payment_processing=True,
-            store_completed=True,
-            store_if_payment_declines=True,
-            treat_warnings_as_errors=True,
-        ),
-        checkout=OrderCheckout(
-            browser=Browser(
-                device=BrowserDevice(
-                    family="family_example",
-                ),
-                os=BrowserOS(
-                    family="family_example",
-                    major="major_example",
-                    minor="minor_example",
-                    patch="patch_example",
-                    patch_minor="patch_minor_example",
-                ),
-                user_agent=BrowserUserAgent(
-                    family="family_example",
-                    major="major_example",
-                    minor="minor_example",
-                    patch="patch_example",
-                ),
-            ),
-            comments="comments_example",
-            custom_field1="custom_field1_example",
-            custom_field10="custom_field10_example",
-            custom_field2="custom_field2_example",
-            custom_field3="custom_field3_example",
-            custom_field4="custom_field4_example",
-            custom_field5="custom_field5_example",
-            custom_field6="custom_field6_example",
-            custom_field7="custom_field7_example",
-            custom_field8="custom_field8_example",
-            custom_field9="custom_field9_example",
-            customer_ip_address="customer_ip_address_example",
-            screen_branding_theme_code="screen_branding_theme_code_example",
-            screen_size="screen_size_example",
-            storefront_host_name="storefront_host_name_example",
-            upsell_path_code="upsell_path_code_example",
-        ),
-        coupons=[
-            OrderCoupon(
-                accounting_code="accounting_code_example",
-                automatically_applied=True,
-                base_coupon_code="base_coupon_code_example",
-                coupon_code="coupon_code_example",
-                hdie_from_customer=True,
-            ),
-        ],
-        creation_dts="creation_dts_example",
-        currency_code="currency_code_example",
-        current_stage="Accounts Receivable",
-        current_stage_histories=[
-            OrderCurrentStageHistory(
-                after_stage="Accounts Receivable",
-                before_stage="Accounts Receivable",
-                transition_dts="transition_dts_example",
-            ),
-        ],
-        customer_profile=Customer(
-            activity=CustomerActivity(
-                activities=[
-                    Activity(
-                        action="action_example",
-                        channel="channel_example",
-                        metric="metric_example",
-                        storefront_oid=1,
-                        subject="subject_example",
-                        ts=1,
-                        type="type_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                global_unsubscribed=True,
-                global_unsubscribed_dts="global_unsubscribed_dts_example",
-                memberships=[
-                    ListSegmentMembership(
-                        name="name_example",
-                        type="type_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                metrics=[
-                    Metric(
-                        all_time=3.14,
-                        all_time_formatted="all_time_formatted_example",
-                        last_30=3.14,
-                        last_30_formatted="last_30_formatted_example",
-                        name="name_example",
-                        prior_30=3.14,
-                        prior_30_formatted="prior_30_formatted_example",
-                        type="type_example",
-                    ),
-                ],
-                properties_list=[
-                    ModelProperty(
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                spam_complaint=True,
-                spam_complaint_dts="spam_complaint_dts_example",
-            ),
-            affiliate_oid=1,
-            allow_3rd_party_billing=True,
-            allow_cod=True,
-            allow_drop_shipping=True,
-            allow_purchase_order=True,
-            allow_quote_request=True,
-            allow_selection_of_address_type=True,
-            attachments=[
-                CustomerAttachment(
-                    customer_profile_attachment_oid=1,
-                    description="description_example",
-                    file_name="file_name_example",
-                    mime_type="mime_type_example",
-                    upload_dts="upload_dts_example",
-                ),
-            ],
-            auto_approve_cod=True,
-            auto_approve_purchase_order=True,
-            automatic_merchant_notes="automatic_merchant_notes_example",
-            billing=[
-                CustomerBilling(
-                    address1="address1_example",
-                    address2="address2_example",
-                    city="city_example",
-                    company="company_example",
-                    country_code="country_code_example",
-                    customer_billing_oid=1,
-                    customer_profile_oid=1,
-                    day_phone="day_phone_example",
-                    default_billing=True,
-                    evening_phone="evening_phone_example",
-                    first_name="first_name_example",
-                    last_name="last_name_example",
-                    last_used_dts="last_used_dts_example",
-                    postal_code="postal_code_example",
-                    state_region="state_region_example",
-                    tax_county="tax_county_example",
-                    title="title_example",
-                ),
-            ],
-            business_notes="business_notes_example",
-            cards=[
-                CustomerCard(
-                    card_expiration_month=1,
-                    card_expiration_year=1,
-                    card_number="card_number_example",
-                    card_number_token="card_number_token_example",
-                    card_type="card_type_example",
-                    customer_profile_credit_card_id=1,
-                    customer_profile_oid=1,
-                    last_used_dts="last_used_dts_example",
-                ),
-            ],
-            cc_emails=[
-                CustomerEmail(
-                    customer_profile_email_oid=1,
-                    email="email_example",
-                    label="label_example",
-                    receipt_notification=True,
-                    refund_notification=True,
-                    shipment_notification=True,
-                ),
-            ],
-            customer_profile_oid=1,
-            dhl_account_number="dhl_account_number_example",
-            dhl_duty_account_number="dhl_duty_account_number_example",
-            do_not_send_mail=True,
-            edi=CustomerEDI(
-                channel_partner_oid=1,
-                distribution_center_number="distribution_center_number_example",
-                store_number="store_number_example",
-            ),
-            email="email_example",
-            exempt_shipping_handling_charge=True,
-            fedex_account_number="fedex_account_number_example",
-            free_shipping=True,
-            free_shipping_minimum=3.14,
-            last_modified_by="last_modified_by_example",
-            last_modified_dts="last_modified_dts_example",
-            loyalty=CustomerLoyalty(
-                current_points=1,
-                internal_gift_certificate=GiftCertificate(
-                    activated=True,
-                    code="code_example",
-                    customer_profile_oid=1,
-                    deleted=True,
-                    email="email_example",
-                    expiration_dts="expiration_dts_example",
-                    gift_certificate_oid=1,
-                    internal=True,
-                    ledger_entries=[
-                        GiftCertificateLedgerEntry(
-                            amount=3.14,
-                            description="description_example",
-                            entry_dts="entry_dts_example",
-                            gift_certificate_ledger_oid=1,
-                            gift_certificate_oid=1,
-                            reference_order_id="reference_order_id_example",
-                        ),
-                    ],
-                    merchant_id="merchant_id_example",
-                    merchant_note="merchant_note_example",
-                    original_balance=3.14,
-                    reference_order_id="reference_order_id_example",
-                    remaining_balance=3.14,
-                ),
-                internal_gift_certificate_balance="internal_gift_certificate_balance_example",
-                internal_gift_certificate_oid=1,
-                ledger_entries=[
-                    CustomerLoyaltyLedger(
-                        created_by="created_by_example",
-                        created_dts="created_dts_example",
-                        description="description_example",
-                        email="email_example",
-                        item_id="item_id_example",
-                        item_index=1,
-                        ledger_dts="ledger_dts_example",
-                        loyalty_campaign_oid=1,
-                        loyalty_ledger_oid=1,
-                        loyalty_points=1,
-                        modified_by="modified_by_example",
-                        modified_dts="modified_dts_example",
-                        order_id="order_id_example",
-                        quantity=1,
-                        vesting_dts="vesting_dts_example",
-                    ),
-                ],
-                pending_points=1,
-                redemptions=[
-                    CustomerLoyaltyRedemption(
-                        coupon_code="coupon_code_example",
-                        coupon_code_oid=1,
-                        coupon_used=True,
-                        description_for_customer="description_for_customer_example",
-                        expiration_dts="expiration_dts_example",
-                        gift_certificate_code="gift_certificate_code_example",
-                        gift_certificate_oid=1,
-                        loyalty_ledger_oid=1,
-                        loyalty_points=1,
-                        loyalty_redemption_oid=1,
-                        order_id="order_id_example",
-                        redemption_dts="redemption_dts_example",
-                        remaining_balance=3.14,
-                    ),
-                ],
-            ),
-            maximum_item_count=1,
-            merchant_id="merchant_id_example",
-            minimum_item_count=1,
-            minimum_subtotal=3.14,
-            no_coupons=True,
-            no_free_shipping=True,
-            no_realtime_charge=True,
-            orders=[
-                Order(),
-            ],
-            orders_summary=CustomerOrdersSummary(
-                first_order_dts="first_order_dts_example",
-                last_order_dts="last_order_dts_example",
-                order_count=1,
-                total=3.14,
-            ),
-            password="password_example",
-            pricing_tiers=[
-                CustomerPricingTier(
-                    name="name_example",
-                    pricing_tier_oid=1,
-                ),
-            ],
-            privacy=CustomerPrivacy(
-                last_update_dts="last_update_dts_example",
-                marketing=True,
-                preference=True,
-                statistics=True,
-            ),
-            properties=[
-                CustomerProperty(
-                    customer_profile_property_oid=1,
-                    expiration_dts="expiration_dts_example",
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            qb_class="qb_class_example",
-            qb_code="qb_code_example",
-            qb_tax_exemption_reason_code=1,
-            quotes=[
-                Order(),
-            ],
-            quotes_summary=CustomerQuotesSummary(
-                first_quote_dts="first_quote_dts_example",
-                last_quote_dts="last_quote_dts_example",
-                quote_count=1,
-                total=3.14,
-            ),
-            referral_source="referral_source_example",
-            reviewer=CustomerReviewer(
-                auto_approve=True,
-                average_overall_rating=3.14,
-                expert=True,
-                first_review="first_review_example",
-                last_review="last_review_example",
-                location="location_example",
-                nickname="nickname_example",
-                number_helpful_review_votes=1,
-                rank=1,
-                reviews_contributed=1,
-            ),
-            sales_rep_code="sales_rep_code_example",
-            send_signup_notification=True,
-            shipping=[
-                CustomerShipping(
-                    address1="address1_example",
-                    address2="address2_example",
-                    city="city_example",
-                    company="company_example",
-                    country_code="country_code_example",
-                    customer_profile_oid=1,
-                    customer_shipping_oid=1,
-                    day_phone="day_phone_example",
-                    default_shipping=True,
-                    evening_phone="evening_phone_example",
-                    first_name="first_name_example",
-                    last_name="last_name_example",
-                    last_used_dts="last_used_dts_example",
-                    postal_code="postal_code_example",
-                    state_region="state_region_example",
-                    tax_county="tax_county_example",
-                    title="title_example",
-                ),
-            ],
-            signup_dts="signup_dts_example",
-            software_entitlements=[
-                CustomerSoftwareEntitlement(
-                    activation_code="activation_code_example",
-                    activation_dts="activation_dts_example",
-                    customer_software_entitlement_oid=1,
-                    expiration_dts="expiration_dts_example",
-                    purchased_via_item_description="purchased_via_item_description_example",
-                    purchased_via_item_id="purchased_via_item_id_example",
-                    purchased_via_order_id="purchased_via_order_id_example",
-                    software_sku="software_sku_example",
-                ),
-            ],
-            suppress_buysafe=True,
-            tags=[
-                CustomerTag(
-                    tag_value="tag_value_example",
-                ),
-            ],
-            tax_codes=CustomerTaxCodes(
-                avalara_customer_code="avalara_customer_code_example",
-                avalara_entity_use_code="avalara_entity_use_code_example",
-                sovos_customer_code="sovos_customer_code_example",
-                taxjar_customer_id="taxjar_customer_id_example",
-                taxjar_exemption_type="taxjar_exemption_type_example",
-            ),
-            tax_exempt=True,
-            tax_id="tax_id_example",
-            terms="terms_example",
-            track_separately=True,
-            unapproved=True,
-            ups_account_number="ups_account_number_example",
-            website_url="website_url_example",
-        ),
-        digital_order=OrderDigitalOrder(
-            creation_dts="creation_dts_example",
-            expiration_dts="expiration_dts_example",
-            items=[
-                OrderDigitalItem(
-                    file_size=1,
-                    last_download="last_download_example",
-                    last_download_ip_address="last_download_ip_address_example",
-                    original_filename="original_filename_example",
-                    product_code="product_code_example",
-                    product_description="product_description_example",
-                    remaining_downloads=1,
-                    url="url_example",
-                ),
-            ],
-            url="url_example",
-            url_id="url_id_example",
-        ),
-        edi=OrderEdi(
-            bill_to_edi_code="bill_to_edi_code_example",
-            edi_department="edi_department_example",
-            edi_internal_vendor_number="edi_internal_vendor_number_example",
-            ship_to_edi_code="ship_to_edi_code_example",
-        ),
-        exchange_rate=3.14,
-        fraud_score=OrderFraudScore(
-            anonymous_proxy=True,
-            bin_match="NA",
-            carder_email=True,
-            country_code="country_code_example",
-            country_match=True,
-            customer_phone_in_billing_location="customer_phone_in_billing_location_example",
-            distance_km=1,
-            free_email=True,
-            high_risk_country=True,
-            ip_city="ip_city_example",
-            ip_isp="ip_isp_example",
-            ip_latitude="ip_latitude_example",
-            ip_longitude="ip_longitude_example",
-            ip_org="ip_org_example",
-            ip_region="ip_region_example",
-            proxy_score=3.14,
-            score=3.14,
-            ship_forwarder=True,
-            spam_score=3.14,
-            transparent_proxy=True,
-        ),
-        gift=OrderGift(
-            gift=True,
-            gift_charge=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_charge_accounting_code="gift_charge_accounting_code_example",
-            gift_charge_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_email="gift_email_example",
-            gift_message="gift_message_example",
-            gift_wrap_accounting_code="gift_wrap_accounting_code_example",
-            gift_wrap_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_wrap_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_wrap_title="gift_wrap_title_example",
-        ),
-        gift_certificate=OrderGiftCertificate(
-            gift_certificate_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_certificate_code="gift_certificate_code_example",
-            gift_certificate_oid=1,
-        ),
-        internal=OrderInternal(
-            exported_to_accounting=True,
-            merchant_notes="merchant_notes_example",
-            placed_by_user="placed_by_user_example",
-            refund_by_user="refund_by_user_example",
-            sales_rep_code="sales_rep_code_example",
-            transactional_merchant_notes=[
-                OrderTransactionalMerchantNote(
-                    ip_address="ip_address_example",
-                    note="note_example",
-                    note_dts="note_dts_example",
-                    user="user_example",
-                ),
-            ],
-        ),
-        items=[
-            OrderItem(
-                accounting_code="accounting_code_example",
-                activation_codes=[
-                    "activation_codes_example",
-                ],
-                actual_cogs=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                arbitrary_unit_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                auto_order_last_rebill_dts="auto_order_last_rebill_dts_example",
-                auto_order_schedule="auto_order_schedule_example",
-                barcode="barcode_example",
-                barcode_gtin12="barcode_gtin12_example",
-                barcode_gtin14="barcode_gtin14_example",
-                barcode_upc11="barcode_upc11_example",
-                barcode_upc12="barcode_upc12_example",
-                channel_partner_item_id="channel_partner_item_id_example",
-                cogs=3.14,
-                component_unit_value=3.14,
-                cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                country_code_of_origin="country_code_of_origin_example",
-                customs_description="customs_description_example",
-                description="description_example",
-                discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                discount_quantity=3.14,
-                discount_shipping_weight=Weight(
-                    uom="KG",
-                    value=3.14,
-                ),
-                distribution_center_code="distribution_center_code_example",
-                edi=OrderItemEdi(
-                    identifications=[
-                        OrderItemEdiIdentification(
-                            identification="identification_example",
-                            quantity=1,
-                        ),
-                    ],
-                    lots=[
-                        OrderItemEdiLot(
-                            lot_expiration="lot_expiration_example",
-                            lot_number="lot_number_example",
-                            lot_quantity=1,
-                        ),
-                    ],
-                ),
-                exclude_coupon=True,
-                free_shipping=True,
-                hazmat=True,
-                height=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-                item_index=1,
-                item_reference_oid=1,
-                kit=True,
-                kit_component=True,
-                length=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-                manufacturer_sku="manufacturer_sku_example",
-                max_days_time_in_transit=1,
-                merchant_item_id="merchant_item_id_example",
-                mix_and_match_group_name="mix_and_match_group_name_example",
-                mix_and_match_group_oid=1,
-                no_shipping_discount=True,
-                options=[
-                    OrderItemOption(
-                        additional_dimension_application="none",
-                        cost_change=Currency(
-                            currency_code="currency_code_example",
-                            exchange_rate=3.14,
-                            localized=3.14,
-                            localized_formatted="localized_formatted_example",
-                            value=3.14,
-                        ),
-                        file_attachment=OrderItemOptionFileAttachment(
-                            expiration_dts="expiration_dts_example",
-                            file_name="file_name_example",
-                            mime_type="mime_type_example",
-                            size=1,
-                        ),
-                        height=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        hidden=True,
-                        label="label_example",
-                        length=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        one_time_fee=True,
-                        value="value_example",
-                        weight_change=Weight(
-                            uom="KG",
-                            value=3.14,
-                        ),
-                        width=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                    ),
-                ],
-                packed_by_user="packed_by_user_example",
-                parent_item_index=1,
-                parent_merchant_item_id="parent_merchant_item_id_example",
-                perishable_class="perishable_class_example",
-                pricing_tier_name="pricing_tier_name_example",
-                properties=[
-                    OrderItemProperty(
-                        display=True,
-                        expiration_dts="expiration_dts_example",
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                quantity=3.14,
-                quantity_refunded=3.14,
-                quickbooks_class="quickbooks_class_example",
-                refund_reason="refund_reason_example",
-                return_reason="return_reason_example",
-                ship_separately=True,
-                shipped_by_user="shipped_by_user_example",
-                shipped_dts="shipped_dts_example",
-                shipping_status="shipping_status_example",
-                special_product_type="special_product_type_example",
-                tags=[
-                    OrderItemTag(
-                        tag_value="tag_value_example",
-                    ),
-                ],
-                tax_free=True,
-                tax_product_type="",
-                taxable_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total_cost_with_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                transmitted_to_distribution_center_dts="transmitted_to_distribution_center_dts_example",
-                unit_cost_with_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                upsell=True,
-                weight=Weight(
-                    uom="KG",
-                    value=3.14,
-                ),
-                width=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-            ),
-        ],
-        language_iso_code="language_iso_code_example",
-        linked_shipment=OrderLinkedShipment(
-            has_linked_shipment=True,
-            linked_shipment=True,
-            linked_shipment_channel_partner_order_ids=[
-                "linked_shipment_channel_partner_order_ids_example",
-            ],
-            linked_shipment_order_ids=[
-                "linked_shipment_order_ids_example",
-            ],
-            linked_shipment_to_order_id="linked_shipment_to_order_id_example",
-        ),
-        marketing=OrderMarketing(
-            advertising_source="advertising_source_example",
-            cell_phone_opt_in=True,
-            mailing_list=True,
-            referral_code="referral_code_example",
-        ),
-        merchant_id="merchant_id_example",
-        order_id="order_id_example",
-        payment=OrderPayment(
-            check=OrderPaymentCheck(
-                check_number="check_number_example",
-            ),
-            credit_card=OrderPaymentCreditCard(
-                card_auth_ticket="card_auth_ticket_example",
-                card_authorization_amount=3.14,
-                card_authorization_dts="card_authorization_dts_example",
-                card_authorization_reference_number="card_authorization_reference_number_example",
-                card_expiration_month=1,
-                card_expiration_year=1,
-                card_number="card_number_example",
-                card_number_token="card_number_token_example",
-                card_number_truncated=True,
-                card_type="AMEX",
-                card_verification_number_token="card_verification_number_token_example",
-                dual_vaulted=OrderPaymentCreditCardDualVaulted(
-                    gateway_name="gateway_name_example",
-                    properties=[
-                        OrderPaymentCreditCardDualVaultedProperty(
-                            name="name_example",
-                            value="value_example",
-                        ),
-                    ],
-                    rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-                ),
-            ),
-            echeck=OrderPaymentECheck(
-                bank_aba_code="bank_aba_code_example",
-                bank_account_name="bank_account_name_example",
-                bank_account_number="bank_account_number_example",
-                bank_account_type="Checking",
-                bank_name="bank_name_example",
-                bank_owner_type="Personal",
-                customer_tax_id="customer_tax_id_example",
-                drivers_license_dob="drivers_license_dob_example",
-                drivers_license_number="drivers_license_number_example",
-                drivers_license_state="drivers_license_state_example",
-            ),
-            health_benefit_card=OrderPaymentHealthBenefitCard(
-                health_benefit_card_expiration_month=1,
-                health_benefit_card_expiration_year=1,
-                health_benefit_card_number="health_benefit_card_number_example",
-                health_benefit_card_number_token="health_benefit_card_number_token_example",
-                health_benefit_card_number_truncated=True,
-                health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
-            ),
-            hold_for_fraud_review=True,
-            insurance=OrderPaymentInsurance(
-                application_id="application_id_example",
-                claim_id="claim_id_example",
-                insurance_type="insurance_type_example",
-                refund_claim_id="refund_claim_id_example",
-            ),
-            payment_dts="payment_dts_example",
-            payment_method="Affirm",
-            payment_method_accounting_code="payment_method_accounting_code_example",
-            payment_method_deposit_to_account="payment_method_deposit_to_account_example",
-            payment_status="Unprocessed",
-            paypal=OrderPaymentPayPal(
-                customer_id="customer_id_example",
-                vault_id="vault_id_example",
-            ),
-            purchase_order=OrderPaymentPurchaseOrder(
-                purchase_order_number="purchase_order_number_example",
-            ),
-            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-            surcharge=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            surcharge_accounting_code="surcharge_accounting_code_example",
-            surcharge_transaction_fee=3.14,
-            surcharge_transaction_percentage=3.14,
-            test_order=True,
-            transactions=[
-                OrderPaymentTransaction(
-                    details=[
-                        OrderPaymentTransactionDetail(
-                            name="name_example",
-                            type="type_example",
-                            value="value_example",
-                        ),
-                    ],
-                    successful=True,
-                    transaction_gateway="transaction_gateway_example",
-                    transaction_id=1,
-                    transaction_timestamp="transaction_timestamp_example",
-                ),
-            ],
-        ),
-        point_of_sale=OrderPointOfSale(
-            location=PointOfSaleLocation(
-                adddress2="adddress2_example",
-                address1="address1_example",
-                city="city_example",
-                country="country_example",
-                distribution_center_code="distribution_center_code_example",
-                external_id="external_id_example",
-                merchant_id="merchant_id_example",
-                pos_location_oid=1,
-                postal_code="postal_code_example",
-                state_province="state_province_example",
-            ),
-            reader=PointOfSaleReader(
-                device_type="device_type_example",
-                label="label_example",
-                merchant_id="merchant_id_example",
-                payment_provider="stripe",
-                pos_reader_id=1,
-                pos_register_oid=1,
-                serial_number="serial_number_example",
-                stripe_account_id="stripe_account_id_example",
-                stripe_reader_id="stripe_reader_id_example",
-            ),
-            register=PointOfSaleRegister(
-                merchant_id="merchant_id_example",
-                name="name_example",
-                pos_location_oid=1,
-                pos_register_oid=1,
-            ),
-        ),
-        properties=[
-            OrderProperty(
-                created_by="created_by_example",
-                created_dts="created_dts_example",
-                display=True,
-                expiration_dts="expiration_dts_example",
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        quote=OrderQuote(
-            quote_expiration_dts="quote_expiration_dts_example",
-            quoted_by="quoted_by_example",
-            quoted_dts="quoted_dts_example",
-        ),
-        refund_dts="refund_dts_example",
-        refund_reason="refund_reason_example",
-        reject_dts="reject_dts_example",
-        reject_reason="reject_reason_example",
-        salesforce=OrderSalesforce(
-            salesforce_opportunity_id="salesforce_opportunity_id_example",
-        ),
-        shipping=OrderShipping(
-            address1="address1_example",
-            address2="address2_example",
-            city="city_example",
-            company="company_example",
-            country_code="country_code_example",
-            day_phone="day_phone_example",
-            day_phone_e164="day_phone_e164_example",
-            delivery_date="delivery_date_example",
-            evening_phone="evening_phone_example",
-            evening_phone_e164="evening_phone_e164_example",
-            first_name="first_name_example",
-            last_name="last_name_example",
-            least_cost_route=True,
-            least_cost_route_shipping_methods=[
-                "least_cost_route_shipping_methods_example",
-            ],
-            lift_gate=True,
-            pickup_dts="pickup_dts_example",
-            postal_code="postal_code_example",
-            rma="rma_example",
-            ship_on_date="ship_on_date_example",
-            ship_to_residential=True,
-            shipping_3rd_party_account_number="shipping_3rd_party_account_number_example",
-            shipping_date="shipping_date_example",
-            shipping_department_status="shipping_department_status_example",
-            shipping_method="shipping_method_example",
-            shipping_method_accounting_code="shipping_method_accounting_code_example",
-            special_instructions="special_instructions_example",
-            state_region="state_region_example",
-            title="title_example",
-            tracking_number_details=[
-                OrderTrackingNumberDetails(
-                    actual_delivery_date="actual_delivery_date_example",
-                    actual_delivery_date_formatted="actual_delivery_date_formatted_example",
-                    details=[
-                        OrderTrackingNumberDetail(
-                            city="city_example",
-                            event_dts="event_dts_example",
-                            event_local_date="event_local_date_example",
-                            event_local_time="event_local_time_example",
-                            event_timezone_id="event_timezone_id_example",
-                            state="state_example",
-                            subtag="subtag_example",
-                            subtag_message="subtag_message_example",
-                            tag="tag_example",
-                            tag_description="tag_description_example",
-                            tag_icon="tag_icon_example",
-                            zip="zip_example",
-                        ),
-                    ],
-                    easypost_tracker_id="easypost_tracker_id_example",
-                    expected_delivery_date="expected_delivery_date_example",
-                    expected_delivery_date_formatted="expected_delivery_date_formatted_example",
-                    map_url="map_url_example",
-                    order_placed_date="order_placed_date_example",
-                    order_placed_date_formatted="order_placed_date_formatted_example",
-                    payment_processed_date="payment_processed_date_example",
-                    payment_processed_date_formatted="payment_processed_date_formatted_example",
-                    shipped_date="shipped_date_example",
-                    shipped_date_formatted="shipped_date_formatted_example",
-                    shipping_method="shipping_method_example",
-                    status="status_example",
-                    status_description="status_description_example",
-                    tracking_number="tracking_number_example",
-                    tracking_url="tracking_url_example",
-                ),
-            ],
-            tracking_numbers=[
-                "tracking_numbers_example",
-            ],
-            weight=Weight(
-                uom="KG",
-                value=3.14,
-            ),
-        ),
-        summary=OrderSummary(
-            actual_fulfillment=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_other_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_payment_processing=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_profit=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_profit_analyzed=True,
-            actual_profit_review=True,
-            actual_shipping=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            arbitrary_shipping_handling_total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            health_benefit_card_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            health_benefit_card_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            internal_gift_certificate_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            internal_gift_certificate_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            other_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_total_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_discount_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            tax=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            tax_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            taxable_subtotal=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            taxable_subtotal_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            total_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-        ),
-        tags=[
-            OrderTag(
-                tag_value="tag_value_example",
-            ),
-        ],
-        taxes=OrderTaxes(
-            arbitrary_tax=3.14,
-            arbitrary_tax_rate=3.14,
-            arbitrary_taxable_subtotal=3.14,
-            tax_city_accounting_code="tax_city_accounting_code_example",
-            tax_country_accounting_code="tax_country_accounting_code_example",
-            tax_county="tax_county_example",
-            tax_county_accounting_code="tax_county_accounting_code_example",
-            tax_gift_charge=True,
-            tax_postal_code_accounting_code="tax_postal_code_accounting_code_example",
-            tax_rate=3.14,
-            tax_rate_city=3.14,
-            tax_rate_country=3.14,
-            tax_rate_county=3.14,
-            tax_rate_postal_code=3.14,
-            tax_rate_state=3.14,
-            tax_shipping=True,
-            tax_state_accounting_code="tax_state_accounting_code_example",
-        ),
-        utms=[
-            OrderUtm(
-                attribution_first_click_subtotal=3.14,
-                attribution_first_click_total=3.14,
-                attribution_last_click_subtotal=3.14,
-                attribution_last_click_total=3.14,
-                attribution_linear_subtotal=3.14,
-                attribution_linear_total=3.14,
-                attribution_position_based_subtotal=3.14,
-                attribution_position_based_total=3.14,
-                click_dts="click_dts_example",
-                facebook_ad_id="facebook_ad_id_example",
-                fbclid="fbclid_example",
-                gbraid="gbraid_example",
-                glcid="glcid_example",
-                itm_campaign="itm_campaign_example",
-                itm_content="itm_content_example",
-                itm_id="itm_id_example",
-                itm_medium="itm_medium_example",
-                itm_source="itm_source_example",
-                itm_term="itm_term_example",
-                msclkid="msclkid_example",
-                short_code="short_code_example",
-                short_code_backup=True,
-                ttclid="ttclid_example",
-                uc_message_id="uc_message_id_example",
-                utm_campaign="utm_campaign_example",
-                utm_content="utm_content_example",
-                utm_id="utm_id_example",
-                utm_medium="utm_medium_example",
-                utm_source="utm_source_example",
-                utm_term="utm_term_example",
-                vmcid="vmcid_example",
-                wbraid="wbraid_example",
-            ),
-        ],
-    ) # Order | Order to refund
-    reject_after_refund = False # bool | Reject order after refund (optional) if omitted the server will use the default value of False
-    skip_customer_notification = False # bool | Skip customer email notification (optional) if omitted the server will use the default value of False
-    auto_order_cancel = False # bool | Cancel associated auto orders (optional) if omitted the server will use the default value of False
-    manual_refund = False # bool | Consider a manual refund done externally (optional) if omitted the server will use the default value of False
-    reverse_affiliate_transactions = True # bool | Reverse affiliate transactions (optional) if omitted the server will use the default value of True
-    issue_store_credit = False # bool | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional) if omitted the server will use the default value of False
-    auto_order_cancel_reason = "auto_order_cancel_reason_example" # str | Reason for auto orders cancellation (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+# Using the API key to initialize the order API
+order_api = OrderApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Refund an order
-        api_response = api_instance.refund_order(order_id, order)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->refund_order: %s\n" % e)
+# For the refund, we only need the items expanded to adjust their quantities.
+# See: https://www.ultracart.com/api/ for a list of all expansions.
+expand = "items"
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Refund an order
-        api_response = api_instance.refund_order(order_id, order, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, auto_order_cancel_reason=auto_order_cancel_reason, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->refund_order: %s\n" % e)
+# Step 1. Retrieve the order
+order_id = 'DEMO-0009104436'
+try:
+    api_response = order_api.get_order(order_id, expand=expand)
+except ApiException as e:
+    logging.error(f"Exception when calling OrderApi->get_order: {e}")
+    exit()
+
+order = api_response.order
+
+# Step 2. Adjust the refunded quantities
+for item in order.items:
+    item.quantity_refunded = item.quantity
+
+# Step 3. Refund the order with the modified items
+reject_after_refund = False
+skip_customer_notification = True
+cancel_associated_auto_orders = True  # Does not matter for this sample. The order is not a recurring order.
+consider_manual_refund_done_externally = False  # No, I want an actual refund done through my gateway.
+reverse_affiliate_transactions = True  # Can't let my affiliates get money on a refunded order. Bad business.
+
+try:
+    refund_response = order_api.refund_order(order_id, order, reject_after_refund, skip_customer_notification,
+                                             cancel_associated_auto_orders, consider_manual_refund_done_externally,
+                                             reverse_affiliate_transactions, include_refunded_amounts=False,
+                                             reason=None, expand=expand)
+except ApiException as e:
+    logging.error(f"Exception when calling OrderApi->refund_order: {e}")
+    exit()
+
+refunded_order = refund_response.order
+
+# Examining the refunded order and ensuring everything was refunded correctly
+import pprint
+print("Refunded Order:")
+pprint.pprint(refunded_order)
 ```
+
 
 
 ### Parameters
@@ -4396,49 +1993,9 @@ Perform a refund operation on an order and then update the order if successful.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
-```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-api_instance = GiftCertificateApi(api_client())
-
-    order_id = "order_id_example" # str | The order id to refund.
-    reject_after_refund = False # bool | Reject order after refund (optional) if omitted the server will use the default value of False
-    skip_customer_notification = False # bool | Skip customer email notification (optional) if omitted the server will use the default value of False
-    auto_order_cancel = False # bool | Cancel associated auto orders (optional) if omitted the server will use the default value of False
-    manual_refund = False # bool | Consider a manual refund done externally (optional) if omitted the server will use the default value of False
-    reverse_affiliate_transactions = True # bool | Reverse affiliate transactions (optional) if omitted the server will use the default value of True
-    issue_store_credit = False # bool | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional) if omitted the server will use the default value of False
-    auto_order_cancel_reason = "auto_order_cancel_reason_example" # str | Reason for auto orders cancellation (optional)
-    refund_reason = "refund_reason_example" # str | Reason for refund (optional)
-    reject_reason = "reject_reason_example" # str | Reason for reject (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Refund an order completely
-        api_response = api_instance.refund_order_completely(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->refund_order_completely: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Refund an order completely
-        api_response = api_instance.refund_order_completely(order_id, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, auto_order_cancel_reason=auto_order_cancel_reason, refund_reason=refund_reason, reject_reason=reject_reason)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->refund_order_completely: %s\n" % e)
-```
 
 
 ### Parameters
@@ -4496,54 +2053,67 @@ Create a replacement order based upon a previous order
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_replacement import OrderReplacement
-from ultracart.model.order_replacement_response import OrderReplacementResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from ultracart.models import OrderReplacement, OrderReplacementItem
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-api_instance = GiftCertificateApi(api_client())
+'''
+ * The use-case for replacement() is to create another order for a customer to replace the items of the existing
+ * order.  For example, a merchant is selling perishable goods and the goods arrive late, spoiled.  replacement()
+ * helps to create another order to send more goods to the customer.
+ *
+ * You MUST supply the items you desire in the replacement order.  This is done with the OrderReplacement.items field.
+ * All options are displayed below including whether to charge the customer for this replacement order or not.
+'''
 
-    order_id = "order_id_example" # str | The order id to generate a replacement for.
-    replacement = OrderReplacement(
-        additional_merchant_notes_new_order="additional_merchant_notes_new_order_example",
-        additional_merchant_notes_original_order="additional_merchant_notes_original_order_example",
-        custom_field1="custom_field1_example",
-        custom_field2="custom_field2_example",
-        custom_field3="custom_field3_example",
-        custom_field4="custom_field4_example",
-        custom_field5="custom_field5_example",
-        custom_field6="custom_field6_example",
-        custom_field7="custom_field7_example",
-        free=True,
-        immediate_charge=True,
-        items=[
-            OrderReplacementItem(
-                arbitrary_unit_cost=3.14,
-                merchant_item_id="merchant_item_id_example",
-                quantity=3.14,
-            ),
-        ],
-        original_order_id="original_order_id_example",
-        shipping_method="shipping_method_example",
-        skip_payment=True,
-    ) # OrderReplacement | Replacement order details
+# Initialize the Order API with the API key
+order_api = OrderApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Replacement order
-        api_response = api_instance.replacement(order_id, replacement)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->replacement: %s\n" % e)
+# Step 1. Replace the order
+order_id_to_replace = 'DEMO-0009104436'
+replacement_options = OrderReplacement()
+replacement_options.original_order_id = order_id_to_replace
+
+# Create replacement items
+items = []
+
+item1 = OrderReplacementItem()
+item1.merchant_item_id = 'TSHIRT'
+item1.quantity = 1
+# $item1->setArbitraryUnitCost(9.99);  # Optional: Set cost if needed
+items.append(item1)
+
+item2 = OrderReplacementItem()
+item2.merchant_item_id = 'BONE'
+item2.quantity = 2
+items.append(item2)
+
+replacement_options.items = items
+
+# Optional: Set various replacement options
+replacement_options.immediate_charge = True
+replacement_options.skip_payment = True
+replacement_options.free = True
+replacement_options.custom_field_1 = 'Whatever'
+replacement_options.custom_field_4 = 'More Whatever'
+replacement_options.additional_merchant_notes_new_order = 'Replacement order for spoiled ice cream'
+replacement_options.additional_merchant_notes_original_order = 'This order was replaced.'
+
+# Step 2. Call the replacement API
+try:
+    api_response = order_api.replacement(order_id_to_replace, replacement_options)
+except ApiException as e:
+    print(f"Exception when calling OrderApi->replacement: {e}")
+    exit()
+
+# Output the replacement order details
+print(f"Replacement Order: {api_response.order_id}")
+print(f"Success flag: {api_response.successful}")
+
 ```
+
 
 
 ### Parameters
@@ -4593,30 +2163,39 @@ Resend the receipt for an order on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# OrderApi.resendReceipt() will resend (email) a receipt to a customer.
 
-api_instance = GiftCertificateApi(api_client())
+# Initialize the Order API with the API key
+order_api = OrderApi(api_client())
 
-    order_id = "order_id_example" # str | The order id to resend the receipt for.
+# The order ID to resend the receipt for
+order_id = 'DEMO-0009104436'
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Resend receipt
-        api_response = api_instance.resend_receipt(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->resend_receipt: %s\n" % e)
+# Call to resend the receipt
+try:
+    api_response = order_api.resend_receipt(order_id)
+except ApiException as e:
+    print(f"Exception when calling OrderApi->resend_receipt: {e}")
+    exit()
+
+# Check if there was an error in the API response
+if api_response.error is not None:
+    print(f"Developer Message: {api_response.error.developer_message}")
+    print(f"User Message: {api_response.error.user_message}")
+    print('Order could not be adjusted. See the error log.')
+    exit()
+
+# Output the result
+if api_response.success:
+    print('Receipt was resent.')
+else:
+    print('Failed to resend receipt.')
 ```
+
 
 
 ### Parameters
@@ -4665,30 +2244,39 @@ Resend shipment confirmation for an order on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# OrderApi.resendShipmentConfirmation() will resend (email) a shipment confirmation to a customer.
 
-api_instance = GiftCertificateApi(api_client())
+# Initialize the Order API with the API key
+order_api = OrderApi(api_client())
 
-    order_id = "order_id_example" # str | The order id to resend the shipment notification for.
+# The order ID to resend the shipment confirmation for
+order_id = 'DEMO-0009104436'
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Resend shipment confirmation
-        api_response = api_instance.resend_shipment_confirmation(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->resend_shipment_confirmation: %s\n" % e)
+# Call to resend the shipment confirmation
+try:
+    api_response = order_api.resend_shipment_confirmation(order_id)
+except ApiException as e:
+    print(f"Exception when calling OrderApi->resend_shipment_confirmation: {e}")
+    exit()
+
+# Check if there was an error in the API response
+if api_response.error is not None:
+    print(f"Developer Message: {api_response.error.developer_message}")
+    print(f"User Message: {api_response.error.user_message}")
+    print('Order could not be adjusted. See the error log.')
+    exit()
+
+# Output the result
+if api_response.success:
+    print('Shipment confirmation was resent.')
+else:
+    print('Failed to resend shipment confirmation.')
 ```
+
 
 
 ### Parameters
@@ -4737,61 +2325,10 @@ Update A/R Retry Configuration.  This is primarily an internal API call.  It is 
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from ultracart.model.accounts_receivable_retry_config import AccountsReceivableRetryConfig
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    retry_config = AccountsReceivableRetryConfig(
-        active=True,
-        allow_process_linked_accounts=True,
-        cancel_auto_order=True,
-        current_service_plan="current_service_plan_example",
-        daily_activity_list=[
-            AccountsReceivableRetryDayActivity(
-                charge=True,
-                coupon_code="coupon_code_example",
-                day=1,
-            ),
-        ],
-        managed_by_linked_account_merchant_id=True,
-        merchant_id="merchant_id_example",
-        notify_emails=[
-            "notify_emails_example",
-        ],
-        notify_rejections=True,
-        notify_successes=True,
-        process_linked_accounts=True,
-        processing_percentage="processing_percentage_example",
-        reject_at_end=True,
-        transaction_rejects=[
-            AccountsReceivableRetryTransactionReject(
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        trial_mode=True,
-        trial_mode_expiration_dts="trial_mode_expiration_dts_example",
-    ) # AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update A/R Retry Configuration
-        api_response = api_instance.update_accounts_receivable_retry_config(retry_config)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->update_accounts_receivable_retry_config: %s\n" % e)
+# This is primarily an internal API call.  It is doubtful you would ever need to use it.
+# We do not provide an example for this call.
 ```
+
 
 
 ### Parameters
@@ -4840,1333 +2377,51 @@ Update a new order on the UltraCart account.  This is probably NOT the method yo
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order import Order
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Initialize the Order API with the API key
+order_api = OrderApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
+# Define the expansion to be used in the API call (related to checkout)
+expansion = "checkout"  # see the getOrder sample for expansion discussion
 
-    order_id = "order_id_example" # str | The order id to update.
-    order = Order(
-        affiliates=[
-            OrderAffiliate(
-                affiliate_oid=1,
-                ledger_entries=[
-                    OrderAffiliateLedger(
-                        assigned_by_user="assigned_by_user_example",
-                        item_id="item_id_example",
-                        tier_number=1,
-                        transaction_amount=3.14,
-                        transaction_amount_paid=3.14,
-                        transaction_dts="transaction_dts_example",
-                        transaction_memo="transaction_memo_example",
-                        transaction_percentage=3.14,
-                        transaction_state="Pending",
-                    ),
-                ],
-                sub_id="sub_id_example",
-            ),
-        ],
-        auto_order=OrderAutoOrder(
-            auto_order_code="auto_order_code_example",
-            auto_order_oid=1,
-            cancel_after_next_x_orders=1,
-            cancel_downgrade=True,
-            cancel_reason="cancel_reason_example",
-            cancel_upgrade=True,
-            canceled_by_user="canceled_by_user_example",
-            canceled_dts="canceled_dts_example",
-            completed=True,
-            credit_card_attempt=1,
-            disabled_dts="disabled_dts_example",
-            enabled=True,
-            failure_reason="failure_reason_example",
-            items=[
-                AutoOrderItem(
-                    arbitrary_item_id="arbitrary_item_id_example",
-                    arbitrary_percentage_discount=3.14,
-                    arbitrary_quantity=3.14,
-                    arbitrary_schedule_days=1,
-                    arbitrary_unit_cost=3.14,
-                    arbitrary_unit_cost_remaining_orders=1,
-                    auto_order_item_oid=1,
-                    calculated_next_shipment_dts="calculated_next_shipment_dts_example",
-                    first_order_dts="first_order_dts_example",
-                    frequency="Weekly",
-                    future_schedules=[
-                        AutoOrderItemFutureSchedule(
-                            item_id="item_id_example",
-                            rebill_count=1,
-                            shipment_dts="shipment_dts_example",
-                            unit_cost=3.14,
-                        ),
-                    ],
-                    last_order_dts="last_order_dts_example",
-                    life_time_value=3.14,
-                    next_item_id="next_item_id_example",
-                    next_preshipment_notice_dts="next_preshipment_notice_dts_example",
-                    next_shipment_dts="next_shipment_dts_example",
-                    no_order_after_dts="no_order_after_dts_example",
-                    number_of_rebills=1,
-                    options=[
-                        AutoOrderItemOption(
-                            label="label_example",
-                            value="value_example",
-                        ),
-                    ],
-                    original_item_id="original_item_id_example",
-                    original_quantity=3.14,
-                    paused=True,
-                    paypal_payer_id="paypal_payer_id_example",
-                    paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
-                    preshipment_notice_sent=True,
-                    rebill_value=3.14,
-                    remaining_repeat_count=1,
-                    simple_schedule=AutoOrderItemSimpleSchedule(
-                        frequency="Weekly",
-                        item_id="item_id_example",
-                        repeat_count=1,
-                    ),
-                ),
-            ],
-            next_attempt="next_attempt_example",
-            original_order_id="original_order_id_example",
-            override_affiliate_id=1,
-            rebill_orders=[
-                Order(),
-            ],
-            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-            status="active",
-        ),
-        billing=OrderBilling(
-            address1="address1_example",
-            address2="address2_example",
-            cc_emails=[
-                "cc_emails_example",
-            ],
-            cell_phone="cell_phone_example",
-            cell_phone_e164="cell_phone_e164_example",
-            city="city_example",
-            company="company_example",
-            country_code="country_code_example",
-            day_phone="day_phone_example",
-            day_phone_e164="day_phone_e164_example",
-            email="email_example",
-            evening_phone="evening_phone_example",
-            evening_phone_e164="evening_phone_e164_example",
-            first_name="first_name_example",
-            last_name="last_name_example",
-            postal_code="postal_code_example",
-            state_region="state_region_example",
-            title="title_example",
-        ),
-        buysafe=OrderBuysafe(
-            buysafe_bond_available=True,
-            buysafe_bond_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            buysafe_bond_free=True,
-            buysafe_bond_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            buysafe_bond_wanted=True,
-            buysafe_shopping_cart_id="buysafe_shopping_cart_id_example",
-        ),
-        channel_partner=OrderChannelPartner(
-            auto_approve_purchase_order=True,
-            channel_partner_code="channel_partner_code_example",
-            channel_partner_data="channel_partner_data_example",
-            channel_partner_oid=1,
-            channel_partner_order_id="channel_partner_order_id_example",
-            ignore_invalid_shipping_method=True,
-            no_realtime_payment_processing=True,
-            skip_payment_processing=True,
-            store_completed=True,
-            store_if_payment_declines=True,
-            treat_warnings_as_errors=True,
-        ),
-        checkout=OrderCheckout(
-            browser=Browser(
-                device=BrowserDevice(
-                    family="family_example",
-                ),
-                os=BrowserOS(
-                    family="family_example",
-                    major="major_example",
-                    minor="minor_example",
-                    patch="patch_example",
-                    patch_minor="patch_minor_example",
-                ),
-                user_agent=BrowserUserAgent(
-                    family="family_example",
-                    major="major_example",
-                    minor="minor_example",
-                    patch="patch_example",
-                ),
-            ),
-            comments="comments_example",
-            custom_field1="custom_field1_example",
-            custom_field10="custom_field10_example",
-            custom_field2="custom_field2_example",
-            custom_field3="custom_field3_example",
-            custom_field4="custom_field4_example",
-            custom_field5="custom_field5_example",
-            custom_field6="custom_field6_example",
-            custom_field7="custom_field7_example",
-            custom_field8="custom_field8_example",
-            custom_field9="custom_field9_example",
-            customer_ip_address="customer_ip_address_example",
-            screen_branding_theme_code="screen_branding_theme_code_example",
-            screen_size="screen_size_example",
-            storefront_host_name="storefront_host_name_example",
-            upsell_path_code="upsell_path_code_example",
-        ),
-        coupons=[
-            OrderCoupon(
-                accounting_code="accounting_code_example",
-                automatically_applied=True,
-                base_coupon_code="base_coupon_code_example",
-                coupon_code="coupon_code_example",
-                hdie_from_customer=True,
-            ),
-        ],
-        creation_dts="creation_dts_example",
-        currency_code="currency_code_example",
-        current_stage="Accounts Receivable",
-        current_stage_histories=[
-            OrderCurrentStageHistory(
-                after_stage="Accounts Receivable",
-                before_stage="Accounts Receivable",
-                transition_dts="transition_dts_example",
-            ),
-        ],
-        customer_profile=Customer(
-            activity=CustomerActivity(
-                activities=[
-                    Activity(
-                        action="action_example",
-                        channel="channel_example",
-                        metric="metric_example",
-                        storefront_oid=1,
-                        subject="subject_example",
-                        ts=1,
-                        type="type_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                global_unsubscribed=True,
-                global_unsubscribed_dts="global_unsubscribed_dts_example",
-                memberships=[
-                    ListSegmentMembership(
-                        name="name_example",
-                        type="type_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                metrics=[
-                    Metric(
-                        all_time=3.14,
-                        all_time_formatted="all_time_formatted_example",
-                        last_30=3.14,
-                        last_30_formatted="last_30_formatted_example",
-                        name="name_example",
-                        prior_30=3.14,
-                        prior_30_formatted="prior_30_formatted_example",
-                        type="type_example",
-                    ),
-                ],
-                properties_list=[
-                    ModelProperty(
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                spam_complaint=True,
-                spam_complaint_dts="spam_complaint_dts_example",
-            ),
-            affiliate_oid=1,
-            allow_3rd_party_billing=True,
-            allow_cod=True,
-            allow_drop_shipping=True,
-            allow_purchase_order=True,
-            allow_quote_request=True,
-            allow_selection_of_address_type=True,
-            attachments=[
-                CustomerAttachment(
-                    customer_profile_attachment_oid=1,
-                    description="description_example",
-                    file_name="file_name_example",
-                    mime_type="mime_type_example",
-                    upload_dts="upload_dts_example",
-                ),
-            ],
-            auto_approve_cod=True,
-            auto_approve_purchase_order=True,
-            automatic_merchant_notes="automatic_merchant_notes_example",
-            billing=[
-                CustomerBilling(
-                    address1="address1_example",
-                    address2="address2_example",
-                    city="city_example",
-                    company="company_example",
-                    country_code="country_code_example",
-                    customer_billing_oid=1,
-                    customer_profile_oid=1,
-                    day_phone="day_phone_example",
-                    default_billing=True,
-                    evening_phone="evening_phone_example",
-                    first_name="first_name_example",
-                    last_name="last_name_example",
-                    last_used_dts="last_used_dts_example",
-                    postal_code="postal_code_example",
-                    state_region="state_region_example",
-                    tax_county="tax_county_example",
-                    title="title_example",
-                ),
-            ],
-            business_notes="business_notes_example",
-            cards=[
-                CustomerCard(
-                    card_expiration_month=1,
-                    card_expiration_year=1,
-                    card_number="card_number_example",
-                    card_number_token="card_number_token_example",
-                    card_type="card_type_example",
-                    customer_profile_credit_card_id=1,
-                    customer_profile_oid=1,
-                    last_used_dts="last_used_dts_example",
-                ),
-            ],
-            cc_emails=[
-                CustomerEmail(
-                    customer_profile_email_oid=1,
-                    email="email_example",
-                    label="label_example",
-                    receipt_notification=True,
-                    refund_notification=True,
-                    shipment_notification=True,
-                ),
-            ],
-            customer_profile_oid=1,
-            dhl_account_number="dhl_account_number_example",
-            dhl_duty_account_number="dhl_duty_account_number_example",
-            do_not_send_mail=True,
-            edi=CustomerEDI(
-                channel_partner_oid=1,
-                distribution_center_number="distribution_center_number_example",
-                store_number="store_number_example",
-            ),
-            email="email_example",
-            exempt_shipping_handling_charge=True,
-            fedex_account_number="fedex_account_number_example",
-            free_shipping=True,
-            free_shipping_minimum=3.14,
-            last_modified_by="last_modified_by_example",
-            last_modified_dts="last_modified_dts_example",
-            loyalty=CustomerLoyalty(
-                current_points=1,
-                internal_gift_certificate=GiftCertificate(
-                    activated=True,
-                    code="code_example",
-                    customer_profile_oid=1,
-                    deleted=True,
-                    email="email_example",
-                    expiration_dts="expiration_dts_example",
-                    gift_certificate_oid=1,
-                    internal=True,
-                    ledger_entries=[
-                        GiftCertificateLedgerEntry(
-                            amount=3.14,
-                            description="description_example",
-                            entry_dts="entry_dts_example",
-                            gift_certificate_ledger_oid=1,
-                            gift_certificate_oid=1,
-                            reference_order_id="reference_order_id_example",
-                        ),
-                    ],
-                    merchant_id="merchant_id_example",
-                    merchant_note="merchant_note_example",
-                    original_balance=3.14,
-                    reference_order_id="reference_order_id_example",
-                    remaining_balance=3.14,
-                ),
-                internal_gift_certificate_balance="internal_gift_certificate_balance_example",
-                internal_gift_certificate_oid=1,
-                ledger_entries=[
-                    CustomerLoyaltyLedger(
-                        created_by="created_by_example",
-                        created_dts="created_dts_example",
-                        description="description_example",
-                        email="email_example",
-                        item_id="item_id_example",
-                        item_index=1,
-                        ledger_dts="ledger_dts_example",
-                        loyalty_campaign_oid=1,
-                        loyalty_ledger_oid=1,
-                        loyalty_points=1,
-                        modified_by="modified_by_example",
-                        modified_dts="modified_dts_example",
-                        order_id="order_id_example",
-                        quantity=1,
-                        vesting_dts="vesting_dts_example",
-                    ),
-                ],
-                pending_points=1,
-                redemptions=[
-                    CustomerLoyaltyRedemption(
-                        coupon_code="coupon_code_example",
-                        coupon_code_oid=1,
-                        coupon_used=True,
-                        description_for_customer="description_for_customer_example",
-                        expiration_dts="expiration_dts_example",
-                        gift_certificate_code="gift_certificate_code_example",
-                        gift_certificate_oid=1,
-                        loyalty_ledger_oid=1,
-                        loyalty_points=1,
-                        loyalty_redemption_oid=1,
-                        order_id="order_id_example",
-                        redemption_dts="redemption_dts_example",
-                        remaining_balance=3.14,
-                    ),
-                ],
-            ),
-            maximum_item_count=1,
-            merchant_id="merchant_id_example",
-            minimum_item_count=1,
-            minimum_subtotal=3.14,
-            no_coupons=True,
-            no_free_shipping=True,
-            no_realtime_charge=True,
-            orders=[
-                Order(),
-            ],
-            orders_summary=CustomerOrdersSummary(
-                first_order_dts="first_order_dts_example",
-                last_order_dts="last_order_dts_example",
-                order_count=1,
-                total=3.14,
-            ),
-            password="password_example",
-            pricing_tiers=[
-                CustomerPricingTier(
-                    name="name_example",
-                    pricing_tier_oid=1,
-                ),
-            ],
-            privacy=CustomerPrivacy(
-                last_update_dts="last_update_dts_example",
-                marketing=True,
-                preference=True,
-                statistics=True,
-            ),
-            properties=[
-                CustomerProperty(
-                    customer_profile_property_oid=1,
-                    expiration_dts="expiration_dts_example",
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            qb_class="qb_class_example",
-            qb_code="qb_code_example",
-            qb_tax_exemption_reason_code=1,
-            quotes=[
-                Order(),
-            ],
-            quotes_summary=CustomerQuotesSummary(
-                first_quote_dts="first_quote_dts_example",
-                last_quote_dts="last_quote_dts_example",
-                quote_count=1,
-                total=3.14,
-            ),
-            referral_source="referral_source_example",
-            reviewer=CustomerReviewer(
-                auto_approve=True,
-                average_overall_rating=3.14,
-                expert=True,
-                first_review="first_review_example",
-                last_review="last_review_example",
-                location="location_example",
-                nickname="nickname_example",
-                number_helpful_review_votes=1,
-                rank=1,
-                reviews_contributed=1,
-            ),
-            sales_rep_code="sales_rep_code_example",
-            send_signup_notification=True,
-            shipping=[
-                CustomerShipping(
-                    address1="address1_example",
-                    address2="address2_example",
-                    city="city_example",
-                    company="company_example",
-                    country_code="country_code_example",
-                    customer_profile_oid=1,
-                    customer_shipping_oid=1,
-                    day_phone="day_phone_example",
-                    default_shipping=True,
-                    evening_phone="evening_phone_example",
-                    first_name="first_name_example",
-                    last_name="last_name_example",
-                    last_used_dts="last_used_dts_example",
-                    postal_code="postal_code_example",
-                    state_region="state_region_example",
-                    tax_county="tax_county_example",
-                    title="title_example",
-                ),
-            ],
-            signup_dts="signup_dts_example",
-            software_entitlements=[
-                CustomerSoftwareEntitlement(
-                    activation_code="activation_code_example",
-                    activation_dts="activation_dts_example",
-                    customer_software_entitlement_oid=1,
-                    expiration_dts="expiration_dts_example",
-                    purchased_via_item_description="purchased_via_item_description_example",
-                    purchased_via_item_id="purchased_via_item_id_example",
-                    purchased_via_order_id="purchased_via_order_id_example",
-                    software_sku="software_sku_example",
-                ),
-            ],
-            suppress_buysafe=True,
-            tags=[
-                CustomerTag(
-                    tag_value="tag_value_example",
-                ),
-            ],
-            tax_codes=CustomerTaxCodes(
-                avalara_customer_code="avalara_customer_code_example",
-                avalara_entity_use_code="avalara_entity_use_code_example",
-                sovos_customer_code="sovos_customer_code_example",
-                taxjar_customer_id="taxjar_customer_id_example",
-                taxjar_exemption_type="taxjar_exemption_type_example",
-            ),
-            tax_exempt=True,
-            tax_id="tax_id_example",
-            terms="terms_example",
-            track_separately=True,
-            unapproved=True,
-            ups_account_number="ups_account_number_example",
-            website_url="website_url_example",
-        ),
-        digital_order=OrderDigitalOrder(
-            creation_dts="creation_dts_example",
-            expiration_dts="expiration_dts_example",
-            items=[
-                OrderDigitalItem(
-                    file_size=1,
-                    last_download="last_download_example",
-                    last_download_ip_address="last_download_ip_address_example",
-                    original_filename="original_filename_example",
-                    product_code="product_code_example",
-                    product_description="product_description_example",
-                    remaining_downloads=1,
-                    url="url_example",
-                ),
-            ],
-            url="url_example",
-            url_id="url_id_example",
-        ),
-        edi=OrderEdi(
-            bill_to_edi_code="bill_to_edi_code_example",
-            edi_department="edi_department_example",
-            edi_internal_vendor_number="edi_internal_vendor_number_example",
-            ship_to_edi_code="ship_to_edi_code_example",
-        ),
-        exchange_rate=3.14,
-        fraud_score=OrderFraudScore(
-            anonymous_proxy=True,
-            bin_match="NA",
-            carder_email=True,
-            country_code="country_code_example",
-            country_match=True,
-            customer_phone_in_billing_location="customer_phone_in_billing_location_example",
-            distance_km=1,
-            free_email=True,
-            high_risk_country=True,
-            ip_city="ip_city_example",
-            ip_isp="ip_isp_example",
-            ip_latitude="ip_latitude_example",
-            ip_longitude="ip_longitude_example",
-            ip_org="ip_org_example",
-            ip_region="ip_region_example",
-            proxy_score=3.14,
-            score=3.14,
-            ship_forwarder=True,
-            spam_score=3.14,
-            transparent_proxy=True,
-        ),
-        gift=OrderGift(
-            gift=True,
-            gift_charge=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_charge_accounting_code="gift_charge_accounting_code_example",
-            gift_charge_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_email="gift_email_example",
-            gift_message="gift_message_example",
-            gift_wrap_accounting_code="gift_wrap_accounting_code_example",
-            gift_wrap_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_wrap_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_wrap_title="gift_wrap_title_example",
-        ),
-        gift_certificate=OrderGiftCertificate(
-            gift_certificate_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_certificate_code="gift_certificate_code_example",
-            gift_certificate_oid=1,
-        ),
-        internal=OrderInternal(
-            exported_to_accounting=True,
-            merchant_notes="merchant_notes_example",
-            placed_by_user="placed_by_user_example",
-            refund_by_user="refund_by_user_example",
-            sales_rep_code="sales_rep_code_example",
-            transactional_merchant_notes=[
-                OrderTransactionalMerchantNote(
-                    ip_address="ip_address_example",
-                    note="note_example",
-                    note_dts="note_dts_example",
-                    user="user_example",
-                ),
-            ],
-        ),
-        items=[
-            OrderItem(
-                accounting_code="accounting_code_example",
-                activation_codes=[
-                    "activation_codes_example",
-                ],
-                actual_cogs=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                arbitrary_unit_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                auto_order_last_rebill_dts="auto_order_last_rebill_dts_example",
-                auto_order_schedule="auto_order_schedule_example",
-                barcode="barcode_example",
-                barcode_gtin12="barcode_gtin12_example",
-                barcode_gtin14="barcode_gtin14_example",
-                barcode_upc11="barcode_upc11_example",
-                barcode_upc12="barcode_upc12_example",
-                channel_partner_item_id="channel_partner_item_id_example",
-                cogs=3.14,
-                component_unit_value=3.14,
-                cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                country_code_of_origin="country_code_of_origin_example",
-                customs_description="customs_description_example",
-                description="description_example",
-                discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                discount_quantity=3.14,
-                discount_shipping_weight=Weight(
-                    uom="KG",
-                    value=3.14,
-                ),
-                distribution_center_code="distribution_center_code_example",
-                edi=OrderItemEdi(
-                    identifications=[
-                        OrderItemEdiIdentification(
-                            identification="identification_example",
-                            quantity=1,
-                        ),
-                    ],
-                    lots=[
-                        OrderItemEdiLot(
-                            lot_expiration="lot_expiration_example",
-                            lot_number="lot_number_example",
-                            lot_quantity=1,
-                        ),
-                    ],
-                ),
-                exclude_coupon=True,
-                free_shipping=True,
-                hazmat=True,
-                height=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-                item_index=1,
-                item_reference_oid=1,
-                kit=True,
-                kit_component=True,
-                length=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-                manufacturer_sku="manufacturer_sku_example",
-                max_days_time_in_transit=1,
-                merchant_item_id="merchant_item_id_example",
-                mix_and_match_group_name="mix_and_match_group_name_example",
-                mix_and_match_group_oid=1,
-                no_shipping_discount=True,
-                options=[
-                    OrderItemOption(
-                        additional_dimension_application="none",
-                        cost_change=Currency(
-                            currency_code="currency_code_example",
-                            exchange_rate=3.14,
-                            localized=3.14,
-                            localized_formatted="localized_formatted_example",
-                            value=3.14,
-                        ),
-                        file_attachment=OrderItemOptionFileAttachment(
-                            expiration_dts="expiration_dts_example",
-                            file_name="file_name_example",
-                            mime_type="mime_type_example",
-                            size=1,
-                        ),
-                        height=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        hidden=True,
-                        label="label_example",
-                        length=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        one_time_fee=True,
-                        value="value_example",
-                        weight_change=Weight(
-                            uom="KG",
-                            value=3.14,
-                        ),
-                        width=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                    ),
-                ],
-                packed_by_user="packed_by_user_example",
-                parent_item_index=1,
-                parent_merchant_item_id="parent_merchant_item_id_example",
-                perishable_class="perishable_class_example",
-                pricing_tier_name="pricing_tier_name_example",
-                properties=[
-                    OrderItemProperty(
-                        display=True,
-                        expiration_dts="expiration_dts_example",
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                quantity=3.14,
-                quantity_refunded=3.14,
-                quickbooks_class="quickbooks_class_example",
-                refund_reason="refund_reason_example",
-                return_reason="return_reason_example",
-                ship_separately=True,
-                shipped_by_user="shipped_by_user_example",
-                shipped_dts="shipped_dts_example",
-                shipping_status="shipping_status_example",
-                special_product_type="special_product_type_example",
-                tags=[
-                    OrderItemTag(
-                        tag_value="tag_value_example",
-                    ),
-                ],
-                tax_free=True,
-                tax_product_type="",
-                taxable_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total_cost_with_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                transmitted_to_distribution_center_dts="transmitted_to_distribution_center_dts_example",
-                unit_cost_with_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                upsell=True,
-                weight=Weight(
-                    uom="KG",
-                    value=3.14,
-                ),
-                width=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-            ),
-        ],
-        language_iso_code="language_iso_code_example",
-        linked_shipment=OrderLinkedShipment(
-            has_linked_shipment=True,
-            linked_shipment=True,
-            linked_shipment_channel_partner_order_ids=[
-                "linked_shipment_channel_partner_order_ids_example",
-            ],
-            linked_shipment_order_ids=[
-                "linked_shipment_order_ids_example",
-            ],
-            linked_shipment_to_order_id="linked_shipment_to_order_id_example",
-        ),
-        marketing=OrderMarketing(
-            advertising_source="advertising_source_example",
-            cell_phone_opt_in=True,
-            mailing_list=True,
-            referral_code="referral_code_example",
-        ),
-        merchant_id="merchant_id_example",
-        order_id="order_id_example",
-        payment=OrderPayment(
-            check=OrderPaymentCheck(
-                check_number="check_number_example",
-            ),
-            credit_card=OrderPaymentCreditCard(
-                card_auth_ticket="card_auth_ticket_example",
-                card_authorization_amount=3.14,
-                card_authorization_dts="card_authorization_dts_example",
-                card_authorization_reference_number="card_authorization_reference_number_example",
-                card_expiration_month=1,
-                card_expiration_year=1,
-                card_number="card_number_example",
-                card_number_token="card_number_token_example",
-                card_number_truncated=True,
-                card_type="AMEX",
-                card_verification_number_token="card_verification_number_token_example",
-                dual_vaulted=OrderPaymentCreditCardDualVaulted(
-                    gateway_name="gateway_name_example",
-                    properties=[
-                        OrderPaymentCreditCardDualVaultedProperty(
-                            name="name_example",
-                            value="value_example",
-                        ),
-                    ],
-                    rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-                ),
-            ),
-            echeck=OrderPaymentECheck(
-                bank_aba_code="bank_aba_code_example",
-                bank_account_name="bank_account_name_example",
-                bank_account_number="bank_account_number_example",
-                bank_account_type="Checking",
-                bank_name="bank_name_example",
-                bank_owner_type="Personal",
-                customer_tax_id="customer_tax_id_example",
-                drivers_license_dob="drivers_license_dob_example",
-                drivers_license_number="drivers_license_number_example",
-                drivers_license_state="drivers_license_state_example",
-            ),
-            health_benefit_card=OrderPaymentHealthBenefitCard(
-                health_benefit_card_expiration_month=1,
-                health_benefit_card_expiration_year=1,
-                health_benefit_card_number="health_benefit_card_number_example",
-                health_benefit_card_number_token="health_benefit_card_number_token_example",
-                health_benefit_card_number_truncated=True,
-                health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
-            ),
-            hold_for_fraud_review=True,
-            insurance=OrderPaymentInsurance(
-                application_id="application_id_example",
-                claim_id="claim_id_example",
-                insurance_type="insurance_type_example",
-                refund_claim_id="refund_claim_id_example",
-            ),
-            payment_dts="payment_dts_example",
-            payment_method="Affirm",
-            payment_method_accounting_code="payment_method_accounting_code_example",
-            payment_method_deposit_to_account="payment_method_deposit_to_account_example",
-            payment_status="Unprocessed",
-            paypal=OrderPaymentPayPal(
-                customer_id="customer_id_example",
-                vault_id="vault_id_example",
-            ),
-            purchase_order=OrderPaymentPurchaseOrder(
-                purchase_order_number="purchase_order_number_example",
-            ),
-            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-            surcharge=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            surcharge_accounting_code="surcharge_accounting_code_example",
-            surcharge_transaction_fee=3.14,
-            surcharge_transaction_percentage=3.14,
-            test_order=True,
-            transactions=[
-                OrderPaymentTransaction(
-                    details=[
-                        OrderPaymentTransactionDetail(
-                            name="name_example",
-                            type="type_example",
-                            value="value_example",
-                        ),
-                    ],
-                    successful=True,
-                    transaction_gateway="transaction_gateway_example",
-                    transaction_id=1,
-                    transaction_timestamp="transaction_timestamp_example",
-                ),
-            ],
-        ),
-        point_of_sale=OrderPointOfSale(
-            location=PointOfSaleLocation(
-                adddress2="adddress2_example",
-                address1="address1_example",
-                city="city_example",
-                country="country_example",
-                distribution_center_code="distribution_center_code_example",
-                external_id="external_id_example",
-                merchant_id="merchant_id_example",
-                pos_location_oid=1,
-                postal_code="postal_code_example",
-                state_province="state_province_example",
-            ),
-            reader=PointOfSaleReader(
-                device_type="device_type_example",
-                label="label_example",
-                merchant_id="merchant_id_example",
-                payment_provider="stripe",
-                pos_reader_id=1,
-                pos_register_oid=1,
-                serial_number="serial_number_example",
-                stripe_account_id="stripe_account_id_example",
-                stripe_reader_id="stripe_reader_id_example",
-            ),
-            register=PointOfSaleRegister(
-                merchant_id="merchant_id_example",
-                name="name_example",
-                pos_location_oid=1,
-                pos_register_oid=1,
-            ),
-        ),
-        properties=[
-            OrderProperty(
-                created_by="created_by_example",
-                created_dts="created_dts_example",
-                display=True,
-                expiration_dts="expiration_dts_example",
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        quote=OrderQuote(
-            quote_expiration_dts="quote_expiration_dts_example",
-            quoted_by="quoted_by_example",
-            quoted_dts="quoted_dts_example",
-        ),
-        refund_dts="refund_dts_example",
-        refund_reason="refund_reason_example",
-        reject_dts="reject_dts_example",
-        reject_reason="reject_reason_example",
-        salesforce=OrderSalesforce(
-            salesforce_opportunity_id="salesforce_opportunity_id_example",
-        ),
-        shipping=OrderShipping(
-            address1="address1_example",
-            address2="address2_example",
-            city="city_example",
-            company="company_example",
-            country_code="country_code_example",
-            day_phone="day_phone_example",
-            day_phone_e164="day_phone_e164_example",
-            delivery_date="delivery_date_example",
-            evening_phone="evening_phone_example",
-            evening_phone_e164="evening_phone_e164_example",
-            first_name="first_name_example",
-            last_name="last_name_example",
-            least_cost_route=True,
-            least_cost_route_shipping_methods=[
-                "least_cost_route_shipping_methods_example",
-            ],
-            lift_gate=True,
-            pickup_dts="pickup_dts_example",
-            postal_code="postal_code_example",
-            rma="rma_example",
-            ship_on_date="ship_on_date_example",
-            ship_to_residential=True,
-            shipping_3rd_party_account_number="shipping_3rd_party_account_number_example",
-            shipping_date="shipping_date_example",
-            shipping_department_status="shipping_department_status_example",
-            shipping_method="shipping_method_example",
-            shipping_method_accounting_code="shipping_method_accounting_code_example",
-            special_instructions="special_instructions_example",
-            state_region="state_region_example",
-            title="title_example",
-            tracking_number_details=[
-                OrderTrackingNumberDetails(
-                    actual_delivery_date="actual_delivery_date_example",
-                    actual_delivery_date_formatted="actual_delivery_date_formatted_example",
-                    details=[
-                        OrderTrackingNumberDetail(
-                            city="city_example",
-                            event_dts="event_dts_example",
-                            event_local_date="event_local_date_example",
-                            event_local_time="event_local_time_example",
-                            event_timezone_id="event_timezone_id_example",
-                            state="state_example",
-                            subtag="subtag_example",
-                            subtag_message="subtag_message_example",
-                            tag="tag_example",
-                            tag_description="tag_description_example",
-                            tag_icon="tag_icon_example",
-                            zip="zip_example",
-                        ),
-                    ],
-                    easypost_tracker_id="easypost_tracker_id_example",
-                    expected_delivery_date="expected_delivery_date_example",
-                    expected_delivery_date_formatted="expected_delivery_date_formatted_example",
-                    map_url="map_url_example",
-                    order_placed_date="order_placed_date_example",
-                    order_placed_date_formatted="order_placed_date_formatted_example",
-                    payment_processed_date="payment_processed_date_example",
-                    payment_processed_date_formatted="payment_processed_date_formatted_example",
-                    shipped_date="shipped_date_example",
-                    shipped_date_formatted="shipped_date_formatted_example",
-                    shipping_method="shipping_method_example",
-                    status="status_example",
-                    status_description="status_description_example",
-                    tracking_number="tracking_number_example",
-                    tracking_url="tracking_url_example",
-                ),
-            ],
-            tracking_numbers=[
-                "tracking_numbers_example",
-            ],
-            weight=Weight(
-                uom="KG",
-                value=3.14,
-            ),
-        ),
-        summary=OrderSummary(
-            actual_fulfillment=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_other_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_payment_processing=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_profit=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_profit_analyzed=True,
-            actual_profit_review=True,
-            actual_shipping=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            arbitrary_shipping_handling_total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            health_benefit_card_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            health_benefit_card_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            internal_gift_certificate_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            internal_gift_certificate_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            other_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_total_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_discount_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            tax=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            tax_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            taxable_subtotal=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            taxable_subtotal_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            total_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-        ),
-        tags=[
-            OrderTag(
-                tag_value="tag_value_example",
-            ),
-        ],
-        taxes=OrderTaxes(
-            arbitrary_tax=3.14,
-            arbitrary_tax_rate=3.14,
-            arbitrary_taxable_subtotal=3.14,
-            tax_city_accounting_code="tax_city_accounting_code_example",
-            tax_country_accounting_code="tax_country_accounting_code_example",
-            tax_county="tax_county_example",
-            tax_county_accounting_code="tax_county_accounting_code_example",
-            tax_gift_charge=True,
-            tax_postal_code_accounting_code="tax_postal_code_accounting_code_example",
-            tax_rate=3.14,
-            tax_rate_city=3.14,
-            tax_rate_country=3.14,
-            tax_rate_county=3.14,
-            tax_rate_postal_code=3.14,
-            tax_rate_state=3.14,
-            tax_shipping=True,
-            tax_state_accounting_code="tax_state_accounting_code_example",
-        ),
-        utms=[
-            OrderUtm(
-                attribution_first_click_subtotal=3.14,
-                attribution_first_click_total=3.14,
-                attribution_last_click_subtotal=3.14,
-                attribution_last_click_total=3.14,
-                attribution_linear_subtotal=3.14,
-                attribution_linear_total=3.14,
-                attribution_position_based_subtotal=3.14,
-                attribution_position_based_total=3.14,
-                click_dts="click_dts_example",
-                facebook_ad_id="facebook_ad_id_example",
-                fbclid="fbclid_example",
-                gbraid="gbraid_example",
-                glcid="glcid_example",
-                itm_campaign="itm_campaign_example",
-                itm_content="itm_content_example",
-                itm_id="itm_id_example",
-                itm_medium="itm_medium_example",
-                itm_source="itm_source_example",
-                itm_term="itm_term_example",
-                msclkid="msclkid_example",
-                short_code="short_code_example",
-                short_code_backup=True,
-                ttclid="ttclid_example",
-                uc_message_id="uc_message_id_example",
-                utm_campaign="utm_campaign_example",
-                utm_content="utm_content_example",
-                utm_id="utm_id_example",
-                utm_medium="utm_medium_example",
-                utm_source="utm_source_example",
-                utm_term="utm_term_example",
-                vmcid="vmcid_example",
-                wbraid="wbraid_example",
-            ),
-        ],
-    ) # Order | Order to update
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+# The order ID to retrieve and update
+order_id = 'DEMO-0009104976'
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update an order
-        api_response = api_instance.update_order(order_id, order)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->update_order: %s\n" % e)
+# Step 1: Retrieve the order
+try:
+    api_response = order_api.get_order(order_id, expansion)
+    order = api_response.order
+except ApiException as e:
+    print(f"Exception when calling OrderApi->get_order: {e}")
+    exit()
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Update an order
-        api_response = api_instance.update_order(order_id, order, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->update_order: %s\n" % e)
+# Output the current order details
+print("<html lang='en'><body><pre>")
+print(order)
+
+# TODO: Do some updates to the order here.
+
+# Step 2: Update the order
+try:
+    api_response = order_api.update_order(order_id, order, expansion)
+except ApiException as e:
+    print(f"Exception when calling OrderApi->update_order: {e}")
+    exit()
+
+# Check for errors in the API response
+if api_response.error is not None:
+    print(f"Developer Message: {api_response.error.developer_message}")
+    print(f"User Message: {api_response.error.user_message}")
+    exit()
+
+# Output the updated order details
+updated_order = api_response.order
+print(updated_order)
 ```
+
 
 
 ### Parameters
@@ -6217,1327 +2472,91 @@ Validate the order for errors.  Specific checks can be passed to fine tune what 
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import order_api
-from ultracart.model.order_validation_request import OrderValidationRequest
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_validation_response import OrderValidationResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from ultracart.models import OrderValidationRequest
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# /*
+#     validateOrder may be used to check for any and all validation errors that may result from an insertOrder
+#     or updateOrder call.  Because those method are built on our existing infrastructure, some validation
+#     errors may not bubble up to the rest api call and instead be returned as generic "something went wrong" errors.
+#     This call will return detail validation issues needing correction.
+#
+#     Within the ValidationRequest, you may leave the 'checks' array null to check for everything, or pass
+#     an array of the specific checks you desire.  Here is a list of the checks:
+#
+#     "Billing Address Provided"
+#     "Billing Destination Restriction"
+#     "Billing Phone Numbers Provided"
+#     "Billing State Abbreviation Valid"
+#     "Billing Validate City State Zip"
+#     "Email provided if required"
+#     "Gift Message Length"
+#     "Item Quantity Valid"
+#     "Items Present"
+#     "Merchant Specific Item Relationships"
+#     "One per customer violations"
+#     "Referral Code Provided"
+#     "Shipping Address Provided"
+#     "Shipping Destination Restriction"
+#     "Shipping Method Ignore Invalid"
+#     "Shipping Method Provided"
+#     "Shipping State Abbreviation Valid"
+#     "Shipping Validate City State Zip"
+#     "Special Instructions Length"
+# */
 
-api_instance = GiftCertificateApi(api_client())
 
-    validation_request = OrderValidationRequest(
-        checks=[
-            "checks_example",
-        ],
-        order=Order(
-            affiliates=[
-                OrderAffiliate(
-                    affiliate_oid=1,
-                    ledger_entries=[
-                        OrderAffiliateLedger(
-                            assigned_by_user="assigned_by_user_example",
-                            item_id="item_id_example",
-                            tier_number=1,
-                            transaction_amount=3.14,
-                            transaction_amount_paid=3.14,
-                            transaction_dts="transaction_dts_example",
-                            transaction_memo="transaction_memo_example",
-                            transaction_percentage=3.14,
-                            transaction_state="Pending",
-                        ),
-                    ],
-                    sub_id="sub_id_example",
-                ),
-            ],
-            auto_order=OrderAutoOrder(
-                auto_order_code="auto_order_code_example",
-                auto_order_oid=1,
-                cancel_after_next_x_orders=1,
-                cancel_downgrade=True,
-                cancel_reason="cancel_reason_example",
-                cancel_upgrade=True,
-                canceled_by_user="canceled_by_user_example",
-                canceled_dts="canceled_dts_example",
-                completed=True,
-                credit_card_attempt=1,
-                disabled_dts="disabled_dts_example",
-                enabled=True,
-                failure_reason="failure_reason_example",
-                items=[
-                    AutoOrderItem(
-                        arbitrary_item_id="arbitrary_item_id_example",
-                        arbitrary_percentage_discount=3.14,
-                        arbitrary_quantity=3.14,
-                        arbitrary_schedule_days=1,
-                        arbitrary_unit_cost=3.14,
-                        arbitrary_unit_cost_remaining_orders=1,
-                        auto_order_item_oid=1,
-                        calculated_next_shipment_dts="calculated_next_shipment_dts_example",
-                        first_order_dts="first_order_dts_example",
-                        frequency="Weekly",
-                        future_schedules=[
-                            AutoOrderItemFutureSchedule(
-                                item_id="item_id_example",
-                                rebill_count=1,
-                                shipment_dts="shipment_dts_example",
-                                unit_cost=3.14,
-                            ),
-                        ],
-                        last_order_dts="last_order_dts_example",
-                        life_time_value=3.14,
-                        next_item_id="next_item_id_example",
-                        next_preshipment_notice_dts="next_preshipment_notice_dts_example",
-                        next_shipment_dts="next_shipment_dts_example",
-                        no_order_after_dts="no_order_after_dts_example",
-                        number_of_rebills=1,
-                        options=[
-                            AutoOrderItemOption(
-                                label="label_example",
-                                value="value_example",
-                            ),
-                        ],
-                        original_item_id="original_item_id_example",
-                        original_quantity=3.14,
-                        paused=True,
-                        paypal_payer_id="paypal_payer_id_example",
-                        paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
-                        preshipment_notice_sent=True,
-                        rebill_value=3.14,
-                        remaining_repeat_count=1,
-                        simple_schedule=AutoOrderItemSimpleSchedule(
-                            frequency="Weekly",
-                            item_id="item_id_example",
-                            repeat_count=1,
-                        ),
-                    ),
-                ],
-                next_attempt="next_attempt_example",
-                original_order_id="original_order_id_example",
-                override_affiliate_id=1,
-                rebill_orders=[
-                    Order(),
-                ],
-                rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-                status="active",
-            ),
-            billing=OrderBilling(
-                address1="address1_example",
-                address2="address2_example",
-                cc_emails=[
-                    "cc_emails_example",
-                ],
-                cell_phone="cell_phone_example",
-                cell_phone_e164="cell_phone_e164_example",
-                city="city_example",
-                company="company_example",
-                country_code="country_code_example",
-                day_phone="day_phone_example",
-                day_phone_e164="day_phone_e164_example",
-                email="email_example",
-                evening_phone="evening_phone_example",
-                evening_phone_e164="evening_phone_e164_example",
-                first_name="first_name_example",
-                last_name="last_name_example",
-                postal_code="postal_code_example",
-                state_region="state_region_example",
-                title="title_example",
-            ),
-            buysafe=OrderBuysafe(
-                buysafe_bond_available=True,
-                buysafe_bond_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                buysafe_bond_free=True,
-                buysafe_bond_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                buysafe_bond_wanted=True,
-                buysafe_shopping_cart_id="buysafe_shopping_cart_id_example",
-            ),
-            channel_partner=OrderChannelPartner(
-                auto_approve_purchase_order=True,
-                channel_partner_code="channel_partner_code_example",
-                channel_partner_data="channel_partner_data_example",
-                channel_partner_oid=1,
-                channel_partner_order_id="channel_partner_order_id_example",
-                ignore_invalid_shipping_method=True,
-                no_realtime_payment_processing=True,
-                skip_payment_processing=True,
-                store_completed=True,
-                store_if_payment_declines=True,
-                treat_warnings_as_errors=True,
-            ),
-            checkout=OrderCheckout(
-                browser=Browser(
-                    device=BrowserDevice(
-                        family="family_example",
-                    ),
-                    os=BrowserOS(
-                        family="family_example",
-                        major="major_example",
-                        minor="minor_example",
-                        patch="patch_example",
-                        patch_minor="patch_minor_example",
-                    ),
-                    user_agent=BrowserUserAgent(
-                        family="family_example",
-                        major="major_example",
-                        minor="minor_example",
-                        patch="patch_example",
-                    ),
-                ),
-                comments="comments_example",
-                custom_field1="custom_field1_example",
-                custom_field10="custom_field10_example",
-                custom_field2="custom_field2_example",
-                custom_field3="custom_field3_example",
-                custom_field4="custom_field4_example",
-                custom_field5="custom_field5_example",
-                custom_field6="custom_field6_example",
-                custom_field7="custom_field7_example",
-                custom_field8="custom_field8_example",
-                custom_field9="custom_field9_example",
-                customer_ip_address="customer_ip_address_example",
-                screen_branding_theme_code="screen_branding_theme_code_example",
-                screen_size="screen_size_example",
-                storefront_host_name="storefront_host_name_example",
-                upsell_path_code="upsell_path_code_example",
-            ),
-            coupons=[
-                OrderCoupon(
-                    accounting_code="accounting_code_example",
-                    automatically_applied=True,
-                    base_coupon_code="base_coupon_code_example",
-                    coupon_code="coupon_code_example",
-                    hdie_from_customer=True,
-                ),
-            ],
-            creation_dts="creation_dts_example",
-            currency_code="currency_code_example",
-            current_stage="Accounts Receivable",
-            current_stage_histories=[
-                OrderCurrentStageHistory(
-                    after_stage="Accounts Receivable",
-                    before_stage="Accounts Receivable",
-                    transition_dts="transition_dts_example",
-                ),
-            ],
-            customer_profile=Customer(
-                activity=CustomerActivity(
-                    activities=[
-                        Activity(
-                            action="action_example",
-                            channel="channel_example",
-                            metric="metric_example",
-                            storefront_oid=1,
-                            subject="subject_example",
-                            ts=1,
-                            type="type_example",
-                            uuid="uuid_example",
-                        ),
-                    ],
-                    global_unsubscribed=True,
-                    global_unsubscribed_dts="global_unsubscribed_dts_example",
-                    memberships=[
-                        ListSegmentMembership(
-                            name="name_example",
-                            type="type_example",
-                            uuid="uuid_example",
-                        ),
-                    ],
-                    metrics=[
-                        Metric(
-                            all_time=3.14,
-                            all_time_formatted="all_time_formatted_example",
-                            last_30=3.14,
-                            last_30_formatted="last_30_formatted_example",
-                            name="name_example",
-                            prior_30=3.14,
-                            prior_30_formatted="prior_30_formatted_example",
-                            type="type_example",
-                        ),
-                    ],
-                    properties_list=[
-                        ModelProperty(
-                            name="name_example",
-                            value="value_example",
-                        ),
-                    ],
-                    spam_complaint=True,
-                    spam_complaint_dts="spam_complaint_dts_example",
-                ),
-                affiliate_oid=1,
-                allow_3rd_party_billing=True,
-                allow_cod=True,
-                allow_drop_shipping=True,
-                allow_purchase_order=True,
-                allow_quote_request=True,
-                allow_selection_of_address_type=True,
-                attachments=[
-                    CustomerAttachment(
-                        customer_profile_attachment_oid=1,
-                        description="description_example",
-                        file_name="file_name_example",
-                        mime_type="mime_type_example",
-                        upload_dts="upload_dts_example",
-                    ),
-                ],
-                auto_approve_cod=True,
-                auto_approve_purchase_order=True,
-                automatic_merchant_notes="automatic_merchant_notes_example",
-                billing=[
-                    CustomerBilling(
-                        address1="address1_example",
-                        address2="address2_example",
-                        city="city_example",
-                        company="company_example",
-                        country_code="country_code_example",
-                        customer_billing_oid=1,
-                        customer_profile_oid=1,
-                        day_phone="day_phone_example",
-                        default_billing=True,
-                        evening_phone="evening_phone_example",
-                        first_name="first_name_example",
-                        last_name="last_name_example",
-                        last_used_dts="last_used_dts_example",
-                        postal_code="postal_code_example",
-                        state_region="state_region_example",
-                        tax_county="tax_county_example",
-                        title="title_example",
-                    ),
-                ],
-                business_notes="business_notes_example",
-                cards=[
-                    CustomerCard(
-                        card_expiration_month=1,
-                        card_expiration_year=1,
-                        card_number="card_number_example",
-                        card_number_token="card_number_token_example",
-                        card_type="card_type_example",
-                        customer_profile_credit_card_id=1,
-                        customer_profile_oid=1,
-                        last_used_dts="last_used_dts_example",
-                    ),
-                ],
-                cc_emails=[
-                    CustomerEmail(
-                        customer_profile_email_oid=1,
-                        email="email_example",
-                        label="label_example",
-                        receipt_notification=True,
-                        refund_notification=True,
-                        shipment_notification=True,
-                    ),
-                ],
-                customer_profile_oid=1,
-                dhl_account_number="dhl_account_number_example",
-                dhl_duty_account_number="dhl_duty_account_number_example",
-                do_not_send_mail=True,
-                edi=CustomerEDI(
-                    channel_partner_oid=1,
-                    distribution_center_number="distribution_center_number_example",
-                    store_number="store_number_example",
-                ),
-                email="email_example",
-                exempt_shipping_handling_charge=True,
-                fedex_account_number="fedex_account_number_example",
-                free_shipping=True,
-                free_shipping_minimum=3.14,
-                last_modified_by="last_modified_by_example",
-                last_modified_dts="last_modified_dts_example",
-                loyalty=CustomerLoyalty(
-                    current_points=1,
-                    internal_gift_certificate=GiftCertificate(
-                        activated=True,
-                        code="code_example",
-                        customer_profile_oid=1,
-                        deleted=True,
-                        email="email_example",
-                        expiration_dts="expiration_dts_example",
-                        gift_certificate_oid=1,
-                        internal=True,
-                        ledger_entries=[
-                            GiftCertificateLedgerEntry(
-                                amount=3.14,
-                                description="description_example",
-                                entry_dts="entry_dts_example",
-                                gift_certificate_ledger_oid=1,
-                                gift_certificate_oid=1,
-                                reference_order_id="reference_order_id_example",
-                            ),
-                        ],
-                        merchant_id="merchant_id_example",
-                        merchant_note="merchant_note_example",
-                        original_balance=3.14,
-                        reference_order_id="reference_order_id_example",
-                        remaining_balance=3.14,
-                    ),
-                    internal_gift_certificate_balance="internal_gift_certificate_balance_example",
-                    internal_gift_certificate_oid=1,
-                    ledger_entries=[
-                        CustomerLoyaltyLedger(
-                            created_by="created_by_example",
-                            created_dts="created_dts_example",
-                            description="description_example",
-                            email="email_example",
-                            item_id="item_id_example",
-                            item_index=1,
-                            ledger_dts="ledger_dts_example",
-                            loyalty_campaign_oid=1,
-                            loyalty_ledger_oid=1,
-                            loyalty_points=1,
-                            modified_by="modified_by_example",
-                            modified_dts="modified_dts_example",
-                            order_id="order_id_example",
-                            quantity=1,
-                            vesting_dts="vesting_dts_example",
-                        ),
-                    ],
-                    pending_points=1,
-                    redemptions=[
-                        CustomerLoyaltyRedemption(
-                            coupon_code="coupon_code_example",
-                            coupon_code_oid=1,
-                            coupon_used=True,
-                            description_for_customer="description_for_customer_example",
-                            expiration_dts="expiration_dts_example",
-                            gift_certificate_code="gift_certificate_code_example",
-                            gift_certificate_oid=1,
-                            loyalty_ledger_oid=1,
-                            loyalty_points=1,
-                            loyalty_redemption_oid=1,
-                            order_id="order_id_example",
-                            redemption_dts="redemption_dts_example",
-                            remaining_balance=3.14,
-                        ),
-                    ],
-                ),
-                maximum_item_count=1,
-                merchant_id="merchant_id_example",
-                minimum_item_count=1,
-                minimum_subtotal=3.14,
-                no_coupons=True,
-                no_free_shipping=True,
-                no_realtime_charge=True,
-                orders=[
-                    Order(),
-                ],
-                orders_summary=CustomerOrdersSummary(
-                    first_order_dts="first_order_dts_example",
-                    last_order_dts="last_order_dts_example",
-                    order_count=1,
-                    total=3.14,
-                ),
-                password="password_example",
-                pricing_tiers=[
-                    CustomerPricingTier(
-                        name="name_example",
-                        pricing_tier_oid=1,
-                    ),
-                ],
-                privacy=CustomerPrivacy(
-                    last_update_dts="last_update_dts_example",
-                    marketing=True,
-                    preference=True,
-                    statistics=True,
-                ),
-                properties=[
-                    CustomerProperty(
-                        customer_profile_property_oid=1,
-                        expiration_dts="expiration_dts_example",
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                qb_class="qb_class_example",
-                qb_code="qb_code_example",
-                qb_tax_exemption_reason_code=1,
-                quotes=[
-                    Order(),
-                ],
-                quotes_summary=CustomerQuotesSummary(
-                    first_quote_dts="first_quote_dts_example",
-                    last_quote_dts="last_quote_dts_example",
-                    quote_count=1,
-                    total=3.14,
-                ),
-                referral_source="referral_source_example",
-                reviewer=CustomerReviewer(
-                    auto_approve=True,
-                    average_overall_rating=3.14,
-                    expert=True,
-                    first_review="first_review_example",
-                    last_review="last_review_example",
-                    location="location_example",
-                    nickname="nickname_example",
-                    number_helpful_review_votes=1,
-                    rank=1,
-                    reviews_contributed=1,
-                ),
-                sales_rep_code="sales_rep_code_example",
-                send_signup_notification=True,
-                shipping=[
-                    CustomerShipping(
-                        address1="address1_example",
-                        address2="address2_example",
-                        city="city_example",
-                        company="company_example",
-                        country_code="country_code_example",
-                        customer_profile_oid=1,
-                        customer_shipping_oid=1,
-                        day_phone="day_phone_example",
-                        default_shipping=True,
-                        evening_phone="evening_phone_example",
-                        first_name="first_name_example",
-                        last_name="last_name_example",
-                        last_used_dts="last_used_dts_example",
-                        postal_code="postal_code_example",
-                        state_region="state_region_example",
-                        tax_county="tax_county_example",
-                        title="title_example",
-                    ),
-                ],
-                signup_dts="signup_dts_example",
-                software_entitlements=[
-                    CustomerSoftwareEntitlement(
-                        activation_code="activation_code_example",
-                        activation_dts="activation_dts_example",
-                        customer_software_entitlement_oid=1,
-                        expiration_dts="expiration_dts_example",
-                        purchased_via_item_description="purchased_via_item_description_example",
-                        purchased_via_item_id="purchased_via_item_id_example",
-                        purchased_via_order_id="purchased_via_order_id_example",
-                        software_sku="software_sku_example",
-                    ),
-                ],
-                suppress_buysafe=True,
-                tags=[
-                    CustomerTag(
-                        tag_value="tag_value_example",
-                    ),
-                ],
-                tax_codes=CustomerTaxCodes(
-                    avalara_customer_code="avalara_customer_code_example",
-                    avalara_entity_use_code="avalara_entity_use_code_example",
-                    sovos_customer_code="sovos_customer_code_example",
-                    taxjar_customer_id="taxjar_customer_id_example",
-                    taxjar_exemption_type="taxjar_exemption_type_example",
-                ),
-                tax_exempt=True,
-                tax_id="tax_id_example",
-                terms="terms_example",
-                track_separately=True,
-                unapproved=True,
-                ups_account_number="ups_account_number_example",
-                website_url="website_url_example",
-            ),
-            digital_order=OrderDigitalOrder(
-                creation_dts="creation_dts_example",
-                expiration_dts="expiration_dts_example",
-                items=[
-                    OrderDigitalItem(
-                        file_size=1,
-                        last_download="last_download_example",
-                        last_download_ip_address="last_download_ip_address_example",
-                        original_filename="original_filename_example",
-                        product_code="product_code_example",
-                        product_description="product_description_example",
-                        remaining_downloads=1,
-                        url="url_example",
-                    ),
-                ],
-                url="url_example",
-                url_id="url_id_example",
-            ),
-            edi=OrderEdi(
-                bill_to_edi_code="bill_to_edi_code_example",
-                edi_department="edi_department_example",
-                edi_internal_vendor_number="edi_internal_vendor_number_example",
-                ship_to_edi_code="ship_to_edi_code_example",
-            ),
-            exchange_rate=3.14,
-            fraud_score=OrderFraudScore(
-                anonymous_proxy=True,
-                bin_match="NA",
-                carder_email=True,
-                country_code="country_code_example",
-                country_match=True,
-                customer_phone_in_billing_location="customer_phone_in_billing_location_example",
-                distance_km=1,
-                free_email=True,
-                high_risk_country=True,
-                ip_city="ip_city_example",
-                ip_isp="ip_isp_example",
-                ip_latitude="ip_latitude_example",
-                ip_longitude="ip_longitude_example",
-                ip_org="ip_org_example",
-                ip_region="ip_region_example",
-                proxy_score=3.14,
-                score=3.14,
-                ship_forwarder=True,
-                spam_score=3.14,
-                transparent_proxy=True,
-            ),
-            gift=OrderGift(
-                gift=True,
-                gift_charge=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                gift_charge_accounting_code="gift_charge_accounting_code_example",
-                gift_charge_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                gift_email="gift_email_example",
-                gift_message="gift_message_example",
-                gift_wrap_accounting_code="gift_wrap_accounting_code_example",
-                gift_wrap_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                gift_wrap_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                gift_wrap_title="gift_wrap_title_example",
-            ),
-            gift_certificate=OrderGiftCertificate(
-                gift_certificate_amount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                gift_certificate_code="gift_certificate_code_example",
-                gift_certificate_oid=1,
-            ),
-            internal=OrderInternal(
-                exported_to_accounting=True,
-                merchant_notes="merchant_notes_example",
-                placed_by_user="placed_by_user_example",
-                refund_by_user="refund_by_user_example",
-                sales_rep_code="sales_rep_code_example",
-                transactional_merchant_notes=[
-                    OrderTransactionalMerchantNote(
-                        ip_address="ip_address_example",
-                        note="note_example",
-                        note_dts="note_dts_example",
-                        user="user_example",
-                    ),
-                ],
-            ),
-            items=[
-                OrderItem(
-                    accounting_code="accounting_code_example",
-                    activation_codes=[
-                        "activation_codes_example",
-                    ],
-                    actual_cogs=Currency(
-                        currency_code="currency_code_example",
-                        exchange_rate=3.14,
-                        localized=3.14,
-                        localized_formatted="localized_formatted_example",
-                        value=3.14,
-                    ),
-                    arbitrary_unit_cost=Currency(
-                        currency_code="currency_code_example",
-                        exchange_rate=3.14,
-                        localized=3.14,
-                        localized_formatted="localized_formatted_example",
-                        value=3.14,
-                    ),
-                    auto_order_last_rebill_dts="auto_order_last_rebill_dts_example",
-                    auto_order_schedule="auto_order_schedule_example",
-                    barcode="barcode_example",
-                    barcode_gtin12="barcode_gtin12_example",
-                    barcode_gtin14="barcode_gtin14_example",
-                    barcode_upc11="barcode_upc11_example",
-                    barcode_upc12="barcode_upc12_example",
-                    channel_partner_item_id="channel_partner_item_id_example",
-                    cogs=3.14,
-                    component_unit_value=3.14,
-                    cost=Currency(
-                        currency_code="currency_code_example",
-                        exchange_rate=3.14,
-                        localized=3.14,
-                        localized_formatted="localized_formatted_example",
-                        value=3.14,
-                    ),
-                    country_code_of_origin="country_code_of_origin_example",
-                    customs_description="customs_description_example",
-                    description="description_example",
-                    discount=Currency(
-                        currency_code="currency_code_example",
-                        exchange_rate=3.14,
-                        localized=3.14,
-                        localized_formatted="localized_formatted_example",
-                        value=3.14,
-                    ),
-                    discount_quantity=3.14,
-                    discount_shipping_weight=Weight(
-                        uom="KG",
-                        value=3.14,
-                    ),
-                    distribution_center_code="distribution_center_code_example",
-                    edi=OrderItemEdi(
-                        identifications=[
-                            OrderItemEdiIdentification(
-                                identification="identification_example",
-                                quantity=1,
-                            ),
-                        ],
-                        lots=[
-                            OrderItemEdiLot(
-                                lot_expiration="lot_expiration_example",
-                                lot_number="lot_number_example",
-                                lot_quantity=1,
-                            ),
-                        ],
-                    ),
-                    exclude_coupon=True,
-                    free_shipping=True,
-                    hazmat=True,
-                    height=Distance(
-                        uom="IN",
-                        value=3.14,
-                    ),
-                    item_index=1,
-                    item_reference_oid=1,
-                    kit=True,
-                    kit_component=True,
-                    length=Distance(
-                        uom="IN",
-                        value=3.14,
-                    ),
-                    manufacturer_sku="manufacturer_sku_example",
-                    max_days_time_in_transit=1,
-                    merchant_item_id="merchant_item_id_example",
-                    mix_and_match_group_name="mix_and_match_group_name_example",
-                    mix_and_match_group_oid=1,
-                    no_shipping_discount=True,
-                    options=[
-                        OrderItemOption(
-                            additional_dimension_application="none",
-                            cost_change=Currency(
-                                currency_code="currency_code_example",
-                                exchange_rate=3.14,
-                                localized=3.14,
-                                localized_formatted="localized_formatted_example",
-                                value=3.14,
-                            ),
-                            file_attachment=OrderItemOptionFileAttachment(
-                                expiration_dts="expiration_dts_example",
-                                file_name="file_name_example",
-                                mime_type="mime_type_example",
-                                size=1,
-                            ),
-                            height=Distance(
-                                uom="IN",
-                                value=3.14,
-                            ),
-                            hidden=True,
-                            label="label_example",
-                            length=Distance(
-                                uom="IN",
-                                value=3.14,
-                            ),
-                            one_time_fee=True,
-                            value="value_example",
-                            weight_change=Weight(
-                                uom="KG",
-                                value=3.14,
-                            ),
-                            width=Distance(
-                                uom="IN",
-                                value=3.14,
-                            ),
-                        ),
-                    ],
-                    packed_by_user="packed_by_user_example",
-                    parent_item_index=1,
-                    parent_merchant_item_id="parent_merchant_item_id_example",
-                    perishable_class="perishable_class_example",
-                    pricing_tier_name="pricing_tier_name_example",
-                    properties=[
-                        OrderItemProperty(
-                            display=True,
-                            expiration_dts="expiration_dts_example",
-                            name="name_example",
-                            value="value_example",
-                        ),
-                    ],
-                    quantity=3.14,
-                    quantity_refunded=3.14,
-                    quickbooks_class="quickbooks_class_example",
-                    refund_reason="refund_reason_example",
-                    return_reason="return_reason_example",
-                    ship_separately=True,
-                    shipped_by_user="shipped_by_user_example",
-                    shipped_dts="shipped_dts_example",
-                    shipping_status="shipping_status_example",
-                    special_product_type="special_product_type_example",
-                    tags=[
-                        OrderItemTag(
-                            tag_value="tag_value_example",
-                        ),
-                    ],
-                    tax_free=True,
-                    tax_product_type="",
-                    taxable_cost=Currency(
-                        currency_code="currency_code_example",
-                        exchange_rate=3.14,
-                        localized=3.14,
-                        localized_formatted="localized_formatted_example",
-                        value=3.14,
-                    ),
-                    total_cost_with_discount=Currency(
-                        currency_code="currency_code_example",
-                        exchange_rate=3.14,
-                        localized=3.14,
-                        localized_formatted="localized_formatted_example",
-                        value=3.14,
-                    ),
-                    total_refunded=Currency(
-                        currency_code="currency_code_example",
-                        exchange_rate=3.14,
-                        localized=3.14,
-                        localized_formatted="localized_formatted_example",
-                        value=3.14,
-                    ),
-                    transmitted_to_distribution_center_dts="transmitted_to_distribution_center_dts_example",
-                    unit_cost_with_discount=Currency(
-                        currency_code="currency_code_example",
-                        exchange_rate=3.14,
-                        localized=3.14,
-                        localized_formatted="localized_formatted_example",
-                        value=3.14,
-                    ),
-                    upsell=True,
-                    weight=Weight(
-                        uom="KG",
-                        value=3.14,
-                    ),
-                    width=Distance(
-                        uom="IN",
-                        value=3.14,
-                    ),
-                ),
-            ],
-            language_iso_code="language_iso_code_example",
-            linked_shipment=OrderLinkedShipment(
-                has_linked_shipment=True,
-                linked_shipment=True,
-                linked_shipment_channel_partner_order_ids=[
-                    "linked_shipment_channel_partner_order_ids_example",
-                ],
-                linked_shipment_order_ids=[
-                    "linked_shipment_order_ids_example",
-                ],
-                linked_shipment_to_order_id="linked_shipment_to_order_id_example",
-            ),
-            marketing=OrderMarketing(
-                advertising_source="advertising_source_example",
-                cell_phone_opt_in=True,
-                mailing_list=True,
-                referral_code="referral_code_example",
-            ),
-            merchant_id="merchant_id_example",
-            order_id="order_id_example",
-            payment=OrderPayment(
-                check=OrderPaymentCheck(
-                    check_number="check_number_example",
-                ),
-                credit_card=OrderPaymentCreditCard(
-                    card_auth_ticket="card_auth_ticket_example",
-                    card_authorization_amount=3.14,
-                    card_authorization_dts="card_authorization_dts_example",
-                    card_authorization_reference_number="card_authorization_reference_number_example",
-                    card_expiration_month=1,
-                    card_expiration_year=1,
-                    card_number="card_number_example",
-                    card_number_token="card_number_token_example",
-                    card_number_truncated=True,
-                    card_type="AMEX",
-                    card_verification_number_token="card_verification_number_token_example",
-                    dual_vaulted=OrderPaymentCreditCardDualVaulted(
-                        gateway_name="gateway_name_example",
-                        properties=[
-                            OrderPaymentCreditCardDualVaultedProperty(
-                                name="name_example",
-                                value="value_example",
-                            ),
-                        ],
-                        rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-                    ),
-                ),
-                echeck=OrderPaymentECheck(
-                    bank_aba_code="bank_aba_code_example",
-                    bank_account_name="bank_account_name_example",
-                    bank_account_number="bank_account_number_example",
-                    bank_account_type="Checking",
-                    bank_name="bank_name_example",
-                    bank_owner_type="Personal",
-                    customer_tax_id="customer_tax_id_example",
-                    drivers_license_dob="drivers_license_dob_example",
-                    drivers_license_number="drivers_license_number_example",
-                    drivers_license_state="drivers_license_state_example",
-                ),
-                health_benefit_card=OrderPaymentHealthBenefitCard(
-                    health_benefit_card_expiration_month=1,
-                    health_benefit_card_expiration_year=1,
-                    health_benefit_card_number="health_benefit_card_number_example",
-                    health_benefit_card_number_token="health_benefit_card_number_token_example",
-                    health_benefit_card_number_truncated=True,
-                    health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
-                ),
-                hold_for_fraud_review=True,
-                insurance=OrderPaymentInsurance(
-                    application_id="application_id_example",
-                    claim_id="claim_id_example",
-                    insurance_type="insurance_type_example",
-                    refund_claim_id="refund_claim_id_example",
-                ),
-                payment_dts="payment_dts_example",
-                payment_method="Affirm",
-                payment_method_accounting_code="payment_method_accounting_code_example",
-                payment_method_deposit_to_account="payment_method_deposit_to_account_example",
-                payment_status="Unprocessed",
-                paypal=OrderPaymentPayPal(
-                    customer_id="customer_id_example",
-                    vault_id="vault_id_example",
-                ),
-                purchase_order=OrderPaymentPurchaseOrder(
-                    purchase_order_number="purchase_order_number_example",
-                ),
-                rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-                surcharge=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                surcharge_accounting_code="surcharge_accounting_code_example",
-                surcharge_transaction_fee=3.14,
-                surcharge_transaction_percentage=3.14,
-                test_order=True,
-                transactions=[
-                    OrderPaymentTransaction(
-                        details=[
-                            OrderPaymentTransactionDetail(
-                                name="name_example",
-                                type="type_example",
-                                value="value_example",
-                            ),
-                        ],
-                        successful=True,
-                        transaction_gateway="transaction_gateway_example",
-                        transaction_id=1,
-                        transaction_timestamp="transaction_timestamp_example",
-                    ),
-                ],
-            ),
-            point_of_sale=OrderPointOfSale(
-                location=PointOfSaleLocation(
-                    adddress2="adddress2_example",
-                    address1="address1_example",
-                    city="city_example",
-                    country="country_example",
-                    distribution_center_code="distribution_center_code_example",
-                    external_id="external_id_example",
-                    merchant_id="merchant_id_example",
-                    pos_location_oid=1,
-                    postal_code="postal_code_example",
-                    state_province="state_province_example",
-                ),
-                reader=PointOfSaleReader(
-                    device_type="device_type_example",
-                    label="label_example",
-                    merchant_id="merchant_id_example",
-                    payment_provider="stripe",
-                    pos_reader_id=1,
-                    pos_register_oid=1,
-                    serial_number="serial_number_example",
-                    stripe_account_id="stripe_account_id_example",
-                    stripe_reader_id="stripe_reader_id_example",
-                ),
-                register=PointOfSaleRegister(
-                    merchant_id="merchant_id_example",
-                    name="name_example",
-                    pos_location_oid=1,
-                    pos_register_oid=1,
-                ),
-            ),
-            properties=[
-                OrderProperty(
-                    created_by="created_by_example",
-                    created_dts="created_dts_example",
-                    display=True,
-                    expiration_dts="expiration_dts_example",
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            quote=OrderQuote(
-                quote_expiration_dts="quote_expiration_dts_example",
-                quoted_by="quoted_by_example",
-                quoted_dts="quoted_dts_example",
-            ),
-            refund_dts="refund_dts_example",
-            refund_reason="refund_reason_example",
-            reject_dts="reject_dts_example",
-            reject_reason="reject_reason_example",
-            salesforce=OrderSalesforce(
-                salesforce_opportunity_id="salesforce_opportunity_id_example",
-            ),
-            shipping=OrderShipping(
-                address1="address1_example",
-                address2="address2_example",
-                city="city_example",
-                company="company_example",
-                country_code="country_code_example",
-                day_phone="day_phone_example",
-                day_phone_e164="day_phone_e164_example",
-                delivery_date="delivery_date_example",
-                evening_phone="evening_phone_example",
-                evening_phone_e164="evening_phone_e164_example",
-                first_name="first_name_example",
-                last_name="last_name_example",
-                least_cost_route=True,
-                least_cost_route_shipping_methods=[
-                    "least_cost_route_shipping_methods_example",
-                ],
-                lift_gate=True,
-                pickup_dts="pickup_dts_example",
-                postal_code="postal_code_example",
-                rma="rma_example",
-                ship_on_date="ship_on_date_example",
-                ship_to_residential=True,
-                shipping_3rd_party_account_number="shipping_3rd_party_account_number_example",
-                shipping_date="shipping_date_example",
-                shipping_department_status="shipping_department_status_example",
-                shipping_method="shipping_method_example",
-                shipping_method_accounting_code="shipping_method_accounting_code_example",
-                special_instructions="special_instructions_example",
-                state_region="state_region_example",
-                title="title_example",
-                tracking_number_details=[
-                    OrderTrackingNumberDetails(
-                        actual_delivery_date="actual_delivery_date_example",
-                        actual_delivery_date_formatted="actual_delivery_date_formatted_example",
-                        details=[
-                            OrderTrackingNumberDetail(
-                                city="city_example",
-                                event_dts="event_dts_example",
-                                event_local_date="event_local_date_example",
-                                event_local_time="event_local_time_example",
-                                event_timezone_id="event_timezone_id_example",
-                                state="state_example",
-                                subtag="subtag_example",
-                                subtag_message="subtag_message_example",
-                                tag="tag_example",
-                                tag_description="tag_description_example",
-                                tag_icon="tag_icon_example",
-                                zip="zip_example",
-                            ),
-                        ],
-                        easypost_tracker_id="easypost_tracker_id_example",
-                        expected_delivery_date="expected_delivery_date_example",
-                        expected_delivery_date_formatted="expected_delivery_date_formatted_example",
-                        map_url="map_url_example",
-                        order_placed_date="order_placed_date_example",
-                        order_placed_date_formatted="order_placed_date_formatted_example",
-                        payment_processed_date="payment_processed_date_example",
-                        payment_processed_date_formatted="payment_processed_date_formatted_example",
-                        shipped_date="shipped_date_example",
-                        shipped_date_formatted="shipped_date_formatted_example",
-                        shipping_method="shipping_method_example",
-                        status="status_example",
-                        status_description="status_description_example",
-                        tracking_number="tracking_number_example",
-                        tracking_url="tracking_url_example",
-                    ),
-                ],
-                tracking_numbers=[
-                    "tracking_numbers_example",
-                ],
-                weight=Weight(
-                    uom="KG",
-                    value=3.14,
-                ),
-            ),
-            summary=OrderSummary(
-                actual_fulfillment=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                actual_other_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                actual_payment_processing=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                actual_profit=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                actual_profit_analyzed=True,
-                actual_profit_review=True,
-                actual_shipping=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                arbitrary_shipping_handling_total=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                health_benefit_card_amount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                health_benefit_card_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                internal_gift_certificate_amount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                internal_gift_certificate_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                other_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                shipping_handling_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                shipping_handling_total=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                shipping_handling_total_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                subtotal=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                subtotal_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                subtotal_discount_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                subtotal_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                tax=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                tax_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                taxable_subtotal=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                taxable_subtotal_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-            ),
-            tags=[
-                OrderTag(
-                    tag_value="tag_value_example",
-                ),
-            ],
-            taxes=OrderTaxes(
-                arbitrary_tax=3.14,
-                arbitrary_tax_rate=3.14,
-                arbitrary_taxable_subtotal=3.14,
-                tax_city_accounting_code="tax_city_accounting_code_example",
-                tax_country_accounting_code="tax_country_accounting_code_example",
-                tax_county="tax_county_example",
-                tax_county_accounting_code="tax_county_accounting_code_example",
-                tax_gift_charge=True,
-                tax_postal_code_accounting_code="tax_postal_code_accounting_code_example",
-                tax_rate=3.14,
-                tax_rate_city=3.14,
-                tax_rate_country=3.14,
-                tax_rate_county=3.14,
-                tax_rate_postal_code=3.14,
-                tax_rate_state=3.14,
-                tax_shipping=True,
-                tax_state_accounting_code="tax_state_accounting_code_example",
-            ),
-            utms=[
-                OrderUtm(
-                    attribution_first_click_subtotal=3.14,
-                    attribution_first_click_total=3.14,
-                    attribution_last_click_subtotal=3.14,
-                    attribution_last_click_total=3.14,
-                    attribution_linear_subtotal=3.14,
-                    attribution_linear_total=3.14,
-                    attribution_position_based_subtotal=3.14,
-                    attribution_position_based_total=3.14,
-                    click_dts="click_dts_example",
-                    facebook_ad_id="facebook_ad_id_example",
-                    fbclid="fbclid_example",
-                    gbraid="gbraid_example",
-                    glcid="glcid_example",
-                    itm_campaign="itm_campaign_example",
-                    itm_content="itm_content_example",
-                    itm_id="itm_id_example",
-                    itm_medium="itm_medium_example",
-                    itm_source="itm_source_example",
-                    itm_term="itm_term_example",
-                    msclkid="msclkid_example",
-                    short_code="short_code_example",
-                    short_code_backup=True,
-                    ttclid="ttclid_example",
-                    uc_message_id="uc_message_id_example",
-                    utm_campaign="utm_campaign_example",
-                    utm_content="utm_content_example",
-                    utm_id="utm_id_example",
-                    utm_medium="utm_medium_example",
-                    utm_source="utm_source_example",
-                    utm_term="utm_term_example",
-                    vmcid="vmcid_example",
-                    wbraid="wbraid_example",
-                ),
-            ],
-        ),
-    ) # OrderValidationRequest | Validation request
+# Initialize the Order API with the API key
+order_api = OrderApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Validate
-        api_response = api_instance.validate_order(validation_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling OrderApi->validate_order: %s\n" % e)
+# Define the expansion to be used in the API call (related to checkout)
+expansion = "checkout"  # see the getOrder sample for expansion discussion
+
+# The order ID to retrieve
+order_id = 'DEMO-0009104976'
+
+# Step 1: Retrieve the order
+try:
+    api_response = order_api.get_order(order_id, expansion)
+    order = api_response.order
+except ApiException as e:
+    print(f"Exception when calling OrderApi->get_order: {e}")
+    exit()
+
+# Output the current order details
+print("<html lang='en'><body><pre>")
+print(order)
+
+# TODO: Do some updates to the order here.
+
+# Step 2: Validate the order
+validation_request = OrderValidationRequest()
+validation_request.order = order
+validation_request.checks = None  # leaving this null to perform all validations
+
+try:
+    api_response = order_api.validate_order(validation_request)
+except ApiException as e:
+    print(f"Exception when calling OrderApi->validate_order: {e}")
+    exit()
+
+# Output validation errors, if any
+print('Validation errors:<br>')
+if api_response.errors is not None:
+    for error in api_response.errors:
+        print(error)
+
+# Output validation messages, if any
+print('Validation messages:<br>')
+if api_response.messages is not None:
+    for message in api_response.messages:
+        print(message)
+
+print('</pre></body></html>')
 ```
+
 
 
 ### Parameters

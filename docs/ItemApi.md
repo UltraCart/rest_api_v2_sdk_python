@@ -42,28 +42,21 @@ Delete a digital item on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# Digital item operations sample script
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.api_client import ApiException
+from item_functions import insert_sample_digital_item, delete_sample_digital_item
 
-api_instance = GiftCertificateApi(api_client())
+try:
+    digital_item_oid = insert_sample_digital_item()
+    delete_sample_digital_item(digital_item_oid)
 
-    digital_item_oid = 1 # int | The digital item oid to delete.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a digital item, which is a file within the digital library, not an actual merchant item
-        api_instance.delete_digital_item(digital_item_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->delete_digital_item: %s\n" % e)
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)  # Handle gracefully as noted in original comment
+    exit(1)
 ```
+
 
 
 ### Parameters
@@ -112,28 +105,21 @@ Delete an item on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# Sample item operations script
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.api_client import ApiException
+from item_functions import insert_sample_item, delete_sample_item
 
-api_instance = GiftCertificateApi(api_client())
+try:
+    item_oid = insert_sample_item()
+    delete_sample_item(item_oid)
 
-    merchant_item_oid = 1 # int | The item oid to delete.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete an item
-        api_instance.delete_item(merchant_item_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->delete_item: %s\n" % e)
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)  # Handle gracefully as noted in original comment
+    exit(1)
 ```
+
 
 
 ### Parameters
@@ -182,29 +168,33 @@ Delete an item review.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# Delete a specific user review for an item
+#
+# This would most likely be used by a merchant who has cached all
+# reviews on a separate site and then wishes to remove a particular review.
+#
+# The merchant_item_oid is a unique identifier used by UltraCart. If you do not know your item's oid, call
+# ItemApi.get_item_by_merchant_item_id() to retrieve the item, and then get its oid
+#
+# The review_oid is a unique identifier used by UltraCart. If you do not know a review's oid, call
+# ItemApi.get_reviews() to get all reviews where you can then grab the oid from an item.
+#
+# Success returns back a status code of 204 (No Content)
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import ItemApi
+from samples import api_client
 
-api_instance = GiftCertificateApi(api_client())
+# Create item API instance
+item_api = ItemApi(api_client())
 
-    review_oid = 1 # int | The review oid to delete.
-    merchant_item_oid = 1 # int | The item oid the review is associated with.
+# Specify item and review OIDs
+merchant_item_oid = 123456
+review_oid = 987654
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a review
-        api_instance.delete_review(review_oid, merchant_item_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->delete_review: %s\n" % e)
+# Delete the review
+item_api.delete_review(review_oid, merchant_item_oid)
 ```
+
 
 
 ### Parameters
@@ -253,30 +243,40 @@ Retrieves a digital item (file information) from the account.  Be aware that the
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# Digital Item Retrieval Example
+#
+# Please Note!
+# Digital Items are not normal items you sell on your site. They are digital files that you may add to
+# a library and then attach to a normal item as an accessory or the main item itself.
+# See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1376485/Digital+Items
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.api_client import ApiException
+from ultracart.apis import ItemApi
+from samples import api_client
+from item_functions import insert_sample_digital_item, delete_sample_digital_item
 
-api_instance = GiftCertificateApi(api_client())
+try:
+    # Create a digital item to retrieve
+    digital_item_oid = insert_sample_digital_item()
 
-    digital_item_oid = 1 # int | The digital item oid to retrieve.
+    # Get the item API and retrieve the digital item
+    item_api = ItemApi(api_client())
+    api_response = item_api.get_digital_item(digital_item_oid)
+    digital_item = api_response.digital_item
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
-        api_response = api_instance.get_digital_item(digital_item_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_digital_item: %s\n" % e)
+    # Print the retrieved item
+    print('The following item was retrieved via get_digital_item():')
+    print(digital_item)
+
+    # Clean up the sample digital item
+    delete_sample_digital_item(digital_item_oid)
+
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)  # Handle gracefully as noted in original comment
+    exit(1)
 ```
+
 
 
 ### Parameters
@@ -325,36 +325,48 @@ Retrieves a group of digital items (file information) from the account.  If no p
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_digital_items_response import ItemDigitalItemsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ItemApi
+from samples import api_client
+from item_functions import insert_sample_digital_item
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+try:
+    """
+    Please Note!
+    Digital Items are not normal items you sell on your site.  They are digital files that you may add to
+    a library and then attach to a normal item as an accessory or the main item itself.
+    See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1376485/Digital+Items
+    """
 
-api_instance = GiftCertificateApi(api_client())
+    # Create a digital item to get an item
+    digital_item_oid = insert_sample_digital_item()
 
-    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    since = "_since_example" # str | Fetch items that have been created/modified since this date/time. (optional)
-    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+    # Create Item API client
+    item_api = ItemApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve digital items from the digital library which are digital files that may be attached to normal items
-        api_response = api_instance.get_digital_items(limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_digital_items: %s\n" % e)
+    # Set parameters for getDigitalItems
+    limit = 100
+    offset = 0
+    since = None  # digital items do not use since. leave as None.
+    sort = None  # if None, use default of original_filename
+    expand = None  # digital items have no expansion. leave as None. this value is ignored
+    placeholders = None  # digital items have no placeholders. leave as None.
+
+    # Retrieve digital items
+    api_response = item_api.get_digital_items(limit=limit, offset=offset, since=since,
+                                              sort=sort, expand=expand,
+                                              placeholders=placeholders)
+    digital_items = api_response.get_digital_items()  # assuming this succeeded
+
+    print('The following items were retrieved via get_digital_items():')
+    for digital_item in digital_items:
+        print(digital_item)
+
+except Exception as e:
+    print('An exception occurred. Please review the following error:')
+    print(e)
+    raise
 ```
+
 
 
 ### Parameters
@@ -408,30 +420,45 @@ Retrieves digital items from the digital library (which are digital files that m
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_digital_items_response import ItemDigitalItemsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+import uuid
+from ultracart.apis import ItemApi
+from samples import api_client
+from item_functions import insert_sample_digital_item, delete_sample_digital_item
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+try:
+    """
+    Please Note!
+    Digital Items are not normal items you sell on your site.  They are digital files that you may add to
+    a library and then attach to a normal item as an accessory or the main item itself.
+    See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1376485/Digital+Items
+    """
 
-api_instance = GiftCertificateApi(api_client())
+    # Generate a unique external ID
+    external_id = str(uuid.uuid4())
+    print(f'My external id is {external_id}')
 
-    external_id = "external_id_example" # str | The external id to match against.
+    # Create digital item with a specific external id I can later use
+    digital_item_oid = insert_sample_digital_item(external_id)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
-        api_response = api_instance.get_digital_items_by_external_id(external_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_digital_items_by_external_id: %s\n" % e)
+    # Create Item API client
+    item_api = ItemApi(api_client())
+
+    # Retrieve digital items by external ID
+    api_response = item_api.get_digital_items_by_external_id(external_id)
+    digital_items = api_response.get_digital_items()  # assuming this succeeded
+
+    print('The following item was retrieved via get_digital_items_by_external_id():')
+    print(digital_items)
+
+    # Delete the sample digital item
+    delete_sample_digital_item(digital_item_oid)
+
+except Exception as e:
+    print('An exception occurred. Please review the following error:')
+    print(e)
+    raise
 ```
+
 
 
 ### Parameters
@@ -480,29 +507,31 @@ Retrieve a list of item inventories.  This method may be called once every 15 mi
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_inventory_snapshot_response import ItemInventorySnapshotResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+# Retrieve a list of item inventories.
+# This method may be called once every 15 minutes.  More than that will result in a 429 response.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+from ultracart.apis import ItemApi
+from ultracart.api_client import ApiException
+from samples import api_client
 
-api_instance = GiftCertificateApi(api_client())
+try:
+    # Create the Item API instance
+    item_api = ItemApi(api_client())
 
+    # Get the inventory snapshot
+    api_response = item_api.get_inventory_snapshot()
+    inventories = api_response.inventories
 
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-        api_response = api_instance.get_inventory_snapshot()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_inventory_snapshot: %s\n" % e)
+    # Iterate and print inventories
+    for inventory in inventories:
+        print(inventory)
+
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)  # Handle gracefully as noted in original comment
+    exit(1)
 ```
+
 
 
 ### Parameters
@@ -548,41 +577,84 @@ Retrieves a single item using the specified item oid.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.item_response import ItemResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ItemApi, CustomerApi
+from samples import api_client
+from item_functions import insert_sample_item, delete_sample_item
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+try:
+    """
+    Of the two getItem methods, you'll probably always use get_item_by_merchant_item_id instead of this one.
+    Most item work is done with the item id, not the item oid. The latter is only meaningful as a primary
+    key in the UltraCart databases. But here is an example of using get_item(). We take the long route here
+    of retrieving the item using get_item_by_merchant_item_id to obtain the oid rather than hard-coding it.
+    We do this because these samples are used in our quality control system and run repeatedly.
+    """
 
-api_instance = GiftCertificateApi(api_client())
+    # Insert a sample item
+    item_id = insert_sample_item()
 
-    merchant_item_oid = 1 # int | The item oid to retrieve.
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+    # Create API clients
+    item_api = ItemApi(api_client())
+    customer_api = CustomerApi(api_client())  # only needed for accessing reviewer information below
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve an item
-        api_response = api_instance.get_item(merchant_item_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_item: %s\n" % e)
+    # The expand variable is None in the following call. We just need the base object this time.
+    api_response = item_api.get_item_by_merchant_item_id(item_id, expand=None, active=False)
+    item = api_response.get_item()  # assuming this succeeded
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve an item
-        api_response = api_instance.get_item(merchant_item_oid, expand=expand, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_item: %s\n" % e)
+    merchant_item_oid = item.get_merchant_item_oid()
+
+    """
+    The real devil in the getItem calls is the expansion, making sure you return everything you need without
+    returning everything since these objects are extremely large.
+
+    These are the possible expansion values:
+    accounting, amember, auto_order, auto_order.steps, ccbill, channel_partner_mappings,
+    chargeback, checkout, content, content.assignments, content.attributes, content.multimedia,
+    content.multimedia.thumbnails, digital_delivery, ebay, email_notifications, enrollment123,
+    gift_certificate, google_product_search, kit_definition, identifiers,
+    instant_payment_notifications, internal, options, payment_processing, physical, pricing,
+    pricing.tiers, realtime_pricing, related, reporting, restriction, reviews,
+    reviews.individual_reviews, salesforce, shipping, shipping.cases, shipping.destination_markups,
+    shipping.destination_restrictions, shipping.distribution_centers, shipping.methods,
+    shipping.package_requirements, tax, third_party_email_marketing, variations, wishlist_member
+    """
+    # Expand reviews to illustrate accessing product reviews
+    expand = "reviews,reviews.individual_reviews"
+    api_response = item_api.get_item(merchant_item_oid, expand=expand, active=False)
+    item = api_response.get_item()
+
+    item_reviews = item.get_reviews()
+    individual_reviews = item_reviews.get_individual_reviews()
+
+    # Iterate through individual reviews
+    for individual_review in individual_reviews:
+        # Access rating names and scores (configurable by merchant)
+        # See Home -> Configuration -> Items -> Reviews -> Settings
+        # Or this URL: https://secure.ultracart.com/merchant/item/review/reviewSettingsLoad.do
+        rating_name1 = individual_review.get_rating_name1()  # Not the full question, but a key string
+        rating_score1 = individual_review.get_rating_score1()
+
+        # Retrieve reviewer information (careful: can result in many API calls)
+        # Consider adding sleep calls and caching results daily or weekly
+        customer_response = customer_api.get_customer(
+            individual_review.get_customer_profile_oid(),
+            expand="reviewer"
+        )
+        customer = customer_response.get_customer()
+        reviewer = customer.get_reviewer()
+
+    print('The following item was retrieved via get_item():')
+    print(item)
+
+    # Delete the sample item
+    delete_sample_item(merchant_item_oid)
+
+except Exception as e:
+    print('An exception occurred. Please review the following error:')
+    print(e)
+    raise
 ```
+
 
 
 ### Parameters
@@ -633,41 +705,50 @@ Retrieves a single item using the specified item id.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.item_response import ItemResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ItemApi
+from samples import api_client
+from item_functions import insert_sample_item, delete_sample_item
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+try:
+    """
+    Most item work is done with the item id, not the item oid. 
+    The latter is only meaningful as a primary key in the UltraCart databases.
+    """
 
-api_instance = GiftCertificateApi(api_client())
+    # Insert a sample item
+    item_id = insert_sample_item()
 
-    merchant_item_id = "merchant_item_id_example" # str | The item id to retrieve.
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+    # Create Item API client
+    item_api = ItemApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve an item by item id
-        api_response = api_instance.get_item_by_merchant_item_id(merchant_item_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_item_by_merchant_item_id: %s\n" % e)
+    """
+    Possible expansion values include:
+    accounting, amember, auto_order, auto_order.steps, ccbill, channel_partner_mappings,
+    chargeback, checkout, content, content.assignments, content.attributes, 
+    content.multimedia, content.multimedia.thumbnails, digital_delivery, ebay, 
+    email_notifications, enrollment123, gift_certificate, google_product_search, 
+    kit_definition, identifiers, instant_payment_notifications, internal, options, 
+    payment_processing, physical, pricing, pricing.tiers, realtime_pricing, related, 
+    reporting, restriction, reviews, salesforce, shipping, shipping.cases, 
+    shipping.destination_markups, shipping.destination_restrictions, 
+    shipping.distribution_centers, shipping.methods, shipping.package_requirements, 
+    tax, third_party_email_marketing, variations, wishlist_member
+    """
+    expand = "kit_definition,options,shipping,tax,variations"
+    api_response = item_api.get_item_by_merchant_item_id(item_id, expand=expand, active=False)
+    item = api_response.get_item()
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve an item by item id
-        api_response = api_instance.get_item_by_merchant_item_id(merchant_item_id, expand=expand, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_item_by_merchant_item_id: %s\n" % e)
+    print('The following item was retrieved via get_item_by_merchant_item_id():')
+    print(item)
+
+    delete_sample_item(item_id)
+
+except Exception as e:
+    print('An exception occurred. Please review the following error:')
+    print(e)
+    raise
 ```
+
 
 
 ### Parameters
@@ -718,38 +799,85 @@ Retrieves a group of items from the account.  If no parameters are specified, al
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.items_response import ItemsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+import sys
+from ultracart.apis import ItemApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
 
-api_instance = GiftCertificateApi(api_client())
+def get_item_chunk(item_api, offset, limit):
+    """
+    Retrieve a chunk of items with specified expansion.
 
-    parent_category_id = 1 # int | The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 = root (optional)
-    parent_category_path = "parent_category_path_example" # str | The parent category path to retrieve items for.  Unspecified means all items on the account.  / = root (optional)
-    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    since = "_since_example" # str | Fetch items that have been created/modified since this date/time. (optional)
-    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+    Possible expansion values include:
+    accounting, amember, auto_order, auto_order.steps, ccbill, channel_partner_mappings,
+    chargeback, checkout, content, content.assignments, content.attributes,
+    content.multimedia, content.multimedia.thumbnails, digital_delivery, ebay,
+    email_notifications, enrollment123, gift_certificate, google_product_search,
+    kit_definition, identifiers, instant_payment_notifications, internal, options,
+    payment_processing, physical, pricing, pricing.tiers, realtime_pricing, related,
+    reporting, restriction, reviews, salesforce, shipping, shipping.cases,
+    shipping.destination_markups, shipping.destination_restrictions,
+    shipping.distribution_centers, shipping.methods, shipping.package_requirements,
+    tax, third_party_email_marketing, variations, wishlist_member
+    """
+    # Expansion of commonly needed item details
+    expand = "kit_definition,options,shipping,tax,variations"
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+    # Retrieve items with no category filtering
+    api_response = item_api.get_items(
+        parent_category_id=None,
+        parent_category_path=None,
+        limit=limit,
+        offset=offset,
+        since=None,
+        sort=None,
+        expand=expand,
+        active=False
+    )
+
+    return api_response.get_items() or []
+
+
+def main():
+    """
+    Retrieve all items in chunks.
+
+    Note: Categories in UltraCart are essentially folders to organize items.
+    They do not impact checkout or storefront display.
+    """
+    # Create Item API client
+    item_api = ItemApi(api_client())
+
+    items = []
+    iteration = 1
+    offset = 0
+    limit = 200
+    more_records_to_fetch = True
+
     try:
-        # Retrieve items
-        api_response = api_instance.get_items(parent_category_id=parent_category_id, parent_category_path=parent_category_path, limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_items: %s\n" % e)
+        while more_records_to_fetch:
+            print(f"Executing iteration {iteration}")
+
+            chunk_of_items = get_item_chunk(item_api, offset, limit)
+            items.extend(chunk_of_items)
+
+            offset += limit
+            more_records_to_fetch = len(chunk_of_items) == limit
+            iteration += 1
+
+    except Exception as e:
+        print(f'Exception occurred on iteration {iteration}')
+        print(e)
+        sys.exit(1)
+
+    # Print all retrieved items (will be verbose)
+    print(items)
+
+
+if __name__ == "__main__":
+    main()
 ```
+
 
 
 ### Parameters
@@ -805,31 +933,28 @@ Retrieves the pricing tiers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.pricing_tiers_response import PricingTiersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ItemApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+try:
+    """
+    Possible expansion values for PricingTier object:
+    - approval_notification
+    - signup_notification
+    """
+    item_api = ItemApi(api_client())
 
-api_instance = GiftCertificateApi(api_client())
+    expand = "approval_notification,signup_notification"
+    api_response = item_api.get_pricing_tiers(expand=expand)
 
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
+except Exception as e:
+    print('Exception occurred.')
+    print(e)
+    raise
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve pricing tiers
-        api_response = api_instance.get_pricing_tiers(expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_pricing_tiers: %s\n" % e)
+print(api_response.get_pricing_tiers())
 ```
+
 
 
 ### Parameters
@@ -878,31 +1003,47 @@ Retrieve an item review.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_review_response import ItemReviewResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ItemApi
+from samples import api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+Retrieves a specific user review for an item. This would most likely be used by a merchant 
+who has cached all reviews on a separate site and then wishes to update a particular review. 
+It's always best to "get" the object, make changes to it, then call the update instead of 
+trying to recreate the object from scratch.
 
-api_instance = GiftCertificateApi(api_client())
+The merchant_item_oid is a unique identifier used by UltraCart. If you do not know your 
+item's oid, call ItemApi.get_item_by_merchant_item_id() to retrieve the item, and then 
+get its oid via $item.get_merchant_item_oid()
 
-    review_oid = 1 # int | The review oid to retrieve.
-    merchant_item_oid = 1 # int | The item oid the review is associated with.
+The review_oid is a unique identifier used by UltraCart. If you do not know a review's oid, 
+call ItemApi.get_reviews() to get all reviews where you can then grab the oid from an item.
+"""
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get a review
-        api_response = api_instance.get_review(review_oid, merchant_item_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_review: %s\n" % e)
+# Create Item API client
+item_api = ItemApi(api_client())
+
+# Example OIDs (replace with actual values)
+merchant_item_oid = 123456
+review_oid = 987654
+
+# Retrieve the specific review
+api_response = item_api.get_review(review_oid, merchant_item_oid)
+
+# Check for errors
+if api_response.get_error() is not None:
+    error = api_response.get_error()
+    print(f"Developer Message: {error.get_developer_message()}")
+    print(f"User Message: {error.get_user_message()}")
+    raise Exception("Review retrieval failed")
+
+# Get the review
+review = api_response.get_review()
+
+# Print the review
+print(review)
 ```
+
 
 
 ### Parameters
@@ -952,30 +1093,37 @@ Retrieve item reviews.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.item_reviews_response import ItemReviewsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from samples import api_client
+from ultracart.apis import ItemApi
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+Retrieves all user reviews for an item.
 
-api_instance = GiftCertificateApi(api_client())
+The merchant_item_oid is a unique identifier used by UltraCart.  If you do not know your item's oid, call
+ItemApi.getItemByMerchantItemId() to retrieve the item, and then it's oid $item->getMerchantItemOid()
+"""
 
-    merchant_item_oid = 1 # int | The item oid the review is associated with.
+# Initialize the Item API
+item_api = ItemApi(api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get reviews for an item
-        api_response = api_instance.get_reviews(merchant_item_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_reviews: %s\n" % e)
+# Specify the merchant item OID
+merchant_item_oid = 123456
+
+# Retrieve reviews
+api_response = item_api.get_item_reviews(merchant_item_oid)
+
+# Check for errors
+if api_response.error is not None:
+    print(f"Developer Message: {api_response.error.developer_message}")
+    print(f"User Message: {api_response.error.user_message}")
+    exit()
+
+# Process and print reviews
+reviews = api_response.reviews
+for review in reviews:
+    print(review)
 ```
+
 
 
 ### Parameters
@@ -1024,36 +1172,66 @@ Retrieves a group of digital items (file information) from the account that are 
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_digital_items_response import ItemDigitalItemsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ItemApi
+from samples import api_client
+from item_functions import insert_sample_digital_item
+from ultracart.exceptions import ApiException
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+Please Note!
+Digital Items are not normal items you sell on your site.  They are digital files that you may add to
+a library and then attach to a normal item as an accessory or the main item itself.
+See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1376485/Digital+Items
 
-api_instance = GiftCertificateApi(api_client())
+Retrieves a group of digital items (file information) from the account that are not yet associated with any
+actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are
+not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated
+with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since
+this API performs result set pagination.
 
-    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    since = "_since_example" # str | Fetch items that have been created/modified since this date/time. (optional)
-    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+Default sort order: original_filename
+Possible sort orders: original_filename, description, file_size
+"""
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
-        api_response = api_instance.get_unassociated_digital_items(limit=limit, offset=offset, since=since, sort=sort, expand=expand, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->get_unassociated_digital_items: %s\n" % e)
+try:
+    # Create an unassociated digital item
+    digital_item_oid = insert_sample_digital_item()
+
+    # Initialize Item API
+    item_api = ItemApi(api_client())
+
+    # Set up parameters for retrieving unassociated digital items
+    limit = 100
+    offset = 0
+    since = None  # digital items do not use since.  leave as None
+    sort = None  # if None, use default of original_filename
+    expand = None  # digital items have no expansion.  leave as None
+    placeholders = None  # digital items have no placeholders. leave as None
+
+    # Retrieve unassociated digital items
+    api_response = item_api.get_unassociated_digital_items(
+        limit=limit,
+        offset=offset,
+        since=since,
+        sort=sort,
+        expand=expand,
+        placeholders=placeholders
+    )
+
+    # Extract digital items from the response
+    digital_items = api_response.digital_items
+
+    # Print retrieved digital items
+    print('The following items were retrieved via get_unassociated_digital_items():')
+    for digital_item in digital_items:
+        print(digital_item)
+
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)
+    exit(1)
 ```
+
 
 
 ### Parameters
@@ -1107,54 +1285,22 @@ Create a file within the digital library.  This does not create an item, but mak
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_digital_item import ItemDigitalItem
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ItemApi
+from samples import api_client
+from item_functions import insert_sample_digital_item, delete_sample_digital_item
+from ultracart.exceptions import ApiException
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+try:
+    # Create and then delete a sample digital item
+    digital_item_oid = insert_sample_digital_item()
+    delete_sample_digital_item(digital_item_oid)
 
-api_instance = GiftCertificateApi(api_client())
-
-    digital_item = ItemDigitalItem(
-        click_wrap_agreement="click_wrap_agreement_example",
-        creation_dts="creation_dts_example",
-        description="description_example",
-        digital_item_oid=1,
-        external_id="external_id_example",
-        file_size=1,
-        import_from_url="import_from_url_example",
-        mime_type="mime_type_example",
-        original_filename="original_filename_example",
-        pdf_meta=ItemDigitalItemPdfMeta(
-            assembly_allowed=True,
-            copy_allowed=True,
-            custom_footer="custom_footer_example",
-            custom_header="custom_header_example",
-            degraded_printing_allowed=True,
-            fillin_allowed=True,
-            modify_annotations_allowed=True,
-            modify_contents_allowed=True,
-            printing_allowed=True,
-            screen_readers_allowed=True,
-            tagged=True,
-        ),
-    ) # ItemDigitalItem | Digital item to create
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a file within the digital library
-        api_response = api_instance.insert_digital_item(digital_item)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->insert_digital_item: %s\n" % e)
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)
+    exit(1)
 ```
+
 
 
 ### Parameters
@@ -1203,917 +1349,19 @@ Create a new item on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.item_response import ItemResponse
-from ultracart.model.item import Item
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from item_functions import insert_sample_item, delete_sample_item
+from ultracart.exceptions import ApiException
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+try:
+    item_id = insert_sample_item()
+    delete_sample_item(item_id)
 
-api_instance = GiftCertificateApi(api_client())
-
-    item = Item(
-        accounting=ItemAccounting(
-            accounting_code="accounting_code_example",
-            qb_class="qb_class_example",
-        ),
-        amember=ItemAmember(
-            amember_payment_duration_days=1,
-            amember_product_id="amember_product_id_example",
-        ),
-        auto_order=ItemAutoOrder(
-            auth_future_amount=3.14,
-            auth_test_amount=3.14,
-            auto_order_cancel_charge_minimum_balance=True,
-            auto_order_cancel_item_id="auto_order_cancel_item_id_example",
-            auto_order_cancel_item_oid=1,
-            auto_order_cancel_minimum_life_time_count=1,
-            auto_order_cancel_minimum_life_time_value=3.14,
-            auto_order_cancel_minimum_rebill_count=1,
-            auto_order_cancel_minimum_rebill_value=3.14,
-            auto_order_downgrade_items=[
-                "auto_order_downgrade_items_example",
-            ],
-            auto_order_paused=True,
-            auto_order_prohibit_expiring_cards=1,
-            auto_order_schedules=[
-                "auto_order_schedules_example",
-            ],
-            auto_order_upgrade_items=[
-                "auto_order_upgrade_items_example",
-            ],
-            auto_order_upsell=True,
-            auto_order_upsell_no_easy_cancel=True,
-            auto_order_upsell_one_per_customer=True,
-            auto_orderable=True,
-            cancel_other_auto_orders=True,
-            free_shipping_auto_order=True,
-            refund_other_auto_orders=True,
-            steps=[
-                ItemAutoOrderStep(
-                    arbitrary_schedule_days=1,
-                    arbitrary_unit_cost=3.14,
-                    arbitrary_unit_cost_schedules=[
-                        ItemAutoOrderStepArbitraryUnitCostSchedule(
-                            arbitrary_unit_cost=3.14,
-                            retry_days=1,
-                        ),
-                    ],
-                    grandfather_pricing=[
-                        ItemAutoOrderStepGrandfatherPricing(
-                            on_or_before_date="on_or_before_date_example",
-                            unit_cost=3.14,
-                        ),
-                    ],
-                    managed_by="managed_by_example",
-                    pause_days=1,
-                    pause_until_date="pause_until_date_example",
-                    pause_until_day_of_month=1,
-                    pause_until_minimum_delay_days=1,
-                    preshipment_notice_days=1,
-                    recurring_merchant_item_id="recurring_merchant_item_id_example",
-                    recurring_merchant_item_oid=1,
-                    repeat_count=1,
-                    schedule="schedule_example",
-                    subscribe_email_list_name="subscribe_email_list_name_example",
-                    subscribe_email_list_oid=1,
-                    type="item",
-                ),
-            ],
-        ),
-        ccbill=ItemCCBill(
-            ccbill_allowed_currencies="ccbill_allowed_currencies_example",
-            ccbill_allowed_types="ccbill_allowed_types_example",
-            ccbill_currency_code="ccbill_currency_code_example",
-            ccbill_form_name="ccbill_form_name_example",
-            ccbill_subaccount_id="ccbill_subaccount_id_example",
-            ccbill_subscription_type_id="ccbill_subscription_type_id_example",
-        ),
-        channel_partner_item_mappings=[
-            ItemChannelPartnerMapping(
-                barcode_ua="barcode_ua_example",
-                barcode_uc="barcode_uc_example",
-                barcode_ui="barcode_ui_example",
-                barcode_uk="barcode_uk_example",
-                buyer_catalog_number="buyer_catalog_number_example",
-                buyer_dpci="buyer_dpci_example",
-                buyer_item_number="buyer_item_number_example",
-                channel_partner_code="channel_partner_code_example",
-                channel_partner_oid=1,
-                cost=3.14,
-                from_item_id="from_item_id_example",
-                from_sku="from_sku_example",
-                mutually_defined_number="mutually_defined_number_example",
-                quantity_ratio_cp=1,
-                quantity_ratio_uc=1,
-                sku="sku_example",
-                unit_of_measure="unit_of_measure_example",
-                vendor_number="vendor_number_example",
-                vendor_style_number="vendor_style_number_example",
-            ),
-        ],
-        chargeback=ItemChargeback(
-            addendums=[
-                ItemChargebackAddendum(
-                    chargeback_addendum_oid=1,
-                    description="description_example",
-                    file_size=1,
-                    pages=1,
-                ),
-            ],
-            adjustment_requests=[
-                ItemChargebackAdjustmentRequest(
-                    chargeback_adjustment_request_oid=1,
-                    description="description_example",
-                    reason_code="reason_code_example",
-                ),
-            ],
-        ),
-        checkout=ItemCheckout(
-            suppress_buysafe=True,
-            terms="terms_example",
-            terms_if_auto_order=True,
-            terms_translated_text_instance_oid=1,
-        ),
-        content=ItemContent(
-            assignments=[
-                ItemContentAssignment(
-                    default_assignment=True,
-                    group_oid=1,
-                    group_path="group_path_example",
-                    host="host_example",
-                    sort_order=1,
-                    url_part="url_part_example",
-                ),
-            ],
-            attributes=[
-                ItemContentAttribute(
-                    name="name_example",
-                    translated_text_instance_oid=1,
-                    type="type_example",
-                    value="value_example",
-                ),
-            ],
-            custom_thank_you_url="custom_thank_you_url_example",
-            exclude_from_search=True,
-            exclude_from_sitemap=True,
-            exclude_from_top_sellers=True,
-            extended_description="extended_description_example",
-            extended_description_translated_text_instance_oid=1,
-            meta_description="meta_description_example",
-            meta_keywords="meta_keywords_example",
-            meta_title="meta_title_example",
-            multimedia=[
-                ItemContentMultimedia(
-                    cloud_url="cloud_url_example",
-                    cloud_url_expiration="cloud_url_expiration_example",
-                    code="code_example",
-                    description="description_example",
-                    exclude_from_gallery=True,
-                    file_name="file_name_example",
-                    height=1,
-                    merchant_item_multimedia_oid=1,
-                    orphan=True,
-                    placeholder=True,
-                    temp_multimedia_oid=1,
-                    thumbnails=[
-                        ItemContentMultimediaThumbnail(
-                            height=1,
-                            http_url="http_url_example",
-                            https_url="https_url_example",
-                            png_format=True,
-                            square=True,
-                            width=1,
-                        ),
-                    ],
-                    type="Image",
-                    url="url_example",
-                    width=1,
-                ),
-            ],
-            new_item=True,
-            new_item_end="new_item_end_example",
-            new_item_start="new_item_start_example",
-            view_url="view_url_example",
-        ),
-        creation_dts="creation_dts_example",
-        description="description_example",
-        description_translated_text_instance_oid=1,
-        digital_delivery=ItemDigitalDelivery(
-            activation_code_description="activation_code_description_example",
-            activation_code_low_warning=1,
-            activation_code_realtime_url="activation_code_realtime_url_example",
-            activation_code_shared_secret="activation_code_shared_secret_example",
-            activation_code_type="activation_code_type_example",
-            digital_items=[
-                ItemDigitalItem(
-                    click_wrap_agreement="click_wrap_agreement_example",
-                    creation_dts="creation_dts_example",
-                    description="description_example",
-                    digital_item_oid=1,
-                    external_id="external_id_example",
-                    file_size=1,
-                    import_from_url="import_from_url_example",
-                    mime_type="mime_type_example",
-                    original_filename="original_filename_example",
-                    pdf_meta=ItemDigitalItemPdfMeta(
-                        assembly_allowed=True,
-                        copy_allowed=True,
-                        custom_footer="custom_footer_example",
-                        custom_header="custom_header_example",
-                        degraded_printing_allowed=True,
-                        fillin_allowed=True,
-                        modify_annotations_allowed=True,
-                        modify_contents_allowed=True,
-                        printing_allowed=True,
-                        screen_readers_allowed=True,
-                        tagged=True,
-                    ),
-                ),
-            ],
-        ),
-        ebay=ItemEbay(
-            active=True,
-            category_id=1,
-            category_specifics=[
-                ItemEbayCategorySpecific(
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            condition_description="condition_description_example",
-            condition_id=1,
-            consecutive_failures=1,
-            custom_category1=1,
-            custom_category2=1,
-            dispatch_time_max=1,
-            domestic_1_additional_cost=3.14,
-            domestic_1_first_cost=3.14,
-            domestic_2_additional_cost=3.14,
-            domestic_2_first_cost=3.14,
-            domestic_3_additional_cost=3.14,
-            domestic_3_first_cost=3.14,
-            domestic_4_additional_cost=3.14,
-            domestic_4_first_cost=3.14,
-            ebay_auction_id="ebay_auction_id_example",
-            ebay_specific_inventory=1,
-            ebay_template_name="ebay_template_name_example",
-            ebay_template_oid=1,
-            end_time="end_time_example",
-            free_shipping=True,
-            free_shipping_method="free_shipping_method_example",
-            international_1_additional_cost=3.14,
-            international_1_first_cost=3.14,
-            international_2_additional_cost=3.14,
-            international_2_first_cost=3.14,
-            international_3_additional_cost=3.14,
-            international_3_first_cost=3.14,
-            international_4_additional_cost=3.14,
-            international_4_first_cost=3.14,
-            last_status_dts="last_status_dts_example",
-            listed_dispatch_time_max=1,
-            listed_ebay_template_oid=1,
-            listing_dts="listing_dts_example",
-            listing_duration="listing_duration_example",
-            listing_price=3.14,
-            listing_price_override=3.14,
-            listing_type="listing_type_example",
-            marketplace_analysis=ItemEbayMarketPlaceAnalysis(
-                adjusted_price=3.14,
-                adjusted_shipping=3.14,
-                adjusted_total=3.14,
-                cogs=3.14,
-                final_value_fee=3.14,
-                minimum_advertised_price=3.14,
-                other_listings=[
-                    ItemEbayMarketListing(
-                        auction_id="auction_id_example",
-                        price=3.14,
-                        seller="seller_example",
-                        shipping=3.14,
-                        total=3.14,
-                    ),
-                ],
-                our_listing=ItemEbayMarketListing(
-                    auction_id="auction_id_example",
-                    price=3.14,
-                    seller="seller_example",
-                    shipping=3.14,
-                    total=3.14,
-                ),
-                overhead=3.14,
-                profit_potential=3.14,
-            ),
-            marketplace_analysis_perform=True,
-            marketplace_final_value_fee_percentage=3.14,
-            marketplace_last_check_dts="marketplace_last_check_dts_example",
-            marketplace_lowest=True,
-            marketplace_map_violation=True,
-            marketplace_multiplier=3.14,
-            marketplace_other_price=3.14,
-            marketplace_other_seller="marketplace_other_seller_example",
-            marketplace_other_shipping=3.14,
-            marketplace_other_total=3.14,
-            marketplace_our_additional_profit_potential=3.14,
-            marketplace_our_price=3.14,
-            marketplace_our_profit=3.14,
-            marketplace_our_shipping=3.14,
-            marketplace_our_total=3.14,
-            marketplace_overhead=3.14,
-            marketplace_profitable=True,
-            next_attempt_dts="next_attempt_dts_example",
-            next_listing_duration="next_listing_duration_example",
-            no_promotional_shipping=True,
-            packaging_handling_costs=3.14,
-            previous_ebay_auction_id="previous_ebay_auction_id_example",
-            quantity=1,
-            reserve_price=3.14,
-            send_dimensions_and_weight="send_dimensions_and_weight_example",
-            start_time="start_time_example",
-            status="status_example",
-            target_dispatch_time_max=1,
-        ),
-        email_notifications=ItemEmailNotifications(
-            skip_receipt=True,
-            skip_shipment_notification=True,
-        ),
-        enrollment123=ItemEnrollment123(
-            enrollment123_product_code="enrollment123_product_code_example",
-        ),
-        fulfillment_addons=[
-            ItemFulfillmentAddon(
-                add_item_id="add_item_id_example",
-                add_item_oid=1,
-                initial_order_only=True,
-                once_per_order=True,
-                quantity=1,
-            ),
-        ],
-        gift_certificate=ItemGiftCertificate(
-            gift_certificate=True,
-            gift_certificate_expiration_days=1,
-        ),
-        google_product_search=ItemGoogleProductSearch(
-            adwords_grouping="adwords_grouping_example",
-            adwords_label1="adwords_label1_example",
-            adwords_label2="adwords_label2_example",
-            adwords_label3="adwords_label3_example",
-            adwords_label4="adwords_label4_example",
-            adwords_label5="adwords_label5_example",
-            age_group="age_group_example",
-            available_at_physical_store=True,
-            book_author="book_author_example",
-            book_format="book_format_example",
-            book_isbn="book_isbn_example",
-            book_publisher="book_publisher_example",
-            category_description="category_description_example",
-            color="color_example",
-            condition="condition_example",
-            custom_label0="custom_label0_example",
-            custom_label1="custom_label1_example",
-            custom_label2="custom_label2_example",
-            custom_label3="custom_label3_example",
-            custom_label4="custom_label4_example",
-            gender="gender_example",
-            google_product_category="google_product_category_example",
-            music_artist="music_artist_example",
-            music_format="music_format_example",
-            music_release_date="music_release_date_example",
-            omit_from_feed=True,
-            product_type="product_type_example",
-            promotion_id1="promotion_id1_example",
-            promotion_id10="promotion_id10_example",
-            promotion_id2="promotion_id2_example",
-            promotion_id3="promotion_id3_example",
-            promotion_id4="promotion_id4_example",
-            promotion_id5="promotion_id5_example",
-            promotion_id6="promotion_id6_example",
-            promotion_id7="promotion_id7_example",
-            promotion_id8="promotion_id8_example",
-            promotion_id9="promotion_id9_example",
-            search_dts="search_dts_example",
-            search_lowest_price=3.14,
-            search_lowest_url="search_lowest_url_example",
-            search_position=1,
-            shipping_label="shipping_label_example",
-            size="size_example",
-            video_director="video_director_example",
-            video_format="video_format_example",
-            video_rating="video_rating_example",
-            video_release_date="video_release_date_example",
-            video_starring="video_starring_example",
-        ),
-        identifiers=ItemIdentifiers(
-            barcode="barcode_example",
-            barcode_gtin12="barcode_gtin12_example",
-            barcode_gtin14="barcode_gtin14_example",
-            barcode_upc11="barcode_upc11_example",
-            barcode_upc12="barcode_upc12_example",
-            manufacturer_name="manufacturer_name_example",
-            manufacturer_sku="manufacturer_sku_example",
-            unspsc="unspsc_example",
-        ),
-        inactive=True,
-        instant_payment_notifications=ItemInstantPaymentNotifications(
-            notifications=[
-                ItemInstantPaymentNotification(
-                    post_operation=True,
-                    successful_response_text="successful_response_text_example",
-                    url="url_example",
-                ),
-            ],
-        ),
-        internal=ItemInternal(
-            memo="memo_example",
-        ),
-        kit=True,
-        kit_component_only=True,
-        kit_definition=ItemKitDefinition(
-            components=[
-                ItemKitComponent(
-                    component_cost=3.14,
-                    component_description="component_description_example",
-                    component_merchant_item_id="component_merchant_item_id_example",
-                    component_merchant_item_oid=1,
-                    quantity=1,
-                ),
-            ],
-        ),
-        last_modified_dts="last_modified_dts_example",
-        merchant_id="merchant_id_example",
-        merchant_item_id="merchant_item_id_example",
-        merchant_item_oid=1,
-        options=[
-            ItemOption(
-                cost_if_specified=3.14,
-                cost_per_letter=3.14,
-                cost_per_line=3.14,
-                ignore_if_default=True,
-                label="label_example",
-                label_translated_text_instance_oid=1,
-                name="name_example",
-                name_translated_text_instance_oid=1,
-                one_time_fee=True,
-                option_oid=1,
-                required=True,
-                system_option=True,
-                type="dropdown",
-                values=[
-                    ItemOptionValue(
-                        additional_dimension_application="none",
-                        additional_items=[
-                            ItemOptionValueAdditionalItem(
-                                additional_merchant_item_id="additional_merchant_item_id_example",
-                                additional_merchant_item_oid=1,
-                            ),
-                        ],
-                        cost_change=3.14,
-                        default_value=True,
-                        digital_items=[
-                            ItemOptionValueDigitalItem(
-                                digital_item_oid=1,
-                                original_filename="original_filename_example",
-                            ),
-                        ],
-                        height=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        length=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        merchant_item_multimedia_oid=1,
-                        option_value_oid=1,
-                        percent_cost_change=3.14,
-                        translated_text_instance_oid=1,
-                        value="value_example",
-                        weight_change=Weight(
-                            uom="KG",
-                            value=3.14,
-                        ),
-                        weight_change_percent=3.14,
-                        width=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                    ),
-                ],
-            ),
-        ],
-        parent_category_id=1,
-        parent_category_path="parent_category_path_example",
-        payment_processing=ItemPaymentProcessing(
-            block_prepaid=True,
-            block_refunds=True,
-            credit_card_transaction_type="credit_card_transaction_type_example",
-            no_realtime_charge=True,
-            payment_method_validity=[
-                "payment_method_validity_example",
-            ],
-            rotating_transaction_gateway_codes=[
-                "rotating_transaction_gateway_codes_example",
-            ],
-        ),
-        physical=ItemPhysical(
-            height=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            length=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            weight=Weight(
-                uom="KG",
-                value=3.14,
-            ),
-            width=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-        ),
-        pricing=ItemPricing(
-            allow_arbitrary_cost=True,
-            arbitrary_cost_velocity_code="arbitrary_cost_velocity_code_example",
-            auto_order_cost=3.14,
-            automatic_pricing_tier_name="automatic_pricing_tier_name_example",
-            automatic_pricing_tier_oid=1,
-            cogs=3.14,
-            cost=3.14,
-            currency_code="currency_code_example",
-            manufacturer_suggested_retail_price=3.14,
-            maximum_arbitrary_cost=3.14,
-            minimum_advertised_price=3.14,
-            minimum_arbitrary_cost=3.14,
-            mix_and_match_group="mix_and_match_group_example",
-            mix_and_match_group_oid=1,
-            sale_cost=3.14,
-            sale_end="sale_end_example",
-            sale_start="sale_start_example",
-            tiers=[
-                ItemPricingTier(
-                    default_tier=True,
-                    discounts=[
-                        ItemPricingTierDiscount(
-                            cost=3.14,
-                            quantity=1,
-                        ),
-                    ],
-                    limit=ItemPricingTierLimit(
-                        cumulative_order_limit=1,
-                        exempt_from_minimum_item_count=True,
-                        individual_order_limit=1,
-                        multiple_quantity=1,
-                        payment_method_validity=[
-                            "payment_method_validity_example",
-                        ],
-                    ),
-                    name="name_example",
-                    pricing_tier_oid=1,
-                ),
-            ],
-        ),
-        properties=[
-            ItemProperty(
-                expiration_dts="expiration_dts_example",
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        realtime_pricing=ItemRealtimePricing(
-            realtime_pricing_parameter="realtime_pricing_parameter_example",
-            realtime_pricing_provider="realtime_pricing_provider_example",
-            realtime_pricing_provider_oid=1,
-        ),
-        recommend_replenishment_days=1,
-        related=ItemRelated(
-            no_system_calculated_related_items=True,
-            not_relatable=True,
-            related_items=[
-                ItemRelatedItem(
-                    related_merchant_item_id="related_merchant_item_id_example",
-                    related_merchant_item_oid=1,
-                    type="System",
-                ),
-            ],
-        ),
-        reporting=ItemReporting(
-            report_as_upsell=True,
-            report_pickable_quantities=[
-                1,
-            ],
-        ),
-        restriction=ItemRestriction(
-            exclude_coupon=True,
-            exclude_from_free_promotion=True,
-            exclude_from_loyalty=True,
-            items=[
-                ItemRestrictionItem(
-                    restrict_merchant_item_id="restrict_merchant_item_id_example",
-                    restrict_merchant_item_oid=1,
-                    type="can not be purchased with",
-                ),
-            ],
-            maximum_quantity=1,
-            minimum_quantity=1,
-            multiple_quantity=1,
-            one_per_customer=True,
-            purchase_separately=True,
-        ),
-        revguard=ItemRevguard(
-            revguard_canceled_csr_prompt_group=1,
-            revguard_canceled_ivr_prompt_group=1,
-            revguard_canceled_web_prompt_group=1,
-            revguard_client_brand=1,
-            revguard_csr_prompt_group=1,
-            revguard_ivr_prompt_group=1,
-            revguard_web_prompt_group=1,
-        ),
-        reviews=ItemReviews(
-            has_approved_review=True,
-            has_review=True,
-            individual_reviews=[
-                ItemReview(
-                    customer_profile_oid=1,
-                    featured=True,
-                    helperful_no_votes=1,
-                    helpful_yes_votes=1,
-                    merchant_reply="merchant_reply_example",
-                    order_id="order_id_example",
-                    overall=3.14,
-                    rating_name1="rating_name1_example",
-                    rating_name10="rating_name10_example",
-                    rating_name2="rating_name2_example",
-                    rating_name3="rating_name3_example",
-                    rating_name4="rating_name4_example",
-                    rating_name5="rating_name5_example",
-                    rating_name6="rating_name6_example",
-                    rating_name7="rating_name7_example",
-                    rating_name8="rating_name8_example",
-                    rating_name9="rating_name9_example",
-                    rating_score1=3.14,
-                    rating_score10=3.14,
-                    rating_score2=3.14,
-                    rating_score3=3.14,
-                    rating_score4=3.14,
-                    rating_score5=3.14,
-                    rating_score6=3.14,
-                    rating_score7=3.14,
-                    rating_score8=3.14,
-                    rating_score9=3.14,
-                    recommend_store_to_friend=1,
-                    recommend_to_friend=True,
-                    review="review_example",
-                    review_oid=1,
-                    reviewed_nickname="reviewed_nickname_example",
-                    reviewer_email="reviewer_email_example",
-                    reviewer_location="reviewer_location_example",
-                    status="approved",
-                    store_feedback="store_feedback_example",
-                    submitted_dts="submitted_dts_example",
-                    title="title_example",
-                ),
-            ],
-            review_count=1,
-            review_overall=3.14,
-            review_template_name="review_template_name_example",
-            review_template_oid=1,
-            reviewable=True,
-            share_reviews_with_merchant_item_id="share_reviews_with_merchant_item_id_example",
-            share_reviews_with_merchant_item_oid=1,
-        ),
-        salesforce=ItemSalesforce(
-            sfdc_pricebook_id="sfdc_pricebook_id_example",
-            sfdc_product_id="sfdc_product_id_example",
-        ),
-        shipping=ItemShipping(
-            allow_back_order=True,
-            amazon_fba=True,
-            case_inner_packs=1,
-            case_units=1,
-            cases=[
-                ItemShippingCase(
-                    case_label="case_label_example",
-                    case_merchant_item_id="case_merchant_item_id_example",
-                    case_merchant_item_oid=1,
-                    quantity=1,
-                ),
-            ],
-            collect_serial_numbers=True,
-            country_code_of_origin="country_code_of_origin_example",
-            customs_description="customs_description_example",
-            customs_value=3.14,
-            delivery_on_friday=True,
-            delivery_on_monday=True,
-            delivery_on_saturday=True,
-            delivery_on_sunday=True,
-            delivery_on_thursday=True,
-            delivery_on_tuesday=True,
-            delivery_on_wednesday=True,
-            destination_markups=[
-                ItemShippingDestinationMarkup(
-                    adult_signature_required=True,
-                    country_code="country_code_example",
-                    flat_fee=3.14,
-                    per_item=3.14,
-                    postal_code="postal_code_example",
-                    shipping_method="shipping_method_example",
-                    state="state_example",
-                ),
-            ],
-            destination_restrictions=[
-                ItemShippingDestinationRestriction(
-                    country_code="country_code_example",
-                    state="state_example",
-                    validity="valid only for",
-                ),
-            ],
-            distribution_centers=[
-                ItemShippingDistributionCenter(
-                    allocated_to_placed_orders=3.14,
-                    allocated_to_shopping_carts=3.14,
-                    available_to_allocate=3.14,
-                    cogs=3.14,
-                    desired_inventory_level=3.14,
-                    distribution_center_code="distribution_center_code_example",
-                    distribution_center_oid=1,
-                    eta="eta_example",
-                    handles=True,
-                    inventory_level=3.14,
-                    maximum_backorder=1,
-                    reorder_inventory_level=3.14,
-                    sku="sku_example",
-                    stock_picking_location="stock_picking_location_example",
-                ),
-            ],
-            eta="eta_example",
-            free_shipping=True,
-            freight_class="freight_class_example",
-            hazmat=True,
-            hold_for_transmission=True,
-            made_to_order=True,
-            made_to_order_lead_time=1,
-            max_days_time_in_transit=1,
-            methods=[
-                ItemShippingMethod(
-                    cost=3.14,
-                    each_additional_item_markup=3.14,
-                    filter_to_if_available=True,
-                    first_item_markup=3.14,
-                    fixed_shipping_cost=3.14,
-                    flat_fee_markup=3.14,
-                    free_shipping=True,
-                    per_item_fee_markup=3.14,
-                    percentage_markup=3.14,
-                    percentage_of_item_markup=3.14,
-                    relax_restrictions_on_upsell=True,
-                    shipping_method="shipping_method_example",
-                    shipping_method_oid=1,
-                    shipping_method_validity="invalid for",
-                    signature_required=True,
-                ),
-            ],
-            no_shipping_discount=True,
-            package_requirements=[
-                ItemShippingPackageRequirement(
-                    package_name="package_name_example",
-                    package_oid=1,
-                ),
-            ],
-            perishable_class_name="perishable_class_name_example",
-            perishable_class_oid=1,
-            preorder=True,
-            require_delivery_date=True,
-            restrict_shipment_on_friday=True,
-            restrict_shipment_on_monday=True,
-            restrict_shipment_on_saturday=True,
-            restrict_shipment_on_sunday=True,
-            restrict_shipment_on_thursday=True,
-            restrict_shipment_on_tuesday=True,
-            restrict_shipment_on_wednesday=True,
-            ship_separately=True,
-            ship_separately_additional_weight=Weight(
-                uom="KG",
-                value=3.14,
-            ),
-            ship_separately_height=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            ship_separately_length=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            ship_separately_package_special_type="ship_separately_package_special_type_example",
-            ship_separately_width=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            special_product_type="special_product_type_example",
-            track_inventory=True,
-        ),
-        tags=ItemTags(
-            tags=[
-                ItemTag(
-                    tag_type="item",
-                    tag_value="tag_value_example",
-                ),
-            ],
-        ),
-        tax=ItemTax(
-            exemptions=[
-                ItemTaxExemption(
-                    city="city_example",
-                    country_code="country_code_example",
-                    county="county_example",
-                    postal_code="postal_code_example",
-                    state_code="state_code_example",
-                ),
-            ],
-            tax_free=True,
-            tax_product_type="",
-            taxable_cost=3.14,
-        ),
-        third_party_email_marketing=[
-            ItemThirdPartyEmailMarketing(
-                add_tags=[
-                    "add_tags_example",
-                ],
-                provider_name="ActiveCampaign",
-                remove_tags=[
-                    "remove_tags_example",
-                ],
-                subscribe_lists=[
-                    "subscribe_lists_example",
-                ],
-                unsubscribe_lists=[
-                    "unsubscribe_lists_example",
-                ],
-            ),
-        ],
-        variant_items=[
-            ItemVariantItem(
-                description="description_example",
-                merchant_item_multimedia_oid=1,
-                variant_merchant_item_id="variant_merchant_item_id_example",
-                variant_merchant_item_oid=1,
-                variation_options=[
-                    "variation_options_example",
-                ],
-                variations=[
-                    "variations_example",
-                ],
-            ),
-        ],
-        variations=[
-            ItemVariation(
-                default_text="default_text_example",
-                default_text_translated_text_instance_oid=1,
-                name="name_example",
-                name_translated_text_instance_oid=1,
-                options=[
-                    ItemVariationOption(
-                        default_option=True,
-                        merchant_item_multimedia_oid=1,
-                        translated_text_instance_oid=1,
-                        value="value_example",
-                    ),
-                ],
-            ),
-        ],
-        wishlist_member=ItemWishlistMember(
-            wishlist_member_instance_description="wishlist_member_instance_description_example",
-            wishlist_member_instance_oid=1,
-            wishlist_member_sku="wishlist_member_sku_example",
-        ),
-    ) # Item | Item to create
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Create an item
-        api_response = api_instance.insert_item(item)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->insert_item: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Create an item
-        api_response = api_instance.insert_item(item, expand=expand, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->insert_item: %s\n" % e)
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)
+    exit(1)
 ```
+
 
 
 ### Parameters
@@ -2164,71 +1412,68 @@ Insert a item review.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_review import ItemReview
-from ultracart.model.item_review_response import ItemReviewResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ItemApi
+from samples import api_client
+from item_functions import insert_sample_item
+from ultracart.exceptions import ApiException
+from ultracart.models import ItemReviews, ItemReview
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+try:
+    # Create a sample item
+    item_id = insert_sample_item()
 
-api_instance = GiftCertificateApi(api_client())
+    # Initialize Item API
+    item_api = ItemApi(api_client())
 
-    merchant_item_oid = 1 # int | The item oid the review is associated with.
+    # Expand reviews to update item with review template
+    expand = 'reviews'
+
+    # Retrieve item by merchant item ID
+    item_response = item_api.get_item_by_merchant_item_id(item_id, expand=expand)
+    item = item_response.item
+    item_oid = item.merchant_item_oid
+
+    # Set review template
+    review_template_oid = 402
+    reviews = ItemReviews()
+    reviews.review_template_oid = review_template_oid
+    item.reviews = reviews
+
+    # Update item with review template
+    item = item_api.update_item(item_oid, item, expand=expand).item
+
+    # Create a new review
     review = ItemReview(
-        customer_profile_oid=1,
+        title='Best Product Ever!',
+        review="I loved this product. I bought it for my wife and she was so happy she cried. blah blah blah",
+        reviewed_nickname="Bob420",
         featured=True,
-        helperful_no_votes=1,
-        helpful_yes_votes=1,
-        merchant_reply="merchant_reply_example",
-        order_id="order_id_example",
-        overall=3.14,
-        rating_name1="rating_name1_example",
-        rating_name10="rating_name10_example",
-        rating_name2="rating_name2_example",
-        rating_name3="rating_name3_example",
-        rating_name4="rating_name4_example",
-        rating_name5="rating_name5_example",
-        rating_name6="rating_name6_example",
-        rating_name7="rating_name7_example",
-        rating_name8="rating_name8_example",
-        rating_name9="rating_name9_example",
-        rating_score1=3.14,
-        rating_score10=3.14,
-        rating_score2=3.14,
-        rating_score3=3.14,
-        rating_score4=3.14,
-        rating_score5=3.14,
-        rating_score6=3.14,
-        rating_score7=3.14,
-        rating_score8=3.14,
-        rating_score9=3.14,
-        recommend_store_to_friend=1,
-        recommend_to_friend=True,
-        review="review_example",
-        review_oid=1,
-        reviewed_nickname="reviewed_nickname_example",
-        reviewer_email="reviewer_email_example",
-        reviewer_location="reviewer_location_example",
-        status="approved",
-        store_feedback="store_feedback_example",
-        submitted_dts="submitted_dts_example",
-        title="title_example",
-    ) # ItemReview | Review to insert
+        rating_name1='Durability',
+        rating_name2='Price',
+        rating_name3='Performance',
+        rating_name4='Appearance',
+        rating_score1=4.5,
+        rating_score2=3.5,
+        rating_score3=2.5,
+        rating_score4=1.5,
+        overall=5.0,
+        reviewer_location="Southside Chicago",
+        status='approved'
+    )
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert a review
-        api_response = api_instance.insert_review(merchant_item_oid, review)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->insert_review: %s\n" % e)
+    # Insert the review
+    review = item_api.insert_review(item_oid, review).review
+
+    # Print the review
+    print("Inserted Review:")
+    print(review)
+
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)
+    exit(1)
 ```
+
 
 
 ### Parameters
@@ -2278,35 +1523,45 @@ Update an item content attribute, creating it new if it does not yet exist.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.item_content_attribute import ItemContentAttribute
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from samples import api_client
+from ultracart.apis import ItemApi
+from ultracart.models import ItemContentAttribute
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+While UltraCart provides a means for updating item content, it is StoreFront specific.  This method allows for
+item-wide update of content, such as SEO fields. The content attribute has three fields:
+1) name
+2) value
+3) type: boolean,color,definitionlist,html,integer,mailinglist,multiline,rgba,simplelist,string,videolist
 
-api_instance = GiftCertificateApi(api_client())
+The SEO content has the following names:
+Item Meta Title = "storefrontSEOTitle"
+Item Meta Description = "storefrontSEODescription"
+Item Meta Keywords = "storefrontSEOKeywords"
 
-    merchant_item_oid = 1 # int | The item oid to modify.
-    item_attribute = ItemContentAttribute(
-        name="name_example",
-        translated_text_instance_oid=1,
-        type="type_example",
-        value="value_example",
-    ) # ItemContentAttribute | Item content attribute to upsert
+The merchant_item_oid is a unique identifier used by UltraCart.  If you do not know your item's oid, call
+ItemApi.getItemByMerchantItemId() to retrieve the item, and then it's oid $item->getMerchantItemOid()
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Upsert an item content attribute
-        api_instance.insert_update_item_content_attribute(merchant_item_oid, item_attribute)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->insert_update_item_content_attribute: %s\n" % e)
+Success will return back a status code of 204 (No Content)
+"""
+
+# Initialize Item API
+item_api = ItemApi(api_client())
+
+# Specify the merchant item OID
+merchant_item_oid = 12345
+
+# Create content attribute
+attribute = ItemContentAttribute(
+    name="storefrontSEOKeywords",
+    value='dog,cat,fish',
+    type="string"
+)
+
+# Insert or update the content attribute
+item_api.insert_update_item_content_attribute(merchant_item_oid, attribute)
 ```
+
 
 
 ### Parameters
@@ -2355,55 +1610,31 @@ Updates a file within the digital library.  This does not update an item, but up
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_digital_item import ItemDigitalItem
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ItemApi
+from samples import api_client
+from item_functions import insert_sample_digital_item, delete_sample_digital_item
+from ultracart.exceptions import ApiException
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+try:
+    digital_item_oid = insert_sample_digital_item()
 
-api_instance = GiftCertificateApi(api_client())
+    item_api = ItemApi(api_client())
+    api_response = item_api.get_digital_item(digital_item_oid)
+    digital_item = api_response.digital_item
 
-    digital_item_oid = 1 # int | The digital item oid to update.
-    digital_item = ItemDigitalItem(
-        click_wrap_agreement="click_wrap_agreement_example",
-        creation_dts="creation_dts_example",
-        description="description_example",
-        digital_item_oid=1,
-        external_id="external_id_example",
-        file_size=1,
-        import_from_url="import_from_url_example",
-        mime_type="mime_type_example",
-        original_filename="original_filename_example",
-        pdf_meta=ItemDigitalItemPdfMeta(
-            assembly_allowed=True,
-            copy_allowed=True,
-            custom_footer="custom_footer_example",
-            custom_header="custom_header_example",
-            degraded_printing_allowed=True,
-            fillin_allowed=True,
-            modify_annotations_allowed=True,
-            modify_contents_allowed=True,
-            printing_allowed=True,
-            screen_readers_allowed=True,
-            tagged=True,
-        ),
-    ) # ItemDigitalItem | Digital item to update
+    digital_item.description = "I have updated the description to this sentence."
+    digital_item.click_wrap_agreement = "You hereby agree that the earth is round. No debate."
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Updates a file within the digital library
-        api_response = api_instance.update_digital_item(digital_item_oid, digital_item)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->update_digital_item: %s\n" % e)
+    item_api.update_digital_item(digital_item_oid, digital_item)
+
+    delete_sample_digital_item(digital_item_oid)
+
+except ApiException as e:
+    print('An ApiException occurred. Please review the following error:')
+    print(e)
+    exit(1)
 ```
+
 
 
 ### Parameters
@@ -2453,918 +1684,61 @@ Update a new item on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.item_response import ItemResponse
-from ultracart.model.item import Item
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from flask import Flask
+from ultracart import ApiException
+from ultracart.apis import ItemApi
+from samples import api_client
+from item_functions import insert_sample_item, delete_sample_item
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+app = Flask(__name__)
 
-api_instance = GiftCertificateApi(api_client())
 
-    merchant_item_oid = 1 # int | The item oid to update.
-    item = Item(
-        accounting=ItemAccounting(
-            accounting_code="accounting_code_example",
-            qb_class="qb_class_example",
-        ),
-        amember=ItemAmember(
-            amember_payment_duration_days=1,
-            amember_product_id="amember_product_id_example",
-        ),
-        auto_order=ItemAutoOrder(
-            auth_future_amount=3.14,
-            auth_test_amount=3.14,
-            auto_order_cancel_charge_minimum_balance=True,
-            auto_order_cancel_item_id="auto_order_cancel_item_id_example",
-            auto_order_cancel_item_oid=1,
-            auto_order_cancel_minimum_life_time_count=1,
-            auto_order_cancel_minimum_life_time_value=3.14,
-            auto_order_cancel_minimum_rebill_count=1,
-            auto_order_cancel_minimum_rebill_value=3.14,
-            auto_order_downgrade_items=[
-                "auto_order_downgrade_items_example",
-            ],
-            auto_order_paused=True,
-            auto_order_prohibit_expiring_cards=1,
-            auto_order_schedules=[
-                "auto_order_schedules_example",
-            ],
-            auto_order_upgrade_items=[
-                "auto_order_upgrade_items_example",
-            ],
-            auto_order_upsell=True,
-            auto_order_upsell_no_easy_cancel=True,
-            auto_order_upsell_one_per_customer=True,
-            auto_orderable=True,
-            cancel_other_auto_orders=True,
-            free_shipping_auto_order=True,
-            refund_other_auto_orders=True,
-            steps=[
-                ItemAutoOrderStep(
-                    arbitrary_schedule_days=1,
-                    arbitrary_unit_cost=3.14,
-                    arbitrary_unit_cost_schedules=[
-                        ItemAutoOrderStepArbitraryUnitCostSchedule(
-                            arbitrary_unit_cost=3.14,
-                            retry_days=1,
-                        ),
-                    ],
-                    grandfather_pricing=[
-                        ItemAutoOrderStepGrandfatherPricing(
-                            on_or_before_date="on_or_before_date_example",
-                            unit_cost=3.14,
-                        ),
-                    ],
-                    managed_by="managed_by_example",
-                    pause_days=1,
-                    pause_until_date="pause_until_date_example",
-                    pause_until_day_of_month=1,
-                    pause_until_minimum_delay_days=1,
-                    preshipment_notice_days=1,
-                    recurring_merchant_item_id="recurring_merchant_item_id_example",
-                    recurring_merchant_item_oid=1,
-                    repeat_count=1,
-                    schedule="schedule_example",
-                    subscribe_email_list_name="subscribe_email_list_name_example",
-                    subscribe_email_list_oid=1,
-                    type="item",
-                ),
-            ],
-        ),
-        ccbill=ItemCCBill(
-            ccbill_allowed_currencies="ccbill_allowed_currencies_example",
-            ccbill_allowed_types="ccbill_allowed_types_example",
-            ccbill_currency_code="ccbill_currency_code_example",
-            ccbill_form_name="ccbill_form_name_example",
-            ccbill_subaccount_id="ccbill_subaccount_id_example",
-            ccbill_subscription_type_id="ccbill_subscription_type_id_example",
-        ),
-        channel_partner_item_mappings=[
-            ItemChannelPartnerMapping(
-                barcode_ua="barcode_ua_example",
-                barcode_uc="barcode_uc_example",
-                barcode_ui="barcode_ui_example",
-                barcode_uk="barcode_uk_example",
-                buyer_catalog_number="buyer_catalog_number_example",
-                buyer_dpci="buyer_dpci_example",
-                buyer_item_number="buyer_item_number_example",
-                channel_partner_code="channel_partner_code_example",
-                channel_partner_oid=1,
-                cost=3.14,
-                from_item_id="from_item_id_example",
-                from_sku="from_sku_example",
-                mutually_defined_number="mutually_defined_number_example",
-                quantity_ratio_cp=1,
-                quantity_ratio_uc=1,
-                sku="sku_example",
-                unit_of_measure="unit_of_measure_example",
-                vendor_number="vendor_number_example",
-                vendor_style_number="vendor_style_number_example",
-            ),
-        ],
-        chargeback=ItemChargeback(
-            addendums=[
-                ItemChargebackAddendum(
-                    chargeback_addendum_oid=1,
-                    description="description_example",
-                    file_size=1,
-                    pages=1,
-                ),
-            ],
-            adjustment_requests=[
-                ItemChargebackAdjustmentRequest(
-                    chargeback_adjustment_request_oid=1,
-                    description="description_example",
-                    reason_code="reason_code_example",
-                ),
-            ],
-        ),
-        checkout=ItemCheckout(
-            suppress_buysafe=True,
-            terms="terms_example",
-            terms_if_auto_order=True,
-            terms_translated_text_instance_oid=1,
-        ),
-        content=ItemContent(
-            assignments=[
-                ItemContentAssignment(
-                    default_assignment=True,
-                    group_oid=1,
-                    group_path="group_path_example",
-                    host="host_example",
-                    sort_order=1,
-                    url_part="url_part_example",
-                ),
-            ],
-            attributes=[
-                ItemContentAttribute(
-                    name="name_example",
-                    translated_text_instance_oid=1,
-                    type="type_example",
-                    value="value_example",
-                ),
-            ],
-            custom_thank_you_url="custom_thank_you_url_example",
-            exclude_from_search=True,
-            exclude_from_sitemap=True,
-            exclude_from_top_sellers=True,
-            extended_description="extended_description_example",
-            extended_description_translated_text_instance_oid=1,
-            meta_description="meta_description_example",
-            meta_keywords="meta_keywords_example",
-            meta_title="meta_title_example",
-            multimedia=[
-                ItemContentMultimedia(
-                    cloud_url="cloud_url_example",
-                    cloud_url_expiration="cloud_url_expiration_example",
-                    code="code_example",
-                    description="description_example",
-                    exclude_from_gallery=True,
-                    file_name="file_name_example",
-                    height=1,
-                    merchant_item_multimedia_oid=1,
-                    orphan=True,
-                    placeholder=True,
-                    temp_multimedia_oid=1,
-                    thumbnails=[
-                        ItemContentMultimediaThumbnail(
-                            height=1,
-                            http_url="http_url_example",
-                            https_url="https_url_example",
-                            png_format=True,
-                            square=True,
-                            width=1,
-                        ),
-                    ],
-                    type="Image",
-                    url="url_example",
-                    width=1,
-                ),
-            ],
-            new_item=True,
-            new_item_end="new_item_end_example",
-            new_item_start="new_item_start_example",
-            view_url="view_url_example",
-        ),
-        creation_dts="creation_dts_example",
-        description="description_example",
-        description_translated_text_instance_oid=1,
-        digital_delivery=ItemDigitalDelivery(
-            activation_code_description="activation_code_description_example",
-            activation_code_low_warning=1,
-            activation_code_realtime_url="activation_code_realtime_url_example",
-            activation_code_shared_secret="activation_code_shared_secret_example",
-            activation_code_type="activation_code_type_example",
-            digital_items=[
-                ItemDigitalItem(
-                    click_wrap_agreement="click_wrap_agreement_example",
-                    creation_dts="creation_dts_example",
-                    description="description_example",
-                    digital_item_oid=1,
-                    external_id="external_id_example",
-                    file_size=1,
-                    import_from_url="import_from_url_example",
-                    mime_type="mime_type_example",
-                    original_filename="original_filename_example",
-                    pdf_meta=ItemDigitalItemPdfMeta(
-                        assembly_allowed=True,
-                        copy_allowed=True,
-                        custom_footer="custom_footer_example",
-                        custom_header="custom_header_example",
-                        degraded_printing_allowed=True,
-                        fillin_allowed=True,
-                        modify_annotations_allowed=True,
-                        modify_contents_allowed=True,
-                        printing_allowed=True,
-                        screen_readers_allowed=True,
-                        tagged=True,
-                    ),
-                ),
-            ],
-        ),
-        ebay=ItemEbay(
-            active=True,
-            category_id=1,
-            category_specifics=[
-                ItemEbayCategorySpecific(
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            condition_description="condition_description_example",
-            condition_id=1,
-            consecutive_failures=1,
-            custom_category1=1,
-            custom_category2=1,
-            dispatch_time_max=1,
-            domestic_1_additional_cost=3.14,
-            domestic_1_first_cost=3.14,
-            domestic_2_additional_cost=3.14,
-            domestic_2_first_cost=3.14,
-            domestic_3_additional_cost=3.14,
-            domestic_3_first_cost=3.14,
-            domestic_4_additional_cost=3.14,
-            domestic_4_first_cost=3.14,
-            ebay_auction_id="ebay_auction_id_example",
-            ebay_specific_inventory=1,
-            ebay_template_name="ebay_template_name_example",
-            ebay_template_oid=1,
-            end_time="end_time_example",
-            free_shipping=True,
-            free_shipping_method="free_shipping_method_example",
-            international_1_additional_cost=3.14,
-            international_1_first_cost=3.14,
-            international_2_additional_cost=3.14,
-            international_2_first_cost=3.14,
-            international_3_additional_cost=3.14,
-            international_3_first_cost=3.14,
-            international_4_additional_cost=3.14,
-            international_4_first_cost=3.14,
-            last_status_dts="last_status_dts_example",
-            listed_dispatch_time_max=1,
-            listed_ebay_template_oid=1,
-            listing_dts="listing_dts_example",
-            listing_duration="listing_duration_example",
-            listing_price=3.14,
-            listing_price_override=3.14,
-            listing_type="listing_type_example",
-            marketplace_analysis=ItemEbayMarketPlaceAnalysis(
-                adjusted_price=3.14,
-                adjusted_shipping=3.14,
-                adjusted_total=3.14,
-                cogs=3.14,
-                final_value_fee=3.14,
-                minimum_advertised_price=3.14,
-                other_listings=[
-                    ItemEbayMarketListing(
-                        auction_id="auction_id_example",
-                        price=3.14,
-                        seller="seller_example",
-                        shipping=3.14,
-                        total=3.14,
-                    ),
-                ],
-                our_listing=ItemEbayMarketListing(
-                    auction_id="auction_id_example",
-                    price=3.14,
-                    seller="seller_example",
-                    shipping=3.14,
-                    total=3.14,
-                ),
-                overhead=3.14,
-                profit_potential=3.14,
-            ),
-            marketplace_analysis_perform=True,
-            marketplace_final_value_fee_percentage=3.14,
-            marketplace_last_check_dts="marketplace_last_check_dts_example",
-            marketplace_lowest=True,
-            marketplace_map_violation=True,
-            marketplace_multiplier=3.14,
-            marketplace_other_price=3.14,
-            marketplace_other_seller="marketplace_other_seller_example",
-            marketplace_other_shipping=3.14,
-            marketplace_other_total=3.14,
-            marketplace_our_additional_profit_potential=3.14,
-            marketplace_our_price=3.14,
-            marketplace_our_profit=3.14,
-            marketplace_our_shipping=3.14,
-            marketplace_our_total=3.14,
-            marketplace_overhead=3.14,
-            marketplace_profitable=True,
-            next_attempt_dts="next_attempt_dts_example",
-            next_listing_duration="next_listing_duration_example",
-            no_promotional_shipping=True,
-            packaging_handling_costs=3.14,
-            previous_ebay_auction_id="previous_ebay_auction_id_example",
-            quantity=1,
-            reserve_price=3.14,
-            send_dimensions_and_weight="send_dimensions_and_weight_example",
-            start_time="start_time_example",
-            status="status_example",
-            target_dispatch_time_max=1,
-        ),
-        email_notifications=ItemEmailNotifications(
-            skip_receipt=True,
-            skip_shipment_notification=True,
-        ),
-        enrollment123=ItemEnrollment123(
-            enrollment123_product_code="enrollment123_product_code_example",
-        ),
-        fulfillment_addons=[
-            ItemFulfillmentAddon(
-                add_item_id="add_item_id_example",
-                add_item_oid=1,
-                initial_order_only=True,
-                once_per_order=True,
-                quantity=1,
-            ),
-        ],
-        gift_certificate=ItemGiftCertificate(
-            gift_certificate=True,
-            gift_certificate_expiration_days=1,
-        ),
-        google_product_search=ItemGoogleProductSearch(
-            adwords_grouping="adwords_grouping_example",
-            adwords_label1="adwords_label1_example",
-            adwords_label2="adwords_label2_example",
-            adwords_label3="adwords_label3_example",
-            adwords_label4="adwords_label4_example",
-            adwords_label5="adwords_label5_example",
-            age_group="age_group_example",
-            available_at_physical_store=True,
-            book_author="book_author_example",
-            book_format="book_format_example",
-            book_isbn="book_isbn_example",
-            book_publisher="book_publisher_example",
-            category_description="category_description_example",
-            color="color_example",
-            condition="condition_example",
-            custom_label0="custom_label0_example",
-            custom_label1="custom_label1_example",
-            custom_label2="custom_label2_example",
-            custom_label3="custom_label3_example",
-            custom_label4="custom_label4_example",
-            gender="gender_example",
-            google_product_category="google_product_category_example",
-            music_artist="music_artist_example",
-            music_format="music_format_example",
-            music_release_date="music_release_date_example",
-            omit_from_feed=True,
-            product_type="product_type_example",
-            promotion_id1="promotion_id1_example",
-            promotion_id10="promotion_id10_example",
-            promotion_id2="promotion_id2_example",
-            promotion_id3="promotion_id3_example",
-            promotion_id4="promotion_id4_example",
-            promotion_id5="promotion_id5_example",
-            promotion_id6="promotion_id6_example",
-            promotion_id7="promotion_id7_example",
-            promotion_id8="promotion_id8_example",
-            promotion_id9="promotion_id9_example",
-            search_dts="search_dts_example",
-            search_lowest_price=3.14,
-            search_lowest_url="search_lowest_url_example",
-            search_position=1,
-            shipping_label="shipping_label_example",
-            size="size_example",
-            video_director="video_director_example",
-            video_format="video_format_example",
-            video_rating="video_rating_example",
-            video_release_date="video_release_date_example",
-            video_starring="video_starring_example",
-        ),
-        identifiers=ItemIdentifiers(
-            barcode="barcode_example",
-            barcode_gtin12="barcode_gtin12_example",
-            barcode_gtin14="barcode_gtin14_example",
-            barcode_upc11="barcode_upc11_example",
-            barcode_upc12="barcode_upc12_example",
-            manufacturer_name="manufacturer_name_example",
-            manufacturer_sku="manufacturer_sku_example",
-            unspsc="unspsc_example",
-        ),
-        inactive=True,
-        instant_payment_notifications=ItemInstantPaymentNotifications(
-            notifications=[
-                ItemInstantPaymentNotification(
-                    post_operation=True,
-                    successful_response_text="successful_response_text_example",
-                    url="url_example",
-                ),
-            ],
-        ),
-        internal=ItemInternal(
-            memo="memo_example",
-        ),
-        kit=True,
-        kit_component_only=True,
-        kit_definition=ItemKitDefinition(
-            components=[
-                ItemKitComponent(
-                    component_cost=3.14,
-                    component_description="component_description_example",
-                    component_merchant_item_id="component_merchant_item_id_example",
-                    component_merchant_item_oid=1,
-                    quantity=1,
-                ),
-            ],
-        ),
-        last_modified_dts="last_modified_dts_example",
-        merchant_id="merchant_id_example",
-        merchant_item_id="merchant_item_id_example",
-        merchant_item_oid=1,
-        options=[
-            ItemOption(
-                cost_if_specified=3.14,
-                cost_per_letter=3.14,
-                cost_per_line=3.14,
-                ignore_if_default=True,
-                label="label_example",
-                label_translated_text_instance_oid=1,
-                name="name_example",
-                name_translated_text_instance_oid=1,
-                one_time_fee=True,
-                option_oid=1,
-                required=True,
-                system_option=True,
-                type="dropdown",
-                values=[
-                    ItemOptionValue(
-                        additional_dimension_application="none",
-                        additional_items=[
-                            ItemOptionValueAdditionalItem(
-                                additional_merchant_item_id="additional_merchant_item_id_example",
-                                additional_merchant_item_oid=1,
-                            ),
-                        ],
-                        cost_change=3.14,
-                        default_value=True,
-                        digital_items=[
-                            ItemOptionValueDigitalItem(
-                                digital_item_oid=1,
-                                original_filename="original_filename_example",
-                            ),
-                        ],
-                        height=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        length=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        merchant_item_multimedia_oid=1,
-                        option_value_oid=1,
-                        percent_cost_change=3.14,
-                        translated_text_instance_oid=1,
-                        value="value_example",
-                        weight_change=Weight(
-                            uom="KG",
-                            value=3.14,
-                        ),
-                        weight_change_percent=3.14,
-                        width=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                    ),
-                ],
-            ),
-        ],
-        parent_category_id=1,
-        parent_category_path="parent_category_path_example",
-        payment_processing=ItemPaymentProcessing(
-            block_prepaid=True,
-            block_refunds=True,
-            credit_card_transaction_type="credit_card_transaction_type_example",
-            no_realtime_charge=True,
-            payment_method_validity=[
-                "payment_method_validity_example",
-            ],
-            rotating_transaction_gateway_codes=[
-                "rotating_transaction_gateway_codes_example",
-            ],
-        ),
-        physical=ItemPhysical(
-            height=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            length=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            weight=Weight(
-                uom="KG",
-                value=3.14,
-            ),
-            width=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-        ),
-        pricing=ItemPricing(
-            allow_arbitrary_cost=True,
-            arbitrary_cost_velocity_code="arbitrary_cost_velocity_code_example",
-            auto_order_cost=3.14,
-            automatic_pricing_tier_name="automatic_pricing_tier_name_example",
-            automatic_pricing_tier_oid=1,
-            cogs=3.14,
-            cost=3.14,
-            currency_code="currency_code_example",
-            manufacturer_suggested_retail_price=3.14,
-            maximum_arbitrary_cost=3.14,
-            minimum_advertised_price=3.14,
-            minimum_arbitrary_cost=3.14,
-            mix_and_match_group="mix_and_match_group_example",
-            mix_and_match_group_oid=1,
-            sale_cost=3.14,
-            sale_end="sale_end_example",
-            sale_start="sale_start_example",
-            tiers=[
-                ItemPricingTier(
-                    default_tier=True,
-                    discounts=[
-                        ItemPricingTierDiscount(
-                            cost=3.14,
-                            quantity=1,
-                        ),
-                    ],
-                    limit=ItemPricingTierLimit(
-                        cumulative_order_limit=1,
-                        exempt_from_minimum_item_count=True,
-                        individual_order_limit=1,
-                        multiple_quantity=1,
-                        payment_method_validity=[
-                            "payment_method_validity_example",
-                        ],
-                    ),
-                    name="name_example",
-                    pricing_tier_oid=1,
-                ),
-            ],
-        ),
-        properties=[
-            ItemProperty(
-                expiration_dts="expiration_dts_example",
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        realtime_pricing=ItemRealtimePricing(
-            realtime_pricing_parameter="realtime_pricing_parameter_example",
-            realtime_pricing_provider="realtime_pricing_provider_example",
-            realtime_pricing_provider_oid=1,
-        ),
-        recommend_replenishment_days=1,
-        related=ItemRelated(
-            no_system_calculated_related_items=True,
-            not_relatable=True,
-            related_items=[
-                ItemRelatedItem(
-                    related_merchant_item_id="related_merchant_item_id_example",
-                    related_merchant_item_oid=1,
-                    type="System",
-                ),
-            ],
-        ),
-        reporting=ItemReporting(
-            report_as_upsell=True,
-            report_pickable_quantities=[
-                1,
-            ],
-        ),
-        restriction=ItemRestriction(
-            exclude_coupon=True,
-            exclude_from_free_promotion=True,
-            exclude_from_loyalty=True,
-            items=[
-                ItemRestrictionItem(
-                    restrict_merchant_item_id="restrict_merchant_item_id_example",
-                    restrict_merchant_item_oid=1,
-                    type="can not be purchased with",
-                ),
-            ],
-            maximum_quantity=1,
-            minimum_quantity=1,
-            multiple_quantity=1,
-            one_per_customer=True,
-            purchase_separately=True,
-        ),
-        revguard=ItemRevguard(
-            revguard_canceled_csr_prompt_group=1,
-            revguard_canceled_ivr_prompt_group=1,
-            revguard_canceled_web_prompt_group=1,
-            revguard_client_brand=1,
-            revguard_csr_prompt_group=1,
-            revguard_ivr_prompt_group=1,
-            revguard_web_prompt_group=1,
-        ),
-        reviews=ItemReviews(
-            has_approved_review=True,
-            has_review=True,
-            individual_reviews=[
-                ItemReview(
-                    customer_profile_oid=1,
-                    featured=True,
-                    helperful_no_votes=1,
-                    helpful_yes_votes=1,
-                    merchant_reply="merchant_reply_example",
-                    order_id="order_id_example",
-                    overall=3.14,
-                    rating_name1="rating_name1_example",
-                    rating_name10="rating_name10_example",
-                    rating_name2="rating_name2_example",
-                    rating_name3="rating_name3_example",
-                    rating_name4="rating_name4_example",
-                    rating_name5="rating_name5_example",
-                    rating_name6="rating_name6_example",
-                    rating_name7="rating_name7_example",
-                    rating_name8="rating_name8_example",
-                    rating_name9="rating_name9_example",
-                    rating_score1=3.14,
-                    rating_score10=3.14,
-                    rating_score2=3.14,
-                    rating_score3=3.14,
-                    rating_score4=3.14,
-                    rating_score5=3.14,
-                    rating_score6=3.14,
-                    rating_score7=3.14,
-                    rating_score8=3.14,
-                    rating_score9=3.14,
-                    recommend_store_to_friend=1,
-                    recommend_to_friend=True,
-                    review="review_example",
-                    review_oid=1,
-                    reviewed_nickname="reviewed_nickname_example",
-                    reviewer_email="reviewer_email_example",
-                    reviewer_location="reviewer_location_example",
-                    status="approved",
-                    store_feedback="store_feedback_example",
-                    submitted_dts="submitted_dts_example",
-                    title="title_example",
-                ),
-            ],
-            review_count=1,
-            review_overall=3.14,
-            review_template_name="review_template_name_example",
-            review_template_oid=1,
-            reviewable=True,
-            share_reviews_with_merchant_item_id="share_reviews_with_merchant_item_id_example",
-            share_reviews_with_merchant_item_oid=1,
-        ),
-        salesforce=ItemSalesforce(
-            sfdc_pricebook_id="sfdc_pricebook_id_example",
-            sfdc_product_id="sfdc_product_id_example",
-        ),
-        shipping=ItemShipping(
-            allow_back_order=True,
-            amazon_fba=True,
-            case_inner_packs=1,
-            case_units=1,
-            cases=[
-                ItemShippingCase(
-                    case_label="case_label_example",
-                    case_merchant_item_id="case_merchant_item_id_example",
-                    case_merchant_item_oid=1,
-                    quantity=1,
-                ),
-            ],
-            collect_serial_numbers=True,
-            country_code_of_origin="country_code_of_origin_example",
-            customs_description="customs_description_example",
-            customs_value=3.14,
-            delivery_on_friday=True,
-            delivery_on_monday=True,
-            delivery_on_saturday=True,
-            delivery_on_sunday=True,
-            delivery_on_thursday=True,
-            delivery_on_tuesday=True,
-            delivery_on_wednesday=True,
-            destination_markups=[
-                ItemShippingDestinationMarkup(
-                    adult_signature_required=True,
-                    country_code="country_code_example",
-                    flat_fee=3.14,
-                    per_item=3.14,
-                    postal_code="postal_code_example",
-                    shipping_method="shipping_method_example",
-                    state="state_example",
-                ),
-            ],
-            destination_restrictions=[
-                ItemShippingDestinationRestriction(
-                    country_code="country_code_example",
-                    state="state_example",
-                    validity="valid only for",
-                ),
-            ],
-            distribution_centers=[
-                ItemShippingDistributionCenter(
-                    allocated_to_placed_orders=3.14,
-                    allocated_to_shopping_carts=3.14,
-                    available_to_allocate=3.14,
-                    cogs=3.14,
-                    desired_inventory_level=3.14,
-                    distribution_center_code="distribution_center_code_example",
-                    distribution_center_oid=1,
-                    eta="eta_example",
-                    handles=True,
-                    inventory_level=3.14,
-                    maximum_backorder=1,
-                    reorder_inventory_level=3.14,
-                    sku="sku_example",
-                    stock_picking_location="stock_picking_location_example",
-                ),
-            ],
-            eta="eta_example",
-            free_shipping=True,
-            freight_class="freight_class_example",
-            hazmat=True,
-            hold_for_transmission=True,
-            made_to_order=True,
-            made_to_order_lead_time=1,
-            max_days_time_in_transit=1,
-            methods=[
-                ItemShippingMethod(
-                    cost=3.14,
-                    each_additional_item_markup=3.14,
-                    filter_to_if_available=True,
-                    first_item_markup=3.14,
-                    fixed_shipping_cost=3.14,
-                    flat_fee_markup=3.14,
-                    free_shipping=True,
-                    per_item_fee_markup=3.14,
-                    percentage_markup=3.14,
-                    percentage_of_item_markup=3.14,
-                    relax_restrictions_on_upsell=True,
-                    shipping_method="shipping_method_example",
-                    shipping_method_oid=1,
-                    shipping_method_validity="invalid for",
-                    signature_required=True,
-                ),
-            ],
-            no_shipping_discount=True,
-            package_requirements=[
-                ItemShippingPackageRequirement(
-                    package_name="package_name_example",
-                    package_oid=1,
-                ),
-            ],
-            perishable_class_name="perishable_class_name_example",
-            perishable_class_oid=1,
-            preorder=True,
-            require_delivery_date=True,
-            restrict_shipment_on_friday=True,
-            restrict_shipment_on_monday=True,
-            restrict_shipment_on_saturday=True,
-            restrict_shipment_on_sunday=True,
-            restrict_shipment_on_thursday=True,
-            restrict_shipment_on_tuesday=True,
-            restrict_shipment_on_wednesday=True,
-            ship_separately=True,
-            ship_separately_additional_weight=Weight(
-                uom="KG",
-                value=3.14,
-            ),
-            ship_separately_height=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            ship_separately_length=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            ship_separately_package_special_type="ship_separately_package_special_type_example",
-            ship_separately_width=Distance(
-                uom="IN",
-                value=3.14,
-            ),
-            special_product_type="special_product_type_example",
-            track_inventory=True,
-        ),
-        tags=ItemTags(
-            tags=[
-                ItemTag(
-                    tag_type="item",
-                    tag_value="tag_value_example",
-                ),
-            ],
-        ),
-        tax=ItemTax(
-            exemptions=[
-                ItemTaxExemption(
-                    city="city_example",
-                    country_code="country_code_example",
-                    county="county_example",
-                    postal_code="postal_code_example",
-                    state_code="state_code_example",
-                ),
-            ],
-            tax_free=True,
-            tax_product_type="",
-            taxable_cost=3.14,
-        ),
-        third_party_email_marketing=[
-            ItemThirdPartyEmailMarketing(
-                add_tags=[
-                    "add_tags_example",
-                ],
-                provider_name="ActiveCampaign",
-                remove_tags=[
-                    "remove_tags_example",
-                ],
-                subscribe_lists=[
-                    "subscribe_lists_example",
-                ],
-                unsubscribe_lists=[
-                    "unsubscribe_lists_example",
-                ],
-            ),
-        ],
-        variant_items=[
-            ItemVariantItem(
-                description="description_example",
-                merchant_item_multimedia_oid=1,
-                variant_merchant_item_id="variant_merchant_item_id_example",
-                variant_merchant_item_oid=1,
-                variation_options=[
-                    "variation_options_example",
-                ],
-                variations=[
-                    "variations_example",
-                ],
-            ),
-        ],
-        variations=[
-            ItemVariation(
-                default_text="default_text_example",
-                default_text_translated_text_instance_oid=1,
-                name="name_example",
-                name_translated_text_instance_oid=1,
-                options=[
-                    ItemVariationOption(
-                        default_option=True,
-                        merchant_item_multimedia_oid=1,
-                        translated_text_instance_oid=1,
-                        value="value_example",
-                    ),
-                ],
-            ),
-        ],
-        wishlist_member=ItemWishlistMember(
-            wishlist_member_instance_description="wishlist_member_instance_description_example",
-            wishlist_member_instance_oid=1,
-            wishlist_member_sku="wishlist_member_sku_example",
-        ),
-    ) # Item | Item to update
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-
-    # example passing only required values which don't have defaults set
+@app.route('/update_item')
+def update_item():
     try:
-        # Update an item
-        api_response = api_instance.update_item(merchant_item_oid, item)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->update_item: %s\n" % e)
+        # Insert a sample item
+        item_id = insert_sample_item()
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Update an item
-        api_response = api_instance.update_item(merchant_item_oid, item, expand=expand, placeholders=placeholders)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->update_item: %s\n" % e)
+        # Create Item API client
+        item_api = ItemApi(api_client())
+
+        # Expand pricing information
+        expand = "pricing"
+
+        # Get the item by merchant item ID
+        api_response = item_api.get_item_by_merchant_item_id(item_id, expand=expand, _expand=False)
+        item = api_response.get_item()
+
+        # Store original price
+        original_price = item.get_pricing().get_cost()
+
+        # Update the item's price
+        item_pricing = item.get_pricing()
+        item_pricing.set_cost(12.99)
+
+        # Update the item
+        api_response = item_api.update_item(item.get_merchant_item_oid(), item, expand=expand, _expand=False)
+        updated_item = api_response.get_item()
+
+        # Print price changes
+        print(f'Original Price: {original_price}')
+        print(f'Updated Price: {updated_item.get_pricing().get_cost()}')
+
+        # Delete the sample item
+        delete_sample_item(item_id)
+
+        return "Item update successful"
+
+    except ApiException as e:
+        print('An ApiException occurred. Please review the following error:')
+        print(e)
+        return "Error updating item", 500
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
 ```
+
 
 
 ### Parameters
@@ -3416,922 +1790,61 @@ Update multiple item on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.items_response import ItemsResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.items_request import ItemsRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from flask import Flask
+from ultracart import ApiException
+from ultracart.apis import ItemApi
+from ultracart.models import ItemsRequest
+from samples import api_client
+from item_functions import insert_sample_item, delete_sample_item
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+app = Flask(__name__)
 
-api_instance = GiftCertificateApi(api_client())
-
-    items_request = ItemsRequest(
-        items=[
-            Item(
-                accounting=ItemAccounting(
-                    accounting_code="accounting_code_example",
-                    qb_class="qb_class_example",
-                ),
-                amember=ItemAmember(
-                    amember_payment_duration_days=1,
-                    amember_product_id="amember_product_id_example",
-                ),
-                auto_order=ItemAutoOrder(
-                    auth_future_amount=3.14,
-                    auth_test_amount=3.14,
-                    auto_order_cancel_charge_minimum_balance=True,
-                    auto_order_cancel_item_id="auto_order_cancel_item_id_example",
-                    auto_order_cancel_item_oid=1,
-                    auto_order_cancel_minimum_life_time_count=1,
-                    auto_order_cancel_minimum_life_time_value=3.14,
-                    auto_order_cancel_minimum_rebill_count=1,
-                    auto_order_cancel_minimum_rebill_value=3.14,
-                    auto_order_downgrade_items=[
-                        "auto_order_downgrade_items_example",
-                    ],
-                    auto_order_paused=True,
-                    auto_order_prohibit_expiring_cards=1,
-                    auto_order_schedules=[
-                        "auto_order_schedules_example",
-                    ],
-                    auto_order_upgrade_items=[
-                        "auto_order_upgrade_items_example",
-                    ],
-                    auto_order_upsell=True,
-                    auto_order_upsell_no_easy_cancel=True,
-                    auto_order_upsell_one_per_customer=True,
-                    auto_orderable=True,
-                    cancel_other_auto_orders=True,
-                    free_shipping_auto_order=True,
-                    refund_other_auto_orders=True,
-                    steps=[
-                        ItemAutoOrderStep(
-                            arbitrary_schedule_days=1,
-                            arbitrary_unit_cost=3.14,
-                            arbitrary_unit_cost_schedules=[
-                                ItemAutoOrderStepArbitraryUnitCostSchedule(
-                                    arbitrary_unit_cost=3.14,
-                                    retry_days=1,
-                                ),
-                            ],
-                            grandfather_pricing=[
-                                ItemAutoOrderStepGrandfatherPricing(
-                                    on_or_before_date="on_or_before_date_example",
-                                    unit_cost=3.14,
-                                ),
-                            ],
-                            managed_by="managed_by_example",
-                            pause_days=1,
-                            pause_until_date="pause_until_date_example",
-                            pause_until_day_of_month=1,
-                            pause_until_minimum_delay_days=1,
-                            preshipment_notice_days=1,
-                            recurring_merchant_item_id="recurring_merchant_item_id_example",
-                            recurring_merchant_item_oid=1,
-                            repeat_count=1,
-                            schedule="schedule_example",
-                            subscribe_email_list_name="subscribe_email_list_name_example",
-                            subscribe_email_list_oid=1,
-                            type="item",
-                        ),
-                    ],
-                ),
-                ccbill=ItemCCBill(
-                    ccbill_allowed_currencies="ccbill_allowed_currencies_example",
-                    ccbill_allowed_types="ccbill_allowed_types_example",
-                    ccbill_currency_code="ccbill_currency_code_example",
-                    ccbill_form_name="ccbill_form_name_example",
-                    ccbill_subaccount_id="ccbill_subaccount_id_example",
-                    ccbill_subscription_type_id="ccbill_subscription_type_id_example",
-                ),
-                channel_partner_item_mappings=[
-                    ItemChannelPartnerMapping(
-                        barcode_ua="barcode_ua_example",
-                        barcode_uc="barcode_uc_example",
-                        barcode_ui="barcode_ui_example",
-                        barcode_uk="barcode_uk_example",
-                        buyer_catalog_number="buyer_catalog_number_example",
-                        buyer_dpci="buyer_dpci_example",
-                        buyer_item_number="buyer_item_number_example",
-                        channel_partner_code="channel_partner_code_example",
-                        channel_partner_oid=1,
-                        cost=3.14,
-                        from_item_id="from_item_id_example",
-                        from_sku="from_sku_example",
-                        mutually_defined_number="mutually_defined_number_example",
-                        quantity_ratio_cp=1,
-                        quantity_ratio_uc=1,
-                        sku="sku_example",
-                        unit_of_measure="unit_of_measure_example",
-                        vendor_number="vendor_number_example",
-                        vendor_style_number="vendor_style_number_example",
-                    ),
-                ],
-                chargeback=ItemChargeback(
-                    addendums=[
-                        ItemChargebackAddendum(
-                            chargeback_addendum_oid=1,
-                            description="description_example",
-                            file_size=1,
-                            pages=1,
-                        ),
-                    ],
-                    adjustment_requests=[
-                        ItemChargebackAdjustmentRequest(
-                            chargeback_adjustment_request_oid=1,
-                            description="description_example",
-                            reason_code="reason_code_example",
-                        ),
-                    ],
-                ),
-                checkout=ItemCheckout(
-                    suppress_buysafe=True,
-                    terms="terms_example",
-                    terms_if_auto_order=True,
-                    terms_translated_text_instance_oid=1,
-                ),
-                content=ItemContent(
-                    assignments=[
-                        ItemContentAssignment(
-                            default_assignment=True,
-                            group_oid=1,
-                            group_path="group_path_example",
-                            host="host_example",
-                            sort_order=1,
-                            url_part="url_part_example",
-                        ),
-                    ],
-                    attributes=[
-                        ItemContentAttribute(
-                            name="name_example",
-                            translated_text_instance_oid=1,
-                            type="type_example",
-                            value="value_example",
-                        ),
-                    ],
-                    custom_thank_you_url="custom_thank_you_url_example",
-                    exclude_from_search=True,
-                    exclude_from_sitemap=True,
-                    exclude_from_top_sellers=True,
-                    extended_description="extended_description_example",
-                    extended_description_translated_text_instance_oid=1,
-                    meta_description="meta_description_example",
-                    meta_keywords="meta_keywords_example",
-                    meta_title="meta_title_example",
-                    multimedia=[
-                        ItemContentMultimedia(
-                            cloud_url="cloud_url_example",
-                            cloud_url_expiration="cloud_url_expiration_example",
-                            code="code_example",
-                            description="description_example",
-                            exclude_from_gallery=True,
-                            file_name="file_name_example",
-                            height=1,
-                            merchant_item_multimedia_oid=1,
-                            orphan=True,
-                            placeholder=True,
-                            temp_multimedia_oid=1,
-                            thumbnails=[
-                                ItemContentMultimediaThumbnail(
-                                    height=1,
-                                    http_url="http_url_example",
-                                    https_url="https_url_example",
-                                    png_format=True,
-                                    square=True,
-                                    width=1,
-                                ),
-                            ],
-                            type="Image",
-                            url="url_example",
-                            width=1,
-                        ),
-                    ],
-                    new_item=True,
-                    new_item_end="new_item_end_example",
-                    new_item_start="new_item_start_example",
-                    view_url="view_url_example",
-                ),
-                creation_dts="creation_dts_example",
-                description="description_example",
-                description_translated_text_instance_oid=1,
-                digital_delivery=ItemDigitalDelivery(
-                    activation_code_description="activation_code_description_example",
-                    activation_code_low_warning=1,
-                    activation_code_realtime_url="activation_code_realtime_url_example",
-                    activation_code_shared_secret="activation_code_shared_secret_example",
-                    activation_code_type="activation_code_type_example",
-                    digital_items=[
-                        ItemDigitalItem(
-                            click_wrap_agreement="click_wrap_agreement_example",
-                            creation_dts="creation_dts_example",
-                            description="description_example",
-                            digital_item_oid=1,
-                            external_id="external_id_example",
-                            file_size=1,
-                            import_from_url="import_from_url_example",
-                            mime_type="mime_type_example",
-                            original_filename="original_filename_example",
-                            pdf_meta=ItemDigitalItemPdfMeta(
-                                assembly_allowed=True,
-                                copy_allowed=True,
-                                custom_footer="custom_footer_example",
-                                custom_header="custom_header_example",
-                                degraded_printing_allowed=True,
-                                fillin_allowed=True,
-                                modify_annotations_allowed=True,
-                                modify_contents_allowed=True,
-                                printing_allowed=True,
-                                screen_readers_allowed=True,
-                                tagged=True,
-                            ),
-                        ),
-                    ],
-                ),
-                ebay=ItemEbay(
-                    active=True,
-                    category_id=1,
-                    category_specifics=[
-                        ItemEbayCategorySpecific(
-                            name="name_example",
-                            value="value_example",
-                        ),
-                    ],
-                    condition_description="condition_description_example",
-                    condition_id=1,
-                    consecutive_failures=1,
-                    custom_category1=1,
-                    custom_category2=1,
-                    dispatch_time_max=1,
-                    domestic_1_additional_cost=3.14,
-                    domestic_1_first_cost=3.14,
-                    domestic_2_additional_cost=3.14,
-                    domestic_2_first_cost=3.14,
-                    domestic_3_additional_cost=3.14,
-                    domestic_3_first_cost=3.14,
-                    domestic_4_additional_cost=3.14,
-                    domestic_4_first_cost=3.14,
-                    ebay_auction_id="ebay_auction_id_example",
-                    ebay_specific_inventory=1,
-                    ebay_template_name="ebay_template_name_example",
-                    ebay_template_oid=1,
-                    end_time="end_time_example",
-                    free_shipping=True,
-                    free_shipping_method="free_shipping_method_example",
-                    international_1_additional_cost=3.14,
-                    international_1_first_cost=3.14,
-                    international_2_additional_cost=3.14,
-                    international_2_first_cost=3.14,
-                    international_3_additional_cost=3.14,
-                    international_3_first_cost=3.14,
-                    international_4_additional_cost=3.14,
-                    international_4_first_cost=3.14,
-                    last_status_dts="last_status_dts_example",
-                    listed_dispatch_time_max=1,
-                    listed_ebay_template_oid=1,
-                    listing_dts="listing_dts_example",
-                    listing_duration="listing_duration_example",
-                    listing_price=3.14,
-                    listing_price_override=3.14,
-                    listing_type="listing_type_example",
-                    marketplace_analysis=ItemEbayMarketPlaceAnalysis(
-                        adjusted_price=3.14,
-                        adjusted_shipping=3.14,
-                        adjusted_total=3.14,
-                        cogs=3.14,
-                        final_value_fee=3.14,
-                        minimum_advertised_price=3.14,
-                        other_listings=[
-                            ItemEbayMarketListing(
-                                auction_id="auction_id_example",
-                                price=3.14,
-                                seller="seller_example",
-                                shipping=3.14,
-                                total=3.14,
-                            ),
-                        ],
-                        our_listing=ItemEbayMarketListing(
-                            auction_id="auction_id_example",
-                            price=3.14,
-                            seller="seller_example",
-                            shipping=3.14,
-                            total=3.14,
-                        ),
-                        overhead=3.14,
-                        profit_potential=3.14,
-                    ),
-                    marketplace_analysis_perform=True,
-                    marketplace_final_value_fee_percentage=3.14,
-                    marketplace_last_check_dts="marketplace_last_check_dts_example",
-                    marketplace_lowest=True,
-                    marketplace_map_violation=True,
-                    marketplace_multiplier=3.14,
-                    marketplace_other_price=3.14,
-                    marketplace_other_seller="marketplace_other_seller_example",
-                    marketplace_other_shipping=3.14,
-                    marketplace_other_total=3.14,
-                    marketplace_our_additional_profit_potential=3.14,
-                    marketplace_our_price=3.14,
-                    marketplace_our_profit=3.14,
-                    marketplace_our_shipping=3.14,
-                    marketplace_our_total=3.14,
-                    marketplace_overhead=3.14,
-                    marketplace_profitable=True,
-                    next_attempt_dts="next_attempt_dts_example",
-                    next_listing_duration="next_listing_duration_example",
-                    no_promotional_shipping=True,
-                    packaging_handling_costs=3.14,
-                    previous_ebay_auction_id="previous_ebay_auction_id_example",
-                    quantity=1,
-                    reserve_price=3.14,
-                    send_dimensions_and_weight="send_dimensions_and_weight_example",
-                    start_time="start_time_example",
-                    status="status_example",
-                    target_dispatch_time_max=1,
-                ),
-                email_notifications=ItemEmailNotifications(
-                    skip_receipt=True,
-                    skip_shipment_notification=True,
-                ),
-                enrollment123=ItemEnrollment123(
-                    enrollment123_product_code="enrollment123_product_code_example",
-                ),
-                fulfillment_addons=[
-                    ItemFulfillmentAddon(
-                        add_item_id="add_item_id_example",
-                        add_item_oid=1,
-                        initial_order_only=True,
-                        once_per_order=True,
-                        quantity=1,
-                    ),
-                ],
-                gift_certificate=ItemGiftCertificate(
-                    gift_certificate=True,
-                    gift_certificate_expiration_days=1,
-                ),
-                google_product_search=ItemGoogleProductSearch(
-                    adwords_grouping="adwords_grouping_example",
-                    adwords_label1="adwords_label1_example",
-                    adwords_label2="adwords_label2_example",
-                    adwords_label3="adwords_label3_example",
-                    adwords_label4="adwords_label4_example",
-                    adwords_label5="adwords_label5_example",
-                    age_group="age_group_example",
-                    available_at_physical_store=True,
-                    book_author="book_author_example",
-                    book_format="book_format_example",
-                    book_isbn="book_isbn_example",
-                    book_publisher="book_publisher_example",
-                    category_description="category_description_example",
-                    color="color_example",
-                    condition="condition_example",
-                    custom_label0="custom_label0_example",
-                    custom_label1="custom_label1_example",
-                    custom_label2="custom_label2_example",
-                    custom_label3="custom_label3_example",
-                    custom_label4="custom_label4_example",
-                    gender="gender_example",
-                    google_product_category="google_product_category_example",
-                    music_artist="music_artist_example",
-                    music_format="music_format_example",
-                    music_release_date="music_release_date_example",
-                    omit_from_feed=True,
-                    product_type="product_type_example",
-                    promotion_id1="promotion_id1_example",
-                    promotion_id10="promotion_id10_example",
-                    promotion_id2="promotion_id2_example",
-                    promotion_id3="promotion_id3_example",
-                    promotion_id4="promotion_id4_example",
-                    promotion_id5="promotion_id5_example",
-                    promotion_id6="promotion_id6_example",
-                    promotion_id7="promotion_id7_example",
-                    promotion_id8="promotion_id8_example",
-                    promotion_id9="promotion_id9_example",
-                    search_dts="search_dts_example",
-                    search_lowest_price=3.14,
-                    search_lowest_url="search_lowest_url_example",
-                    search_position=1,
-                    shipping_label="shipping_label_example",
-                    size="size_example",
-                    video_director="video_director_example",
-                    video_format="video_format_example",
-                    video_rating="video_rating_example",
-                    video_release_date="video_release_date_example",
-                    video_starring="video_starring_example",
-                ),
-                identifiers=ItemIdentifiers(
-                    barcode="barcode_example",
-                    barcode_gtin12="barcode_gtin12_example",
-                    barcode_gtin14="barcode_gtin14_example",
-                    barcode_upc11="barcode_upc11_example",
-                    barcode_upc12="barcode_upc12_example",
-                    manufacturer_name="manufacturer_name_example",
-                    manufacturer_sku="manufacturer_sku_example",
-                    unspsc="unspsc_example",
-                ),
-                inactive=True,
-                instant_payment_notifications=ItemInstantPaymentNotifications(
-                    notifications=[
-                        ItemInstantPaymentNotification(
-                            post_operation=True,
-                            successful_response_text="successful_response_text_example",
-                            url="url_example",
-                        ),
-                    ],
-                ),
-                internal=ItemInternal(
-                    memo="memo_example",
-                ),
-                kit=True,
-                kit_component_only=True,
-                kit_definition=ItemKitDefinition(
-                    components=[
-                        ItemKitComponent(
-                            component_cost=3.14,
-                            component_description="component_description_example",
-                            component_merchant_item_id="component_merchant_item_id_example",
-                            component_merchant_item_oid=1,
-                            quantity=1,
-                        ),
-                    ],
-                ),
-                last_modified_dts="last_modified_dts_example",
-                merchant_id="merchant_id_example",
-                merchant_item_id="merchant_item_id_example",
-                merchant_item_oid=1,
-                options=[
-                    ItemOption(
-                        cost_if_specified=3.14,
-                        cost_per_letter=3.14,
-                        cost_per_line=3.14,
-                        ignore_if_default=True,
-                        label="label_example",
-                        label_translated_text_instance_oid=1,
-                        name="name_example",
-                        name_translated_text_instance_oid=1,
-                        one_time_fee=True,
-                        option_oid=1,
-                        required=True,
-                        system_option=True,
-                        type="dropdown",
-                        values=[
-                            ItemOptionValue(
-                                additional_dimension_application="none",
-                                additional_items=[
-                                    ItemOptionValueAdditionalItem(
-                                        additional_merchant_item_id="additional_merchant_item_id_example",
-                                        additional_merchant_item_oid=1,
-                                    ),
-                                ],
-                                cost_change=3.14,
-                                default_value=True,
-                                digital_items=[
-                                    ItemOptionValueDigitalItem(
-                                        digital_item_oid=1,
-                                        original_filename="original_filename_example",
-                                    ),
-                                ],
-                                height=Distance(
-                                    uom="IN",
-                                    value=3.14,
-                                ),
-                                length=Distance(
-                                    uom="IN",
-                                    value=3.14,
-                                ),
-                                merchant_item_multimedia_oid=1,
-                                option_value_oid=1,
-                                percent_cost_change=3.14,
-                                translated_text_instance_oid=1,
-                                value="value_example",
-                                weight_change=Weight(
-                                    uom="KG",
-                                    value=3.14,
-                                ),
-                                weight_change_percent=3.14,
-                                width=Distance(
-                                    uom="IN",
-                                    value=3.14,
-                                ),
-                            ),
-                        ],
-                    ),
-                ],
-                parent_category_id=1,
-                parent_category_path="parent_category_path_example",
-                payment_processing=ItemPaymentProcessing(
-                    block_prepaid=True,
-                    block_refunds=True,
-                    credit_card_transaction_type="credit_card_transaction_type_example",
-                    no_realtime_charge=True,
-                    payment_method_validity=[
-                        "payment_method_validity_example",
-                    ],
-                    rotating_transaction_gateway_codes=[
-                        "rotating_transaction_gateway_codes_example",
-                    ],
-                ),
-                physical=ItemPhysical(
-                    height=Distance(
-                        uom="IN",
-                        value=3.14,
-                    ),
-                    length=Distance(
-                        uom="IN",
-                        value=3.14,
-                    ),
-                    weight=Weight(
-                        uom="KG",
-                        value=3.14,
-                    ),
-                    width=Distance(
-                        uom="IN",
-                        value=3.14,
-                    ),
-                ),
-                pricing=ItemPricing(
-                    allow_arbitrary_cost=True,
-                    arbitrary_cost_velocity_code="arbitrary_cost_velocity_code_example",
-                    auto_order_cost=3.14,
-                    automatic_pricing_tier_name="automatic_pricing_tier_name_example",
-                    automatic_pricing_tier_oid=1,
-                    cogs=3.14,
-                    cost=3.14,
-                    currency_code="currency_code_example",
-                    manufacturer_suggested_retail_price=3.14,
-                    maximum_arbitrary_cost=3.14,
-                    minimum_advertised_price=3.14,
-                    minimum_arbitrary_cost=3.14,
-                    mix_and_match_group="mix_and_match_group_example",
-                    mix_and_match_group_oid=1,
-                    sale_cost=3.14,
-                    sale_end="sale_end_example",
-                    sale_start="sale_start_example",
-                    tiers=[
-                        ItemPricingTier(
-                            default_tier=True,
-                            discounts=[
-                                ItemPricingTierDiscount(
-                                    cost=3.14,
-                                    quantity=1,
-                                ),
-                            ],
-                            limit=ItemPricingTierLimit(
-                                cumulative_order_limit=1,
-                                exempt_from_minimum_item_count=True,
-                                individual_order_limit=1,
-                                multiple_quantity=1,
-                                payment_method_validity=[
-                                    "payment_method_validity_example",
-                                ],
-                            ),
-                            name="name_example",
-                            pricing_tier_oid=1,
-                        ),
-                    ],
-                ),
-                properties=[
-                    ItemProperty(
-                        expiration_dts="expiration_dts_example",
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                realtime_pricing=ItemRealtimePricing(
-                    realtime_pricing_parameter="realtime_pricing_parameter_example",
-                    realtime_pricing_provider="realtime_pricing_provider_example",
-                    realtime_pricing_provider_oid=1,
-                ),
-                recommend_replenishment_days=1,
-                related=ItemRelated(
-                    no_system_calculated_related_items=True,
-                    not_relatable=True,
-                    related_items=[
-                        ItemRelatedItem(
-                            related_merchant_item_id="related_merchant_item_id_example",
-                            related_merchant_item_oid=1,
-                            type="System",
-                        ),
-                    ],
-                ),
-                reporting=ItemReporting(
-                    report_as_upsell=True,
-                    report_pickable_quantities=[
-                        1,
-                    ],
-                ),
-                restriction=ItemRestriction(
-                    exclude_coupon=True,
-                    exclude_from_free_promotion=True,
-                    exclude_from_loyalty=True,
-                    items=[
-                        ItemRestrictionItem(
-                            restrict_merchant_item_id="restrict_merchant_item_id_example",
-                            restrict_merchant_item_oid=1,
-                            type="can not be purchased with",
-                        ),
-                    ],
-                    maximum_quantity=1,
-                    minimum_quantity=1,
-                    multiple_quantity=1,
-                    one_per_customer=True,
-                    purchase_separately=True,
-                ),
-                revguard=ItemRevguard(
-                    revguard_canceled_csr_prompt_group=1,
-                    revguard_canceled_ivr_prompt_group=1,
-                    revguard_canceled_web_prompt_group=1,
-                    revguard_client_brand=1,
-                    revguard_csr_prompt_group=1,
-                    revguard_ivr_prompt_group=1,
-                    revguard_web_prompt_group=1,
-                ),
-                reviews=ItemReviews(
-                    has_approved_review=True,
-                    has_review=True,
-                    individual_reviews=[
-                        ItemReview(
-                            customer_profile_oid=1,
-                            featured=True,
-                            helperful_no_votes=1,
-                            helpful_yes_votes=1,
-                            merchant_reply="merchant_reply_example",
-                            order_id="order_id_example",
-                            overall=3.14,
-                            rating_name1="rating_name1_example",
-                            rating_name10="rating_name10_example",
-                            rating_name2="rating_name2_example",
-                            rating_name3="rating_name3_example",
-                            rating_name4="rating_name4_example",
-                            rating_name5="rating_name5_example",
-                            rating_name6="rating_name6_example",
-                            rating_name7="rating_name7_example",
-                            rating_name8="rating_name8_example",
-                            rating_name9="rating_name9_example",
-                            rating_score1=3.14,
-                            rating_score10=3.14,
-                            rating_score2=3.14,
-                            rating_score3=3.14,
-                            rating_score4=3.14,
-                            rating_score5=3.14,
-                            rating_score6=3.14,
-                            rating_score7=3.14,
-                            rating_score8=3.14,
-                            rating_score9=3.14,
-                            recommend_store_to_friend=1,
-                            recommend_to_friend=True,
-                            review="review_example",
-                            review_oid=1,
-                            reviewed_nickname="reviewed_nickname_example",
-                            reviewer_email="reviewer_email_example",
-                            reviewer_location="reviewer_location_example",
-                            status="approved",
-                            store_feedback="store_feedback_example",
-                            submitted_dts="submitted_dts_example",
-                            title="title_example",
-                        ),
-                    ],
-                    review_count=1,
-                    review_overall=3.14,
-                    review_template_name="review_template_name_example",
-                    review_template_oid=1,
-                    reviewable=True,
-                    share_reviews_with_merchant_item_id="share_reviews_with_merchant_item_id_example",
-                    share_reviews_with_merchant_item_oid=1,
-                ),
-                salesforce=ItemSalesforce(
-                    sfdc_pricebook_id="sfdc_pricebook_id_example",
-                    sfdc_product_id="sfdc_product_id_example",
-                ),
-                shipping=ItemShipping(
-                    allow_back_order=True,
-                    amazon_fba=True,
-                    case_inner_packs=1,
-                    case_units=1,
-                    cases=[
-                        ItemShippingCase(
-                            case_label="case_label_example",
-                            case_merchant_item_id="case_merchant_item_id_example",
-                            case_merchant_item_oid=1,
-                            quantity=1,
-                        ),
-                    ],
-                    collect_serial_numbers=True,
-                    country_code_of_origin="country_code_of_origin_example",
-                    customs_description="customs_description_example",
-                    customs_value=3.14,
-                    delivery_on_friday=True,
-                    delivery_on_monday=True,
-                    delivery_on_saturday=True,
-                    delivery_on_sunday=True,
-                    delivery_on_thursday=True,
-                    delivery_on_tuesday=True,
-                    delivery_on_wednesday=True,
-                    destination_markups=[
-                        ItemShippingDestinationMarkup(
-                            adult_signature_required=True,
-                            country_code="country_code_example",
-                            flat_fee=3.14,
-                            per_item=3.14,
-                            postal_code="postal_code_example",
-                            shipping_method="shipping_method_example",
-                            state="state_example",
-                        ),
-                    ],
-                    destination_restrictions=[
-                        ItemShippingDestinationRestriction(
-                            country_code="country_code_example",
-                            state="state_example",
-                            validity="valid only for",
-                        ),
-                    ],
-                    distribution_centers=[
-                        ItemShippingDistributionCenter(
-                            allocated_to_placed_orders=3.14,
-                            allocated_to_shopping_carts=3.14,
-                            available_to_allocate=3.14,
-                            cogs=3.14,
-                            desired_inventory_level=3.14,
-                            distribution_center_code="distribution_center_code_example",
-                            distribution_center_oid=1,
-                            eta="eta_example",
-                            handles=True,
-                            inventory_level=3.14,
-                            maximum_backorder=1,
-                            reorder_inventory_level=3.14,
-                            sku="sku_example",
-                            stock_picking_location="stock_picking_location_example",
-                        ),
-                    ],
-                    eta="eta_example",
-                    free_shipping=True,
-                    freight_class="freight_class_example",
-                    hazmat=True,
-                    hold_for_transmission=True,
-                    made_to_order=True,
-                    made_to_order_lead_time=1,
-                    max_days_time_in_transit=1,
-                    methods=[
-                        ItemShippingMethod(
-                            cost=3.14,
-                            each_additional_item_markup=3.14,
-                            filter_to_if_available=True,
-                            first_item_markup=3.14,
-                            fixed_shipping_cost=3.14,
-                            flat_fee_markup=3.14,
-                            free_shipping=True,
-                            per_item_fee_markup=3.14,
-                            percentage_markup=3.14,
-                            percentage_of_item_markup=3.14,
-                            relax_restrictions_on_upsell=True,
-                            shipping_method="shipping_method_example",
-                            shipping_method_oid=1,
-                            shipping_method_validity="invalid for",
-                            signature_required=True,
-                        ),
-                    ],
-                    no_shipping_discount=True,
-                    package_requirements=[
-                        ItemShippingPackageRequirement(
-                            package_name="package_name_example",
-                            package_oid=1,
-                        ),
-                    ],
-                    perishable_class_name="perishable_class_name_example",
-                    perishable_class_oid=1,
-                    preorder=True,
-                    require_delivery_date=True,
-                    restrict_shipment_on_friday=True,
-                    restrict_shipment_on_monday=True,
-                    restrict_shipment_on_saturday=True,
-                    restrict_shipment_on_sunday=True,
-                    restrict_shipment_on_thursday=True,
-                    restrict_shipment_on_tuesday=True,
-                    restrict_shipment_on_wednesday=True,
-                    ship_separately=True,
-                    ship_separately_additional_weight=Weight(
-                        uom="KG",
-                        value=3.14,
-                    ),
-                    ship_separately_height=Distance(
-                        uom="IN",
-                        value=3.14,
-                    ),
-                    ship_separately_length=Distance(
-                        uom="IN",
-                        value=3.14,
-                    ),
-                    ship_separately_package_special_type="ship_separately_package_special_type_example",
-                    ship_separately_width=Distance(
-                        uom="IN",
-                        value=3.14,
-                    ),
-                    special_product_type="special_product_type_example",
-                    track_inventory=True,
-                ),
-                tags=ItemTags(
-                    tags=[
-                        ItemTag(
-                            tag_type="item",
-                            tag_value="tag_value_example",
-                        ),
-                    ],
-                ),
-                tax=ItemTax(
-                    exemptions=[
-                        ItemTaxExemption(
-                            city="city_example",
-                            country_code="country_code_example",
-                            county="county_example",
-                            postal_code="postal_code_example",
-                            state_code="state_code_example",
-                        ),
-                    ],
-                    tax_free=True,
-                    tax_product_type="",
-                    taxable_cost=3.14,
-                ),
-                third_party_email_marketing=[
-                    ItemThirdPartyEmailMarketing(
-                        add_tags=[
-                            "add_tags_example",
-                        ],
-                        provider_name="ActiveCampaign",
-                        remove_tags=[
-                            "remove_tags_example",
-                        ],
-                        subscribe_lists=[
-                            "subscribe_lists_example",
-                        ],
-                        unsubscribe_lists=[
-                            "unsubscribe_lists_example",
-                        ],
-                    ),
-                ],
-                variant_items=[
-                    ItemVariantItem(
-                        description="description_example",
-                        merchant_item_multimedia_oid=1,
-                        variant_merchant_item_id="variant_merchant_item_id_example",
-                        variant_merchant_item_oid=1,
-                        variation_options=[
-                            "variation_options_example",
-                        ],
-                        variations=[
-                            "variations_example",
-                        ],
-                    ),
-                ],
-                variations=[
-                    ItemVariation(
-                        default_text="default_text_example",
-                        default_text_translated_text_instance_oid=1,
-                        name="name_example",
-                        name_translated_text_instance_oid=1,
-                        options=[
-                            ItemVariationOption(
-                                default_option=True,
-                                merchant_item_multimedia_oid=1,
-                                translated_text_instance_oid=1,
-                                value="value_example",
-                            ),
-                        ],
-                    ),
-                ],
-                wishlist_member=ItemWishlistMember(
-                    wishlist_member_instance_description="wishlist_member_instance_description_example",
-                    wishlist_member_instance_oid=1,
-                    wishlist_member_sku="wishlist_member_sku_example",
-                ),
-            ),
-        ],
-    ) # ItemsRequest | Items to update (synchronous maximum 20 / asynchronous maximum 100)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-    placeholders = True # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-    _async = True # bool | True if the operation should be run async.  No result returned (optional)
-
-    # example passing only required values which don't have defaults set
+@app.route('/update_multiple_items')
+def update_multiple_items():
     try:
-        # Update multiple items
-        api_response = api_instance.update_items(items_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->update_items: %s\n" % e)
+        # Insert two sample items
+        item_id1 = insert_sample_item()
+        item_id2 = insert_sample_item()
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
+        # Create Item API client
+        item_api = ItemApi(api_client())
+
+        # Expand pricing information
+        expand = "pricing"
+
+        # Get items by merchant item IDs
+        api_response = item_api.get_item_by_merchant_item_id(item_id1, expand=expand, _expand=False)
+        item1 = api_response.get_item()
+        api_response = item_api.get_item_by_merchant_item_id(item_id2, expand=expand, _expand=False)
+        item2 = api_response.get_item()
+
+        # Update prices of items
+        item1.get_pricing().set_cost(12.99)
+        item2.get_pricing().set_cost(14.99)
+
+        # Create items request
+        update_items_request = ItemsRequest()
+        items = [item1, item2]
+        update_items_request.items = items
+
         # Update multiple items
-        api_response = api_instance.update_items(items_request, expand=expand, placeholders=placeholders, _async=_async)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->update_items: %s\n" % e)
+        item_api.update_items(update_items_request, expand=expand, _expand=False, _async=False)
+
+        # Delete sample items
+        delete_sample_item(item_id1)
+        delete_sample_item(item_id2)
+
+        return "Multiple items updated successfully"
+
+    except ApiException as e:
+        print('An ApiException occurred. Please review the following error:')
+        print(e)
+        return "Error updating items", 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
 ```
+
 
 
 ### Parameters
@@ -4382,73 +1895,9 @@ Update an item review.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
-```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.item_review import ItemReview
-from ultracart.model.item_review_response import ItemReviewResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-api_instance = GiftCertificateApi(api_client())
-
-    review_oid = 1 # int | The review oid to update.
-    merchant_item_oid = 1 # int | The item oid the review is associated with.
-    review = ItemReview(
-        customer_profile_oid=1,
-        featured=True,
-        helperful_no_votes=1,
-        helpful_yes_votes=1,
-        merchant_reply="merchant_reply_example",
-        order_id="order_id_example",
-        overall=3.14,
-        rating_name1="rating_name1_example",
-        rating_name10="rating_name10_example",
-        rating_name2="rating_name2_example",
-        rating_name3="rating_name3_example",
-        rating_name4="rating_name4_example",
-        rating_name5="rating_name5_example",
-        rating_name6="rating_name6_example",
-        rating_name7="rating_name7_example",
-        rating_name8="rating_name8_example",
-        rating_name9="rating_name9_example",
-        rating_score1=3.14,
-        rating_score10=3.14,
-        rating_score2=3.14,
-        rating_score3=3.14,
-        rating_score4=3.14,
-        rating_score5=3.14,
-        rating_score6=3.14,
-        rating_score7=3.14,
-        rating_score8=3.14,
-        rating_score9=3.14,
-        recommend_store_to_friend=1,
-        recommend_to_friend=True,
-        review="review_example",
-        review_oid=1,
-        reviewed_nickname="reviewed_nickname_example",
-        reviewer_email="reviewer_email_example",
-        reviewer_location="reviewer_location_example",
-        status="approved",
-        store_feedback="store_feedback_example",
-        submitted_dts="submitted_dts_example",
-        title="title_example",
-    ) # ItemReview | Review to update
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a review
-        api_response = api_instance.update_review(review_oid, merchant_item_oid, review)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->update_review: %s\n" % e)
-```
 
 
 ### Parameters
@@ -4499,30 +1948,12 @@ Uploads an image and returns back meta information about the image as well as th
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import item_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.temp_multimedia_response import TempMultimediaResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    file = open('/path/to/file', 'rb') # file_type | File to upload
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Upload an image to the temporary multimedia.
-        api_response = api_instance.upload_temporary_multimedia(file)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ItemApi->upload_temporary_multimedia: %s\n" % e)
+# This method is used internally by UltraCart.
+# We don't envision a scenario where a merchant would ever need to call this.
+# As such, we're not providing a sample for it.  If you can think of a use for this
+# method, contact us, and we'll help you work through it.
 ```
+
 
 
 ### Parameters

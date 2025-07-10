@@ -31,29 +31,9 @@ Retrieve a JWT to authorize an agent to make a websocket connection.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.workflow_agent_auth_response import WorkflowAgentAuthResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get agent websocket authorization
-        api_response = api_instance.get_workflow_agent_websocket_authorization()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_agent_websocket_authorization: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -99,32 +79,9 @@ Retrieve a list of groups that workflow tasks can be assigned to
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.workflow_groups_response import WorkflowGroupsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve a list of groups that workflow tasks can be assigned to
-        api_response = api_instance.get_workflow_assignment_groups(limit=limit, offset=offset)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_assignment_groups: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -174,32 +131,9 @@ Retrieve a list of users that workflow tasks can be assigned to
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.workflow_users_response import WorkflowUsersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve a list of users that workflow tasks can be assigned to
-        api_response = api_instance.get_workflow_assignment_users(limit=limit, offset=offset)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_assignment_users: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -249,29 +183,9 @@ Retrieve a user object for myself
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.workflow_user_response import WorkflowUserResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Retrieve a user object for myself
-        api_response = api_instance.get_workflow_me()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_me: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -317,30 +231,9 @@ Retrieve a workflow task
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.workflow_task_response import WorkflowTaskResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    task_uuid = "task_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a workflow task
-        api_response = api_instance.get_workflow_task(task_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_task: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -389,30 +282,9 @@ Get a presigned workflow task attachment upload URL
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.workflow_attachment_upload_url_response import WorkflowAttachmentUploadUrlResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    extension = "extension_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get a presigned workflow task attachment upload URL
-        api_response = api_instance.get_workflow_task_attachment_upload_url(extension)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_task_attachment_upload_url: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -461,31 +333,9 @@ Retrieve a workflow task by object type and id
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.workflow_tasks_response import WorkflowTasksResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    object_type = "object_type_example" # str | 
-    object_id = "object_id_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a workflow task by object type and id
-        api_response = api_instance.get_workflow_task_by_object_type(object_type, object_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_task_by_object_type: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -535,29 +385,9 @@ Retrieve workflow task open count
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.workflow_task_open_count_response import WorkflowTaskOpenCountResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Retrieve workflow task open count
-        api_response = api_instance.get_workflow_task_open_count()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_task_open_count: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -603,29 +433,9 @@ Retrieves a unique list of all the existing workflow task tags.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.workflow_task_tags_response import WorkflowTaskTagsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get a list of existing workflow task tags
-        api_response = api_instance.get_workflow_task_tags()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_task_tags: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -671,70 +481,9 @@ Retrieves a set of workflow tasks from the account based on a query object.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.workflow_tasks_response import WorkflowTasksResponse
-from ultracart.model.workflow_tasks_request import WorkflowTasksRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    workflow_tasks_query = WorkflowTasksRequest(
-        assigned_to_group="assigned_to_group_example",
-        assigned_to_group_id=1,
-        assigned_to_me=True,
-        assigned_to_user="assigned_to_user_example",
-        assigned_to_user_id=1,
-        created_by=WorkflowUser(
-            user="user_example",
-            user_icon_url="user_icon_url_example",
-            user_id=1,
-        ),
-        created_dts_begin="created_dts_begin_example",
-        created_dts_end="created_dts_end_example",
-        delay_until_dts_begin="delay_until_dts_begin_example",
-        delay_until_dts_end="delay_until_dts_end_example",
-        due_dts_begin="due_dts_begin_example",
-        due_dts_end="due_dts_end_example",
-        last_update_dts_begin="last_update_dts_begin_example",
-        last_update_dts_end="last_update_dts_end_example",
-        object_email="object_email_example",
-        object_type="order",
-        priority="1 - low",
-        status="open",
-        tags=[
-            "tags_example",
-        ],
-        unassigned=True,
-    ) # WorkflowTasksRequest | Workflow tasks query
-    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Search workflow tasks
-        api_response = api_instance.get_workflow_tasks(workflow_tasks_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_tasks: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Search workflow tasks
-        api_response = api_instance.get_workflow_tasks(workflow_tasks_query, limit=limit, offset=offset, sort=sort)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->get_workflow_tasks: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -786,115 +535,9 @@ Insert a workflow task
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.workflow_task import WorkflowTask
-from ultracart.model.workflow_task_response import WorkflowTaskResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    workflow_task = WorkflowTask(
-        assigned_to_group="assigned_to_group_example",
-        assigned_to_group_id=1,
-        assigned_to_user="assigned_to_user_example",
-        assigned_to_user_id=1,
-        assigned_to_user_or_group="assigned_to_user_or_group_example",
-        attachments=[
-            WorkflowAttachment(
-                download_key="download_key_example",
-                file_name="file_name_example",
-                file_uuid="file_uuid_example",
-                mime_type="mime_type_example",
-                upload_key="upload_key_example",
-            ),
-        ],
-        created_by=WorkflowUser(
-            user="user_example",
-            user_icon_url="user_icon_url_example",
-            user_id=1,
-        ),
-        created_dts="created_dts_example",
-        delay_until_dts="delay_until_dts_example",
-        dependant_workflow_task_uuid="dependant_workflow_task_uuid_example",
-        due_dts="due_dts_example",
-        expiration_dts="expiration_dts_example",
-        global_task_number=1,
-        histories=[
-            WorkflowTaskHistory(
-                activity_dts="activity_dts_example",
-                description="description_example",
-                ip_address="ip_address_example",
-                user=WorkflowUser(
-                    user="user_example",
-                    user_icon_url="user_icon_url_example",
-                    user_id=1,
-                ),
-            ),
-        ],
-        last_update_dts="last_update_dts_example",
-        merchant_id="merchant_id_example",
-        notes=[
-            WorkflowNote(
-                attachments=[
-                    WorkflowAttachment(
-                        download_key="download_key_example",
-                        file_name="file_name_example",
-                        file_uuid="file_uuid_example",
-                        mime_type="mime_type_example",
-                        upload_key="upload_key_example",
-                    ),
-                ],
-                edit_dts="edit_dts_example",
-                note="note_example",
-                note_dts="note_dts_example",
-                original_note="original_note_example",
-                user=WorkflowUser(
-                    user="user_example",
-                    user_icon_url="user_icon_url_example",
-                    user_id=1,
-                ),
-            ),
-        ],
-        object_email="object_email_example",
-        object_id="object_id_example",
-        object_task_number=1,
-        object_type="order",
-        object_url="object_url_example",
-        priority="1 - low",
-        properties=[
-            ModelProperty(
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        related_workflow_task_uuid="related_workflow_task_uuid_example",
-        status="open",
-        system_task_type="order_accounts_receivable",
-        tags=[
-            "tags_example",
-        ],
-        task_context="task_context_example",
-        task_details="task_details_example",
-        task_name="task_name_example",
-        workflow_task_uuid="workflow_task_uuid_example",
-    ) # WorkflowTask | workflow task
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert a workflow task
-        api_response = api_instance.insert_workflow_task(workflow_task)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->insert_workflow_task: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -943,116 +586,9 @@ Update a workflow task
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import workflow_api
-from ultracart.model.workflow_task import WorkflowTask
-from ultracart.model.workflow_task_response import WorkflowTaskResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    task_uuid = "task_uuid_example" # str | 
-    workflow_task = WorkflowTask(
-        assigned_to_group="assigned_to_group_example",
-        assigned_to_group_id=1,
-        assigned_to_user="assigned_to_user_example",
-        assigned_to_user_id=1,
-        assigned_to_user_or_group="assigned_to_user_or_group_example",
-        attachments=[
-            WorkflowAttachment(
-                download_key="download_key_example",
-                file_name="file_name_example",
-                file_uuid="file_uuid_example",
-                mime_type="mime_type_example",
-                upload_key="upload_key_example",
-            ),
-        ],
-        created_by=WorkflowUser(
-            user="user_example",
-            user_icon_url="user_icon_url_example",
-            user_id=1,
-        ),
-        created_dts="created_dts_example",
-        delay_until_dts="delay_until_dts_example",
-        dependant_workflow_task_uuid="dependant_workflow_task_uuid_example",
-        due_dts="due_dts_example",
-        expiration_dts="expiration_dts_example",
-        global_task_number=1,
-        histories=[
-            WorkflowTaskHistory(
-                activity_dts="activity_dts_example",
-                description="description_example",
-                ip_address="ip_address_example",
-                user=WorkflowUser(
-                    user="user_example",
-                    user_icon_url="user_icon_url_example",
-                    user_id=1,
-                ),
-            ),
-        ],
-        last_update_dts="last_update_dts_example",
-        merchant_id="merchant_id_example",
-        notes=[
-            WorkflowNote(
-                attachments=[
-                    WorkflowAttachment(
-                        download_key="download_key_example",
-                        file_name="file_name_example",
-                        file_uuid="file_uuid_example",
-                        mime_type="mime_type_example",
-                        upload_key="upload_key_example",
-                    ),
-                ],
-                edit_dts="edit_dts_example",
-                note="note_example",
-                note_dts="note_dts_example",
-                original_note="original_note_example",
-                user=WorkflowUser(
-                    user="user_example",
-                    user_icon_url="user_icon_url_example",
-                    user_id=1,
-                ),
-            ),
-        ],
-        object_email="object_email_example",
-        object_id="object_id_example",
-        object_task_number=1,
-        object_type="order",
-        object_url="object_url_example",
-        priority="1 - low",
-        properties=[
-            ModelProperty(
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        related_workflow_task_uuid="related_workflow_task_uuid_example",
-        status="open",
-        system_task_type="order_accounts_receivable",
-        tags=[
-            "tags_example",
-        ],
-        task_context="task_context_example",
-        task_details="task_details_example",
-        task_name="task_name_example",
-        workflow_task_uuid="workflow_task_uuid_example",
-    ) # WorkflowTask | Workflow task
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a workflow task
-        api_response = api_instance.update_workflow_task(task_uuid, workflow_task)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling WorkflowApi->update_workflow_task: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters

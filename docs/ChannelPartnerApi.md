@@ -34,30 +34,65 @@ Cancel channel partner order by channel partner order id
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.channel_partner_cancel_response import ChannelPartnerCancelResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+cancelOrderByChannelPartnerOrderId takes a channel partner order id, which is the external order id, and attempts
+to 'cancel' the order. UltraCart doesn't have a cancel order state, so this needs some explanation of what happens.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+Here is the logic of the cancel process:
+If the Order stage is [this] then do [that]:
+    'Completed Order'       -> Error: "Order has already been completed."
+    'Rejected'             -> Error: "Order has already been rejected."
+    'Accounts Receivable'  -> Success: order is rejected.
+    'Preordered'          -> Success: order is rejected.
+    'Quote Sent'          -> Success: order is rejected.
+    'Quote Requested'     -> Success: order is rejected.
 
-api_instance = GiftCertificateApi(api_client())
+The remaining stages are Fraud Review and Shipping Department. Orders in these stages have already completed payment.
+From this point, complex logic determines if the order has already shipped, or is queued to ship in a way that cannot be canceled.
+Here is the logic for those stages, but the gist of it all is this: If you receive any of the errors below, the order has progressed past a point where it can be canceled.
 
-    order_id = "order_id_example" # str | The channel partner order id to delete.
+SHIPPING LOGIC:
+Iterate through each item and consider it's shipping status:
+    Item has already been transmitted to fulfillment center (contains a transmitted dts) -> Error: "The order has already had an item that has been transmitted to the distribution center."
+    Does item DC (distribution center) have a transmission mechanism configured?
+        YES -> Does the transmission have schedules? If NO -> Error: "The distribution center does not have any schedules so it would be an immediate transmission."
+        NO -> Error: "Cant tell if we can cancel because the DC doesnt have a transport configured."
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Cancel channel partner order by channel partner order id
-        api_response = api_instance.cancel_order_by_channel_partner_order_id(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->cancel_order_by_channel_partner_order_id: %s\n" % e)
+If the above logic completes without errors, the following conditions must be met:
+Order has DC activity records. If NO -> Error: "There is no activity in the DC queue when there should be."
+There must be at least 5 minutes before the next DC transmission. If NO -> Error: "Activity record is not at least 5 minutes away so we need to bail."
+
+At this point, the order will be canceled with the following activity:
+1) Distribution Center activity is cleared
+2) The order is refunded. If the order is less than 24 hours old, a void is attempted instead.
+
+Other Possible Errors:
+System errors -> "Internal error. Please contact UltraCart Support."
+Order does not exist -> "Invalid order ID specified."
+During refunding, original transaction could not be found -> "Unable to find original transaction on the order."
+During refunding, original transaction was found, but transaction id could not be found -> "Unable to locate original transaction reference number."
+During refunding, PayPal was used by no longer configured -> "PayPal is no longer configured on your account to refund against."
+Gateway does not support refunds -> [GatewayName] does not support refunds at this time.
+"""
+
+from ultracart.apis import ChannelPartnerApi
+from ultracart.exceptions import ApiException
+from samples import channel_partner_api_client
+
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
+
+channel_partner_order_id = 'BLAH-BLAH-123'
+
+try:
+    cancel_result = channel_partner_api.cancel_order_by_channel_partner_order_id(channel_partner_order_id)
+    if not cancel_result.success:
+        for error in cancel_result.cancel_errors:
+            print(error)
+
+except ApiException as e:
+    print(e)  # Prints the exception information
 ```
+
 
 
 ### Parameters
@@ -106,30 +141,30 @@ Cancel channel partner order by UltraCart order id
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.channel_partner_cancel_response import ChannelPartnerCancelResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+Deletes a ChannelPartnerShiptoPreference. These preferences are used by EDI channel partners to automatically
+apply return policies and add additional free items to EDI orders based on the EDI code that is present.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+Success will return a status code 204 (No content)
 
-api_instance = GiftCertificateApi(api_client())
+Possible Errors:
+Attempting to interact with a channel partner other than the one tied to your API Key:
+    "Invalid channel_partner_oid specified. Your REST API key may only interact with channel_partner_oid: 12345"
+Supply a bad preference oid: "Invalid channel_partner_ship_to_preference_oid specified."
+"""
 
-    order_id = "order_id_example" # str | The UltraCart order id to delete.
+from ultracart.apis import ChannelPartnerApi
+from samples import channel_partner_api_client
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Cancel channel partner order by UltraCart order id
-        api_response = api_instance.cancel_order_by_ultra_cart_order_id(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->cancel_order_by_ultra_cart_order_id: %s\n" % e)
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
+
+# you will usually get this by calling get_channel_partner_ship_to_preferences()
+channel_partner_shipto_preference_oid = 67890
+channel_partner_oid = 12345
+
+channel_partner_api.delete_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_shipto_preference_oid)
 ```
+
 
 
 ### Parameters
@@ -178,29 +213,79 @@ Delete a ship to preference record for the channel partner.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+"""
+This is a helper function for call centers to calculate the shipping cost on an order. In a typical flow, the call center
+will collect all the shipping information and items being purchased into a ChannelPartnerOrder object.
+They will then call this method, passing in the order object. The response will contain the shipping estimates
+that the call center can present to the customer. Once the customer selects a particulate estimate,
+they can then plug that cost into their call center application and complete the order.
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+Possible Errors:
+Using an API key that is not tied to a channel partner: "This API Key does not have permission to interact with channel partner orders. Please review your Channel Partner configuration."
+Order has invalid channel partner code: "Invalid channel partner code"
+Order has no items: "null order.items passed." or "order.items array contains a null entry."
+Order has no channel partner order id: "order.channelPartnerOrderId must be specified."
+Order channel partner order id is a duplicate: "order.channelPartnerOrderId [XYZ] already used."
+Channel Partner is inactive: "partner is inactive."
+"""
 
-api_instance = GiftCertificateApi(api_client())
+from ultracart.apis import ChannelPartnerApi
+from ultracart.models import ChannelPartnerOrder, ChannelPartnerOrderItem, ChannelPartnerOrderItemOption
+from samples import channel_partner_api_client
+from datetime import datetime, timedelta
 
-    channel_partner_oid = 1 # int | 
-    channel_partner_ship_to_preference_oid = 1 # int | 
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a ship to preference record for the channel partner.
-        api_instance.delete_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->delete_channel_partner_ship_to_preference: %s\n" % e)
+order = ChannelPartnerOrder()
+order.channel_partner_order_id = "widget-1245-abc-1"
+order.coupons = ["10OFF"]
+# Delivery date will impact shipping estimates if there is a delivery deadline.
+# order.delivery_date = (datetime.now() + timedelta(days=14)).isoformat()
+
+item = ChannelPartnerOrderItem()
+# item.arbitrary_unit_cost = 9.99
+# item.auto_order_last_rebill_dts = (datetime.now() - timedelta(days=30)).isoformat()
+# item.auto_order_schedule = "Weekly"
+item.merchant_item_id = "shirt"
+
+size_option = ChannelPartnerOrderItemOption()
+size_option.name = "Size"
+size_option.value = "Small"
+
+color_option = ChannelPartnerOrderItemOption()
+color_option.name = "Color"
+color_option.value = "Orange"
+
+item.options = [size_option, color_option]
+item.quantity = 1
+item.upsell = False
+
+order.items = [item]
+
+# order.ship_on_date = (datetime.now() + timedelta(days=7)).isoformat()
+order.ship_to_residential = True
+order.shipto_address1 = "55 Main Street"
+order.shipto_address2 = "Suite 202"
+order.shipto_city = "Duluth"
+order.shipto_company = "Widgets Inc"
+order.shipto_country_code = "US"
+order.shipto_day_phone = "6785552323"
+order.shipto_evening_phone = "7703334444"
+order.shipto_first_name = "Sally"
+order.shipto_last_name = "McGonkyDee"
+order.shipto_postal_code = "30097"
+order.shipto_state_region = "GA"
+order.shipto_title = "Director"
+
+api_response = channel_partner_api.estimate_shipping_for_channel_partner_order(order)
+estimates = api_response.estimates
+
+# TODO: Apply one estimate shipping method (name) and cost to your channel partner order.
+
+for estimate in estimates:
+    print(estimate)
 ```
+
 
 
 ### Parameters
@@ -249,160 +334,62 @@ Estimate shipping for order from a channel partner.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.channel_partner_order import ChannelPartnerOrder
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.channel_partner_estimate_shipping_response import ChannelPartnerEstimateShippingResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from ultracart.models import ChannelPartnerOrder, ChannelPartnerOrderItem, ChannelPartnerOrderItemOption
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-api_instance = GiftCertificateApi(api_client())
+order = ChannelPartnerOrder()
+order.channel_partner_order_id = "widget-1245-abc-1"
+order.coupons = ["10OFF"]
+# DeliveryDate will impact shipping estimates if there is a delivery deadline.
+# order.delivery_date = (datetime.now() + timedelta(days=14)).isoformat()
 
-    channel_partner_order = ChannelPartnerOrder(
-        advertising_source="advertising_source_example",
-        affiliate_id="affiliate_id_example",
-        affiliate_sub_id="affiliate_sub_id_example",
-        arbitrary_shipping_handling_total=3.14,
-        arbitrary_tax=3.14,
-        arbitrary_tax_rate=3.14,
-        arbitrary_taxable_subtotal=3.14,
-        associate_with_customer_profile_if_present=True,
-        auto_approve_purchase_order=True,
-        billto_address1="billto_address1_example",
-        billto_address2="billto_address2_example",
-        billto_city="billto_city_example",
-        billto_company="billto_company_example",
-        billto_country_code="billto_country_code_example",
-        billto_day_phone="billto_day_phone_example",
-        billto_evening_phone="billto_evening_phone_example",
-        billto_first_name="billto_first_name_example",
-        billto_last_name="billto_last_name_example",
-        billto_postal_code="billto_postal_code_example",
-        billto_state_region="billto_state_region_example",
-        billto_title="billto_title_example",
-        cc_email="cc_email_example",
-        channel_partner_order_id="channel_partner_order_id_example",
-        consider_recurring=True,
-        coupons=[
-            "coupons_example",
-        ],
-        credit_card_authorization_amount=3.14,
-        credit_card_authorization_dts="credit_card_authorization_dts_example",
-        credit_card_authorization_number="credit_card_authorization_number_example",
-        credit_card_expiration_month=1,
-        credit_card_expiration_year=1,
-        credit_card_type="credit_card_type_example",
-        custom_field1="custom_field1_example",
-        custom_field2="custom_field2_example",
-        custom_field3="custom_field3_example",
-        custom_field4="custom_field4_example",
-        custom_field5="custom_field5_example",
-        custom_field6="custom_field6_example",
-        custom_field7="custom_field7_example",
-        delivery_date="delivery_date_example",
-        echeck_bank_aba_code="echeck_bank_aba_code_example",
-        echeck_bank_account_name="echeck_bank_account_name_example",
-        echeck_bank_account_number="echeck_bank_account_number_example",
-        echeck_bank_account_type="Checking",
-        echeck_bank_name="echeck_bank_name_example",
-        echeck_bank_owner_type="Business",
-        echeck_customer_tax_id="echeck_customer_tax_id_example",
-        echeck_drivers_license_dob="echeck_drivers_license_dob_example",
-        echeck_drivers_license_number="echeck_drivers_license_number_example",
-        echeck_drivers_license_state="echeck_drivers_license_state_example",
-        email="email_example",
-        gift=True,
-        gift_email="gift_email_example",
-        gift_message="gift_message_example",
-        hosted_fields_card_token="hosted_fields_card_token_example",
-        hosted_fields_cvv_token="hosted_fields_cvv_token_example",
-        insurance_application_id="insurance_application_id_example",
-        insurance_claim_id="insurance_claim_id_example",
-        ip_address="ip_address_example",
-        items=[
-            ChannelPartnerOrderItem(
-                arbitrary_unit_cost=3.14,
-                auto_order_last_rebill_dts="auto_order_last_rebill_dts_example",
-                auto_order_schedule="Weekly",
-                merchant_item_id="merchant_item_id_example",
-                options=[
-                    ChannelPartnerOrderItemOption(
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                properties=[
-                    ChannelPartnerOrderItemProperty(
-                        display=True,
-                        expiration_dts="expiration_dts_example",
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                quantity=3.14,
-                upsell=True,
-            ),
-        ],
-        least_cost_route=True,
-        least_cost_route_shipping_methods=[
-            "least_cost_route_shipping_methods_example",
-        ],
-        mailing_list_opt_in=True,
-        no_realtime_payment_processing=True,
-        payment_method="Affirm",
-        purchase_order_number="purchase_order_number_example",
-        rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-        sales_rep_code="sales_rep_code_example",
-        screen_branding_theme_code="screen_branding_theme_code_example",
-        ship_on_date="ship_on_date_example",
-        ship_to_residential=True,
-        shipping_method="shipping_method_example",
-        shipto_address1="shipto_address1_example",
-        shipto_address2="shipto_address2_example",
-        shipto_city="shipto_city_example",
-        shipto_company="shipto_company_example",
-        shipto_country_code="shipto_country_code_example",
-        shipto_day_phone="shipto_day_phone_example",
-        shipto_evening_phone="shipto_evening_phone_example",
-        shipto_first_name="shipto_first_name_example",
-        shipto_last_name="shipto_last_name_example",
-        shipto_postal_code="shipto_postal_code_example",
-        shipto_state_region="shipto_state_region_example",
-        shipto_title="shipto_title_example",
-        skip_payment_processing=True,
-        special_instructions="special_instructions_example",
-        store_completed=True,
-        store_if_payment_declines=True,
-        storefront_host_name="storefront_host_name_example",
-        tax_county="tax_county_example",
-        tax_exempt=True,
-        transaction=ChannelPartnerOrderTransaction(
-            details=[
-                ChannelPartnerOrderTransactionDetail(
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            successful=True,
-        ),
-        treat_warnings_as_errors=True,
-        use_prior_payment_information_from_order_id="use_prior_payment_information_from_order_id_example",
-    ) # ChannelPartnerOrder | Order needing shipping estimate
+item = ChannelPartnerOrderItem()
+# item.arbitrary_unit_cost = 9.99
+# item.auto_order_last_rebill_dts = (datetime.now() - timedelta(days=30)).isoformat()
+# item.auto_order_schedule = "Weekly"
+item.merchant_item_id = "shirt"
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Estimate shipping for channel partner order
-        api_response = api_instance.estimate_shipping_for_channel_partner_order(channel_partner_order)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->estimate_shipping_for_channel_partner_order: %s\n" % e)
+size_option = ChannelPartnerOrderItemOption()
+size_option.name = "Size"
+size_option.value = "Small"
+
+color_option = ChannelPartnerOrderItemOption()
+color_option.name = "Color"
+color_option.value = "Orange"
+
+item.options = [size_option, color_option]
+item.quantity = 1
+item.upsell = False
+
+order.items = [item]
+
+# order.ship_on_date = (datetime.now() + timedelta(days=7)).isoformat()
+order.ship_to_residential = True
+order.shipto_address1 = "55 Main Street"
+order.shipto_address2 = "Suite 202"
+order.shipto_city = "Duluth"
+order.shipto_company = "Widgets Inc"
+order.shipto_country_code = "US"
+order.shipto_day_phone = "6785552323"
+order.shipto_evening_phone = "7703334444"
+order.shipto_first_name = "Sally"
+order.shipto_last_name = "McGonkyDee"
+order.shipto_postal_code = "30097"
+order.shipto_state_region = "GA"
+order.shipto_title = "Director"
+
+api_response = channel_partner_api.estimate_shipping_for_channel_partner_order(order)
+estimates = api_response.estimates
+
+# TODO: Apply one estimate shipping method (name) and cost to your channel partner order.
+
+for estimate in estimates:
+    print(estimate)
 ```
+
 
 
 ### Parameters
@@ -451,160 +438,49 @@ Estimate tax for order from a channel partner.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.channel_partner_order import ChannelPartnerOrder
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.channel_partner_estimate_tax_response import ChannelPartnerEstimateTaxResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from ultracart.models import ChannelPartnerOrder, ChannelPartnerOrderItem, ChannelPartnerOrderItemOption
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-api_instance = GiftCertificateApi(api_client())
+order = ChannelPartnerOrder()
+order.channel_partner_order_id = "widget-1245-abc-1"
+order.coupons = ["10OFF"]
+# DeliveryDate will impact shipping estimates if there is a delivery deadline.
+# order.delivery_date = (datetime.now() + timedelta(days=14)).isoformat()
 
-    channel_partner_order = ChannelPartnerOrder(
-        advertising_source="advertising_source_example",
-        affiliate_id="affiliate_id_example",
-        affiliate_sub_id="affiliate_sub_id_example",
-        arbitrary_shipping_handling_total=3.14,
-        arbitrary_tax=3.14,
-        arbitrary_tax_rate=3.14,
-        arbitrary_taxable_subtotal=3.14,
-        associate_with_customer_profile_if_present=True,
-        auto_approve_purchase_order=True,
-        billto_address1="billto_address1_example",
-        billto_address2="billto_address2_example",
-        billto_city="billto_city_example",
-        billto_company="billto_company_example",
-        billto_country_code="billto_country_code_example",
-        billto_day_phone="billto_day_phone_example",
-        billto_evening_phone="billto_evening_phone_example",
-        billto_first_name="billto_first_name_example",
-        billto_last_name="billto_last_name_example",
-        billto_postal_code="billto_postal_code_example",
-        billto_state_region="billto_state_region_example",
-        billto_title="billto_title_example",
-        cc_email="cc_email_example",
-        channel_partner_order_id="channel_partner_order_id_example",
-        consider_recurring=True,
-        coupons=[
-            "coupons_example",
-        ],
-        credit_card_authorization_amount=3.14,
-        credit_card_authorization_dts="credit_card_authorization_dts_example",
-        credit_card_authorization_number="credit_card_authorization_number_example",
-        credit_card_expiration_month=1,
-        credit_card_expiration_year=1,
-        credit_card_type="credit_card_type_example",
-        custom_field1="custom_field1_example",
-        custom_field2="custom_field2_example",
-        custom_field3="custom_field3_example",
-        custom_field4="custom_field4_example",
-        custom_field5="custom_field5_example",
-        custom_field6="custom_field6_example",
-        custom_field7="custom_field7_example",
-        delivery_date="delivery_date_example",
-        echeck_bank_aba_code="echeck_bank_aba_code_example",
-        echeck_bank_account_name="echeck_bank_account_name_example",
-        echeck_bank_account_number="echeck_bank_account_number_example",
-        echeck_bank_account_type="Checking",
-        echeck_bank_name="echeck_bank_name_example",
-        echeck_bank_owner_type="Business",
-        echeck_customer_tax_id="echeck_customer_tax_id_example",
-        echeck_drivers_license_dob="echeck_drivers_license_dob_example",
-        echeck_drivers_license_number="echeck_drivers_license_number_example",
-        echeck_drivers_license_state="echeck_drivers_license_state_example",
-        email="email_example",
-        gift=True,
-        gift_email="gift_email_example",
-        gift_message="gift_message_example",
-        hosted_fields_card_token="hosted_fields_card_token_example",
-        hosted_fields_cvv_token="hosted_fields_cvv_token_example",
-        insurance_application_id="insurance_application_id_example",
-        insurance_claim_id="insurance_claim_id_example",
-        ip_address="ip_address_example",
-        items=[
-            ChannelPartnerOrderItem(
-                arbitrary_unit_cost=3.14,
-                auto_order_last_rebill_dts="auto_order_last_rebill_dts_example",
-                auto_order_schedule="Weekly",
-                merchant_item_id="merchant_item_id_example",
-                options=[
-                    ChannelPartnerOrderItemOption(
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                properties=[
-                    ChannelPartnerOrderItemProperty(
-                        display=True,
-                        expiration_dts="expiration_dts_example",
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                quantity=3.14,
-                upsell=True,
-            ),
-        ],
-        least_cost_route=True,
-        least_cost_route_shipping_methods=[
-            "least_cost_route_shipping_methods_example",
-        ],
-        mailing_list_opt_in=True,
-        no_realtime_payment_processing=True,
-        payment_method="Affirm",
-        purchase_order_number="purchase_order_number_example",
-        rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-        sales_rep_code="sales_rep_code_example",
-        screen_branding_theme_code="screen_branding_theme_code_example",
-        ship_on_date="ship_on_date_example",
-        ship_to_residential=True,
-        shipping_method="shipping_method_example",
-        shipto_address1="shipto_address1_example",
-        shipto_address2="shipto_address2_example",
-        shipto_city="shipto_city_example",
-        shipto_company="shipto_company_example",
-        shipto_country_code="shipto_country_code_example",
-        shipto_day_phone="shipto_day_phone_example",
-        shipto_evening_phone="shipto_evening_phone_example",
-        shipto_first_name="shipto_first_name_example",
-        shipto_last_name="shipto_last_name_example",
-        shipto_postal_code="shipto_postal_code_example",
-        shipto_state_region="shipto_state_region_example",
-        shipto_title="shipto_title_example",
-        skip_payment_processing=True,
-        special_instructions="special_instructions_example",
-        store_completed=True,
-        store_if_payment_declines=True,
-        storefront_host_name="storefront_host_name_example",
-        tax_county="tax_county_example",
-        tax_exempt=True,
-        transaction=ChannelPartnerOrderTransaction(
-            details=[
-                ChannelPartnerOrderTransactionDetail(
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            successful=True,
-        ),
-        treat_warnings_as_errors=True,
-        use_prior_payment_information_from_order_id="use_prior_payment_information_from_order_id_example",
-    ) # ChannelPartnerOrder | Order needing tax estimate
+item = ChannelPartnerOrderItem()
+# item.arbitrary_unit_cost = 9.99
+# item.auto_order_last_rebill_dts = (datetime.now() - timedelta(days=30)).isoformat()
+# item.auto_order_schedule = "Weekly"
+item.merchant_item_id = "shirt"
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Estimate tax for channel partner order
-        api_response = api_instance.estimate_tax_for_channel_partner_order(channel_partner_order)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->estimate_tax_for_channel_partner_order: %s\n" % e)
+size_option = ChannelPartnerOrderItemOption()
+size_option.name = "Size"
+size_option.value = "Small"
+
+color_option = ChannelPartnerOrderItemOption()
+color_option.name = "Color"
+color_option.value = "Orange"
+
+item.options = [size_option, color_option]
+item.quantity = 1
+item.upsell = False
+
+order.items = [item]
+
+# order.ship_on_date = (datetime.now() + timedelta(days=7)).isoformat()
+order.ship_to_residential = True
+order.shipto_address1 = "55 Main Street"
+order.shipto_address2 = "Suite 202"
+order.shipto_city = "Duluth"
+order.shipto_company = "Widgets Inc"
+order.shipto_country_code = "US"
+order.shipto_day_phone = "6785552323"
+ord
 ```
+
 
 
 ### Parameters
@@ -653,40 +529,46 @@ Retrieves a single order using the specified order id.  Only orders belonging to
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-api_instance = GiftCertificateApi(api_client())
+# The expansion variable instructs UltraCart how much information to return. The order object is large and
+# while it's easily manageable for a single order, when querying thousands of orders, is useful to reduce
+# payload size.
+# see www.ultracart.com/api/ for all the expansion fields available (this list below may become stale)
+"""
+Possible Order Expansions:
+affiliate           affiliate.ledger                    auto_order
+billing             channel_partner                     checkout
+coupon              customer_profile                    digital_order
+edi                 fraud_score                         gift
+gift_certificate    internal                            item
+linked_shipment     marketing                          payment
+payment.transaction quote                               salesforce
+shipping            shipping.tracking_number_details    summary
+taxes
+"""
 
-    order_id = "order_id_example" # str | The order id to retrieve.
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+# A channel partner will almost always query an order for the purpose of turning around and submitting it to a refund call.
+# As such, the expansion most likely needed is listed below.
+expand = "item,summary,shipping"
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a channel partner order
-        api_response = api_instance.get_channel_partner_order(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->get_channel_partner_order: %s\n" % e)
+# This order MUST be an order associated with this channel partner or you will receive a 400 Bad Request.
+order_id = 'DEMO-0009110366'
+api_response = channel_partner_api.get_channel_partner_order(order_id, expand=expand)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve a channel partner order
-        api_response = api_instance.get_channel_partner_order(order_id, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->get_channel_partner_order: %s\n" % e)
+if api_response.error is not None:
+    print(api_response.error.developer_message)
+    print(api_response.error.user_message)
+    exit()
+
+order = api_response.order
+
+print(order)
 ```
+
 
 
 ### Parameters
@@ -736,40 +618,46 @@ Retrieves a single order using the channel partner order id, not the ultracart o
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-api_instance = GiftCertificateApi(api_client())
+# The expansion variable instructs UltraCart how much information to return. The order object is large and
+# while it's easily manageable for a single order, when querying thousands of orders, is useful to reduce
+# payload size.
+# see www.ultracart.com/api/ for all the expansion fields available (this list below may become stale)
+"""
+Possible Order Expansions:
+affiliate           affiliate.ledger                    auto_order
+billing             channel_partner                     checkout
+coupon              customer_profile                    digital_order
+edi                 fraud_score                         gift
+gift_certificate    internal                            item
+linked_shipment     marketing                           payment
+payment.transaction quote                               salesforce
+shipping            shipping.tracking_number_details    summary
+taxes
+"""
 
-    order_id = "order_id_example" # str | The channel partner order id to retrieve.
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See OrderApi.getOrder documentation for examples (optional)
+# A channel partner will almost always query an order for the purpose of turning around and submitting it to a refund call.
+# As such, the expansion most likely needed is listed below.
+expand = "item,summary,shipping"
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a channel partner order by the channel partner order id
-        api_response = api_instance.get_channel_partner_order_by_channel_partner_order_id(order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->get_channel_partner_order_by_channel_partner_order_id: %s\n" % e)
+# This order MUST be an order associated with this channel partner or you will receive a 400 Bad Request.
+channel_partner_order_id = 'MY-CALL-CENTER-BLAH-BLAH'
+api_response = channel_partner_api.get_channel_partner_order_by_channel_partner_order_id(channel_partner_order_id, expand=expand)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve a channel partner order by the channel partner order id
-        api_response = api_instance.get_channel_partner_order_by_channel_partner_order_id(order_id, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->get_channel_partner_order_by_channel_partner_order_id: %s\n" % e)
+if api_response.error is not None:
+    print(api_response.error.developer_message)
+    print(api_response.error.user_message)
+    exit()
+
+order = api_response.order
+
+print(order)
 ```
+
 
 
 ### Parameters
@@ -819,30 +707,16 @@ Retrieve reject and refund reason codes.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.chanel_partner_reason_codes_response import ChanelPartnerReasonCodesResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-api_instance = GiftCertificateApi(api_client())
+api_response = channel_partner_api.get_channel_partner_reason_codes(18413)
 
-    channel_partner_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve reject and refund reason codes.
-        api_response = api_instance.get_channel_partner_reason_codes(channel_partner_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->get_channel_partner_reason_codes: %s\n" % e)
+print(api_response)
 ```
+
 
 
 ### Parameters
@@ -891,31 +765,36 @@ Retrieve the ship to preference associated with the channel partner and the spec
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.channel_partner_ship_to_preference_response import ChannelPartnerShipToPreferenceResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+Retrieves a shipto preference for a channel partner.
+These preferences are used by EDI channel partners to automatically
+apply return policies and add additional free items to EDI orders based on the EDI code that is present.
 
-api_instance = GiftCertificateApi(api_client())
+Possible Errors:
+Attempting to interact with a channel partner other than the one tied to your API Key:
+    "Invalid channel_partner_oid specified.  Your REST API key may only interact with channel_partner_oid: 12345"
+Supplying a bad channel partner oid: "Invalid channel_partner_oid specified."
+Supplying a bad channel partner shipto preference oid: "Invalid channel_partner_ship_to_preference_oid specified."
+"""
 
-    channel_partner_oid = 1 # int | 
-    channel_partner_ship_to_preference_oid = 1 # int | 
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
+channel_partner_oid = 12345
+channel_partner_shipto_preference_oid = 67890
+api_response = channel_partner_api.get_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_shipto_preference_oid)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve the ship to preference associated with the channel partner and the specific id.
-        api_response = api_instance.get_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->get_channel_partner_ship_to_preference: %s\n" % e)
+if api_response.error is not None:
+    print(api_response.error.developer_message)
+    print(api_response.error.user_message)
+    exit()
+
+preference = api_response.ship_to_preference
+
+print(preference)
 ```
+
 
 
 ### Parameters
@@ -965,30 +844,35 @@ Retrieve the ship to preferences associated with the channel partner.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.channel_partner_ship_to_preferences_response import ChannelPartnerShipToPreferencesResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+Retrieves all shipto preferences for a channel partner.
+These preferences are used by EDI channel partners to automatically
+apply return policies and add additional free items to EDI orders based on the EDI code that is present.
 
-api_instance = GiftCertificateApi(api_client())
+Possible Errors:
+Attempting to interact with a channel partner other than the one tied to your API Key:
+    "Invalid channel_partner_oid specified.  Your REST API key may only interact with channel_partner_oid: 12345"
+Supplying a bad channel partner oid: "Invalid channel_partner_oid specified."
+"""
 
-    channel_partner_oid = 1 # int | 
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
+channel_partner_oid = 12345
+api_response = channel_partner_api.get_channel_partner_ship_to_preferences(channel_partner_oid)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve the ship to preferences associated with the channel partner.
-        api_response = api_instance.get_channel_partner_ship_to_preferences(channel_partner_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->get_channel_partner_ship_to_preferences: %s\n" % e)
+if api_response.error is not None:
+    print(api_response.error.developer_message)
+    print(api_response.error.user_message)
+    exit()
+
+preferences = api_response.ship_to_preferences
+
+for preference in preferences:
+    print(preference)
 ```
+
 
 
 ### Parameters
@@ -1037,29 +921,28 @@ Retrieve the channel partners configured on the account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.channel_partners_response import ChannelPartnersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+"""
+Retrieves a list of all channel partners configured for this merchant. If the API KEY used is tied to a specific
+Channel Partner, then the results will contain only that Channel Partner.
+"""
 
-api_instance = GiftCertificateApi(api_client())
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
+api_response = channel_partner_api.get_channel_partners()
 
+if api_response.error is not None:
+    print(api_response.error.developer_message)
+    print(api_response.error.user_message)
+    exit()
 
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Retrieve the channel partners configured on the account.
-        api_response = api_instance.get_channel_partners()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->get_channel_partners: %s\n" % e)
+channel_partners = api_response.channel_partners
+
+for channel_partner in channel_partners:
+    print(channel_partner)
 ```
+
 
 
 ### Parameters
@@ -1105,160 +988,277 @@ Insert order from a channel partner.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.channel_partner_order import ChannelPartnerOrder
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.channel_partner_import_response import ChannelPartnerImportResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from datetime import datetime
+from ultracart.models import (ChannelPartnerOrder, ChannelPartnerOrderItem, 
+    ChannelPartnerOrderItemOption, ChannelPartnerOrderTransaction, 
+    ChannelPartnerOrderTransactionDetail)
+from samples import channel_partner_api_client
+from ultracart.apis import ChannelPartnerApi
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-api_instance = GiftCertificateApi(api_client())
+# ---------------------------------------------
+# Example 1 - Order needs payment processing
+# ---------------------------------------------
 
-    channel_partner_order = ChannelPartnerOrder(
-        advertising_source="advertising_source_example",
-        affiliate_id="affiliate_id_example",
-        affiliate_sub_id="affiliate_sub_id_example",
-        arbitrary_shipping_handling_total=3.14,
-        arbitrary_tax=3.14,
-        arbitrary_tax_rate=3.14,
-        arbitrary_taxable_subtotal=3.14,
-        associate_with_customer_profile_if_present=True,
-        auto_approve_purchase_order=True,
-        billto_address1="billto_address1_example",
-        billto_address2="billto_address2_example",
-        billto_city="billto_city_example",
-        billto_company="billto_company_example",
-        billto_country_code="billto_country_code_example",
-        billto_day_phone="billto_day_phone_example",
-        billto_evening_phone="billto_evening_phone_example",
-        billto_first_name="billto_first_name_example",
-        billto_last_name="billto_last_name_example",
-        billto_postal_code="billto_postal_code_example",
-        billto_state_region="billto_state_region_example",
-        billto_title="billto_title_example",
-        cc_email="cc_email_example",
-        channel_partner_order_id="channel_partner_order_id_example",
-        consider_recurring=True,
-        coupons=[
-            "coupons_example",
-        ],
-        credit_card_authorization_amount=3.14,
-        credit_card_authorization_dts="credit_card_authorization_dts_example",
-        credit_card_authorization_number="credit_card_authorization_number_example",
-        credit_card_expiration_month=1,
-        credit_card_expiration_year=1,
-        credit_card_type="credit_card_type_example",
-        custom_field1="custom_field1_example",
-        custom_field2="custom_field2_example",
-        custom_field3="custom_field3_example",
-        custom_field4="custom_field4_example",
-        custom_field5="custom_field5_example",
-        custom_field6="custom_field6_example",
-        custom_field7="custom_field7_example",
-        delivery_date="delivery_date_example",
-        echeck_bank_aba_code="echeck_bank_aba_code_example",
-        echeck_bank_account_name="echeck_bank_account_name_example",
-        echeck_bank_account_number="echeck_bank_account_number_example",
-        echeck_bank_account_type="Checking",
-        echeck_bank_name="echeck_bank_name_example",
-        echeck_bank_owner_type="Business",
-        echeck_customer_tax_id="echeck_customer_tax_id_example",
-        echeck_drivers_license_dob="echeck_drivers_license_dob_example",
-        echeck_drivers_license_number="echeck_drivers_license_number_example",
-        echeck_drivers_license_state="echeck_drivers_license_state_example",
-        email="email_example",
-        gift=True,
-        gift_email="gift_email_example",
-        gift_message="gift_message_example",
-        hosted_fields_card_token="hosted_fields_card_token_example",
-        hosted_fields_cvv_token="hosted_fields_cvv_token_example",
-        insurance_application_id="insurance_application_id_example",
-        insurance_claim_id="insurance_claim_id_example",
-        ip_address="ip_address_example",
-        items=[
-            ChannelPartnerOrderItem(
-                arbitrary_unit_cost=3.14,
-                auto_order_last_rebill_dts="auto_order_last_rebill_dts_example",
-                auto_order_schedule="Weekly",
-                merchant_item_id="merchant_item_id_example",
-                options=[
-                    ChannelPartnerOrderItemOption(
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                properties=[
-                    ChannelPartnerOrderItemProperty(
-                        display=True,
-                        expiration_dts="expiration_dts_example",
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                quantity=3.14,
-                upsell=True,
-            ),
-        ],
-        least_cost_route=True,
-        least_cost_route_shipping_methods=[
-            "least_cost_route_shipping_methods_example",
-        ],
-        mailing_list_opt_in=True,
-        no_realtime_payment_processing=True,
-        payment_method="Affirm",
-        purchase_order_number="purchase_order_number_example",
-        rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-        sales_rep_code="sales_rep_code_example",
-        screen_branding_theme_code="screen_branding_theme_code_example",
-        ship_on_date="ship_on_date_example",
-        ship_to_residential=True,
-        shipping_method="shipping_method_example",
-        shipto_address1="shipto_address1_example",
-        shipto_address2="shipto_address2_example",
-        shipto_city="shipto_city_example",
-        shipto_company="shipto_company_example",
-        shipto_country_code="shipto_country_code_example",
-        shipto_day_phone="shipto_day_phone_example",
-        shipto_evening_phone="shipto_evening_phone_example",
-        shipto_first_name="shipto_first_name_example",
-        shipto_last_name="shipto_last_name_example",
-        shipto_postal_code="shipto_postal_code_example",
-        shipto_state_region="shipto_state_region_example",
-        shipto_title="shipto_title_example",
-        skip_payment_processing=True,
-        special_instructions="special_instructions_example",
-        store_completed=True,
-        store_if_payment_declines=True,
-        storefront_host_name="storefront_host_name_example",
-        tax_county="tax_county_example",
-        tax_exempt=True,
-        transaction=ChannelPartnerOrderTransaction(
-            details=[
-                ChannelPartnerOrderTransactionDetail(
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            successful=True,
-        ),
-        treat_warnings_as_errors=True,
-        use_prior_payment_information_from_order_id="use_prior_payment_information_from_order_id_example",
-    ) # ChannelPartnerOrder | Order to insert
+order = ChannelPartnerOrder()
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert channel partner order
-        api_response = api_instance.import_channel_partner_order(channel_partner_order)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->import_channel_partner_order: %s\n" % e)
+# order.advertising_source = "Friend"  # https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377001/Advertising+Sources
+# order.affiliate_id = 856234  # https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1377727/Affiliates
+# order.affiliate_sub_id = 1234  # https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1376754/Allowing+Affiliates+to+use+Sub-IDs
+# order.arbitrary_shipping_handling_total = 9.99
+# order.arbitrary_tax = 2.50
+# order.arbitrary_tax_rate = 7.0
+# order.arbitrary_taxable_subtotal = 69.99
+
+order.associate_with_customer_profile_if_present = True
+order.auto_approve_purchase_order = True
+order.billto_address1 = "11460 Johns Creek Parkway"
+order.billto_address2 = "Suite 101"
+order.billto_city = "Duluth"
+order.billto_company = "Widgets Inc"
+order.billto_country_code = "US"
+order.billto_day_phone = "6784153823"
+order.billto_evening_phone = "6784154019"
+order.billto_first_name = "John"
+order.billto_last_name = "Smith"
+order.billto_postal_code = "30097"
+order.billto_state_region = "GA"
+order.billto_title = "Sir"
+order.cc_email = "orders@widgets.com"
+order.channel_partner_order_id = "widget-1245-abc"
+order.consider_recurring = False
+order.coupons = ["10OFF", "BUY1GET1"]
+
+# order.credit_card_authorization_amount = 69.99
+# order.credit_card_authorization_dts = datetime.now().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+# order.credit_card_authorization_number = "1234"
+
+order.credit_card_expiration_month = 5
+order.credit_card_expiration_year = 2032
+order.credit_card_type = "VISA"
+order.custom_field1 = "Whatever"
+order.custom_field2 = "You"
+order.custom_field3 = "Want"
+order.custom_field4 = "Can"
+order.custom_field5 = "Go"
+order.custom_field6 = "In"
+order.custom_field7 = "CustomFields"
+order.delivery_date = datetime.now().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+order.email = "ceo@widgets.com"
+order.gift = False
+
+order.gift_email = "sally@aol.com"
+order.gift_message = "Congratulations on your promotion!"
+
+order.hosted_fields_card_token = "7C97B0AAA26AB10180B4B29F00380101"
+order.hosted_fields_cvv_token = "C684AB4336787F0180B4B51971380101"
+
+# order.insurance_application_id = insurance_application_id  # specialized merchants only
+# order.insurance_claim_id = insurance_claim_id  # specialized merchants only
+
+order.ip_address = "34.125.95.217"
+
+# -- Items start ---
+item = ChannelPartnerOrderItem()
+# item.arbitrary_unit_cost = 9.99
+# item.auto_order_last_rebill_dts = datetime.now().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+# item.auto_order_schedule = "Weekly"
+
+item.merchant_item_id = "shirt"
+item.quantity = 1.0
+item.upsell = False
+
+item_option1 = ChannelPartnerOrderItemOption()
+item_option1.name = "Size"
+item_option1.value = "Small"
+
+item_option2 = ChannelPartnerOrderItemOption()
+item_option2.name = "Color"
+item_option2.value = "Orange"
+
+item.options = [item_option1, item_option2]
+
+order.items = [item]
+# -- Items End ---
+
+order.least_cost_route = True  # Give me the lowest cost shipping
+order.least_cost_route_shipping_methods = ["FedEx: Ground", "UPS: Ground", "USPS: Priority"]
+order.mailing_list_opt_in = True
+order.no_realtime_payment_processing = False
+order.payment_method = "Credit Card"
+# order.purchase_order_number = "PO-12345"
+order.rotating_transaction_gateway_code = "MyStripe"
+order.screen_branding_theme_code = "SF1986"
+order.ship_on_date = datetime.now().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+order.ship_to_residential = True
+# order.shipping_method = "FedEx: Ground"  # Using LeastCostRoute instead
+order.shipto_address1 = "55 Main Street"
+order.shipto_address2 = "Suite 202"
+order.shipto_city = "Duluth"
+order.shipto_company = "Widgets Inc"
+order.shipto_country_code = "US"
+order.shipto_day_phone = "6785552323"
+order.shipto_evening_phone = "7703334444"
+order.shipto_first_name = "Sally"
+order.shipto_last_name = "McGonkyDee"
+order.shipto_postal_code = "30097"
+order.shipto_state_region = "GA"
+order.shipto_title = "Director"
+order.skip_payment_processing = False
+order.special_instructions = "Please wrap this in bubble wrap because my FedEx delivery guy is abusive to packages"
+order.store_completed = False
+order.storefront_host_name = 'store.mysite.com'
+order.store_if_payment_declines = False
+order.tax_county = "Gwinnett"
+order.tax_exempt = False
+
+order_transaction = ChannelPartnerOrderTransaction()
+order_transaction.successful = False  # haven't charged card yet
+order_transaction.details = []  # haven't charged card yet
+order.transaction = order_transaction
+order.treat_warnings_as_errors = True
+
+api_response = channel_partner_api.import_channel_partner_order(order)
+
+# ---------------------------------------------
+# Example 2 - Order already processed
+# ---------------------------------------------
+
+order = ChannelPartnerOrder()
+
+# order.advertising_source = "Friend"
+# order.affiliate_id = 856234
+# order.affiliate_sub_id = 1234
+# order.arbitrary_shipping_handling_total = 9.99
+# order.arbitrary_tax = 2.50
+# order.arbitrary_tax_rate = 7.0
+# order.arbitrary_taxable_subtotal = 69.99
+
+order.associate_with_customer_profile_if_present = True
+order.auto_approve_purchase_order = True
+order.billto_address1 = "11460 Johns Creek Parkway"
+order.billto_address2 = "Suite 101"
+order.billto_city = "Duluth"
+order.billto_company = "Widgets Inc"
+order.billto_country_code = "US"
+order.billto_day_phone = "6784153823"
+order.billto_evening_phone = "6784154019"
+order.billto_first_name = "John"
+order.billto_last_name = "Smith"
+order.billto_postal_code = "30097"
+order.billto_state_region = "GA"
+order.billto_title = "Sir"
+order.cc_email = "orders@widgets.com"
+order.channel_partner_order_id = "widget-1245-abc"
+order.consider_recurring = False
+order.coupons = ["10OFF", "BUY1GET1"]
+
+order.credit_card_expiration_month = 5
+order.credit_card_expiration_year = 2032
+order.credit_card_type = "VISA"
+order.custom_field1 = "Whatever"
+order.custom_field2 = "You"
+order.custom_field3 = "Want"
+order.custom_field4 = "Can"
+order.custom_field5 = "Go"
+order.custom_field6 = "In"
+order.custom_field7 = "CustomFields"
+order.delivery_date = datetime.now().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+order.email = "ceo@widgets.com"
+order.gift = False
+
+order.gift_email = "sally@aol.com"
+order.gift_message = "Congratulations on your promotion!"
+
+order.ip_address = "34.125.95.217"
+
+# -- Items start ---
+item = ChannelPartnerOrderItem()
+item.merchant_item_id = "shirt"
+item.quantity = 1.0
+item.upsell = False
+
+item_option1 = ChannelPartnerOrderItemOption()
+item_option1.name = "Size"
+item_option1.value = "Small"
+
+item_option2 = ChannelPartnerOrderItemOption()
+item_option2.name = "Color"
+item_option2.value = "Orange"
+
+item.options = [item_option1, item_option2]
+
+order.items = [item]
+# -- Items End ---
+
+order.mailing_list_opt_in = True
+order.no_realtime_payment_processing = True  # payment already collected
+order.payment_method = "Credit Card"
+order.rotating_transaction_gateway_code = "MyStripe"
+order.screen_branding_theme_code = "SF1986"
+order.ship_on_date = datetime.now().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+order.ship_to_residential = True
+order.shipping_method = "FedEx: Ground"
+order.shipto_address1 = "55 Main Street"
+order.shipto_address2 = "Suite 202"
+order.shipto_city = "Duluth"
+order.shipto_company = "Widgets Inc"
+order.shipto_country_code = "US"
+order.shipto_day_phone = "6785552323"
+order.shipto_evening_phone = "7703334444"
+order.shipto_first_name = "Sally"
+order.shipto_last_name = "McGonkyDee"
+order.shipto_postal_code = "30097"
+order.shipto_state_region = "GA"
+order.shipto_title = "Director"
+order.skip_payment_processing = True  # bypass payment
+order.special_instructions = "Please wrap this in bubble wrap because my FedEx delivery guy is abusive to packages"
+order.store_completed = True  # old order, just store it
+order.storefront_host_name = 'store.mysite.com'
+order.store_if_payment_declines = False
+order.tax_county = "Gwinnett"
+order.tax_exempt = False
+
+order_transaction = ChannelPartnerOrderTransaction()
+order_transaction.successful = True
+
+# Create transaction details
+td1 = ChannelPartnerOrderTransactionDetail()
+td1.name = "AVS Code"
+td1.value = "X"
+
+td2 = ChannelPartnerOrderTransactionDetail()
+td2.name = "Authorization Code"
+td2.value = "123456"
+
+td3 = ChannelPartnerOrderTransactionDetail()
+td3.name = "CVV Code"
+td3.value = "M"
+
+td4 = ChannelPartnerOrderTransactionDetail()
+td4.name = "Response Code"
+td4.value = "Authorized"
+
+td5 = ChannelPartnerOrderTransactionDetail()
+td5.name = "Reason Code"
+td5.value = "1"
+
+td6 = ChannelPartnerOrderTransactionDetail()
+td6.name = "Response Subcode"
+td6.value = "1"
+
+td7 = ChannelPartnerOrderTransactionDetail()
+td7.name = "Transaction ID"
+td7.value = "1234567890"
+
+order_transaction.details = [td1, td2, td3, td4, td5, td6, td7]
+order.transaction = order_transaction
+order.treat_warnings_as_errors = True
+
+api_response = channel_partner_api.import_channel_partner_order(order)
 ```
+
 
 
 ### Parameters
@@ -1307,42 +1307,34 @@ Insert a ship to preference record for the channel partner.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.channel_partner_ship_to_preference_response import ChannelPartnerShipToPreferenceResponse
-from ultracart.model.channel_partner_ship_to_preference import ChannelPartnerShipToPreference
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from ultracart.models import ChannelPartnerShipToPreference
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Initialize API
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
+channel_partner_oid = 12345
 
-api_instance = GiftCertificateApi(api_client())
+# Create preference object
+preference = ChannelPartnerShipToPreference()
+preference.channel_partner_oid = channel_partner_oid
+preference.ship_to_edi_code = 'EDI_CODE_HERE'
+preference.return_policy = "This is some return policy text that will be printed on the packing slip."
+preference.additional_kit_component_item_ids = ['ITEM_ID1', 'ITEM_ID2', 'ITEM_ID3']
+preference.description = "This is a merchant friendly description to help me remember what the above setting are."
 
-    channel_partner_oid = 1 # int | 
-    ship_to_preference = ChannelPartnerShipToPreference(
-        additional_kit_component_item_ids=[
-            "additional_kit_component_item_ids_example",
-        ],
-        channel_partner_oid=1,
-        channel_partner_ship_to_preference_oid=1,
-        description="description_example",
-        merchant_id="merchant_id_example",
-        return_policy="return_policy_example",
-        ship_to_edi_code="ship_to_edi_code_example",
-    ) # ChannelPartnerShipToPreference | Ship to preference to create
+# Insert the preference
+api_response = channel_partner_api.insert_channel_partner_ship_to_preference(channel_partner_oid, preference)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert a ship to preference record for the channel partner.
-        api_response = api_instance.insert_channel_partner_ship_to_preference(channel_partner_oid, ship_to_preference)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->insert_channel_partner_ship_to_preference: %s\n" % e)
+if api_response.error is not None:
+    print(api_response.error.developer_message)
+    print(api_response.error.user_message)
+    exit()
+
+inserted_preference = api_response.ship_to_preference
+print(inserted_preference)
 ```
+
 
 
 ### Parameters
@@ -1392,1340 +1384,60 @@ Perform a refund operation on a channel partner order and then update the order 
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.order import Order
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.order_response import OrderResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Initialize API
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
 
-api_instance = GiftCertificateApi(api_client())
+# Expansion parameter for order details
+expand = "item,summary,shipping"
 
-    order_id = "order_id_example" # str | The order id to refund.
-    order = Order(
-        affiliates=[
-            OrderAffiliate(
-                affiliate_oid=1,
-                ledger_entries=[
-                    OrderAffiliateLedger(
-                        assigned_by_user="assigned_by_user_example",
-                        item_id="item_id_example",
-                        tier_number=1,
-                        transaction_amount=3.14,
-                        transaction_amount_paid=3.14,
-                        transaction_dts="transaction_dts_example",
-                        transaction_memo="transaction_memo_example",
-                        transaction_percentage=3.14,
-                        transaction_state="Pending",
-                    ),
-                ],
-                sub_id="sub_id_example",
-            ),
-        ],
-        auto_order=OrderAutoOrder(
-            auto_order_code="auto_order_code_example",
-            auto_order_oid=1,
-            cancel_after_next_x_orders=1,
-            cancel_downgrade=True,
-            cancel_reason="cancel_reason_example",
-            cancel_upgrade=True,
-            canceled_by_user="canceled_by_user_example",
-            canceled_dts="canceled_dts_example",
-            completed=True,
-            credit_card_attempt=1,
-            disabled_dts="disabled_dts_example",
-            enabled=True,
-            failure_reason="failure_reason_example",
-            items=[
-                AutoOrderItem(
-                    arbitrary_item_id="arbitrary_item_id_example",
-                    arbitrary_percentage_discount=3.14,
-                    arbitrary_quantity=3.14,
-                    arbitrary_schedule_days=1,
-                    arbitrary_unit_cost=3.14,
-                    arbitrary_unit_cost_remaining_orders=1,
-                    auto_order_item_oid=1,
-                    calculated_next_shipment_dts="calculated_next_shipment_dts_example",
-                    first_order_dts="first_order_dts_example",
-                    frequency="Weekly",
-                    future_schedules=[
-                        AutoOrderItemFutureSchedule(
-                            item_id="item_id_example",
-                            rebill_count=1,
-                            shipment_dts="shipment_dts_example",
-                            unit_cost=3.14,
-                        ),
-                    ],
-                    last_order_dts="last_order_dts_example",
-                    life_time_value=3.14,
-                    next_item_id="next_item_id_example",
-                    next_preshipment_notice_dts="next_preshipment_notice_dts_example",
-                    next_shipment_dts="next_shipment_dts_example",
-                    no_order_after_dts="no_order_after_dts_example",
-                    number_of_rebills=1,
-                    options=[
-                        AutoOrderItemOption(
-                            label="label_example",
-                            value="value_example",
-                        ),
-                    ],
-                    original_item_id="original_item_id_example",
-                    original_quantity=3.14,
-                    paused=True,
-                    paypal_payer_id="paypal_payer_id_example",
-                    paypal_recurring_payment_profile_id="paypal_recurring_payment_profile_id_example",
-                    preshipment_notice_sent=True,
-                    rebill_value=3.14,
-                    remaining_repeat_count=1,
-                    simple_schedule=AutoOrderItemSimpleSchedule(
-                        frequency="Weekly",
-                        item_id="item_id_example",
-                        repeat_count=1,
-                    ),
-                ),
-            ],
-            next_attempt="next_attempt_example",
-            original_order_id="original_order_id_example",
-            override_affiliate_id=1,
-            rebill_orders=[
-                Order(),
-            ],
-            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-            status="active",
-        ),
-        billing=OrderBilling(
-            address1="address1_example",
-            address2="address2_example",
-            cc_emails=[
-                "cc_emails_example",
-            ],
-            cell_phone="cell_phone_example",
-            cell_phone_e164="cell_phone_e164_example",
-            city="city_example",
-            company="company_example",
-            country_code="country_code_example",
-            day_phone="day_phone_example",
-            day_phone_e164="day_phone_e164_example",
-            email="email_example",
-            evening_phone="evening_phone_example",
-            evening_phone_e164="evening_phone_e164_example",
-            first_name="first_name_example",
-            last_name="last_name_example",
-            postal_code="postal_code_example",
-            state_region="state_region_example",
-            title="title_example",
-        ),
-        buysafe=OrderBuysafe(
-            buysafe_bond_available=True,
-            buysafe_bond_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            buysafe_bond_free=True,
-            buysafe_bond_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            buysafe_bond_wanted=True,
-            buysafe_shopping_cart_id="buysafe_shopping_cart_id_example",
-        ),
-        channel_partner=OrderChannelPartner(
-            auto_approve_purchase_order=True,
-            channel_partner_code="channel_partner_code_example",
-            channel_partner_data="channel_partner_data_example",
-            channel_partner_oid=1,
-            channel_partner_order_id="channel_partner_order_id_example",
-            ignore_invalid_shipping_method=True,
-            no_realtime_payment_processing=True,
-            skip_payment_processing=True,
-            store_completed=True,
-            store_if_payment_declines=True,
-            treat_warnings_as_errors=True,
-        ),
-        checkout=OrderCheckout(
-            browser=Browser(
-                device=BrowserDevice(
-                    family="family_example",
-                ),
-                os=BrowserOS(
-                    family="family_example",
-                    major="major_example",
-                    minor="minor_example",
-                    patch="patch_example",
-                    patch_minor="patch_minor_example",
-                ),
-                user_agent=BrowserUserAgent(
-                    family="family_example",
-                    major="major_example",
-                    minor="minor_example",
-                    patch="patch_example",
-                ),
-            ),
-            comments="comments_example",
-            custom_field1="custom_field1_example",
-            custom_field10="custom_field10_example",
-            custom_field2="custom_field2_example",
-            custom_field3="custom_field3_example",
-            custom_field4="custom_field4_example",
-            custom_field5="custom_field5_example",
-            custom_field6="custom_field6_example",
-            custom_field7="custom_field7_example",
-            custom_field8="custom_field8_example",
-            custom_field9="custom_field9_example",
-            customer_ip_address="customer_ip_address_example",
-            screen_branding_theme_code="screen_branding_theme_code_example",
-            screen_size="screen_size_example",
-            storefront_host_name="storefront_host_name_example",
-            upsell_path_code="upsell_path_code_example",
-        ),
-        coupons=[
-            OrderCoupon(
-                accounting_code="accounting_code_example",
-                automatically_applied=True,
-                base_coupon_code="base_coupon_code_example",
-                coupon_code="coupon_code_example",
-                hdie_from_customer=True,
-            ),
-        ],
-        creation_dts="creation_dts_example",
-        currency_code="currency_code_example",
-        current_stage="Accounts Receivable",
-        current_stage_histories=[
-            OrderCurrentStageHistory(
-                after_stage="Accounts Receivable",
-                before_stage="Accounts Receivable",
-                transition_dts="transition_dts_example",
-            ),
-        ],
-        customer_profile=Customer(
-            activity=CustomerActivity(
-                activities=[
-                    Activity(
-                        action="action_example",
-                        channel="channel_example",
-                        metric="metric_example",
-                        storefront_oid=1,
-                        subject="subject_example",
-                        ts=1,
-                        type="type_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                global_unsubscribed=True,
-                global_unsubscribed_dts="global_unsubscribed_dts_example",
-                memberships=[
-                    ListSegmentMembership(
-                        name="name_example",
-                        type="type_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                metrics=[
-                    Metric(
-                        all_time=3.14,
-                        all_time_formatted="all_time_formatted_example",
-                        last_30=3.14,
-                        last_30_formatted="last_30_formatted_example",
-                        name="name_example",
-                        prior_30=3.14,
-                        prior_30_formatted="prior_30_formatted_example",
-                        type="type_example",
-                    ),
-                ],
-                properties_list=[
-                    ModelProperty(
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                spam_complaint=True,
-                spam_complaint_dts="spam_complaint_dts_example",
-            ),
-            affiliate_oid=1,
-            allow_3rd_party_billing=True,
-            allow_cod=True,
-            allow_drop_shipping=True,
-            allow_purchase_order=True,
-            allow_quote_request=True,
-            allow_selection_of_address_type=True,
-            attachments=[
-                CustomerAttachment(
-                    customer_profile_attachment_oid=1,
-                    description="description_example",
-                    file_name="file_name_example",
-                    mime_type="mime_type_example",
-                    upload_dts="upload_dts_example",
-                ),
-            ],
-            auto_approve_cod=True,
-            auto_approve_purchase_order=True,
-            automatic_merchant_notes="automatic_merchant_notes_example",
-            billing=[
-                CustomerBilling(
-                    address1="address1_example",
-                    address2="address2_example",
-                    city="city_example",
-                    company="company_example",
-                    country_code="country_code_example",
-                    customer_billing_oid=1,
-                    customer_profile_oid=1,
-                    day_phone="day_phone_example",
-                    default_billing=True,
-                    evening_phone="evening_phone_example",
-                    first_name="first_name_example",
-                    last_name="last_name_example",
-                    last_used_dts="last_used_dts_example",
-                    postal_code="postal_code_example",
-                    state_region="state_region_example",
-                    tax_county="tax_county_example",
-                    title="title_example",
-                ),
-            ],
-            business_notes="business_notes_example",
-            cards=[
-                CustomerCard(
-                    card_expiration_month=1,
-                    card_expiration_year=1,
-                    card_number="card_number_example",
-                    card_number_token="card_number_token_example",
-                    card_type="card_type_example",
-                    customer_profile_credit_card_id=1,
-                    customer_profile_oid=1,
-                    last_used_dts="last_used_dts_example",
-                ),
-            ],
-            cc_emails=[
-                CustomerEmail(
-                    customer_profile_email_oid=1,
-                    email="email_example",
-                    label="label_example",
-                    receipt_notification=True,
-                    refund_notification=True,
-                    shipment_notification=True,
-                ),
-            ],
-            customer_profile_oid=1,
-            dhl_account_number="dhl_account_number_example",
-            dhl_duty_account_number="dhl_duty_account_number_example",
-            do_not_send_mail=True,
-            edi=CustomerEDI(
-                channel_partner_oid=1,
-                distribution_center_number="distribution_center_number_example",
-                store_number="store_number_example",
-            ),
-            email="email_example",
-            exempt_shipping_handling_charge=True,
-            fedex_account_number="fedex_account_number_example",
-            free_shipping=True,
-            free_shipping_minimum=3.14,
-            last_modified_by="last_modified_by_example",
-            last_modified_dts="last_modified_dts_example",
-            loyalty=CustomerLoyalty(
-                current_points=1,
-                internal_gift_certificate=GiftCertificate(
-                    activated=True,
-                    code="code_example",
-                    customer_profile_oid=1,
-                    deleted=True,
-                    email="email_example",
-                    expiration_dts="expiration_dts_example",
-                    gift_certificate_oid=1,
-                    internal=True,
-                    ledger_entries=[
-                        GiftCertificateLedgerEntry(
-                            amount=3.14,
-                            description="description_example",
-                            entry_dts="entry_dts_example",
-                            gift_certificate_ledger_oid=1,
-                            gift_certificate_oid=1,
-                            reference_order_id="reference_order_id_example",
-                        ),
-                    ],
-                    merchant_id="merchant_id_example",
-                    merchant_note="merchant_note_example",
-                    original_balance=3.14,
-                    reference_order_id="reference_order_id_example",
-                    remaining_balance=3.14,
-                ),
-                internal_gift_certificate_balance="internal_gift_certificate_balance_example",
-                internal_gift_certificate_oid=1,
-                ledger_entries=[
-                    CustomerLoyaltyLedger(
-                        created_by="created_by_example",
-                        created_dts="created_dts_example",
-                        description="description_example",
-                        email="email_example",
-                        item_id="item_id_example",
-                        item_index=1,
-                        ledger_dts="ledger_dts_example",
-                        loyalty_campaign_oid=1,
-                        loyalty_ledger_oid=1,
-                        loyalty_points=1,
-                        modified_by="modified_by_example",
-                        modified_dts="modified_dts_example",
-                        order_id="order_id_example",
-                        quantity=1,
-                        vesting_dts="vesting_dts_example",
-                    ),
-                ],
-                pending_points=1,
-                redemptions=[
-                    CustomerLoyaltyRedemption(
-                        coupon_code="coupon_code_example",
-                        coupon_code_oid=1,
-                        coupon_used=True,
-                        description_for_customer="description_for_customer_example",
-                        expiration_dts="expiration_dts_example",
-                        gift_certificate_code="gift_certificate_code_example",
-                        gift_certificate_oid=1,
-                        loyalty_ledger_oid=1,
-                        loyalty_points=1,
-                        loyalty_redemption_oid=1,
-                        order_id="order_id_example",
-                        redemption_dts="redemption_dts_example",
-                        remaining_balance=3.14,
-                    ),
-                ],
-            ),
-            maximum_item_count=1,
-            merchant_id="merchant_id_example",
-            minimum_item_count=1,
-            minimum_subtotal=3.14,
-            no_coupons=True,
-            no_free_shipping=True,
-            no_realtime_charge=True,
-            orders=[
-                Order(),
-            ],
-            orders_summary=CustomerOrdersSummary(
-                first_order_dts="first_order_dts_example",
-                last_order_dts="last_order_dts_example",
-                order_count=1,
-                total=3.14,
-            ),
-            password="password_example",
-            pricing_tiers=[
-                CustomerPricingTier(
-                    name="name_example",
-                    pricing_tier_oid=1,
-                ),
-            ],
-            privacy=CustomerPrivacy(
-                last_update_dts="last_update_dts_example",
-                marketing=True,
-                preference=True,
-                statistics=True,
-            ),
-            properties=[
-                CustomerProperty(
-                    customer_profile_property_oid=1,
-                    expiration_dts="expiration_dts_example",
-                    name="name_example",
-                    value="value_example",
-                ),
-            ],
-            qb_class="qb_class_example",
-            qb_code="qb_code_example",
-            qb_tax_exemption_reason_code=1,
-            quotes=[
-                Order(),
-            ],
-            quotes_summary=CustomerQuotesSummary(
-                first_quote_dts="first_quote_dts_example",
-                last_quote_dts="last_quote_dts_example",
-                quote_count=1,
-                total=3.14,
-            ),
-            referral_source="referral_source_example",
-            reviewer=CustomerReviewer(
-                auto_approve=True,
-                average_overall_rating=3.14,
-                expert=True,
-                first_review="first_review_example",
-                last_review="last_review_example",
-                location="location_example",
-                nickname="nickname_example",
-                number_helpful_review_votes=1,
-                rank=1,
-                reviews_contributed=1,
-            ),
-            sales_rep_code="sales_rep_code_example",
-            send_signup_notification=True,
-            shipping=[
-                CustomerShipping(
-                    address1="address1_example",
-                    address2="address2_example",
-                    city="city_example",
-                    company="company_example",
-                    country_code="country_code_example",
-                    customer_profile_oid=1,
-                    customer_shipping_oid=1,
-                    day_phone="day_phone_example",
-                    default_shipping=True,
-                    evening_phone="evening_phone_example",
-                    first_name="first_name_example",
-                    last_name="last_name_example",
-                    last_used_dts="last_used_dts_example",
-                    postal_code="postal_code_example",
-                    state_region="state_region_example",
-                    tax_county="tax_county_example",
-                    title="title_example",
-                ),
-            ],
-            signup_dts="signup_dts_example",
-            software_entitlements=[
-                CustomerSoftwareEntitlement(
-                    activation_code="activation_code_example",
-                    activation_dts="activation_dts_example",
-                    customer_software_entitlement_oid=1,
-                    expiration_dts="expiration_dts_example",
-                    purchased_via_item_description="purchased_via_item_description_example",
-                    purchased_via_item_id="purchased_via_item_id_example",
-                    purchased_via_order_id="purchased_via_order_id_example",
-                    software_sku="software_sku_example",
-                ),
-            ],
-            suppress_buysafe=True,
-            tags=[
-                CustomerTag(
-                    tag_value="tag_value_example",
-                ),
-            ],
-            tax_codes=CustomerTaxCodes(
-                avalara_customer_code="avalara_customer_code_example",
-                avalara_entity_use_code="avalara_entity_use_code_example",
-                sovos_customer_code="sovos_customer_code_example",
-                taxjar_customer_id="taxjar_customer_id_example",
-                taxjar_exemption_type="taxjar_exemption_type_example",
-            ),
-            tax_exempt=True,
-            tax_id="tax_id_example",
-            terms="terms_example",
-            track_separately=True,
-            unapproved=True,
-            ups_account_number="ups_account_number_example",
-            website_url="website_url_example",
-        ),
-        digital_order=OrderDigitalOrder(
-            creation_dts="creation_dts_example",
-            expiration_dts="expiration_dts_example",
-            items=[
-                OrderDigitalItem(
-                    file_size=1,
-                    last_download="last_download_example",
-                    last_download_ip_address="last_download_ip_address_example",
-                    original_filename="original_filename_example",
-                    product_code="product_code_example",
-                    product_description="product_description_example",
-                    remaining_downloads=1,
-                    url="url_example",
-                ),
-            ],
-            url="url_example",
-            url_id="url_id_example",
-        ),
-        edi=OrderEdi(
-            bill_to_edi_code="bill_to_edi_code_example",
-            edi_department="edi_department_example",
-            edi_internal_vendor_number="edi_internal_vendor_number_example",
-            ship_to_edi_code="ship_to_edi_code_example",
-        ),
-        exchange_rate=3.14,
-        fraud_score=OrderFraudScore(
-            anonymous_proxy=True,
-            bin_match="NA",
-            carder_email=True,
-            country_code="country_code_example",
-            country_match=True,
-            customer_phone_in_billing_location="customer_phone_in_billing_location_example",
-            distance_km=1,
-            free_email=True,
-            high_risk_country=True,
-            ip_city="ip_city_example",
-            ip_isp="ip_isp_example",
-            ip_latitude="ip_latitude_example",
-            ip_longitude="ip_longitude_example",
-            ip_org="ip_org_example",
-            ip_region="ip_region_example",
-            proxy_score=3.14,
-            score=3.14,
-            ship_forwarder=True,
-            spam_score=3.14,
-            transparent_proxy=True,
-        ),
-        gift=OrderGift(
-            gift=True,
-            gift_charge=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_charge_accounting_code="gift_charge_accounting_code_example",
-            gift_charge_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_email="gift_email_example",
-            gift_message="gift_message_example",
-            gift_wrap_accounting_code="gift_wrap_accounting_code_example",
-            gift_wrap_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_wrap_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_wrap_title="gift_wrap_title_example",
-        ),
-        gift_certificate=OrderGiftCertificate(
-            gift_certificate_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            gift_certificate_code="gift_certificate_code_example",
-            gift_certificate_oid=1,
-        ),
-        internal=OrderInternal(
-            exported_to_accounting=True,
-            merchant_notes="merchant_notes_example",
-            placed_by_user="placed_by_user_example",
-            refund_by_user="refund_by_user_example",
-            sales_rep_code="sales_rep_code_example",
-            transactional_merchant_notes=[
-                OrderTransactionalMerchantNote(
-                    ip_address="ip_address_example",
-                    note="note_example",
-                    note_dts="note_dts_example",
-                    user="user_example",
-                ),
-            ],
-        ),
-        items=[
-            OrderItem(
-                accounting_code="accounting_code_example",
-                activation_codes=[
-                    "activation_codes_example",
-                ],
-                actual_cogs=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                arbitrary_unit_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                auto_order_last_rebill_dts="auto_order_last_rebill_dts_example",
-                auto_order_schedule="auto_order_schedule_example",
-                barcode="barcode_example",
-                barcode_gtin12="barcode_gtin12_example",
-                barcode_gtin14="barcode_gtin14_example",
-                barcode_upc11="barcode_upc11_example",
-                barcode_upc12="barcode_upc12_example",
-                channel_partner_item_id="channel_partner_item_id_example",
-                cogs=3.14,
-                component_unit_value=3.14,
-                cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                country_code_of_origin="country_code_of_origin_example",
-                customs_description="customs_description_example",
-                description="description_example",
-                discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                discount_quantity=3.14,
-                discount_shipping_weight=Weight(
-                    uom="KG",
-                    value=3.14,
-                ),
-                distribution_center_code="distribution_center_code_example",
-                edi=OrderItemEdi(
-                    identifications=[
-                        OrderItemEdiIdentification(
-                            identification="identification_example",
-                            quantity=1,
-                        ),
-                    ],
-                    lots=[
-                        OrderItemEdiLot(
-                            lot_expiration="lot_expiration_example",
-                            lot_number="lot_number_example",
-                            lot_quantity=1,
-                        ),
-                    ],
-                ),
-                exclude_coupon=True,
-                free_shipping=True,
-                hazmat=True,
-                height=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-                item_index=1,
-                item_reference_oid=1,
-                kit=True,
-                kit_component=True,
-                length=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-                manufacturer_sku="manufacturer_sku_example",
-                max_days_time_in_transit=1,
-                merchant_item_id="merchant_item_id_example",
-                mix_and_match_group_name="mix_and_match_group_name_example",
-                mix_and_match_group_oid=1,
-                no_shipping_discount=True,
-                options=[
-                    OrderItemOption(
-                        additional_dimension_application="none",
-                        cost_change=Currency(
-                            currency_code="currency_code_example",
-                            exchange_rate=3.14,
-                            localized=3.14,
-                            localized_formatted="localized_formatted_example",
-                            value=3.14,
-                        ),
-                        file_attachment=OrderItemOptionFileAttachment(
-                            expiration_dts="expiration_dts_example",
-                            file_name="file_name_example",
-                            mime_type="mime_type_example",
-                            size=1,
-                        ),
-                        height=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        hidden=True,
-                        label="label_example",
-                        length=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                        one_time_fee=True,
-                        value="value_example",
-                        weight_change=Weight(
-                            uom="KG",
-                            value=3.14,
-                        ),
-                        width=Distance(
-                            uom="IN",
-                            value=3.14,
-                        ),
-                    ),
-                ],
-                packed_by_user="packed_by_user_example",
-                parent_item_index=1,
-                parent_merchant_item_id="parent_merchant_item_id_example",
-                perishable_class="perishable_class_example",
-                pricing_tier_name="pricing_tier_name_example",
-                properties=[
-                    OrderItemProperty(
-                        display=True,
-                        expiration_dts="expiration_dts_example",
-                        name="name_example",
-                        value="value_example",
-                    ),
-                ],
-                quantity=3.14,
-                quantity_refunded=3.14,
-                quickbooks_class="quickbooks_class_example",
-                refund_reason="refund_reason_example",
-                return_reason="return_reason_example",
-                ship_separately=True,
-                shipped_by_user="shipped_by_user_example",
-                shipped_dts="shipped_dts_example",
-                shipping_status="shipping_status_example",
-                special_product_type="special_product_type_example",
-                tags=[
-                    OrderItemTag(
-                        tag_value="tag_value_example",
-                    ),
-                ],
-                tax_free=True,
-                tax_product_type="",
-                taxable_cost=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total_cost_with_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                total_refunded=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                transmitted_to_distribution_center_dts="transmitted_to_distribution_center_dts_example",
-                unit_cost_with_discount=Currency(
-                    currency_code="currency_code_example",
-                    exchange_rate=3.14,
-                    localized=3.14,
-                    localized_formatted="localized_formatted_example",
-                    value=3.14,
-                ),
-                upsell=True,
-                weight=Weight(
-                    uom="KG",
-                    value=3.14,
-                ),
-                width=Distance(
-                    uom="IN",
-                    value=3.14,
-                ),
-            ),
-        ],
-        language_iso_code="language_iso_code_example",
-        linked_shipment=OrderLinkedShipment(
-            has_linked_shipment=True,
-            linked_shipment=True,
-            linked_shipment_channel_partner_order_ids=[
-                "linked_shipment_channel_partner_order_ids_example",
-            ],
-            linked_shipment_order_ids=[
-                "linked_shipment_order_ids_example",
-            ],
-            linked_shipment_to_order_id="linked_shipment_to_order_id_example",
-        ),
-        marketing=OrderMarketing(
-            advertising_source="advertising_source_example",
-            cell_phone_opt_in=True,
-            mailing_list=True,
-            referral_code="referral_code_example",
-        ),
-        merchant_id="merchant_id_example",
-        order_id="order_id_example",
-        payment=OrderPayment(
-            check=OrderPaymentCheck(
-                check_number="check_number_example",
-            ),
-            credit_card=OrderPaymentCreditCard(
-                card_auth_ticket="card_auth_ticket_example",
-                card_authorization_amount=3.14,
-                card_authorization_dts="card_authorization_dts_example",
-                card_authorization_reference_number="card_authorization_reference_number_example",
-                card_expiration_month=1,
-                card_expiration_year=1,
-                card_number="card_number_example",
-                card_number_token="card_number_token_example",
-                card_number_truncated=True,
-                card_type="AMEX",
-                card_verification_number_token="card_verification_number_token_example",
-                dual_vaulted=OrderPaymentCreditCardDualVaulted(
-                    gateway_name="gateway_name_example",
-                    properties=[
-                        OrderPaymentCreditCardDualVaultedProperty(
-                            name="name_example",
-                            value="value_example",
-                        ),
-                    ],
-                    rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-                ),
-            ),
-            echeck=OrderPaymentECheck(
-                bank_aba_code="bank_aba_code_example",
-                bank_account_name="bank_account_name_example",
-                bank_account_number="bank_account_number_example",
-                bank_account_type="Checking",
-                bank_name="bank_name_example",
-                bank_owner_type="Personal",
-                customer_tax_id="customer_tax_id_example",
-                drivers_license_dob="drivers_license_dob_example",
-                drivers_license_number="drivers_license_number_example",
-                drivers_license_state="drivers_license_state_example",
-            ),
-            health_benefit_card=OrderPaymentHealthBenefitCard(
-                health_benefit_card_expiration_month=1,
-                health_benefit_card_expiration_year=1,
-                health_benefit_card_number="health_benefit_card_number_example",
-                health_benefit_card_number_token="health_benefit_card_number_token_example",
-                health_benefit_card_number_truncated=True,
-                health_benefit_card_verification_number_token="health_benefit_card_verification_number_token_example",
-            ),
-            hold_for_fraud_review=True,
-            insurance=OrderPaymentInsurance(
-                application_id="application_id_example",
-                claim_id="claim_id_example",
-                insurance_type="insurance_type_example",
-                refund_claim_id="refund_claim_id_example",
-            ),
-            payment_dts="payment_dts_example",
-            payment_method="Affirm",
-            payment_method_accounting_code="payment_method_accounting_code_example",
-            payment_method_deposit_to_account="payment_method_deposit_to_account_example",
-            payment_status="Unprocessed",
-            paypal=OrderPaymentPayPal(
-                customer_id="customer_id_example",
-                vault_id="vault_id_example",
-            ),
-            purchase_order=OrderPaymentPurchaseOrder(
-                purchase_order_number="purchase_order_number_example",
-            ),
-            rotating_transaction_gateway_code="rotating_transaction_gateway_code_example",
-            surcharge=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            surcharge_accounting_code="surcharge_accounting_code_example",
-            surcharge_transaction_fee=3.14,
-            surcharge_transaction_percentage=3.14,
-            test_order=True,
-            transactions=[
-                OrderPaymentTransaction(
-                    details=[
-                        OrderPaymentTransactionDetail(
-                            name="name_example",
-                            type="type_example",
-                            value="value_example",
-                        ),
-                    ],
-                    successful=True,
-                    transaction_gateway="transaction_gateway_example",
-                    transaction_id=1,
-                    transaction_timestamp="transaction_timestamp_example",
-                ),
-            ],
-        ),
-        point_of_sale=OrderPointOfSale(
-            location=PointOfSaleLocation(
-                adddress2="adddress2_example",
-                address1="address1_example",
-                city="city_example",
-                country="country_example",
-                distribution_center_code="distribution_center_code_example",
-                external_id="external_id_example",
-                merchant_id="merchant_id_example",
-                pos_location_oid=1,
-                postal_code="postal_code_example",
-                state_province="state_province_example",
-            ),
-            reader=PointOfSaleReader(
-                device_type="device_type_example",
-                label="label_example",
-                merchant_id="merchant_id_example",
-                payment_provider="stripe",
-                pos_reader_id=1,
-                pos_register_oid=1,
-                serial_number="serial_number_example",
-                stripe_account_id="stripe_account_id_example",
-                stripe_reader_id="stripe_reader_id_example",
-            ),
-            register=PointOfSaleRegister(
-                merchant_id="merchant_id_example",
-                name="name_example",
-                pos_location_oid=1,
-                pos_register_oid=1,
-            ),
-        ),
-        properties=[
-            OrderProperty(
-                created_by="created_by_example",
-                created_dts="created_dts_example",
-                display=True,
-                expiration_dts="expiration_dts_example",
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        quote=OrderQuote(
-            quote_expiration_dts="quote_expiration_dts_example",
-            quoted_by="quoted_by_example",
-            quoted_dts="quoted_dts_example",
-        ),
-        refund_dts="refund_dts_example",
-        refund_reason="refund_reason_example",
-        reject_dts="reject_dts_example",
-        reject_reason="reject_reason_example",
-        salesforce=OrderSalesforce(
-            salesforce_opportunity_id="salesforce_opportunity_id_example",
-        ),
-        shipping=OrderShipping(
-            address1="address1_example",
-            address2="address2_example",
-            city="city_example",
-            company="company_example",
-            country_code="country_code_example",
-            day_phone="day_phone_example",
-            day_phone_e164="day_phone_e164_example",
-            delivery_date="delivery_date_example",
-            evening_phone="evening_phone_example",
-            evening_phone_e164="evening_phone_e164_example",
-            first_name="first_name_example",
-            last_name="last_name_example",
-            least_cost_route=True,
-            least_cost_route_shipping_methods=[
-                "least_cost_route_shipping_methods_example",
-            ],
-            lift_gate=True,
-            pickup_dts="pickup_dts_example",
-            postal_code="postal_code_example",
-            rma="rma_example",
-            ship_on_date="ship_on_date_example",
-            ship_to_residential=True,
-            shipping_3rd_party_account_number="shipping_3rd_party_account_number_example",
-            shipping_date="shipping_date_example",
-            shipping_department_status="shipping_department_status_example",
-            shipping_method="shipping_method_example",
-            shipping_method_accounting_code="shipping_method_accounting_code_example",
-            special_instructions="special_instructions_example",
-            state_region="state_region_example",
-            title="title_example",
-            tracking_number_details=[
-                OrderTrackingNumberDetails(
-                    actual_delivery_date="actual_delivery_date_example",
-                    actual_delivery_date_formatted="actual_delivery_date_formatted_example",
-                    details=[
-                        OrderTrackingNumberDetail(
-                            city="city_example",
-                            event_dts="event_dts_example",
-                            event_local_date="event_local_date_example",
-                            event_local_time="event_local_time_example",
-                            event_timezone_id="event_timezone_id_example",
-                            state="state_example",
-                            subtag="subtag_example",
-                            subtag_message="subtag_message_example",
-                            tag="tag_example",
-                            tag_description="tag_description_example",
-                            tag_icon="tag_icon_example",
-                            zip="zip_example",
-                        ),
-                    ],
-                    easypost_tracker_id="easypost_tracker_id_example",
-                    expected_delivery_date="expected_delivery_date_example",
-                    expected_delivery_date_formatted="expected_delivery_date_formatted_example",
-                    map_url="map_url_example",
-                    order_placed_date="order_placed_date_example",
-                    order_placed_date_formatted="order_placed_date_formatted_example",
-                    payment_processed_date="payment_processed_date_example",
-                    payment_processed_date_formatted="payment_processed_date_formatted_example",
-                    shipped_date="shipped_date_example",
-                    shipped_date_formatted="shipped_date_formatted_example",
-                    shipping_method="shipping_method_example",
-                    status="status_example",
-                    status_description="status_description_example",
-                    tracking_number="tracking_number_example",
-                    tracking_url="tracking_url_example",
-                ),
-            ],
-            tracking_numbers=[
-                "tracking_numbers_example",
-            ],
-            weight=Weight(
-                uom="KG",
-                value=3.14,
-            ),
-        ),
-        summary=OrderSummary(
-            actual_fulfillment=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_other_cost=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_payment_processing=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_profit=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            actual_profit_analyzed=True,
-            actual_profit_review=True,
-            actual_shipping=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            arbitrary_shipping_handling_total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            health_benefit_card_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            health_benefit_card_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            internal_gift_certificate_amount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            internal_gift_certificate_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            other_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            shipping_handling_total_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_discount_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            subtotal_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            tax=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            tax_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            taxable_subtotal=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            taxable_subtotal_discount=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            total=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-            total_refunded=Currency(
-                currency_code="currency_code_example",
-                exchange_rate=3.14,
-                localized=3.14,
-                localized_formatted="localized_formatted_example",
-                value=3.14,
-            ),
-        ),
-        tags=[
-            OrderTag(
-                tag_value="tag_value_example",
-            ),
-        ],
-        taxes=OrderTaxes(
-            arbitrary_tax=3.14,
-            arbitrary_tax_rate=3.14,
-            arbitrary_taxable_subtotal=3.14,
-            tax_city_accounting_code="tax_city_accounting_code_example",
-            tax_country_accounting_code="tax_country_accounting_code_example",
-            tax_county="tax_county_example",
-            tax_county_accounting_code="tax_county_accounting_code_example",
-            tax_gift_charge=True,
-            tax_postal_code_accounting_code="tax_postal_code_accounting_code_example",
-            tax_rate=3.14,
-            tax_rate_city=3.14,
-            tax_rate_country=3.14,
-            tax_rate_county=3.14,
-            tax_rate_postal_code=3.14,
-            tax_rate_state=3.14,
-            tax_shipping=True,
-            tax_state_accounting_code="tax_state_accounting_code_example",
-        ),
-        utms=[
-            OrderUtm(
-                attribution_first_click_subtotal=3.14,
-                attribution_first_click_total=3.14,
-                attribution_last_click_subtotal=3.14,
-                attribution_last_click_total=3.14,
-                attribution_linear_subtotal=3.14,
-                attribution_linear_total=3.14,
-                attribution_position_based_subtotal=3.14,
-                attribution_position_based_total=3.14,
-                click_dts="click_dts_example",
-                facebook_ad_id="facebook_ad_id_example",
-                fbclid="fbclid_example",
-                gbraid="gbraid_example",
-                glcid="glcid_example",
-                itm_campaign="itm_campaign_example",
-                itm_content="itm_content_example",
-                itm_id="itm_id_example",
-                itm_medium="itm_medium_example",
-                itm_source="itm_source_example",
-                itm_term="itm_term_example",
-                msclkid="msclkid_example",
-                short_code="short_code_example",
-                short_code_backup=True,
-                ttclid="ttclid_example",
-                uc_message_id="uc_message_id_example",
-                utm_campaign="utm_campaign_example",
-                utm_content="utm_content_example",
-                utm_id="utm_id_example",
-                utm_medium="utm_medium_example",
-                utm_source="utm_source_example",
-                utm_term="utm_term_example",
-                vmcid="vmcid_example",
-                wbraid="wbraid_example",
-            ),
-        ],
-    ) # Order | Order to refund
-    reject_after_refund = False # bool | Reject order after refund (optional) if omitted the server will use the default value of False
-    skip_customer_notification = False # bool | Skip customer email notification (optional) if omitted the server will use the default value of False
-    auto_order_cancel = False # bool | Cancel associated auto orders (optional) if omitted the server will use the default value of False
-    manual_refund = False # bool | Consider a manual refund done externally (optional) if omitted the server will use the default value of False
-    reverse_affiliate_transactions = True # bool | Reverse affiliate transactions (optional) if omitted the server will use the default value of True
-    issue_store_credit = False # bool | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional) if omitted the server will use the default value of False
-    auto_order_cancel_reason = "auto_order_cancel_reason_example" # str | Reason for auto orders cancellation (optional)
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See OrderApi.refundOrder documentation for examples (optional)
+# Order ID must be associated with this channel partner
+order_id = 'DEMO-0009106820'
+api_response = channel_partner_api.get_channel_partner_order(order_id, expand=expand)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Refund a channel partner order
-        api_response = api_instance.refund_channel_partner_order(order_id, order)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->refund_channel_partner_order: %s\n" % e)
+if api_response.error is not None:
+    print(api_response.error.developer_message)
+    print(api_response.error.user_message)
+    exit()
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Refund a channel partner order
-        api_response = api_instance.refund_channel_partner_order(order_id, order, reject_after_refund=reject_after_refund, skip_customer_notification=skip_customer_notification, auto_order_cancel=auto_order_cancel, manual_refund=manual_refund, reverse_affiliate_transactions=reverse_affiliate_transactions, issue_store_credit=issue_store_credit, auto_order_cancel_reason=auto_order_cancel_reason, expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->refund_channel_partner_order: %s\n" % e)
+order = api_response.order
+
+# Set refund details
+order.refund_reason = 'Damage Product'
+order.summary.tax_refunded = order.summary.tax_refunded
+order.summary.shipping_handling_refunded = order.summary.shipping_handling_total
+
+# Process refunds for all items
+for item in order.items:
+    item.refund_reason = 'DifferentItem'
+    item.quantity_refunded = item.quantity
+    item.total_refunded = item.total_cost_with_discount
+
+# Refund parameters
+reject_after_refund = False
+skip_customer_notifications = True
+auto_order_cancel = False  # Set True to cancel auto orders
+manual_refund = False  # Set True if refund processed outside system
+reverse_affiliate_transactions = True  # Whether affiliate should get credit
+issue_store_credit = False  # True for store credit instead of card refund
+auto_order_cancel_reason = None
+
+# Process the refund
+api_response = channel_partner_api.refund_channel_partner_order(
+    order_id, order, reject_after_refund, skip_customer_notifications,
+    auto_order_cancel, manual_refund, reverse_affiliate_transactions,
+    issue_store_credit, auto_order_cancel_reason, expand=expand
+)
+
+error = api_response.error
+updated_order = api_response.order
+print(error)
+print("\n\n")
+print(updated_order)
 ```
+
 
 
 ### Parameters
@@ -2783,43 +1495,37 @@ Update a ship to preference record for the channel partner.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import channel_partner_api
-from ultracart.model.channel_partner_ship_to_preference_response import ChannelPartnerShipToPreferenceResponse
-from ultracart.model.channel_partner_ship_to_preference import ChannelPartnerShipToPreference
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
+from ultracart.apis import ChannelPartnerApi
+from samples import channel_partner_api_client
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+# Initialize API
+channel_partner_api = ChannelPartnerApi(channel_partner_api_client())
+channel_partner_oid = 12345
+channel_partner_ship_to_preference_oid = 67890
 
-api_instance = GiftCertificateApi(api_client())
+# Get existing preference
+api_response = channel_partner_api.get_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid)
 
-    channel_partner_oid = 1 # int | 
-    channel_partner_ship_to_preference_oid = 1 # int | 
-    ship_to_preference = ChannelPartnerShipToPreference(
-        additional_kit_component_item_ids=[
-            "additional_kit_component_item_ids_example",
-        ],
-        channel_partner_oid=1,
-        channel_partner_ship_to_preference_oid=1,
-        description="description_example",
-        merchant_id="merchant_id_example",
-        return_policy="return_policy_example",
-        ship_to_edi_code="ship_to_edi_code_example",
-    ) # ChannelPartnerShipToPreference | Ship to preference to create
+preference = api_response.ship_to_preference
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a ship to preference record for the channel partner.
-        api_response = api_instance.update_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid, ship_to_preference)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling ChannelPartnerApi->update_channel_partner_ship_to_preference: %s\n" % e)
+# Update fields
+preference.ship_to_edi_code = 'EDI_CODE_HERE'
+preference.return_policy = "This is some return policy text that will be printed on the packing slip."
+preference.additional_kit_component_item_ids = ['ITEM_ID1', 'ITEM_ID2', 'ITEM_ID3']
+preference.description = "This is a merchant friendly description to help me remember what the above setting are."
+
+# Update the preference
+api_response = channel_partner_api.update_channel_partner_ship_to_preference(channel_partner_oid, channel_partner_ship_to_preference_oid, preference)
+
+if api_response.error is not None:
+    print(api_response.error.developer_message)
+    print(api_response.error.user_message)
+    exit()
+
+updated_preference = api_response.ship_to_preference
+print(updated_preference)
 ```
+
 
 
 ### Parameters

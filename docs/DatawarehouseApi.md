@@ -29,28 +29,9 @@ Delete a report on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    report_oid = 1 # int | The report oid to delete.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a report
-        api_instance.delete_report(report_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->delete_report: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -99,123 +80,9 @@ Dry run the report queries
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.report_dry_run_queries_response import ReportDryRunQueriesResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.report_dry_run_queries_request import ReportDryRunQueriesRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    query_request = ReportDryRunQueriesRequest(
-        connection_id="connection_id_example",
-        default_dataset_id="default_dataset_id_example",
-        default_project_id="default_project_id_example",
-        merchant_id="merchant_id_example",
-        queries=[
-            ReportDataSetQuery(
-                comparison_results=True,
-                data_set_query_uuid="data_set_query_uuid_example",
-                data_source=ReportDataSource(
-                    data_source_uuid="data_source_uuid_example",
-                    name="name_example",
-                    partition_date_column="partition_date_column_example",
-                    partition_date_safety_days=1,
-                    partition_date_strategy="partition_date_strategy_example",
-                    schema=[
-                        ReportDataSourceSchema(
-                            config="config_example",
-                            dimension=True,
-                            name="name_example",
-                            type="BIGNUMERIC",
-                        ),
-                    ],
-                    sql="sql_example",
-                ),
-                dimensions=[
-                    ReportPageVisualizationDimension(
-                        _as="_as_example",
-                        cast="cast_example",
-                        column="column_example",
-                        datetime_timezone="datetime_timezone_example",
-                        datetime_trunc="datetime_trunc_example",
-                        extract="extract_example",
-                        function="function_example",
-                    ),
-                ],
-                filter=ReportFilter(
-                    connections=[
-                        ReportFilterConnection(
-                            column="column_example",
-                            data_source_name="data_source_name_example",
-                            data_source_uuid="data_source_uuid_example",
-                        ),
-                    ],
-                    name="name_example",
-                    timezone="timezone_example",
-                    type="date range",
-                    uuid="uuid_example",
-                    values=[
-                        "values_example",
-                    ],
-                ),
-                for_object_id="for_object_id_example",
-                for_object_type="schema",
-                metrics=[
-                    ReportPageVisualizationMetric(
-                        aggregation="sum",
-                        _as="_as_example",
-                        column="column_example",
-                        round=1,
-                    ),
-                ],
-                order_by_columns=[
-                    ReportDataSetQueryOrderByColumn(
-                        ascending=True,
-                        column_name="column_name_example",
-                    ),
-                ],
-                page_size=1,
-                selected_filters=[
-                    ReportFilter(
-                        connections=[
-                            ReportFilterConnection(
-                                column="column_example",
-                                data_source_name="data_source_name_example",
-                                data_source_uuid="data_source_uuid_example",
-                            ),
-                        ],
-                        name="name_example",
-                        timezone="timezone_example",
-                        type="date range",
-                        uuid="uuid_example",
-                        values=[
-                            "values_example",
-                        ],
-                    ),
-                ],
-                skip_cache=True,
-                user_data="user_data_example",
-            ),
-        ],
-        security_level="security_level_example",
-    ) # ReportDryRunQueriesRequest | Dry run request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Dry run the report queries
-        api_response = api_instance.dry_run_report_queries(query_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->dry_run_report_queries: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -264,123 +131,9 @@ Execute the report queries
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.report_execute_queries_request import ReportExecuteQueriesRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    query_request = ReportExecuteQueriesRequest(
-        client_uuid="client_uuid_example",
-        connection_id="connection_id_example",
-        default_dataset_id="default_dataset_id_example",
-        default_project_id="default_project_id_example",
-        merchant_id="merchant_id_example",
-        queries=[
-            ReportDataSetQuery(
-                comparison_results=True,
-                data_set_query_uuid="data_set_query_uuid_example",
-                data_source=ReportDataSource(
-                    data_source_uuid="data_source_uuid_example",
-                    name="name_example",
-                    partition_date_column="partition_date_column_example",
-                    partition_date_safety_days=1,
-                    partition_date_strategy="partition_date_strategy_example",
-                    schema=[
-                        ReportDataSourceSchema(
-                            config="config_example",
-                            dimension=True,
-                            name="name_example",
-                            type="BIGNUMERIC",
-                        ),
-                    ],
-                    sql="sql_example",
-                ),
-                dimensions=[
-                    ReportPageVisualizationDimension(
-                        _as="_as_example",
-                        cast="cast_example",
-                        column="column_example",
-                        datetime_timezone="datetime_timezone_example",
-                        datetime_trunc="datetime_trunc_example",
-                        extract="extract_example",
-                        function="function_example",
-                    ),
-                ],
-                filter=ReportFilter(
-                    connections=[
-                        ReportFilterConnection(
-                            column="column_example",
-                            data_source_name="data_source_name_example",
-                            data_source_uuid="data_source_uuid_example",
-                        ),
-                    ],
-                    name="name_example",
-                    timezone="timezone_example",
-                    type="date range",
-                    uuid="uuid_example",
-                    values=[
-                        "values_example",
-                    ],
-                ),
-                for_object_id="for_object_id_example",
-                for_object_type="schema",
-                metrics=[
-                    ReportPageVisualizationMetric(
-                        aggregation="sum",
-                        _as="_as_example",
-                        column="column_example",
-                        round=1,
-                    ),
-                ],
-                order_by_columns=[
-                    ReportDataSetQueryOrderByColumn(
-                        ascending=True,
-                        column_name="column_name_example",
-                    ),
-                ],
-                page_size=1,
-                selected_filters=[
-                    ReportFilter(
-                        connections=[
-                            ReportFilterConnection(
-                                column="column_example",
-                                data_source_name="data_source_name_example",
-                                data_source_uuid="data_source_uuid_example",
-                            ),
-                        ],
-                        name="name_example",
-                        timezone="timezone_example",
-                        type="date range",
-                        uuid="uuid_example",
-                        values=[
-                            "values_example",
-                        ],
-                    ),
-                ],
-                skip_cache=True,
-                user_data="user_data_example",
-            ),
-        ],
-        request_dts="request_dts_example",
-        security_level="standard",
-    ) # ReportExecuteQueriesRequest | Query request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Execute the report queries
-        api_instance.execute_report_queries(query_request)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->execute_report_queries: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -428,30 +181,9 @@ Retrieve a report
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.report_response import ReportResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    report_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get a report
-        api_response = api_instance.get_report(report_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->get_report: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -500,30 +232,9 @@ Retrieve a report data set
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.report_data_set_response import ReportDataSetResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    dataset_uuid = "dataset_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get a report data set
-        api_response = api_instance.get_report_data_set(dataset_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->get_report_data_set: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -572,31 +283,9 @@ Retrieve a report data set page
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.report_data_set_page_response import ReportDataSetPageResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    dataset_uuid = "dataset_uuid_example" # str | 
-    page_number = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get a report data set page
-        api_response = api_instance.get_report_data_set_page(dataset_uuid, page_number)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->get_report_data_set_page: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -646,29 +335,9 @@ Retrieve a JWT to authorize a report to make a websocket connection.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.report_auth_response import ReportAuthResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get report websocket authorization
-        api_response = api_instance.get_report_websocket_authorization()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->get_report_websocket_authorization: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -713,30 +382,9 @@ Retrieve a list of reports available
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
-```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.reports_response import ReportsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get list of reports available
-        api_response = api_instance.get_reports()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->get_reports: %s\n" % e)
-```
 
 
 ### Parameters
@@ -782,123 +430,9 @@ Create a new report on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.report import Report
-from ultracart.model.report_response import ReportResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    report = Report(
-        active=True,
-        data_sources=[
-            ReportDataSource(
-                data_source_uuid="data_source_uuid_example",
-                name="name_example",
-                partition_date_column="partition_date_column_example",
-                partition_date_safety_days=1,
-                partition_date_strategy="partition_date_strategy_example",
-                schema=[
-                    ReportDataSourceSchema(
-                        config="config_example",
-                        dimension=True,
-                        name="name_example",
-                        type="BIGNUMERIC",
-                    ),
-                ],
-                sql="sql_example",
-            ),
-        ],
-        default_dataset_id="default_dataset_id_example",
-        default_project_id="default_project_id_example",
-        filters=[
-            ReportFilter(
-                connections=[
-                    ReportFilterConnection(
-                        column="column_example",
-                        data_source_name="data_source_name_example",
-                        data_source_uuid="data_source_uuid_example",
-                    ),
-                ],
-                name="name_example",
-                timezone="timezone_example",
-                type="date range",
-                uuid="uuid_example",
-                values=[
-                    "values_example",
-                ],
-            ),
-        ],
-        merchant_id="merchant_id_example",
-        name="name_example",
-        pages=[
-            ReportPage(
-                filters=[
-                    ReportPageFilter(
-                        config="config_example",
-                        name="name_example",
-                        styles="styles_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                height=3.14,
-                settings="settings_example",
-                title="title_example",
-                visualizations=[
-                    ReportPageVisualization(
-                        config="config_example",
-                        data_source_name="data_source_name_example",
-                        data_source_uuid="data_source_uuid_example",
-                        dimensions=[
-                            ReportPageVisualizationDimension(
-                                _as="_as_example",
-                                cast="cast_example",
-                                column="column_example",
-                                datetime_timezone="datetime_timezone_example",
-                                datetime_trunc="datetime_trunc_example",
-                                extract="extract_example",
-                                function="function_example",
-                            ),
-                        ],
-                        metrics=[
-                            ReportPageVisualizationMetric(
-                                aggregation="sum",
-                                _as="_as_example",
-                                column="column_example",
-                                round=1,
-                            ),
-                        ],
-                        name="name_example",
-                        show_comparison=True,
-                        styles="styles_example",
-                        type="score card",
-                        visualization_uuid="visualization_uuid_example",
-                    ),
-                ],
-                width=3.14,
-            ),
-        ],
-        report_oid=1,
-        security_level="standard",
-        settings="settings_example",
-    ) # Report | Report to create
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a report
-        api_response = api_instance.insert_report(report)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->insert_report: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -947,124 +481,9 @@ Update a report on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import datawarehouse_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.report import Report
-from ultracart.model.report_response import ReportResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    report_oid = 1 # int | The report oid to update.
-    report = Report(
-        active=True,
-        data_sources=[
-            ReportDataSource(
-                data_source_uuid="data_source_uuid_example",
-                name="name_example",
-                partition_date_column="partition_date_column_example",
-                partition_date_safety_days=1,
-                partition_date_strategy="partition_date_strategy_example",
-                schema=[
-                    ReportDataSourceSchema(
-                        config="config_example",
-                        dimension=True,
-                        name="name_example",
-                        type="BIGNUMERIC",
-                    ),
-                ],
-                sql="sql_example",
-            ),
-        ],
-        default_dataset_id="default_dataset_id_example",
-        default_project_id="default_project_id_example",
-        filters=[
-            ReportFilter(
-                connections=[
-                    ReportFilterConnection(
-                        column="column_example",
-                        data_source_name="data_source_name_example",
-                        data_source_uuid="data_source_uuid_example",
-                    ),
-                ],
-                name="name_example",
-                timezone="timezone_example",
-                type="date range",
-                uuid="uuid_example",
-                values=[
-                    "values_example",
-                ],
-            ),
-        ],
-        merchant_id="merchant_id_example",
-        name="name_example",
-        pages=[
-            ReportPage(
-                filters=[
-                    ReportPageFilter(
-                        config="config_example",
-                        name="name_example",
-                        styles="styles_example",
-                        uuid="uuid_example",
-                    ),
-                ],
-                height=3.14,
-                settings="settings_example",
-                title="title_example",
-                visualizations=[
-                    ReportPageVisualization(
-                        config="config_example",
-                        data_source_name="data_source_name_example",
-                        data_source_uuid="data_source_uuid_example",
-                        dimensions=[
-                            ReportPageVisualizationDimension(
-                                _as="_as_example",
-                                cast="cast_example",
-                                column="column_example",
-                                datetime_timezone="datetime_timezone_example",
-                                datetime_trunc="datetime_trunc_example",
-                                extract="extract_example",
-                                function="function_example",
-                            ),
-                        ],
-                        metrics=[
-                            ReportPageVisualizationMetric(
-                                aggregation="sum",
-                                _as="_as_example",
-                                column="column_example",
-                                round=1,
-                            ),
-                        ],
-                        name="name_example",
-                        show_comparison=True,
-                        styles="styles_example",
-                        type="score card",
-                        visualization_uuid="visualization_uuid_example",
-                    ),
-                ],
-                width=3.14,
-            ),
-        ],
-        report_oid=1,
-        security_level="standard",
-        settings="settings_example",
-    ) # Report | Report to update
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a report
-        api_response = api_instance.update_report(report_oid, report)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling DatawarehouseApi->update_report: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters

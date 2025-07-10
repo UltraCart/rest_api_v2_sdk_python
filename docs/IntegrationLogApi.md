@@ -24,31 +24,9 @@ Retrieve an integration logs from the account based identifiers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import integration_log_api
-from ultracart.model.integration_log_response import IntegrationLogResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    pk = "pk_example" # str | 
-    sk = "sk_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve an integration log
-        api_response = api_instance.get_integration_log(pk, sk)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling IntegrationLogApi->get_integration_log: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -98,31 +76,9 @@ Retrieve an integration log file from the account based identifiers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import integration_log_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    pk = "pk_example" # str | 
-    sk = "sk_example" # str | 
-    uuid = "uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve an integration log file
-        api_response = api_instance.get_integration_log_file(pk, sk, uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling IntegrationLogApi->get_integration_log_file: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -173,31 +129,9 @@ Retrieve an integration log file from the account based identifiers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import integration_log_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    pk = "pk_example" # str | 
-    sk = "sk_example" # str | 
-    uuid = "uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve an integration log file converted to PDF
-        api_response = api_instance.get_integration_log_file_pdf(pk, sk, uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling IntegrationLogApi->get_integration_log_file_pdf: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -248,34 +182,9 @@ Retrieves a set of integration log summaries from the account based on a query o
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import integration_log_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.integration_log_summary_query_request import IntegrationLogSummaryQueryRequest
-from ultracart.model.integration_log_summary_query_response import IntegrationLogSummaryQueryResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    integration_log_summaries_query = IntegrationLogSummaryQueryRequest(
-        log_dts_begin="log_dts_begin_example",
-        log_dts_end="log_dts_end_example",
-    ) # IntegrationLogSummaryQueryRequest | Integration log summaries query
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve integration log summaries
-        api_response = api_instance.get_integration_log_summaries_query(integration_log_summaries_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling IntegrationLogApi->get_integration_log_summaries_query: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -324,68 +233,9 @@ Retrieves a set of integration logs from the account based on a query object.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import integration_log_api
-from ultracart.model.integration_log_query_request import IntegrationLogQueryRequest
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.integration_log_query_response import IntegrationLogQueryResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    integration_log_query = IntegrationLogQueryRequest(
-        action="action_example",
-        auto_order_ids=[
-            "auto_order_ids_example",
-        ],
-        auto_order_oids=[
-            1,
-        ],
-        direction="direction_example",
-        email="email_example",
-        file_names=[
-            "file_names_example",
-        ],
-        integration_log_oid=1,
-        item_id="item_id_example",
-        item_ipn_oid=1,
-        log_dts_begin="log_dts_begin_example",
-        log_dts_end="log_dts_end_example",
-        log_type="log_type_example",
-        logger_id="logger_id_example",
-        logger_name="logger_name_example",
-        order_ids=[
-            "order_ids_example",
-        ],
-        status="status_example",
-    ) # IntegrationLogQueryRequest | Integration log query
-    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve integration logs
-        api_response = api_instance.get_integration_logs_query(integration_log_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling IntegrationLogApi->get_integration_logs_query: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve integration logs
-        api_response = api_instance.get_integration_logs_query(integration_log_query, limit=limit, offset=offset, sort=sort)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling IntegrationLogApi->get_integration_logs_query: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters

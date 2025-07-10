@@ -30,28 +30,9 @@ Delete a group on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    group_oid = 1 # int | The group_oid to delete.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a group
-        api_instance.delete_group(group_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->delete_group: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -99,28 +80,9 @@ Delete a user on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    user_id = 1 # int | The user_id to delete.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a user
-        api_instance.delete_user(user_id)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->delete_user: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -168,28 +130,9 @@ Retrieves a single group using the specified group id.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    group_oid = 1 # int | The group id to retrieve.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a group
-        api_instance.get_group(group_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->get_group: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -235,29 +178,9 @@ Get groups
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.groups_response import GroupsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get groups
-        api_response = api_instance.get_groups()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->get_groups: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -303,30 +226,9 @@ Retrieves a single user using the specified user id.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.user_response import UserResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    user_id = 1 # int | The user id to retrieve.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a user
-        api_response = api_instance.get_user(user_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->get_user: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -375,30 +277,9 @@ Retrieves logins for a single user using the specified user id.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.user_logins_response import UserLoginsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    user_id = 1 # int | The user id to retrieve.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve a user's login history
-        api_response = api_instance.get_user_logins(user_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->get_user_logins: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -445,29 +326,9 @@ Get users
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.users_response import UsersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get users
-        api_response = api_instance.get_users()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->get_users: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -513,67 +374,9 @@ Insert a group on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.group import Group
-from ultracart.model.group_response import GroupResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    group = Group(
-        group_oid=1,
-        name="name_example",
-        notifications=[
-            Notification(
-                can_filter_by_distribution_centers=True,
-                can_include_affiliate=True,
-                can_include_order=True,
-                can_include_order_plain_text=True,
-                distribution_center_filters=[
-                    "distribution_center_filters_example",
-                ],
-                include_affiliate=True,
-                include_order=True,
-                include_order_plain_text=True,
-                name="name_example",
-                notification_group="notification_group_example",
-                selected=True,
-            ),
-        ],
-        permissions=[
-            Permission(
-                permission_group="permission_group_example",
-                permission_name="permission_name_example",
-                selected=True,
-            ),
-        ],
-        users=[
-            GroupUserMembership(
-                email="email_example",
-                full_name="full_name_example",
-                login="login_example",
-                member=True,
-                user_id=1,
-            ),
-        ],
-    ) # Group | Group to insert
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert a group
-        api_response = api_instance.insert_group(group)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->insert_group: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -621,90 +424,9 @@ Insert a user on the UltraCart account.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
-```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.user import User
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.user_response import UserResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-api_instance = GiftCertificateApi(api_client())
-
-    user = User(
-        api_ip_address_masks=[
-            "api_ip_address_masks_example",
-        ],
-        change_ftp_password_to="change_ftp_password_to_example",
-        change_password_to="change_password_to_example",
-        email="email_example",
-        full_name="full_name_example",
-        groups=[
-            UserGroupMembership(
-                group_oid=1,
-                member=True,
-                name="name_example",
-            ),
-        ],
-        linked_accounts=[
-            LinkedAccount(
-                company="company_example",
-                merchant_id="merchant_id_example",
-                selected=True,
-            ),
-        ],
-        login="login_example",
-        login_histories=[
-            UserLogin(
-                ip_address="ip_address_example",
-                login="login_example",
-                login_dts="login_dts_example",
-                user_agent="user_agent_example",
-            ),
-        ],
-        notifications=[
-            Notification(
-                can_filter_by_distribution_centers=True,
-                can_include_affiliate=True,
-                can_include_order=True,
-                can_include_order_plain_text=True,
-                distribution_center_filters=[
-                    "distribution_center_filters_example",
-                ],
-                include_affiliate=True,
-                include_order=True,
-                include_order_plain_text=True,
-                name="name_example",
-                notification_group="notification_group_example",
-                selected=True,
-            ),
-        ],
-        otp_serial_number="otp_serial_number_example",
-        permissions=[
-            Permission(
-                permission_group="permission_group_example",
-                permission_name="permission_name_example",
-                selected=True,
-            ),
-        ],
-        phone="phone_example",
-        user_id=1,
-    ) # User | User to insert
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert a user
-        api_response = api_instance.insert_user(user)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->insert_user: %s\n" % e)
-```
 
 
 ### Parameters
@@ -753,68 +475,9 @@ Update a group on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.group import Group
-from ultracart.model.group_response import GroupResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    group_oid = 1 # int | The group_oid to update.
-    group = Group(
-        group_oid=1,
-        name="name_example",
-        notifications=[
-            Notification(
-                can_filter_by_distribution_centers=True,
-                can_include_affiliate=True,
-                can_include_order=True,
-                can_include_order_plain_text=True,
-                distribution_center_filters=[
-                    "distribution_center_filters_example",
-                ],
-                include_affiliate=True,
-                include_order=True,
-                include_order_plain_text=True,
-                name="name_example",
-                notification_group="notification_group_example",
-                selected=True,
-            ),
-        ],
-        permissions=[
-            Permission(
-                permission_group="permission_group_example",
-                permission_name="permission_name_example",
-                selected=True,
-            ),
-        ],
-        users=[
-            GroupUserMembership(
-                email="email_example",
-                full_name="full_name_example",
-                login="login_example",
-                member=True,
-                user_id=1,
-            ),
-        ],
-    ) # Group | Group to update
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a group
-        api_response = api_instance.update_group(group_oid, group)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->update_group: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -864,90 +527,9 @@ Update a user on the UltraCart account.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import user_api
-from ultracart.model.user import User
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.user_response import UserResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    user_id = 1 # int | The user_id to update.
-    user = User(
-        api_ip_address_masks=[
-            "api_ip_address_masks_example",
-        ],
-        change_ftp_password_to="change_ftp_password_to_example",
-        change_password_to="change_password_to_example",
-        email="email_example",
-        full_name="full_name_example",
-        groups=[
-            UserGroupMembership(
-                group_oid=1,
-                member=True,
-                name="name_example",
-            ),
-        ],
-        linked_accounts=[
-            LinkedAccount(
-                company="company_example",
-                merchant_id="merchant_id_example",
-                selected=True,
-            ),
-        ],
-        login="login_example",
-        login_histories=[
-            UserLogin(
-                ip_address="ip_address_example",
-                login="login_example",
-                login_dts="login_dts_example",
-                user_agent="user_agent_example",
-            ),
-        ],
-        notifications=[
-            Notification(
-                can_filter_by_distribution_centers=True,
-                can_include_affiliate=True,
-                can_include_order=True,
-                can_include_order_plain_text=True,
-                distribution_center_filters=[
-                    "distribution_center_filters_example",
-                ],
-                include_affiliate=True,
-                include_order=True,
-                include_order_plain_text=True,
-                name="name_example",
-                notification_group="notification_group_example",
-                selected=True,
-            ),
-        ],
-        otp_serial_number="otp_serial_number_example",
-        permissions=[
-            Permission(
-                permission_group="permission_group_example",
-                permission_name="permission_name_example",
-                selected=True,
-            ),
-        ],
-        phone="phone_example",
-        user_id=1,
-    ) # User | User to update
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a user
-        api_response = api_instance.update_user(user_id, user)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling UserApi->update_user: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters

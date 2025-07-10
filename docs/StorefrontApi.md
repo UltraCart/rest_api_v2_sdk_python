@@ -196,53 +196,9 @@ Add to library
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.library_item_response import LibraryItemResponse
-from ultracart.model.add_library_item_request import AddLibraryItemRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    add_library_request = AddLibraryItemRequest(
-        attributes=[
-            LibraryItemAttribute(
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        cjson="cjson_example",
-        content_type="content_type_example",
-        description="description_example",
-        email_name="email_name_example",
-        email_path="email_path_example",
-        screenshots=[
-            LibraryItemScreenshot(
-                default_url=True,
-                screenshot_url="screenshot_url_example",
-            ),
-        ],
-        storefront_oid=1,
-        title="title_example",
-        upsell_offer_oid=1,
-        uuid="uuid_example",
-    ) # AddLibraryItemRequest | New library item request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Add to library
-        api_response = api_instance.add_to_library(add_library_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->add_to_library: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -290,36 +246,9 @@ Apply library item to storefront.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.apply_library_item_request import ApplyLibraryItemRequest
-from ultracart.model.apply_library_item_response import ApplyLibraryItemResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    apply_library_request = ApplyLibraryItemRequest(
-        email_uuid="email_uuid_example",
-        library_item_oid=1,
-        postcard_uuid="postcard_uuid_example",
-        storefront_oid=1,
-    ) # ApplyLibraryItemRequest | New library item
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Apply library item to storefront.
-        api_response = api_instance.apply_to_store_front(apply_library_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->apply_to_store_front: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -367,31 +296,9 @@ Archive email list
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_list_archive_response import EmailListArchiveResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_uuid = "email_list_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Archive email list
-        api_response = api_instance.archive_email_list(storefront_oid, email_list_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->archive_email_list: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -440,31 +347,9 @@ Archive email segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_segment_archive_response import EmailSegmentArchiveResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment_uuid = "email_segment_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Archive email segment
-        api_response = api_instance.archive_email_segment(storefront_oid, email_segment_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->archive_email_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -513,36 +398,9 @@ Back populate email flow
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flow_back_populate_response import EmailFlowBackPopulateResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_flow_back_populate_request import EmailFlowBackPopulateRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow_uuid = "email_flow_uuid_example" # str | 
-    back_populate_request = EmailFlowBackPopulateRequest(
-        order_days_old=1,
-        relative_to_event=True,
-    ) # EmailFlowBackPopulateRequest | The request to back populate
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Back populate email flow
-        api_response = api_instance.back_populate_email_flow(storefront_oid, email_flow_uuid, back_populate_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->back_populate_email_flow: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -592,32 +450,9 @@ Check download of email segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_segment_download_prepare_response import EmailSegmentDownloadPrepareResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment_uuid = "email_segment_uuid_example" # str | 
-    email_segment_rebuild_uuid = "email_segment_rebuild_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Check download of email segment
-        api_response = api_instance.check_download_email_segment(storefront_oid, email_segment_uuid, email_segment_rebuild_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->check_download_email_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -667,41 +502,9 @@ Clone email campaign
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_campaign_response import EmailCampaignResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign_uuid = "email_campaign_uuid_example" # str | 
-    target_storefront_oid = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Clone email campaign
-        api_response = api_instance.clone_email_campaign(storefront_oid, email_campaign_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->clone_email_campaign: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Clone email campaign
-        api_response = api_instance.clone_email_campaign(storefront_oid, email_campaign_uuid, target_storefront_oid=target_storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->clone_email_campaign: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -751,41 +554,9 @@ Clone email flow
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flow_response import EmailFlowResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow_uuid = "email_flow_uuid_example" # str | 
-    target_storefront_oid = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Clone email flow
-        api_response = api_instance.clone_email_flow(storefront_oid, email_flow_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->clone_email_flow: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Clone email flow
-        api_response = api_instance.clone_email_flow(storefront_oid, email_flow_uuid, target_storefront_oid=target_storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->clone_email_flow: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -835,30 +606,9 @@ Create email campaign
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    domain = "domain_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Create email campaign
-        api_response = api_instance.create_email_sending_domain(domain)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->create_email_sending_domain: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -905,62 +655,9 @@ Create email sending domain for various providers
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
-```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_domain import EmailDomain
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-api_instance = GiftCertificateApi(api_client())
-
-    email_domain = EmailDomain(
-        comment="comment_example",
-        dkim=[
-            VerificationRecord(
-                name="name_example",
-                type="type_example",
-                value="value_example",
-            ),
-        ],
-        dkim_status="dkim_status_example",
-        domain="domain_example",
-        esp_domain_uuid="esp_domain_uuid_example",
-        identity_status="identity_status_example",
-        mailgun=Mailgun(
-            api_key="api_key_example",
-        ),
-        merchant_id="merchant_id_example",
-        provider="provider_example",
-        spf=VerificationRecord(
-            name="name_example",
-            type="type_example",
-            value="value_example",
-        ),
-        start_dkim_dts="start_dkim_dts_example",
-        start_identity_dts="start_identity_dts_example",
-        verification=VerificationRecord(
-            name="name_example",
-            type="type_example",
-            value="value_example",
-        ),
-    ) # EmailDomain | EmailDomain
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Create email sending domain for various providers
-        api_response = api_instance.create_email_sending_domain2(email_domain)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->create_email_sending_domain2: %s\n" % e)
-```
 
 
 ### Parameters
@@ -1008,41 +705,9 @@ Create file manager directory
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.file_manager_page_response import FileManagerPageResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    id = 1 # int | 
-    name = "name_example" # str |  (optional)
-    parent_storefront_fs_directory_oid = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Create file manager directory
-        api_response = api_instance.create_fs_directory(id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->create_fs_directory: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Create file manager directory
-        api_response = api_instance.create_fs_directory(id, name=name, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->create_fs_directory: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -1092,43 +757,9 @@ Create Twilio account
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.twilio_response import TwilioResponse
-from ultracart.model.twilio import Twilio
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    twilio = Twilio(
-        account_sid="account_sid_example",
-        api_key_id="api_key_id_example",
-        api_key_name="api_key_name_example",
-        auth_token="auth_token_example",
-        esp_twilio_uuid="esp_twilio_uuid_example",
-        inbound_twiml_app_sid="inbound_twiml_app_sid_example",
-        outbound_twiml_app_sid="outbound_twiml_app_sid_example",
-        phone_numbers=[
-            "phone_numbers_example",
-        ],
-        twilio_workspace_sid="twilio_workspace_sid_example",
-    ) # Twilio | Twilio
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Create Twilio account
-        api_response = api_instance.create_twilio_account(twilio)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->create_twilio_account: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1176,31 +807,9 @@ Delete email campaignFolder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign_folder_uuid = "email_campaign_folder_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete email campaignFolder
-        api_response = api_instance.delete_email_campaign_folder(storefront_oid, email_campaign_folder_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_email_campaign_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1249,29 +858,9 @@ Delete communication sequence stats
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete communication sequence stats
-        api_instance.delete_email_commseq_stat(storefront_oid, commseq_uuid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_email_commseq_stat: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1319,31 +908,9 @@ Delete email email
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_email_uuid = "commseq_email_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete email email
-        api_response = api_instance.delete_email_email(storefront_oid, commseq_email_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_email_email: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1392,31 +959,9 @@ Delete email flowFolder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow_folder_uuid = "email_flow_folder_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete email flowFolder
-        api_response = api_instance.delete_email_flow_folder(storefront_oid, email_flow_folder_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_email_flow_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1465,32 +1010,9 @@ Delete email list customer
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_uuid = "email_list_uuid_example" # str | 
-    email_customer_uuid = "email_customer_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete email list customer
-        api_response = api_instance.delete_email_list_customer(storefront_oid, email_list_uuid, email_customer_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_email_list_customer: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1540,31 +1062,9 @@ Delete email ListSegmentFolder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_segment_folder_uuid = "email_list_segment_folder_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete email ListSegmentFolder
-        api_response = api_instance.delete_email_list_segment_folder(storefront_oid, email_list_segment_folder_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_email_list_segment_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1613,31 +1113,9 @@ Delete email postcard
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete email postcard
-        api_response = api_instance.delete_email_postcard(storefront_oid, commseq_postcard_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_email_postcard: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1686,30 +1164,9 @@ delete email campaign
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    domain = "domain_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # delete email campaign
-        api_response = api_instance.delete_email_sending_domain(domain)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_email_sending_domain: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1757,29 +1214,9 @@ Delete experiment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    storefront_experiment_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete experiment
-        api_instance.delete_experiment(storefront_oid, storefront_experiment_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_experiment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1827,41 +1264,9 @@ Delete file manager directory
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.file_manager_page_response import FileManagerPageResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    id = 1 # int | 
-    parent_storefront_fs_directory_oid = 1 # int |  (optional)
-    storefront_fs_file_oid = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete file manager directory
-        api_response = api_instance.delete_fs_file(id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_fs_file: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Delete file manager directory
-        api_response = api_instance.delete_fs_file(id, parent_storefront_fs_directory_oid=parent_storefront_fs_directory_oid, storefront_fs_file_oid=storefront_fs_file_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_fs_file: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -1912,32 +1317,9 @@ Delete screen recording heatmap
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_heatmap_reset import ScreenRecordingHeatmapReset
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    query = ScreenRecordingHeatmapReset(
-        url="url_example",
-    ) # ScreenRecordingHeatmapReset | Query
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete screen recording heatmap
-        api_instance.delete_heatmap(storefront_oid, query)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_heatmap: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -1985,28 +1367,9 @@ Delete library item
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    library_item_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete library item
-        api_instance.delete_library_item(library_item_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_library_item: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2053,28 +1416,9 @@ Delete all published versions for a library item, including anything in review.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    library_item_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete all published versions for a library item, including anything in review.
-        api_instance.delete_library_item_published_versions(library_item_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_library_item_published_versions: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2121,29 +1465,9 @@ Delete screen recording segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_segment_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete screen recording segment
-        api_instance.delete_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_screen_recording_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2191,30 +1515,9 @@ delete Twilio account
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    esp_twilio_uuid = "esp_twilio_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # delete Twilio account
-        api_response = api_instance.delete_twilio_account(esp_twilio_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->delete_twilio_account: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2262,30 +1565,9 @@ Duplicate library item.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.library_item_response import LibraryItemResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    library_item_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Duplicate library item.
-        api_response = api_instance.duplicate_library_item(library_item_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->duplicate_library_item: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2334,29 +1616,9 @@ Update favorite flag on screen recording
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_uuid = "screen_recording_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update favorite flag on screen recording
-        api_instance.favorite_screen_recording(storefront_oid, screen_recording_uuid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->favorite_screen_recording: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2404,38 +1666,9 @@ Obtain lat/long for an address
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.geocode_response import GeocodeResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.geocode_request import GeocodeRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    geocode_request = GeocodeRequest(
-        address="address_example",
-        city="city_example",
-        country_code="country_code_example",
-        postal_code="postal_code_example",
-        state="state_example",
-    ) # GeocodeRequest | geocode request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Obtain lat/long for an address
-        api_response = api_instance.geocode_address(storefront_oid, geocode_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->geocode_address: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2486,30 +1719,9 @@ Obtain a list of all the countries
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.countries_response import CountriesResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get countries
-        api_response = api_instance.get_countries(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_countries: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2559,30 +1771,9 @@ Fetches a temporary authentication token for the editor
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_editor_token_response import EmailEditorTokenResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Gets editor token
-        api_response = api_instance.get_editor_token(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_editor_token: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2630,30 +1821,9 @@ Get email communication base templates
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_base_template_list_response import EmailBaseTemplateListResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email communication base templates
-        api_response = api_instance.get_email_base_templates(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_base_templates: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2701,31 +1871,9 @@ Get email campaign
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_campaign_response import EmailCampaignResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign_uuid = "email_campaign_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email campaign
-        api_response = api_instance.get_email_campaign(storefront_oid, email_campaign_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_campaign: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2774,31 +1922,9 @@ Get email campaign folder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_campaign_folder_response import EmailCampaignFolderResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign_folder_uuid = "email_campaign_folder_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email campaign folder
-        api_response = api_instance.get_email_campaign_folder(storefront_oid, email_campaign_folder_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_campaign_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2847,30 +1973,9 @@ Get email campaign folders
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_campaign_folders_response import EmailCampaignFoldersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email campaign folders
-        api_response = api_instance.get_email_campaign_folders(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_campaign_folders: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2918,31 +2023,9 @@ Get email campaign screenshots
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screenshots_response import ScreenshotsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign_uuid = "email_campaign_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email campaign screenshots
-        api_response = api_instance.get_email_campaign_screenshots(storefront_oid, email_campaign_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_campaign_screenshots: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -2991,30 +2074,9 @@ Get email campaigns
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_campaigns_response import EmailCampaignsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email campaigns
-        api_response = api_instance.get_email_campaigns(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_campaigns: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3062,31 +2124,9 @@ Get email campaigns with stats
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_campaigns_response import EmailCampaignsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    stat_days = "stat_days_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email campaigns with stats
-        api_response = api_instance.get_email_campaigns_with_stats(storefront_oid, stat_days)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_campaigns_with_stats: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3135,31 +2175,9 @@ Get email commseq
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_response import EmailCommseqResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email commseq
-        api_response = api_instance.get_email_commseq(storefront_oid, commseq_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3208,41 +2226,9 @@ Get email communication sequence emails stats
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_stat_summary_response import EmailStatSummaryResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_stat_summary_request import EmailStatSummaryRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    stats_request = EmailStatSummaryRequest(
-        commseq_email_uuids=[
-            "commseq_email_uuids_example",
-        ],
-        commseq_step_uuids=[
-            "commseq_step_uuids_example",
-        ],
-        days=1,
-    ) # EmailStatSummaryRequest | StatsRequest
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email communication sequence emails stats
-        api_response = api_instance.get_email_commseq_email_stats(storefront_oid, commseq_uuid, stats_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq_email_stats: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3292,38 +2278,9 @@ Get email communication sequence postcard stats
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_stat_postcard_summary_request import EmailStatPostcardSummaryRequest
-from ultracart.model.email_stat_postcard_summary_response import EmailStatPostcardSummaryResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    stats_request = EmailStatPostcardSummaryRequest(
-        commseq_postcard_uuids=[
-            "commseq_postcard_uuids_example",
-        ],
-        days=1,
-    ) # EmailStatPostcardSummaryRequest | StatsRequest
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email communication sequence postcard stats
-        api_response = api_instance.get_email_commseq_postcard_stats(storefront_oid, commseq_uuid, stats_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq_postcard_stats: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3373,31 +2330,9 @@ Get email communication postcard tracking
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_postcard_tracking_response import EmailPostcardTrackingResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email communication postcard tracking
-        api_response = api_instance.get_email_commseq_postcard_tracking(storefront_oid, commseq_postcard_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq_postcard_tracking: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -3446,31 +2381,9 @@ Get email commseq rate limiters
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_rate_limiters_response import EmailRateLimitersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email commseq rate limiters
-        api_response = api_instance.get_email_commseq_rate_limiters(storefront_oid, commseq_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq_rate_limiters: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -3519,38 +2432,9 @@ Get email communication sequence sms stats
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_stat_sms_summary_request import EmailStatSmsSummaryRequest
-from ultracart.model.email_stat_sms_summary_response import EmailStatSmsSummaryResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    stats_request = EmailStatSmsSummaryRequest(
-        commseq_step_uuids=[
-            "commseq_step_uuids_example",
-        ],
-        days=1,
-    ) # EmailStatSmsSummaryRequest | StatsRequest
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email communication sequence sms stats
-        api_response = api_instance.get_email_commseq_sms_stats(storefront_oid, commseq_uuid, stats_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq_sms_stats: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -3600,31 +2484,9 @@ Get communication sequence stats overall
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_stat_response import EmailCommseqStatResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get communication sequence stats overall
-        api_response = api_instance.get_email_commseq_stat_overall(storefront_oid, commseq_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq_stat_overall: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3673,38 +2535,9 @@ Get email communication sequence step stats
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_step_stat_response import EmailStepStatResponse
-from ultracart.model.email_step_stat_request import EmailStepStatRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    stats_request = EmailStepStatRequest(
-        commseq_step_uuids=[
-            "commseq_step_uuids_example",
-        ],
-        days=1,
-    ) # EmailStepStatRequest | StatsRequest
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email communication sequence step stats
-        api_response = api_instance.get_email_commseq_step_stats(storefront_oid, commseq_uuid, stats_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq_step_stats: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3754,37 +2587,9 @@ Get email communication sequence customers waiting at each requested step
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_step_waiting_request import EmailStepWaitingRequest
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_step_waiting_response import EmailStepWaitingResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    waiting_request = EmailStepWaitingRequest(
-        commseq_step_uuids=[
-            "commseq_step_uuids_example",
-        ],
-    ) # EmailStepWaitingRequest | WaitingRequest
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email communication sequence customers waiting at each requested step
-        api_response = api_instance.get_email_commseq_step_waiting(storefront_oid, commseq_uuid, waiting_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq_step_waiting: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3834,31 +2639,9 @@ Get email webhook editor values
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_webhook_editor_values_response import EmailWebhookEditorValuesResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email webhook editor values
-        api_response = api_instance.get_email_commseq_webhook_editor_values(storefront_oid, commseq_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseq_webhook_editor_values: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3907,30 +2690,9 @@ Get email commseqs
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseqs_response import EmailCommseqsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email commseqs
-        api_response = api_instance.get_email_commseqs(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_commseqs: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -3978,31 +2740,9 @@ Get customers editor URL
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_customer_editor_url_response import EmailCustomerEditorUrlResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_customer_uuid = "email_customer_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get customers editor URL
-        api_response = api_instance.get_email_customer_editor_url(storefront_oid, email_customer_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_customer_editor_url: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4051,42 +2791,9 @@ Get email customers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_customers_response import EmailCustomersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    page_number = 1 # int |  (optional)
-    page_size = 1 # int |  (optional)
-    search_email_prefix = "searchEmailPrefix_example" # str |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email customers
-        api_response = api_instance.get_email_customers(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_customers: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get email customers
-        api_response = api_instance.get_email_customers(storefront_oid, page_number=page_number, page_size=page_size, search_email_prefix=search_email_prefix)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_customers: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4137,40 +2844,9 @@ Get email dashboard activity
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_dashboard_activity_response import EmailDashboardActivityResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    last_records = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email dashboard activity
-        api_response = api_instance.get_email_dashboard_activity(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_dashboard_activity: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get email dashboard activity
-        api_response = api_instance.get_email_dashboard_activity(storefront_oid, last_records=last_records)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_dashboard_activity: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4219,40 +2895,9 @@ Get dashboard stats
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_dashboard_stats_response import EmailDashboardStatsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    days = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get dashboard stats
-        api_response = api_instance.get_email_dashboard_stats(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_dashboard_stats: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get dashboard stats
-        api_response = api_instance.get_email_dashboard_stats(storefront_oid, days=days)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_dashboard_stats: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4301,32 +2946,9 @@ Get email dispatch logs
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_step_logs_response import EmailCommseqStepLogsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    commseq_step_uuid = "commseq_step_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email dispatch logs
-        api_response = api_instance.get_email_dispatch_logs(storefront_oid, commseq_uuid, commseq_step_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_dispatch_logs: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4376,31 +2998,9 @@ Get email email
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_email_response import EmailCommseqEmailResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_email_uuid = "commseq_email_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email email
-        api_response = api_instance.get_email_email(storefront_oid, commseq_email_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_email: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4449,43 +3049,9 @@ Get email email clicks
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_clicks_response import EmailClicksResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    commseq_step_uuid = "commseq_step_uuid_example" # str | 
-    commseq_email_uuid = "commseq_email_uuid_example" # str | 
-    days = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email email clicks
-        api_response = api_instance.get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_email_clicks: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get email email clicks
-        api_response = api_instance.get_email_email_clicks(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_email_clicks: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4537,32 +3103,9 @@ Get email order customer editor url
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_customer_editor_url_response import EmailCustomerEditorUrlResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_email_uuid = "commseq_email_uuid_example" # str | 
-    order_id = "order_id_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email order customer editor url
-        api_response = api_instance.get_email_email_customer_editor_url(storefront_oid, commseq_email_uuid, order_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_email_customer_editor_url: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4612,43 +3155,9 @@ Get email email orders
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_orders_response import EmailOrdersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    commseq_step_uuid = "commseq_step_uuid_example" # str | 
-    commseq_email_uuid = "commseq_email_uuid_example" # str | 
-    days = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email email orders
-        api_response = api_instance.get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_email_orders: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get email email orders
-        api_response = api_instance.get_email_email_orders(storefront_oid, commseq_uuid, commseq_step_uuid, commseq_email_uuid, days=days)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_email_orders: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4700,30 +3209,9 @@ Get email emails
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_emails_response import EmailCommseqEmailsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email emails
-        api_response = api_instance.get_email_emails(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_emails: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4771,59 +3259,9 @@ Get email emails multiple
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_emails_request import EmailCommseqEmailsRequest
-from ultracart.model.email_commseq_emails_response import EmailCommseqEmailsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_commseq_emails_request = EmailCommseqEmailsRequest(
-        error=Error(
-            developer_message="developer_message_example",
-            error_code="error_code_example",
-            more_info="more_info_example",
-            object_id="object_id_example",
-            user_message="user_message_example",
-        ),
-        esp_commseq_email_uuids=[
-            "esp_commseq_email_uuids_example",
-        ],
-        metadata=ResponseMetadata(
-            payload_name="payload_name_example",
-            result_set=ResultSet(
-                count=1,
-                limit=1,
-                more=True,
-                next_offset=1,
-                offset=1,
-                total_records=1,
-            ),
-        ),
-        success=True,
-        warning=Warning(
-            more_info="more_info_example",
-            warning_message="warning_message_example",
-        ),
-    ) # EmailCommseqEmailsRequest | Request of email uuids
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email emails multiple
-        api_response = api_instance.get_email_emails_multiple(storefront_oid, email_commseq_emails_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_emails_multiple: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4872,31 +3310,9 @@ Get email flow
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flow_response import EmailFlowResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow_uuid = "email_flow_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email flow
-        api_response = api_instance.get_email_flow(storefront_oid, email_flow_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_flow: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -4945,31 +3361,9 @@ Get email flow folder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flow_folder_response import EmailFlowFolderResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow_folder_uuid = "email_flow_folder_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email flow folder
-        api_response = api_instance.get_email_flow_folder(storefront_oid, email_flow_folder_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_flow_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5018,30 +3412,9 @@ Get email flow folders
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flow_folders_response import EmailFlowFoldersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email flow folders
-        api_response = api_instance.get_email_flow_folders(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_flow_folders: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5089,31 +3462,9 @@ Get email flow screenshots
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screenshots_response import ScreenshotsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow_uuid = "email_flow_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email flow screenshots
-        api_response = api_instance.get_email_flow_screenshots(storefront_oid, email_flow_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_flow_screenshots: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5162,30 +3513,9 @@ Get email flows
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flows_response import EmailFlowsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email flows
-        api_response = api_instance.get_email_flows(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_flows: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5233,29 +3563,9 @@ Get email globalsettings
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_global_settings_response import EmailGlobalSettingsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get email globalsettings
-        api_response = api_instance.get_email_global_settings()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_global_settings: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5300,31 +3610,9 @@ Get email list
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_list_response import EmailListResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_uuid = "email_list_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email list
-        api_response = api_instance.get_email_list(storefront_oid, email_list_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_list: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5373,32 +3661,9 @@ Get email list customer editor url
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_customer_editor_url_response import EmailCustomerEditorUrlResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_uuid = "email_list_uuid_example" # str | 
-    email_customer_uuid = "email_customer_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email list customer editor url
-        api_response = api_instance.get_email_list_customer_editor_url(storefront_oid, email_list_uuid, email_customer_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_list_customer_editor_url: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5448,42 +3713,9 @@ Get email list customers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_list_customers_response import EmailListCustomersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_uuid = "email_list_uuid_example" # str | 
-    page_number = 1 # int |  (optional)
-    page_size = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email list customers
-        api_response = api_instance.get_email_list_customers(storefront_oid, email_list_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_list_customers: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get email list customers
-        api_response = api_instance.get_email_list_customers(storefront_oid, email_list_uuid, page_number=page_number, page_size=page_size)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_list_customers: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5534,31 +3766,9 @@ Get email campaign folder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_list_segment_folder_response import EmailListSegmentFolderResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_segment_folder_uuid = "email_list_segment_folder_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email campaign folder
-        api_response = api_instance.get_email_list_segment_folder(storefront_oid, email_list_segment_folder_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_list_segment_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5607,30 +3817,9 @@ Get email campaign folders
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_list_segment_folders_response import EmailListSegmentFoldersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email campaign folders
-        api_response = api_instance.get_email_list_segment_folders(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_list_segment_folders: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5678,30 +3867,9 @@ Get email lists
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_lists_response import EmailListsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email lists
-        api_response = api_instance.get_email_lists(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_lists: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5749,30 +3917,9 @@ Get email performance
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_performance_response import EmailPerformanceResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email performance
-        api_response = api_instance.get_email_performance(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_performance: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5820,30 +3967,9 @@ Get email plan
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_plan_response import EmailPlanResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email plan
-        api_response = api_instance.get_email_plan(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_plan: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5891,31 +4017,9 @@ Get email postcard
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_postcard_response import EmailCommseqPostcardResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email postcard
-        api_response = api_instance.get_email_postcard(storefront_oid, commseq_postcard_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_postcard: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -5964,30 +4068,9 @@ Get email postcards
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_postcards_response import EmailCommseqPostcardsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email postcards
-        api_response = api_instance.get_email_postcards(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_postcards: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6035,36 +4118,9 @@ Get email postcards multiple
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_postcards_response import EmailCommseqPostcardsResponse
-from ultracart.model.email_commseq_postcards_request import EmailCommseqPostcardsRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_commseq_postcards_request = EmailCommseqPostcardsRequest(
-        esp_commseq_postcard_uuids=[
-            "esp_commseq_postcard_uuids_example",
-        ],
-    ) # EmailCommseqPostcardsRequest | Request of postcard uuids
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email postcards multiple
-        api_response = api_instance.get_email_postcards_multiple(storefront_oid, email_commseq_postcards_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_postcards_multiple: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6113,31 +4169,9 @@ Get email segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_segment_response import EmailSegmentResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment_uuid = "email_segment_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email segment
-        api_response = api_instance.get_email_segment(storefront_oid, email_segment_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6186,32 +4220,9 @@ Get email segment customers editor URL
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_customer_editor_url_response import EmailCustomerEditorUrlResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment_uuid = "email_segment_uuid_example" # str | 
-    email_customer_uuid = "email_customer_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email segment customers editor URL
-        api_response = api_instance.get_email_segment_customer_editor_url(storefront_oid, email_segment_uuid, email_customer_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_segment_customer_editor_url: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6261,42 +4272,9 @@ Get email segment customers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_segment_customers_response import EmailSegmentCustomersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment_uuid = "email_segment_uuid_example" # str | 
-    page_number = 1 # int |  (optional)
-    page_size = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email segment customers
-        api_response = api_instance.get_email_segment_customers(storefront_oid, email_segment_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_segment_customers: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get email segment customers
-        api_response = api_instance.get_email_segment_customers(storefront_oid, email_segment_uuid, page_number=page_number, page_size=page_size)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_segment_customers: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6347,30 +4325,9 @@ Get email segments
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_segments_response import EmailSegmentsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email segments
-        api_response = api_instance.get_email_segments(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_segments: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6418,30 +4375,9 @@ Get email sending domain
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    domain = "domain_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email sending domain
-        api_response = api_instance.get_email_sending_domain(domain)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_sending_domain: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6489,30 +4425,9 @@ Get email sending domain status
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    domain = "domain_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email sending domain status
-        api_response = api_instance.get_email_sending_domain_status(domain)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_sending_domain_status: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6560,29 +4475,9 @@ Get email sending domains
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_sending_domains_response import EmailSendingDomainsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get email sending domains
-        api_response = api_instance.get_email_sending_domains()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_sending_domains: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6627,30 +4522,9 @@ Get email settings
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_settings_response import EmailSettingsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email settings
-        api_response = api_instance.get_email_settings(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_settings: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6698,42 +4572,9 @@ Get email sms orders
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_sms_orders_response import EmailSmsOrdersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    commseq_step_uuid = "commseq_step_uuid_example" # str | 
-    days = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email sms orders
-        api_response = api_instance.get_email_sms_orders(storefront_oid, commseq_uuid, commseq_step_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_sms_orders: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get email sms orders
-        api_response = api_instance.get_email_sms_orders(storefront_oid, commseq_uuid, commseq_step_uuid, days=days)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_sms_orders: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -6784,31 +4625,9 @@ Get email template
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_template import EmailTemplate
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_template_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email template
-        api_response = api_instance.get_email_template(storefront_oid, email_template_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_template: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6857,40 +4676,9 @@ Get email templates
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_templates_response import EmailTemplatesResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    trigger_type = "trigger_type_example" # str |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get email templates
-        api_response = api_instance.get_email_templates(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_templates: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get email templates
-        api_response = api_instance.get_email_templates(storefront_oid, trigger_type=trigger_type)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_templates: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -6939,30 +4727,9 @@ Get a list of third party email providers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_third_party_providers_response import EmailThirdPartyProvidersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get a list of third party email providers
-        api_response = api_instance.get_email_third_party_providers(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_email_third_party_providers: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7010,30 +4777,9 @@ Get experiments
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.experiments_response import ExperimentsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get experiments
-        api_response = api_instance.get_experiments(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_experiments: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7081,42 +4827,9 @@ Get file manager directory
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.file_manager_page_response import FileManagerPageResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    id = 1 # int | 
-    path = "path_example" # str |  (optional)
-    storefront_fs_directory_oid = 1 # int |  (optional)
-    storefront_theme_oid = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get file manager directory
-        api_response = api_instance.get_fs_directory(id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_fs_directory: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get file manager directory
-        api_response = api_instance.get_fs_directory(id, path=path, storefront_fs_directory_oid=storefront_fs_directory_oid, storefront_theme_oid=storefront_theme_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_fs_directory: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -7168,41 +4881,9 @@ Get screen recording heatmap
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_heatmap_response import ScreenRecordingHeatmapResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.screen_recording_heatmap_request import ScreenRecordingHeatmapRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    query = ScreenRecordingHeatmapRequest(
-        range=ScreenRecordingFilterRangeDate(
-            end="end_example",
-            start="start_example",
-        ),
-        screen_sizes=[
-            "screen_sizes_example",
-        ],
-        url="url_example",
-    ) # ScreenRecordingHeatmapRequest | Query
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get screen recording heatmap
-        api_response = api_instance.get_heatmap(storefront_oid, query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_heatmap: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7252,46 +4933,9 @@ Get screen recording heatmap index
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.screen_recording_heatmap_index_response import ScreenRecordingHeatmapIndexResponse
-from ultracart.model.screen_recording_heatmap_index_request import ScreenRecordingHeatmapIndexRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    query = ScreenRecordingHeatmapIndexRequest(
-        url_contains="url_contains_example",
-    ) # ScreenRecordingHeatmapIndexRequest | Query
-    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get screen recording heatmap index
-        api_response = api_instance.get_heatmap_index(storefront_oid, query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_heatmap_index: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get screen recording heatmap index
-        api_response = api_instance.get_heatmap_index(storefront_oid, query, limit=limit, offset=offset, sort=sort)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_heatmap_index: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7345,40 +4989,9 @@ Obtain a list of property names for a given property type
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_histogram_property_names_response import EmailHistogramPropertyNamesResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    property_type = "property_type_example" # str |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get histogram property names
-        api_response = api_instance.get_histogram_property_names(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_histogram_property_names: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get histogram property names
-        api_response = api_instance.get_histogram_property_names(storefront_oid, property_type=property_type)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_histogram_property_names: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7429,42 +5042,9 @@ Obtain a list of property values for a given property name and type
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_histogram_property_values_response import EmailHistogramPropertyValuesResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    property_name = "property_name_example" # str |  (optional)
-    property_type = "property_type_example" # str |  (optional)
-    limit = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get histogram property values
-        api_response = api_instance.get_histogram_property_values(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_histogram_property_values: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get histogram property values
-        api_response = api_instance.get_histogram_property_values(storefront_oid, property_name=property_name, property_type=property_type, limit=limit)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_histogram_property_values: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7515,29 +5095,9 @@ Get library values used to populate drop down boxes for filtering.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.library_filter_values_response import LibraryFilterValuesResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get library values used to populate drop down boxes for filtering.
-        api_response = api_instance.get_library_filter_values()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_library_filter_values: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7582,30 +5142,9 @@ Get library item.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.library_item_response import LibraryItemResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    library_item_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get library item.
-        api_response = api_instance.get_library_item(library_item_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_library_item: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7653,30 +5192,9 @@ Get all published versions for a library item.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.library_items_response import LibraryItemsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    library_item_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get all published versions for a library item.
-        api_response = api_instance.get_library_item_published_versions(library_item_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_library_item_published_versions: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7725,31 +5243,9 @@ Get screen recording
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_response import ScreenRecordingResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_uuid = "screen_recording_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get screen recording
-        api_response = api_instance.get_screen_recording(storefront_oid, screen_recording_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recording: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7799,32 +5295,9 @@ Get screen recording page view data
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_page_view_data_response import ScreenRecordingPageViewDataResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_uuid = "screen_recording_uuid_example" # str | 
-    screen_recording_page_view_uuid = "screen_recording_page_view_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get screen recording page view data
-        api_response = api_instance.get_screen_recording_page_view_data(storefront_oid, screen_recording_uuid, screen_recording_page_view_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recording_page_view_data: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7874,31 +5347,9 @@ Get screen recording segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.screen_recording_segment_response import ScreenRecordingSegmentResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_segment_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get screen recording segment
-        api_response = api_instance.get_screen_recording_segment(storefront_oid, screen_recording_segment_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recording_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -7947,30 +5398,9 @@ Get screen recording segments
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_segments_response import ScreenRecordingSegmentsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get screen recording segments
-        api_response = api_instance.get_screen_recording_segments(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recording_segments: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -8018,30 +5448,9 @@ Get screen recording settings
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_settings_response import ScreenRecordingSettingsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get screen recording settings
-        api_response = api_instance.get_screen_recording_settings(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recording_settings: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -8090,30 +5499,9 @@ Get tags used by screen recording
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_tags_response import ScreenRecordingTagsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get tags used by screen recording
-        api_response = api_instance.get_screen_recording_tags(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recording_tags: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -8162,287 +5550,9 @@ Query screen recordings
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_query_response import ScreenRecordingQueryResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.screen_recording_query_request import ScreenRecordingQueryRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    query = ScreenRecordingQueryRequest(
-        filter=ScreenRecordingFilter(
-            affiliate_email="affiliate_email_example",
-            affiliate_id=1,
-            communications_campaign_name="communications_campaign_name_example",
-            communications_campaign_name_filter=True,
-            communications_email_subject="communications_email_subject_example",
-            communications_email_subject_filter=True,
-            communications_flow_name="communications_flow_name_example",
-            communications_flow_name_filter=True,
-            email=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            email_domain="email_domain_example",
-            email_domain_filter=True,
-            email_identified=True,
-            end_timestamp=ScreenRecordingFilterRangeDate(
-                end="end_example",
-                start="start_example",
-            ),
-            esp_customer_uuid="esp_customer_uuid_example",
-            favorite=True,
-            geolocation=ScreenRecordingFilterGeoDistance(
-                distance=1,
-                distance_uom="distance_uom_example",
-                from_address="from_address_example",
-                lat=3.14,
-                lon=3.14,
-            ),
-            geolocation_country=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            geolocation_country_filter=True,
-            geolocation_state=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            geolocation_state_filter=True,
-            language_iso_code=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            language_iso_code_filter=True,
-            last_x_days=1,
-            max_filter_values=1,
-            order_id=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            page_view_count=ScreenRecordingFilterRangeInteger(
-                eq=1,
-                gt=1,
-                gte=1,
-                lt=1,
-                lte=1,
-            ),
-            page_views=[
-                ScreenRecordingFilterPageView(
-                    domain=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    domain_filter=True,
-                    event_name_filter=True,
-                    event_param_name_filter=True,
-                    event_param_value_filter=True,
-                    events=[
-                        ScreenRecordingFilterPageViewEvent(
-                            event_name="event_name_example",
-                            event_params=[
-                                ScreenRecordingFilterPageViewEventParam(
-                                    name="name_example",
-                                    value_bd=ScreenRecordingFilterRangeBigDecimal(
-                                        eq=3.14,
-                                        gt=3.14,
-                                        gte=3.14,
-                                        lt=3.14,
-                                        lte=3.14,
-                                    ),
-                                    value_bool=True,
-                                    value_num=ScreenRecordingFilterRangeInteger(
-                                        eq=1,
-                                        gt=1,
-                                        gte=1,
-                                        lt=1,
-                                        lte=1,
-                                    ),
-                                    value_text=ScreenRecordingFilterStringSearch(
-                                        does_not_exist=True,
-                                        exists=True,
-                                        _is="_is_example",
-                                        is_not="is_not_example",
-                                        starts_with="starts_with_example",
-                                    ),
-                                ),
-                            ],
-                        ),
-                    ],
-                    param_name_filter=True,
-                    param_value_filter=True,
-                    params=[
-                        ScreenRecordingFilterPageViewParam(
-                            name="name_example",
-                            value=ScreenRecordingFilterStringSearch(
-                                does_not_exist=True,
-                                exists=True,
-                                _is="_is_example",
-                                is_not="is_not_example",
-                                starts_with="starts_with_example",
-                            ),
-                        ),
-                    ],
-                    referrer=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    referrer_params=[
-                        ScreenRecordingFilterPageViewReferrerParam(
-                            name="name_example",
-                            value=ScreenRecordingFilterStringSearch(
-                                does_not_exist=True,
-                                exists=True,
-                                _is="_is_example",
-                                is_not="is_not_example",
-                                starts_with="starts_with_example",
-                            ),
-                        ),
-                    ],
-                    referrer_raw=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    time_on_page=ScreenRecordingFilterRangeInteger(
-                        eq=1,
-                        gt=1,
-                        gte=1,
-                        lt=1,
-                        lte=1,
-                    ),
-                    time_on_page_max_filter=True,
-                    time_on_page_min_filter=True,
-                    url=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    url_filter=True,
-                ),
-            ],
-            placed_order=True,
-            preferred_language=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            preferred_language_filter=True,
-            referrer_domain="referrer_domain_example",
-            referrer_domain_filter=True,
-            screen_recording_uuids=[
-                "screen_recording_uuids_example",
-            ],
-            screen_sizes=[
-                "screen_sizes_example",
-            ],
-            skip_filter_values=True,
-            skip_histogram=True,
-            skip_hits=True,
-            start_timestamp=ScreenRecordingFilterRangeDate(
-                end="end_example",
-                start="start_example",
-            ),
-            tags=[
-                "tags_example",
-            ],
-            time_on_site=ScreenRecordingFilterRangeInteger(
-                eq=1,
-                gt=1,
-                gte=1,
-                lt=1,
-                lte=1,
-            ),
-            time_on_site_max_filter=True,
-            time_on_site_min_filter=True,
-            url_filter=True,
-            user_agent_device_name="user_agent_device_name_example",
-            user_agent_device_name_filter=True,
-            user_agent_device_os_name_filter=True,
-            user_agent_device_os_version_filter=True,
-            user_agent_name="user_agent_name_example",
-            user_agent_name_filter=True,
-            user_agent_original=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            user_agent_original_filter=True,
-            user_agent_os_name="user_agent_os_name_example",
-            user_agent_os_version="user_agent_os_version_example",
-            user_ip=ScreenRecordingFilterIpSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-            ),
-            utm_campaign="utm_campaign_example",
-            utm_campaign_filter=True,
-            utm_source="utm_source_example",
-            utm_source_filter=True,
-            visitor_number=1,
-            watched=True,
-        ),
-    ) # ScreenRecordingQueryRequest | Query
-    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Query screen recordings
-        api_response = api_instance.get_screen_recordings_by_query(storefront_oid, query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recordings_by_query: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Query screen recordings
-        api_response = api_instance.get_screen_recordings_by_query(storefront_oid, query, limit=limit, offset=offset, sort=sort)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recordings_by_query: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -8495,43 +5605,9 @@ Get screen recordings by segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_query_response import ScreenRecordingQueryResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_segment_oid = 1 # int | 
-    limit = 100 # int | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional) if omitted the server will use the default value of 100
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get screen recordings by segment
-        api_response = api_instance.get_screen_recordings_by_segment(storefront_oid, screen_recording_segment_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recordings_by_segment: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get screen recordings by segment
-        api_response = api_instance.get_screen_recordings_by_segment(storefront_oid, screen_recording_segment_oid, limit=limit, offset=offset, sort=sort)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_screen_recordings_by_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -8584,31 +5660,9 @@ Retrieves the pricing tiers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.pricing_tiers_response import PricingTiersResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    expand = "_expand_example" # str | The object expansion to perform on the result.  See documentation for examples (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve pricing tiers
-        api_response = api_instance.get_store_front_pricing_tiers(expand=expand)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_store_front_pricing_tiers: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -8656,29 +5710,9 @@ Get storefronts (internal use only for security reasons)
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.store_fronts_response import StoreFrontsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get storefronts (internal use only for security reasons)
-        api_response = api_instance.get_store_fronts()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_store_fronts: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -8723,37 +5757,9 @@ Get thumbnail parameters
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.thumbnail_parameters_response import ThumbnailParametersResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.thumbnail_parameters_request import ThumbnailParametersRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    thumbnail_parameters = ThumbnailParametersRequest(
-        height=1,
-        png_format=True,
-        square_thumbnail=True,
-        webp=True,
-        width=1,
-    ) # ThumbnailParametersRequest | Thumbnail Parameters
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get thumbnail parameters
-        api_response = api_instance.get_thumbnail_parameters(thumbnail_parameters)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_thumbnail_parameters: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -8803,31 +5809,9 @@ Fetch a transactional email
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.transaction_email_response import TransactionEmailResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_id = "email_id_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Gets a transaction email object
-        api_response = api_instance.get_transaction_email(storefront_oid, email_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_transaction_email: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -8878,30 +5862,9 @@ Obtain a list of all transactional emails and return back just their names
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.transaction_email_list_response import TransactionEmailListResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Gets a list of transaction email names
-        api_response = api_instance.get_transaction_email_list(storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_transaction_email_list: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -8949,31 +5912,9 @@ Get transactional email screenshots
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screenshots_response import ScreenshotsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_id = "email_id_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get transactional email screenshots
-        api_response = api_instance.get_transaction_email_screenshots(storefront_oid, email_id)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_transaction_email_screenshots: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9022,30 +5963,9 @@ Get Twilio account
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.twilio_response import TwilioResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    esp_twilio_uuid = "esp_twilio_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get Twilio account
-        api_response = api_instance.get_twilio_account(esp_twilio_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_twilio_account: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9093,29 +6013,9 @@ Get all Twilio accounts
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.twilios_response import TwiliosResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-
-    # example, this endpoint has no required or optional parameters
-    try:
-        # Get all Twilio accounts
-        api_response = api_instance.get_twilio_accounts()
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_twilio_accounts: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9160,31 +6060,9 @@ Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.file_manager_upload_url_response import FileManagerUploadUrlResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    id = 1 # int | 
-    extension = "extension_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
-        api_response = api_instance.get_upload_fs_file_url(id, extension)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->get_upload_fs_file_url: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -9233,34 +6111,9 @@ Globally unsubscribe a customer
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_global_unsubscribe_request import EmailGlobalUnsubscribeRequest
-from ultracart.model.email_global_unsubscribe_response import EmailGlobalUnsubscribeResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    unsubscribe = EmailGlobalUnsubscribeRequest(
-        email="email_example",
-    ) # EmailGlobalUnsubscribeRequest | Unsubscribe
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Globally unsubscribe a customer
-        api_response = api_instance.global_unsubscribe(storefront_oid, unsubscribe)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->global_unsubscribe: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9309,56 +6162,9 @@ Import a third party provider list
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_third_party_list_import_request import EmailThirdPartyListImportRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    import_request = EmailThirdPartyListImportRequest(
-        providers=[
-            EmailThirdPartyProvider(
-                connect_url="connect_url_example",
-                list_count=1,
-                lists=[
-                    EmailThirdPartyList(
-                        id="id_example",
-                        name="name_example",
-                    ),
-                ],
-                logo_url="logo_url_example",
-                name="name_example",
-                supports_add_tags=True,
-                supports_list_subscribe=True,
-                supports_list_unsubscribe=True,
-                supports_remove_tags=True,
-                tag_count=1,
-                tags=[
-                    EmailThirdPartyTag(
-                        id="id_example",
-                        name="name_example",
-                    ),
-                ],
-            ),
-        ],
-    ) # EmailThirdPartyListImportRequest | lists to import
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Import a third party provider list
-        api_instance.import_email_third_party_provider_list(storefront_oid, import_request)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->import_email_third_party_provider_list: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9406,66 +6212,9 @@ Insert email campaign
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_campaign_response import EmailCampaignResponse
-from ultracart.model.email_campaign import EmailCampaign
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign = EmailCampaign(
-        click_rate_formatted="click_rate_formatted_example",
-        created_dts="created_dts_example",
-        deleted=True,
-        email_campaign_uuid="email_campaign_uuid_example",
-        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
-        end_once_customer_purchases=True,
-        end_once_customer_purchases_anywhere=True,
-        esp_campaign_folder_uuid="esp_campaign_folder_uuid_example",
-        esp_domain_user="esp_domain_user_example",
-        esp_domain_uuid="esp_domain_uuid_example",
-        esp_friendly_name="esp_friendly_name_example",
-        library_item_oid=1,
-        memberships=[
-            EmailListSegmentMembership(
-                email_list_uuid="email_list_uuid_example",
-                email_segment_uuid="email_segment_uuid_example",
-                exclude=True,
-                name="name_example",
-            ),
-        ],
-        merchant_id="merchant_id_example",
-        name="name_example",
-        open_rate_formatted="open_rate_formatted_example",
-        prevent_sending_due_to_spam=True,
-        revenue_formatted="revenue_formatted_example",
-        revenue_per_customer_formatted="revenue_per_customer_formatted_example",
-        scheduled_dts="scheduled_dts_example",
-        screenshot_large_full_url="screenshot_large_full_url_example",
-        sms_esp_twilio_uuid="sms_esp_twilio_uuid_example",
-        sms_phone_number="sms_phone_number_example",
-        status="status_example",
-        status_dts="status_dts_example",
-        storefront_oid=1,
-    ) # EmailCampaign | Email campaign
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email campaign
-        api_response = api_instance.insert_email_campaign(storefront_oid, email_campaign)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_campaign: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9514,38 +6263,9 @@ Insert email campaign folder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_campaign_folder import EmailCampaignFolder
-from ultracart.model.email_campaign_folder_response import EmailCampaignFolderResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign_folder = EmailCampaignFolder(
-        esp_campaign_folder_uuid="esp_campaign_folder_uuid_example",
-        merchant_id="merchant_id_example",
-        name="name_example",
-        storefront_oid=1,
-        system_generated=True,
-    ) # EmailCampaignFolder | Email campaign folder
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email campaign folder
-        api_response = api_instance.insert_email_campaign_folder(storefront_oid, email_campaign_folder)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_campaign_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9594,54 +6314,9 @@ Insert email commseq
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq import EmailCommseq
-from ultracart.model.email_commseq_response import EmailCommseqResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_commseq = EmailCommseq(
-        email_communication_sequence_steps=[
-            EmailCommseqStep(
-                alt_child_email_communication_sequence_steps=[
-                    EmailCommseqStep(),
-                ],
-                child_email_communication_sequence_steps=[
-                    EmailCommseqStep(),
-                ],
-                email_communication_sequence_step_uuid="email_communication_sequence_step_uuid_example",
-                email_pending_review=True,
-                email_rejected=True,
-                email_requires_review=True,
-                filter_profile_equation_json="filter_profile_equation_json_example",
-                merchant_notes="merchant_notes_example",
-                step_config_json="step_config_json_example",
-                type="begin",
-            ),
-        ],
-        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
-        merchant_id="merchant_id_example",
-        storefront_oid=1,
-    ) # EmailCommseq | Email commseq
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email commseq
-        api_response = api_instance.insert_email_commseq(storefront_oid, email_commseq)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_commseq: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9690,67 +6365,9 @@ Insert email email
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_email_response import EmailCommseqEmailResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_email import EmailCommseqEmail
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_commseq_email = EmailCommseqEmail(
-        deleted=True,
-        edited_by_user="edited_by_user_example",
-        email_communication_sequence_email_uuid="email_communication_sequence_email_uuid_example",
-        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
-        email_container_cjson="email_container_cjson_example",
-        email_container_cjson_last_modified_dts="email_container_cjson_last_modified_dts_example",
-        email_template_vm_path="email_template_vm_path_example",
-        external_generation=True,
-        external_generation_authentication="external_generation_authentication_example",
-        external_generation_basic_password="external_generation_basic_password_example",
-        external_generation_basic_username="external_generation_basic_username_example",
-        external_generation_header_name="external_generation_header_name_example",
-        external_generation_header_value="external_generation_header_value_example",
-        external_generation_id="external_generation_id_example",
-        external_generation_url="external_generation_url_example",
-        filter_profile_equation_json="filter_profile_equation_json_example",
-        individually_render=True,
-        library_item_oid=1,
-        magic_link=True,
-        merchant_id="merchant_id_example",
-        pending_review=True,
-        preview_text="preview_text_example",
-        rejected=True,
-        requires_review=True,
-        screenshot_large_full_url="screenshot_large_full_url_example",
-        screenshot_large_viewport_url="screenshot_large_viewport_url_example",
-        screenshot_small_full_url="screenshot_small_full_url_example",
-        screenshot_small_viewport_url="screenshot_small_viewport_url_example",
-        smart_sending=True,
-        storefront_oid=1,
-        subject="subject_example",
-        suspended_for_spam=True,
-        transactional_email=True,
-        version=1,
-    ) # EmailCommseqEmail | Email email
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email email
-        api_response = api_instance.insert_email_email(storefront_oid, email_commseq_email)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_email: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9799,64 +6416,9 @@ Insert email flow
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flow import EmailFlow
-from ultracart.model.email_flow_response import EmailFlowResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow = EmailFlow(
-        allow_multiple_concurrent_enrollments=True,
-        back_populating=True,
-        click_rate_formatted="click_rate_formatted_example",
-        created_dts="created_dts_example",
-        deleted=True,
-        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
-        email_flow_uuid="email_flow_uuid_example",
-        end_once_customer_purchases=True,
-        end_once_customer_purchases_anywhere=True,
-        enrolled_customers=1,
-        esp_domain_user="esp_domain_user_example",
-        esp_domain_uuid="esp_domain_uuid_example",
-        esp_flow_folder_uuid="esp_flow_folder_uuid_example",
-        esp_friendly_name="esp_friendly_name_example",
-        filter_profile_equation_json="filter_profile_equation_json_example",
-        library_item_oid=1,
-        maximum_enrolled=True,
-        merchant_id="merchant_id_example",
-        name="name_example",
-        open_rate_formatted="open_rate_formatted_example",
-        revenue_formatted="revenue_formatted_example",
-        revenue_per_customer_formatted="revenue_per_customer_formatted_example",
-        screenshot_large_full_url="screenshot_large_full_url_example",
-        sms_esp_twilio_uuid="sms_esp_twilio_uuid_example",
-        sms_phone_number="sms_phone_number_example",
-        status="status_example",
-        status_dts="status_dts_example",
-        storefront_oid=1,
-        trigger_parameter="trigger_parameter_example",
-        trigger_parameter_name="trigger_parameter_name_example",
-        trigger_type="trigger_type_example",
-    ) # EmailFlow | Email flow
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email flow
-        api_response = api_instance.insert_email_flow(storefront_oid, email_flow)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_flow: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9905,38 +6467,9 @@ Insert email flow folder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flow_folder_response import EmailFlowFolderResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_flow_folder import EmailFlowFolder
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow_folder = EmailFlowFolder(
-        esp_flow_folder_uuid="esp_flow_folder_uuid_example",
-        merchant_id="merchant_id_example",
-        name="name_example",
-        storefront_oid=1,
-        system_generated=True,
-    ) # EmailFlowFolder | Email flow folder
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email flow folder
-        api_response = api_instance.insert_email_flow_folder(storefront_oid, email_flow_folder)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_flow_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -9985,51 +6518,9 @@ Insert email list
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_list_response import EmailListResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_list import EmailList
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list = EmailList(
-        allow_csv_download=True,
-        created_dts="created_dts_example",
-        deleted=True,
-        email_list_uuid="email_list_uuid_example",
-        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
-        member_count=1,
-        merchant_id="merchant_id_example",
-        name="name_example",
-        public_description="public_description_example",
-        public_list=True,
-        storefront_oid=1,
-        used_by=[
-            EmailListSegmentUsedBy(
-                email_campaign_uuid="email_campaign_uuid_example",
-                email_flow_uuid="email_flow_uuid_example",
-                name="name_example",
-            ),
-        ],
-    ) # EmailList | Email list
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email list
-        api_response = api_instance.insert_email_list(storefront_oid, email_list)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_list: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -10078,38 +6569,9 @@ Insert email campaign folder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_list_segment_folder_response import EmailListSegmentFolderResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_list_segment_folder import EmailListSegmentFolder
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_segment_folder = EmailListSegmentFolder(
-        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
-        merchant_id="merchant_id_example",
-        name="name_example",
-        storefront_oid=1,
-        system_generated=True,
-    ) # EmailListSegmentFolder | Email campaign folder
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email campaign folder
-        api_response = api_instance.insert_email_list_segment_folder(storefront_oid, email_list_segment_folder)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_list_segment_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -10158,46 +6620,9 @@ Insert email postcard
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_postcard import EmailCommseqPostcard
-from ultracart.model.email_commseq_postcard_response import EmailCommseqPostcardResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_commseq_postcard = EmailCommseqPostcard(
-        deleted=True,
-        edited_by_user="edited_by_user_example",
-        email_communication_sequence_postcard_uuid="email_communication_sequence_postcard_uuid_example",
-        filter_profile_equation_json="filter_profile_equation_json_example",
-        merchant_id="merchant_id_example",
-        postcard_back_container_cjson="postcard_back_container_cjson_example",
-        postcard_back_container_uuid="postcard_back_container_uuid_example",
-        postcard_container_cjson_last_modified_dts="postcard_container_cjson_last_modified_dts_example",
-        postcard_front_container_cjson="postcard_front_container_cjson_example",
-        postcard_front_container_uuid="postcard_front_container_uuid_example",
-        screenshot_back_url="screenshot_back_url_example",
-        screenshot_front_url="screenshot_front_url_example",
-        storefront_oid=1,
-    ) # EmailCommseqPostcard | Email postcard
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email postcard
-        api_response = api_instance.insert_email_postcard(storefront_oid, email_commseq_postcard)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_postcard: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -10246,69 +6671,9 @@ Insert email segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_segment import EmailSegment
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_segment_response import EmailSegmentResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment = EmailSegment(
-        allow_csv_download=True,
-        allow_facebook_audiences=True,
-        created_dts="created_dts_example",
-        deleted=True,
-        email_segment_uuid="email_segment_uuid_example",
-        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
-        facebook_custom_audience=True,
-        filter_profile_equation_json="filter_profile_equation_json_example",
-        member_count=1,
-        merchant_id="merchant_id_example",
-        name="name_example",
-        rank_json="rank_json_example",
-        rebuild_percentage=3.14,
-        rebuild_required=True,
-        storefront_oid=1,
-        thirdparty_join_add_tags=[
-            "thirdparty_join_add_tags_example",
-        ],
-        thirdparty_join_remove_tags=[
-            "thirdparty_join_remove_tags_example",
-        ],
-        thirdparty_leave_add_tags=[
-            "thirdparty_leave_add_tags_example",
-        ],
-        thirdparty_leave_remove_tags=[
-            "thirdparty_leave_remove_tags_example",
-        ],
-        thirdparty_list_id="thirdparty_list_id_example",
-        thirdparty_provider_name="thirdparty_provider_name_example",
-        used_by=[
-            EmailListSegmentUsedBy(
-                email_campaign_uuid="email_campaign_uuid_example",
-                email_flow_uuid="email_flow_uuid_example",
-                name="name_example",
-            ),
-        ],
-    ) # EmailSegment | Email segment
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert email segment
-        api_response = api_instance.insert_email_segment(storefront_oid, email_segment)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_email_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -10357,286 +6722,9 @@ Insert screen recording segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_segment import ScreenRecordingSegment
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.screen_recording_segment_response import ScreenRecordingSegmentResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    segment = ScreenRecordingSegment(
-        create_dts="create_dts_example",
-        description="description_example",
-        filter=ScreenRecordingFilter(
-            affiliate_email="affiliate_email_example",
-            affiliate_id=1,
-            communications_campaign_name="communications_campaign_name_example",
-            communications_campaign_name_filter=True,
-            communications_email_subject="communications_email_subject_example",
-            communications_email_subject_filter=True,
-            communications_flow_name="communications_flow_name_example",
-            communications_flow_name_filter=True,
-            email=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            email_domain="email_domain_example",
-            email_domain_filter=True,
-            email_identified=True,
-            end_timestamp=ScreenRecordingFilterRangeDate(
-                end="end_example",
-                start="start_example",
-            ),
-            esp_customer_uuid="esp_customer_uuid_example",
-            favorite=True,
-            geolocation=ScreenRecordingFilterGeoDistance(
-                distance=1,
-                distance_uom="distance_uom_example",
-                from_address="from_address_example",
-                lat=3.14,
-                lon=3.14,
-            ),
-            geolocation_country=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            geolocation_country_filter=True,
-            geolocation_state=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            geolocation_state_filter=True,
-            language_iso_code=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            language_iso_code_filter=True,
-            last_x_days=1,
-            max_filter_values=1,
-            order_id=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            page_view_count=ScreenRecordingFilterRangeInteger(
-                eq=1,
-                gt=1,
-                gte=1,
-                lt=1,
-                lte=1,
-            ),
-            page_views=[
-                ScreenRecordingFilterPageView(
-                    domain=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    domain_filter=True,
-                    event_name_filter=True,
-                    event_param_name_filter=True,
-                    event_param_value_filter=True,
-                    events=[
-                        ScreenRecordingFilterPageViewEvent(
-                            event_name="event_name_example",
-                            event_params=[
-                                ScreenRecordingFilterPageViewEventParam(
-                                    name="name_example",
-                                    value_bd=ScreenRecordingFilterRangeBigDecimal(
-                                        eq=3.14,
-                                        gt=3.14,
-                                        gte=3.14,
-                                        lt=3.14,
-                                        lte=3.14,
-                                    ),
-                                    value_bool=True,
-                                    value_num=ScreenRecordingFilterRangeInteger(
-                                        eq=1,
-                                        gt=1,
-                                        gte=1,
-                                        lt=1,
-                                        lte=1,
-                                    ),
-                                    value_text=ScreenRecordingFilterStringSearch(
-                                        does_not_exist=True,
-                                        exists=True,
-                                        _is="_is_example",
-                                        is_not="is_not_example",
-                                        starts_with="starts_with_example",
-                                    ),
-                                ),
-                            ],
-                        ),
-                    ],
-                    param_name_filter=True,
-                    param_value_filter=True,
-                    params=[
-                        ScreenRecordingFilterPageViewParam(
-                            name="name_example",
-                            value=ScreenRecordingFilterStringSearch(
-                                does_not_exist=True,
-                                exists=True,
-                                _is="_is_example",
-                                is_not="is_not_example",
-                                starts_with="starts_with_example",
-                            ),
-                        ),
-                    ],
-                    referrer=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    referrer_params=[
-                        ScreenRecordingFilterPageViewReferrerParam(
-                            name="name_example",
-                            value=ScreenRecordingFilterStringSearch(
-                                does_not_exist=True,
-                                exists=True,
-                                _is="_is_example",
-                                is_not="is_not_example",
-                                starts_with="starts_with_example",
-                            ),
-                        ),
-                    ],
-                    referrer_raw=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    time_on_page=ScreenRecordingFilterRangeInteger(
-                        eq=1,
-                        gt=1,
-                        gte=1,
-                        lt=1,
-                        lte=1,
-                    ),
-                    time_on_page_max_filter=True,
-                    time_on_page_min_filter=True,
-                    url=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    url_filter=True,
-                ),
-            ],
-            placed_order=True,
-            preferred_language=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            preferred_language_filter=True,
-            referrer_domain="referrer_domain_example",
-            referrer_domain_filter=True,
-            screen_recording_uuids=[
-                "screen_recording_uuids_example",
-            ],
-            screen_sizes=[
-                "screen_sizes_example",
-            ],
-            skip_filter_values=True,
-            skip_histogram=True,
-            skip_hits=True,
-            start_timestamp=ScreenRecordingFilterRangeDate(
-                end="end_example",
-                start="start_example",
-            ),
-            tags=[
-                "tags_example",
-            ],
-            time_on_site=ScreenRecordingFilterRangeInteger(
-                eq=1,
-                gt=1,
-                gte=1,
-                lt=1,
-                lte=1,
-            ),
-            time_on_site_max_filter=True,
-            time_on_site_min_filter=True,
-            url_filter=True,
-            user_agent_device_name="user_agent_device_name_example",
-            user_agent_device_name_filter=True,
-            user_agent_device_os_name_filter=True,
-            user_agent_device_os_version_filter=True,
-            user_agent_name="user_agent_name_example",
-            user_agent_name_filter=True,
-            user_agent_original=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            user_agent_original_filter=True,
-            user_agent_os_name="user_agent_os_name_example",
-            user_agent_os_version="user_agent_os_version_example",
-            user_ip=ScreenRecordingFilterIpSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-            ),
-            utm_campaign="utm_campaign_example",
-            utm_campaign_filter=True,
-            utm_source="utm_source_example",
-            utm_source_filter=True,
-            visitor_number=1,
-            watched=True,
-        ),
-        histogram_data=[
-            1,
-        ],
-        histogram_interval="histogram_interval_example",
-        histogram_start_dts="histogram_start_dts_example",
-        name="name_example",
-        screen_recording_segment_oid=1,
-        session_count=1,
-        session_count_last_update_dts="session_count_last_update_dts_example",
-    ) # ScreenRecordingSegment | Segment
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Insert screen recording segment
-        api_response = api_instance.insert_screen_recording_segment(storefront_oid, segment)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_screen_recording_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -10686,36 +6774,9 @@ Update a page content attribute, creating it new if it does not yet exist.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.store_front_page_content_attribute import StoreFrontPageContentAttribute
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    page_oid = 1 # int | The page oid to modify.
-    page_attribute = StoreFrontPageContentAttribute(
-        name="name_example",
-        translated_text_instance_oid=1,
-        type="type_example",
-        value="value_example",
-    ) # StoreFrontPageContentAttribute | Page content attribute to upsert
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Upsert a page content attribute
-        api_instance.insert_update_page_content_attribute(storefront_oid, page_oid, page_attribute)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->insert_update_page_content_attribute: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -10764,31 +6825,9 @@ Prepare download of email segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_segment_download_prepare_response import EmailSegmentDownloadPrepareResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment_uuid = "email_segment_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Prepare download of email segment
-        api_response = api_instance.prepare_download_email_segment(storefront_oid, email_segment_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->prepare_download_email_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -10837,34 +6876,9 @@ Publish library item.
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.library_item_response import LibraryItemResponse
-from ultracart.model.publish_library_item_request import PublishLibraryItemRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    library_item_oid = 1 # int | 
-    publish_library_request = PublishLibraryItemRequest(
-        release_notes="release_notes_example",
-    ) # PublishLibraryItemRequest | Publish library item request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Publish library item.
-        api_response = api_instance.publish_library_item(library_item_oid, publish_library_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->publish_library_item: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -10913,40 +6927,9 @@ Purchase public library item, which creates a copy of the item in your personal 
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.library_item_response import LibraryItemResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    library_item_oid = 1 # int | 
-    storefront_oid = 1 # int |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Purchase public library item, which creates a copy of the item in your personal code library
-        api_response = api_instance.purchase_library_item(library_item_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->purchase_library_item: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Purchase public library item, which creates a copy of the item in your personal code library
-        api_response = api_instance.purchase_library_item(library_item_oid, storefront_oid=storefront_oid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->purchase_library_item: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -10995,30 +6978,9 @@ Release email communication sequence customers waiting at the specified step
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    commseq_step_uuid = "commseq_step_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Release email communication sequence customers waiting at the specified step
-        api_instance.release_email_commseq_step_waiting(storefront_oid, commseq_uuid, commseq_step_uuid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->release_email_commseq_step_waiting: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11067,29 +7029,9 @@ Reset email commseq rate limiters (only callable by UltraCart Support)
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Reset email commseq rate limiters (only callable by UltraCart Support)
-        api_instance.reset_email_commseq_rate_limiters(storefront_oid, commseq_uuid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->reset_email_commseq_rate_limiters: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -11137,48 +7079,9 @@ Request a review of an email
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_email_send_test_response import EmailCommseqEmailSendTestResponse
-from ultracart.model.email_commseq_email_send_test_request import EmailCommseqEmailSendTestRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_email_uuid = "commseq_email_uuid_example" # str | 
-    email_commseq_email_review_request = EmailCommseqEmailSendTestRequest(
-        cart_id="cart_id_example",
-        cart_item_ids=[
-            "cart_item_ids_example",
-        ],
-        esp_commseq_email_uuid="esp_commseq_email_uuid_example",
-        esp_commseq_step_uuid="esp_commseq_step_uuid_example",
-        esp_commseq_uuid="esp_commseq_uuid_example",
-        name="name_example",
-        order_id="order_id_example",
-        please_review=True,
-        send_to_additional_emails=[
-            "send_to_additional_emails_example",
-        ],
-        send_to_logged_in_user=True,
-    ) # EmailCommseqEmailSendTestRequest | Email commseq email review request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Request a review of an email
-        api_response = api_instance.review(storefront_oid, commseq_email_uuid, email_commseq_email_review_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->review: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11228,35 +7131,9 @@ Searches for all matching values
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.lookup_response import LookupResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    category = "category_example" # str |  (optional)
-    matches = "matches_example" # str |  (optional)
-    storefront_oid = "storefront_oid_example" # str |  (optional)
-    max_hits = 1 # int |  (optional)
-    subcategory = "subcategory_example" # str |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Searches for all matching values
-        api_response = api_instance.search(category=category, matches=matches, storefront_oid=storefront_oid, max_hits=max_hits, subcategory=subcategory)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11308,38 +7185,9 @@ Searches for all matching values (using POST)
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.lookup_response import LookupResponse
-from ultracart.model.lookup_request import LookupRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    lookup_request = LookupRequest(
-        category="category_example",
-        matches="matches_example",
-        max_hits=1,
-        storefront_host_name="storefront_host_name_example",
-        storefront_oid=1,
-        subcategory="subcategory_example",
-    ) # LookupRequest | LookupRequest
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Searches for all matching values (using POST)
-        api_response = api_instance.search2(lookup_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search2: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11387,41 +7235,9 @@ Search email list customers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_list_customers_response import EmailListCustomersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_uuid = "email_list_uuid_example" # str | 
-    starts_with = "startsWith_example" # str |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Search email list customers
-        api_response = api_instance.search_email_list_customers(storefront_oid, email_list_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_email_list_customers: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Search email list customers
-        api_response = api_instance.search_email_list_customers(storefront_oid, email_list_uuid, starts_with=starts_with)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_email_list_customers: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11471,41 +7287,9 @@ Search email segment customers
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_segment_customers_response import EmailSegmentCustomersResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment_uuid = "email_segment_uuid_example" # str | 
-    starts_with = "startsWith_example" # str |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Search email segment customers
-        api_response = api_instance.search_email_segment_customers(storefront_oid, email_segment_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_email_segment_customers: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Search email segment customers
-        api_response = api_instance.search_email_segment_customers(storefront_oid, email_segment_uuid, starts_with=starts_with)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_email_segment_customers: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11556,56 +7340,9 @@ Retrieves a library items based on a query object.  If no parameters are specifi
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.library_items_response import LibraryItemsResponse
-from ultracart.model.library_item_query import LibraryItemQuery
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    item_query = LibraryItemQuery(
-        category="category_example",
-        content_type="content_type_example",
-        description="description_example",
-        industry="industry_example",
-        price_high=3.14,
-        price_low=3.14,
-        published_dts_begin="published_dts_begin_example",
-        published_dts_end="published_dts_end_example",
-        source_of_published=True,
-        style="style_example",
-        title="title_example",
-        type="type_example",
-    ) # LibraryItemQuery | Item query
-    limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) if omitted the server will use the default value of 10000
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve library items
-        api_response = api_instance.search_library_items(item_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_library_items: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve library items
-        api_response = api_instance.search_library_items(item_query, limit=limit, offset=offset, sort=sort)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_library_items: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11657,56 +7394,9 @@ Retrieves a library items based on a query object.  If no parameters are specifi
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.library_items_response import LibraryItemsResponse
-from ultracart.model.library_item_query import LibraryItemQuery
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    item_query = LibraryItemQuery(
-        category="category_example",
-        content_type="content_type_example",
-        description="description_example",
-        industry="industry_example",
-        price_high=3.14,
-        price_low=3.14,
-        published_dts_begin="published_dts_begin_example",
-        published_dts_end="published_dts_end_example",
-        source_of_published=True,
-        style="style_example",
-        title="title_example",
-        type="type_example",
-    ) # LibraryItemQuery | Item query
-    limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) if omitted the server will use the default value of 10000
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve library items
-        api_response = api_instance.search_published_items(item_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_published_items: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve library items
-        api_response = api_instance.search_published_items(item_query, limit=limit, offset=offset, sort=sort)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_published_items: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11758,56 +7448,9 @@ Retrieves a library items based on a query object.  If no parameters are specifi
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.library_items_response import LibraryItemsResponse
-from ultracart.model.library_item_query import LibraryItemQuery
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    item_query = LibraryItemQuery(
-        category="category_example",
-        content_type="content_type_example",
-        description="description_example",
-        industry="industry_example",
-        price_high=3.14,
-        price_low=3.14,
-        published_dts_begin="published_dts_begin_example",
-        published_dts_end="published_dts_end_example",
-        source_of_published=True,
-        style="style_example",
-        title="title_example",
-        type="type_example",
-    ) # LibraryItemQuery | Item query
-    limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) if omitted the server will use the default value of 10000
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve library items needing review or rejected
-        api_response = api_instance.search_review_items(item_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_review_items: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve library items needing review or rejected
-        api_response = api_instance.search_review_items(item_query, limit=limit, offset=offset, sort=sort)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_review_items: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11859,56 +7502,9 @@ Retrieves a library items based on a query object.  If no parameters are specifi
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.library_items_response import LibraryItemsResponse
-from ultracart.model.library_item_query import LibraryItemQuery
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    item_query = LibraryItemQuery(
-        category="category_example",
-        content_type="content_type_example",
-        description="description_example",
-        industry="industry_example",
-        price_high=3.14,
-        price_low=3.14,
-        published_dts_begin="published_dts_begin_example",
-        published_dts_end="published_dts_end_example",
-        source_of_published=True,
-        style="style_example",
-        title="title_example",
-        type="type_example",
-    ) # LibraryItemQuery | Item query
-    limit = 10000 # int | The maximum number of records to return on this one API call. (Maximum 10000) (optional) if omitted the server will use the default value of 10000
-    offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) if omitted the server will use the default value of 0
-    sort = "_sort_example" # str | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve library items
-        api_response = api_instance.search_shared_items(item_query)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_shared_items: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve library items
-        api_response = api_instance.search_shared_items(item_query, limit=limit, offset=offset, sort=sort)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->search_shared_items: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -11959,48 +7555,9 @@ Send email test
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_email_send_test_response import EmailCommseqEmailSendTestResponse
-from ultracart.model.email_commseq_email_send_test_request import EmailCommseqEmailSendTestRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_email_uuid = "commseq_email_uuid_example" # str | 
-    email_commseq_email_test_request = EmailCommseqEmailSendTestRequest(
-        cart_id="cart_id_example",
-        cart_item_ids=[
-            "cart_item_ids_example",
-        ],
-        esp_commseq_email_uuid="esp_commseq_email_uuid_example",
-        esp_commseq_step_uuid="esp_commseq_step_uuid_example",
-        esp_commseq_uuid="esp_commseq_uuid_example",
-        name="name_example",
-        order_id="order_id_example",
-        please_review=True,
-        send_to_additional_emails=[
-            "send_to_additional_emails_example",
-        ],
-        send_to_logged_in_user=True,
-    ) # EmailCommseqEmailSendTestRequest | Email commseq email test request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Send email test
-        api_response = api_instance.send_email_test(storefront_oid, commseq_email_uuid, email_commseq_email_test_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->send_email_test: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -12050,49 +7607,9 @@ Send postcard test
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_postcard_send_test_response import EmailCommseqPostcardSendTestResponse
-from ultracart.model.email_commseq_postcard_send_test_request import EmailCommseqPostcardSendTestRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
-    email_commseq_postcard_test_request = EmailCommseqPostcardSendTestRequest(
-        address_1="address_1_example",
-        address_2="address_2_example",
-        cart_id="cart_id_example",
-        cart_item_ids=[
-            "cart_item_ids_example",
-        ],
-        city="city_example",
-        esp_commseq_postcard_uuid="esp_commseq_postcard_uuid_example",
-        esp_commseq_step_uuid="esp_commseq_step_uuid_example",
-        esp_commseq_uuid="esp_commseq_uuid_example",
-        mail_card=True,
-        name="name_example",
-        order_id="order_id_example",
-        postal_code="postal_code_example",
-        state="state_example",
-    ) # EmailCommseqPostcardSendTestRequest | Email commseq email test request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Send postcard test
-        api_response = api_instance.send_postcard_test(storefront_oid, commseq_postcard_uuid, email_commseq_postcard_test_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->send_postcard_test: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -12142,38 +7659,9 @@ Send SMS test
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_sms_send_test_response import EmailCommseqSmsSendTestResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_sms_send_test_request import EmailCommseqSmsSendTestRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    commseq_step_uuid = "commseq_step_uuid_example" # str | 
-    email_commseq_sms_test_request = EmailCommseqSmsSendTestRequest(
-        esp_commseq_step_uuid="esp_commseq_step_uuid_example",
-        esp_commseq_uuid="esp_commseq_uuid_example",
-        send_to_cellphone_e164="send_to_cellphone_e164_example",
-    ) # EmailCommseqSmsSendTestRequest | Email commseq sms test request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Send SMS test
-        api_response = api_instance.send_sms_test(storefront_oid, commseq_uuid, commseq_step_uuid, email_commseq_sms_test_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->send_sms_test: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -12224,42 +7712,9 @@ Send webhook test
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_webhook_send_test_request import EmailCommseqWebhookSendTestRequest
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_webhook_send_test_response import EmailCommseqWebhookSendTestResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_commseq_webhook_test_request = EmailCommseqWebhookSendTestRequest(
-        cart_id="cart_id_example",
-        cart_item_ids=[
-            "cart_item_ids_example",
-        ],
-        email="email_example",
-        esp_commseq_step_uuid="esp_commseq_step_uuid_example",
-        esp_commseq_uuid="esp_commseq_uuid_example",
-        name="name_example",
-        order_id="order_id_example",
-    ) # EmailCommseqWebhookSendTestRequest | Email commseq webhook test request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Send webhook test
-        api_response = api_instance.send_webhook_test(storefront_oid, email_commseq_webhook_test_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->send_webhook_test: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -12308,51 +7763,9 @@ Sequence test
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_sequence_test_request import EmailCommseqSequenceTestRequest
-from ultracart.model.email_commseq_sequence_test_response import EmailCommseqSequenceTestResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    email_commseq_sequence_test_request = EmailCommseqSequenceTestRequest(
-        address_1="address_1_example",
-        address_2="address_2_example",
-        cart_id="cart_id_example",
-        cart_item_ids=[
-            "cart_item_ids_example",
-        ],
-        city="city_example",
-        esp_commseq_uuid="esp_commseq_uuid_example",
-        mail_card=True,
-        name="name_example",
-        order_id="order_id_example",
-        please_review=True,
-        postal_code="postal_code_example",
-        send_to_cellphone_e164="send_to_cellphone_e164_example",
-        send_to_email="send_to_email_example",
-        send_to_logged_in_user=True,
-        state="state_example",
-    ) # EmailCommseqSequenceTestRequest | Commseq test request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Sequence test
-        api_response = api_instance.sequence_test(storefront_oid, commseq_uuid, email_commseq_sequence_test_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->sequence_test: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -12402,31 +7815,9 @@ Start email campaign
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.base_response import BaseResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign_uuid = "email_campaign_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Start email campaign
-        api_response = api_instance.start_email_campaign(storefront_oid, email_campaign_uuid)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->start_email_campaign: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -12475,46 +7866,9 @@ Subscribe customers to email list
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_list_subscribe_response import EmailListSubscribeResponse
-from ultracart.model.email_customer import EmailCustomer
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_uuid = "email_list_uuid_example" # str | 
-    customers = [
-        EmailCustomer(
-            active=True,
-            email="email_example",
-            email_customer_uuid="email_customer_uuid_example",
-            first_name="first_name_example",
-            global_unsubscribe=True,
-            last_interaction_dts="last_interaction_dts_example",
-            last_name="last_name_example",
-            list_uuids=[
-                "list_uuids_example",
-            ],
-        ),
-    ] # [EmailCustomer] | Customers
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Subscribe customers to email list
-        api_response = api_instance.subscribe_to_email_list(storefront_oid, email_list_uuid, customers)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->subscribe_to_email_list: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -12564,29 +7918,9 @@ Sunset email segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment_uuid = "email_segment_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Sunset email segment
-        api_instance.sunset_email_segment(storefront_oid, email_segment_uuid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->sunset_email_segment: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -12635,29 +7969,9 @@ Remove favorite flag on screen recording
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_uuid = "screen_recording_uuid_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Remove favorite flag on screen recording
-        api_instance.unfavorite_screen_recording(storefront_oid, screen_recording_uuid)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->unfavorite_screen_recording: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -12705,67 +8019,9 @@ Update email campaign
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_campaign_response import EmailCampaignResponse
-from ultracart.model.email_campaign import EmailCampaign
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign_uuid = "email_campaign_uuid_example" # str | 
-    email_campaign = EmailCampaign(
-        click_rate_formatted="click_rate_formatted_example",
-        created_dts="created_dts_example",
-        deleted=True,
-        email_campaign_uuid="email_campaign_uuid_example",
-        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
-        end_once_customer_purchases=True,
-        end_once_customer_purchases_anywhere=True,
-        esp_campaign_folder_uuid="esp_campaign_folder_uuid_example",
-        esp_domain_user="esp_domain_user_example",
-        esp_domain_uuid="esp_domain_uuid_example",
-        esp_friendly_name="esp_friendly_name_example",
-        library_item_oid=1,
-        memberships=[
-            EmailListSegmentMembership(
-                email_list_uuid="email_list_uuid_example",
-                email_segment_uuid="email_segment_uuid_example",
-                exclude=True,
-                name="name_example",
-            ),
-        ],
-        merchant_id="merchant_id_example",
-        name="name_example",
-        open_rate_formatted="open_rate_formatted_example",
-        prevent_sending_due_to_spam=True,
-        revenue_formatted="revenue_formatted_example",
-        revenue_per_customer_formatted="revenue_per_customer_formatted_example",
-        scheduled_dts="scheduled_dts_example",
-        screenshot_large_full_url="screenshot_large_full_url_example",
-        sms_esp_twilio_uuid="sms_esp_twilio_uuid_example",
-        sms_phone_number="sms_phone_number_example",
-        status="status_example",
-        status_dts="status_dts_example",
-        storefront_oid=1,
-    ) # EmailCampaign | Email campaign
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email campaign
-        api_response = api_instance.update_email_campaign(storefront_oid, email_campaign_uuid, email_campaign)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_campaign: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -12815,39 +8071,9 @@ Update email campaign folder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_campaign_folder import EmailCampaignFolder
-from ultracart.model.email_campaign_folder_response import EmailCampaignFolderResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_campaign_folder_uuid = "email_campaign_folder_uuid_example" # str | 
-    email_campaign_folder = EmailCampaignFolder(
-        esp_campaign_folder_uuid="esp_campaign_folder_uuid_example",
-        merchant_id="merchant_id_example",
-        name="name_example",
-        storefront_oid=1,
-        system_generated=True,
-    ) # EmailCampaignFolder | Email campaign folder
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email campaign folder
-        api_response = api_instance.update_email_campaign_folder(storefront_oid, email_campaign_folder_uuid, email_campaign_folder)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_campaign_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -12897,55 +8123,9 @@ Update email commseq
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq import EmailCommseq
-from ultracart.model.email_commseq_response import EmailCommseqResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_uuid = "commseq_uuid_example" # str | 
-    email_commseq = EmailCommseq(
-        email_communication_sequence_steps=[
-            EmailCommseqStep(
-                alt_child_email_communication_sequence_steps=[
-                    EmailCommseqStep(),
-                ],
-                child_email_communication_sequence_steps=[
-                    EmailCommseqStep(),
-                ],
-                email_communication_sequence_step_uuid="email_communication_sequence_step_uuid_example",
-                email_pending_review=True,
-                email_rejected=True,
-                email_requires_review=True,
-                filter_profile_equation_json="filter_profile_equation_json_example",
-                merchant_notes="merchant_notes_example",
-                step_config_json="step_config_json_example",
-                type="begin",
-            ),
-        ],
-        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
-        merchant_id="merchant_id_example",
-        storefront_oid=1,
-    ) # EmailCommseq | Email commseq
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email commseq
-        api_response = api_instance.update_email_commseq(storefront_oid, commseq_uuid, email_commseq)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_commseq: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -12995,42 +8175,9 @@ Update email customer
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_customer import EmailCustomer
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_customer_uuid = "email_customer_uuid_example" # str | 
-    email_customer = EmailCustomer(
-        active=True,
-        email="email_example",
-        email_customer_uuid="email_customer_uuid_example",
-        first_name="first_name_example",
-        global_unsubscribe=True,
-        last_interaction_dts="last_interaction_dts_example",
-        last_name="last_name_example",
-        list_uuids=[
-            "list_uuids_example",
-        ],
-    ) # EmailCustomer | Email customer
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email customer
-        api_instance.update_email_customer(storefront_oid, email_customer_uuid, email_customer)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_customer: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13079,68 +8226,9 @@ Update email email
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_commseq_email_response import EmailCommseqEmailResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_email import EmailCommseqEmail
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_email_uuid = "commseq_email_uuid_example" # str | 
-    email_commseq_email = EmailCommseqEmail(
-        deleted=True,
-        edited_by_user="edited_by_user_example",
-        email_communication_sequence_email_uuid="email_communication_sequence_email_uuid_example",
-        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
-        email_container_cjson="email_container_cjson_example",
-        email_container_cjson_last_modified_dts="email_container_cjson_last_modified_dts_example",
-        email_template_vm_path="email_template_vm_path_example",
-        external_generation=True,
-        external_generation_authentication="external_generation_authentication_example",
-        external_generation_basic_password="external_generation_basic_password_example",
-        external_generation_basic_username="external_generation_basic_username_example",
-        external_generation_header_name="external_generation_header_name_example",
-        external_generation_header_value="external_generation_header_value_example",
-        external_generation_id="external_generation_id_example",
-        external_generation_url="external_generation_url_example",
-        filter_profile_equation_json="filter_profile_equation_json_example",
-        individually_render=True,
-        library_item_oid=1,
-        magic_link=True,
-        merchant_id="merchant_id_example",
-        pending_review=True,
-        preview_text="preview_text_example",
-        rejected=True,
-        requires_review=True,
-        screenshot_large_full_url="screenshot_large_full_url_example",
-        screenshot_large_viewport_url="screenshot_large_viewport_url_example",
-        screenshot_small_full_url="screenshot_small_full_url_example",
-        screenshot_small_viewport_url="screenshot_small_viewport_url_example",
-        smart_sending=True,
-        storefront_oid=1,
-        subject="subject_example",
-        suspended_for_spam=True,
-        transactional_email=True,
-        version=1,
-    ) # EmailCommseqEmail | Email commseq email
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email email
-        api_response = api_instance.update_email_email(storefront_oid, commseq_email_uuid, email_commseq_email)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_email: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13190,65 +8278,9 @@ Update email flow
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flow import EmailFlow
-from ultracart.model.email_flow_response import EmailFlowResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow_uuid = "email_flow_uuid_example" # str | 
-    email_flow = EmailFlow(
-        allow_multiple_concurrent_enrollments=True,
-        back_populating=True,
-        click_rate_formatted="click_rate_formatted_example",
-        created_dts="created_dts_example",
-        deleted=True,
-        email_communication_sequence_uuid="email_communication_sequence_uuid_example",
-        email_flow_uuid="email_flow_uuid_example",
-        end_once_customer_purchases=True,
-        end_once_customer_purchases_anywhere=True,
-        enrolled_customers=1,
-        esp_domain_user="esp_domain_user_example",
-        esp_domain_uuid="esp_domain_uuid_example",
-        esp_flow_folder_uuid="esp_flow_folder_uuid_example",
-        esp_friendly_name="esp_friendly_name_example",
-        filter_profile_equation_json="filter_profile_equation_json_example",
-        library_item_oid=1,
-        maximum_enrolled=True,
-        merchant_id="merchant_id_example",
-        name="name_example",
-        open_rate_formatted="open_rate_formatted_example",
-        revenue_formatted="revenue_formatted_example",
-        revenue_per_customer_formatted="revenue_per_customer_formatted_example",
-        screenshot_large_full_url="screenshot_large_full_url_example",
-        sms_esp_twilio_uuid="sms_esp_twilio_uuid_example",
-        sms_phone_number="sms_phone_number_example",
-        status="status_example",
-        status_dts="status_dts_example",
-        storefront_oid=1,
-        trigger_parameter="trigger_parameter_example",
-        trigger_parameter_name="trigger_parameter_name_example",
-        trigger_type="trigger_type_example",
-    ) # EmailFlow | Email flow
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email flow
-        api_response = api_instance.update_email_flow(storefront_oid, email_flow_uuid, email_flow)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_flow: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13298,39 +8330,9 @@ Update email flow folder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_flow_folder_response import EmailFlowFolderResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_flow_folder import EmailFlowFolder
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_flow_folder_uuid = "email_flow_folder_uuid_example" # str | 
-    email_flow_folder = EmailFlowFolder(
-        esp_flow_folder_uuid="esp_flow_folder_uuid_example",
-        merchant_id="merchant_id_example",
-        name="name_example",
-        storefront_oid=1,
-        system_generated=True,
-    ) # EmailFlowFolder | Email flow folder
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email flow folder
-        api_response = api_instance.update_email_flow_folder(storefront_oid, email_flow_folder_uuid, email_flow_folder)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_flow_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13380,33 +8382,9 @@ Update email global settings
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_global_settings import EmailGlobalSettings
-from ultracart.model.email_global_settings_response import EmailGlobalSettingsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    global_settings = EmailGlobalSettings(
-        dedicated_ip=True,
-    ) # EmailGlobalSettings | global settings request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email global settings
-        api_response = api_instance.update_email_global_settings(global_settings)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_global_settings: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13454,52 +8432,9 @@ Update email list
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_list_response import EmailListResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_list import EmailList
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_uuid = "email_list_uuid_example" # str | 
-    email_list = EmailList(
-        allow_csv_download=True,
-        created_dts="created_dts_example",
-        deleted=True,
-        email_list_uuid="email_list_uuid_example",
-        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
-        member_count=1,
-        merchant_id="merchant_id_example",
-        name="name_example",
-        public_description="public_description_example",
-        public_list=True,
-        storefront_oid=1,
-        used_by=[
-            EmailListSegmentUsedBy(
-                email_campaign_uuid="email_campaign_uuid_example",
-                email_flow_uuid="email_flow_uuid_example",
-                name="name_example",
-            ),
-        ],
-    ) # EmailList | Email list
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email list
-        api_response = api_instance.update_email_list(storefront_oid, email_list_uuid, email_list)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_list: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13549,39 +8484,9 @@ Update email campaign folder
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_list_segment_folder_response import EmailListSegmentFolderResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_list_segment_folder import EmailListSegmentFolder
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_list_segment_folder_uuid = "email_list_segment_folder_uuid_example" # str | 
-    email_list_segment_folder = EmailListSegmentFolder(
-        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
-        merchant_id="merchant_id_example",
-        name="name_example",
-        storefront_oid=1,
-        system_generated=True,
-    ) # EmailListSegmentFolder | Email campaign folder
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email campaign folder
-        api_response = api_instance.update_email_list_segment_folder(storefront_oid, email_list_segment_folder_uuid, email_list_segment_folder)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_list_segment_folder: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13631,62 +8536,9 @@ Update email plan
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_plan import EmailPlan
-from ultracart.model.email_plan_response import EmailPlanResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    settings = EmailPlan(
-        additional_customers=1,
-        additional_emails=1,
-        additional_fee=3.14,
-        allow_list_import=True,
-        allow_tracking_emails=True,
-        customer_tiers=[
-            EmailPlanAdditional(
-                active=True,
-                can_downgrade=True,
-                can_upgrade=True,
-                cost=3.14,
-                cost_change=3.14,
-                cost_change_formatted="cost_change_formatted_example",
-                cost_formatted="cost_formatted_example",
-                customers=1,
-                emails=1,
-            ),
-        ],
-        initial_sending_limits=1,
-        plan_customers=1,
-        plan_emails=1,
-        plan_name="plan_name_example",
-        plan_name_formatted="plan_name_formatted_example",
-        require_order_within_last_days=1,
-        revenue_percent=1,
-        spam_percent_limit=1,
-        total_customers=1,
-        total_emails=1,
-        upgrade_to=1,
-    ) # EmailPlan | plan request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email plan
-        api_response = api_instance.update_email_plan(storefront_oid, settings)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_plan: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13735,47 +8587,9 @@ Update email postcard
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_commseq_postcard import EmailCommseqPostcard
-from ultracart.model.email_commseq_postcard_response import EmailCommseqPostcardResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    commseq_postcard_uuid = "commseq_postcard_uuid_example" # str | 
-    email_commseq_postcard = EmailCommseqPostcard(
-        deleted=True,
-        edited_by_user="edited_by_user_example",
-        email_communication_sequence_postcard_uuid="email_communication_sequence_postcard_uuid_example",
-        filter_profile_equation_json="filter_profile_equation_json_example",
-        merchant_id="merchant_id_example",
-        postcard_back_container_cjson="postcard_back_container_cjson_example",
-        postcard_back_container_uuid="postcard_back_container_uuid_example",
-        postcard_container_cjson_last_modified_dts="postcard_container_cjson_last_modified_dts_example",
-        postcard_front_container_cjson="postcard_front_container_cjson_example",
-        postcard_front_container_uuid="postcard_front_container_uuid_example",
-        screenshot_back_url="screenshot_back_url_example",
-        screenshot_front_url="screenshot_front_url_example",
-        storefront_oid=1,
-    ) # EmailCommseqPostcard | Email commseq postcard
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email postcard
-        api_response = api_instance.update_email_postcard(storefront_oid, commseq_postcard_uuid, email_commseq_postcard)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_postcard: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13825,70 +8639,9 @@ Update email segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_segment import EmailSegment
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_segment_response import EmailSegmentResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_segment_uuid = "email_segment_uuid_example" # str | 
-    email_segment = EmailSegment(
-        allow_csv_download=True,
-        allow_facebook_audiences=True,
-        created_dts="created_dts_example",
-        deleted=True,
-        email_segment_uuid="email_segment_uuid_example",
-        esp_list_segment_folder_uuid="esp_list_segment_folder_uuid_example",
-        facebook_custom_audience=True,
-        filter_profile_equation_json="filter_profile_equation_json_example",
-        member_count=1,
-        merchant_id="merchant_id_example",
-        name="name_example",
-        rank_json="rank_json_example",
-        rebuild_percentage=3.14,
-        rebuild_required=True,
-        storefront_oid=1,
-        thirdparty_join_add_tags=[
-            "thirdparty_join_add_tags_example",
-        ],
-        thirdparty_join_remove_tags=[
-            "thirdparty_join_remove_tags_example",
-        ],
-        thirdparty_leave_add_tags=[
-            "thirdparty_leave_add_tags_example",
-        ],
-        thirdparty_leave_remove_tags=[
-            "thirdparty_leave_remove_tags_example",
-        ],
-        thirdparty_list_id="thirdparty_list_id_example",
-        thirdparty_provider_name="thirdparty_provider_name_example",
-        used_by=[
-            EmailListSegmentUsedBy(
-                email_campaign_uuid="email_campaign_uuid_example",
-                email_flow_uuid="email_flow_uuid_example",
-                name="name_example",
-            ),
-        ],
-    ) # EmailSegment | Email segment
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email segment
-        api_response = api_instance.update_email_segment(storefront_oid, email_segment_uuid, email_segment)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -13937,63 +8690,9 @@ Update email sending domain
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
-```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.email_domain import EmailDomain
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_sending_domain_response import EmailSendingDomainResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
 
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-api_instance = GiftCertificateApi(api_client())
-
-    domain = "domain_example" # str | 
-    email_domain = EmailDomain(
-        comment="comment_example",
-        dkim=[
-            VerificationRecord(
-                name="name_example",
-                type="type_example",
-                value="value_example",
-            ),
-        ],
-        dkim_status="dkim_status_example",
-        domain="domain_example",
-        esp_domain_uuid="esp_domain_uuid_example",
-        identity_status="identity_status_example",
-        mailgun=Mailgun(
-            api_key="api_key_example",
-        ),
-        merchant_id="merchant_id_example",
-        provider="provider_example",
-        spf=VerificationRecord(
-            name="name_example",
-            type="type_example",
-            value="value_example",
-        ),
-        start_dkim_dts="start_dkim_dts_example",
-        start_identity_dts="start_identity_dts_example",
-        verification=VerificationRecord(
-            name="name_example",
-            type="type_example",
-            value="value_example",
-        ),
-    ) # EmailDomain | EmailDomain
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email sending domain
-        api_response = api_instance.update_email_sending_domain(domain, email_domain)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_sending_domain: %s\n" % e)
-```
 
 
 ### Parameters
@@ -14042,52 +8741,9 @@ Update email settings
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.email_settings import EmailSettings
-from ultracart.model.email_settings_response import EmailSettingsResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    settings = EmailSettings(
-        emails_per_day=1,
-        emails_per_hour=1,
-        emails_per_month=1,
-        marketing_esp_domain_user="marketing_esp_domain_user_example",
-        marketing_esp_domain_uuid="marketing_esp_domain_uuid_example",
-        marketing_esp_friendly_name="marketing_esp_friendly_name_example",
-        postcard_from_address1="postcard_from_address1_example",
-        postcard_from_address2="postcard_from_address2_example",
-        postcard_from_city="postcard_from_city_example",
-        postcard_from_name="postcard_from_name_example",
-        postcard_from_postal_code="postcard_from_postal_code_example",
-        postcard_from_state="postcard_from_state_example",
-        require_order_within_last=1,
-        reviews_io_configured=True,
-        sms_esp_twilio_uuid="sms_esp_twilio_uuid_example",
-        sms_phone_number="sms_phone_number_example",
-        transactional_esp_domain_user="transactional_esp_domain_user_example",
-        transactional_esp_domain_uuid="transactional_esp_domain_uuid_example",
-        transactional_esp_friendly_name="transactional_esp_friendly_name_example",
-    ) # EmailSettings | settings request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update email settings
-        api_response = api_instance.update_email_settings(storefront_oid, settings)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_email_settings: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -14136,102 +8792,9 @@ Update experiment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.experiment_response import ExperimentResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.experiment import Experiment
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    storefront_experiment_oid = 1 # int | 
-    experiment = Experiment(
-        container_id="container_id_example",
-        duration_days=1,
-        end_dts="end_dts_example",
-        equal_weighting=True,
-        experiment_type="experiment_type_example",
-        id="id_example",
-        name="name_example",
-        notes="notes_example",
-        objective="objective_example",
-        objective_parameter="objective_parameter_example",
-        openai_current_iteration=1,
-        openai_element_type="headline",
-        openai_model="openai_model_example",
-        openai_total_iterations=1,
-        optimization_type="optimization_type_example",
-        p95_sessions_needed=1,
-        p_value=3.14,
-        session_count=1,
-        start_dts="start_dts_example",
-        status="Running",
-        storefront_experiment_oid=1,
-        storefront_oid=1,
-        uri="uri_example",
-        variations=[
-            ExperimentVariation(
-                add_to_cart_count=1,
-                average_duration_seconds=1,
-                average_objective_per_session=3.14,
-                average_order_value=3.14,
-                bounce_count=1,
-                conversion_rate=3.14,
-                daily_statistics=[
-                    ExperimentVariationStat(
-                        add_to_cart_count=1,
-                        bounce_count=1,
-                        duration_seconds_sum=1,
-                        event_count=1,
-                        initiate_checkout_count=1,
-                        order_count=1,
-                        order_ids=[
-                            "order_ids_example",
-                        ],
-                        order_item_count=1,
-                        page_view_count=1,
-                        revenue=3.14,
-                        session_count=1,
-                        sms_opt_in_count=1,
-                        stat_dts="stat_dts_example",
-                    ),
-                ],
-                duration_seconds_sum=1,
-                event_count=1,
-                initiate_checkout_count=1,
-                order_count=1,
-                order_item_count=1,
-                original_traffic_percentage=3.14,
-                page_view_count=1,
-                paused=True,
-                revenue=3.14,
-                session_count=1,
-                sms_opt_ins=1,
-                traffic_percentage=3.14,
-                url="url_example",
-                variation_name="variation_name_example",
-                variation_number=1,
-                winner=True,
-            ),
-        ],
-    ) # Experiment | Experiment
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update experiment
-        api_response = api_instance.update_experiment(storefront_oid, storefront_experiment_oid, experiment)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_experiment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -14281,117 +8844,9 @@ Update library item. Note that only certain fields may be updated via this metho
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.library_item_response import LibraryItemResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.library_item import LibraryItem
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    library_item_oid = 1 # int | 
-    library_item = LibraryItem(
-        assets=[
-            LibraryItemAsset(
-                mime_type="mime_type_example",
-                url="url_example",
-            ),
-        ],
-        attributes=[
-            LibraryItemAttribute(
-                name="name_example",
-                value="value_example",
-            ),
-        ],
-        categories=[
-            "categories_example",
-        ],
-        content="content_example",
-        content_type="content_type_example",
-        description="description_example",
-        industries=[
-            "industries_example",
-        ],
-        library_item_oid=1,
-        merchant_id="merchant_id_example",
-        my_purchased_version=1,
-        original_object_id="original_object_id_example",
-        price=3.14,
-        price_formatted="price_formatted_example",
-        published=True,
-        published_dts={},
-        published_from_library_item_oid=1,
-        published_meta=LibraryItemPublishedMeta(
-            count_of_versions=1,
-            library_item_published_oid=1,
-            library_item_review_oid=1,
-            rejected=True,
-            rejected_reason="rejected_reason_example",
-            release_version=1,
-            review_version=1,
-            under_review=True,
-        ),
-        published_version=1,
-        purchased=True,
-        purchased_from_library_item_oid=1,
-        purchased_meta=LibraryItemPurchasedMeta(
-            most_recent_version=1,
-            my_purchased_version=1,
-            upgrade_available=True,
-        ),
-        purchased_version=1,
-        rejected=True,
-        rejected_reason="rejected_reason_example",
-        release_notes="release_notes_example",
-        release_version=1,
-        reviewed=True,
-        reviewed_dts={},
-        screenshots=[
-            LibraryItemScreenshot(
-                default_url=True,
-                screenshot_url="screenshot_url_example",
-            ),
-        ],
-        share_with_accounts=[
-            LibraryItemAccount(
-                library_item_account_oid=1,
-                library_item_oid=1,
-                other_merchant_id="other_merchant_id_example",
-            ),
-        ],
-        share_with_other_emails=[
-            LibraryItemEmail(
-                email="email_example",
-                library_item_email_oid=1,
-                library_item_oid=1,
-            ),
-        ],
-        shared=True,
-        source=True,
-        source_to_library_item_oid=1,
-        source_version=1,
-        style="style_example",
-        times_purchased=1,
-        title="title_example",
-        type="type_example",
-        under_review=True,
-    ) # LibraryItem | Library item
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update library item. Note that only certain fields may be updated via this method.
-        api_response = api_instance.update_library_item(library_item_oid, library_item)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_library_item: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -14441,33 +8896,9 @@ Update merchant notes on a screen recording
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_merchant_notes_request import ScreenRecordingMerchantNotesRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_uuid = "screen_recording_uuid_example" # str | 
-    merchant_notes_request = ScreenRecordingMerchantNotesRequest(
-        merchant_notes="merchant_notes_example",
-    ) # ScreenRecordingMerchantNotesRequest | Merchant Notes
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update merchant notes on a screen recording
-        api_instance.update_screen_recording_merchant_notes(storefront_oid, screen_recording_uuid, merchant_notes_request)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_screen_recording_merchant_notes: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -14516,287 +8947,9 @@ Update screen recording segment
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_segment import ScreenRecordingSegment
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.screen_recording_segment_response import ScreenRecordingSegmentResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_segment_oid = 1 # int | 
-    segment = ScreenRecordingSegment(
-        create_dts="create_dts_example",
-        description="description_example",
-        filter=ScreenRecordingFilter(
-            affiliate_email="affiliate_email_example",
-            affiliate_id=1,
-            communications_campaign_name="communications_campaign_name_example",
-            communications_campaign_name_filter=True,
-            communications_email_subject="communications_email_subject_example",
-            communications_email_subject_filter=True,
-            communications_flow_name="communications_flow_name_example",
-            communications_flow_name_filter=True,
-            email=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            email_domain="email_domain_example",
-            email_domain_filter=True,
-            email_identified=True,
-            end_timestamp=ScreenRecordingFilterRangeDate(
-                end="end_example",
-                start="start_example",
-            ),
-            esp_customer_uuid="esp_customer_uuid_example",
-            favorite=True,
-            geolocation=ScreenRecordingFilterGeoDistance(
-                distance=1,
-                distance_uom="distance_uom_example",
-                from_address="from_address_example",
-                lat=3.14,
-                lon=3.14,
-            ),
-            geolocation_country=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            geolocation_country_filter=True,
-            geolocation_state=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            geolocation_state_filter=True,
-            language_iso_code=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            language_iso_code_filter=True,
-            last_x_days=1,
-            max_filter_values=1,
-            order_id=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            page_view_count=ScreenRecordingFilterRangeInteger(
-                eq=1,
-                gt=1,
-                gte=1,
-                lt=1,
-                lte=1,
-            ),
-            page_views=[
-                ScreenRecordingFilterPageView(
-                    domain=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    domain_filter=True,
-                    event_name_filter=True,
-                    event_param_name_filter=True,
-                    event_param_value_filter=True,
-                    events=[
-                        ScreenRecordingFilterPageViewEvent(
-                            event_name="event_name_example",
-                            event_params=[
-                                ScreenRecordingFilterPageViewEventParam(
-                                    name="name_example",
-                                    value_bd=ScreenRecordingFilterRangeBigDecimal(
-                                        eq=3.14,
-                                        gt=3.14,
-                                        gte=3.14,
-                                        lt=3.14,
-                                        lte=3.14,
-                                    ),
-                                    value_bool=True,
-                                    value_num=ScreenRecordingFilterRangeInteger(
-                                        eq=1,
-                                        gt=1,
-                                        gte=1,
-                                        lt=1,
-                                        lte=1,
-                                    ),
-                                    value_text=ScreenRecordingFilterStringSearch(
-                                        does_not_exist=True,
-                                        exists=True,
-                                        _is="_is_example",
-                                        is_not="is_not_example",
-                                        starts_with="starts_with_example",
-                                    ),
-                                ),
-                            ],
-                        ),
-                    ],
-                    param_name_filter=True,
-                    param_value_filter=True,
-                    params=[
-                        ScreenRecordingFilterPageViewParam(
-                            name="name_example",
-                            value=ScreenRecordingFilterStringSearch(
-                                does_not_exist=True,
-                                exists=True,
-                                _is="_is_example",
-                                is_not="is_not_example",
-                                starts_with="starts_with_example",
-                            ),
-                        ),
-                    ],
-                    referrer=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    referrer_params=[
-                        ScreenRecordingFilterPageViewReferrerParam(
-                            name="name_example",
-                            value=ScreenRecordingFilterStringSearch(
-                                does_not_exist=True,
-                                exists=True,
-                                _is="_is_example",
-                                is_not="is_not_example",
-                                starts_with="starts_with_example",
-                            ),
-                        ),
-                    ],
-                    referrer_raw=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    time_on_page=ScreenRecordingFilterRangeInteger(
-                        eq=1,
-                        gt=1,
-                        gte=1,
-                        lt=1,
-                        lte=1,
-                    ),
-                    time_on_page_max_filter=True,
-                    time_on_page_min_filter=True,
-                    url=ScreenRecordingFilterStringSearch(
-                        does_not_exist=True,
-                        exists=True,
-                        _is="_is_example",
-                        is_not="is_not_example",
-                        starts_with="starts_with_example",
-                    ),
-                    url_filter=True,
-                ),
-            ],
-            placed_order=True,
-            preferred_language=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            preferred_language_filter=True,
-            referrer_domain="referrer_domain_example",
-            referrer_domain_filter=True,
-            screen_recording_uuids=[
-                "screen_recording_uuids_example",
-            ],
-            screen_sizes=[
-                "screen_sizes_example",
-            ],
-            skip_filter_values=True,
-            skip_histogram=True,
-            skip_hits=True,
-            start_timestamp=ScreenRecordingFilterRangeDate(
-                end="end_example",
-                start="start_example",
-            ),
-            tags=[
-                "tags_example",
-            ],
-            time_on_site=ScreenRecordingFilterRangeInteger(
-                eq=1,
-                gt=1,
-                gte=1,
-                lt=1,
-                lte=1,
-            ),
-            time_on_site_max_filter=True,
-            time_on_site_min_filter=True,
-            url_filter=True,
-            user_agent_device_name="user_agent_device_name_example",
-            user_agent_device_name_filter=True,
-            user_agent_device_os_name_filter=True,
-            user_agent_device_os_version_filter=True,
-            user_agent_name="user_agent_name_example",
-            user_agent_name_filter=True,
-            user_agent_original=ScreenRecordingFilterStringSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-                starts_with="starts_with_example",
-            ),
-            user_agent_original_filter=True,
-            user_agent_os_name="user_agent_os_name_example",
-            user_agent_os_version="user_agent_os_version_example",
-            user_ip=ScreenRecordingFilterIpSearch(
-                does_not_exist=True,
-                exists=True,
-                _is="_is_example",
-                is_not="is_not_example",
-            ),
-            utm_campaign="utm_campaign_example",
-            utm_campaign_filter=True,
-            utm_source="utm_source_example",
-            utm_source_filter=True,
-            visitor_number=1,
-            watched=True,
-        ),
-        histogram_data=[
-            1,
-        ],
-        histogram_interval="histogram_interval_example",
-        histogram_start_dts="histogram_start_dts_example",
-        name="name_example",
-        screen_recording_segment_oid=1,
-        session_count=1,
-        session_count_last_update_dts="session_count_last_update_dts_example",
-    ) # ScreenRecordingSegment | Segment
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update screen recording segment
-        api_response = api_instance.update_screen_recording_segment(storefront_oid, screen_recording_segment_oid, segment)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_screen_recording_segment: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -14846,41 +8999,9 @@ Update screen recording settings
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.screen_recording_settings import ScreenRecordingSettings
-from ultracart.model.screen_recording_settings_response import ScreenRecordingSettingsResponse
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    settings = ScreenRecordingSettings(
-        cost_per_thousand=3.14,
-        enabled=True,
-        retention_interval="retention_interval_example",
-        sessions_current_billing_period=1,
-        sessions_last_billing_period=1,
-        sessions_trial_billing_period=1,
-        trial_expiration="trial_expiration_example",
-        trial_expired=True,
-    ) # ScreenRecordingSettings | Settings
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update screen recording settings
-        api_response = api_instance.update_screen_recording_settings(storefront_oid, settings)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_screen_recording_settings: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -14930,35 +9051,9 @@ Update tags on a screen recording
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.screen_recording_tags_request import ScreenRecordingTagsRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    screen_recording_uuid = "screen_recording_uuid_example" # str | 
-    tags = ScreenRecordingTagsRequest(
-        tags=[
-            "tags_example",
-        ],
-    ) # ScreenRecordingTagsRequest | Tags
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update tags on a screen recording
-        api_instance.update_screen_recording_tags(storefront_oid, screen_recording_uuid, tags)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_screen_recording_tags: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -15009,67 +9104,9 @@ Updates a transactional email
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.transaction_email_response import TransactionEmailResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.transaction_email import TransactionEmail
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    storefront_oid = 1 # int | 
-    email_id = "email_id_example" # str | 
-    transaction_email = TransactionEmail(
-        content="content_example",
-        esp_domain_uuid="esp_domain_uuid_example",
-        esp_friendly_name="esp_friendly_name_example",
-        esp_user="esp_user_example",
-        file_exists=True,
-        file_name="file_name_example",
-        group="group_example",
-        handlebar_variables=[
-            "handlebar_variables_example",
-        ],
-        invalid=True,
-        last_modified="last_modified_example",
-        library_item_oid=1,
-        options=[
-            TransactionEmailOption(
-                description="description_example",
-                merchant_email_delivery_option_oid=1,
-                merchant_id="merchant_id_example",
-                name="name_example",
-                selected=True,
-                store_front_oid=1,
-                template_display="template_display_example",
-                template_type="template_type_example",
-            ),
-        ],
-        path="path_example",
-        size="size_example",
-        store_front_fs_directory_oid=1,
-        store_front_fs_file_oid=1,
-        subject="subject_example",
-        syntax_errors="syntax_errors_example",
-        template_path_relative_path="template_path_relative_path_example",
-        theme_relative_path="theme_relative_path_example",
-    ) # TransactionEmail | TransactionEmail
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Updates a transaction email object
-        api_response = api_instance.update_transaction_email(storefront_oid, email_id, transaction_email)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_transaction_email: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -15119,44 +9156,9 @@ Update Twilio account
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.twilio_response import TwilioResponse
-from ultracart.model.twilio import Twilio
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    esp_twilio_uuid = "esp_twilio_uuid_example" # str | 
-    twilio = Twilio(
-        account_sid="account_sid_example",
-        api_key_id="api_key_id_example",
-        api_key_name="api_key_name_example",
-        auth_token="auth_token_example",
-        esp_twilio_uuid="esp_twilio_uuid_example",
-        inbound_twiml_app_sid="inbound_twiml_app_sid_example",
-        outbound_twiml_app_sid="outbound_twiml_app_sid_example",
-        phone_numbers=[
-            "phone_numbers_example",
-        ],
-        twilio_workspace_sid="twilio_workspace_sid_example",
-    ) # Twilio | Twilio
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update Twilio account
-        api_response = api_instance.update_twilio_account(esp_twilio_uuid, twilio)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->update_twilio_account: %s\n" % e)
+# Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 
 ### Parameters
@@ -15205,34 +9207,9 @@ This is the last step in uploading a file after 1) calling getUploadFsFileUrl an
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.file_manager_upload_request import FileManagerUploadRequest
-from ultracart.model.error_response import ErrorResponse
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    id = 1 # int | 
-    upload_request = FileManagerUploadRequest(
-        filename="filename_example",
-        key="key_example",
-        parent_storefront_fs_directory_oid=1,
-    ) # FileManagerUploadRequest | UploadRequest
-
-    # example passing only required values which don't have defaults set
-    try:
-        # This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
-        api_instance.upload_fs_file(id, upload_request)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->upload_fs_file: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
@@ -15280,33 +9257,9 @@ Validate AWS Event Ruler
 * Api Key Authentication (ultraCartSimpleApiKey):
 
 ```python
-import time
-import ultracart
-from ultracart.api import storefront_api
-from ultracart.model.ruler_validation_response import RulerValidationResponse
-from ultracart.model.error_response import ErrorResponse
-from ultracart.model.ruler_validation_request import RulerValidationRequest
-from samples import api_client  # https://github.com/UltraCart/sdk_samples/blob/master/python/samples.py
-from pprint import pprint
-
-# This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-# As such, this might not be the best way to use this object.
-# Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-api_instance = GiftCertificateApi(api_client())
-
-    ruler_validate_request = RulerValidationRequest(
-        ruler="ruler_example",
-    ) # RulerValidationRequest | Ruler Validate Request
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Validate AWS Event Ruler
-        api_response = api_instance.validate_ruler(ruler_validate_request)
-        pprint(api_response)
-    except ultracart.ApiException as e:
-        print("Exception when calling StorefrontApi->validate_ruler: %s\n" % e)
+# Internal API - Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 
 ### Parameters
