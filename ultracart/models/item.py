@@ -986,7 +986,7 @@ class Item(object):
     def parent_category_path(self):
         """Gets the parent_category_path of this Item.  # noqa: E501
 
-        Parent category path.  / indicates the root folder.  # noqa: E501
+        Parent category path.  / indicates the root folder.  This is the folder structure within item management.  # noqa: E501
 
         :return: The parent_category_path of this Item.  # noqa: E501
         :rtype: str
@@ -997,7 +997,7 @@ class Item(object):
     def parent_category_path(self, parent_category_path):
         """Sets the parent_category_path of this Item.
 
-        Parent category path.  / indicates the root folder.  # noqa: E501
+        Parent category path.  / indicates the root folder.  This is the folder structure within item management.  # noqa: E501
 
         :param parent_category_path: The parent_category_path of this Item.  # noqa: E501
         :type: str

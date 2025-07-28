@@ -153,6 +153,109 @@ class OrderApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def block_refund_on_order(self, order_id, **kwargs):  # noqa: E501
+        """Set a refund block on an order  # noqa: E501
+
+        Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.block_refund_on_order(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to block a refund on. (required)
+        :param str block_reason: Block reason code (optional)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.block_refund_on_order_with_http_info(order_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.block_refund_on_order_with_http_info(order_id, **kwargs)  # noqa: E501
+            return data
+
+    def block_refund_on_order_with_http_info(self, order_id, **kwargs):  # noqa: E501
+        """Set a refund block on an order  # noqa: E501
+
+        Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.block_refund_on_order_with_http_info(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to block a refund on. (required)
+        :param str block_reason: Block reason code (optional)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'block_reason']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method block_refund_on_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `block_refund_on_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+        if 'block_reason' in params:
+            query_params.append(('block_reason', params['block_reason']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/order/orders/{order_id}/refund_block', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def cancel_order(self, order_id, **kwargs):  # noqa: E501
         """Cancel an order  # noqa: E501
 
@@ -2782,6 +2885,105 @@ class OrderApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='BaseResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def unblock_refund_on_order(self, order_id, **kwargs):  # noqa: E501
+        """Remove a refund block on an order  # noqa: E501
+
+        Removes a refund block on an order to prevent a user from performing a refund.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.unblock_refund_on_order(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to unblock a refund on. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.unblock_refund_on_order_with_http_info(order_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.unblock_refund_on_order_with_http_info(order_id, **kwargs)  # noqa: E501
+            return data
+
+    def unblock_refund_on_order_with_http_info(self, order_id, **kwargs):  # noqa: E501
+        """Remove a refund block on an order  # noqa: E501
+
+        Removes a refund block on an order to prevent a user from performing a refund.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.unblock_refund_on_order_with_http_info(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to unblock a refund on. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method unblock_refund_on_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `unblock_refund_on_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/order/orders/{order_id}/refund_unblock', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

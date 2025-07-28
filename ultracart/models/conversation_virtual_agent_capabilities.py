@@ -36,6 +36,8 @@ class ConversationVirtualAgentCapabilities(object):
         'lookup_order_information': 'bool',
         'lookup_subscription_information': 'bool',
         'open_support_ticket': 'bool',
+        'open_support_ticket_channel': 'str',
+        'open_support_ticket_channel_email': 'str',
         'pause_subscription': 'bool',
         'resume_subscription': 'bool',
         'transfer_chat_to_live_agent': 'bool',
@@ -48,13 +50,15 @@ class ConversationVirtualAgentCapabilities(object):
         'lookup_order_information': 'lookup_order_information',
         'lookup_subscription_information': 'lookup_subscription_information',
         'open_support_ticket': 'open_support_ticket',
+        'open_support_ticket_channel': 'open_support_ticket_channel',
+        'open_support_ticket_channel_email': 'open_support_ticket_channel_email',
         'pause_subscription': 'pause_subscription',
         'resume_subscription': 'resume_subscription',
         'transfer_chat_to_live_agent': 'transfer_chat_to_live_agent',
         'update_subscription_credit_card': 'update_subscription_credit_card'
     }
 
-    def __init__(self, cancel_subscription=None, delay_subscription=None, lookup_order_information=None, lookup_subscription_information=None, open_support_ticket=None, pause_subscription=None, resume_subscription=None, transfer_chat_to_live_agent=None, update_subscription_credit_card=None):  # noqa: E501
+    def __init__(self, cancel_subscription=None, delay_subscription=None, lookup_order_information=None, lookup_subscription_information=None, open_support_ticket=None, open_support_ticket_channel=None, open_support_ticket_channel_email=None, pause_subscription=None, resume_subscription=None, transfer_chat_to_live_agent=None, update_subscription_credit_card=None):  # noqa: E501
         """ConversationVirtualAgentCapabilities - a model defined in Swagger"""  # noqa: E501
 
         self._cancel_subscription = None
@@ -62,6 +66,8 @@ class ConversationVirtualAgentCapabilities(object):
         self._lookup_order_information = None
         self._lookup_subscription_information = None
         self._open_support_ticket = None
+        self._open_support_ticket_channel = None
+        self._open_support_ticket_channel_email = None
         self._pause_subscription = None
         self._resume_subscription = None
         self._transfer_chat_to_live_agent = None
@@ -78,6 +84,10 @@ class ConversationVirtualAgentCapabilities(object):
             self.lookup_subscription_information = lookup_subscription_information
         if open_support_ticket is not None:
             self.open_support_ticket = open_support_ticket
+        if open_support_ticket_channel is not None:
+            self.open_support_ticket_channel = open_support_ticket_channel
+        if open_support_ticket_channel_email is not None:
+            self.open_support_ticket_channel_email = open_support_ticket_channel_email
         if pause_subscription is not None:
             self.pause_subscription = pause_subscription
         if resume_subscription is not None:
@@ -191,6 +201,58 @@ class ConversationVirtualAgentCapabilities(object):
         """
 
         self._open_support_ticket = open_support_ticket
+
+    @property
+    def open_support_ticket_channel(self):
+        """Gets the open_support_ticket_channel of this ConversationVirtualAgentCapabilities.  # noqa: E501
+
+        Channel to use to open the support ticket  # noqa: E501
+
+        :return: The open_support_ticket_channel of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :rtype: str
+        """
+        return self._open_support_ticket_channel
+
+    @open_support_ticket_channel.setter
+    def open_support_ticket_channel(self, open_support_ticket_channel):
+        """Sets the open_support_ticket_channel of this ConversationVirtualAgentCapabilities.
+
+        Channel to use to open the support ticket  # noqa: E501
+
+        :param open_support_ticket_channel: The open_support_ticket_channel of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["none", "email", "UltraCart Task", "Zoho Desk Ticket"]  # noqa: E501
+        if open_support_ticket_channel not in allowed_values:
+            raise ValueError(
+                "Invalid value for `open_support_ticket_channel` ({0}), must be one of {1}"  # noqa: E501
+                .format(open_support_ticket_channel, allowed_values)
+            )
+
+        self._open_support_ticket_channel = open_support_ticket_channel
+
+    @property
+    def open_support_ticket_channel_email(self):
+        """Gets the open_support_ticket_channel_email of this ConversationVirtualAgentCapabilities.  # noqa: E501
+
+        Email to send support ticket to  # noqa: E501
+
+        :return: The open_support_ticket_channel_email of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :rtype: str
+        """
+        return self._open_support_ticket_channel_email
+
+    @open_support_ticket_channel_email.setter
+    def open_support_ticket_channel_email(self, open_support_ticket_channel_email):
+        """Sets the open_support_ticket_channel_email of this ConversationVirtualAgentCapabilities.
+
+        Email to send support ticket to  # noqa: E501
+
+        :param open_support_ticket_channel_email: The open_support_ticket_channel_email of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :type: str
+        """
+
+        self._open_support_ticket_channel_email = open_support_ticket_channel_email
 
     @property
     def pause_subscription(self):

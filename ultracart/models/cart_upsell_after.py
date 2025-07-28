@@ -33,21 +33,27 @@ class CartUpsellAfter(object):
     swagger_types = {
         'finalize_after_dts': 'str',
         'finalize_after_minutes': 'int',
-        'upsell_path_code': 'str'
+        'upsell_path_code': 'str',
+        'upsell_path_name': 'str',
+        'upsell_path_variation': 'str'
     }
 
     attribute_map = {
         'finalize_after_dts': 'finalize_after_dts',
         'finalize_after_minutes': 'finalize_after_minutes',
-        'upsell_path_code': 'upsell_path_code'
+        'upsell_path_code': 'upsell_path_code',
+        'upsell_path_name': 'upsell_path_name',
+        'upsell_path_variation': 'upsell_path_variation'
     }
 
-    def __init__(self, finalize_after_dts=None, finalize_after_minutes=None, upsell_path_code=None):  # noqa: E501
+    def __init__(self, finalize_after_dts=None, finalize_after_minutes=None, upsell_path_code=None, upsell_path_name=None, upsell_path_variation=None):  # noqa: E501
         """CartUpsellAfter - a model defined in Swagger"""  # noqa: E501
 
         self._finalize_after_dts = None
         self._finalize_after_minutes = None
         self._upsell_path_code = None
+        self._upsell_path_name = None
+        self._upsell_path_variation = None
         self.discriminator = None
 
         if finalize_after_dts is not None:
@@ -56,6 +62,10 @@ class CartUpsellAfter(object):
             self.finalize_after_minutes = finalize_after_minutes
         if upsell_path_code is not None:
             self.upsell_path_code = upsell_path_code
+        if upsell_path_name is not None:
+            self.upsell_path_name = upsell_path_name
+        if upsell_path_variation is not None:
+            self.upsell_path_variation = upsell_path_variation
 
     @property
     def finalize_after_dts(self):
@@ -107,7 +117,7 @@ class CartUpsellAfter(object):
     def upsell_path_code(self):
         """Gets the upsell_path_code of this CartUpsellAfter.  # noqa: E501
 
-        Upsell path code  # noqa: E501
+        Upsell path code (this is for legacy upsells only)  # noqa: E501
 
         :return: The upsell_path_code of this CartUpsellAfter.  # noqa: E501
         :rtype: str
@@ -118,7 +128,7 @@ class CartUpsellAfter(object):
     def upsell_path_code(self, upsell_path_code):
         """Sets the upsell_path_code of this CartUpsellAfter.
 
-        Upsell path code  # noqa: E501
+        Upsell path code (this is for legacy upsells only)  # noqa: E501
 
         :param upsell_path_code: The upsell_path_code of this CartUpsellAfter.  # noqa: E501
         :type: str
@@ -127,6 +137,52 @@ class CartUpsellAfter(object):
             raise ValueError("Invalid value for `upsell_path_code`, length must be less than or equal to `5`")  # noqa: E501
 
         self._upsell_path_code = upsell_path_code
+
+    @property
+    def upsell_path_name(self):
+        """Gets the upsell_path_name of this CartUpsellAfter.  # noqa: E501
+
+        Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.  # noqa: E501
+
+        :return: The upsell_path_name of this CartUpsellAfter.  # noqa: E501
+        :rtype: str
+        """
+        return self._upsell_path_name
+
+    @upsell_path_name.setter
+    def upsell_path_name(self, upsell_path_name):
+        """Sets the upsell_path_name of this CartUpsellAfter.
+
+        Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.  # noqa: E501
+
+        :param upsell_path_name: The upsell_path_name of this CartUpsellAfter.  # noqa: E501
+        :type: str
+        """
+
+        self._upsell_path_name = upsell_path_name
+
+    @property
+    def upsell_path_variation(self):
+        """Gets the upsell_path_variation of this CartUpsellAfter.  # noqa: E501
+
+        Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.  # noqa: E501
+
+        :return: The upsell_path_variation of this CartUpsellAfter.  # noqa: E501
+        :rtype: str
+        """
+        return self._upsell_path_variation
+
+    @upsell_path_variation.setter
+    def upsell_path_variation(self, upsell_path_variation):
+        """Sets the upsell_path_variation of this CartUpsellAfter.
+
+        Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.  # noqa: E501
+
+        :param upsell_path_variation: The upsell_path_variation of this CartUpsellAfter.  # noqa: E501
+        :type: str
+        """
+
+        self._upsell_path_variation = upsell_path_variation
 
     def to_dict(self):
         """Returns the model properties as a dict"""

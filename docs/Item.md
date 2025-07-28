@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **merchant_item_oid** | **int** | Unique object identifier for this item | [optional] 
 **options** | [**list[ItemOption]**](ItemOption.md) | Options | [optional] 
 **parent_category_id** | **int** | Parent category of the item.  Zero indicates the root folder. | [optional] 
-**parent_category_path** | **str** | Parent category path.  / indicates the root folder. | [optional] 
+**parent_category_path** | **str** | Parent category path.  / indicates the root folder.  This is the folder structure within item management. | [optional] 
 **payment_processing** | [**ItemPaymentProcessing**](ItemPaymentProcessing.md) |  | [optional] 
 **physical** | [**ItemPhysical**](ItemPhysical.md) |  | [optional] 
 **pricing** | [**ItemPricing**](ItemPricing.md) |  | [optional] 

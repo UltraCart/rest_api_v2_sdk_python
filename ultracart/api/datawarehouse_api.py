@@ -46,6 +46,105 @@ class DatawarehouseApi(object):
 
 
 
+    def delete_custom_report(self, custom_report_oid, **kwargs):  # noqa: E501
+        """Delete a custom report  # noqa: E501
+
+        Delete a custom report on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_custom_report(custom_report_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_report_oid: The report oid to delete. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_custom_report_with_http_info(custom_report_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_custom_report_with_http_info(custom_report_oid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_custom_report_with_http_info(self, custom_report_oid, **kwargs):  # noqa: E501
+        """Delete a custom report  # noqa: E501
+
+        Delete a custom report on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_custom_report_with_http_info(custom_report_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_report_oid: The report oid to delete. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['custom_report_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_custom_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'custom_report_oid' is set
+        if ('custom_report_oid' not in params or
+                params['custom_report_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_report_oid` when calling `delete_custom_report`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'custom_report_oid' in params:
+            path_params['custom_report_oid'] = params['custom_report_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_reports/{custom_report_oid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_report(self, report_oid, **kwargs):  # noqa: E501
         """Delete a report  # noqa: E501
 
@@ -244,6 +343,113 @@ class DatawarehouseApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def execute_custom_report(self, execution_request, custom_report_oid, **kwargs):  # noqa: E501
+        """Execute a custom report  # noqa: E501
+
+        Execute a custom report on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.execute_custom_report(execution_request, custom_report_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomReportExecutionRequest execution_request: Request to execute custom report (required)
+        :param int custom_report_oid: The report oid to execute. (required)
+        :return: CustomReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.execute_custom_report_with_http_info(execution_request, custom_report_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.execute_custom_report_with_http_info(execution_request, custom_report_oid, **kwargs)  # noqa: E501
+            return data
+
+    def execute_custom_report_with_http_info(self, execution_request, custom_report_oid, **kwargs):  # noqa: E501
+        """Execute a custom report  # noqa: E501
+
+        Execute a custom report on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.execute_custom_report_with_http_info(execution_request, custom_report_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomReportExecutionRequest execution_request: Request to execute custom report (required)
+        :param int custom_report_oid: The report oid to execute. (required)
+        :return: CustomReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['execution_request', 'custom_report_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method execute_custom_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'execution_request' is set
+        if ('execution_request' not in params or
+                params['execution_request'] is None):
+            raise ValueError("Missing the required parameter `execution_request` when calling `execute_custom_report`")  # noqa: E501
+        # verify the required parameter 'custom_report_oid' is set
+        if ('custom_report_oid' not in params or
+                params['custom_report_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_report_oid` when calling `execute_custom_report`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'custom_report_oid' in params:
+            path_params['custom_report_oid'] = params['custom_report_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'execution_request' in params:
+            body_params = params['execution_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_reports/{custom_report_oid}/execute', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomReportResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def execute_report_queries(self, query_request, **kwargs):  # noqa: E501
         """Execute the report queries  # noqa: E501
 
@@ -336,6 +542,196 @@ class DatawarehouseApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_custom_report(self, custom_report_oid, **kwargs):  # noqa: E501
+        """Get a custom report  # noqa: E501
+
+        Retrieve a custom report   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_custom_report(custom_report_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_report_oid: (required)
+        :return: CustomReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_custom_report_with_http_info(custom_report_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_custom_report_with_http_info(custom_report_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_custom_report_with_http_info(self, custom_report_oid, **kwargs):  # noqa: E501
+        """Get a custom report  # noqa: E501
+
+        Retrieve a custom report   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_custom_report_with_http_info(custom_report_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_report_oid: (required)
+        :return: CustomReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['custom_report_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_custom_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'custom_report_oid' is set
+        if ('custom_report_oid' not in params or
+                params['custom_report_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_report_oid` when calling `get_custom_report`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'custom_report_oid' in params:
+            path_params['custom_report_oid'] = params['custom_report_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_reports/{custom_report_oid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomReportResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_custom_report_account_config(self, **kwargs):  # noqa: E501
+        """Get custom report account configuration  # noqa: E501
+
+        Retrieve a custom report account configuration   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_custom_report_account_config(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: CustomReportAccountConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_custom_report_account_config_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_custom_report_account_config_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_custom_report_account_config_with_http_info(self, **kwargs):  # noqa: E501
+        """Get custom report account configuration  # noqa: E501
+
+        Retrieve a custom report account configuration   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_custom_report_account_config_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: CustomReportAccountConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_custom_report_account_config" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_reports/account_config', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomReportAccountConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -830,6 +1226,105 @@ class DatawarehouseApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def insert_custom_report(self, report, **kwargs):  # noqa: E501
+        """Create a custom report  # noqa: E501
+
+        Create a new custom report on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_custom_report(report, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomReport report: Report to create (required)
+        :return: CustomReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_custom_report_with_http_info(report, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_custom_report_with_http_info(report, **kwargs)  # noqa: E501
+            return data
+
+    def insert_custom_report_with_http_info(self, report, **kwargs):  # noqa: E501
+        """Create a custom report  # noqa: E501
+
+        Create a new custom report on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_custom_report_with_http_info(report, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomReport report: Report to create (required)
+        :return: CustomReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['report']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_custom_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'report' is set
+        if ('report' not in params or
+                params['report'] is None):
+            raise ValueError("Missing the required parameter `report` when calling `insert_custom_report`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'report' in params:
+            body_params = params['report']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_reports', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomReportResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def insert_report(self, report, **kwargs):  # noqa: E501
         """Create a report  # noqa: E501
 
@@ -922,6 +1417,212 @@ class DatawarehouseApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ReportResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_custom_report(self, report, custom_report_oid, **kwargs):  # noqa: E501
+        """Update a custom report  # noqa: E501
+
+        Update a custom report on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_custom_report(report, custom_report_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomReport report: Report to custom update (required)
+        :param int custom_report_oid: The report oid to custom update. (required)
+        :return: CustomReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_custom_report_with_http_info(report, custom_report_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_custom_report_with_http_info(report, custom_report_oid, **kwargs)  # noqa: E501
+            return data
+
+    def update_custom_report_with_http_info(self, report, custom_report_oid, **kwargs):  # noqa: E501
+        """Update a custom report  # noqa: E501
+
+        Update a custom report on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_custom_report_with_http_info(report, custom_report_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomReport report: Report to custom update (required)
+        :param int custom_report_oid: The report oid to custom update. (required)
+        :return: CustomReportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['report', 'custom_report_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_custom_report" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'report' is set
+        if ('report' not in params or
+                params['report'] is None):
+            raise ValueError("Missing the required parameter `report` when calling `update_custom_report`")  # noqa: E501
+        # verify the required parameter 'custom_report_oid' is set
+        if ('custom_report_oid' not in params or
+                params['custom_report_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_report_oid` when calling `update_custom_report`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'custom_report_oid' in params:
+            path_params['custom_report_oid'] = params['custom_report_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'report' in params:
+            body_params = params['report']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_reports/{custom_report_oid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomReportResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_custom_report_account_config(self, account_config, **kwargs):  # noqa: E501
+        """Update custom report account config  # noqa: E501
+
+        Update custom report account config.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_custom_report_account_config(account_config, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomReportAccountConfig account_config: Account config to update (required)
+        :return: CustomReportAccountConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_custom_report_account_config_with_http_info(account_config, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_custom_report_account_config_with_http_info(account_config, **kwargs)  # noqa: E501
+            return data
+
+    def update_custom_report_account_config_with_http_info(self, account_config, **kwargs):  # noqa: E501
+        """Update custom report account config  # noqa: E501
+
+        Update custom report account config.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_custom_report_account_config_with_http_info(account_config, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomReportAccountConfig account_config: Account config to update (required)
+        :return: CustomReportAccountConfigResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['account_config']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_custom_report_account_config" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'account_config' is set
+        if ('account_config' not in params or
+                params['account_config'] is None):
+            raise ValueError("Missing the required parameter `account_config` when calling `update_custom_report_account_config`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'account_config' in params:
+            body_params = params['account_config']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_reports/account_config', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomReportAccountConfigResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
