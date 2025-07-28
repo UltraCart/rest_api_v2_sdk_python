@@ -5,7 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**adjust_order_total**](OrderApi.md#adjust_order_total) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
-[**block_refund_on_order**](OrderApi.md#block_refund_on_order) | **POST** /order/orders/{order_id}/refund_block | Set a refund block on an order
+[**block_refund_on_order**](OrderApi.md#block_refund_on_order) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 [**cancel_order**](OrderApi.md#cancel_order) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**delete_order**](OrderApi.md#delete_order) | **DELETE** /order/orders/{order_id} | Delete an order
 [**duplicate_order**](OrderApi.md#duplicate_order) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
@@ -26,11 +26,10 @@ Method | HTTP request | Description
 [**is_refundable_order**](OrderApi.md#is_refundable_order) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 [**process_payment**](OrderApi.md#process_payment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 [**refund_order**](OrderApi.md#refund_order) | **PUT** /order/orders/{order_id}/refund | Refund an order
-[**refund_order_completely**](OrderApi.md#refund_order_completely) | **PUT** /order/orders/{order_id}/refund_completely | Refund an order completely
 [**replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 [**resend_receipt**](OrderApi.md#resend_receipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**resend_shipment_confirmation**](OrderApi.md#resend_shipment_confirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
-[**unblock_refund_on_order**](OrderApi.md#unblock_refund_on_order) | **POST** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
+[**unblock_refund_on_order**](OrderApi.md#unblock_refund_on_order) | **GET** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
 [**update_accounts_receivable_retry_config**](OrderApi.md#update_accounts_receivable_retry_config) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 [**update_order**](OrderApi.md#update_order) | **PUT** /order/orders/{order_id} | Update an order
 [**validate_order**](OrderApi.md#validate_order) | **POST** /order/validate | Validate
@@ -141,8 +140,33 @@ Sets a refund block on an order to prevent a user from performing a refund.  Com
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+import logging
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from samples import api_client
 
-(No example for this operation).
+# Enable error logging
+logging.basicConfig(level=logging.DEBUG)
+
+##
+## blockRefundOnOrder sets an order property that is considered when a refund request is made.
+## If the property is present, the refund is denied.  Being an order property allows for querying
+## upon it within BigQuery for audit purposes.
+
+# Using the API key to initialize the order API
+order_api = OrderApi(api_client())
+
+order_id = 'DEMO-0009105222'
+
+try:
+    order_api.block_refund_on_order(order_id, block_reason='Chargeback' )
+except ApiException as e:
+    logging.error(f"Exception when calling OrderApi->block_refund_on_order: {e}")
+    exit()
+
+print('Metho executed successfully. Returns back 204 No Content')
+```
 
 
 
@@ -2033,65 +2057,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **refund_order_completely**
-> OrderResponse refund_order_completely(order_id)
-
-Refund an order completely
-
-Perform a refund operation on an order and then update the order if successful. 
-
-### Example
-
-* OAuth Authentication (ultraCartOauth):
-* Api Key Authentication (ultraCartSimpleApiKey):
-
-
-(No example for this operation).
-
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | **str**| The order id to refund. |
- **reject_after_refund** | **bool**| Reject order after refund | [optional] if omitted the server will use the default value of False
- **skip_customer_notification** | **bool**| Skip customer email notification | [optional] if omitted the server will use the default value of False
- **auto_order_cancel** | **bool**| Cancel associated auto orders | [optional] if omitted the server will use the default value of False
- **manual_refund** | **bool**| Consider a manual refund done externally | [optional] if omitted the server will use the default value of False
- **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional] if omitted the server will use the default value of True
- **issue_store_credit** | **bool**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] if omitted the server will use the default value of False
- **auto_order_cancel_reason** | **str**| Reason for auto orders cancellation | [optional]
- **refund_reason** | **str**| Reason for refund | [optional]
- **reject_reason** | **str**| Reason for reject | [optional]
-
-### Return type
-
-[**OrderResponse**](OrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
-**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **replacement**
 > OrderReplacementResponse replacement(order_id, replacement)
 
@@ -2376,8 +2341,33 @@ Removes a refund block on an order to prevent a user from performing a refund.
 * OAuth Authentication (ultraCartOauth):
 * Api Key Authentication (ultraCartSimpleApiKey):
 
+```python
+import logging
+from ultracart import ApiException
+from ultracart.apis import OrderApi
+from samples import api_client
 
-(No example for this operation).
+# Enable error logging
+logging.basicConfig(level=logging.DEBUG)
+
+##
+## unblockRefundOnOrder removes an order property that is considered when a refund request is made.
+## If the property is present, the refund is denied.  Being an order property allows for querying
+## upon it within BigQuery for audit purposes.
+
+# Using the API key to initialize the order API
+order_api = OrderApi(api_client())
+
+order_id = 'DEMO-0009105222'
+
+try:
+    order_api.unblock_refund_on_order(order_id )
+except ApiException as e:
+    logging.error(f"Exception when calling OrderApi->unblock_refund_on_order: {e}")
+    exit()
+
+print('Metho executed successfully. Returns back 204 No Content')
+```
 
 
 

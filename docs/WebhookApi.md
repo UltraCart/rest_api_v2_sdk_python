@@ -316,14 +316,6 @@ if all_summaries is not None:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook_oid** | **int**| The webhook oid to retrieve log summaries for. |
- **request_id** | **str**|  | [optional]
- **begin_date** | **str**|  | [optional]
- **end_date** | **str**|  | [optional]
- **status** | **str**|  | [optional]
- **event** | **str**|  | [optional]
- **order_id** | **str**|  | [optional]
- **request** | **str**|  | [optional]
- **duration** | **int**|  | [optional]
  **limit** | **int**| The maximum number of records to return on this one API call. | [optional] if omitted the server will use the default value of 100
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
  **since** | **str**| Fetch log summaries that have been delivered since this date/time. | [optional]
