@@ -88,6 +88,8 @@ class CartUpsellAfter(ModelNormal):
             'finalize_after_dts': (str,),  # noqa: E501
             'finalize_after_minutes': (int,),  # noqa: E501
             'upsell_path_code': (str,),  # noqa: E501
+            'upsell_path_name': (str,),  # noqa: E501
+            'upsell_path_variation': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +101,8 @@ class CartUpsellAfter(ModelNormal):
         'finalize_after_dts': 'finalize_after_dts',  # noqa: E501
         'finalize_after_minutes': 'finalize_after_minutes',  # noqa: E501
         'upsell_path_code': 'upsell_path_code',  # noqa: E501
+        'upsell_path_name': 'upsell_path_name',  # noqa: E501
+        'upsell_path_variation': 'upsell_path_variation',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,7 +148,9 @@ class CartUpsellAfter(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             finalize_after_dts (str): The date/time after which the cart will finalize into an order.. [optional]  # noqa: E501
             finalize_after_minutes (int): The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field.. [optional]  # noqa: E501
-            upsell_path_code (str): Upsell path code. [optional]  # noqa: E501
+            upsell_path_code (str): Upsell path code (this is for legacy upsells only). [optional]  # noqa: E501
+            upsell_path_name (str): Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.. [optional]  # noqa: E501
+            upsell_path_variation (str): Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,7 +238,9 @@ class CartUpsellAfter(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             finalize_after_dts (str): The date/time after which the cart will finalize into an order.. [optional]  # noqa: E501
             finalize_after_minutes (int): The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field.. [optional]  # noqa: E501
-            upsell_path_code (str): Upsell path code. [optional]  # noqa: E501
+            upsell_path_code (str): Upsell path code (this is for legacy upsells only). [optional]  # noqa: E501
+            upsell_path_name (str): Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.. [optional]  # noqa: E501
+            upsell_path_variation (str): Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

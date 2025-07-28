@@ -313,6 +313,16 @@ from ultracart.model.coupon_type import CouponType
 from ultracart.model.coupons_request import CouponsRequest
 from ultracart.model.coupons_response import CouponsResponse
 from ultracart.model.currency import Currency
+from ultracart.model.custom_report import CustomReport
+from ultracart.model.custom_report_account_config import CustomReportAccountConfig
+from ultracart.model.custom_report_account_config_response import CustomReportAccountConfigResponse
+from ultracart.model.custom_report_execution_parameter import CustomReportExecutionParameter
+from ultracart.model.custom_report_execution_request import CustomReportExecutionRequest
+from ultracart.model.custom_report_parameter import CustomReportParameter
+from ultracart.model.custom_report_parameter_option import CustomReportParameterOption
+from ultracart.model.custom_report_query import CustomReportQuery
+from ultracart.model.custom_report_response import CustomReportResponse
+from ultracart.model.custom_report_tooltip import CustomReportTooltip
 from ultracart.model.customer import Customer
 from ultracart.model.customer_activity import CustomerActivity
 from ultracart.model.customer_affiliate import CustomerAffiliate

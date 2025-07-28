@@ -355,7 +355,7 @@ class Item(ModelNormal):
             merchant_item_oid (int): Unique object identifier for this item. [optional]  # noqa: E501
             options ([ItemOption]): Options. [optional]  # noqa: E501
             parent_category_id (int): Parent category of the item.  Zero indicates the root folder.. [optional]  # noqa: E501
-            parent_category_path (str): Parent category path.  / indicates the root folder.. [optional]  # noqa: E501
+            parent_category_path (str): Parent category path.  / indicates the root folder.  This is the folder structure within item management.. [optional]  # noqa: E501
             payment_processing (ItemPaymentProcessing): [optional]  # noqa: E501
             physical (ItemPhysical): [optional]  # noqa: E501
             pricing (ItemPricing): [optional]  # noqa: E501
@@ -491,7 +491,7 @@ class Item(ModelNormal):
             merchant_item_oid (int): Unique object identifier for this item. [optional]  # noqa: E501
             options ([ItemOption]): Options. [optional]  # noqa: E501
             parent_category_id (int): Parent category of the item.  Zero indicates the root folder.. [optional]  # noqa: E501
-            parent_category_path (str): Parent category path.  / indicates the root folder.. [optional]  # noqa: E501
+            parent_category_path (str): Parent category path.  / indicates the root folder.  This is the folder structure within item management.. [optional]  # noqa: E501
             payment_processing (ItemPaymentProcessing): [optional]  # noqa: E501
             physical (ItemPhysical): [optional]  # noqa: E501
             pricing (ItemPricing): [optional]  # noqa: E501
