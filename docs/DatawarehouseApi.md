@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**execute_report_queries**](DatawarehouseApi.md#execute_report_queries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
 [**get_custom_report**](DatawarehouseApi.md#get_custom_report) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**get_custom_report_account_config**](DatawarehouseApi.md#get_custom_report_account_config) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
+[**get_custom_reports**](DatawarehouseApi.md#get_custom_reports) | **GET** /datawarehouse/custom_reports | Get custom reports
 [**get_report**](DatawarehouseApi.md#get_report) | **GET** /datawarehouse/reports/{report_oid} | Get a report
 [**get_report_data_set**](DatawarehouseApi.md#get_report_data_set) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
 [**get_report_data_set_page**](DatawarehouseApi.md#get_report_data_set_page) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
@@ -356,6 +357,52 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**CustomReportAccountConfigResponse**](CustomReportAccountConfigResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_custom_reports**
+> CustomReportsResponse get_custom_reports()
+
+Get custom reports
+
+Retrieve a custom reports 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.DatawarehouseApi.fromApiKey(simple_key, False, True)
+
+
+try:
+    # Get custom reports
+    api_response = api_instance.get_custom_reports()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DatawarehouseApi->get_custom_reports: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CustomReportsResponse**](CustomReportsResponse.md)
 
 ### Authorization
 

@@ -330,6 +330,7 @@ from ultracart.models.custom_report_parameter_option import CustomReportParamete
 from ultracart.models.custom_report_query import CustomReportQuery
 from ultracart.models.custom_report_response import CustomReportResponse
 from ultracart.models.custom_report_tooltip import CustomReportTooltip
+from ultracart.models.custom_reports_response import CustomReportsResponse
 from ultracart.models.customer import Customer
 from ultracart.models.customer_activity import CustomerActivity
 from ultracart.models.customer_affiliate import CustomerAffiliate
