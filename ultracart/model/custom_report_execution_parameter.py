@@ -83,6 +83,7 @@ class CustomReportExecutionParameter(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
+            'quick_pick_key': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
         }
@@ -94,6 +95,7 @@ class CustomReportExecutionParameter(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'quick_pick_key': 'quick_pick_key',  # noqa: E501
         'type': 'type',  # noqa: E501
         'value': 'value',  # noqa: E501
     }
@@ -140,6 +142,7 @@ class CustomReportExecutionParameter(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            quick_pick_key (str): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
             value (str): [optional]  # noqa: E501
         """
@@ -228,6 +231,7 @@ class CustomReportExecutionParameter(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            quick_pick_key (str): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
             value (str): [optional]  # noqa: E501
         """

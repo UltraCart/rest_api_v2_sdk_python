@@ -31,7 +31,9 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.custom_dashboard_execution_parameter import CustomDashboardExecutionParameter
     from ultracart.model.custom_dashboard_page import CustomDashboardPage
+    globals()['CustomDashboardExecutionParameter'] = CustomDashboardExecutionParameter
     globals()['CustomDashboardPage'] = CustomDashboardPage
 
 
@@ -92,6 +94,7 @@ class CustomDashboard(ModelNormal):
             'merchant_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'pages': ([CustomDashboardPage],),  # noqa: E501
+            'parameters': ([CustomDashboardExecutionParameter],),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +107,7 @@ class CustomDashboard(ModelNormal):
         'merchant_id': 'merchant_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'pages': 'pages',  # noqa: E501
+        'parameters': 'parameters',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,6 +155,7 @@ class CustomDashboard(ModelNormal):
             merchant_id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             pages ([CustomDashboardPage]): [optional]  # noqa: E501
+            parameters ([CustomDashboardExecutionParameter]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -240,6 +245,7 @@ class CustomDashboard(ModelNormal):
             merchant_id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             pages ([CustomDashboardPage]): [optional]  # noqa: E501
+            parameters ([CustomDashboardExecutionParameter]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

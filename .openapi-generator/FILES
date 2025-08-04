@@ -232,6 +232,7 @@ docs/ConversationVirtualAgentBudget.md
 docs/ConversationVirtualAgentBudgetResponse.md
 docs/ConversationVirtualAgentCapabilities.md
 docs/ConversationVirtualAgentCapabilitiesResponse.md
+docs/ConversationVirtualAgentCapabilityZohoDeskDepartment.md
 docs/ConversationWebchatContext.md
 docs/ConversationWebchatQueueStatus.md
 docs/ConversationWebchatQueueStatusAgent.md
@@ -314,6 +315,7 @@ docs/CouponsRequest.md
 docs/CouponsResponse.md
 docs/Currency.md
 docs/CustomDashboard.md
+docs/CustomDashboardExecutionParameter.md
 docs/CustomDashboardPage.md
 docs/CustomDashboardPageReport.md
 docs/CustomDashboardResponse.md
@@ -1165,6 +1167,7 @@ ultracart/model/conversation_virtual_agent_budget.py
 ultracart/model/conversation_virtual_agent_budget_response.py
 ultracart/model/conversation_virtual_agent_capabilities.py
 ultracart/model/conversation_virtual_agent_capabilities_response.py
+ultracart/model/conversation_virtual_agent_capability_zoho_desk_department.py
 ultracart/model/conversation_webchat_context.py
 ultracart/model/conversation_webchat_queue_status.py
 ultracart/model/conversation_webchat_queue_status_agent.py
@@ -1246,6 +1249,7 @@ ultracart/model/coupons_request.py
 ultracart/model/coupons_response.py
 ultracart/model/currency.py
 ultracart/model/custom_dashboard.py
+ultracart/model/custom_dashboard_execution_parameter.py
 ultracart/model/custom_dashboard_page.py
 ultracart/model/custom_dashboard_page_report.py
 ultracart/model/custom_dashboard_response.py
