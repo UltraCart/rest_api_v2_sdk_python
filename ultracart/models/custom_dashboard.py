@@ -34,23 +34,26 @@ class CustomDashboard(object):
         'data_warehouse_custom_dashboard_oid': 'int',
         'merchant_id': 'str',
         'name': 'str',
-        'pages': 'list[CustomDashboardPage]'
+        'pages': 'list[CustomDashboardPage]',
+        'parameters': 'list[CustomDashboardExecutionParameter]'
     }
 
     attribute_map = {
         'data_warehouse_custom_dashboard_oid': 'data_warehouse_custom_dashboard_oid',
         'merchant_id': 'merchant_id',
         'name': 'name',
-        'pages': 'pages'
+        'pages': 'pages',
+        'parameters': 'parameters'
     }
 
-    def __init__(self, data_warehouse_custom_dashboard_oid=None, merchant_id=None, name=None, pages=None):  # noqa: E501
+    def __init__(self, data_warehouse_custom_dashboard_oid=None, merchant_id=None, name=None, pages=None, parameters=None):  # noqa: E501
         """CustomDashboard - a model defined in Swagger"""  # noqa: E501
 
         self._data_warehouse_custom_dashboard_oid = None
         self._merchant_id = None
         self._name = None
         self._pages = None
+        self._parameters = None
         self.discriminator = None
 
         if data_warehouse_custom_dashboard_oid is not None:
@@ -61,6 +64,8 @@ class CustomDashboard(object):
             self.name = name
         if pages is not None:
             self.pages = pages
+        if parameters is not None:
+            self.parameters = parameters
 
     @property
     def data_warehouse_custom_dashboard_oid(self):
@@ -145,6 +150,27 @@ class CustomDashboard(object):
         """
 
         self._pages = pages
+
+    @property
+    def parameters(self):
+        """Gets the parameters of this CustomDashboard.  # noqa: E501
+
+
+        :return: The parameters of this CustomDashboard.  # noqa: E501
+        :rtype: list[CustomDashboardExecutionParameter]
+        """
+        return self._parameters
+
+    @parameters.setter
+    def parameters(self, parameters):
+        """Sets the parameters of this CustomDashboard.
+
+
+        :param parameters: The parameters of this CustomDashboard.  # noqa: E501
+        :type: list[CustomDashboardExecutionParameter]
+        """
+
+        self._parameters = parameters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -38,10 +38,13 @@ class ConversationVirtualAgentCapabilities(object):
         'open_support_ticket': 'bool',
         'open_support_ticket_channel': 'str',
         'open_support_ticket_channel_email': 'str',
+        'open_support_ticket_zoho_desk_department_id': 'str',
         'pause_subscription': 'bool',
         'resume_subscription': 'bool',
         'transfer_chat_to_live_agent': 'bool',
-        'update_subscription_credit_card': 'bool'
+        'update_subscription_credit_card': 'bool',
+        'zoho_desk_available': 'bool',
+        'zoho_desk_departments': 'list[ConversationVirtualAgentCapabilityZohoDeskDepartment]'
     }
 
     attribute_map = {
@@ -52,13 +55,16 @@ class ConversationVirtualAgentCapabilities(object):
         'open_support_ticket': 'open_support_ticket',
         'open_support_ticket_channel': 'open_support_ticket_channel',
         'open_support_ticket_channel_email': 'open_support_ticket_channel_email',
+        'open_support_ticket_zoho_desk_department_id': 'open_support_ticket_zoho_desk_department_id',
         'pause_subscription': 'pause_subscription',
         'resume_subscription': 'resume_subscription',
         'transfer_chat_to_live_agent': 'transfer_chat_to_live_agent',
-        'update_subscription_credit_card': 'update_subscription_credit_card'
+        'update_subscription_credit_card': 'update_subscription_credit_card',
+        'zoho_desk_available': 'zoho_desk_available',
+        'zoho_desk_departments': 'zoho_desk_departments'
     }
 
-    def __init__(self, cancel_subscription=None, delay_subscription=None, lookup_order_information=None, lookup_subscription_information=None, open_support_ticket=None, open_support_ticket_channel=None, open_support_ticket_channel_email=None, pause_subscription=None, resume_subscription=None, transfer_chat_to_live_agent=None, update_subscription_credit_card=None):  # noqa: E501
+    def __init__(self, cancel_subscription=None, delay_subscription=None, lookup_order_information=None, lookup_subscription_information=None, open_support_ticket=None, open_support_ticket_channel=None, open_support_ticket_channel_email=None, open_support_ticket_zoho_desk_department_id=None, pause_subscription=None, resume_subscription=None, transfer_chat_to_live_agent=None, update_subscription_credit_card=None, zoho_desk_available=None, zoho_desk_departments=None):  # noqa: E501
         """ConversationVirtualAgentCapabilities - a model defined in Swagger"""  # noqa: E501
 
         self._cancel_subscription = None
@@ -68,10 +74,13 @@ class ConversationVirtualAgentCapabilities(object):
         self._open_support_ticket = None
         self._open_support_ticket_channel = None
         self._open_support_ticket_channel_email = None
+        self._open_support_ticket_zoho_desk_department_id = None
         self._pause_subscription = None
         self._resume_subscription = None
         self._transfer_chat_to_live_agent = None
         self._update_subscription_credit_card = None
+        self._zoho_desk_available = None
+        self._zoho_desk_departments = None
         self.discriminator = None
 
         if cancel_subscription is not None:
@@ -88,6 +97,8 @@ class ConversationVirtualAgentCapabilities(object):
             self.open_support_ticket_channel = open_support_ticket_channel
         if open_support_ticket_channel_email is not None:
             self.open_support_ticket_channel_email = open_support_ticket_channel_email
+        if open_support_ticket_zoho_desk_department_id is not None:
+            self.open_support_ticket_zoho_desk_department_id = open_support_ticket_zoho_desk_department_id
         if pause_subscription is not None:
             self.pause_subscription = pause_subscription
         if resume_subscription is not None:
@@ -96,6 +107,10 @@ class ConversationVirtualAgentCapabilities(object):
             self.transfer_chat_to_live_agent = transfer_chat_to_live_agent
         if update_subscription_credit_card is not None:
             self.update_subscription_credit_card = update_subscription_credit_card
+        if zoho_desk_available is not None:
+            self.zoho_desk_available = zoho_desk_available
+        if zoho_desk_departments is not None:
+            self.zoho_desk_departments = zoho_desk_departments
 
     @property
     def cancel_subscription(self):
@@ -222,7 +237,7 @@ class ConversationVirtualAgentCapabilities(object):
         :param open_support_ticket_channel: The open_support_ticket_channel of this ConversationVirtualAgentCapabilities.  # noqa: E501
         :type: str
         """
-        allowed_values = ["none", "email", "UltraCart Task", "Zoho Desk Ticket"]  # noqa: E501
+        allowed_values = ["none", "email", "ultracart_task", "zoho_desk_ticket"]  # noqa: E501
         if open_support_ticket_channel not in allowed_values:
             raise ValueError(
                 "Invalid value for `open_support_ticket_channel` ({0}), must be one of {1}"  # noqa: E501
@@ -253,6 +268,29 @@ class ConversationVirtualAgentCapabilities(object):
         """
 
         self._open_support_ticket_channel_email = open_support_ticket_channel_email
+
+    @property
+    def open_support_ticket_zoho_desk_department_id(self):
+        """Gets the open_support_ticket_zoho_desk_department_id of this ConversationVirtualAgentCapabilities.  # noqa: E501
+
+        Department ID to open a Zoho Desk ticket for  # noqa: E501
+
+        :return: The open_support_ticket_zoho_desk_department_id of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :rtype: str
+        """
+        return self._open_support_ticket_zoho_desk_department_id
+
+    @open_support_ticket_zoho_desk_department_id.setter
+    def open_support_ticket_zoho_desk_department_id(self, open_support_ticket_zoho_desk_department_id):
+        """Sets the open_support_ticket_zoho_desk_department_id of this ConversationVirtualAgentCapabilities.
+
+        Department ID to open a Zoho Desk ticket for  # noqa: E501
+
+        :param open_support_ticket_zoho_desk_department_id: The open_support_ticket_zoho_desk_department_id of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :type: str
+        """
+
+        self._open_support_ticket_zoho_desk_department_id = open_support_ticket_zoho_desk_department_id
 
     @property
     def pause_subscription(self):
@@ -337,6 +375,52 @@ class ConversationVirtualAgentCapabilities(object):
         """
 
         self._update_subscription_credit_card = update_subscription_credit_card
+
+    @property
+    def zoho_desk_available(self):
+        """Gets the zoho_desk_available of this ConversationVirtualAgentCapabilities.  # noqa: E501
+
+        True if Zoho Desk is connected to UltraCart  # noqa: E501
+
+        :return: The zoho_desk_available of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :rtype: bool
+        """
+        return self._zoho_desk_available
+
+    @zoho_desk_available.setter
+    def zoho_desk_available(self, zoho_desk_available):
+        """Sets the zoho_desk_available of this ConversationVirtualAgentCapabilities.
+
+        True if Zoho Desk is connected to UltraCart  # noqa: E501
+
+        :param zoho_desk_available: The zoho_desk_available of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :type: bool
+        """
+
+        self._zoho_desk_available = zoho_desk_available
+
+    @property
+    def zoho_desk_departments(self):
+        """Gets the zoho_desk_departments of this ConversationVirtualAgentCapabilities.  # noqa: E501
+
+        Array of Zoho Desk Department if zoho desk is connected to UltraCart  # noqa: E501
+
+        :return: The zoho_desk_departments of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :rtype: list[ConversationVirtualAgentCapabilityZohoDeskDepartment]
+        """
+        return self._zoho_desk_departments
+
+    @zoho_desk_departments.setter
+    def zoho_desk_departments(self, zoho_desk_departments):
+        """Sets the zoho_desk_departments of this ConversationVirtualAgentCapabilities.
+
+        Array of Zoho Desk Department if zoho desk is connected to UltraCart  # noqa: E501
+
+        :param zoho_desk_departments: The zoho_desk_departments of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :type: list[ConversationVirtualAgentCapabilityZohoDeskDepartment]
+        """
+
+        self._zoho_desk_departments = zoho_desk_departments
 
     def to_dict(self):
         """Returns the model properties as a dict"""
