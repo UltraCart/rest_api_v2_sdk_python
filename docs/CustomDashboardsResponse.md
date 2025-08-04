@@ -1,14 +1,11 @@
-# EmailWebhookEditorValuesResponse
+# CustomDashboardsResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**available_expansions** | **list[str]** |  | [optional] 
-**available_tokens** | **list[str]** |  | [optional] 
+**dashboards** | [**list[CustomDashboard]**](CustomDashboard.md) | reports | [optional] 
 **error** | [**Error**](Error.md) |  | [optional] 
-**loyalty_tiers** | **list[str]** |  | [optional] 
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
-**rest_object_type** | **str** |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **warning** | [**Warning**](Warning.md) |  | [optional] 
 

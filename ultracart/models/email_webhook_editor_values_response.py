@@ -34,6 +34,7 @@ class EmailWebhookEditorValuesResponse(object):
         'available_expansions': 'list[str]',
         'available_tokens': 'list[str]',
         'error': 'Error',
+        'loyalty_tiers': 'list[str]',
         'metadata': 'ResponseMetadata',
         'rest_object_type': 'str',
         'success': 'bool',
@@ -44,18 +45,20 @@ class EmailWebhookEditorValuesResponse(object):
         'available_expansions': 'available_expansions',
         'available_tokens': 'available_tokens',
         'error': 'error',
+        'loyalty_tiers': 'loyalty_tiers',
         'metadata': 'metadata',
         'rest_object_type': 'rest_object_type',
         'success': 'success',
         'warning': 'warning'
     }
 
-    def __init__(self, available_expansions=None, available_tokens=None, error=None, metadata=None, rest_object_type=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, available_expansions=None, available_tokens=None, error=None, loyalty_tiers=None, metadata=None, rest_object_type=None, success=None, warning=None):  # noqa: E501
         """EmailWebhookEditorValuesResponse - a model defined in Swagger"""  # noqa: E501
 
         self._available_expansions = None
         self._available_tokens = None
         self._error = None
+        self._loyalty_tiers = None
         self._metadata = None
         self._rest_object_type = None
         self._success = None
@@ -68,6 +71,8 @@ class EmailWebhookEditorValuesResponse(object):
             self.available_tokens = available_tokens
         if error is not None:
             self.error = error
+        if loyalty_tiers is not None:
+            self.loyalty_tiers = loyalty_tiers
         if metadata is not None:
             self.metadata = metadata
         if rest_object_type is not None:
@@ -139,6 +144,27 @@ class EmailWebhookEditorValuesResponse(object):
         """
 
         self._error = error
+
+    @property
+    def loyalty_tiers(self):
+        """Gets the loyalty_tiers of this EmailWebhookEditorValuesResponse.  # noqa: E501
+
+
+        :return: The loyalty_tiers of this EmailWebhookEditorValuesResponse.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._loyalty_tiers
+
+    @loyalty_tiers.setter
+    def loyalty_tiers(self, loyalty_tiers):
+        """Sets the loyalty_tiers of this EmailWebhookEditorValuesResponse.
+
+
+        :param loyalty_tiers: The loyalty_tiers of this EmailWebhookEditorValuesResponse.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._loyalty_tiers = loyalty_tiers
 
     @property
     def metadata(self):
