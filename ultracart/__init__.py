@@ -449,6 +449,7 @@ from ultracart.models.email_dashboard_activity_response import EmailDashboardAct
 from ultracart.models.email_dashboard_stats_response import EmailDashboardStatsResponse
 from ultracart.models.email_domain import EmailDomain
 from ultracart.models.email_editor_token_response import EmailEditorTokenResponse
+from ultracart.models.email_editor_values_response import EmailEditorValuesResponse
 from ultracart.models.email_flow import EmailFlow
 from ultracart.models.email_flow_back_populate_request import EmailFlowBackPopulateRequest
 from ultracart.models.email_flow_back_populate_response import EmailFlowBackPopulateResponse
