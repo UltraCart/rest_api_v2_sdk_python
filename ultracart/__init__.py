@@ -19,7 +19,6 @@ from __future__ import absolute_import
 from ultracart.api.affiliate_api import AffiliateApi
 from ultracart.api.auto_order_api import AutoOrderApi
 from ultracart.api.channel_partner_api import ChannelPartnerApi
-from ultracart.api.chargeback_api import ChargebackApi
 from ultracart.api.checkout_api import CheckoutApi
 from ultracart.api.conversation_api import ConversationApi
 from ultracart.api.coupon_api import CouponApi
@@ -162,9 +161,6 @@ from ultracart.models.channel_partner_ship_to_preference_response import Channel
 from ultracart.models.channel_partner_ship_to_preferences_response import ChannelPartnerShipToPreferencesResponse
 from ultracart.models.channel_partner_shipping_estimate import ChannelPartnerShippingEstimate
 from ultracart.models.channel_partners_response import ChannelPartnersResponse
-from ultracart.models.chargeback_dispute import ChargebackDispute
-from ultracart.models.chargeback_dispute_response import ChargebackDisputeResponse
-from ultracart.models.chargeback_disputes_response import ChargebackDisputesResponse
 from ultracart.models.checkout_allowed_countries_response import CheckoutAllowedCountriesResponse
 from ultracart.models.checkout_handoff_request import CheckoutHandoffRequest
 from ultracart.models.checkout_handoff_response import CheckoutHandoffResponse
@@ -353,6 +349,9 @@ from ultracart.models.custom_dashboard_execution_parameter import CustomDashboar
 from ultracart.models.custom_dashboard_page import CustomDashboardPage
 from ultracart.models.custom_dashboard_page_report import CustomDashboardPageReport
 from ultracart.models.custom_dashboard_response import CustomDashboardResponse
+from ultracart.models.custom_dashboard_schedule import CustomDashboardSchedule
+from ultracart.models.custom_dashboard_schedule_response import CustomDashboardScheduleResponse
+from ultracart.models.custom_dashboard_schedules_response import CustomDashboardSchedulesResponse
 from ultracart.models.custom_dashboards_response import CustomDashboardsResponse
 from ultracart.models.custom_report import CustomReport
 from ultracart.models.custom_report_account_config import CustomReportAccountConfig

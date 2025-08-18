@@ -1,11 +1,11 @@
-# ChargebackDisputesResponse
+# CustomDashboardScheduleResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**chargebacks** | [**list[ChargebackDispute]**](ChargebackDispute.md) |  | [optional] 
 **error** | [**Error**](Error.md) |  | [optional] 
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**schedule** | [**CustomDashboardSchedule**](CustomDashboardSchedule.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **warning** | [**Warning**](Warning.md) |  | [optional] 
 

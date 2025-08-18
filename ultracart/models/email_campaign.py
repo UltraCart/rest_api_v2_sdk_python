@@ -48,6 +48,8 @@ class EmailCampaign(object):
         'name': 'str',
         'open_rate_formatted': 'str',
         'prevent_sending_due_to_spam': 'bool',
+        'repeat_monthly': 'bool',
+        'repeat_weekly': 'bool',
         'revenue_formatted': 'str',
         'revenue_per_customer_formatted': 'str',
         'scheduled_dts': 'str',
@@ -77,6 +79,8 @@ class EmailCampaign(object):
         'name': 'name',
         'open_rate_formatted': 'open_rate_formatted',
         'prevent_sending_due_to_spam': 'prevent_sending_due_to_spam',
+        'repeat_monthly': 'repeat_monthly',
+        'repeat_weekly': 'repeat_weekly',
         'revenue_formatted': 'revenue_formatted',
         'revenue_per_customer_formatted': 'revenue_per_customer_formatted',
         'scheduled_dts': 'scheduled_dts',
@@ -88,7 +92,7 @@ class EmailCampaign(object):
         'storefront_oid': 'storefront_oid'
     }
 
-    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, esp_campaign_folder_uuid=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, library_item_oid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, revenue_formatted=None, revenue_per_customer_formatted=None, scheduled_dts=None, screenshot_large_full_url=None, sms_esp_twilio_uuid=None, sms_phone_number=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
+    def __init__(self, click_rate_formatted=None, created_dts=None, deleted=None, email_campaign_uuid=None, email_communication_sequence_uuid=None, end_once_customer_purchases=None, end_once_customer_purchases_anywhere=None, esp_campaign_folder_uuid=None, esp_domain_user=None, esp_domain_uuid=None, esp_friendly_name=None, library_item_oid=None, memberships=None, merchant_id=None, name=None, open_rate_formatted=None, prevent_sending_due_to_spam=None, repeat_monthly=None, repeat_weekly=None, revenue_formatted=None, revenue_per_customer_formatted=None, scheduled_dts=None, screenshot_large_full_url=None, sms_esp_twilio_uuid=None, sms_phone_number=None, status=None, status_dts=None, storefront_oid=None):  # noqa: E501
         """EmailCampaign - a model defined in Swagger"""  # noqa: E501
 
         self._click_rate_formatted = None
@@ -108,6 +112,8 @@ class EmailCampaign(object):
         self._name = None
         self._open_rate_formatted = None
         self._prevent_sending_due_to_spam = None
+        self._repeat_monthly = None
+        self._repeat_weekly = None
         self._revenue_formatted = None
         self._revenue_per_customer_formatted = None
         self._scheduled_dts = None
@@ -153,6 +159,10 @@ class EmailCampaign(object):
             self.open_rate_formatted = open_rate_formatted
         if prevent_sending_due_to_spam is not None:
             self.prevent_sending_due_to_spam = prevent_sending_due_to_spam
+        if repeat_monthly is not None:
+            self.repeat_monthly = repeat_monthly
+        if repeat_weekly is not None:
+            self.repeat_weekly = repeat_weekly
         if revenue_formatted is not None:
             self.revenue_formatted = revenue_formatted
         if revenue_per_customer_formatted is not None:
@@ -564,6 +574,52 @@ class EmailCampaign(object):
         """
 
         self._prevent_sending_due_to_spam = prevent_sending_due_to_spam
+
+    @property
+    def repeat_monthly(self):
+        """Gets the repeat_monthly of this EmailCampaign.  # noqa: E501
+
+        True if the campaign should repeat on a monthly basis  # noqa: E501
+
+        :return: The repeat_monthly of this EmailCampaign.  # noqa: E501
+        :rtype: bool
+        """
+        return self._repeat_monthly
+
+    @repeat_monthly.setter
+    def repeat_monthly(self, repeat_monthly):
+        """Sets the repeat_monthly of this EmailCampaign.
+
+        True if the campaign should repeat on a monthly basis  # noqa: E501
+
+        :param repeat_monthly: The repeat_monthly of this EmailCampaign.  # noqa: E501
+        :type: bool
+        """
+
+        self._repeat_monthly = repeat_monthly
+
+    @property
+    def repeat_weekly(self):
+        """Gets the repeat_weekly of this EmailCampaign.  # noqa: E501
+
+        True if the campaign should repeat on a weekly basis  # noqa: E501
+
+        :return: The repeat_weekly of this EmailCampaign.  # noqa: E501
+        :rtype: bool
+        """
+        return self._repeat_weekly
+
+    @repeat_weekly.setter
+    def repeat_weekly(self, repeat_weekly):
+        """Sets the repeat_weekly of this EmailCampaign.
+
+        True if the campaign should repeat on a weekly basis  # noqa: E501
+
+        :param repeat_weekly: The repeat_weekly of this EmailCampaign.  # noqa: E501
+        :type: bool
+        """
+
+        self._repeat_weekly = repeat_weekly
 
     @property
     def revenue_formatted(self):

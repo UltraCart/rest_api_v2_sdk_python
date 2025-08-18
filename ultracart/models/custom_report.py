@@ -31,6 +31,7 @@ class CustomReport(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'business_analysis_prompt': 'str',
         'chart_javascript': 'str',
         'chart_javascript_url': 'str',
         'data_warehouse_report_config_oid': 'int',
@@ -44,6 +45,7 @@ class CustomReport(object):
     }
 
     attribute_map = {
+        'business_analysis_prompt': 'business_analysis_prompt',
         'chart_javascript': 'chart_javascript',
         'chart_javascript_url': 'chart_javascript_url',
         'data_warehouse_report_config_oid': 'data_warehouse_report_config_oid',
@@ -56,9 +58,10 @@ class CustomReport(object):
         'tooltips': 'tooltips'
     }
 
-    def __init__(self, chart_javascript=None, chart_javascript_url=None, data_warehouse_report_config_oid=None, dataset_security_level=None, group_name=None, merchant_id=None, name=None, parameters=None, queries=None, tooltips=None):  # noqa: E501
+    def __init__(self, business_analysis_prompt=None, chart_javascript=None, chart_javascript_url=None, data_warehouse_report_config_oid=None, dataset_security_level=None, group_name=None, merchant_id=None, name=None, parameters=None, queries=None, tooltips=None):  # noqa: E501
         """CustomReport - a model defined in Swagger"""  # noqa: E501
 
+        self._business_analysis_prompt = None
         self._chart_javascript = None
         self._chart_javascript_url = None
         self._data_warehouse_report_config_oid = None
@@ -71,6 +74,8 @@ class CustomReport(object):
         self._tooltips = None
         self.discriminator = None
 
+        if business_analysis_prompt is not None:
+            self.business_analysis_prompt = business_analysis_prompt
         if chart_javascript is not None:
             self.chart_javascript = chart_javascript
         if chart_javascript_url is not None:
@@ -91,6 +96,27 @@ class CustomReport(object):
             self.queries = queries
         if tooltips is not None:
             self.tooltips = tooltips
+
+    @property
+    def business_analysis_prompt(self):
+        """Gets the business_analysis_prompt of this CustomReport.  # noqa: E501
+
+
+        :return: The business_analysis_prompt of this CustomReport.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_analysis_prompt
+
+    @business_analysis_prompt.setter
+    def business_analysis_prompt(self, business_analysis_prompt):
+        """Sets the business_analysis_prompt of this CustomReport.
+
+
+        :param business_analysis_prompt: The business_analysis_prompt of this CustomReport.  # noqa: E501
+        :type: str
+        """
+
+        self._business_analysis_prompt = business_analysis_prompt
 
     @property
     def chart_javascript(self):

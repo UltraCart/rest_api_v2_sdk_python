@@ -145,6 +145,113 @@ class DatawarehouseApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_custom_dashboard_schedule(self, custom_dashboard_schedule_oid, custom_dashboard_oid, **kwargs):  # noqa: E501
+        """Delete a custom dashboard schedule  # noqa: E501
+
+        delete a custom dashboard schedule on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_custom_dashboard_schedule(custom_dashboard_schedule_oid, custom_dashboard_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_dashboard_schedule_oid: The dashboard schedule oid to delete. (required)
+        :param int custom_dashboard_oid: The dashboard oid that owns the schedule. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_custom_dashboard_schedule_with_http_info(custom_dashboard_schedule_oid, custom_dashboard_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_custom_dashboard_schedule_with_http_info(custom_dashboard_schedule_oid, custom_dashboard_oid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_custom_dashboard_schedule_with_http_info(self, custom_dashboard_schedule_oid, custom_dashboard_oid, **kwargs):  # noqa: E501
+        """Delete a custom dashboard schedule  # noqa: E501
+
+        delete a custom dashboard schedule on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_custom_dashboard_schedule_with_http_info(custom_dashboard_schedule_oid, custom_dashboard_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_dashboard_schedule_oid: The dashboard schedule oid to delete. (required)
+        :param int custom_dashboard_oid: The dashboard oid that owns the schedule. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['custom_dashboard_schedule_oid', 'custom_dashboard_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_custom_dashboard_schedule" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'custom_dashboard_schedule_oid' is set
+        if ('custom_dashboard_schedule_oid' not in params or
+                params['custom_dashboard_schedule_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_dashboard_schedule_oid` when calling `delete_custom_dashboard_schedule`")  # noqa: E501
+        # verify the required parameter 'custom_dashboard_oid' is set
+        if ('custom_dashboard_oid' not in params or
+                params['custom_dashboard_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_dashboard_oid` when calling `delete_custom_dashboard_schedule`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'custom_dashboard_schedule_oid' in params:
+            path_params['custom_dashboard_schedule_oid'] = params['custom_dashboard_schedule_oid']  # noqa: E501
+        if 'custom_dashboard_oid' in params:
+            path_params['custom_dashboard_oid'] = params['custom_dashboard_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_custom_report(self, custom_report_oid, **kwargs):  # noqa: E501
         """Delete a custom report  # noqa: E501
 
@@ -839,6 +946,105 @@ class DatawarehouseApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CustomDashboardResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_custom_dashboard_schedules(self, custom_dashboard_oid, **kwargs):  # noqa: E501
+        """Get custom dashboards  # noqa: E501
+
+        Retrieve a custom dashboards   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_custom_dashboard_schedules(custom_dashboard_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_dashboard_oid: (required)
+        :return: CustomDashboardSchedulesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_custom_dashboard_schedules_with_http_info(custom_dashboard_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_custom_dashboard_schedules_with_http_info(custom_dashboard_oid, **kwargs)  # noqa: E501
+            return data
+
+    def get_custom_dashboard_schedules_with_http_info(self, custom_dashboard_oid, **kwargs):  # noqa: E501
+        """Get custom dashboards  # noqa: E501
+
+        Retrieve a custom dashboards   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_custom_dashboard_schedules_with_http_info(custom_dashboard_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_dashboard_oid: (required)
+        :return: CustomDashboardSchedulesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['custom_dashboard_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_custom_dashboard_schedules" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'custom_dashboard_oid' is set
+        if ('custom_dashboard_oid' not in params or
+                params['custom_dashboard_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_dashboard_oid` when calling `get_custom_dashboard_schedules`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'custom_dashboard_oid' in params:
+            path_params['custom_dashboard_oid'] = params['custom_dashboard_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomDashboardSchedulesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1804,6 +2010,113 @@ class DatawarehouseApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def insert_custom_dashboard_schedule(self, custom_dashboard_oid, dashboard_schedule, **kwargs):  # noqa: E501
+        """Create a custom dashboard schedule  # noqa: E501
+
+        Create a new custom dashboard schedule on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_custom_dashboard_schedule(custom_dashboard_oid, dashboard_schedule, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_dashboard_oid: (required)
+        :param CustomDashboardSchedule dashboard_schedule: Dashboard schedule to create (required)
+        :return: CustomDashboardScheduleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_custom_dashboard_schedule_with_http_info(custom_dashboard_oid, dashboard_schedule, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_custom_dashboard_schedule_with_http_info(custom_dashboard_oid, dashboard_schedule, **kwargs)  # noqa: E501
+            return data
+
+    def insert_custom_dashboard_schedule_with_http_info(self, custom_dashboard_oid, dashboard_schedule, **kwargs):  # noqa: E501
+        """Create a custom dashboard schedule  # noqa: E501
+
+        Create a new custom dashboard schedule on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_custom_dashboard_schedule_with_http_info(custom_dashboard_oid, dashboard_schedule, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int custom_dashboard_oid: (required)
+        :param CustomDashboardSchedule dashboard_schedule: Dashboard schedule to create (required)
+        :return: CustomDashboardScheduleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['custom_dashboard_oid', 'dashboard_schedule']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_custom_dashboard_schedule" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'custom_dashboard_oid' is set
+        if ('custom_dashboard_oid' not in params or
+                params['custom_dashboard_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_dashboard_oid` when calling `insert_custom_dashboard_schedule`")  # noqa: E501
+        # verify the required parameter 'dashboard_schedule' is set
+        if ('dashboard_schedule' not in params or
+                params['dashboard_schedule'] is None):
+            raise ValueError("Missing the required parameter `dashboard_schedule` when calling `insert_custom_dashboard_schedule`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'custom_dashboard_oid' in params:
+            path_params['custom_dashboard_oid'] = params['custom_dashboard_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'dashboard_schedule' in params:
+            body_params = params['dashboard_schedule']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomDashboardScheduleResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def insert_custom_report(self, report, **kwargs):  # noqa: E501
         """Create a custom report  # noqa: E501
 
@@ -2095,6 +2408,121 @@ class DatawarehouseApi(object):
 
         return self.api_client.call_api(
             '/datawarehouse/custom_dashboards/{custom_dashboard_oid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomDashboardResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_custom_dashboard_schedule(self, dashboard_schedule, custom_dashboard_schedule_oid, custom_dashboard_oid, **kwargs):  # noqa: E501
+        """Update a custom dashboard schedule  # noqa: E501
+
+        Update a custom dashboard schedule on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_custom_dashboard_schedule(dashboard_schedule, custom_dashboard_schedule_oid, custom_dashboard_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomDashboardSchedule dashboard_schedule: Dashboard schedule to update (required)
+        :param int custom_dashboard_schedule_oid: The dashboard schedule oid to update. (required)
+        :param int custom_dashboard_oid: The dashboard oid to update. (required)
+        :return: CustomDashboardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_custom_dashboard_schedule_with_http_info(dashboard_schedule, custom_dashboard_schedule_oid, custom_dashboard_oid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_custom_dashboard_schedule_with_http_info(dashboard_schedule, custom_dashboard_schedule_oid, custom_dashboard_oid, **kwargs)  # noqa: E501
+            return data
+
+    def update_custom_dashboard_schedule_with_http_info(self, dashboard_schedule, custom_dashboard_schedule_oid, custom_dashboard_oid, **kwargs):  # noqa: E501
+        """Update a custom dashboard schedule  # noqa: E501
+
+        Update a custom dashboard schedule on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_custom_dashboard_schedule_with_http_info(dashboard_schedule, custom_dashboard_schedule_oid, custom_dashboard_oid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CustomDashboardSchedule dashboard_schedule: Dashboard schedule to update (required)
+        :param int custom_dashboard_schedule_oid: The dashboard schedule oid to update. (required)
+        :param int custom_dashboard_oid: The dashboard oid to update. (required)
+        :return: CustomDashboardResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['dashboard_schedule', 'custom_dashboard_schedule_oid', 'custom_dashboard_oid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_custom_dashboard_schedule" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'dashboard_schedule' is set
+        if ('dashboard_schedule' not in params or
+                params['dashboard_schedule'] is None):
+            raise ValueError("Missing the required parameter `dashboard_schedule` when calling `update_custom_dashboard_schedule`")  # noqa: E501
+        # verify the required parameter 'custom_dashboard_schedule_oid' is set
+        if ('custom_dashboard_schedule_oid' not in params or
+                params['custom_dashboard_schedule_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_dashboard_schedule_oid` when calling `update_custom_dashboard_schedule`")  # noqa: E501
+        # verify the required parameter 'custom_dashboard_oid' is set
+        if ('custom_dashboard_oid' not in params or
+                params['custom_dashboard_oid'] is None):
+            raise ValueError("Missing the required parameter `custom_dashboard_oid` when calling `update_custom_dashboard_schedule`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'custom_dashboard_schedule_oid' in params:
+            path_params['custom_dashboard_schedule_oid'] = params['custom_dashboard_schedule_oid']  # noqa: E501
+        if 'custom_dashboard_oid' in params:
+            path_params['custom_dashboard_oid'] = params['custom_dashboard_oid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'dashboard_schedule' in params:
+            body_params = params['dashboard_schedule']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}', 'PUT',
             path_params,
             query_params,
             header_params,
