@@ -92,6 +92,7 @@ class CustomReport(ModelNormal):
         """
         lazy_import()
         return {
+            'business_analysis_prompt': (str,),  # noqa: E501
             'chart_javascript': (str,),  # noqa: E501
             'chart_javascript_url': (str,),  # noqa: E501
             'data_warehouse_report_config_oid': (int,),  # noqa: E501
@@ -110,6 +111,7 @@ class CustomReport(ModelNormal):
 
 
     attribute_map = {
+        'business_analysis_prompt': 'business_analysis_prompt',  # noqa: E501
         'chart_javascript': 'chart_javascript',  # noqa: E501
         'chart_javascript_url': 'chart_javascript_url',  # noqa: E501
         'data_warehouse_report_config_oid': 'data_warehouse_report_config_oid',  # noqa: E501
@@ -163,6 +165,7 @@ class CustomReport(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            business_analysis_prompt (str): [optional]  # noqa: E501
             chart_javascript (str): [optional]  # noqa: E501
             chart_javascript_url (str): [optional]  # noqa: E501
             data_warehouse_report_config_oid (int): [optional]  # noqa: E501
@@ -258,6 +261,7 @@ class CustomReport(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            business_analysis_prompt (str): [optional]  # noqa: E501
             chart_javascript (str): [optional]  # noqa: E501
             chart_javascript_url (str): [optional]  # noqa: E501
             data_warehouse_report_config_oid (int): [optional]  # noqa: E501

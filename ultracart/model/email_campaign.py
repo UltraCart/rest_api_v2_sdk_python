@@ -108,6 +108,8 @@ class EmailCampaign(ModelNormal):
             'name': (str,),  # noqa: E501
             'open_rate_formatted': (str,),  # noqa: E501
             'prevent_sending_due_to_spam': (bool,),  # noqa: E501
+            'repeat_monthly': (bool,),  # noqa: E501
+            'repeat_weekly': (bool,),  # noqa: E501
             'revenue_formatted': (str,),  # noqa: E501
             'revenue_per_customer_formatted': (str,),  # noqa: E501
             'scheduled_dts': (str,),  # noqa: E501
@@ -142,6 +144,8 @@ class EmailCampaign(ModelNormal):
         'name': 'name',  # noqa: E501
         'open_rate_formatted': 'open_rate_formatted',  # noqa: E501
         'prevent_sending_due_to_spam': 'prevent_sending_due_to_spam',  # noqa: E501
+        'repeat_monthly': 'repeat_monthly',  # noqa: E501
+        'repeat_weekly': 'repeat_weekly',  # noqa: E501
         'revenue_formatted': 'revenue_formatted',  # noqa: E501
         'revenue_per_customer_formatted': 'revenue_per_customer_formatted',  # noqa: E501
         'scheduled_dts': 'scheduled_dts',  # noqa: E501
@@ -211,6 +215,8 @@ class EmailCampaign(ModelNormal):
             name (str): Name of email campaign. [optional]  # noqa: E501
             open_rate_formatted (str): Open rate of emails. [optional]  # noqa: E501
             prevent_sending_due_to_spam (bool): True if this campaign is prevented from sending at this time due to spam complaints.. [optional]  # noqa: E501
+            repeat_monthly (bool): True if the campaign should repeat on a monthly basis. [optional]  # noqa: E501
+            repeat_weekly (bool): True if the campaign should repeat on a weekly basis. [optional]  # noqa: E501
             revenue_formatted (str): Revenue associated with campaign. [optional]  # noqa: E501
             revenue_per_customer_formatted (str): Revenue per customer associated with campaign. [optional]  # noqa: E501
             scheduled_dts (str): Scheduled date. [optional]  # noqa: E501
@@ -322,6 +328,8 @@ class EmailCampaign(ModelNormal):
             name (str): Name of email campaign. [optional]  # noqa: E501
             open_rate_formatted (str): Open rate of emails. [optional]  # noqa: E501
             prevent_sending_due_to_spam (bool): True if this campaign is prevented from sending at this time due to spam complaints.. [optional]  # noqa: E501
+            repeat_monthly (bool): True if the campaign should repeat on a monthly basis. [optional]  # noqa: E501
+            repeat_weekly (bool): True if the campaign should repeat on a weekly basis. [optional]  # noqa: E501
             revenue_formatted (str): Revenue associated with campaign. [optional]  # noqa: E501
             revenue_per_customer_formatted (str): Revenue per customer associated with campaign. [optional]  # noqa: E501
             scheduled_dts (str): Scheduled date. [optional]  # noqa: E501

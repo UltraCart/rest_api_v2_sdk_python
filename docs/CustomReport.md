@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**business_analysis_prompt** | **str** |  | [optional] 
 **chart_javascript** | **str** |  | [optional] 
 **chart_javascript_url** | **str** |  | [optional] 
 **data_warehouse_report_config_oid** | **int** |  | [optional] 

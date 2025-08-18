@@ -17,7 +17,6 @@
 from ultracart.api.affiliate_api import AffiliateApi
 from ultracart.api.auto_order_api import AutoOrderApi
 from ultracart.api.channel_partner_api import ChannelPartnerApi
-from ultracart.api.chargeback_api import ChargebackApi
 from ultracart.api.checkout_api import CheckoutApi
 from ultracart.api.conversation_api import ConversationApi
 from ultracart.api.coupon_api import CouponApi

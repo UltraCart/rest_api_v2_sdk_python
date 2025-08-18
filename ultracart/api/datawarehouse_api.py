@@ -24,6 +24,9 @@ from ultracart.model_utils import (  # noqa: F401
 )
 from ultracart.model.custom_dashboard import CustomDashboard
 from ultracart.model.custom_dashboard_response import CustomDashboardResponse
+from ultracart.model.custom_dashboard_schedule import CustomDashboardSchedule
+from ultracart.model.custom_dashboard_schedule_response import CustomDashboardScheduleResponse
+from ultracart.model.custom_dashboard_schedules_response import CustomDashboardSchedulesResponse
 from ultracart.model.custom_dashboards_response import CustomDashboardsResponse
 from ultracart.model.custom_report import CustomReport
 from ultracart.model.custom_report_account_config import CustomReportAccountConfig
@@ -107,6 +110,64 @@ class DatawarehouseApi(object):
                     'custom_dashboard_oid': 'custom_dashboard_oid',
                 },
                 'location_map': {
+                    'custom_dashboard_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_custom_dashboard_schedule_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}',
+                'operation_id': 'delete_custom_dashboard_schedule',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'custom_dashboard_schedule_oid',
+                    'custom_dashboard_oid',
+                ],
+                'required': [
+                    'custom_dashboard_schedule_oid',
+                    'custom_dashboard_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'custom_dashboard_schedule_oid':
+                        (int,),
+                    'custom_dashboard_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'custom_dashboard_schedule_oid': 'custom_dashboard_schedule_oid',
+                    'custom_dashboard_oid': 'custom_dashboard_oid',
+                },
+                'location_map': {
+                    'custom_dashboard_schedule_oid': 'path',
                     'custom_dashboard_oid': 'path',
                 },
                 'collection_format_map': {
@@ -451,6 +512,58 @@ class DatawarehouseApi(object):
                 ],
                 'endpoint_path': '/datawarehouse/custom_dashboards/{custom_dashboard_oid}',
                 'operation_id': 'get_custom_dashboard',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'custom_dashboard_oid',
+                ],
+                'required': [
+                    'custom_dashboard_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'custom_dashboard_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'custom_dashboard_oid': 'custom_dashboard_oid',
+                },
+                'location_map': {
+                    'custom_dashboard_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_custom_dashboard_schedules_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomDashboardSchedulesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules',
+                'operation_id': 'get_custom_dashboard_schedules',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -986,6 +1099,65 @@ class DatawarehouseApi(object):
             },
             api_client=api_client
         )
+        self.insert_custom_dashboard_schedule_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomDashboardScheduleResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules',
+                'operation_id': 'insert_custom_dashboard_schedule',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'custom_dashboard_oid',
+                    'dashboard_schedule',
+                ],
+                'required': [
+                    'custom_dashboard_oid',
+                    'dashboard_schedule',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'custom_dashboard_oid':
+                        (int,),
+                    'dashboard_schedule':
+                        (CustomDashboardSchedule,),
+                },
+                'attribute_map': {
+                    'custom_dashboard_oid': 'custom_dashboard_oid',
+                },
+                'location_map': {
+                    'custom_dashboard_oid': 'path',
+                    'dashboard_schedule': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.insert_custom_report_endpoint = _Endpoint(
             settings={
                 'response_type': (CustomReportResponse,),
@@ -1137,6 +1309,71 @@ class DatawarehouseApi(object):
                 'location_map': {
                     'custom_dashboard_oid': 'path',
                     'dashboard': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_custom_dashboard_schedule_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomDashboardResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}',
+                'operation_id': 'update_custom_dashboard_schedule',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'custom_dashboard_schedule_oid',
+                    'custom_dashboard_oid',
+                    'dashboard_schedule',
+                ],
+                'required': [
+                    'custom_dashboard_schedule_oid',
+                    'custom_dashboard_oid',
+                    'dashboard_schedule',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'custom_dashboard_schedule_oid':
+                        (int,),
+                    'custom_dashboard_oid':
+                        (int,),
+                    'dashboard_schedule':
+                        (CustomDashboardSchedule,),
+                },
+                'attribute_map': {
+                    'custom_dashboard_schedule_oid': 'custom_dashboard_schedule_oid',
+                    'custom_dashboard_oid': 'custom_dashboard_oid',
+                },
+                'location_map': {
+                    'custom_dashboard_schedule_oid': 'path',
+                    'custom_dashboard_oid': 'path',
+                    'dashboard_schedule': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1405,6 +1642,93 @@ class DatawarehouseApi(object):
         kwargs['custom_dashboard_oid'] = \
             custom_dashboard_oid
         return self.delete_custom_dashboard_endpoint.call_with_http_info(**kwargs)
+
+    def delete_custom_dashboard_schedule(
+        self,
+        custom_dashboard_schedule_oid,
+        custom_dashboard_oid,
+        **kwargs
+    ):
+        """Delete a custom dashboard schedule  # noqa: E501
+
+        delete a custom dashboard schedule on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_custom_dashboard_schedule(custom_dashboard_schedule_oid, custom_dashboard_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            custom_dashboard_schedule_oid (int): The dashboard schedule oid to delete.
+            custom_dashboard_oid (int): The dashboard oid that owns the schedule.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['custom_dashboard_schedule_oid'] = \
+            custom_dashboard_schedule_oid
+        kwargs['custom_dashboard_oid'] = \
+            custom_dashboard_oid
+        return self.delete_custom_dashboard_schedule_endpoint.call_with_http_info(**kwargs)
 
     def delete_custom_report(
         self,
@@ -1990,6 +2314,89 @@ class DatawarehouseApi(object):
         kwargs['custom_dashboard_oid'] = \
             custom_dashboard_oid
         return self.get_custom_dashboard_endpoint.call_with_http_info(**kwargs)
+
+    def get_custom_dashboard_schedules(
+        self,
+        custom_dashboard_oid,
+        **kwargs
+    ):
+        """Get custom dashboards  # noqa: E501
+
+        Retrieve a custom dashboards   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_custom_dashboard_schedules(custom_dashboard_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            custom_dashboard_oid (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomDashboardSchedulesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['custom_dashboard_oid'] = \
+            custom_dashboard_oid
+        return self.get_custom_dashboard_schedules_endpoint.call_with_http_info(**kwargs)
 
     def get_custom_dashboards(
         self,
@@ -2800,6 +3207,93 @@ class DatawarehouseApi(object):
             dashboard
         return self.insert_custom_dashboard_endpoint.call_with_http_info(**kwargs)
 
+    def insert_custom_dashboard_schedule(
+        self,
+        custom_dashboard_oid,
+        dashboard_schedule,
+        **kwargs
+    ):
+        """Create a custom dashboard schedule  # noqa: E501
+
+        Create a new custom dashboard schedule on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_custom_dashboard_schedule(custom_dashboard_oid, dashboard_schedule, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            custom_dashboard_oid (int):
+            dashboard_schedule (CustomDashboardSchedule): Dashboard schedule to create
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomDashboardScheduleResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['custom_dashboard_oid'] = \
+            custom_dashboard_oid
+        kwargs['dashboard_schedule'] = \
+            dashboard_schedule
+        return self.insert_custom_dashboard_schedule_endpoint.call_with_http_info(**kwargs)
+
     def insert_custom_report(
         self,
         report,
@@ -3052,6 +3546,97 @@ class DatawarehouseApi(object):
         kwargs['dashboard'] = \
             dashboard
         return self.update_custom_dashboard_endpoint.call_with_http_info(**kwargs)
+
+    def update_custom_dashboard_schedule(
+        self,
+        custom_dashboard_schedule_oid,
+        custom_dashboard_oid,
+        dashboard_schedule,
+        **kwargs
+    ):
+        """Update a custom dashboard schedule  # noqa: E501
+
+        Update a custom dashboard schedule on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_custom_dashboard_schedule(custom_dashboard_schedule_oid, custom_dashboard_oid, dashboard_schedule, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            custom_dashboard_schedule_oid (int): The dashboard schedule oid to update.
+            custom_dashboard_oid (int): The dashboard oid to update.
+            dashboard_schedule (CustomDashboardSchedule): Dashboard schedule to update
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomDashboardResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['custom_dashboard_schedule_oid'] = \
+            custom_dashboard_schedule_oid
+        kwargs['custom_dashboard_oid'] = \
+            custom_dashboard_oid
+        kwargs['dashboard_schedule'] = \
+            dashboard_schedule
+        return self.update_custom_dashboard_schedule_endpoint.call_with_http_info(**kwargs)
 
     def update_custom_report(
         self,

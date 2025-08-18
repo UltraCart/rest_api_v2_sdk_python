@@ -125,10 +125,6 @@ docs/ChannelPartnerShipToPreferenceResponse.md
 docs/ChannelPartnerShipToPreferencesResponse.md
 docs/ChannelPartnerShippingEstimate.md
 docs/ChannelPartnersResponse.md
-docs/ChargebackApi.md
-docs/ChargebackDispute.md
-docs/ChargebackDisputeResponse.md
-docs/ChargebackDisputesResponse.md
 docs/CheckoutAllowedCountriesResponse.md
 docs/CheckoutApi.md
 docs/CheckoutHandoffRequest.md
@@ -319,6 +315,9 @@ docs/CustomDashboardExecutionParameter.md
 docs/CustomDashboardPage.md
 docs/CustomDashboardPageReport.md
 docs/CustomDashboardResponse.md
+docs/CustomDashboardSchedule.md
+docs/CustomDashboardScheduleResponse.md
+docs/CustomDashboardSchedulesResponse.md
 docs/CustomDashboardsResponse.md
 docs/CustomReport.md
 docs/CustomReportAccountConfig.md
@@ -920,7 +919,6 @@ ultracart/api/__init__.py
 ultracart/api/affiliate_api.py
 ultracart/api/auto_order_api.py
 ultracart/api/channel_partner_api.py
-ultracart/api/chargeback_api.py
 ultracart/api/checkout_api.py
 ultracart/api/conversation_api.py
 ultracart/api/coupon_api.py
@@ -1063,9 +1061,6 @@ ultracart/model/channel_partner_ship_to_preference_response.py
 ultracart/model/channel_partner_ship_to_preferences_response.py
 ultracart/model/channel_partner_shipping_estimate.py
 ultracart/model/channel_partners_response.py
-ultracart/model/chargeback_dispute.py
-ultracart/model/chargeback_dispute_response.py
-ultracart/model/chargeback_disputes_response.py
 ultracart/model/checkout_allowed_countries_response.py
 ultracart/model/checkout_handoff_request.py
 ultracart/model/checkout_handoff_response.py
@@ -1253,6 +1248,9 @@ ultracart/model/custom_dashboard_execution_parameter.py
 ultracart/model/custom_dashboard_page.py
 ultracart/model/custom_dashboard_page_report.py
 ultracart/model/custom_dashboard_response.py
+ultracart/model/custom_dashboard_schedule.py
+ultracart/model/custom_dashboard_schedule_response.py
+ultracart/model/custom_dashboard_schedules_response.py
 ultracart/model/custom_dashboards_response.py
 ultracart/model/custom_report.py
 ultracart/model/custom_report_account_config.py

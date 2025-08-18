@@ -88,6 +88,8 @@ class OrderPayment(ModelNormal):
             'EBAY': "eBay",
             'ECHECK': "eCheck",
             'GOOGLE_SHOPPING': "Google Shopping",
+            'GOLDBELLY': "Goldbelly",
+            'GOHIGHLEVEL': "GoHighLevel",
             'INSURANCE': "Insurance",
             'LINK': "Link",
             'LOANHERO': "LoanHero",
