@@ -89,6 +89,7 @@ class CustomReportAccountConfig(ModelNormal):
             'opt_in': (bool,),  # noqa: E501
             'opt_in_by_user': (str,),  # noqa: E501
             'opt_in_date': (str,),  # noqa: E501
+            'read_only': (bool,),  # noqa: E501
             'sql_budget': (float,),  # noqa: E501
             'sql_usage': (float,),  # noqa: E501
         }
@@ -106,6 +107,7 @@ class CustomReportAccountConfig(ModelNormal):
         'opt_in': 'opt_in',  # noqa: E501
         'opt_in_by_user': 'opt_in_by_user',  # noqa: E501
         'opt_in_date': 'opt_in_date',  # noqa: E501
+        'read_only': 'read_only',  # noqa: E501
         'sql_budget': 'sql_budget',  # noqa: E501
         'sql_usage': 'sql_usage',  # noqa: E501
     }
@@ -158,6 +160,7 @@ class CustomReportAccountConfig(ModelNormal):
             opt_in (bool): True if they have opted into custom reports. [optional]  # noqa: E501
             opt_in_by_user (str): User that opted into custom reporting. [optional]  # noqa: E501
             opt_in_date (str): Date/time that custom reporting was opted in to. [optional]  # noqa: E501
+            read_only (bool): [optional]  # noqa: E501
             sql_budget (float): [optional]  # noqa: E501
             sql_usage (float): [optional]  # noqa: E501
         """
@@ -252,6 +255,7 @@ class CustomReportAccountConfig(ModelNormal):
             opt_in (bool): True if they have opted into custom reports. [optional]  # noqa: E501
             opt_in_by_user (str): User that opted into custom reporting. [optional]  # noqa: E501
             opt_in_date (str): Date/time that custom reporting was opted in to. [optional]  # noqa: E501
+            read_only (bool): [optional]  # noqa: E501
             sql_budget (float): [optional]  # noqa: E501
             sql_usage (float): [optional]  # noqa: E501
         """

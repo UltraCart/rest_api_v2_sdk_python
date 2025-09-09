@@ -31,6 +31,9 @@ from ultracart.model.custom_dashboards_response import CustomDashboardsResponse
 from ultracart.model.custom_report import CustomReport
 from ultracart.model.custom_report_account_config import CustomReportAccountConfig
 from ultracart.model.custom_report_account_config_response import CustomReportAccountConfigResponse
+from ultracart.model.custom_report_analysis_request import CustomReportAnalysisRequest
+from ultracart.model.custom_report_analysis_response import CustomReportAnalysisResponse
+from ultracart.model.custom_report_chart_png_upload_response import CustomReportChartPngUploadResponse
 from ultracart.model.custom_report_execution_request import CustomReportExecutionRequest
 from ultracart.model.custom_report_execution_response import CustomReportExecutionResponse
 from ultracart.model.custom_report_response import CustomReportResponse
@@ -71,6 +74,65 @@ class DatawarehouseApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.analyze_custom_report_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomReportAnalysisResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/datawarehouse/custom_reports/{custom_report_oid}/analysis',
+                'operation_id': 'analyze_custom_report',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'custom_report_oid',
+                    'analyze_request',
+                ],
+                'required': [
+                    'custom_report_oid',
+                    'analyze_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'custom_report_oid':
+                        (int,),
+                    'analyze_request':
+                        (CustomReportAnalysisRequest,),
+                },
+                'attribute_map': {
+                    'custom_report_oid': 'custom_report_oid',
+                },
+                'location_map': {
+                    'custom_report_oid': 'path',
+                    'analyze_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.delete_custom_dashboard_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -737,6 +799,58 @@ class DatawarehouseApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_custom_report_chart_png_upload_url_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomReportChartPngUploadResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/datawarehouse/custom_reports/{custom_report_oid}/chart_png',
+                'operation_id': 'get_custom_report_chart_png_upload_url',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'custom_report_oid',
+                ],
+                'required': [
+                    'custom_report_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'custom_report_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'custom_report_oid': 'custom_report_oid',
+                },
+                'location_map': {
+                    'custom_report_oid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -1559,6 +1673,93 @@ class DatawarehouseApi(object):
             },
             api_client=api_client
         )
+
+    def analyze_custom_report(
+        self,
+        custom_report_oid,
+        analyze_request,
+        **kwargs
+    ):
+        """Analyze a custom report  # noqa: E501
+
+        Analyze a custom report on the UltraCart account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.analyze_custom_report(custom_report_oid, analyze_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            custom_report_oid (int): The report oid to analyze.
+            analyze_request (CustomReportAnalysisRequest): Request to analyze custom report
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomReportAnalysisResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['custom_report_oid'] = \
+            custom_report_oid
+        kwargs['analyze_request'] = \
+            analyze_request
+        return self.analyze_custom_report_endpoint.call_with_http_info(**kwargs)
 
     def delete_custom_dashboard(
         self,
@@ -2636,6 +2837,89 @@ class DatawarehouseApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_custom_report_account_config_endpoint.call_with_http_info(**kwargs)
+
+    def get_custom_report_chart_png_upload_url(
+        self,
+        custom_report_oid,
+        **kwargs
+    ):
+        """Upload a PNG of a custom report chart  # noqa: E501
+
+        Upload a PNG of a custom report chart   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_custom_report_chart_png_upload_url(custom_report_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            custom_report_oid (int): The report oid to upload a chart PNG for.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomReportChartPngUploadResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['custom_report_oid'] = \
+            custom_report_oid
+        return self.get_custom_report_chart_png_upload_url_endpoint.call_with_http_info(**kwargs)
 
     def get_custom_reports(
         self,

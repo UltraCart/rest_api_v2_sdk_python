@@ -322,6 +322,9 @@ docs/CustomDashboardsResponse.md
 docs/CustomReport.md
 docs/CustomReportAccountConfig.md
 docs/CustomReportAccountConfigResponse.md
+docs/CustomReportAnalysisRequest.md
+docs/CustomReportAnalysisResponse.md
+docs/CustomReportChartPngUploadResponse.md
 docs/CustomReportExecutionParameter.md
 docs/CustomReportExecutionRequest.md
 docs/CustomReportExecutionResponse.md
@@ -736,6 +739,7 @@ docs/PricingTiersResponse.md
 docs/PublishLibraryItemRequest.md
 docs/RegisterAffiliateClickRequest.md
 docs/RegisterAffiliateClickResponse.md
+docs/ReplaceOrderItemIdRequest.md
 docs/Report.md
 docs/ReportAuth.md
 docs/ReportAuthResponse.md
@@ -1255,6 +1259,9 @@ ultracart/model/custom_dashboards_response.py
 ultracart/model/custom_report.py
 ultracart/model/custom_report_account_config.py
 ultracart/model/custom_report_account_config_response.py
+ultracart/model/custom_report_analysis_request.py
+ultracart/model/custom_report_analysis_response.py
+ultracart/model/custom_report_chart_png_upload_response.py
 ultracart/model/custom_report_execution_parameter.py
 ultracart/model/custom_report_execution_request.py
 ultracart/model/custom_report_execution_response.py
@@ -1661,6 +1668,7 @@ ultracart/model/pricing_tiers_response.py
 ultracart/model/publish_library_item_request.py
 ultracart/model/register_affiliate_click_request.py
 ultracart/model/register_affiliate_click_response.py
+ultracart/model/replace_order_item_id_request.py
 ultracart/model/report.py
 ultracart/model/report_auth.py
 ultracart/model/report_auth_response.py
