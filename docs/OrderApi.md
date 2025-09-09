@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**is_refundable_order**](OrderApi.md#is_refundable_order) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 [**process_payment**](OrderApi.md#process_payment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 [**refund_order**](OrderApi.md#refund_order) | **PUT** /order/orders/{order_id}/refund | Refund an order
+[**replace_order_item_merchant_item_id**](OrderApi.md#replace_order_item_merchant_item_id) | **PUT** /order/orders/{order_id}/replace_item_id | Replaces an order item id
 [**replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 [**resend_receipt**](OrderApi.md#resend_receipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**resend_shipment_confirmation**](OrderApi.md#resend_shipment_confirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
@@ -1224,6 +1225,60 @@ Name | Type | Description  | Notes
  **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional] [default to true]
  **issue_store_credit** | **bool**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
  **auto_order_cancel_reason** | **str**| Reason for auto orders cancellation | [optional] 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **replace_order_item_merchant_item_id**
+> OrderResponse replace_order_item_merchant_item_id(replace_order_item_id_request, order_id, expand=expand)
+
+Replaces an order item id
+
+Replaces a single order item id with another merchant_item_id, leaving all other attributes and properties unchanged.  A custom method requested by a merchant to allow for item id updates due to shipping errors.  It is doubtful you will ever need this method.  The expansion variable affects the returned order object. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.OrderApi.fromApiKey(simple_key, False, True)
+
+replace_order_item_id_request = ultracart.ReplaceOrderItemIdRequest() # ReplaceOrderItemIdRequest | Replacement Request
+order_id = 'order_id_example' # str | The order id to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try:
+    # Replaces an order item id
+    api_response = api_instance.replace_order_item_merchant_item_id(replace_order_item_id_request, order_id, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->replace_order_item_merchant_item_id: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **replace_order_item_id_request** | [**ReplaceOrderItemIdRequest**](ReplaceOrderItemIdRequest.md)| Replacement Request | 
+ **order_id** | **str**| The order id to update. | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

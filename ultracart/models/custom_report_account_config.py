@@ -38,6 +38,7 @@ class CustomReportAccountConfig(object):
         'opt_in': 'bool',
         'opt_in_by_user': 'str',
         'opt_in_date': 'str',
+        'read_only': 'bool',
         'sql_budget': 'float',
         'sql_usage': 'float'
     }
@@ -50,11 +51,12 @@ class CustomReportAccountConfig(object):
         'opt_in': 'opt_in',
         'opt_in_by_user': 'opt_in_by_user',
         'opt_in_date': 'opt_in_date',
+        'read_only': 'read_only',
         'sql_budget': 'sql_budget',
         'sql_usage': 'sql_usage'
     }
 
-    def __init__(self, ai_budget=None, ai_usage=None, merchant_id=None, novice_sql_comments=None, opt_in=None, opt_in_by_user=None, opt_in_date=None, sql_budget=None, sql_usage=None):  # noqa: E501
+    def __init__(self, ai_budget=None, ai_usage=None, merchant_id=None, novice_sql_comments=None, opt_in=None, opt_in_by_user=None, opt_in_date=None, read_only=None, sql_budget=None, sql_usage=None):  # noqa: E501
         """CustomReportAccountConfig - a model defined in Swagger"""  # noqa: E501
 
         self._ai_budget = None
@@ -64,6 +66,7 @@ class CustomReportAccountConfig(object):
         self._opt_in = None
         self._opt_in_by_user = None
         self._opt_in_date = None
+        self._read_only = None
         self._sql_budget = None
         self._sql_usage = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class CustomReportAccountConfig(object):
             self.opt_in_by_user = opt_in_by_user
         if opt_in_date is not None:
             self.opt_in_date = opt_in_date
+        if read_only is not None:
+            self.read_only = read_only
         if sql_budget is not None:
             self.sql_budget = sql_budget
         if sql_usage is not None:
@@ -243,6 +248,27 @@ class CustomReportAccountConfig(object):
         """
 
         self._opt_in_date = opt_in_date
+
+    @property
+    def read_only(self):
+        """Gets the read_only of this CustomReportAccountConfig.  # noqa: E501
+
+
+        :return: The read_only of this CustomReportAccountConfig.  # noqa: E501
+        :rtype: bool
+        """
+        return self._read_only
+
+    @read_only.setter
+    def read_only(self, read_only):
+        """Sets the read_only of this CustomReportAccountConfig.
+
+
+        :param read_only: The read_only of this CustomReportAccountConfig.  # noqa: E501
+        :type: bool
+        """
+
+        self._read_only = read_only
 
     @property
     def sql_budget(self):
