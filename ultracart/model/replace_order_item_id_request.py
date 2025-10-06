@@ -147,7 +147,7 @@ class ReplaceOrderItemIdRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            item_index (int): Index of the item on the order (one based index). [optional]  # noqa: E501
+            item_index (int): Index of the item on the order.  Must match order.items[].item_index. [optional]  # noqa: E501
             merchant_item_id (str): Item ID. [optional]  # noqa: E501
             order_id (str): Order ID. [optional]  # noqa: E501
             replacement_merchant_item_id (str): Replacement Item ID. [optional]  # noqa: E501
@@ -236,7 +236,7 @@ class ReplaceOrderItemIdRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            item_index (int): Index of the item on the order (one based index). [optional]  # noqa: E501
+            item_index (int): Index of the item on the order.  Must match order.items[].item_index. [optional]  # noqa: E501
             merchant_item_id (str): Item ID. [optional]  # noqa: E501
             order_id (str): Order ID. [optional]  # noqa: E501
             replacement_merchant_item_id (str): Replacement Item ID. [optional]  # noqa: E501

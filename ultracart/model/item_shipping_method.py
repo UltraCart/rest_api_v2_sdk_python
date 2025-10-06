@@ -101,6 +101,7 @@ class ItemShippingMethod(ModelNormal):
             'shipping_method': (str,),  # noqa: E501
             'shipping_method_oid': (int,),  # noqa: E501
             'shipping_method_validity': (str,),  # noqa: E501
+            'ships_separately': (bool,),  # noqa: E501
             'signature_required': (bool,),  # noqa: E501
         }
 
@@ -124,6 +125,7 @@ class ItemShippingMethod(ModelNormal):
         'shipping_method': 'shipping_method',  # noqa: E501
         'shipping_method_oid': 'shipping_method_oid',  # noqa: E501
         'shipping_method_validity': 'shipping_method_validity',  # noqa: E501
+        'ships_separately': 'ships_separately',  # noqa: E501
         'signature_required': 'signature_required',  # noqa: E501
     }
 
@@ -182,6 +184,7 @@ class ItemShippingMethod(ModelNormal):
             shipping_method (str): Shipping method name. [optional]  # noqa: E501
             shipping_method_oid (int): Shipping method object identifier. [optional]  # noqa: E501
             shipping_method_validity (str): Shipping method validity. [optional]  # noqa: E501
+            ships_separately (bool): Ships separately. [optional]  # noqa: E501
             signature_required (bool): Signature required. [optional]  # noqa: E501
         """
 
@@ -282,6 +285,7 @@ class ItemShippingMethod(ModelNormal):
             shipping_method (str): Shipping method name. [optional]  # noqa: E501
             shipping_method_oid (int): Shipping method object identifier. [optional]  # noqa: E501
             shipping_method_validity (str): Shipping method validity. [optional]  # noqa: E501
+            ships_separately (bool): Ships separately. [optional]  # noqa: E501
             signature_required (bool): Signature required. [optional]  # noqa: E501
         """
 

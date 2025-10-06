@@ -85,6 +85,7 @@ class OrderPayment(ModelNormal):
             'CHECK': "Check",
             'COD': "COD",
             'CREDIT_CARD': "Credit Card",
+            'CRYPTO': "Crypto",
             'EBAY': "eBay",
             'ECHECK': "eCheck",
             'GOOGLE_SHOPPING': "Google Shopping",

@@ -106,6 +106,9 @@ class Customer(ModelNormal):
         ('dhl_duty_account_number',): {
             'max_length': 20,
         },
+        ('fax',): {
+            'max_length': 32,
+        },
         ('fedex_account_number',): {
             'max_length': 20,
         },
@@ -178,6 +181,7 @@ class Customer(ModelNormal):
             'edi': (CustomerEDI,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'exempt_shipping_handling_charge': (bool,),  # noqa: E501
+            'fax': (str,),  # noqa: E501
             'fedex_account_number': (str,),  # noqa: E501
             'free_shipping': (bool,),  # noqa: E501
             'free_shipping_minimum': (float,),  # noqa: E501
@@ -250,6 +254,7 @@ class Customer(ModelNormal):
         'edi': 'edi',  # noqa: E501
         'email': 'email',  # noqa: E501
         'exempt_shipping_handling_charge': 'exempt_shipping_handling_charge',  # noqa: E501
+        'fax': 'fax',  # noqa: E501
         'fedex_account_number': 'fedex_account_number',  # noqa: E501
         'free_shipping': 'free_shipping',  # noqa: E501
         'free_shipping_minimum': 'free_shipping_minimum',  # noqa: E501
@@ -357,6 +362,7 @@ class Customer(ModelNormal):
             edi (CustomerEDI): [optional]  # noqa: E501
             email (str): Email address of this customer profile. [optional]  # noqa: E501
             exempt_shipping_handling_charge (bool): Exempt shipping handling charge. [optional]  # noqa: E501
+            fax (str): Fax Number. [optional]  # noqa: E501
             fedex_account_number (str): FedEx account number. [optional]  # noqa: E501
             free_shipping (bool): This customer always receives free shipping. [optional]  # noqa: E501
             free_shipping_minimum (float): If free_shipping is true, this is the minimum subtotal required for free shipping. [optional]  # noqa: E501
@@ -506,6 +512,7 @@ class Customer(ModelNormal):
             edi (CustomerEDI): [optional]  # noqa: E501
             email (str): Email address of this customer profile. [optional]  # noqa: E501
             exempt_shipping_handling_charge (bool): Exempt shipping handling charge. [optional]  # noqa: E501
+            fax (str): Fax Number. [optional]  # noqa: E501
             fedex_account_number (str): FedEx account number. [optional]  # noqa: E501
             free_shipping (bool): This customer always receives free shipping. [optional]  # noqa: E501
             free_shipping_minimum (float): If free_shipping is true, this is the minimum subtotal required for free shipping. [optional]  # noqa: E501
