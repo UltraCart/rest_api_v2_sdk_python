@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **edi** | [**CustomerEDI**](CustomerEDI.md) |  | [optional] 
 **email** | **str** | Email address of this customer profile | [optional] 
 **exempt_shipping_handling_charge** | **bool** | Exempt shipping handling charge | [optional] 
+**fax** | **str** | Fax Number | [optional] 
 **fedex_account_number** | **str** | FedEx account number | [optional] 
 **free_shipping** | **bool** | This customer always receives free shipping | [optional] 
 **free_shipping_minimum** | **float** | If free_shipping is true, this is the minimum subtotal required for free shipping | [optional] 

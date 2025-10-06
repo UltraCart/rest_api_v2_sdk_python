@@ -45,6 +45,7 @@ class ItemShippingMethod(object):
         'shipping_method': 'str',
         'shipping_method_oid': 'int',
         'shipping_method_validity': 'str',
+        'ships_separately': 'bool',
         'signature_required': 'bool'
     }
 
@@ -63,10 +64,11 @@ class ItemShippingMethod(object):
         'shipping_method': 'shipping_method',
         'shipping_method_oid': 'shipping_method_oid',
         'shipping_method_validity': 'shipping_method_validity',
+        'ships_separately': 'ships_separately',
         'signature_required': 'signature_required'
     }
 
-    def __init__(self, cost=None, each_additional_item_markup=None, filter_to_if_available=None, first_item_markup=None, fixed_shipping_cost=None, flat_fee_markup=None, free_shipping=None, per_item_fee_markup=None, percentage_markup=None, percentage_of_item_markup=None, relax_restrictions_on_upsell=None, shipping_method=None, shipping_method_oid=None, shipping_method_validity=None, signature_required=None):  # noqa: E501
+    def __init__(self, cost=None, each_additional_item_markup=None, filter_to_if_available=None, first_item_markup=None, fixed_shipping_cost=None, flat_fee_markup=None, free_shipping=None, per_item_fee_markup=None, percentage_markup=None, percentage_of_item_markup=None, relax_restrictions_on_upsell=None, shipping_method=None, shipping_method_oid=None, shipping_method_validity=None, ships_separately=None, signature_required=None):  # noqa: E501
         """ItemShippingMethod - a model defined in Swagger"""  # noqa: E501
 
         self._cost = None
@@ -83,6 +85,7 @@ class ItemShippingMethod(object):
         self._shipping_method = None
         self._shipping_method_oid = None
         self._shipping_method_validity = None
+        self._ships_separately = None
         self._signature_required = None
         self.discriminator = None
 
@@ -114,6 +117,8 @@ class ItemShippingMethod(object):
             self.shipping_method_oid = shipping_method_oid
         if shipping_method_validity is not None:
             self.shipping_method_validity = shipping_method_validity
+        if ships_separately is not None:
+            self.ships_separately = ships_separately
         if signature_required is not None:
             self.signature_required = signature_required
 
@@ -444,6 +449,29 @@ class ItemShippingMethod(object):
             )
 
         self._shipping_method_validity = shipping_method_validity
+
+    @property
+    def ships_separately(self):
+        """Gets the ships_separately of this ItemShippingMethod.  # noqa: E501
+
+        Ships separately  # noqa: E501
+
+        :return: The ships_separately of this ItemShippingMethod.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ships_separately
+
+    @ships_separately.setter
+    def ships_separately(self, ships_separately):
+        """Sets the ships_separately of this ItemShippingMethod.
+
+        Ships separately  # noqa: E501
+
+        :param ships_separately: The ships_separately of this ItemShippingMethod.  # noqa: E501
+        :type: bool
+        """
+
+        self._ships_separately = ships_separately
 
     @property
     def signature_required(self):

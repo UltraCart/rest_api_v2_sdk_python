@@ -313,7 +313,7 @@ class OrderPayment(object):
         :param payment_method: The payment_method of this OrderPayment.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Affirm", "Amazon", "Amazon Pay", "Amazon SC", "Cash", "Check", "COD", "Credit Card", "eBay", "eCheck", "Google Shopping", "Goldbelly", "GoHighLevel", "Insurance", "Link", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer", "Walmart", "Shop.com", "Sezzle", "Venmo", "Apple Pay", "Google Pay", "Health Benefit Card", "PayPal Fastlane"]  # noqa: E501
+        allowed_values = ["Affirm", "Amazon", "Amazon Pay", "Amazon SC", "Cash", "Check", "COD", "Credit Card", "Crypto", "eBay", "eCheck", "Google Shopping", "Goldbelly", "GoHighLevel", "Insurance", "Link", "LoanHero", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer", "Walmart", "Shop.com", "Sezzle", "Venmo", "Apple Pay", "Google Pay", "Health Benefit Card", "PayPal Fastlane"]  # noqa: E501
         if payment_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `payment_method` ({0}), must be one of {1}"  # noqa: E501

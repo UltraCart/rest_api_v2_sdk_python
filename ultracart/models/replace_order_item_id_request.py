@@ -66,7 +66,7 @@ class ReplaceOrderItemIdRequest(object):
     def item_index(self):
         """Gets the item_index of this ReplaceOrderItemIdRequest.  # noqa: E501
 
-        Index of the item on the order (one based index)  # noqa: E501
+        Index of the item on the order.  Must match order.items[].item_index  # noqa: E501
 
         :return: The item_index of this ReplaceOrderItemIdRequest.  # noqa: E501
         :rtype: int
@@ -77,7 +77,7 @@ class ReplaceOrderItemIdRequest(object):
     def item_index(self, item_index):
         """Sets the item_index of this ReplaceOrderItemIdRequest.
 
-        Index of the item on the order (one based index)  # noqa: E501
+        Index of the item on the order.  Must match order.items[].item_index  # noqa: E501
 
         :param item_index: The item_index of this ReplaceOrderItemIdRequest.  # noqa: E501
         :type: int
