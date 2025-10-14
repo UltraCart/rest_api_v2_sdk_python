@@ -33,6 +33,7 @@ class CustomReportAccountConfig(object):
     swagger_types = {
         'ai_budget': 'float',
         'ai_usage': 'float',
+        'ai_usage_breakdowns': 'list[CustomReportUsageBreakdown]',
         'merchant_id': 'str',
         'novice_sql_comments': 'bool',
         'opt_in': 'bool',
@@ -46,6 +47,7 @@ class CustomReportAccountConfig(object):
     attribute_map = {
         'ai_budget': 'ai_budget',
         'ai_usage': 'ai_usage',
+        'ai_usage_breakdowns': 'ai_usage_breakdowns',
         'merchant_id': 'merchant_id',
         'novice_sql_comments': 'novice_sql_comments',
         'opt_in': 'opt_in',
@@ -56,11 +58,12 @@ class CustomReportAccountConfig(object):
         'sql_usage': 'sql_usage'
     }
 
-    def __init__(self, ai_budget=None, ai_usage=None, merchant_id=None, novice_sql_comments=None, opt_in=None, opt_in_by_user=None, opt_in_date=None, read_only=None, sql_budget=None, sql_usage=None):  # noqa: E501
+    def __init__(self, ai_budget=None, ai_usage=None, ai_usage_breakdowns=None, merchant_id=None, novice_sql_comments=None, opt_in=None, opt_in_by_user=None, opt_in_date=None, read_only=None, sql_budget=None, sql_usage=None):  # noqa: E501
         """CustomReportAccountConfig - a model defined in Swagger"""  # noqa: E501
 
         self._ai_budget = None
         self._ai_usage = None
+        self._ai_usage_breakdowns = None
         self._merchant_id = None
         self._novice_sql_comments = None
         self._opt_in = None
@@ -75,6 +78,8 @@ class CustomReportAccountConfig(object):
             self.ai_budget = ai_budget
         if ai_usage is not None:
             self.ai_usage = ai_usage
+        if ai_usage_breakdowns is not None:
+            self.ai_usage_breakdowns = ai_usage_breakdowns
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if novice_sql_comments is not None:
@@ -135,6 +140,27 @@ class CustomReportAccountConfig(object):
         """
 
         self._ai_usage = ai_usage
+
+    @property
+    def ai_usage_breakdowns(self):
+        """Gets the ai_usage_breakdowns of this CustomReportAccountConfig.  # noqa: E501
+
+
+        :return: The ai_usage_breakdowns of this CustomReportAccountConfig.  # noqa: E501
+        :rtype: list[CustomReportUsageBreakdown]
+        """
+        return self._ai_usage_breakdowns
+
+    @ai_usage_breakdowns.setter
+    def ai_usage_breakdowns(self, ai_usage_breakdowns):
+        """Sets the ai_usage_breakdowns of this CustomReportAccountConfig.
+
+
+        :param ai_usage_breakdowns: The ai_usage_breakdowns of this CustomReportAccountConfig.  # noqa: E501
+        :type: list[CustomReportUsageBreakdown]
+        """
+
+        self._ai_usage_breakdowns = ai_usage_breakdowns
 
     @property
     def merchant_id(self):

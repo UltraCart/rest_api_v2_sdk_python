@@ -184,7 +184,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_wish_list_item**
-> CustomerWishListItem delete_wish_list_item(customer_profile_oid, customer_wishlist_item_oid)
+> delete_wish_list_item(customer_profile_oid, customer_wishlist_item_oid)
 
 Delete a customer wishlist item
 
@@ -207,8 +207,7 @@ customer_wishlist_item_oid = 56 # int | The wishlist oid for this wishlist item 
 
 try:
     # Delete a customer wishlist item
-    api_response = api_instance.delete_wish_list_item(customer_profile_oid, customer_wishlist_item_oid)
-    pprint(api_response)
+    api_instance.delete_wish_list_item(customer_profile_oid, customer_wishlist_item_oid)
 except ApiException as e:
     print("Exception when calling CustomerApi->delete_wish_list_item: %s\n" % e)
 ```
@@ -222,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerWishListItem**](CustomerWishListItem.md)
+void (empty response body)
 
 ### Authorization
 
@@ -230,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
