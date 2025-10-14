@@ -243,7 +243,7 @@ class CustomerApi(object):
         )
         self.delete_wish_list_item_endpoint = _Endpoint(
             settings={
-                'response_type': (CustomerWishListItem,),
+                'response_type': None,
                 'auth': [
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
@@ -1895,7 +1895,7 @@ class CustomerApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CustomerWishListItem
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """

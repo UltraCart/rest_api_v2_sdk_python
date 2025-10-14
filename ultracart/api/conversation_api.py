@@ -32,6 +32,7 @@ from ultracart.model.conversation_canned_message import ConversationCannedMessag
 from ultracart.model.conversation_canned_message_response import ConversationCannedMessageResponse
 from ultracart.model.conversation_canned_messages_response import ConversationCannedMessagesResponse
 from ultracart.model.conversation_canned_messages_search import ConversationCannedMessagesSearch
+from ultracart.model.conversation_delete_knowledge_base_document_response import ConversationDeleteKnowledgeBaseDocumentResponse
 from ultracart.model.conversation_department import ConversationDepartment
 from ultracart.model.conversation_department_members_response import ConversationDepartmentMembersResponse
 from ultracart.model.conversation_department_response import ConversationDepartmentResponse
@@ -39,7 +40,11 @@ from ultracart.model.conversation_departments_response import ConversationDepart
 from ultracart.model.conversation_engagement import ConversationEngagement
 from ultracart.model.conversation_engagement_response import ConversationEngagementResponse
 from ultracart.model.conversation_engagements_response import ConversationEngagementsResponse
+from ultracart.model.conversation_insert_knowledge_base_document_request import ConversationInsertKnowledgeBaseDocumentRequest
+from ultracart.model.conversation_insert_knowledge_base_document_response import ConversationInsertKnowledgeBaseDocumentResponse
 from ultracart.model.conversation_join_request import ConversationJoinRequest
+from ultracart.model.conversation_knowledge_base_document_upload_url_response import ConversationKnowledgeBaseDocumentUploadUrlResponse
+from ultracart.model.conversation_knowledge_base_documents_response import ConversationKnowledgeBaseDocumentsResponse
 from ultracart.model.conversation_locations_response import ConversationLocationsResponse
 from ultracart.model.conversation_messages_response import ConversationMessagesResponse
 from ultracart.model.conversation_multimedia_upload_url_response import ConversationMultimediaUploadUrlResponse
@@ -112,6 +117,64 @@ class ConversationApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.delete_agent_profile_knowledge_base_document_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationDeleteKnowledgeBaseDocumentResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid}',
+                'operation_id': 'delete_agent_profile_knowledge_base_document',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                    'document_uuid',
+                ],
+                'required': [
+                    'user_id',
+                    'document_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (int,),
+                    'document_uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                    'document_uuid': 'document_uuid',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                    'document_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_conversation_canned_message_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -780,6 +843,58 @@ class ConversationApi(object):
             },
             api_client=api_client
         )
+        self.get_agent_profile_knowledge_base_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationKnowledgeBaseDocumentsResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/agent/profiles/{user_id}/knowledge_base',
+                'operation_id': 'get_agent_profile_knowledge_base',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                ],
+                'required': [
+                    'user_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_agent_profiles_endpoint = _Endpoint(
             settings={
                 'response_type': (ConversationAgentProfilesResponse,),
@@ -1199,6 +1314,64 @@ class ConversationApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_conversation_knowledge_base_document_upload_url_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationKnowledgeBaseDocumentUploadUrlResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}',
+                'operation_id': 'get_conversation_knowledge_base_document_upload_url',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                    'extension',
+                ],
+                'required': [
+                    'user_id',
+                    'extension',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (int,),
+                    'extension':
+                        (str,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                    'extension': 'extension',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                    'extension': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -2859,6 +3032,65 @@ class ConversationApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.insert_agent_profile_knowledge_base_document_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationInsertKnowledgeBaseDocumentResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/agent/profiles/{user_id}/knowledge_base',
+                'operation_id': 'insert_agent_profile_knowledge_base_document',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'user_id',
+                    'knowledge_base_document_request',
+                ],
+                'required': [
+                    'user_id',
+                    'knowledge_base_document_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'user_id':
+                        (int,),
+                    'knowledge_base_document_request':
+                        (ConversationInsertKnowledgeBaseDocumentRequest,),
+                },
+                'attribute_map': {
+                    'user_id': 'user_id',
+                },
+                'location_map': {
+                    'user_id': 'path',
+                    'knowledge_base_document_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -4689,6 +4921,93 @@ class ConversationApi(object):
             api_client=api_client
         )
 
+    def delete_agent_profile_knowledge_base_document(
+        self,
+        user_id,
+        document_uuid,
+        **kwargs
+    ):
+        """Delete a knowledge base document  # noqa: E501
+
+        Delete a knowledge base document   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_agent_profile_knowledge_base_document(user_id, document_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            user_id (int):
+            document_uuid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationDeleteKnowledgeBaseDocumentResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['user_id'] = \
+            user_id
+        kwargs['document_uuid'] = \
+            document_uuid
+        return self.delete_agent_profile_knowledge_base_document_endpoint.call_with_http_info(**kwargs)
+
     def delete_conversation_canned_message(
         self,
         conversation_canned_message_oid,
@@ -5762,6 +6081,89 @@ class ConversationApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_agent_profile_endpoint.call_with_http_info(**kwargs)
 
+    def get_agent_profile_knowledge_base(
+        self,
+        user_id,
+        **kwargs
+    ):
+        """Get the list of knowledge base documents associated with this agent profile  # noqa: E501
+
+        Retrieve knowledge base documents   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_agent_profile_knowledge_base(user_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            user_id (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationKnowledgeBaseDocumentsResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['user_id'] = \
+            user_id
+        return self.get_agent_profile_knowledge_base_endpoint.call_with_http_info(**kwargs)
+
     def get_agent_profiles(
         self,
         **kwargs
@@ -6479,6 +6881,93 @@ class ConversationApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_conversation_engagements_endpoint.call_with_http_info(**kwargs)
+
+    def get_conversation_knowledge_base_document_upload_url(
+        self,
+        user_id,
+        extension,
+        **kwargs
+    ):
+        """Get a pre-signed conversation knowledge base document upload URL  # noqa: E501
+
+        Get a pre-signed conversation knowledge base document upload URL   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_conversation_knowledge_base_document_upload_url(user_id, extension, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            user_id (int):
+            extension (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationKnowledgeBaseDocumentUploadUrlResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['user_id'] = \
+            user_id
+        kwargs['extension'] = \
+            extension
+        return self.get_conversation_knowledge_base_document_upload_url_endpoint.call_with_http_info(**kwargs)
 
     def get_conversation_messages(
         self,
@@ -9156,6 +9645,93 @@ class ConversationApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_virtual_agent_capabilities_endpoint.call_with_http_info(**kwargs)
+
+    def insert_agent_profile_knowledge_base_document(
+        self,
+        user_id,
+        knowledge_base_document_request,
+        **kwargs
+    ):
+        """Insert a knowledge base document  # noqa: E501
+
+        Insert a knowledge base document   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_agent_profile_knowledge_base_document(user_id, knowledge_base_document_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            user_id (int):
+            knowledge_base_document_request (ConversationInsertKnowledgeBaseDocumentRequest): Insert request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationInsertKnowledgeBaseDocumentResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['user_id'] = \
+            user_id
+        kwargs['knowledge_base_document_request'] = \
+            knowledge_base_document_request
+        return self.insert_agent_profile_knowledge_base_document_endpoint.call_with_http_info(**kwargs)
 
     def insert_conversation_canned_message(
         self,

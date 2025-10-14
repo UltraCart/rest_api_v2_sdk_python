@@ -147,6 +147,7 @@ docs/ConversationCannedMessage.md
 docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
 docs/ConversationCannedMessagesSearch.md
+docs/ConversationDeleteKnowledgeBaseDocumentResponse.md
 docs/ConversationDepartment.md
 docs/ConversationDepartmentMember.md
 docs/ConversationDepartmentMembersResponse.md
@@ -165,7 +166,13 @@ docs/ConversationEventRRWeb.md
 docs/ConversationEventReadMessage.md
 docs/ConversationEventTyping.md
 docs/ConversationEventWebchatContext.md
+docs/ConversationInsertKnowledgeBaseDocumentRequest.md
+docs/ConversationInsertKnowledgeBaseDocumentResponse.md
 docs/ConversationJoinRequest.md
+docs/ConversationKnowledgeBaseDocument.md
+docs/ConversationKnowledgeBaseDocumentUploadUrl.md
+docs/ConversationKnowledgeBaseDocumentUploadUrlResponse.md
+docs/ConversationKnowledgeBaseDocumentsResponse.md
 docs/ConversationLocationCountry.md
 docs/ConversationLocationStateProvince.md
 docs/ConversationLocationsResponse.md
@@ -333,6 +340,7 @@ docs/CustomReportParameterOption.md
 docs/CustomReportQuery.md
 docs/CustomReportResponse.md
 docs/CustomReportTooltip.md
+docs/CustomReportUsageBreakdown.md
 docs/CustomReportsExecutionReportData.md
 docs/CustomReportsExecutionRequest.md
 docs/CustomReportsExecutionResponse.md
@@ -1085,6 +1093,7 @@ ultracart/model/conversation_canned_message.py
 ultracart/model/conversation_canned_message_response.py
 ultracart/model/conversation_canned_messages_response.py
 ultracart/model/conversation_canned_messages_search.py
+ultracart/model/conversation_delete_knowledge_base_document_response.py
 ultracart/model/conversation_department.py
 ultracart/model/conversation_department_member.py
 ultracart/model/conversation_department_members_response.py
@@ -1103,7 +1112,13 @@ ultracart/model/conversation_event_read_message.py
 ultracart/model/conversation_event_rr_web.py
 ultracart/model/conversation_event_typing.py
 ultracart/model/conversation_event_webchat_context.py
+ultracart/model/conversation_insert_knowledge_base_document_request.py
+ultracart/model/conversation_insert_knowledge_base_document_response.py
 ultracart/model/conversation_join_request.py
+ultracart/model/conversation_knowledge_base_document.py
+ultracart/model/conversation_knowledge_base_document_upload_url.py
+ultracart/model/conversation_knowledge_base_document_upload_url_response.py
+ultracart/model/conversation_knowledge_base_documents_response.py
 ultracart/model/conversation_location_country.py
 ultracart/model/conversation_location_state_province.py
 ultracart/model/conversation_locations_response.py
@@ -1270,6 +1285,7 @@ ultracart/model/custom_report_parameter_option.py
 ultracart/model/custom_report_query.py
 ultracart/model/custom_report_response.py
 ultracart/model/custom_report_tooltip.py
+ultracart/model/custom_report_usage_breakdown.py
 ultracart/model/custom_reports_execution_report_data.py
 ultracart/model/custom_reports_execution_request.py
 ultracart/model/custom_reports_execution_response.py
