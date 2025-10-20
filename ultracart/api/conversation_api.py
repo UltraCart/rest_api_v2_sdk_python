@@ -1333,7 +1333,7 @@ class ConversationApi(object):
                     'ultraCartOauth',
                     'ultraCartSimpleApiKey'
                 ],
-                'endpoint_path': '/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}',
+                'endpoint_path': '/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}',
                 'operation_id': 'get_conversation_knowledge_base_document_upload_url',
                 'http_method': 'GET',
                 'servers': None,

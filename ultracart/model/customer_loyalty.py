@@ -97,6 +97,9 @@ class CustomerLoyalty(ModelNormal):
             'internal_gift_certificate_balance': (str,),  # noqa: E501
             'internal_gift_certificate_oid': (int,),  # noqa: E501
             'ledger_entries': ([CustomerLoyaltyLedger],),  # noqa: E501
+            'loyalty_tier_expiration_dts': (str,),  # noqa: E501
+            'loyalty_tier_name': (str,),  # noqa: E501
+            'loyalty_tier_oid': (int,),  # noqa: E501
             'pending_points': (int,),  # noqa: E501
             'redemptions': ([CustomerLoyaltyRedemption],),  # noqa: E501
         }
@@ -112,6 +115,9 @@ class CustomerLoyalty(ModelNormal):
         'internal_gift_certificate_balance': 'internal_gift_certificate_balance',  # noqa: E501
         'internal_gift_certificate_oid': 'internal_gift_certificate_oid',  # noqa: E501
         'ledger_entries': 'ledger_entries',  # noqa: E501
+        'loyalty_tier_expiration_dts': 'loyalty_tier_expiration_dts',  # noqa: E501
+        'loyalty_tier_name': 'loyalty_tier_name',  # noqa: E501
+        'loyalty_tier_oid': 'loyalty_tier_oid',  # noqa: E501
         'pending_points': 'pending_points',  # noqa: E501
         'redemptions': 'redemptions',  # noqa: E501
     }
@@ -162,6 +168,9 @@ class CustomerLoyalty(ModelNormal):
             internal_gift_certificate_balance (str): Loyalty Cashback / Store credit balance (internal gift certificate balance). [optional]  # noqa: E501
             internal_gift_certificate_oid (int): Internal gift certificate oid used to tracking loyalty cashback / store credit.. [optional]  # noqa: E501
             ledger_entries ([CustomerLoyaltyLedger]): Ledger entries. [optional]  # noqa: E501
+            loyalty_tier_expiration_dts (str): Loyalty tier expiration date (read only because of SDK addition). [optional]  # noqa: E501
+            loyalty_tier_name (str): Loyalty tier name. [optional]  # noqa: E501
+            loyalty_tier_oid (int): Loyalty tier oid (set to zero to remove the tier). [optional]  # noqa: E501
             pending_points (int): Pending Points. [optional]  # noqa: E501
             redemptions ([CustomerLoyaltyRedemption]): Redemptions. [optional]  # noqa: E501
         """
@@ -254,6 +263,9 @@ class CustomerLoyalty(ModelNormal):
             internal_gift_certificate_balance (str): Loyalty Cashback / Store credit balance (internal gift certificate balance). [optional]  # noqa: E501
             internal_gift_certificate_oid (int): Internal gift certificate oid used to tracking loyalty cashback / store credit.. [optional]  # noqa: E501
             ledger_entries ([CustomerLoyaltyLedger]): Ledger entries. [optional]  # noqa: E501
+            loyalty_tier_expiration_dts (str): Loyalty tier expiration date (read only because of SDK addition). [optional]  # noqa: E501
+            loyalty_tier_name (str): Loyalty tier name. [optional]  # noqa: E501
+            loyalty_tier_oid (int): Loyalty tier oid (set to zero to remove the tier). [optional]  # noqa: E501
             pending_points (int): Pending Points. [optional]  # noqa: E501
             redemptions ([CustomerLoyaltyRedemption]): Redemptions. [optional]  # noqa: E501
         """

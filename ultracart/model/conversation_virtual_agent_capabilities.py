@@ -94,6 +94,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
         """
         lazy_import()
         return {
+            'access_storefront_and_item': (bool,),  # noqa: E501
             'cancel_subscription': (bool,),  # noqa: E501
             'delay_subscription': (bool,),  # noqa: E501
             'lookup_order_information': (bool,),  # noqa: E501
@@ -116,6 +117,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
 
 
     attribute_map = {
+        'access_storefront_and_item': 'access_storefront_and_item',  # noqa: E501
         'cancel_subscription': 'cancel_subscription',  # noqa: E501
         'delay_subscription': 'delay_subscription',  # noqa: E501
         'lookup_order_information': 'lookup_order_information',  # noqa: E501
@@ -173,6 +175,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            access_storefront_and_item (bool): Permission flag to allow this Agent access to the storefront and item information.. [optional]  # noqa: E501
             cancel_subscription (bool): [optional]  # noqa: E501
             delay_subscription (bool): [optional]  # noqa: E501
             lookup_order_information (bool): [optional]  # noqa: E501
@@ -272,6 +275,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            access_storefront_and_item (bool): Permission flag to allow this Agent access to the storefront and item information.. [optional]  # noqa: E501
             cancel_subscription (bool): [optional]  # noqa: E501
             delay_subscription (bool): [optional]  # noqa: E501
             lookup_order_information (bool): [optional]  # noqa: E501
