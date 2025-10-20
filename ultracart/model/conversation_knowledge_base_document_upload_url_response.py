@@ -94,7 +94,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'conversation_pbx_audio_upload_url': (ConversationKnowledgeBaseDocumentUploadUrl,),  # noqa: E501
+            'conversation_knowledge_base_document_upload_url': (ConversationKnowledgeBaseDocumentUploadUrl,),  # noqa: E501
             'error': (Error,),  # noqa: E501
             'metadata': (ResponseMetadata,),  # noqa: E501
             'success': (bool,),  # noqa: E501
@@ -107,7 +107,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse(ModelNormal):
 
 
     attribute_map = {
-        'conversation_pbx_audio_upload_url': 'conversation_pbx_audio_upload_url',  # noqa: E501
+        'conversation_knowledge_base_document_upload_url': 'conversation_knowledge_base_document_upload_url',  # noqa: E501
         'error': 'error',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'success': 'success',  # noqa: E501
@@ -155,7 +155,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            conversation_pbx_audio_upload_url (ConversationKnowledgeBaseDocumentUploadUrl): [optional]  # noqa: E501
+            conversation_knowledge_base_document_upload_url (ConversationKnowledgeBaseDocumentUploadUrl): [optional]  # noqa: E501
             error (Error): [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
@@ -245,7 +245,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            conversation_pbx_audio_upload_url (ConversationKnowledgeBaseDocumentUploadUrl): [optional]  # noqa: E501
+            conversation_knowledge_base_document_upload_url (ConversationKnowledgeBaseDocumentUploadUrl): [optional]  # noqa: E501
             error (Error): [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
