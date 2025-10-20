@@ -2470,7 +2470,7 @@ class ConversationApi(object):
         auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}', 'GET',
+            '/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}', 'GET',
             path_params,
             query_params,
             header_params,
