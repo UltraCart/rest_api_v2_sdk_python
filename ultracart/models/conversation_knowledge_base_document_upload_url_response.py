@@ -31,7 +31,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'conversation_pbx_audio_upload_url': 'ConversationKnowledgeBaseDocumentUploadUrl',
+        'conversation_knowledge_base_document_upload_url': 'ConversationKnowledgeBaseDocumentUploadUrl',
         'error': 'Error',
         'metadata': 'ResponseMetadata',
         'success': 'bool',
@@ -39,25 +39,25 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse(object):
     }
 
     attribute_map = {
-        'conversation_pbx_audio_upload_url': 'conversation_pbx_audio_upload_url',
+        'conversation_knowledge_base_document_upload_url': 'conversation_knowledge_base_document_upload_url',
         'error': 'error',
         'metadata': 'metadata',
         'success': 'success',
         'warning': 'warning'
     }
 
-    def __init__(self, conversation_pbx_audio_upload_url=None, error=None, metadata=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, conversation_knowledge_base_document_upload_url=None, error=None, metadata=None, success=None, warning=None):  # noqa: E501
         """ConversationKnowledgeBaseDocumentUploadUrlResponse - a model defined in Swagger"""  # noqa: E501
 
-        self._conversation_pbx_audio_upload_url = None
+        self._conversation_knowledge_base_document_upload_url = None
         self._error = None
         self._metadata = None
         self._success = None
         self._warning = None
         self.discriminator = None
 
-        if conversation_pbx_audio_upload_url is not None:
-            self.conversation_pbx_audio_upload_url = conversation_pbx_audio_upload_url
+        if conversation_knowledge_base_document_upload_url is not None:
+            self.conversation_knowledge_base_document_upload_url = conversation_knowledge_base_document_upload_url
         if error is not None:
             self.error = error
         if metadata is not None:
@@ -68,25 +68,25 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse(object):
             self.warning = warning
 
     @property
-    def conversation_pbx_audio_upload_url(self):
-        """Gets the conversation_pbx_audio_upload_url of this ConversationKnowledgeBaseDocumentUploadUrlResponse.  # noqa: E501
+    def conversation_knowledge_base_document_upload_url(self):
+        """Gets the conversation_knowledge_base_document_upload_url of this ConversationKnowledgeBaseDocumentUploadUrlResponse.  # noqa: E501
 
 
-        :return: The conversation_pbx_audio_upload_url of this ConversationKnowledgeBaseDocumentUploadUrlResponse.  # noqa: E501
+        :return: The conversation_knowledge_base_document_upload_url of this ConversationKnowledgeBaseDocumentUploadUrlResponse.  # noqa: E501
         :rtype: ConversationKnowledgeBaseDocumentUploadUrl
         """
-        return self._conversation_pbx_audio_upload_url
+        return self._conversation_knowledge_base_document_upload_url
 
-    @conversation_pbx_audio_upload_url.setter
-    def conversation_pbx_audio_upload_url(self, conversation_pbx_audio_upload_url):
-        """Sets the conversation_pbx_audio_upload_url of this ConversationKnowledgeBaseDocumentUploadUrlResponse.
+    @conversation_knowledge_base_document_upload_url.setter
+    def conversation_knowledge_base_document_upload_url(self, conversation_knowledge_base_document_upload_url):
+        """Sets the conversation_knowledge_base_document_upload_url of this ConversationKnowledgeBaseDocumentUploadUrlResponse.
 
 
-        :param conversation_pbx_audio_upload_url: The conversation_pbx_audio_upload_url of this ConversationKnowledgeBaseDocumentUploadUrlResponse.  # noqa: E501
+        :param conversation_knowledge_base_document_upload_url: The conversation_knowledge_base_document_upload_url of this ConversationKnowledgeBaseDocumentUploadUrlResponse.  # noqa: E501
         :type: ConversationKnowledgeBaseDocumentUploadUrl
         """
 
-        self._conversation_pbx_audio_upload_url = conversation_pbx_audio_upload_url
+        self._conversation_knowledge_base_document_upload_url = conversation_knowledge_base_document_upload_url
 
     @property
     def error(self):
