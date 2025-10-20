@@ -36,6 +36,9 @@ class CustomerLoyalty(object):
         'internal_gift_certificate_balance': 'str',
         'internal_gift_certificate_oid': 'int',
         'ledger_entries': 'list[CustomerLoyaltyLedger]',
+        'loyalty_tier_expiration_dts': 'str',
+        'loyalty_tier_name': 'str',
+        'loyalty_tier_oid': 'int',
         'pending_points': 'int',
         'redemptions': 'list[CustomerLoyaltyRedemption]'
     }
@@ -46,11 +49,14 @@ class CustomerLoyalty(object):
         'internal_gift_certificate_balance': 'internal_gift_certificate_balance',
         'internal_gift_certificate_oid': 'internal_gift_certificate_oid',
         'ledger_entries': 'ledger_entries',
+        'loyalty_tier_expiration_dts': 'loyalty_tier_expiration_dts',
+        'loyalty_tier_name': 'loyalty_tier_name',
+        'loyalty_tier_oid': 'loyalty_tier_oid',
         'pending_points': 'pending_points',
         'redemptions': 'redemptions'
     }
 
-    def __init__(self, current_points=None, internal_gift_certificate=None, internal_gift_certificate_balance=None, internal_gift_certificate_oid=None, ledger_entries=None, pending_points=None, redemptions=None):  # noqa: E501
+    def __init__(self, current_points=None, internal_gift_certificate=None, internal_gift_certificate_balance=None, internal_gift_certificate_oid=None, ledger_entries=None, loyalty_tier_expiration_dts=None, loyalty_tier_name=None, loyalty_tier_oid=None, pending_points=None, redemptions=None):  # noqa: E501
         """CustomerLoyalty - a model defined in Swagger"""  # noqa: E501
 
         self._current_points = None
@@ -58,6 +64,9 @@ class CustomerLoyalty(object):
         self._internal_gift_certificate_balance = None
         self._internal_gift_certificate_oid = None
         self._ledger_entries = None
+        self._loyalty_tier_expiration_dts = None
+        self._loyalty_tier_name = None
+        self._loyalty_tier_oid = None
         self._pending_points = None
         self._redemptions = None
         self.discriminator = None
@@ -72,6 +81,12 @@ class CustomerLoyalty(object):
             self.internal_gift_certificate_oid = internal_gift_certificate_oid
         if ledger_entries is not None:
             self.ledger_entries = ledger_entries
+        if loyalty_tier_expiration_dts is not None:
+            self.loyalty_tier_expiration_dts = loyalty_tier_expiration_dts
+        if loyalty_tier_name is not None:
+            self.loyalty_tier_name = loyalty_tier_name
+        if loyalty_tier_oid is not None:
+            self.loyalty_tier_oid = loyalty_tier_oid
         if pending_points is not None:
             self.pending_points = pending_points
         if redemptions is not None:
@@ -189,6 +204,75 @@ class CustomerLoyalty(object):
         """
 
         self._ledger_entries = ledger_entries
+
+    @property
+    def loyalty_tier_expiration_dts(self):
+        """Gets the loyalty_tier_expiration_dts of this CustomerLoyalty.  # noqa: E501
+
+        Loyalty tier expiration date (read only because of SDK addition)  # noqa: E501
+
+        :return: The loyalty_tier_expiration_dts of this CustomerLoyalty.  # noqa: E501
+        :rtype: str
+        """
+        return self._loyalty_tier_expiration_dts
+
+    @loyalty_tier_expiration_dts.setter
+    def loyalty_tier_expiration_dts(self, loyalty_tier_expiration_dts):
+        """Sets the loyalty_tier_expiration_dts of this CustomerLoyalty.
+
+        Loyalty tier expiration date (read only because of SDK addition)  # noqa: E501
+
+        :param loyalty_tier_expiration_dts: The loyalty_tier_expiration_dts of this CustomerLoyalty.  # noqa: E501
+        :type: str
+        """
+
+        self._loyalty_tier_expiration_dts = loyalty_tier_expiration_dts
+
+    @property
+    def loyalty_tier_name(self):
+        """Gets the loyalty_tier_name of this CustomerLoyalty.  # noqa: E501
+
+        Loyalty tier name  # noqa: E501
+
+        :return: The loyalty_tier_name of this CustomerLoyalty.  # noqa: E501
+        :rtype: str
+        """
+        return self._loyalty_tier_name
+
+    @loyalty_tier_name.setter
+    def loyalty_tier_name(self, loyalty_tier_name):
+        """Sets the loyalty_tier_name of this CustomerLoyalty.
+
+        Loyalty tier name  # noqa: E501
+
+        :param loyalty_tier_name: The loyalty_tier_name of this CustomerLoyalty.  # noqa: E501
+        :type: str
+        """
+
+        self._loyalty_tier_name = loyalty_tier_name
+
+    @property
+    def loyalty_tier_oid(self):
+        """Gets the loyalty_tier_oid of this CustomerLoyalty.  # noqa: E501
+
+        Loyalty tier oid (set to zero to remove the tier)  # noqa: E501
+
+        :return: The loyalty_tier_oid of this CustomerLoyalty.  # noqa: E501
+        :rtype: int
+        """
+        return self._loyalty_tier_oid
+
+    @loyalty_tier_oid.setter
+    def loyalty_tier_oid(self, loyalty_tier_oid):
+        """Sets the loyalty_tier_oid of this CustomerLoyalty.
+
+        Loyalty tier oid (set to zero to remove the tier)  # noqa: E501
+
+        :param loyalty_tier_oid: The loyalty_tier_oid of this CustomerLoyalty.  # noqa: E501
+        :type: int
+        """
+
+        self._loyalty_tier_oid = loyalty_tier_oid
 
     @property
     def pending_points(self):

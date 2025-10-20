@@ -31,6 +31,7 @@ class ConversationVirtualAgentCapabilities(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'access_storefront_and_item': 'bool',
         'cancel_subscription': 'bool',
         'delay_subscription': 'bool',
         'lookup_order_information': 'bool',
@@ -48,6 +49,7 @@ class ConversationVirtualAgentCapabilities(object):
     }
 
     attribute_map = {
+        'access_storefront_and_item': 'access_storefront_and_item',
         'cancel_subscription': 'cancel_subscription',
         'delay_subscription': 'delay_subscription',
         'lookup_order_information': 'lookup_order_information',
@@ -64,9 +66,10 @@ class ConversationVirtualAgentCapabilities(object):
         'zoho_desk_departments': 'zoho_desk_departments'
     }
 
-    def __init__(self, cancel_subscription=None, delay_subscription=None, lookup_order_information=None, lookup_subscription_information=None, open_support_ticket=None, open_support_ticket_channel=None, open_support_ticket_channel_email=None, open_support_ticket_zoho_desk_department_id=None, pause_subscription=None, resume_subscription=None, transfer_chat_to_live_agent=None, update_subscription_credit_card=None, zoho_desk_available=None, zoho_desk_departments=None):  # noqa: E501
+    def __init__(self, access_storefront_and_item=None, cancel_subscription=None, delay_subscription=None, lookup_order_information=None, lookup_subscription_information=None, open_support_ticket=None, open_support_ticket_channel=None, open_support_ticket_channel_email=None, open_support_ticket_zoho_desk_department_id=None, pause_subscription=None, resume_subscription=None, transfer_chat_to_live_agent=None, update_subscription_credit_card=None, zoho_desk_available=None, zoho_desk_departments=None):  # noqa: E501
         """ConversationVirtualAgentCapabilities - a model defined in Swagger"""  # noqa: E501
 
+        self._access_storefront_and_item = None
         self._cancel_subscription = None
         self._delay_subscription = None
         self._lookup_order_information = None
@@ -83,6 +86,8 @@ class ConversationVirtualAgentCapabilities(object):
         self._zoho_desk_departments = None
         self.discriminator = None
 
+        if access_storefront_and_item is not None:
+            self.access_storefront_and_item = access_storefront_and_item
         if cancel_subscription is not None:
             self.cancel_subscription = cancel_subscription
         if delay_subscription is not None:
@@ -111,6 +116,29 @@ class ConversationVirtualAgentCapabilities(object):
             self.zoho_desk_available = zoho_desk_available
         if zoho_desk_departments is not None:
             self.zoho_desk_departments = zoho_desk_departments
+
+    @property
+    def access_storefront_and_item(self):
+        """Gets the access_storefront_and_item of this ConversationVirtualAgentCapabilities.  # noqa: E501
+
+        Permission flag to allow this Agent access to the storefront and item information.  # noqa: E501
+
+        :return: The access_storefront_and_item of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :rtype: bool
+        """
+        return self._access_storefront_and_item
+
+    @access_storefront_and_item.setter
+    def access_storefront_and_item(self, access_storefront_and_item):
+        """Sets the access_storefront_and_item of this ConversationVirtualAgentCapabilities.
+
+        Permission flag to allow this Agent access to the storefront and item information.  # noqa: E501
+
+        :param access_storefront_and_item: The access_storefront_and_item of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :type: bool
+        """
+
+        self._access_storefront_and_item = access_storefront_and_item
 
     @property
     def cancel_subscription(self):
