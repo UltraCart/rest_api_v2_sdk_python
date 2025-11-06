@@ -31,21 +31,47 @@ class ConversationInsertKnowledgeBaseDocumentRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'original_file_name': 'str',
         'presigned_url': 'str'
     }
 
     attribute_map = {
+        'original_file_name': 'original_file_name',
         'presigned_url': 'presigned_url'
     }
 
-    def __init__(self, presigned_url=None):  # noqa: E501
+    def __init__(self, original_file_name=None, presigned_url=None):  # noqa: E501
         """ConversationInsertKnowledgeBaseDocumentRequest - a model defined in Swagger"""  # noqa: E501
 
+        self._original_file_name = None
         self._presigned_url = None
         self.discriminator = None
 
+        if original_file_name is not None:
+            self.original_file_name = original_file_name
         if presigned_url is not None:
             self.presigned_url = presigned_url
+
+    @property
+    def original_file_name(self):
+        """Gets the original_file_name of this ConversationInsertKnowledgeBaseDocumentRequest.  # noqa: E501
+
+
+        :return: The original_file_name of this ConversationInsertKnowledgeBaseDocumentRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._original_file_name
+
+    @original_file_name.setter
+    def original_file_name(self, original_file_name):
+        """Sets the original_file_name of this ConversationInsertKnowledgeBaseDocumentRequest.
+
+
+        :param original_file_name: The original_file_name of this ConversationInsertKnowledgeBaseDocumentRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._original_file_name = original_file_name
 
     @property
     def presigned_url(self):

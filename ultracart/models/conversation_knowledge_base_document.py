@@ -37,7 +37,8 @@ class ConversationKnowledgeBaseDocument(object):
         'document_uuid': 'str',
         'metadata': 'str',
         'mime_type': 'str',
-        's3_key': 'str'
+        's3_key': 'str',
+        's3_url': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class ConversationKnowledgeBaseDocument(object):
         'document_uuid': 'document_uuid',
         'metadata': 'metadata',
         'mime_type': 'mime_type',
-        's3_key': 's3_key'
+        's3_key': 's3_key',
+        's3_url': 's3_url'
     }
 
-    def __init__(self, chunk_count=None, description=None, document_id=None, document_uuid=None, metadata=None, mime_type=None, s3_key=None):  # noqa: E501
+    def __init__(self, chunk_count=None, description=None, document_id=None, document_uuid=None, metadata=None, mime_type=None, s3_key=None, s3_url=None):  # noqa: E501
         """ConversationKnowledgeBaseDocument - a model defined in Swagger"""  # noqa: E501
 
         self._chunk_count = None
@@ -60,6 +62,7 @@ class ConversationKnowledgeBaseDocument(object):
         self._metadata = None
         self._mime_type = None
         self._s3_key = None
+        self._s3_url = None
         self.discriminator = None
 
         if chunk_count is not None:
@@ -76,6 +79,8 @@ class ConversationKnowledgeBaseDocument(object):
             self.mime_type = mime_type
         if s3_key is not None:
             self.s3_key = s3_key
+        if s3_url is not None:
+            self.s3_url = s3_url
 
     @property
     def chunk_count(self):
@@ -225,6 +230,27 @@ class ConversationKnowledgeBaseDocument(object):
         """
 
         self._s3_key = s3_key
+
+    @property
+    def s3_url(self):
+        """Gets the s3_url of this ConversationKnowledgeBaseDocument.  # noqa: E501
+
+
+        :return: The s3_url of this ConversationKnowledgeBaseDocument.  # noqa: E501
+        :rtype: str
+        """
+        return self._s3_url
+
+    @s3_url.setter
+    def s3_url(self, s3_url):
+        """Sets the s3_url of this ConversationKnowledgeBaseDocument.
+
+
+        :param s3_url: The s3_url of this ConversationKnowledgeBaseDocument.  # noqa: E501
+        :type: str
+        """
+
+        self._s3_url = s3_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""
