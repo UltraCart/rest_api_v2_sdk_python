@@ -82,6 +82,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'original_file_name': (str,),  # noqa: E501
             'presigned_url': (str,),  # noqa: E501
         }
 
@@ -91,6 +92,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest(ModelNormal):
 
 
     attribute_map = {
+        'original_file_name': 'original_file_name',  # noqa: E501
         'presigned_url': 'presigned_url',  # noqa: E501
     }
 
@@ -135,6 +137,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            original_file_name (str): [optional]  # noqa: E501
             presigned_url (str): [optional]  # noqa: E501
         """
 
@@ -221,6 +224,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            original_file_name (str): [optional]  # noqa: E501
             presigned_url (str): [optional]  # noqa: E501
         """
 

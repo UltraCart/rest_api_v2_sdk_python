@@ -108,6 +108,7 @@ class OrderPayment(ModelNormal):
             'GOOGLE_PAY': "Google Pay",
             'HEALTH_BENEFIT_CARD': "Health Benefit Card",
             'PAYPAL_FASTLANE': "PayPal Fastlane",
+            'KLARNA': "Klarna",
         },
         ('payment_status',): {
             'UNPROCESSED': "Unprocessed",

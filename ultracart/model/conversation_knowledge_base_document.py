@@ -89,6 +89,7 @@ class ConversationKnowledgeBaseDocument(ModelNormal):
             'metadata': (str,),  # noqa: E501
             'mime_type': (str,),  # noqa: E501
             's3_key': (str,),  # noqa: E501
+            's3_url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +105,7 @@ class ConversationKnowledgeBaseDocument(ModelNormal):
         'metadata': 'metadata',  # noqa: E501
         'mime_type': 'mime_type',  # noqa: E501
         's3_key': 's3_key',  # noqa: E501
+        's3_url': 's3_url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -154,6 +156,7 @@ class ConversationKnowledgeBaseDocument(ModelNormal):
             metadata (str): [optional]  # noqa: E501
             mime_type (str): [optional]  # noqa: E501
             s3_key (str): [optional]  # noqa: E501
+            s3_url (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,6 +249,7 @@ class ConversationKnowledgeBaseDocument(ModelNormal):
             metadata (str): [optional]  # noqa: E501
             mime_type (str): [optional]  # noqa: E501
             s3_key (str): [optional]  # noqa: E501
+            s3_url (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
