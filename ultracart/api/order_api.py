@@ -153,6 +153,117 @@ class OrderApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def assign_to_affiliate(self, order_id, assign_to_affiliate_request, **kwargs):  # noqa: E501
+        """Assigns an order to an affiliate  # noqa: E501
+
+        Assigns an order to an affiliate.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.assign_to_affiliate(order_id, assign_to_affiliate_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to assign to the affiliate. (required)
+        :param OrderAssignToAffiliateRequest assign_to_affiliate_request: Assign to affiliate request (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.assign_to_affiliate_with_http_info(order_id, assign_to_affiliate_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.assign_to_affiliate_with_http_info(order_id, assign_to_affiliate_request, **kwargs)  # noqa: E501
+            return data
+
+    def assign_to_affiliate_with_http_info(self, order_id, assign_to_affiliate_request, **kwargs):  # noqa: E501
+        """Assigns an order to an affiliate  # noqa: E501
+
+        Assigns an order to an affiliate.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.assign_to_affiliate_with_http_info(order_id, assign_to_affiliate_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to assign to the affiliate. (required)
+        :param OrderAssignToAffiliateRequest assign_to_affiliate_request: Assign to affiliate request (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'assign_to_affiliate_request', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method assign_to_affiliate" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `assign_to_affiliate`")  # noqa: E501
+        # verify the required parameter 'assign_to_affiliate_request' is set
+        if ('assign_to_affiliate_request' not in params or
+                params['assign_to_affiliate_request'] is None):
+            raise ValueError("Missing the required parameter `assign_to_affiliate_request` when calling `assign_to_affiliate`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'assign_to_affiliate_request' in params:
+            body_params = params['assign_to_affiliate_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/order/orders/{order_id}/assignToAffiliate', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def block_refund_on_order(self, order_id, **kwargs):  # noqa: E501
         """Set a refund block on an order  # noqa: E501
 

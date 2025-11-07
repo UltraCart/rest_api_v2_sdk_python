@@ -694,6 +694,7 @@ from ultracart.models.oauth_token_response import OauthTokenResponse
 from ultracart.models.order import Order
 from ultracart.models.order_affiliate import OrderAffiliate
 from ultracart.models.order_affiliate_ledger import OrderAffiliateLedger
+from ultracart.models.order_assign_to_affiliate_request import OrderAssignToAffiliateRequest
 from ultracart.models.order_auto_order import OrderAutoOrder
 from ultracart.models.order_billing import OrderBilling
 from ultracart.models.order_buysafe import OrderBuysafe

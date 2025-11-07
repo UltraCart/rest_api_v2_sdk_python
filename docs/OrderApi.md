@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**adjust_order_total**](OrderApi.md#adjust_order_total) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
+[**assign_to_affiliate**](OrderApi.md#assign_to_affiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
 [**block_refund_on_order**](OrderApi.md#block_refund_on_order) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 [**cancel_order**](OrderApi.md#cancel_order) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**delete_order**](OrderApi.md#delete_order) | **DELETE** /order/orders/{order_id} | Delete an order
@@ -76,6 +77,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **assign_to_affiliate**
+> OrderResponse assign_to_affiliate(order_id, assign_to_affiliate_request, expand=expand)
+
+Assigns an order to an affiliate
+
+Assigns an order to an affiliate. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.OrderApi.fromApiKey(simple_key, False, True)
+
+order_id = 'order_id_example' # str | The order id to assign to the affiliate.
+assign_to_affiliate_request = ultracart.OrderAssignToAffiliateRequest() # OrderAssignToAffiliateRequest | Assign to affiliate request
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try:
+    # Assigns an order to an affiliate
+    api_response = api_instance.assign_to_affiliate(order_id, assign_to_affiliate_request, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrderApi->assign_to_affiliate: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to assign to the affiliate. | 
+ **assign_to_affiliate_request** | [**OrderAssignToAffiliateRequest**](OrderAssignToAffiliateRequest.md)| Assign to affiliate request | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
 
 ### Authorization
 
