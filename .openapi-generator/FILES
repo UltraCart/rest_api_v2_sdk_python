@@ -668,6 +668,7 @@ docs/Order.md
 docs/OrderAffiliate.md
 docs/OrderAffiliateLedger.md
 docs/OrderApi.md
+docs/OrderAssignToAffiliateRequest.md
 docs/OrderAutoOrder.md
 docs/OrderBilling.md
 docs/OrderBuysafe.md
@@ -1605,6 +1606,7 @@ ultracart/model/oauth_token_response.py
 ultracart/model/order.py
 ultracart/model/order_affiliate.py
 ultracart/model/order_affiliate_ledger.py
+ultracart/model/order_assign_to_affiliate_request.py
 ultracart/model/order_auto_order.py
 ultracart/model/order_billing.py
 ultracart/model/order_buysafe.py
