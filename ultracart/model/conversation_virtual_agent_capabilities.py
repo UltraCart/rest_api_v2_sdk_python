@@ -97,6 +97,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
             'access_storefront_and_item': (bool,),  # noqa: E501
             'cancel_subscription': (bool,),  # noqa: E501
             'delay_subscription': (bool,),  # noqa: E501
+            'generate_coupon': (bool,),  # noqa: E501
             'lookup_order_information': (bool,),  # noqa: E501
             'lookup_subscription_information': (bool,),  # noqa: E501
             'open_support_ticket': (bool,),  # noqa: E501
@@ -120,6 +121,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
         'access_storefront_and_item': 'access_storefront_and_item',  # noqa: E501
         'cancel_subscription': 'cancel_subscription',  # noqa: E501
         'delay_subscription': 'delay_subscription',  # noqa: E501
+        'generate_coupon': 'generate_coupon',  # noqa: E501
         'lookup_order_information': 'lookup_order_information',  # noqa: E501
         'lookup_subscription_information': 'lookup_subscription_information',  # noqa: E501
         'open_support_ticket': 'open_support_ticket',  # noqa: E501
@@ -178,6 +180,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
             access_storefront_and_item (bool): Permission flag to allow this Agent access to the storefront and item information.. [optional]  # noqa: E501
             cancel_subscription (bool): [optional]  # noqa: E501
             delay_subscription (bool): [optional]  # noqa: E501
+            generate_coupon (bool): Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions. [optional]  # noqa: E501
             lookup_order_information (bool): [optional]  # noqa: E501
             lookup_subscription_information (bool): [optional]  # noqa: E501
             open_support_ticket (bool): [optional]  # noqa: E501
@@ -278,6 +281,7 @@ class ConversationVirtualAgentCapabilities(ModelNormal):
             access_storefront_and_item (bool): Permission flag to allow this Agent access to the storefront and item information.. [optional]  # noqa: E501
             cancel_subscription (bool): [optional]  # noqa: E501
             delay_subscription (bool): [optional]  # noqa: E501
+            generate_coupon (bool): Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions. [optional]  # noqa: E501
             lookup_order_information (bool): [optional]  # noqa: E501
             lookup_subscription_information (bool): [optional]  # noqa: E501
             open_support_ticket (bool): [optional]  # noqa: E501
