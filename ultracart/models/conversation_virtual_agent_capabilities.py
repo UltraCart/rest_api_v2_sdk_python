@@ -34,6 +34,7 @@ class ConversationVirtualAgentCapabilities(object):
         'access_storefront_and_item': 'bool',
         'cancel_subscription': 'bool',
         'delay_subscription': 'bool',
+        'generate_coupon': 'bool',
         'lookup_order_information': 'bool',
         'lookup_subscription_information': 'bool',
         'open_support_ticket': 'bool',
@@ -52,6 +53,7 @@ class ConversationVirtualAgentCapabilities(object):
         'access_storefront_and_item': 'access_storefront_and_item',
         'cancel_subscription': 'cancel_subscription',
         'delay_subscription': 'delay_subscription',
+        'generate_coupon': 'generate_coupon',
         'lookup_order_information': 'lookup_order_information',
         'lookup_subscription_information': 'lookup_subscription_information',
         'open_support_ticket': 'open_support_ticket',
@@ -66,12 +68,13 @@ class ConversationVirtualAgentCapabilities(object):
         'zoho_desk_departments': 'zoho_desk_departments'
     }
 
-    def __init__(self, access_storefront_and_item=None, cancel_subscription=None, delay_subscription=None, lookup_order_information=None, lookup_subscription_information=None, open_support_ticket=None, open_support_ticket_channel=None, open_support_ticket_channel_email=None, open_support_ticket_zoho_desk_department_id=None, pause_subscription=None, resume_subscription=None, transfer_chat_to_live_agent=None, update_subscription_credit_card=None, zoho_desk_available=None, zoho_desk_departments=None):  # noqa: E501
+    def __init__(self, access_storefront_and_item=None, cancel_subscription=None, delay_subscription=None, generate_coupon=None, lookup_order_information=None, lookup_subscription_information=None, open_support_ticket=None, open_support_ticket_channel=None, open_support_ticket_channel_email=None, open_support_ticket_zoho_desk_department_id=None, pause_subscription=None, resume_subscription=None, transfer_chat_to_live_agent=None, update_subscription_credit_card=None, zoho_desk_available=None, zoho_desk_departments=None):  # noqa: E501
         """ConversationVirtualAgentCapabilities - a model defined in Swagger"""  # noqa: E501
 
         self._access_storefront_and_item = None
         self._cancel_subscription = None
         self._delay_subscription = None
+        self._generate_coupon = None
         self._lookup_order_information = None
         self._lookup_subscription_information = None
         self._open_support_ticket = None
@@ -92,6 +95,8 @@ class ConversationVirtualAgentCapabilities(object):
             self.cancel_subscription = cancel_subscription
         if delay_subscription is not None:
             self.delay_subscription = delay_subscription
+        if generate_coupon is not None:
+            self.generate_coupon = generate_coupon
         if lookup_order_information is not None:
             self.lookup_order_information = lookup_order_information
         if lookup_subscription_information is not None:
@@ -181,6 +186,29 @@ class ConversationVirtualAgentCapabilities(object):
         """
 
         self._delay_subscription = delay_subscription
+
+    @property
+    def generate_coupon(self):
+        """Gets the generate_coupon of this ConversationVirtualAgentCapabilities.  # noqa: E501
+
+        Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions  # noqa: E501
+
+        :return: The generate_coupon of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :rtype: bool
+        """
+        return self._generate_coupon
+
+    @generate_coupon.setter
+    def generate_coupon(self, generate_coupon):
+        """Sets the generate_coupon of this ConversationVirtualAgentCapabilities.
+
+        Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions  # noqa: E501
+
+        :param generate_coupon: The generate_coupon of this ConversationVirtualAgentCapabilities.  # noqa: E501
+        :type: bool
+        """
+
+        self._generate_coupon = generate_coupon
 
     @property
     def lookup_order_information(self):

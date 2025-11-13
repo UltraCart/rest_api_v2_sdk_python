@@ -42,6 +42,7 @@ class ConversationMessage(object):
         'merchant_id': 'str',
         'message_dts': 'str',
         'message_epoch': 'int',
+        'message_type': 'str',
         'translations': 'list[ConversationMessageTranslation]',
         'transport_statuses': 'list[ConversationMessageTransportStatus]',
         'type': 'str',
@@ -60,13 +61,14 @@ class ConversationMessage(object):
         'merchant_id': 'merchant_id',
         'message_dts': 'message_dts',
         'message_epoch': 'message_epoch',
+        'message_type': 'message_type',
         'translations': 'translations',
         'transport_statuses': 'transport_statuses',
         'type': 'type',
         'upload_keys': 'upload_keys'
     }
 
-    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, conversation_message_uuid=None, delay_until_dts=None, language_iso_code=None, media_urls=None, merchant_id=None, message_dts=None, message_epoch=None, translations=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
+    def __init__(self, author_conversation_participant_arn=None, author_conversation_participant_name=None, body=None, client_message_id=None, conversation_message_uuid=None, delay_until_dts=None, language_iso_code=None, media_urls=None, merchant_id=None, message_dts=None, message_epoch=None, message_type=None, translations=None, transport_statuses=None, type=None, upload_keys=None):  # noqa: E501
         """ConversationMessage - a model defined in Swagger"""  # noqa: E501
 
         self._author_conversation_participant_arn = None
@@ -80,6 +82,7 @@ class ConversationMessage(object):
         self._merchant_id = None
         self._message_dts = None
         self._message_epoch = None
+        self._message_type = None
         self._translations = None
         self._transport_statuses = None
         self._type = None
@@ -108,6 +111,8 @@ class ConversationMessage(object):
             self.message_dts = message_dts
         if message_epoch is not None:
             self.message_epoch = message_epoch
+        if message_type is not None:
+            self.message_type = message_type
         if translations is not None:
             self.translations = translations
         if transport_statuses is not None:
@@ -353,6 +358,27 @@ class ConversationMessage(object):
         """
 
         self._message_epoch = message_epoch
+
+    @property
+    def message_type(self):
+        """Gets the message_type of this ConversationMessage.  # noqa: E501
+
+
+        :return: The message_type of this ConversationMessage.  # noqa: E501
+        :rtype: str
+        """
+        return self._message_type
+
+    @message_type.setter
+    def message_type(self, message_type):
+        """Sets the message_type of this ConversationMessage.
+
+
+        :param message_type: The message_type of this ConversationMessage.  # noqa: E501
+        :type: str
+        """
+
+        self._message_type = message_type
 
     @property
     def translations(self):
