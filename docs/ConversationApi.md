@@ -19,6 +19,8 @@ Method | HTTP request | Description
 [**get_agent_keep_alive**](ConversationApi.md#get_agent_keep_alive) | **GET** /conversation/agent/keepalive | Agent keep alive
 [**get_agent_profile**](ConversationApi.md#get_agent_profile) | **GET** /conversation/agent/profile | Get agent profile
 [**get_agent_profile_knowledge_base**](ConversationApi.md#get_agent_profile_knowledge_base) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
+[**get_agent_profile_mcp**](ConversationApi.md#get_agent_profile_mcp) | **GET** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Get an MCP server associated with this agent
+[**get_agent_profile_mcps**](ConversationApi.md#get_agent_profile_mcps) | **GET** /conversation/agent/profiles/{user_id}/mcps | Get the list of MCP servers associated with this agent
 [**get_agent_profiles**](ConversationApi.md#get_agent_profiles) | **GET** /conversation/agent/profiles | Get agent profiles
 [**get_agent_websocket_authorization**](ConversationApi.md#get_agent_websocket_authorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 [**get_conversation**](ConversationApi.md#get_conversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
@@ -63,6 +65,7 @@ Method | HTTP request | Description
 [**get_virtual_agent_budget**](ConversationApi.md#get_virtual_agent_budget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 [**get_virtual_agent_capabilities**](ConversationApi.md#get_virtual_agent_capabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 [**insert_agent_profile_knowledge_base_document**](ConversationApi.md#insert_agent_profile_knowledge_base_document) | **POST** /conversation/agent/profiles/{user_id}/knowledge_base | Insert a knowledge base document
+[**insert_agent_profile_mcp**](ConversationApi.md#insert_agent_profile_mcp) | **POST** /conversation/agent/profiles/{user_id}/mcps | Insert an agent MCP server
 [**insert_conversation_canned_message**](ConversationApi.md#insert_conversation_canned_message) | **POST** /conversation/canned_messages | Insert a canned message
 [**insert_conversation_department**](ConversationApi.md#insert_conversation_department) | **POST** /conversation/departments | Insert a department
 [**insert_conversation_engagement**](ConversationApi.md#insert_conversation_engagement) | **POST** /conversation/engagements | Insert a engagement
@@ -82,6 +85,7 @@ Method | HTTP request | Description
 [**sms_unsubscribe_conversation**](ConversationApi.md#sms_unsubscribe_conversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 [**start_conversation**](ConversationApi.md#start_conversation) | **PUT** /conversation/conversations | Start a conversation
 [**update_agent_profile**](ConversationApi.md#update_agent_profile) | **PUT** /conversation/agent/profile | Update agent profile
+[**update_agent_profile_mcp**](ConversationApi.md#update_agent_profile_mcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
 [**update_conversation_canned_message**](ConversationApi.md#update_conversation_canned_message) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 [**update_conversation_department**](ConversationApi.md#update_conversation_department) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 [**update_conversation_engagement**](ConversationApi.md#update_conversation_engagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -826,6 +830,108 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationKnowledgeBaseDocumentsResponse**](ConversationKnowledgeBaseDocumentsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_agent_profile_mcp**
+> ConversationMcpServerResponse get_agent_profile_mcp(user_id, mcp_server_uuid)
+
+Get an MCP server associated with this agent
+
+Retrieve MCP server associated with this agent 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+user_id = 56 # int | 
+mcp_server_uuid = 'mcp_server_uuid_example' # str | 
+
+try:
+    # Get an MCP server associated with this agent
+    api_response = api_instance.get_agent_profile_mcp(user_id, mcp_server_uuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConversationApi->get_agent_profile_mcp: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  | 
+ **mcp_server_uuid** | **str**|  | 
+
+### Return type
+
+[**ConversationMcpServerResponse**](ConversationMcpServerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_agent_profile_mcps**
+> ConversationMcpServersResponse get_agent_profile_mcps(user_id)
+
+Get the list of MCP servers associated with this agent
+
+Retrieve MCP servers associated with this agent 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+user_id = 56 # int | 
+
+try:
+    # Get the list of MCP servers associated with this agent
+    api_response = api_instance.get_agent_profile_mcps(user_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConversationApi->get_agent_profile_mcps: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  | 
+
+### Return type
+
+[**ConversationMcpServersResponse**](ConversationMcpServersResponse.md)
 
 ### Authorization
 
@@ -2976,6 +3082,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **insert_agent_profile_mcp**
+> ConversationMcpServerResponse insert_agent_profile_mcp(user_id, mcp_server)
+
+Insert an agent MCP server
+
+Insert an agent MCP server 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+user_id = 56 # int | 
+mcp_server = ultracart.ConversationMcpServer() # ConversationMcpServer | MCP Server
+
+try:
+    # Insert an agent MCP server
+    api_response = api_instance.insert_agent_profile_mcp(user_id, mcp_server)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConversationApi->insert_agent_profile_mcp: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  | 
+ **mcp_server** | [**ConversationMcpServer**](ConversationMcpServer.md)| MCP Server | 
+
+### Return type
+
+[**ConversationMcpServerResponse**](ConversationMcpServerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **insert_conversation_canned_message**
 > ConversationCannedMessageResponse insert_conversation_canned_message(canned_message)
 
@@ -3911,6 +4069,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationAgentProfileResponse**](ConversationAgentProfileResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_agent_profile_mcp**
+> ConversationMcpServerResponse update_agent_profile_mcp(user_id, mcp_server_uuid, mcp_server)
+
+Update an agent MCP server
+
+Update an agent MCP server 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
+
+user_id = 56 # int | 
+mcp_server_uuid = 'mcp_server_uuid_example' # str | 
+mcp_server = ultracart.ConversationMcpServer() # ConversationMcpServer | MCP Server
+
+try:
+    # Update an agent MCP server
+    api_response = api_instance.update_agent_profile_mcp(user_id, mcp_server_uuid, mcp_server)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ConversationApi->update_agent_profile_mcp: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  | 
+ **mcp_server_uuid** | **str**|  | 
+ **mcp_server** | [**ConversationMcpServer**](ConversationMcpServer.md)| MCP Server | 
+
+### Return type
+
+[**ConversationMcpServerResponse**](ConversationMcpServerResponse.md)
 
 ### Authorization
 

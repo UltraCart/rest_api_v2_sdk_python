@@ -55,6 +55,7 @@ class ItemShipping(object):
         'freight_class': 'str',
         'hazmat': 'bool',
         'hold_for_transmission': 'bool',
+        'include_on_packing_slip': 'bool',
         'made_to_order': 'bool',
         'made_to_order_lead_time': 'int',
         'max_days_time_in_transit': 'int',
@@ -107,6 +108,7 @@ class ItemShipping(object):
         'freight_class': 'freight_class',
         'hazmat': 'hazmat',
         'hold_for_transmission': 'hold_for_transmission',
+        'include_on_packing_slip': 'include_on_packing_slip',
         'made_to_order': 'made_to_order',
         'made_to_order_lead_time': 'made_to_order_lead_time',
         'max_days_time_in_transit': 'max_days_time_in_transit',
@@ -134,7 +136,7 @@ class ItemShipping(object):
         'track_inventory': 'track_inventory'
     }
 
-    def __init__(self, allow_back_order=None, amazon_fba=None, case_inner_packs=None, case_units=None, cases=None, collect_serial_numbers=None, country_code_of_origin=None, customs_description=None, customs_value=None, delivery_on_friday=None, delivery_on_monday=None, delivery_on_saturday=None, delivery_on_sunday=None, delivery_on_thursday=None, delivery_on_tuesday=None, delivery_on_wednesday=None, destination_markups=None, destination_restrictions=None, distribution_centers=None, eta=None, free_shipping=None, freight_class=None, hazmat=None, hold_for_transmission=None, made_to_order=None, made_to_order_lead_time=None, max_days_time_in_transit=None, methods=None, no_shipping_discount=None, package_requirements=None, perishable_class_name=None, perishable_class_oid=None, preorder=None, require_delivery_date=None, restrict_shipment_on_friday=None, restrict_shipment_on_monday=None, restrict_shipment_on_saturday=None, restrict_shipment_on_sunday=None, restrict_shipment_on_thursday=None, restrict_shipment_on_tuesday=None, restrict_shipment_on_wednesday=None, ship_separately=None, ship_separately_additional_weight=None, ship_separately_height=None, ship_separately_length=None, ship_separately_package_special_type=None, ship_separately_width=None, special_product_type=None, track_inventory=None):  # noqa: E501
+    def __init__(self, allow_back_order=None, amazon_fba=None, case_inner_packs=None, case_units=None, cases=None, collect_serial_numbers=None, country_code_of_origin=None, customs_description=None, customs_value=None, delivery_on_friday=None, delivery_on_monday=None, delivery_on_saturday=None, delivery_on_sunday=None, delivery_on_thursday=None, delivery_on_tuesday=None, delivery_on_wednesday=None, destination_markups=None, destination_restrictions=None, distribution_centers=None, eta=None, free_shipping=None, freight_class=None, hazmat=None, hold_for_transmission=None, include_on_packing_slip=None, made_to_order=None, made_to_order_lead_time=None, max_days_time_in_transit=None, methods=None, no_shipping_discount=None, package_requirements=None, perishable_class_name=None, perishable_class_oid=None, preorder=None, require_delivery_date=None, restrict_shipment_on_friday=None, restrict_shipment_on_monday=None, restrict_shipment_on_saturday=None, restrict_shipment_on_sunday=None, restrict_shipment_on_thursday=None, restrict_shipment_on_tuesday=None, restrict_shipment_on_wednesday=None, ship_separately=None, ship_separately_additional_weight=None, ship_separately_height=None, ship_separately_length=None, ship_separately_package_special_type=None, ship_separately_width=None, special_product_type=None, track_inventory=None):  # noqa: E501
         """ItemShipping - a model defined in Swagger"""  # noqa: E501
 
         self._allow_back_order = None
@@ -161,6 +163,7 @@ class ItemShipping(object):
         self._freight_class = None
         self._hazmat = None
         self._hold_for_transmission = None
+        self._include_on_packing_slip = None
         self._made_to_order = None
         self._made_to_order_lead_time = None
         self._max_days_time_in_transit = None
@@ -236,6 +239,8 @@ class ItemShipping(object):
             self.hazmat = hazmat
         if hold_for_transmission is not None:
             self.hold_for_transmission = hold_for_transmission
+        if include_on_packing_slip is not None:
+            self.include_on_packing_slip = include_on_packing_slip
         if made_to_order is not None:
             self.made_to_order = made_to_order
         if made_to_order_lead_time is not None:
@@ -840,6 +845,29 @@ class ItemShipping(object):
         """
 
         self._hold_for_transmission = hold_for_transmission
+
+    @property
+    def include_on_packing_slip(self):
+        """Gets the include_on_packing_slip of this ItemShipping.  # noqa: E501
+
+        Force this item onto the packing slip even if there is no weight.  # noqa: E501
+
+        :return: The include_on_packing_slip of this ItemShipping.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_on_packing_slip
+
+    @include_on_packing_slip.setter
+    def include_on_packing_slip(self, include_on_packing_slip):
+        """Sets the include_on_packing_slip of this ItemShipping.
+
+        Force this item onto the packing slip even if there is no weight.  # noqa: E501
+
+        :param include_on_packing_slip: The include_on_packing_slip of this ItemShipping.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_on_packing_slip = include_on_packing_slip
 
     @property
     def made_to_order(self):
