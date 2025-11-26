@@ -35,6 +35,7 @@ class ConversationAgentProfile(object):
         'ai_chat_instructions': 'str',
         'ai_persona': 'str',
         'ai_sms_instructions': 'str',
+        'ai_ticket_instructions': 'str',
         'chat_limit': 'int',
         'default_language_iso_code': 'str',
         'default_status': 'str',
@@ -42,7 +43,9 @@ class ConversationAgentProfile(object):
         'name': 'str',
         'profile_image_upload_key': 'str',
         'profile_image_url': 'str',
-        'user_id': 'int'
+        'user_id': 'int',
+        'zohodesk_classifications': 'list[str]',
+        'zohodesk_departments': 'list[str]'
     }
 
     attribute_map = {
@@ -50,6 +53,7 @@ class ConversationAgentProfile(object):
         'ai_chat_instructions': 'ai_chat_instructions',
         'ai_persona': 'ai_persona',
         'ai_sms_instructions': 'ai_sms_instructions',
+        'ai_ticket_instructions': 'ai_ticket_instructions',
         'chat_limit': 'chat_limit',
         'default_language_iso_code': 'default_language_iso_code',
         'default_status': 'default_status',
@@ -57,16 +61,19 @@ class ConversationAgentProfile(object):
         'name': 'name',
         'profile_image_upload_key': 'profile_image_upload_key',
         'profile_image_url': 'profile_image_url',
-        'user_id': 'user_id'
+        'user_id': 'user_id',
+        'zohodesk_classifications': 'zohodesk_classifications',
+        'zohodesk_departments': 'zohodesk_departments'
     }
 
-    def __init__(self, ai=None, ai_chat_instructions=None, ai_persona=None, ai_sms_instructions=None, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None, user_id=None):  # noqa: E501
+    def __init__(self, ai=None, ai_chat_instructions=None, ai_persona=None, ai_sms_instructions=None, ai_ticket_instructions=None, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None, user_id=None, zohodesk_classifications=None, zohodesk_departments=None):  # noqa: E501
         """ConversationAgentProfile - a model defined in Swagger"""  # noqa: E501
 
         self._ai = None
         self._ai_chat_instructions = None
         self._ai_persona = None
         self._ai_sms_instructions = None
+        self._ai_ticket_instructions = None
         self._chat_limit = None
         self._default_language_iso_code = None
         self._default_status = None
@@ -75,6 +82,8 @@ class ConversationAgentProfile(object):
         self._profile_image_upload_key = None
         self._profile_image_url = None
         self._user_id = None
+        self._zohodesk_classifications = None
+        self._zohodesk_departments = None
         self.discriminator = None
 
         if ai is not None:
@@ -85,6 +94,8 @@ class ConversationAgentProfile(object):
             self.ai_persona = ai_persona
         if ai_sms_instructions is not None:
             self.ai_sms_instructions = ai_sms_instructions
+        if ai_ticket_instructions is not None:
+            self.ai_ticket_instructions = ai_ticket_instructions
         if chat_limit is not None:
             self.chat_limit = chat_limit
         if default_language_iso_code is not None:
@@ -101,6 +112,10 @@ class ConversationAgentProfile(object):
             self.profile_image_url = profile_image_url
         if user_id is not None:
             self.user_id = user_id
+        if zohodesk_classifications is not None:
+            self.zohodesk_classifications = zohodesk_classifications
+        if zohodesk_departments is not None:
+            self.zohodesk_departments = zohodesk_departments
 
     @property
     def ai(self):
@@ -193,6 +208,29 @@ class ConversationAgentProfile(object):
         """
 
         self._ai_sms_instructions = ai_sms_instructions
+
+    @property
+    def ai_ticket_instructions(self):
+        """Gets the ai_ticket_instructions of this ConversationAgentProfile.  # noqa: E501
+
+        Additional instructions for this AI when handling ticket draft replies  # noqa: E501
+
+        :return: The ai_ticket_instructions of this ConversationAgentProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._ai_ticket_instructions
+
+    @ai_ticket_instructions.setter
+    def ai_ticket_instructions(self, ai_ticket_instructions):
+        """Sets the ai_ticket_instructions of this ConversationAgentProfile.
+
+        Additional instructions for this AI when handling ticket draft replies  # noqa: E501
+
+        :param ai_ticket_instructions: The ai_ticket_instructions of this ConversationAgentProfile.  # noqa: E501
+        :type: str
+        """
+
+        self._ai_ticket_instructions = ai_ticket_instructions
 
     @property
     def chat_limit(self):
@@ -383,6 +421,52 @@ class ConversationAgentProfile(object):
         """
 
         self._user_id = user_id
+
+    @property
+    def zohodesk_classifications(self):
+        """Gets the zohodesk_classifications of this ConversationAgentProfile.  # noqa: E501
+
+        Restrict this agent to drafting replies only to tickets with these classifications  # noqa: E501
+
+        :return: The zohodesk_classifications of this ConversationAgentProfile.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._zohodesk_classifications
+
+    @zohodesk_classifications.setter
+    def zohodesk_classifications(self, zohodesk_classifications):
+        """Sets the zohodesk_classifications of this ConversationAgentProfile.
+
+        Restrict this agent to drafting replies only to tickets with these classifications  # noqa: E501
+
+        :param zohodesk_classifications: The zohodesk_classifications of this ConversationAgentProfile.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._zohodesk_classifications = zohodesk_classifications
+
+    @property
+    def zohodesk_departments(self):
+        """Gets the zohodesk_departments of this ConversationAgentProfile.  # noqa: E501
+
+        Restrict this agent to drafting replies only to these department ids  # noqa: E501
+
+        :return: The zohodesk_departments of this ConversationAgentProfile.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._zohodesk_departments
+
+    @zohodesk_departments.setter
+    def zohodesk_departments(self, zohodesk_departments):
+        """Sets the zohodesk_departments of this ConversationAgentProfile.
+
+        Restrict this agent to drafting replies only to these department ids  # noqa: E501
+
+        :param zohodesk_departments: The zohodesk_departments of this ConversationAgentProfile.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._zohodesk_departments = zohodesk_departments
 
     def to_dict(self):
         """Returns the model properties as a dict"""
