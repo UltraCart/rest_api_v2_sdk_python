@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**insert_wish_list_item**](CustomerApi.md#insert_wish_list_item) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 [**merge_customer**](CustomerApi.md#merge_customer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 [**search_customer_profile_values**](CustomerApi.md#search_customer_profile_values) | **POST** /customer/search | Searches for all matching values (using POST)
+[**search_customers**](CustomerApi.md#search_customers) | **GET** /customer/customers/search | Search for customers
 [**update_customer**](CustomerApi.md#update_customer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**update_customer_email_lists**](CustomerApi.md#update_customer_email_lists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 [**update_wish_list_item**](CustomerApi.md#update_wish_list_item) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
@@ -1103,6 +1104,70 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_customers**
+> CustomersResponse search_customers(search_string=search_string, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+
+Search for customers
+
+Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.CustomerApi.fromApiKey(simple_key, False, True)
+
+search_string = 'search_string_example' # str | Search (optional)
+signup_dts_start = 'signup_dts_start_example' # str | Signup date start (optional)
+signup_dts_end = 'signup_dts_end_example' # str | Signup date end (optional)
+limit = 100 # int | The maximum number of records to return on this one API call. (Max 200) (optional) (default to 100)
+offset = 0 # int | Pagination of the record set.  Offset is a zero based index. (optional) (default to 0)
+since = 'since_example' # str | Fetch customers that have been created/modified since this date/time. (optional)
+sort = 'sort_example' # str | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try:
+    # Search for customers
+    api_response = api_instance.search_customers(search_string=search_string, signup_dts_start=signup_dts_start, signup_dts_end=signup_dts_end, limit=limit, offset=offset, since=since, sort=sort, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CustomerApi->search_customers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **search_string** | **str**| Search | [optional] 
+ **signup_dts_start** | **str**| Signup date start | [optional] 
+ **signup_dts_end** | **str**| Signup date end | [optional] 
+ **limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
+ **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **str**| Fetch customers that have been created/modified since this date/time. | [optional] 
+ **sort** | **str**| The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**CustomersResponse**](CustomersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 

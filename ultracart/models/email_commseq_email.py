@@ -31,6 +31,9 @@ class EmailCommseqEmail(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ai_generation': 'bool',
+        'ai_generation_prompt': 'str',
+        'ai_generation_user_id': 'int',
         'deleted': 'bool',
         'edited_by_user': 'str',
         'email_communication_sequence_email_uuid': 'str',
@@ -68,6 +71,9 @@ class EmailCommseqEmail(object):
     }
 
     attribute_map = {
+        'ai_generation': 'ai_generation',
+        'ai_generation_prompt': 'ai_generation_prompt',
+        'ai_generation_user_id': 'ai_generation_user_id',
         'deleted': 'deleted',
         'edited_by_user': 'edited_by_user',
         'email_communication_sequence_email_uuid': 'email_communication_sequence_email_uuid',
@@ -104,9 +110,12 @@ class EmailCommseqEmail(object):
         'version': 'version'
     }
 
-    def __init__(self, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, external_generation=None, external_generation_authentication=None, external_generation_basic_password=None, external_generation_basic_username=None, external_generation_header_name=None, external_generation_header_value=None, external_generation_id=None, external_generation_url=None, filter_profile_equation_json=None, individually_render=None, library_item_oid=None, magic_link=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, smart_sending=None, storefront_oid=None, subject=None, suspended_for_spam=None, transactional_email=None, version=None):  # noqa: E501
+    def __init__(self, ai_generation=None, ai_generation_prompt=None, ai_generation_user_id=None, deleted=None, edited_by_user=None, email_communication_sequence_email_uuid=None, email_communication_sequence_uuid=None, email_container_cjson=None, email_container_cjson_last_modified_dts=None, email_template_vm_path=None, external_generation=None, external_generation_authentication=None, external_generation_basic_password=None, external_generation_basic_username=None, external_generation_header_name=None, external_generation_header_value=None, external_generation_id=None, external_generation_url=None, filter_profile_equation_json=None, individually_render=None, library_item_oid=None, magic_link=None, merchant_id=None, pending_review=None, preview_text=None, rejected=None, requires_review=None, screenshot_large_full_url=None, screenshot_large_viewport_url=None, screenshot_small_full_url=None, screenshot_small_viewport_url=None, smart_sending=None, storefront_oid=None, subject=None, suspended_for_spam=None, transactional_email=None, version=None):  # noqa: E501
         """EmailCommseqEmail - a model defined in Swagger"""  # noqa: E501
 
+        self._ai_generation = None
+        self._ai_generation_prompt = None
+        self._ai_generation_user_id = None
         self._deleted = None
         self._edited_by_user = None
         self._email_communication_sequence_email_uuid = None
@@ -143,6 +152,12 @@ class EmailCommseqEmail(object):
         self._version = None
         self.discriminator = None
 
+        if ai_generation is not None:
+            self.ai_generation = ai_generation
+        if ai_generation_prompt is not None:
+            self.ai_generation_prompt = ai_generation_prompt
+        if ai_generation_user_id is not None:
+            self.ai_generation_user_id = ai_generation_user_id
         if deleted is not None:
             self.deleted = deleted
         if edited_by_user is not None:
@@ -211,6 +226,69 @@ class EmailCommseqEmail(object):
             self.transactional_email = transactional_email
         if version is not None:
             self.version = version
+
+    @property
+    def ai_generation(self):
+        """Gets the ai_generation of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The ai_generation of this EmailCommseqEmail.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ai_generation
+
+    @ai_generation.setter
+    def ai_generation(self, ai_generation):
+        """Sets the ai_generation of this EmailCommseqEmail.
+
+
+        :param ai_generation: The ai_generation of this EmailCommseqEmail.  # noqa: E501
+        :type: bool
+        """
+
+        self._ai_generation = ai_generation
+
+    @property
+    def ai_generation_prompt(self):
+        """Gets the ai_generation_prompt of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The ai_generation_prompt of this EmailCommseqEmail.  # noqa: E501
+        :rtype: str
+        """
+        return self._ai_generation_prompt
+
+    @ai_generation_prompt.setter
+    def ai_generation_prompt(self, ai_generation_prompt):
+        """Sets the ai_generation_prompt of this EmailCommseqEmail.
+
+
+        :param ai_generation_prompt: The ai_generation_prompt of this EmailCommseqEmail.  # noqa: E501
+        :type: str
+        """
+
+        self._ai_generation_prompt = ai_generation_prompt
+
+    @property
+    def ai_generation_user_id(self):
+        """Gets the ai_generation_user_id of this EmailCommseqEmail.  # noqa: E501
+
+
+        :return: The ai_generation_user_id of this EmailCommseqEmail.  # noqa: E501
+        :rtype: int
+        """
+        return self._ai_generation_user_id
+
+    @ai_generation_user_id.setter
+    def ai_generation_user_id(self, ai_generation_user_id):
+        """Sets the ai_generation_user_id of this EmailCommseqEmail.
+
+
+        :param ai_generation_user_id: The ai_generation_user_id of this EmailCommseqEmail.  # noqa: E501
+        :type: int
+        """
+
+        self._ai_generation_user_id = ai_generation_user_id
 
     @property
     def deleted(self):

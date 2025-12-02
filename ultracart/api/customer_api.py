@@ -2216,6 +2216,129 @@ class CustomerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def search_customers(self, **kwargs):  # noqa: E501
+        """Search for customers  # noqa: E501
+
+        Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_customers(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str search_string: Search
+        :param str signup_dts_start: Signup date start
+        :param str signup_dts_end: Signup date end
+        :param int limit: The maximum number of records to return on this one API call. (Max 200)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch customers that have been created/modified since this date/time.
+        :param str sort: The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CustomersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_customers_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.search_customers_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def search_customers_with_http_info(self, **kwargs):  # noqa: E501
+        """Search for customers  # noqa: E501
+
+        Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_customers_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str search_string: Search
+        :param str signup_dts_start: Signup date start
+        :param str signup_dts_end: Signup date end
+        :param int limit: The maximum number of records to return on this one API call. (Max 200)
+        :param int offset: Pagination of the record set.  Offset is a zero based index.
+        :param str since: Fetch customers that have been created/modified since this date/time.
+        :param str sort: The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: CustomersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['search_string', 'signup_dts_start', 'signup_dts_end', 'limit', 'offset', 'since', 'sort', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_customers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'search_string' in params:
+            query_params.append(('search_string', params['search_string']))  # noqa: E501
+        if 'signup_dts_start' in params:
+            query_params.append(('signup_dts_start', params['signup_dts_start']))  # noqa: E501
+        if 'signup_dts_end' in params:
+            query_params.append(('signup_dts_end', params['signup_dts_end']))  # noqa: E501
+        if 'limit' in params:
+            query_params.append(('_limit', params['limit']))  # noqa: E501
+        if 'offset' in params:
+            query_params.append(('_offset', params['offset']))  # noqa: E501
+        if 'since' in params:
+            query_params.append(('_since', params['since']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('_sort', params['sort']))  # noqa: E501
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/customer/customers/search', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomersResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_customer(self, customer, customer_profile_oid, **kwargs):  # noqa: E501
         """Update a customer  # noqa: E501
 

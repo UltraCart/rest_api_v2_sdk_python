@@ -49,6 +49,7 @@ class CustomerQuery(object):
         'pricing_tier_name': 'str',
         'pricing_tier_oid': 'int',
         'qb_class': 'str',
+        'query_target': 'str',
         'quickbooks_code': 'str',
         'shipping_city': 'str',
         'shipping_company': 'str',
@@ -82,6 +83,7 @@ class CustomerQuery(object):
         'pricing_tier_name': 'pricing_tier_name',
         'pricing_tier_oid': 'pricing_tier_oid',
         'qb_class': 'qb_class',
+        'query_target': 'query_target',
         'quickbooks_code': 'quickbooks_code',
         'shipping_city': 'shipping_city',
         'shipping_company': 'shipping_company',
@@ -96,7 +98,7 @@ class CustomerQuery(object):
         'signup_dts_start': 'signup_dts_start'
     }
 
-    def __init__(self, all_tags=None, any_tags=None, billing_city=None, billing_company=None, billing_country_code=None, billing_day_phone=None, billing_evening_phone=None, billing_first_name=None, billing_last_name=None, billing_postal_code=None, billing_state=None, email=None, emails=None, last_modified_dts_end=None, last_modified_dts_start=None, pricing_tier_name=None, pricing_tier_oid=None, qb_class=None, quickbooks_code=None, shipping_city=None, shipping_company=None, shipping_country_code=None, shipping_day_phone=None, shipping_evening_phone=None, shipping_first_name=None, shipping_last_name=None, shipping_postal_code=None, shipping_state=None, signup_dts_end=None, signup_dts_start=None):  # noqa: E501
+    def __init__(self, all_tags=None, any_tags=None, billing_city=None, billing_company=None, billing_country_code=None, billing_day_phone=None, billing_evening_phone=None, billing_first_name=None, billing_last_name=None, billing_postal_code=None, billing_state=None, email=None, emails=None, last_modified_dts_end=None, last_modified_dts_start=None, pricing_tier_name=None, pricing_tier_oid=None, qb_class=None, query_target=None, quickbooks_code=None, shipping_city=None, shipping_company=None, shipping_country_code=None, shipping_day_phone=None, shipping_evening_phone=None, shipping_first_name=None, shipping_last_name=None, shipping_postal_code=None, shipping_state=None, signup_dts_end=None, signup_dts_start=None):  # noqa: E501
         """CustomerQuery - a model defined in Swagger"""  # noqa: E501
 
         self._all_tags = None
@@ -117,6 +119,7 @@ class CustomerQuery(object):
         self._pricing_tier_name = None
         self._pricing_tier_oid = None
         self._qb_class = None
+        self._query_target = None
         self._quickbooks_code = None
         self._shipping_city = None
         self._shipping_company = None
@@ -167,6 +170,8 @@ class CustomerQuery(object):
             self.pricing_tier_oid = pricing_tier_oid
         if qb_class is not None:
             self.qb_class = qb_class
+        if query_target is not None:
+            self.query_target = query_target
         if quickbooks_code is not None:
             self.quickbooks_code = quickbooks_code
         if shipping_city is not None:
@@ -625,6 +630,35 @@ class CustomerQuery(object):
         """
 
         self._qb_class = qb_class
+
+    @property
+    def query_target(self):
+        """Gets the query_target of this CustomerQuery.  # noqa: E501
+
+        Query Target  # noqa: E501
+
+        :return: The query_target of this CustomerQuery.  # noqa: E501
+        :rtype: str
+        """
+        return self._query_target
+
+    @query_target.setter
+    def query_target(self, query_target):
+        """Sets the query_target of this CustomerQuery.
+
+        Query Target  # noqa: E501
+
+        :param query_target: The query_target of this CustomerQuery.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["origin", "cache"]  # noqa: E501
+        if query_target not in allowed_values:
+            raise ValueError(
+                "Invalid value for `query_target` ({0}), must be one of {1}"  # noqa: E501
+                .format(query_target, allowed_values)
+            )
+
+        self._query_target = query_target
 
     @property
     def quickbooks_code(self):
