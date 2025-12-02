@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **pricing_tier_name** | **str** | Pricing tier name | [optional] 
 **pricing_tier_oid** | **int** | Pricing tier oid | [optional] 
 **qb_class** | **str** | QuickBooks class to import this customer as | [optional] 
+**query_target** | **str** | Query Target | [optional] 
 **quickbooks_code** | **str** | QuickBooks name to import this customer as | [optional] 
 **shipping_city** | **str** | Billing city | [optional] 
 **shipping_company** | **str** | Billing company | [optional] 

@@ -82,6 +82,9 @@ class EmailCommseqEmail(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'ai_generation': (bool,),  # noqa: E501
+            'ai_generation_prompt': (str,),  # noqa: E501
+            'ai_generation_user_id': (int,),  # noqa: E501
             'deleted': (bool,),  # noqa: E501
             'edited_by_user': (str,),  # noqa: E501
             'email_communication_sequence_email_uuid': (str,),  # noqa: E501
@@ -124,6 +127,9 @@ class EmailCommseqEmail(ModelNormal):
 
 
     attribute_map = {
+        'ai_generation': 'ai_generation',  # noqa: E501
+        'ai_generation_prompt': 'ai_generation_prompt',  # noqa: E501
+        'ai_generation_user_id': 'ai_generation_user_id',  # noqa: E501
         'deleted': 'deleted',  # noqa: E501
         'edited_by_user': 'edited_by_user',  # noqa: E501
         'email_communication_sequence_email_uuid': 'email_communication_sequence_email_uuid',  # noqa: E501
@@ -201,6 +207,9 @@ class EmailCommseqEmail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai_generation (bool): [optional]  # noqa: E501
+            ai_generation_prompt (str): [optional]  # noqa: E501
+            ai_generation_user_id (int): [optional]  # noqa: E501
             deleted (bool): Deleted. [optional]  # noqa: E501
             edited_by_user (str): Edited by user. [optional]  # noqa: E501
             email_communication_sequence_email_uuid (str): Email communication sequence email uuid. [optional]  # noqa: E501
@@ -320,6 +329,9 @@ class EmailCommseqEmail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai_generation (bool): [optional]  # noqa: E501
+            ai_generation_prompt (str): [optional]  # noqa: E501
+            ai_generation_user_id (int): [optional]  # noqa: E501
             deleted (bool): Deleted. [optional]  # noqa: E501
             edited_by_user (str): Edited by user. [optional]  # noqa: E501
             email_communication_sequence_email_uuid (str): Email communication sequence email uuid. [optional]  # noqa: E501

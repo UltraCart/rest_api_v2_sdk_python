@@ -1344,6 +1344,91 @@ class CustomerApi(object):
             },
             api_client=api_client
         )
+        self.search_customers_endpoint = _Endpoint(
+            settings={
+                'response_type': (CustomersResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/customer/customers/search',
+                'operation_id': 'search_customers',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'search_string',
+                    'signup_dts_start',
+                    'signup_dts_end',
+                    'limit',
+                    'offset',
+                    'since',
+                    'sort',
+                    'expand',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'search_string':
+                        (str,),
+                    'signup_dts_start':
+                        (str,),
+                    'signup_dts_end':
+                        (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
+                    'since':
+                        (str,),
+                    'sort':
+                        (str,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'search_string': 'search_string',
+                    'signup_dts_start': 'signup_dts_start',
+                    'signup_dts_end': 'signup_dts_end',
+                    'limit': '_limit',
+                    'offset': '_offset',
+                    'since': '_since',
+                    'sort': '_sort',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'search_string': 'query',
+                    'signup_dts_start': 'query',
+                    'signup_dts_end': 'query',
+                    'limit': 'query',
+                    'offset': 'query',
+                    'since': 'query',
+                    'sort': 'query',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.update_customer_endpoint = _Endpoint(
             settings={
                 'response_type': (CustomerResponse,),
@@ -3294,6 +3379,92 @@ class CustomerApi(object):
         kwargs['lookup_request'] = \
             lookup_request
         return self.search_customer_profile_values_endpoint.call_with_http_info(**kwargs)
+
+    def search_customers(
+        self,
+        **kwargs
+    ):
+        """Search for customers  # noqa: E501
+
+        Retrieves customers from the account by matching the search value against most customer fields.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.  This search also goes against the cache so updates should not be performed with these result objects.  Always re-query the individual customer profile if you are going to make updates.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.search_customers(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            search_string (str): Search. [optional]
+            signup_dts_start (str): Signup date start. [optional]
+            signup_dts_end (str): Signup date end. [optional]
+            limit (int): The maximum number of records to return on this one API call. (Max 200). [optional] if omitted the server will use the default value of 100
+            offset (int): Pagination of the record set.  Offset is a zero based index.. [optional] if omitted the server will use the default value of 0
+            since (str): Fetch customers that have been created/modified since this date/time.. [optional]
+            sort (str): The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.. [optional]
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CustomersResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.search_customers_endpoint.call_with_http_info(**kwargs)
 
     def update_customer(
         self,

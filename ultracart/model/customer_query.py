@@ -56,6 +56,10 @@ class CustomerQuery(ModelNormal):
     """
 
     allowed_values = {
+        ('query_target',): {
+            'ORIGIN': "origin",
+            'CACHE': "cache",
+        },
     }
 
     validations = {
@@ -157,6 +161,7 @@ class CustomerQuery(ModelNormal):
             'pricing_tier_name': (str,),  # noqa: E501
             'pricing_tier_oid': (int,),  # noqa: E501
             'qb_class': (str,),  # noqa: E501
+            'query_target': (str,),  # noqa: E501
             'quickbooks_code': (str,),  # noqa: E501
             'shipping_city': (str,),  # noqa: E501
             'shipping_company': (str,),  # noqa: E501
@@ -195,6 +200,7 @@ class CustomerQuery(ModelNormal):
         'pricing_tier_name': 'pricing_tier_name',  # noqa: E501
         'pricing_tier_oid': 'pricing_tier_oid',  # noqa: E501
         'qb_class': 'qb_class',  # noqa: E501
+        'query_target': 'query_target',  # noqa: E501
         'quickbooks_code': 'quickbooks_code',  # noqa: E501
         'shipping_city': 'shipping_city',  # noqa: E501
         'shipping_company': 'shipping_company',  # noqa: E501
@@ -268,6 +274,7 @@ class CustomerQuery(ModelNormal):
             pricing_tier_name (str): Pricing tier name. [optional]  # noqa: E501
             pricing_tier_oid (int): Pricing tier oid. [optional]  # noqa: E501
             qb_class (str): QuickBooks class to import this customer as. [optional]  # noqa: E501
+            query_target (str): Query Target. [optional]  # noqa: E501
             quickbooks_code (str): QuickBooks name to import this customer as. [optional]  # noqa: E501
             shipping_city (str): Billing city. [optional]  # noqa: E501
             shipping_company (str): Billing company. [optional]  # noqa: E501
@@ -383,6 +390,7 @@ class CustomerQuery(ModelNormal):
             pricing_tier_name (str): Pricing tier name. [optional]  # noqa: E501
             pricing_tier_oid (int): Pricing tier oid. [optional]  # noqa: E501
             qb_class (str): QuickBooks class to import this customer as. [optional]  # noqa: E501
+            query_target (str): Query Target. [optional]  # noqa: E501
             quickbooks_code (str): QuickBooks name to import this customer as. [optional]  # noqa: E501
             shipping_city (str): Billing city. [optional]  # noqa: E501
             shipping_company (str): Billing company. [optional]  # noqa: E501
