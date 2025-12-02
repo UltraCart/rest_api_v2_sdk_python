@@ -35,7 +35,8 @@ class CouponPercentOffItemsAndFreeShipping(object):
         'excluded_item_tags': 'list[str]',
         'excluded_items': 'list[str]',
         'item_tags': 'list[str]',
-        'items': 'list[str]'
+        'items': 'list[str]',
+        'shipping_methods': 'list[str]'
     }
 
     attribute_map = {
@@ -43,10 +44,11 @@ class CouponPercentOffItemsAndFreeShipping(object):
         'excluded_item_tags': 'excluded_item_tags',
         'excluded_items': 'excluded_items',
         'item_tags': 'item_tags',
-        'items': 'items'
+        'items': 'items',
+        'shipping_methods': 'shipping_methods'
     }
 
-    def __init__(self, discount_percent=None, excluded_item_tags=None, excluded_items=None, item_tags=None, items=None):  # noqa: E501
+    def __init__(self, discount_percent=None, excluded_item_tags=None, excluded_items=None, item_tags=None, items=None, shipping_methods=None):  # noqa: E501
         """CouponPercentOffItemsAndFreeShipping - a model defined in Swagger"""  # noqa: E501
 
         self._discount_percent = None
@@ -54,6 +56,7 @@ class CouponPercentOffItemsAndFreeShipping(object):
         self._excluded_items = None
         self._item_tags = None
         self._items = None
+        self._shipping_methods = None
         self.discriminator = None
 
         if discount_percent is not None:
@@ -66,6 +69,8 @@ class CouponPercentOffItemsAndFreeShipping(object):
             self.item_tags = item_tags
         if items is not None:
             self.items = items
+        if shipping_methods is not None:
+            self.shipping_methods = shipping_methods
 
     @property
     def discount_percent(self):
@@ -181,6 +186,29 @@ class CouponPercentOffItemsAndFreeShipping(object):
         """
 
         self._items = items
+
+    @property
+    def shipping_methods(self):
+        """Gets the shipping_methods of this CouponPercentOffItemsAndFreeShipping.  # noqa: E501
+
+        One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods  # noqa: E501
+
+        :return: The shipping_methods of this CouponPercentOffItemsAndFreeShipping.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._shipping_methods
+
+    @shipping_methods.setter
+    def shipping_methods(self, shipping_methods):
+        """Sets the shipping_methods of this CouponPercentOffItemsAndFreeShipping.
+
+        One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods  # noqa: E501
+
+        :param shipping_methods: The shipping_methods of this CouponPercentOffItemsAndFreeShipping.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._shipping_methods = shipping_methods
 
     def to_dict(self):
         """Returns the model properties as a dict"""

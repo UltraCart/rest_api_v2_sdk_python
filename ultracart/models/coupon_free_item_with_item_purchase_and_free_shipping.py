@@ -34,23 +34,26 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping(object):
         'items': 'list[str]',
         'limit': 'int',
         'match_required_purchase_item_to_free_item': 'bool',
-        'required_purchase_items': 'list[str]'
+        'required_purchase_items': 'list[str]',
+        'shipping_methods': 'list[str]'
     }
 
     attribute_map = {
         'items': 'items',
         'limit': 'limit',
         'match_required_purchase_item_to_free_item': 'match_required_purchase_item_to_free_item',
-        'required_purchase_items': 'required_purchase_items'
+        'required_purchase_items': 'required_purchase_items',
+        'shipping_methods': 'shipping_methods'
     }
 
-    def __init__(self, items=None, limit=None, match_required_purchase_item_to_free_item=None, required_purchase_items=None):  # noqa: E501
+    def __init__(self, items=None, limit=None, match_required_purchase_item_to_free_item=None, required_purchase_items=None, shipping_methods=None):  # noqa: E501
         """CouponFreeItemWithItemPurchaseAndFreeShipping - a model defined in Swagger"""  # noqa: E501
 
         self._items = None
         self._limit = None
         self._match_required_purchase_item_to_free_item = None
         self._required_purchase_items = None
+        self._shipping_methods = None
         self.discriminator = None
 
         if items is not None:
@@ -61,6 +64,8 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping(object):
             self.match_required_purchase_item_to_free_item = match_required_purchase_item_to_free_item
         if required_purchase_items is not None:
             self.required_purchase_items = required_purchase_items
+        if shipping_methods is not None:
+            self.shipping_methods = shipping_methods
 
     @property
     def items(self):
@@ -153,6 +158,29 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping(object):
         """
 
         self._required_purchase_items = required_purchase_items
+
+    @property
+    def shipping_methods(self):
+        """Gets the shipping_methods of this CouponFreeItemWithItemPurchaseAndFreeShipping.  # noqa: E501
+
+        One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods  # noqa: E501
+
+        :return: The shipping_methods of this CouponFreeItemWithItemPurchaseAndFreeShipping.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._shipping_methods
+
+    @shipping_methods.setter
+    def shipping_methods(self, shipping_methods):
+        """Sets the shipping_methods of this CouponFreeItemWithItemPurchaseAndFreeShipping.
+
+        One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods  # noqa: E501
+
+        :param shipping_methods: The shipping_methods of this CouponFreeItemWithItemPurchaseAndFreeShipping.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._shipping_methods = shipping_methods
 
     def to_dict(self):
         """Returns the model properties as a dict"""
