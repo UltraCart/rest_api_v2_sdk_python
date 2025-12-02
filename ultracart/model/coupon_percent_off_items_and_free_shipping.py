@@ -87,6 +87,7 @@ class CouponPercentOffItemsAndFreeShipping(ModelNormal):
             'excluded_items': ([str],),  # noqa: E501
             'item_tags': ([str],),  # noqa: E501
             'items': ([str],),  # noqa: E501
+            'shipping_methods': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +101,7 @@ class CouponPercentOffItemsAndFreeShipping(ModelNormal):
         'excluded_items': 'excluded_items',  # noqa: E501
         'item_tags': 'item_tags',  # noqa: E501
         'items': 'items',  # noqa: E501
+        'shipping_methods': 'shipping_methods',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,6 +150,7 @@ class CouponPercentOffItemsAndFreeShipping(ModelNormal):
             excluded_items ([str]): A list of items which cannot be discounted.. [optional]  # noqa: E501
             item_tags ([str]): An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
             items ([str]): An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
+            shipping_methods ([str]): One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,6 +241,7 @@ class CouponPercentOffItemsAndFreeShipping(ModelNormal):
             excluded_items ([str]): A list of items which cannot be discounted.. [optional]  # noqa: E501
             item_tags ([str]): An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
             items ([str]): An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.. [optional]  # noqa: E501
+            shipping_methods ([str]): One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
