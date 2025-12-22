@@ -43,6 +43,7 @@ class ConversationAgentAuth(object):
         'pbx_voice_identity': 'str',
         'pbx_voice_token': 'str',
         'pbx_worker_token': 'str',
+        'pbx_worker_token_v2': 'str',
         'twilio_accounts': 'list[ConversationTwilioAccount]',
         'user_id': 'int',
         'websocket_url': 'str'
@@ -61,12 +62,13 @@ class ConversationAgentAuth(object):
         'pbx_voice_identity': 'pbx_voice_identity',
         'pbx_voice_token': 'pbx_voice_token',
         'pbx_worker_token': 'pbx_worker_token',
+        'pbx_worker_token_v2': 'pbx_worker_token_v2',
         'twilio_accounts': 'twilio_accounts',
         'user_id': 'user_id',
         'websocket_url': 'websocket_url'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, group_ids=None, jwt=None, merchant_id=None, pbx_admin=None, pbx_jwt=None, pbx_supervisor=None, pbx_user=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, twilio_accounts=None, user_id=None, websocket_url=None):  # noqa: E501
+    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, group_ids=None, jwt=None, merchant_id=None, pbx_admin=None, pbx_jwt=None, pbx_supervisor=None, pbx_user=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, pbx_worker_token_v2=None, twilio_accounts=None, user_id=None, websocket_url=None):  # noqa: E501
         """ConversationAgentAuth - a model defined in Swagger"""  # noqa: E501
 
         self._conversation_participant_arn = None
@@ -81,6 +83,7 @@ class ConversationAgentAuth(object):
         self._pbx_voice_identity = None
         self._pbx_voice_token = None
         self._pbx_worker_token = None
+        self._pbx_worker_token_v2 = None
         self._twilio_accounts = None
         self._user_id = None
         self._websocket_url = None
@@ -110,6 +113,8 @@ class ConversationAgentAuth(object):
             self.pbx_voice_token = pbx_voice_token
         if pbx_worker_token is not None:
             self.pbx_worker_token = pbx_worker_token
+        if pbx_worker_token_v2 is not None:
+            self.pbx_worker_token_v2 = pbx_worker_token_v2
         if twilio_accounts is not None:
             self.twilio_accounts = twilio_accounts
         if user_id is not None:
@@ -370,6 +375,27 @@ class ConversationAgentAuth(object):
         """
 
         self._pbx_worker_token = pbx_worker_token
+
+    @property
+    def pbx_worker_token_v2(self):
+        """Gets the pbx_worker_token_v2 of this ConversationAgentAuth.  # noqa: E501
+
+
+        :return: The pbx_worker_token_v2 of this ConversationAgentAuth.  # noqa: E501
+        :rtype: str
+        """
+        return self._pbx_worker_token_v2
+
+    @pbx_worker_token_v2.setter
+    def pbx_worker_token_v2(self, pbx_worker_token_v2):
+        """Sets the pbx_worker_token_v2 of this ConversationAgentAuth.
+
+
+        :param pbx_worker_token_v2: The pbx_worker_token_v2 of this ConversationAgentAuth.  # noqa: E501
+        :type: str
+        """
+
+        self._pbx_worker_token_v2 = pbx_worker_token_v2
 
     @property
     def twilio_accounts(self):
