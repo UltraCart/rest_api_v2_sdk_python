@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **pbx_voice_identity** | **str** |  | [optional] 
 **pbx_voice_token** | **str** |  | [optional] 
 **pbx_worker_token** | **str** |  | [optional] 
+**pbx_worker_token_v2** | **str** |  | [optional] 
 **twilio_accounts** | [**[ConversationTwilioAccount]**](ConversationTwilioAccount.md) |  | [optional] 
 **user_id** | **int** | UltraCart User ID | [optional] 
 **websocket_url** | **str** |  | [optional] 

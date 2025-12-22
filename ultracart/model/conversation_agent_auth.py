@@ -100,6 +100,7 @@ class ConversationAgentAuth(ModelNormal):
             'pbx_voice_identity': (str,),  # noqa: E501
             'pbx_voice_token': (str,),  # noqa: E501
             'pbx_worker_token': (str,),  # noqa: E501
+            'pbx_worker_token_v2': (str,),  # noqa: E501
             'twilio_accounts': ([ConversationTwilioAccount],),  # noqa: E501
             'user_id': (int,),  # noqa: E501
             'websocket_url': (str,),  # noqa: E501
@@ -123,6 +124,7 @@ class ConversationAgentAuth(ModelNormal):
         'pbx_voice_identity': 'pbx_voice_identity',  # noqa: E501
         'pbx_voice_token': 'pbx_voice_token',  # noqa: E501
         'pbx_worker_token': 'pbx_worker_token',  # noqa: E501
+        'pbx_worker_token_v2': 'pbx_worker_token_v2',  # noqa: E501
         'twilio_accounts': 'twilio_accounts',  # noqa: E501
         'user_id': 'user_id',  # noqa: E501
         'websocket_url': 'websocket_url',  # noqa: E501
@@ -181,6 +183,7 @@ class ConversationAgentAuth(ModelNormal):
             pbx_voice_identity (str): [optional]  # noqa: E501
             pbx_voice_token (str): [optional]  # noqa: E501
             pbx_worker_token (str): [optional]  # noqa: E501
+            pbx_worker_token_v2 (str): [optional]  # noqa: E501
             twilio_accounts ([ConversationTwilioAccount]): [optional]  # noqa: E501
             user_id (int): UltraCart User ID. [optional]  # noqa: E501
             websocket_url (str): [optional]  # noqa: E501
@@ -281,6 +284,7 @@ class ConversationAgentAuth(ModelNormal):
             pbx_voice_identity (str): [optional]  # noqa: E501
             pbx_voice_token (str): [optional]  # noqa: E501
             pbx_worker_token (str): [optional]  # noqa: E501
+            pbx_worker_token_v2 (str): [optional]  # noqa: E501
             twilio_accounts ([ConversationTwilioAccount]): [optional]  # noqa: E501
             user_id (int): UltraCart User ID. [optional]  # noqa: E501
             websocket_url (str): [optional]  # noqa: E501
