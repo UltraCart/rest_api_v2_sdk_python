@@ -32,6 +32,7 @@ class ConversationAgentProfile(object):
     """
     swagger_types = {
         'ai': 'bool',
+        'ai_capabilities': 'ConversationVirtualAgentCapabilities',
         'ai_chat_instructions': 'str',
         'ai_persona': 'str',
         'ai_sms_instructions': 'str',
@@ -50,6 +51,7 @@ class ConversationAgentProfile(object):
 
     attribute_map = {
         'ai': 'ai',
+        'ai_capabilities': 'ai_capabilities',
         'ai_chat_instructions': 'ai_chat_instructions',
         'ai_persona': 'ai_persona',
         'ai_sms_instructions': 'ai_sms_instructions',
@@ -66,10 +68,11 @@ class ConversationAgentProfile(object):
         'zohodesk_departments': 'zohodesk_departments'
     }
 
-    def __init__(self, ai=None, ai_chat_instructions=None, ai_persona=None, ai_sms_instructions=None, ai_ticket_instructions=None, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None, user_id=None, zohodesk_classifications=None, zohodesk_departments=None):  # noqa: E501
+    def __init__(self, ai=None, ai_capabilities=None, ai_chat_instructions=None, ai_persona=None, ai_sms_instructions=None, ai_ticket_instructions=None, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None, user_id=None, zohodesk_classifications=None, zohodesk_departments=None):  # noqa: E501
         """ConversationAgentProfile - a model defined in Swagger"""  # noqa: E501
 
         self._ai = None
+        self._ai_capabilities = None
         self._ai_chat_instructions = None
         self._ai_persona = None
         self._ai_sms_instructions = None
@@ -88,6 +91,8 @@ class ConversationAgentProfile(object):
 
         if ai is not None:
             self.ai = ai
+        if ai_capabilities is not None:
+            self.ai_capabilities = ai_capabilities
         if ai_chat_instructions is not None:
             self.ai_chat_instructions = ai_chat_instructions
         if ai_persona is not None:
@@ -139,6 +144,27 @@ class ConversationAgentProfile(object):
         """
 
         self._ai = ai
+
+    @property
+    def ai_capabilities(self):
+        """Gets the ai_capabilities of this ConversationAgentProfile.  # noqa: E501
+
+
+        :return: The ai_capabilities of this ConversationAgentProfile.  # noqa: E501
+        :rtype: ConversationVirtualAgentCapabilities
+        """
+        return self._ai_capabilities
+
+    @ai_capabilities.setter
+    def ai_capabilities(self, ai_capabilities):
+        """Sets the ai_capabilities of this ConversationAgentProfile.
+
+
+        :param ai_capabilities: The ai_capabilities of this ConversationAgentProfile.  # noqa: E501
+        :type: ConversationVirtualAgentCapabilities
+        """
+
+        self._ai_capabilities = ai_capabilities
 
     @property
     def ai_chat_instructions(self):
