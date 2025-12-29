@@ -31,6 +31,7 @@ class ConversationPbxAgent(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ai': 'bool',
         'cellphone': 'str',
         'conversation_pbx_agent_uuid': 'str',
         'extension': 'int',
@@ -50,6 +51,7 @@ class ConversationPbxAgent(object):
     }
 
     attribute_map = {
+        'ai': 'ai',
         'cellphone': 'cellphone',
         'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',
         'extension': 'extension',
@@ -68,9 +70,10 @@ class ConversationPbxAgent(object):
         'voicemail': 'voicemail'
     }
 
-    def __init__(self, cellphone=None, conversation_pbx_agent_uuid=None, extension=None, forward_calls_to_cellphone=None, full_name=None, login=None, merchant_id=None, personal_conversation_pbx_voicemail_mailbox_uuid=None, record_outgoing_automatically=None, shared_conversation_pbx_voicemail_mailbox_uuid=None, twilio_taskrouter_worker_id=None, unavailable_play_audio_uuid=None, unavailable_say=None, unavailable_say_voice=None, user_id=None, voicemail=None):  # noqa: E501
+    def __init__(self, ai=None, cellphone=None, conversation_pbx_agent_uuid=None, extension=None, forward_calls_to_cellphone=None, full_name=None, login=None, merchant_id=None, personal_conversation_pbx_voicemail_mailbox_uuid=None, record_outgoing_automatically=None, shared_conversation_pbx_voicemail_mailbox_uuid=None, twilio_taskrouter_worker_id=None, unavailable_play_audio_uuid=None, unavailable_say=None, unavailable_say_voice=None, user_id=None, voicemail=None):  # noqa: E501
         """ConversationPbxAgent - a model defined in Swagger"""  # noqa: E501
 
+        self._ai = None
         self._cellphone = None
         self._conversation_pbx_agent_uuid = None
         self._extension = None
@@ -89,6 +92,8 @@ class ConversationPbxAgent(object):
         self._voicemail = None
         self.discriminator = None
 
+        if ai is not None:
+            self.ai = ai
         if cellphone is not None:
             self.cellphone = cellphone
         if conversation_pbx_agent_uuid is not None:
@@ -121,6 +126,29 @@ class ConversationPbxAgent(object):
             self.user_id = user_id
         if voicemail is not None:
             self.voicemail = voicemail
+
+    @property
+    def ai(self):
+        """Gets the ai of this ConversationPbxAgent.  # noqa: E501
+
+        Flag to indicate if the agent is AI  # noqa: E501
+
+        :return: The ai of this ConversationPbxAgent.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ai
+
+    @ai.setter
+    def ai(self, ai):
+        """Sets the ai of this ConversationPbxAgent.
+
+        Flag to indicate if the agent is AI  # noqa: E501
+
+        :param ai: The ai of this ConversationPbxAgent.  # noqa: E501
+        :type: bool
+        """
+
+        self._ai = ai
 
     @property
     def cellphone(self):
