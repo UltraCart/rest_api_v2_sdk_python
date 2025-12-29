@@ -630,6 +630,7 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
+docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -1574,6 +1575,7 @@ ultracart/model/item_shipping_case.py
 ultracart/model/item_shipping_destination_markup.py
 ultracart/model/item_shipping_destination_restriction.py
 ultracart/model/item_shipping_distribution_center.py
+ultracart/model/item_shipping_distribution_center_response.py
 ultracart/model/item_shipping_method.py
 ultracart/model/item_shipping_package_requirement.py
 ultracart/model/item_tag.py

@@ -33,6 +33,8 @@ from ultracart.model.item_response import ItemResponse
 from ultracart.model.item_review import ItemReview
 from ultracart.model.item_review_response import ItemReviewResponse
 from ultracart.model.item_reviews_response import ItemReviewsResponse
+from ultracart.model.item_shipping_distribution_center import ItemShippingDistributionCenter
+from ultracart.model.item_shipping_distribution_center_response import ItemShippingDistributionCenterResponse
 from ultracart.model.items_request import ItemsRequest
 from ultracart.model.items_response import ItemsResponse
 from ultracart.model.pricing_tiers_response import PricingTiersResponse
@@ -557,6 +559,74 @@ class ItemApi(object):
                 },
                 'location_map': {
                     'merchant_item_id': 'path',
+                    'expand': 'query',
+                    'placeholders': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_item_shipping_distribution_center_by_code_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemShippingDistributionCenterResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}',
+                'operation_id': 'get_item_shipping_distribution_center_by_code',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                    'distribution_center_code',
+                    'expand',
+                    'placeholders',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                    'distribution_center_code',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                    'distribution_center_code':
+                        (str,),
+                    'expand':
+                        (str,),
+                    'placeholders':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                    'distribution_center_code': 'distribution_center_code',
+                    'expand': '_expand',
+                    'placeholders': '_placeholders',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                    'distribution_center_code': 'path',
                     'expand': 'query',
                     'placeholders': 'query',
                 },
@@ -1239,6 +1309,71 @@ class ItemApi(object):
                     'item': 'body',
                     'expand': 'query',
                     'placeholders': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_item_shipping_distribution_center_by_code_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}',
+                'operation_id': 'update_item_shipping_distribution_center_by_code',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                    'distribution_center_code',
+                    'item_shipping_distribution_center',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                    'distribution_center_code',
+                    'item_shipping_distribution_center',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                    'distribution_center_code':
+                        (str,),
+                    'item_shipping_distribution_center':
+                        (ItemShippingDistributionCenter,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                    'distribution_center_code': 'distribution_center_code',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                    'distribution_center_code': 'path',
+                    'item_shipping_distribution_center': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -2192,6 +2327,95 @@ class ItemApi(object):
             merchant_item_id
         return self.get_item_by_merchant_item_id_endpoint.call_with_http_info(**kwargs)
 
+    def get_item_shipping_distribution_center_by_code(
+        self,
+        merchant_item_oid,
+        distribution_center_code,
+        **kwargs
+    ):
+        """Retrieve an item shipping distribution center  # noqa: E501
+
+        Retrieve an item shipping distribution center.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_item_shipping_distribution_center_by_code(merchant_item_oid, distribution_center_code, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid to retrieve.
+            distribution_center_code (str):
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            placeholders (bool): Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemShippingDistributionCenterResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        kwargs['distribution_center_code'] = \
+            distribution_center_code
+        return self.get_item_shipping_distribution_center_by_code_endpoint.call_with_http_info(**kwargs)
+
     def get_items(
         self,
         **kwargs
@@ -3128,6 +3352,97 @@ class ItemApi(object):
         kwargs['item'] = \
             item
         return self.update_item_endpoint.call_with_http_info(**kwargs)
+
+    def update_item_shipping_distribution_center_by_code(
+        self,
+        merchant_item_oid,
+        distribution_center_code,
+        item_shipping_distribution_center,
+        **kwargs
+    ):
+        """Update an item shipping distribution center  # noqa: E501
+
+        Update an item shipping distribution center   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_item_shipping_distribution_center_by_code(merchant_item_oid, distribution_center_code, item_shipping_distribution_center, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid to update.
+            distribution_center_code (str):
+            item_shipping_distribution_center (ItemShippingDistributionCenter): Item shipping distribution center
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        kwargs['distribution_center_code'] = \
+            distribution_center_code
+        kwargs['item_shipping_distribution_center'] = \
+            item_shipping_distribution_center
+        return self.update_item_shipping_distribution_center_by_code_endpoint.call_with_http_info(**kwargs)
 
     def update_items(
         self,

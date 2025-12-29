@@ -103,6 +103,7 @@ class ConversationPbxAgent(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'ai': (bool,),  # noqa: E501
             'cellphone': (str,),  # noqa: E501
             'conversation_pbx_agent_uuid': (str,),  # noqa: E501
             'extension': (int,),  # noqa: E501
@@ -127,6 +128,7 @@ class ConversationPbxAgent(ModelNormal):
 
 
     attribute_map = {
+        'ai': 'ai',  # noqa: E501
         'cellphone': 'cellphone',  # noqa: E501
         'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',  # noqa: E501
         'extension': 'extension',  # noqa: E501
@@ -186,6 +188,7 @@ class ConversationPbxAgent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai (bool): Flag to indicate if the agent is AI. [optional]  # noqa: E501
             cellphone (str): Cellphone number of agent in E.164 format. [optional]  # noqa: E501
             conversation_pbx_agent_uuid (str): Conversation Pbx Agent unique identifier. [optional]  # noqa: E501
             extension (int): Extension. [optional]  # noqa: E501
@@ -287,6 +290,7 @@ class ConversationPbxAgent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai (bool): Flag to indicate if the agent is AI. [optional]  # noqa: E501
             cellphone (str): Cellphone number of agent in E.164 format. [optional]  # noqa: E501
             conversation_pbx_agent_uuid (str): Conversation Pbx Agent unique identifier. [optional]  # noqa: E501
             extension (int): Extension. [optional]  # noqa: E501
