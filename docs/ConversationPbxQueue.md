@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ai_priority** | **str** | AI Agent Priority compared to human agents | [optional] 
+**ai_timeout_seconds** | **int** | AI timeout seconds | [optional] 
 **announce_queue_position** | **bool** | If true, the customer is told their queue position upon entering the queue | [optional] 
 **conversation_pbx_queue_uuid** | **str** | Conversation Pbx Queue unique identifier | [optional] 
 **conversation_voicemail_mailbox_uuid** | **str** | The voicemail mailbox associated with this queue | [optional] 

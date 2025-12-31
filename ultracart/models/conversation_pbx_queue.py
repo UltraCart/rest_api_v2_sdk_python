@@ -31,6 +31,8 @@ class ConversationPbxQueue(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ai_priority': 'str',
+        'ai_timeout_seconds': 'int',
         'announce_queue_position': 'bool',
         'conversation_pbx_queue_uuid': 'str',
         'conversation_voicemail_mailbox_uuid': 'str',
@@ -55,6 +57,8 @@ class ConversationPbxQueue(object):
     }
 
     attribute_map = {
+        'ai_priority': 'ai_priority',
+        'ai_timeout_seconds': 'ai_timeout_seconds',
         'announce_queue_position': 'announce_queue_position',
         'conversation_pbx_queue_uuid': 'conversation_pbx_queue_uuid',
         'conversation_voicemail_mailbox_uuid': 'conversation_voicemail_mailbox_uuid',
@@ -78,9 +82,11 @@ class ConversationPbxQueue(object):
         'wrap_up_seconds': 'wrap_up_seconds'
     }
 
-    def __init__(self, announce_queue_position=None, conversation_pbx_queue_uuid=None, conversation_voicemail_mailbox_uuid=None, hold_conversation_pbx_audio_uuid=None, max_hold_seconds=None, members=None, merchant_id=None, name=None, no_agent_available_play_audio_uuid=None, no_agent_available_say=None, no_agent_available_say_voice=None, play_audio_uuid=None, record_call=None, say=None, say_voice=None, twilio_taskrouter_workflow_sid=None, twilio_workspace_queue_sid=None, voicemail=None, wait_critical_seconds=None, wait_warning_seconds=None, wrap_up_seconds=None):  # noqa: E501
+    def __init__(self, ai_priority=None, ai_timeout_seconds=None, announce_queue_position=None, conversation_pbx_queue_uuid=None, conversation_voicemail_mailbox_uuid=None, hold_conversation_pbx_audio_uuid=None, max_hold_seconds=None, members=None, merchant_id=None, name=None, no_agent_available_play_audio_uuid=None, no_agent_available_say=None, no_agent_available_say_voice=None, play_audio_uuid=None, record_call=None, say=None, say_voice=None, twilio_taskrouter_workflow_sid=None, twilio_workspace_queue_sid=None, voicemail=None, wait_critical_seconds=None, wait_warning_seconds=None, wrap_up_seconds=None):  # noqa: E501
         """ConversationPbxQueue - a model defined in Swagger"""  # noqa: E501
 
+        self._ai_priority = None
+        self._ai_timeout_seconds = None
         self._announce_queue_position = None
         self._conversation_pbx_queue_uuid = None
         self._conversation_voicemail_mailbox_uuid = None
@@ -104,6 +110,10 @@ class ConversationPbxQueue(object):
         self._wrap_up_seconds = None
         self.discriminator = None
 
+        if ai_priority is not None:
+            self.ai_priority = ai_priority
+        if ai_timeout_seconds is not None:
+            self.ai_timeout_seconds = ai_timeout_seconds
         if announce_queue_position is not None:
             self.announce_queue_position = announce_queue_position
         if conversation_pbx_queue_uuid is not None:
@@ -146,6 +156,58 @@ class ConversationPbxQueue(object):
             self.wait_warning_seconds = wait_warning_seconds
         if wrap_up_seconds is not None:
             self.wrap_up_seconds = wrap_up_seconds
+
+    @property
+    def ai_priority(self):
+        """Gets the ai_priority of this ConversationPbxQueue.  # noqa: E501
+
+        AI Agent Priority compared to human agents  # noqa: E501
+
+        :return: The ai_priority of this ConversationPbxQueue.  # noqa: E501
+        :rtype: str
+        """
+        return self._ai_priority
+
+    @ai_priority.setter
+    def ai_priority(self, ai_priority):
+        """Sets the ai_priority of this ConversationPbxQueue.
+
+        AI Agent Priority compared to human agents  # noqa: E501
+
+        :param ai_priority: The ai_priority of this ConversationPbxQueue.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["neutral", "first", "backup"]  # noqa: E501
+        if ai_priority not in allowed_values:
+            raise ValueError(
+                "Invalid value for `ai_priority` ({0}), must be one of {1}"  # noqa: E501
+                .format(ai_priority, allowed_values)
+            )
+
+        self._ai_priority = ai_priority
+
+    @property
+    def ai_timeout_seconds(self):
+        """Gets the ai_timeout_seconds of this ConversationPbxQueue.  # noqa: E501
+
+        AI timeout seconds  # noqa: E501
+
+        :return: The ai_timeout_seconds of this ConversationPbxQueue.  # noqa: E501
+        :rtype: int
+        """
+        return self._ai_timeout_seconds
+
+    @ai_timeout_seconds.setter
+    def ai_timeout_seconds(self, ai_timeout_seconds):
+        """Sets the ai_timeout_seconds of this ConversationPbxQueue.
+
+        AI timeout seconds  # noqa: E501
+
+        :param ai_timeout_seconds: The ai_timeout_seconds of this ConversationPbxQueue.  # noqa: E501
+        :type: int
+        """
+
+        self._ai_timeout_seconds = ai_timeout_seconds
 
     @property
     def announce_queue_position(self):

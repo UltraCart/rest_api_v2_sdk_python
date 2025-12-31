@@ -601,6 +601,8 @@ from ultracart.models.item_internal import ItemInternal
 from ultracart.models.item_inventory_snapshot import ItemInventorySnapshot
 from ultracart.models.item_inventory_snapshot_distribution_center import ItemInventorySnapshotDistributionCenter
 from ultracart.models.item_inventory_snapshot_response import ItemInventorySnapshotResponse
+from ultracart.models.item_inventory_update import ItemInventoryUpdate
+from ultracart.models.item_inventory_update_request import ItemInventoryUpdateRequest
 from ultracart.models.item_kit_component import ItemKitComponent
 from ultracart.models.item_kit_definition import ItemKitDefinition
 from ultracart.models.item_option import ItemOption
