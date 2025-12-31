@@ -599,6 +599,8 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
+docs/ItemInventoryUpdate.md
+docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -1544,6 +1546,8 @@ ultracart/model/item_internal.py
 ultracart/model/item_inventory_snapshot.py
 ultracart/model/item_inventory_snapshot_distribution_center.py
 ultracart/model/item_inventory_snapshot_response.py
+ultracart/model/item_inventory_update.py
+ultracart/model/item_inventory_update_request.py
 ultracart/model/item_kit_component.py
 ultracart/model/item_kit_definition.py
 ultracart/model/item_option.py
