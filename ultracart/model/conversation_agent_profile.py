@@ -60,6 +60,13 @@ class ConversationAgentProfile(ModelNormal):
     """
 
     allowed_values = {
+        ('ai_voice_personality',): {
+            'ARA': "Ara",
+            'REX': "Rex",
+            'SAL': "Sal",
+            'EVE': "Eve",
+            'LEO': "Leo",
+        },
         ('default_status',): {
             'AVAILABLE': "available",
             'BUSY': "busy",
@@ -99,6 +106,8 @@ class ConversationAgentProfile(ModelNormal):
             'ai_persona': (str,),  # noqa: E501
             'ai_sms_instructions': (str,),  # noqa: E501
             'ai_ticket_instructions': (str,),  # noqa: E501
+            'ai_voice_instructions': (str,),  # noqa: E501
+            'ai_voice_personality': (str,),  # noqa: E501
             'chat_limit': (int,),  # noqa: E501
             'default_language_iso_code': (str,),  # noqa: E501
             'default_status': (str,),  # noqa: E501
@@ -123,6 +132,8 @@ class ConversationAgentProfile(ModelNormal):
         'ai_persona': 'ai_persona',  # noqa: E501
         'ai_sms_instructions': 'ai_sms_instructions',  # noqa: E501
         'ai_ticket_instructions': 'ai_ticket_instructions',  # noqa: E501
+        'ai_voice_instructions': 'ai_voice_instructions',  # noqa: E501
+        'ai_voice_personality': 'ai_voice_personality',  # noqa: E501
         'chat_limit': 'chat_limit',  # noqa: E501
         'default_language_iso_code': 'default_language_iso_code',  # noqa: E501
         'default_status': 'default_status',  # noqa: E501
@@ -182,6 +193,8 @@ class ConversationAgentProfile(ModelNormal):
             ai_persona (str): Persona of this AI agent. [optional]  # noqa: E501
             ai_sms_instructions (str): Additional instructions for this AI when handle SMS messages. [optional]  # noqa: E501
             ai_ticket_instructions (str): Additional instructions for this AI when handling ticket draft replies. [optional]  # noqa: E501
+            ai_voice_instructions (str): Additional voice instructions for this AI when handling voice calls. [optional]  # noqa: E501
+            ai_voice_personality (str): Which AI voice personality to use when handling the call.. [optional]  # noqa: E501
             chat_limit (int): The number of engagement chats that can be pushed on them at any given time.. [optional]  # noqa: E501
             default_language_iso_code (str): The default language the agent is chatting in. [optional]  # noqa: E501
             default_status (str): Default status when the agent loads conversations app.. [optional]  # noqa: E501
@@ -283,6 +296,8 @@ class ConversationAgentProfile(ModelNormal):
             ai_persona (str): Persona of this AI agent. [optional]  # noqa: E501
             ai_sms_instructions (str): Additional instructions for this AI when handle SMS messages. [optional]  # noqa: E501
             ai_ticket_instructions (str): Additional instructions for this AI when handling ticket draft replies. [optional]  # noqa: E501
+            ai_voice_instructions (str): Additional voice instructions for this AI when handling voice calls. [optional]  # noqa: E501
+            ai_voice_personality (str): Which AI voice personality to use when handling the call.. [optional]  # noqa: E501
             chat_limit (int): The number of engagement chats that can be pushed on them at any given time.. [optional]  # noqa: E501
             default_language_iso_code (str): The default language the agent is chatting in. [optional]  # noqa: E501
             default_status (str): Default status when the agent loads conversations app.. [optional]  # noqa: E501
