@@ -37,6 +37,8 @@ class ConversationAgentProfile(object):
         'ai_persona': 'str',
         'ai_sms_instructions': 'str',
         'ai_ticket_instructions': 'str',
+        'ai_voice_instructions': 'str',
+        'ai_voice_personality': 'str',
         'chat_limit': 'int',
         'default_language_iso_code': 'str',
         'default_status': 'str',
@@ -56,6 +58,8 @@ class ConversationAgentProfile(object):
         'ai_persona': 'ai_persona',
         'ai_sms_instructions': 'ai_sms_instructions',
         'ai_ticket_instructions': 'ai_ticket_instructions',
+        'ai_voice_instructions': 'ai_voice_instructions',
+        'ai_voice_personality': 'ai_voice_personality',
         'chat_limit': 'chat_limit',
         'default_language_iso_code': 'default_language_iso_code',
         'default_status': 'default_status',
@@ -68,7 +72,7 @@ class ConversationAgentProfile(object):
         'zohodesk_departments': 'zohodesk_departments'
     }
 
-    def __init__(self, ai=None, ai_capabilities=None, ai_chat_instructions=None, ai_persona=None, ai_sms_instructions=None, ai_ticket_instructions=None, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None, user_id=None, zohodesk_classifications=None, zohodesk_departments=None):  # noqa: E501
+    def __init__(self, ai=None, ai_capabilities=None, ai_chat_instructions=None, ai_persona=None, ai_sms_instructions=None, ai_ticket_instructions=None, ai_voice_instructions=None, ai_voice_personality=None, chat_limit=None, default_language_iso_code=None, default_status=None, display_name=None, name=None, profile_image_upload_key=None, profile_image_url=None, user_id=None, zohodesk_classifications=None, zohodesk_departments=None):  # noqa: E501
         """ConversationAgentProfile - a model defined in Swagger"""  # noqa: E501
 
         self._ai = None
@@ -77,6 +81,8 @@ class ConversationAgentProfile(object):
         self._ai_persona = None
         self._ai_sms_instructions = None
         self._ai_ticket_instructions = None
+        self._ai_voice_instructions = None
+        self._ai_voice_personality = None
         self._chat_limit = None
         self._default_language_iso_code = None
         self._default_status = None
@@ -101,6 +107,10 @@ class ConversationAgentProfile(object):
             self.ai_sms_instructions = ai_sms_instructions
         if ai_ticket_instructions is not None:
             self.ai_ticket_instructions = ai_ticket_instructions
+        if ai_voice_instructions is not None:
+            self.ai_voice_instructions = ai_voice_instructions
+        if ai_voice_personality is not None:
+            self.ai_voice_personality = ai_voice_personality
         if chat_limit is not None:
             self.chat_limit = chat_limit
         if default_language_iso_code is not None:
@@ -257,6 +267,58 @@ class ConversationAgentProfile(object):
         """
 
         self._ai_ticket_instructions = ai_ticket_instructions
+
+    @property
+    def ai_voice_instructions(self):
+        """Gets the ai_voice_instructions of this ConversationAgentProfile.  # noqa: E501
+
+        Additional voice instructions for this AI when handling voice calls  # noqa: E501
+
+        :return: The ai_voice_instructions of this ConversationAgentProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._ai_voice_instructions
+
+    @ai_voice_instructions.setter
+    def ai_voice_instructions(self, ai_voice_instructions):
+        """Sets the ai_voice_instructions of this ConversationAgentProfile.
+
+        Additional voice instructions for this AI when handling voice calls  # noqa: E501
+
+        :param ai_voice_instructions: The ai_voice_instructions of this ConversationAgentProfile.  # noqa: E501
+        :type: str
+        """
+
+        self._ai_voice_instructions = ai_voice_instructions
+
+    @property
+    def ai_voice_personality(self):
+        """Gets the ai_voice_personality of this ConversationAgentProfile.  # noqa: E501
+
+        Which AI voice personality to use when handling the call.  # noqa: E501
+
+        :return: The ai_voice_personality of this ConversationAgentProfile.  # noqa: E501
+        :rtype: str
+        """
+        return self._ai_voice_personality
+
+    @ai_voice_personality.setter
+    def ai_voice_personality(self, ai_voice_personality):
+        """Sets the ai_voice_personality of this ConversationAgentProfile.
+
+        Which AI voice personality to use when handling the call.  # noqa: E501
+
+        :param ai_voice_personality: The ai_voice_personality of this ConversationAgentProfile.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Ara", "Rex", "Sal", "Eve", "Leo"]  # noqa: E501
+        if ai_voice_personality not in allowed_values:
+            raise ValueError(
+                "Invalid value for `ai_voice_personality` ({0}), must be one of {1}"  # noqa: E501
+                .format(ai_voice_personality, allowed_values)
+            )
+
+        self._ai_voice_personality = ai_voice_personality
 
     @property
     def chat_limit(self):
