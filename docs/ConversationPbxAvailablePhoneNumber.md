@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **friendly_name** | **str** | Friendly formatted phone number | [optional] 
 **locality** | **str** | City/Locality | [optional] 
 **mms** | **bool** | MMS capability | [optional] 
+**monthly_cost** | **float** | Monthly cost for this phone number | [optional] 
 **phone_number** | **str** | Phone number in E.164 format | [optional] 
 **region** | **str** | State/Province/Region | [optional] 
 **sms** | **bool** | SMS capability | [optional] 

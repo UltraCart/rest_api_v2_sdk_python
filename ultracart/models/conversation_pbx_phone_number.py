@@ -33,6 +33,7 @@ class ConversationPbxPhoneNumber(object):
     swagger_types = {
         'action': 'str',
         'action_target': 'str',
+        'address_sid': 'str',
         'conversation_pbx_phone_number_uuid': 'str',
         'deletion_protected': 'bool',
         'merchant_id': 'str',
@@ -42,17 +43,19 @@ class ConversationPbxPhoneNumber(object):
     attribute_map = {
         'action': 'action',
         'action_target': 'action_target',
+        'address_sid': 'address_sid',
         'conversation_pbx_phone_number_uuid': 'conversation_pbx_phone_number_uuid',
         'deletion_protected': 'deletion_protected',
         'merchant_id': 'merchant_id',
         'phone_number': 'phone_number'
     }
 
-    def __init__(self, action=None, action_target=None, conversation_pbx_phone_number_uuid=None, deletion_protected=None, merchant_id=None, phone_number=None):  # noqa: E501
+    def __init__(self, action=None, action_target=None, address_sid=None, conversation_pbx_phone_number_uuid=None, deletion_protected=None, merchant_id=None, phone_number=None):  # noqa: E501
         """ConversationPbxPhoneNumber - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
         self._action_target = None
+        self._address_sid = None
         self._conversation_pbx_phone_number_uuid = None
         self._deletion_protected = None
         self._merchant_id = None
@@ -63,6 +66,8 @@ class ConversationPbxPhoneNumber(object):
             self.action = action
         if action_target is not None:
             self.action_target = action_target
+        if address_sid is not None:
+            self.address_sid = address_sid
         if conversation_pbx_phone_number_uuid is not None:
             self.conversation_pbx_phone_number_uuid = conversation_pbx_phone_number_uuid
         if deletion_protected is not None:
@@ -125,6 +130,31 @@ class ConversationPbxPhoneNumber(object):
             raise ValueError("Invalid value for `action_target`, length must be less than or equal to `50`")  # noqa: E501
 
         self._action_target = action_target
+
+    @property
+    def address_sid(self):
+        """Gets the address_sid of this ConversationPbxPhoneNumber.  # noqa: E501
+
+        Twilio Address SID linked to this phone number for regulatory compliance  # noqa: E501
+
+        :return: The address_sid of this ConversationPbxPhoneNumber.  # noqa: E501
+        :rtype: str
+        """
+        return self._address_sid
+
+    @address_sid.setter
+    def address_sid(self, address_sid):
+        """Sets the address_sid of this ConversationPbxPhoneNumber.
+
+        Twilio Address SID linked to this phone number for regulatory compliance  # noqa: E501
+
+        :param address_sid: The address_sid of this ConversationPbxPhoneNumber.  # noqa: E501
+        :type: str
+        """
+        if address_sid is not None and len(address_sid) > 50:
+            raise ValueError("Invalid value for `address_sid`, length must be less than or equal to `50`")  # noqa: E501
+
+        self._address_sid = address_sid
 
     @property
     def conversation_pbx_phone_number_uuid(self):

@@ -41,6 +41,7 @@ class ConversationPbxAddress(object):
         'postal_code': 'str',
         'region': 'str',
         'street': 'str',
+        'valid': 'bool',
         'validated': 'bool',
         'verified': 'bool'
     }
@@ -56,11 +57,12 @@ class ConversationPbxAddress(object):
         'postal_code': 'postal_code',
         'region': 'region',
         'street': 'street',
+        'valid': 'valid',
         'validated': 'validated',
         'verified': 'verified'
     }
 
-    def __init__(self, address_sid=None, city=None, conversation_pbx_address_uuid=None, country_code=None, customer_name=None, friendly_name=None, merchant_id=None, postal_code=None, region=None, street=None, validated=None, verified=None):  # noqa: E501
+    def __init__(self, address_sid=None, city=None, conversation_pbx_address_uuid=None, country_code=None, customer_name=None, friendly_name=None, merchant_id=None, postal_code=None, region=None, street=None, valid=None, validated=None, verified=None):  # noqa: E501
         """ConversationPbxAddress - a model defined in Swagger"""  # noqa: E501
 
         self._address_sid = None
@@ -73,6 +75,7 @@ class ConversationPbxAddress(object):
         self._postal_code = None
         self._region = None
         self._street = None
+        self._valid = None
         self._validated = None
         self._verified = None
         self.discriminator = None
@@ -97,6 +100,8 @@ class ConversationPbxAddress(object):
             self.region = region
         if street is not None:
             self.street = street
+        if valid is not None:
+            self.valid = valid
         if validated is not None:
             self.validated = validated
         if verified is not None:
@@ -351,6 +356,29 @@ class ConversationPbxAddress(object):
             raise ValueError("Invalid value for `street`, length must be less than or equal to `200`")  # noqa: E501
 
         self._street = street
+
+    @property
+    def valid(self):
+        """Gets the valid of this ConversationPbxAddress.  # noqa: E501
+
+        Whether the address is valid (validated or verified)  # noqa: E501
+
+        :return: The valid of this ConversationPbxAddress.  # noqa: E501
+        :rtype: bool
+        """
+        return self._valid
+
+    @valid.setter
+    def valid(self, valid):
+        """Sets the valid of this ConversationPbxAddress.
+
+        Whether the address is valid (validated or verified)  # noqa: E501
+
+        :param valid: The valid of this ConversationPbxAddress.  # noqa: E501
+        :type: bool
+        """
+
+        self._valid = valid
 
     @property
     def validated(self):

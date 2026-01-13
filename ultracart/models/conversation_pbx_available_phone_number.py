@@ -36,6 +36,7 @@ class ConversationPbxAvailablePhoneNumber(object):
         'friendly_name': 'str',
         'locality': 'str',
         'mms': 'bool',
+        'monthly_cost': 'float',
         'phone_number': 'str',
         'region': 'str',
         'sms': 'bool',
@@ -48,13 +49,14 @@ class ConversationPbxAvailablePhoneNumber(object):
         'friendly_name': 'friendly_name',
         'locality': 'locality',
         'mms': 'mms',
+        'monthly_cost': 'monthly_cost',
         'phone_number': 'phone_number',
         'region': 'region',
         'sms': 'sms',
         'voice': 'voice'
     }
 
-    def __init__(self, address_requirements=None, country=None, friendly_name=None, locality=None, mms=None, phone_number=None, region=None, sms=None, voice=None):  # noqa: E501
+    def __init__(self, address_requirements=None, country=None, friendly_name=None, locality=None, mms=None, monthly_cost=None, phone_number=None, region=None, sms=None, voice=None):  # noqa: E501
         """ConversationPbxAvailablePhoneNumber - a model defined in Swagger"""  # noqa: E501
 
         self._address_requirements = None
@@ -62,6 +64,7 @@ class ConversationPbxAvailablePhoneNumber(object):
         self._friendly_name = None
         self._locality = None
         self._mms = None
+        self._monthly_cost = None
         self._phone_number = None
         self._region = None
         self._sms = None
@@ -78,6 +81,8 @@ class ConversationPbxAvailablePhoneNumber(object):
             self.locality = locality
         if mms is not None:
             self.mms = mms
+        if monthly_cost is not None:
+            self.monthly_cost = monthly_cost
         if phone_number is not None:
             self.phone_number = phone_number
         if region is not None:
@@ -213,6 +218,29 @@ class ConversationPbxAvailablePhoneNumber(object):
         """
 
         self._mms = mms
+
+    @property
+    def monthly_cost(self):
+        """Gets the monthly_cost of this ConversationPbxAvailablePhoneNumber.  # noqa: E501
+
+        Monthly cost for this phone number  # noqa: E501
+
+        :return: The monthly_cost of this ConversationPbxAvailablePhoneNumber.  # noqa: E501
+        :rtype: float
+        """
+        return self._monthly_cost
+
+    @monthly_cost.setter
+    def monthly_cost(self, monthly_cost):
+        """Sets the monthly_cost of this ConversationPbxAvailablePhoneNumber.
+
+        Monthly cost for this phone number  # noqa: E501
+
+        :param monthly_cost: The monthly_cost of this ConversationPbxAvailablePhoneNumber.  # noqa: E501
+        :type: float
+        """
+
+        self._monthly_cost = monthly_cost
 
     @property
     def phone_number(self):
