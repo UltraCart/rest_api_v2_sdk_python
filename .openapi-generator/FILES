@@ -187,6 +187,9 @@ docs/ConversationMessagesResponse.md
 docs/ConversationMultimediaUploadUrl.md
 docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
+docs/ConversationPbxAddress.md
+docs/ConversationPbxAddressResponse.md
+docs/ConversationPbxAddressesResponse.md
 docs/ConversationPbxAgent.md
 docs/ConversationPbxAgentResponse.md
 docs/ConversationPbxAgentsResponse.md
@@ -196,6 +199,8 @@ docs/ConversationPbxAudioUploadUrl.md
 docs/ConversationPbxAudioUploadUrlResponse.md
 docs/ConversationPbxAudioUsageResponse.md
 docs/ConversationPbxAudiosResponse.md
+docs/ConversationPbxAvailablePhoneNumber.md
+docs/ConversationPbxAvailablePhoneNumbersResponse.md
 docs/ConversationPbxCustomerSnapshotRequest.md
 docs/ConversationPbxCustomerSnapshotResponse.md
 docs/ConversationPbxMenu.md
@@ -203,6 +208,7 @@ docs/ConversationPbxMenuMapping.md
 docs/ConversationPbxMenuResponse.md
 docs/ConversationPbxMenusResponse.md
 docs/ConversationPbxPhoneNumber.md
+docs/ConversationPbxPhoneNumberPurchaseRequest.md
 docs/ConversationPbxPhoneNumberResponse.md
 docs/ConversationPbxPhoneNumbersResponse.md
 docs/ConversationPbxQueue.md
@@ -1141,6 +1147,9 @@ ultracart/model/conversation_messages_response.py
 ultracart/model/conversation_multimedia_upload_url.py
 ultracart/model/conversation_multimedia_upload_url_response.py
 ultracart/model/conversation_participant.py
+ultracart/model/conversation_pbx_address.py
+ultracart/model/conversation_pbx_address_response.py
+ultracart/model/conversation_pbx_addresses_response.py
 ultracart/model/conversation_pbx_agent.py
 ultracart/model/conversation_pbx_agent_response.py
 ultracart/model/conversation_pbx_agents_response.py
@@ -1150,6 +1159,8 @@ ultracart/model/conversation_pbx_audio_upload_url.py
 ultracart/model/conversation_pbx_audio_upload_url_response.py
 ultracart/model/conversation_pbx_audio_usage_response.py
 ultracart/model/conversation_pbx_audios_response.py
+ultracart/model/conversation_pbx_available_phone_number.py
+ultracart/model/conversation_pbx_available_phone_numbers_response.py
 ultracart/model/conversation_pbx_customer_snapshot_request.py
 ultracart/model/conversation_pbx_customer_snapshot_response.py
 ultracart/model/conversation_pbx_menu.py
@@ -1157,6 +1168,7 @@ ultracart/model/conversation_pbx_menu_mapping.py
 ultracart/model/conversation_pbx_menu_response.py
 ultracart/model/conversation_pbx_menus_response.py
 ultracart/model/conversation_pbx_phone_number.py
+ultracart/model/conversation_pbx_phone_number_purchase_request.py
 ultracart/model/conversation_pbx_phone_number_response.py
 ultracart/model/conversation_pbx_phone_numbers_response.py
 ultracart/model/conversation_pbx_queue.py
