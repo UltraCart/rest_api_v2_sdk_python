@@ -557,6 +557,105 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_pbx_address(self, conversation_pbx_address_uuid, **kwargs):  # noqa: E501
+        """Delete pbx address  # noqa: E501
+
+        Delete a pbx address   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_pbx_address(conversation_pbx_address_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_address_uuid: (required)
+        :return: ConversationPbxAddressResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_pbx_address_with_http_info(conversation_pbx_address_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_pbx_address_with_http_info(conversation_pbx_address_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_pbx_address_with_http_info(self, conversation_pbx_address_uuid, **kwargs):  # noqa: E501
+        """Delete pbx address  # noqa: E501
+
+        Delete a pbx address   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_pbx_address_with_http_info(conversation_pbx_address_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_address_uuid: (required)
+        :return: ConversationPbxAddressResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_pbx_address_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_pbx_address" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_pbx_address_uuid' is set
+        if ('conversation_pbx_address_uuid' not in params or
+                params['conversation_pbx_address_uuid'] is None):
+            raise ValueError("Missing the required parameter `conversation_pbx_address_uuid` when calling `delete_pbx_address`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_pbx_address_uuid' in params:
+            path_params['conversationPbxAddressUuid'] = params['conversation_pbx_address_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/address/{conversationPbxAddressUuid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxAddressResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_pbx_agent_voicemail(self, recording_sid, **kwargs):  # noqa: E501
         """Delete Agent Voicemail  # noqa: E501
 
@@ -847,6 +946,105 @@ class ConversationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ConversationPbxMenuResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_pbx_phone_number(self, conversation_pbx_phone_number_uuid, **kwargs):  # noqa: E501
+        """Delete pbx phoneNumber  # noqa: E501
+
+        Delete a pbx phoneNumber. Only works if deletion_protected is false.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_pbx_phone_number(conversation_pbx_phone_number_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_phone_number_uuid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_pbx_phone_number_with_http_info(conversation_pbx_phone_number_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_pbx_phone_number_with_http_info(conversation_pbx_phone_number_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_pbx_phone_number_with_http_info(self, conversation_pbx_phone_number_uuid, **kwargs):  # noqa: E501
+        """Delete pbx phoneNumber  # noqa: E501
+
+        Delete a pbx phoneNumber. Only works if deletion_protected is false.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_pbx_phone_number_with_http_info(conversation_pbx_phone_number_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_phone_number_uuid: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_pbx_phone_number_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_pbx_phone_number" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_pbx_phone_number_uuid' is set
+        if ('conversation_pbx_phone_number_uuid' not in params or
+                params['conversation_pbx_phone_number_uuid'] is None):
+            raise ValueError("Missing the required parameter `conversation_pbx_phone_number_uuid` when calling `delete_pbx_phone_number`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_pbx_phone_number_uuid' in params:
+            path_params['conversationPbxPhoneNumberUuid'] = params['conversation_pbx_phone_number_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3891,6 +4089,196 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_pbx_address(self, conversation_pbx_address_uuid, **kwargs):  # noqa: E501
+        """Get pbx address  # noqa: E501
+
+        Retrieve a pbx address   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_address(conversation_pbx_address_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_address_uuid: (required)
+        :return: ConversationPbxAddressResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_pbx_address_with_http_info(conversation_pbx_address_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_pbx_address_with_http_info(conversation_pbx_address_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_pbx_address_with_http_info(self, conversation_pbx_address_uuid, **kwargs):  # noqa: E501
+        """Get pbx address  # noqa: E501
+
+        Retrieve a pbx address   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_address_with_http_info(conversation_pbx_address_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_address_uuid: (required)
+        :return: ConversationPbxAddressResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_pbx_address_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_pbx_address" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_pbx_address_uuid' is set
+        if ('conversation_pbx_address_uuid' not in params or
+                params['conversation_pbx_address_uuid'] is None):
+            raise ValueError("Missing the required parameter `conversation_pbx_address_uuid` when calling `get_pbx_address`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_pbx_address_uuid' in params:
+            path_params['conversationPbxAddressUuid'] = params['conversation_pbx_address_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/address/{conversationPbxAddressUuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxAddressResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_pbx_addresses(self, **kwargs):  # noqa: E501
+        """Get pbx addresses  # noqa: E501
+
+        Retrieve pbx addresses   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_addresses(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ConversationPbxAddressesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_pbx_addresses_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_pbx_addresses_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_pbx_addresses_with_http_info(self, **kwargs):  # noqa: E501
+        """Get pbx addresses  # noqa: E501
+
+        Retrieve pbx addresses   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_addresses_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ConversationPbxAddressesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_pbx_addresses" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/address', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxAddressesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_pbx_agent(self, conversation_pbx_agent_uuid, **kwargs):  # noqa: E501
         """Get pbx agent  # noqa: E501
 
@@ -6599,6 +6987,105 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def insert_pbx_address(self, pbx_address, **kwargs):  # noqa: E501
+        """Insert pbx address  # noqa: E501
+
+        Insert a pbx address   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_pbx_address(pbx_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationPbxAddress pbx_address: Pbx Address (required)
+        :return: ConversationPbxAddressResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_pbx_address_with_http_info(pbx_address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_pbx_address_with_http_info(pbx_address, **kwargs)  # noqa: E501
+            return data
+
+    def insert_pbx_address_with_http_info(self, pbx_address, **kwargs):  # noqa: E501
+        """Insert pbx address  # noqa: E501
+
+        Insert a pbx address   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_pbx_address_with_http_info(pbx_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationPbxAddress pbx_address: Pbx Address (required)
+        :return: ConversationPbxAddressResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['pbx_address']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_pbx_address" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'pbx_address' is set
+        if ('pbx_address' not in params or
+                params['pbx_address'] is None):
+            raise ValueError("Missing the required parameter `pbx_address` when calling `insert_pbx_address`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'pbx_address' in params:
+            body_params = params['pbx_address']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/address', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxAddressResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def insert_pbx_audio(self, pbx_audio, **kwargs):  # noqa: E501
         """Insert pbx audio  # noqa: E501
 
@@ -7700,6 +8187,204 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def protect_pbx_phone_number(self, conversation_pbx_phone_number_uuid, **kwargs):  # noqa: E501
+        """Protect pbx phoneNumber from deletion  # noqa: E501
+
+        Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.protect_pbx_phone_number(conversation_pbx_phone_number_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_phone_number_uuid: (required)
+        :return: ConversationPbxPhoneNumberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.protect_pbx_phone_number_with_http_info(conversation_pbx_phone_number_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.protect_pbx_phone_number_with_http_info(conversation_pbx_phone_number_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def protect_pbx_phone_number_with_http_info(self, conversation_pbx_phone_number_uuid, **kwargs):  # noqa: E501
+        """Protect pbx phoneNumber from deletion  # noqa: E501
+
+        Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.protect_pbx_phone_number_with_http_info(conversation_pbx_phone_number_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_phone_number_uuid: (required)
+        :return: ConversationPbxPhoneNumberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_pbx_phone_number_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method protect_pbx_phone_number" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_pbx_phone_number_uuid' is set
+        if ('conversation_pbx_phone_number_uuid' not in params or
+                params['conversation_pbx_phone_number_uuid'] is None):
+            raise ValueError("Missing the required parameter `conversation_pbx_phone_number_uuid` when calling `protect_pbx_phone_number`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_pbx_phone_number_uuid' in params:
+            path_params['conversationPbxPhoneNumberUuid'] = params['conversation_pbx_phone_number_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}/protect', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxPhoneNumberResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def purchase_pbx_phone_number(self, phone_number_purchase_request, **kwargs):  # noqa: E501
+        """Purchase pbx phone number  # noqa: E501
+
+        Purchase a phone number from Twilio. The phone_number must be from the available phone number search results.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.purchase_pbx_phone_number(phone_number_purchase_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationPbxPhoneNumberPurchaseRequest phone_number_purchase_request: Phone number purchase request (required)
+        :return: ConversationPbxPhoneNumberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.purchase_pbx_phone_number_with_http_info(phone_number_purchase_request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.purchase_pbx_phone_number_with_http_info(phone_number_purchase_request, **kwargs)  # noqa: E501
+            return data
+
+    def purchase_pbx_phone_number_with_http_info(self, phone_number_purchase_request, **kwargs):  # noqa: E501
+        """Purchase pbx phone number  # noqa: E501
+
+        Purchase a phone number from Twilio. The phone_number must be from the available phone number search results.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.purchase_pbx_phone_number_with_http_info(phone_number_purchase_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationPbxPhoneNumberPurchaseRequest phone_number_purchase_request: Phone number purchase request (required)
+        :return: ConversationPbxPhoneNumberResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['phone_number_purchase_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method purchase_pbx_phone_number" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'phone_number_purchase_request' is set
+        if ('phone_number_purchase_request' not in params or
+                params['phone_number_purchase_request'] is None):
+            raise ValueError("Missing the required parameter `phone_number_purchase_request` when calling `purchase_pbx_phone_number`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'phone_number_purchase_request' in params:
+            body_params = params['phone_number_purchase_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/phone_number', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxPhoneNumberResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def reset_conversation_pbx_queue_statistics(self, queue_uuid, **kwargs):  # noqa: E501
         """reset statistics within the queue  # noqa: E501
 
@@ -7891,6 +8576,129 @@ class ConversationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ConversationCannedMessagesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def search_pbx_available_phone_numbers(self, country, **kwargs):  # noqa: E501
+        """Search for available phone numbers  # noqa: E501
+
+        Search for available phone numbers from Twilio that can be purchased   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_pbx_available_phone_numbers(country, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str country: ISO country code (e.g., US, CA, GB) (required)
+        :param str area_code: Area code filter (e.g., 614)
+        :param str contains: Pattern to match (e.g., 555, *PIZZA)
+        :param bool sms_enabled: Filter for SMS capability
+        :param bool voice_enabled: Filter for voice capability
+        :param str type: Phone number type
+        :param int limit: Max results (default 20, max 100)
+        :return: ConversationPbxAvailablePhoneNumbersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.search_pbx_available_phone_numbers_with_http_info(country, **kwargs)  # noqa: E501
+        else:
+            (data) = self.search_pbx_available_phone_numbers_with_http_info(country, **kwargs)  # noqa: E501
+            return data
+
+    def search_pbx_available_phone_numbers_with_http_info(self, country, **kwargs):  # noqa: E501
+        """Search for available phone numbers  # noqa: E501
+
+        Search for available phone numbers from Twilio that can be purchased   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_pbx_available_phone_numbers_with_http_info(country, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str country: ISO country code (e.g., US, CA, GB) (required)
+        :param str area_code: Area code filter (e.g., 614)
+        :param str contains: Pattern to match (e.g., 555, *PIZZA)
+        :param bool sms_enabled: Filter for SMS capability
+        :param bool voice_enabled: Filter for voice capability
+        :param str type: Phone number type
+        :param int limit: Max results (default 20, max 100)
+        :return: ConversationPbxAvailablePhoneNumbersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['country', 'area_code', 'contains', 'sms_enabled', 'voice_enabled', 'type', 'limit']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_pbx_available_phone_numbers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'country' is set
+        if ('country' not in params or
+                params['country'] is None):
+            raise ValueError("Missing the required parameter `country` when calling `search_pbx_available_phone_numbers`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'country' in params:
+            query_params.append(('country', params['country']))  # noqa: E501
+        if 'area_code' in params:
+            query_params.append(('area_code', params['area_code']))  # noqa: E501
+        if 'contains' in params:
+            query_params.append(('contains', params['contains']))  # noqa: E501
+        if 'sms_enabled' in params:
+            query_params.append(('sms_enabled', params['sms_enabled']))  # noqa: E501
+        if 'voice_enabled' in params:
+            query_params.append(('voice_enabled', params['voice_enabled']))  # noqa: E501
+        if 'type' in params:
+            query_params.append(('type', params['type']))  # noqa: E501
+        if 'limit' in params:
+            query_params.append(('limit', params['limit']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/phone_number/search', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxAvailablePhoneNumbersResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8731,6 +9539,113 @@ class ConversationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_pbx_address(self, conversation_pbx_address_uuid, pbx_address, **kwargs):  # noqa: E501
+        """Update pbx address  # noqa: E501
+
+        Update a pbx address   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_pbx_address(conversation_pbx_address_uuid, pbx_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_address_uuid: (required)
+        :param ConversationPbxAddress pbx_address: Pbx Address (required)
+        :return: ConversationPbxAddressResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_pbx_address_with_http_info(conversation_pbx_address_uuid, pbx_address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_pbx_address_with_http_info(conversation_pbx_address_uuid, pbx_address, **kwargs)  # noqa: E501
+            return data
+
+    def update_pbx_address_with_http_info(self, conversation_pbx_address_uuid, pbx_address, **kwargs):  # noqa: E501
+        """Update pbx address  # noqa: E501
+
+        Update a pbx address   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_pbx_address_with_http_info(conversation_pbx_address_uuid, pbx_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_address_uuid: (required)
+        :param ConversationPbxAddress pbx_address: Pbx Address (required)
+        :return: ConversationPbxAddressResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_pbx_address_uuid', 'pbx_address']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_pbx_address" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_pbx_address_uuid' is set
+        if ('conversation_pbx_address_uuid' not in params or
+                params['conversation_pbx_address_uuid'] is None):
+            raise ValueError("Missing the required parameter `conversation_pbx_address_uuid` when calling `update_pbx_address`")  # noqa: E501
+        # verify the required parameter 'pbx_address' is set
+        if ('pbx_address' not in params or
+                params['pbx_address'] is None):
+            raise ValueError("Missing the required parameter `pbx_address` when calling `update_pbx_address`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_pbx_address_uuid' in params:
+            path_params['conversationPbxAddressUuid'] = params['conversation_pbx_address_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'pbx_address' in params:
+            body_params = params['pbx_address']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/address/{conversationPbxAddressUuid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxAddressResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

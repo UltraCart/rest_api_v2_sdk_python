@@ -34,6 +34,7 @@ class ConversationPbxPhoneNumber(object):
         'action': 'str',
         'action_target': 'str',
         'conversation_pbx_phone_number_uuid': 'str',
+        'deletion_protected': 'bool',
         'merchant_id': 'str',
         'phone_number': 'str'
     }
@@ -42,16 +43,18 @@ class ConversationPbxPhoneNumber(object):
         'action': 'action',
         'action_target': 'action_target',
         'conversation_pbx_phone_number_uuid': 'conversation_pbx_phone_number_uuid',
+        'deletion_protected': 'deletion_protected',
         'merchant_id': 'merchant_id',
         'phone_number': 'phone_number'
     }
 
-    def __init__(self, action=None, action_target=None, conversation_pbx_phone_number_uuid=None, merchant_id=None, phone_number=None):  # noqa: E501
+    def __init__(self, action=None, action_target=None, conversation_pbx_phone_number_uuid=None, deletion_protected=None, merchant_id=None, phone_number=None):  # noqa: E501
         """ConversationPbxPhoneNumber - a model defined in Swagger"""  # noqa: E501
 
         self._action = None
         self._action_target = None
         self._conversation_pbx_phone_number_uuid = None
+        self._deletion_protected = None
         self._merchant_id = None
         self._phone_number = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class ConversationPbxPhoneNumber(object):
             self.action_target = action_target
         if conversation_pbx_phone_number_uuid is not None:
             self.conversation_pbx_phone_number_uuid = conversation_pbx_phone_number_uuid
+        if deletion_protected is not None:
+            self.deletion_protected = deletion_protected
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if phone_number is not None:
@@ -145,6 +150,29 @@ class ConversationPbxPhoneNumber(object):
             raise ValueError("Invalid value for `conversation_pbx_phone_number_uuid`, length must be less than or equal to `50`")  # noqa: E501
 
         self._conversation_pbx_phone_number_uuid = conversation_pbx_phone_number_uuid
+
+    @property
+    def deletion_protected(self):
+        """Gets the deletion_protected of this ConversationPbxPhoneNumber.  # noqa: E501
+
+        If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.  # noqa: E501
+
+        :return: The deletion_protected of this ConversationPbxPhoneNumber.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deletion_protected
+
+    @deletion_protected.setter
+    def deletion_protected(self, deletion_protected):
+        """Sets the deletion_protected of this ConversationPbxPhoneNumber.
+
+        If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.  # noqa: E501
+
+        :param deletion_protected: The deletion_protected of this ConversationPbxPhoneNumber.  # noqa: E501
+        :type: bool
+        """
+
+        self._deletion_protected = deletion_protected
 
     @property
     def merchant_id(self):
