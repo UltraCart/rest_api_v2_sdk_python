@@ -72,6 +72,9 @@ class ConversationPbxPhoneNumber(ModelNormal):
         ('action_target',): {
             'max_length': 50,
         },
+        ('address_sid',): {
+            'max_length': 50,
+        },
         ('conversation_pbx_phone_number_uuid',): {
             'max_length': 50,
         },
@@ -106,6 +109,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
         return {
             'action': (str,),  # noqa: E501
             'action_target': (str,),  # noqa: E501
+            'address_sid': (str,),  # noqa: E501
             'conversation_pbx_phone_number_uuid': (str,),  # noqa: E501
             'deletion_protected': (bool,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
@@ -120,6 +124,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
     attribute_map = {
         'action': 'action',  # noqa: E501
         'action_target': 'action_target',  # noqa: E501
+        'address_sid': 'address_sid',  # noqa: E501
         'conversation_pbx_phone_number_uuid': 'conversation_pbx_phone_number_uuid',  # noqa: E501
         'deletion_protected': 'deletion_protected',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
@@ -169,6 +174,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
+            address_sid (str): Twilio Address SID linked to this phone number for regulatory compliance. [optional]  # noqa: E501
             conversation_pbx_phone_number_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
             deletion_protected (bool): If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
@@ -260,6 +266,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             action (str): Action. [optional]  # noqa: E501
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
+            address_sid (str): Twilio Address SID linked to this phone number for regulatory compliance. [optional]  # noqa: E501
             conversation_pbx_phone_number_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
             deletion_protected (bool): If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501

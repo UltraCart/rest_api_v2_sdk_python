@@ -108,6 +108,7 @@ class ConversationPbxAvailablePhoneNumber(ModelNormal):
             'friendly_name': (str,),  # noqa: E501
             'locality': (str,),  # noqa: E501
             'mms': (bool,),  # noqa: E501
+            'monthly_cost': (float,),  # noqa: E501
             'phone_number': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'sms': (bool,),  # noqa: E501
@@ -125,6 +126,7 @@ class ConversationPbxAvailablePhoneNumber(ModelNormal):
         'friendly_name': 'friendly_name',  # noqa: E501
         'locality': 'locality',  # noqa: E501
         'mms': 'mms',  # noqa: E501
+        'monthly_cost': 'monthly_cost',  # noqa: E501
         'phone_number': 'phone_number',  # noqa: E501
         'region': 'region',  # noqa: E501
         'sms': 'sms',  # noqa: E501
@@ -177,6 +179,7 @@ class ConversationPbxAvailablePhoneNumber(ModelNormal):
             friendly_name (str): Friendly formatted phone number. [optional]  # noqa: E501
             locality (str): City/Locality. [optional]  # noqa: E501
             mms (bool): MMS capability. [optional]  # noqa: E501
+            monthly_cost (float): Monthly cost for this phone number. [optional]  # noqa: E501
             phone_number (str): Phone number in E.164 format. [optional]  # noqa: E501
             region (str): State/Province/Region. [optional]  # noqa: E501
             sms (bool): SMS capability. [optional]  # noqa: E501
@@ -271,6 +274,7 @@ class ConversationPbxAvailablePhoneNumber(ModelNormal):
             friendly_name (str): Friendly formatted phone number. [optional]  # noqa: E501
             locality (str): City/Locality. [optional]  # noqa: E501
             mms (bool): MMS capability. [optional]  # noqa: E501
+            monthly_cost (float): Monthly cost for this phone number. [optional]  # noqa: E501
             phone_number (str): Phone number in E.164 format. [optional]  # noqa: E501
             region (str): State/Province/Region. [optional]  # noqa: E501
             sms (bool): SMS capability. [optional]  # noqa: E501

@@ -122,6 +122,7 @@ class ConversationPbxAddress(ModelNormal):
             'postal_code': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'street': (str,),  # noqa: E501
+            'valid': (bool,),  # noqa: E501
             'validated': (bool,),  # noqa: E501
             'verified': (bool,),  # noqa: E501
         }
@@ -142,6 +143,7 @@ class ConversationPbxAddress(ModelNormal):
         'postal_code': 'postal_code',  # noqa: E501
         'region': 'region',  # noqa: E501
         'street': 'street',  # noqa: E501
+        'valid': 'valid',  # noqa: E501
         'validated': 'validated',  # noqa: E501
         'verified': 'verified',  # noqa: E501
     }
@@ -197,6 +199,7 @@ class ConversationPbxAddress(ModelNormal):
             postal_code (str): Postal code. [optional]  # noqa: E501
             region (str): State/Province/Region. [optional]  # noqa: E501
             street (str): Street address. [optional]  # noqa: E501
+            valid (bool): Whether the address is valid (validated or verified). [optional]  # noqa: E501
             validated (bool): Whether the address has been validated by Twilio. [optional]  # noqa: E501
             verified (bool): Whether the address has been verified by Twilio. [optional]  # noqa: E501
         """
@@ -294,6 +297,7 @@ class ConversationPbxAddress(ModelNormal):
             postal_code (str): Postal code. [optional]  # noqa: E501
             region (str): State/Province/Region. [optional]  # noqa: E501
             street (str): Street address. [optional]  # noqa: E501
+            valid (bool): Whether the address is valid (validated or verified). [optional]  # noqa: E501
             validated (bool): Whether the address has been validated by Twilio. [optional]  # noqa: E501
             verified (bool): Whether the address has been verified by Twilio. [optional]  # noqa: E501
         """
