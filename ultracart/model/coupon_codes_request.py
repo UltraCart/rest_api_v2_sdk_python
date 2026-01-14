@@ -67,6 +67,9 @@ class CouponCodesRequest(ModelNormal):
     }
 
     validations = {
+        ('prefix',): {
+            'max_length': 12,
+        },
     }
 
     @cached_property
@@ -96,6 +99,7 @@ class CouponCodesRequest(ModelNormal):
             'expiration_dts': (str,),  # noqa: E501
             'expiration_seconds': (int,),  # noqa: E501
             'metadata': (ResponseMetadata,),  # noqa: E501
+            'prefix': (str,),  # noqa: E501
             'quantity': (int,),  # noqa: E501
             'success': (bool,),  # noqa: E501
             'warning': (Warning,),  # noqa: E501
@@ -111,6 +115,7 @@ class CouponCodesRequest(ModelNormal):
         'expiration_dts': 'expiration_dts',  # noqa: E501
         'expiration_seconds': 'expiration_seconds',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
+        'prefix': 'prefix',  # noqa: E501
         'quantity': 'quantity',  # noqa: E501
         'success': 'success',  # noqa: E501
         'warning': 'warning',  # noqa: E501
@@ -161,6 +166,7 @@ class CouponCodesRequest(ModelNormal):
             expiration_dts (str): Expiration Date. [optional]  # noqa: E501
             expiration_seconds (int): Expiration seconds. [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
+            prefix (str): Optional prefix for generated codes. [optional]  # noqa: E501
             quantity (int): Quantity. [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
             warning (Warning): [optional]  # noqa: E501
@@ -253,6 +259,7 @@ class CouponCodesRequest(ModelNormal):
             expiration_dts (str): Expiration Date. [optional]  # noqa: E501
             expiration_seconds (int): Expiration seconds. [optional]  # noqa: E501
             metadata (ResponseMetadata): [optional]  # noqa: E501
+            prefix (str): Optional prefix for generated codes. [optional]  # noqa: E501
             quantity (int): Quantity. [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
             warning (Warning): [optional]  # noqa: E501

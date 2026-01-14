@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **expiration_dts** | **str** | Expiration Date | [optional] 
 **expiration_seconds** | **int** | Expiration seconds | [optional] 
 **metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**prefix** | **str** | Optional prefix for generated codes | [optional] 
 **quantity** | **int** | Quantity | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **warning** | [**Warning**](Warning.md) |  | [optional] 
