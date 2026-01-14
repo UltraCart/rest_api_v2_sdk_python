@@ -35,6 +35,7 @@ class CouponCodesRequest(object):
         'expiration_dts': 'str',
         'expiration_seconds': 'int',
         'metadata': 'ResponseMetadata',
+        'prefix': 'str',
         'quantity': 'int',
         'success': 'bool',
         'warning': 'Warning'
@@ -45,18 +46,20 @@ class CouponCodesRequest(object):
         'expiration_dts': 'expiration_dts',
         'expiration_seconds': 'expiration_seconds',
         'metadata': 'metadata',
+        'prefix': 'prefix',
         'quantity': 'quantity',
         'success': 'success',
         'warning': 'warning'
     }
 
-    def __init__(self, error=None, expiration_dts=None, expiration_seconds=None, metadata=None, quantity=None, success=None, warning=None):  # noqa: E501
+    def __init__(self, error=None, expiration_dts=None, expiration_seconds=None, metadata=None, prefix=None, quantity=None, success=None, warning=None):  # noqa: E501
         """CouponCodesRequest - a model defined in Swagger"""  # noqa: E501
 
         self._error = None
         self._expiration_dts = None
         self._expiration_seconds = None
         self._metadata = None
+        self._prefix = None
         self._quantity = None
         self._success = None
         self._warning = None
@@ -70,6 +73,8 @@ class CouponCodesRequest(object):
             self.expiration_seconds = expiration_seconds
         if metadata is not None:
             self.metadata = metadata
+        if prefix is not None:
+            self.prefix = prefix
         if quantity is not None:
             self.quantity = quantity
         if success is not None:
@@ -164,6 +169,31 @@ class CouponCodesRequest(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def prefix(self):
+        """Gets the prefix of this CouponCodesRequest.  # noqa: E501
+
+        Optional prefix for generated codes  # noqa: E501
+
+        :return: The prefix of this CouponCodesRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._prefix
+
+    @prefix.setter
+    def prefix(self, prefix):
+        """Sets the prefix of this CouponCodesRequest.
+
+        Optional prefix for generated codes  # noqa: E501
+
+        :param prefix: The prefix of this CouponCodesRequest.  # noqa: E501
+        :type: str
+        """
+        if prefix is not None and len(prefix) > 12:
+            raise ValueError("Invalid value for `prefix`, length must be less than or equal to `12`")  # noqa: E501
+
+        self._prefix = prefix
 
     @property
     def quantity(self):
