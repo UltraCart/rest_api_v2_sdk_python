@@ -854,6 +854,105 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_pbx_hardware_phone(self, conversation_pbx_hardware_phone_uuid, **kwargs):  # noqa: E501
+        """Delete pbx hardware phone  # noqa: E501
+
+        Delete a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_pbx_hardware_phone(conversation_pbx_hardware_phone_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_hardware_phone_uuid: (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def delete_pbx_hardware_phone_with_http_info(self, conversation_pbx_hardware_phone_uuid, **kwargs):  # noqa: E501
+        """Delete pbx hardware phone  # noqa: E501
+
+        Delete a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_hardware_phone_uuid: (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_pbx_hardware_phone_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_pbx_hardware_phone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_pbx_hardware_phone_uuid' is set
+        if ('conversation_pbx_hardware_phone_uuid' not in params or
+                params['conversation_pbx_hardware_phone_uuid'] is None):
+            raise ValueError("Missing the required parameter `conversation_pbx_hardware_phone_uuid` when calling `delete_pbx_hardware_phone`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_pbx_hardware_phone_uuid' in params:
+            path_params['conversationPbxHardwarePhoneUuid'] = params['conversation_pbx_hardware_phone_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxHardwarePhoneResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_pbx_menu(self, conversation_pbx_menu_uuid, **kwargs):  # noqa: E501
         """Delete pbx menu  # noqa: E501
 
@@ -4948,6 +5047,287 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_pbx_hardware_phone(self, conversation_pbx_hardware_phone_uuid, **kwargs):  # noqa: E501
+        """Get pbx hardware phone  # noqa: E501
+
+        Retrieve a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_hardware_phone(conversation_pbx_hardware_phone_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_hardware_phone_uuid: (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, **kwargs)  # noqa: E501
+            return data
+
+    def get_pbx_hardware_phone_with_http_info(self, conversation_pbx_hardware_phone_uuid, **kwargs):  # noqa: E501
+        """Get pbx hardware phone  # noqa: E501
+
+        Retrieve a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_hardware_phone_uuid: (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_pbx_hardware_phone_uuid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_pbx_hardware_phone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_pbx_hardware_phone_uuid' is set
+        if ('conversation_pbx_hardware_phone_uuid' not in params or
+                params['conversation_pbx_hardware_phone_uuid'] is None):
+            raise ValueError("Missing the required parameter `conversation_pbx_hardware_phone_uuid` when calling `get_pbx_hardware_phone`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_pbx_hardware_phone_uuid' in params:
+            path_params['conversationPbxHardwarePhoneUuid'] = params['conversation_pbx_hardware_phone_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxHardwarePhoneResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_pbx_hardware_phone_manufacturers(self, **kwargs):  # noqa: E501
+        """Get pbx hardware phone manufacturers  # noqa: E501
+
+        Retrieve pbx hardware phone manufacturers and models for auto-provisioning   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_hardware_phone_manufacturers(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ConversationPbxPhoneManufacturersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_pbx_hardware_phone_manufacturers_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_pbx_hardware_phone_manufacturers_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_pbx_hardware_phone_manufacturers_with_http_info(self, **kwargs):  # noqa: E501
+        """Get pbx hardware phone manufacturers  # noqa: E501
+
+        Retrieve pbx hardware phone manufacturers and models for auto-provisioning   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_hardware_phone_manufacturers_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ConversationPbxPhoneManufacturersResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_pbx_hardware_phone_manufacturers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/hardware_phone/manufacturers', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxPhoneManufacturersResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_pbx_hardware_phones(self, **kwargs):  # noqa: E501
+        """Get pbx hardware phones  # noqa: E501
+
+        Retrieve pbx hardware phones   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_hardware_phones(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ConversationPbxHardwarePhonesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_pbx_hardware_phones_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_pbx_hardware_phones_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_pbx_hardware_phones_with_http_info(self, **kwargs):  # noqa: E501
+        """Get pbx hardware phones  # noqa: E501
+
+        Retrieve pbx hardware phones   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_pbx_hardware_phones_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ConversationPbxHardwarePhonesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_pbx_hardware_phones" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/hardware_phone', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxHardwarePhonesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_pbx_menu(self, conversation_pbx_menu_uuid, **kwargs):  # noqa: E501
         """Get pbx menu  # noqa: E501
 
@@ -7185,6 +7565,105 @@ class ConversationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def insert_pbx_hardware_phone(self, pbx_hardware_phone, **kwargs):  # noqa: E501
+        """Insert pbx hardware phone  # noqa: E501
+
+        Insert a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_pbx_hardware_phone(pbx_hardware_phone, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationPbxHardwarePhone pbx_hardware_phone: Pbx Hardware Phone (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.insert_pbx_hardware_phone_with_http_info(pbx_hardware_phone, **kwargs)  # noqa: E501
+        else:
+            (data) = self.insert_pbx_hardware_phone_with_http_info(pbx_hardware_phone, **kwargs)  # noqa: E501
+            return data
+
+    def insert_pbx_hardware_phone_with_http_info(self, pbx_hardware_phone, **kwargs):  # noqa: E501
+        """Insert pbx hardware phone  # noqa: E501
+
+        Insert a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.insert_pbx_hardware_phone_with_http_info(pbx_hardware_phone, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ConversationPbxHardwarePhone pbx_hardware_phone: Pbx Hardware Phone (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['pbx_hardware_phone']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method insert_pbx_hardware_phone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'pbx_hardware_phone' is set
+        if ('pbx_hardware_phone' not in params or
+                params['pbx_hardware_phone'] is None):
+            raise ValueError("Missing the required parameter `pbx_hardware_phone` when calling `insert_pbx_hardware_phone`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'pbx_hardware_phone' in params:
+            body_params = params['pbx_hardware_phone']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/hardware_phone', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxHardwarePhoneResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def insert_pbx_menu(self, pbx_menu, **kwargs):  # noqa: E501
         """Insert pbx menu  # noqa: E501
 
@@ -8378,6 +8857,113 @@ class ConversationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ConversationPbxPhoneNumberResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def regenerate_password_for_pbx_hardware_phone(self, conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, **kwargs):  # noqa: E501
+        """Update pbx hardware phone  # noqa: E501
+
+        Update a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.regenerate_password_for_pbx_hardware_phone(conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_hardware_phone_uuid: (required)
+        :param ConversationPbxHardwarePhone pbx_hardware_phone: Pbx Hardware Phone (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.regenerate_password_for_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, **kwargs)  # noqa: E501
+        else:
+            (data) = self.regenerate_password_for_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, **kwargs)  # noqa: E501
+            return data
+
+    def regenerate_password_for_pbx_hardware_phone_with_http_info(self, conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, **kwargs):  # noqa: E501
+        """Update pbx hardware phone  # noqa: E501
+
+        Update a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.regenerate_password_for_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_hardware_phone_uuid: (required)
+        :param ConversationPbxHardwarePhone pbx_hardware_phone: Pbx Hardware Phone (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_pbx_hardware_phone_uuid', 'pbx_hardware_phone']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method regenerate_password_for_pbx_hardware_phone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_pbx_hardware_phone_uuid' is set
+        if ('conversation_pbx_hardware_phone_uuid' not in params or
+                params['conversation_pbx_hardware_phone_uuid'] is None):
+            raise ValueError("Missing the required parameter `conversation_pbx_hardware_phone_uuid` when calling `regenerate_password_for_pbx_hardware_phone`")  # noqa: E501
+        # verify the required parameter 'pbx_hardware_phone' is set
+        if ('pbx_hardware_phone' not in params or
+                params['pbx_hardware_phone'] is None):
+            raise ValueError("Missing the required parameter `pbx_hardware_phone` when calling `regenerate_password_for_pbx_hardware_phone`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_pbx_hardware_phone_uuid' in params:
+            path_params['conversationPbxHardwarePhoneUuid'] = params['conversation_pbx_hardware_phone_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'pbx_hardware_phone' in params:
+            body_params = params['pbx_hardware_phone']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}/regenerate_password', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxHardwarePhoneResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9860,6 +10446,113 @@ class ConversationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ConversationPbxAudioResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_pbx_hardware_phone(self, conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, **kwargs):  # noqa: E501
+        """Update pbx hardware phone  # noqa: E501
+
+        Update a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_pbx_hardware_phone(conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_hardware_phone_uuid: (required)
+        :param ConversationPbxHardwarePhone pbx_hardware_phone: Pbx Hardware Phone (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, **kwargs)  # noqa: E501
+            return data
+
+    def update_pbx_hardware_phone_with_http_info(self, conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, **kwargs):  # noqa: E501
+        """Update pbx hardware phone  # noqa: E501
+
+        Update a pbx hardware phone   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_pbx_hardware_phone_with_http_info(conversation_pbx_hardware_phone_uuid, pbx_hardware_phone, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str conversation_pbx_hardware_phone_uuid: (required)
+        :param ConversationPbxHardwarePhone pbx_hardware_phone: Pbx Hardware Phone (required)
+        :return: ConversationPbxHardwarePhoneResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['conversation_pbx_hardware_phone_uuid', 'pbx_hardware_phone']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_pbx_hardware_phone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'conversation_pbx_hardware_phone_uuid' is set
+        if ('conversation_pbx_hardware_phone_uuid' not in params or
+                params['conversation_pbx_hardware_phone_uuid'] is None):
+            raise ValueError("Missing the required parameter `conversation_pbx_hardware_phone_uuid` when calling `update_pbx_hardware_phone`")  # noqa: E501
+        # verify the required parameter 'pbx_hardware_phone' is set
+        if ('pbx_hardware_phone' not in params or
+                params['pbx_hardware_phone'] is None):
+            raise ValueError("Missing the required parameter `pbx_hardware_phone` when calling `update_pbx_hardware_phone`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'conversation_pbx_hardware_phone_uuid' in params:
+            path_params['conversationPbxHardwarePhoneUuid'] = params['conversation_pbx_hardware_phone_uuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'pbx_hardware_phone' in params:
+            body_params = params['pbx_hardware_phone']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ConversationPbxHardwarePhoneResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
