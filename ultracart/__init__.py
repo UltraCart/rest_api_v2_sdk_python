@@ -142,6 +142,7 @@ from ultracart.models.cart_shipping import CartShipping
 from ultracart.models.cart_summary import CartSummary
 from ultracart.models.cart_taxes import CartTaxes
 from ultracart.models.cart_upsell_after import CartUpsellAfter
+from ultracart.models.cart_utm import CartUtm
 from ultracart.models.cart_validation_request import CartValidationRequest
 from ultracart.models.cart_validation_response import CartValidationResponse
 from ultracart.models.chanel_partner_reason_codes_response import ChanelPartnerReasonCodesResponse

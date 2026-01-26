@@ -56,7 +56,8 @@ class Cart(object):
         'shipping': 'CartShipping',
         'summary': 'CartSummary',
         'taxes': 'CartTaxes',
-        'upsell_after': 'CartUpsellAfter'
+        'upsell_after': 'CartUpsellAfter',
+        'utms': 'list[CartUtm]'
     }
 
     attribute_map = {
@@ -85,10 +86,11 @@ class Cart(object):
         'shipping': 'shipping',
         'summary': 'summary',
         'taxes': 'taxes',
-        'upsell_after': 'upsell_after'
+        'upsell_after': 'upsell_after',
+        'utms': 'utms'
     }
 
-    def __init__(self, affiliate=None, affiliate_network_pixel_oid=None, base_currency_code=None, billing=None, buysafe=None, cart_id=None, checkout=None, coupons=None, currency_code=None, currency_conversion=None, customer_profile=None, exchange_rate=None, gift=None, gift_certificate=None, items=None, language_iso_code=None, logged_in=None, marketing=None, merchant_id=None, payment=None, properties=None, settings=None, shipping=None, summary=None, taxes=None, upsell_after=None):  # noqa: E501
+    def __init__(self, affiliate=None, affiliate_network_pixel_oid=None, base_currency_code=None, billing=None, buysafe=None, cart_id=None, checkout=None, coupons=None, currency_code=None, currency_conversion=None, customer_profile=None, exchange_rate=None, gift=None, gift_certificate=None, items=None, language_iso_code=None, logged_in=None, marketing=None, merchant_id=None, payment=None, properties=None, settings=None, shipping=None, summary=None, taxes=None, upsell_after=None, utms=None):  # noqa: E501
         """Cart - a model defined in Swagger"""  # noqa: E501
 
         self._affiliate = None
@@ -117,6 +119,7 @@ class Cart(object):
         self._summary = None
         self._taxes = None
         self._upsell_after = None
+        self._utms = None
         self.discriminator = None
 
         if affiliate is not None:
@@ -171,6 +174,8 @@ class Cart(object):
             self.taxes = taxes
         if upsell_after is not None:
             self.upsell_after = upsell_after
+        if utms is not None:
+            self.utms = utms
 
     @property
     def affiliate(self):
@@ -745,6 +750,29 @@ class Cart(object):
         """
 
         self._upsell_after = upsell_after
+
+    @property
+    def utms(self):
+        """Gets the utms of this Cart.  # noqa: E501
+
+        UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook.  # noqa: E501
+
+        :return: The utms of this Cart.  # noqa: E501
+        :rtype: list[CartUtm]
+        """
+        return self._utms
+
+    @utms.setter
+    def utms(self, utms):
+        """Sets the utms of this Cart.
+
+        UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook.  # noqa: E501
+
+        :param utms: The utms of this Cart.  # noqa: E501
+        :type: list[CartUtm]
+        """
+
+        self._utms = utms
 
     def to_dict(self):
         """Returns the model properties as a dict"""
