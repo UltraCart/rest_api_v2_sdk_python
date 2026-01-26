@@ -88,6 +88,8 @@ class ConversationAgentAuth(ModelNormal):
         """
         lazy_import()
         return {
+            'chat_admin': (bool,),  # noqa: E501
+            'chat_user': (bool,),  # noqa: E501
             'conversation_participant_arn': (str,),  # noqa: E501
             'conversation_participant_name': (str,),  # noqa: E501
             'group_ids': ([int],),  # noqa: E501
@@ -112,6 +114,8 @@ class ConversationAgentAuth(ModelNormal):
 
 
     attribute_map = {
+        'chat_admin': 'chat_admin',  # noqa: E501
+        'chat_user': 'chat_user',  # noqa: E501
         'conversation_participant_arn': 'conversation_participant_arn',  # noqa: E501
         'conversation_participant_name': 'conversation_participant_name',  # noqa: E501
         'group_ids': 'group_ids',  # noqa: E501
@@ -171,6 +175,8 @@ class ConversationAgentAuth(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            chat_admin (bool): [optional]  # noqa: E501
+            chat_user (bool): [optional]  # noqa: E501
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
             group_ids ([int]): UltraCart Groups this user belongs to. [optional]  # noqa: E501
@@ -272,6 +278,8 @@ class ConversationAgentAuth(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            chat_admin (bool): [optional]  # noqa: E501
+            chat_user (bool): [optional]  # noqa: E501
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
             group_ids ([int]): UltraCart Groups this user belongs to. [optional]  # noqa: E501
