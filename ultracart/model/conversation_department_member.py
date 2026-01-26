@@ -82,6 +82,7 @@ class ConversationDepartmentMember(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'ai': (bool,),  # noqa: E501
             'member': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'user_id': (int,),  # noqa: E501
@@ -93,6 +94,7 @@ class ConversationDepartmentMember(ModelNormal):
 
 
     attribute_map = {
+        'ai': 'ai',  # noqa: E501
         'member': 'member',  # noqa: E501
         'name': 'name',  # noqa: E501
         'user_id': 'user_id',  # noqa: E501
@@ -139,6 +141,7 @@ class ConversationDepartmentMember(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai (bool): [optional]  # noqa: E501
             member (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             user_id (int): [optional]  # noqa: E501
@@ -227,6 +230,7 @@ class ConversationDepartmentMember(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ai (bool): [optional]  # noqa: E501
             member (bool): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             user_id (int): [optional]  # noqa: E501
