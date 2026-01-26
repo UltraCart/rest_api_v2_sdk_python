@@ -31,31 +31,57 @@ class ConversationDepartmentMember(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'ai': 'bool',
         'member': 'bool',
         'name': 'str',
         'user_id': 'int'
     }
 
     attribute_map = {
+        'ai': 'ai',
         'member': 'member',
         'name': 'name',
         'user_id': 'user_id'
     }
 
-    def __init__(self, member=None, name=None, user_id=None):  # noqa: E501
+    def __init__(self, ai=None, member=None, name=None, user_id=None):  # noqa: E501
         """ConversationDepartmentMember - a model defined in Swagger"""  # noqa: E501
 
+        self._ai = None
         self._member = None
         self._name = None
         self._user_id = None
         self.discriminator = None
 
+        if ai is not None:
+            self.ai = ai
         if member is not None:
             self.member = member
         if name is not None:
             self.name = name
         if user_id is not None:
             self.user_id = user_id
+
+    @property
+    def ai(self):
+        """Gets the ai of this ConversationDepartmentMember.  # noqa: E501
+
+
+        :return: The ai of this ConversationDepartmentMember.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ai
+
+    @ai.setter
+    def ai(self, ai):
+        """Sets the ai of this ConversationDepartmentMember.
+
+
+        :param ai: The ai of this ConversationDepartmentMember.  # noqa: E501
+        :type: bool
+        """
+
+        self._ai = ai
 
     @property
     def member(self):
