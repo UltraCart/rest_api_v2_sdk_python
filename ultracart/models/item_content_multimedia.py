@@ -41,6 +41,7 @@ class ItemContentMultimedia(object):
         'merchant_item_multimedia_oid': 'int',
         'orphan': 'bool',
         'placeholder': 'bool',
+        'size': 'int',
         'temp_multimedia_oid': 'int',
         'thumbnails': 'list[ItemContentMultimediaThumbnail]',
         'type': 'str',
@@ -59,6 +60,7 @@ class ItemContentMultimedia(object):
         'merchant_item_multimedia_oid': 'merchant_item_multimedia_oid',
         'orphan': 'orphan',
         'placeholder': 'placeholder',
+        'size': 'size',
         'temp_multimedia_oid': 'temp_multimedia_oid',
         'thumbnails': 'thumbnails',
         'type': 'type',
@@ -66,7 +68,7 @@ class ItemContentMultimedia(object):
         'width': 'width'
     }
 
-    def __init__(self, cloud_url=None, cloud_url_expiration=None, code=None, description=None, exclude_from_gallery=None, file_name=None, height=None, merchant_item_multimedia_oid=None, orphan=None, placeholder=None, temp_multimedia_oid=None, thumbnails=None, type=None, url=None, width=None):  # noqa: E501
+    def __init__(self, cloud_url=None, cloud_url_expiration=None, code=None, description=None, exclude_from_gallery=None, file_name=None, height=None, merchant_item_multimedia_oid=None, orphan=None, placeholder=None, size=None, temp_multimedia_oid=None, thumbnails=None, type=None, url=None, width=None):  # noqa: E501
         """ItemContentMultimedia - a model defined in Swagger"""  # noqa: E501
 
         self._cloud_url = None
@@ -79,6 +81,7 @@ class ItemContentMultimedia(object):
         self._merchant_item_multimedia_oid = None
         self._orphan = None
         self._placeholder = None
+        self._size = None
         self._temp_multimedia_oid = None
         self._thumbnails = None
         self._type = None
@@ -106,6 +109,8 @@ class ItemContentMultimedia(object):
             self.orphan = orphan
         if placeholder is not None:
             self.placeholder = placeholder
+        if size is not None:
+            self.size = size
         if temp_multimedia_oid is not None:
             self.temp_multimedia_oid = temp_multimedia_oid
         if thumbnails is not None:
@@ -352,6 +357,29 @@ class ItemContentMultimedia(object):
         """
 
         self._placeholder = placeholder
+
+    @property
+    def size(self):
+        """Gets the size of this ItemContentMultimedia.  # noqa: E501
+
+        Size of the file in bytes if known  # noqa: E501
+
+        :return: The size of this ItemContentMultimedia.  # noqa: E501
+        :rtype: int
+        """
+        return self._size
+
+    @size.setter
+    def size(self, size):
+        """Sets the size of this ItemContentMultimedia.
+
+        Size of the file in bytes if known  # noqa: E501
+
+        :param size: The size of this ItemContentMultimedia.  # noqa: E501
+        :type: int
+        """
+
+        self._size = size
 
     @property
     def temp_multimedia_oid(self):
