@@ -31,6 +31,8 @@ class ConversationAgentAuth(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'chat_admin': 'bool',
+        'chat_user': 'bool',
         'conversation_participant_arn': 'str',
         'conversation_participant_name': 'str',
         'group_ids': 'list[int]',
@@ -50,6 +52,8 @@ class ConversationAgentAuth(object):
     }
 
     attribute_map = {
+        'chat_admin': 'chat_admin',
+        'chat_user': 'chat_user',
         'conversation_participant_arn': 'conversation_participant_arn',
         'conversation_participant_name': 'conversation_participant_name',
         'group_ids': 'group_ids',
@@ -68,9 +72,11 @@ class ConversationAgentAuth(object):
         'websocket_url': 'websocket_url'
     }
 
-    def __init__(self, conversation_participant_arn=None, conversation_participant_name=None, group_ids=None, jwt=None, merchant_id=None, pbx_admin=None, pbx_jwt=None, pbx_supervisor=None, pbx_user=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, pbx_worker_token_v2=None, twilio_accounts=None, user_id=None, websocket_url=None):  # noqa: E501
+    def __init__(self, chat_admin=None, chat_user=None, conversation_participant_arn=None, conversation_participant_name=None, group_ids=None, jwt=None, merchant_id=None, pbx_admin=None, pbx_jwt=None, pbx_supervisor=None, pbx_user=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, pbx_worker_token_v2=None, twilio_accounts=None, user_id=None, websocket_url=None):  # noqa: E501
         """ConversationAgentAuth - a model defined in Swagger"""  # noqa: E501
 
+        self._chat_admin = None
+        self._chat_user = None
         self._conversation_participant_arn = None
         self._conversation_participant_name = None
         self._group_ids = None
@@ -89,6 +95,10 @@ class ConversationAgentAuth(object):
         self._websocket_url = None
         self.discriminator = None
 
+        if chat_admin is not None:
+            self.chat_admin = chat_admin
+        if chat_user is not None:
+            self.chat_user = chat_user
         if conversation_participant_arn is not None:
             self.conversation_participant_arn = conversation_participant_arn
         if conversation_participant_name is not None:
@@ -121,6 +131,48 @@ class ConversationAgentAuth(object):
             self.user_id = user_id
         if websocket_url is not None:
             self.websocket_url = websocket_url
+
+    @property
+    def chat_admin(self):
+        """Gets the chat_admin of this ConversationAgentAuth.  # noqa: E501
+
+
+        :return: The chat_admin of this ConversationAgentAuth.  # noqa: E501
+        :rtype: bool
+        """
+        return self._chat_admin
+
+    @chat_admin.setter
+    def chat_admin(self, chat_admin):
+        """Sets the chat_admin of this ConversationAgentAuth.
+
+
+        :param chat_admin: The chat_admin of this ConversationAgentAuth.  # noqa: E501
+        :type: bool
+        """
+
+        self._chat_admin = chat_admin
+
+    @property
+    def chat_user(self):
+        """Gets the chat_user of this ConversationAgentAuth.  # noqa: E501
+
+
+        :return: The chat_user of this ConversationAgentAuth.  # noqa: E501
+        :rtype: bool
+        """
+        return self._chat_user
+
+    @chat_user.setter
+    def chat_user(self, chat_user):
+        """Sets the chat_user of this ConversationAgentAuth.
+
+
+        :param chat_user: The chat_user of this ConversationAgentAuth.  # noqa: E501
+        :type: bool
+        """
+
+        self._chat_user = chat_user
 
     @property
     def conversation_participant_arn(self):
