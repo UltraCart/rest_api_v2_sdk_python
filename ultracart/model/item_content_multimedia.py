@@ -114,6 +114,7 @@ class ItemContentMultimedia(ModelNormal):
             'merchant_item_multimedia_oid': (int,),  # noqa: E501
             'orphan': (bool,),  # noqa: E501
             'placeholder': (bool,),  # noqa: E501
+            'size': (int,),  # noqa: E501
             'temp_multimedia_oid': (int,),  # noqa: E501
             'thumbnails': ([ItemContentMultimediaThumbnail],),  # noqa: E501
             'type': (str,),  # noqa: E501
@@ -137,6 +138,7 @@ class ItemContentMultimedia(ModelNormal):
         'merchant_item_multimedia_oid': 'merchant_item_multimedia_oid',  # noqa: E501
         'orphan': 'orphan',  # noqa: E501
         'placeholder': 'placeholder',  # noqa: E501
+        'size': 'size',  # noqa: E501
         'temp_multimedia_oid': 'temp_multimedia_oid',  # noqa: E501
         'thumbnails': 'thumbnails',  # noqa: E501
         'type': 'type',  # noqa: E501
@@ -195,6 +197,7 @@ class ItemContentMultimedia(ModelNormal):
             merchant_item_multimedia_oid (int): Item multimedia object identifier. [optional]  # noqa: E501
             orphan (bool): True if the multimedia is an orphan of the active StoreFront themes. [optional]  # noqa: E501
             placeholder (bool): True if the object is a place holder that can be populated. [optional]  # noqa: E501
+            size (int): Size of the file in bytes if known. [optional]  # noqa: E501
             temp_multimedia_oid (int): Temporary multimedia object identifier assigned if uploading new multimedia. [optional]  # noqa: E501
             thumbnails ([ItemContentMultimediaThumbnail]): Thumbnails of this image. [optional]  # noqa: E501
             type (str): Type of file. [optional]  # noqa: E501
@@ -295,6 +298,7 @@ class ItemContentMultimedia(ModelNormal):
             merchant_item_multimedia_oid (int): Item multimedia object identifier. [optional]  # noqa: E501
             orphan (bool): True if the multimedia is an orphan of the active StoreFront themes. [optional]  # noqa: E501
             placeholder (bool): True if the object is a place holder that can be populated. [optional]  # noqa: E501
+            size (int): Size of the file in bytes if known. [optional]  # noqa: E501
             temp_multimedia_oid (int): Temporary multimedia object identifier assigned if uploading new multimedia. [optional]  # noqa: E501
             thumbnails ([ItemContentMultimediaThumbnail]): Thumbnails of this image. [optional]  # noqa: E501
             type (str): Type of file. [optional]  # noqa: E501
