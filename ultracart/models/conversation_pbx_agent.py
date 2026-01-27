@@ -32,14 +32,16 @@ class ConversationPbxAgent(object):
     """
     swagger_types = {
         'ai': 'bool',
+        'call_routing_preference': 'str',
         'cellphone': 'str',
         'conversation_pbx_agent_uuid': 'str',
         'extension': 'int',
-        'forward_calls_to_cellphone': 'bool',
         'full_name': 'str',
+        'hardware_phone_uuids': 'list[str]',
         'login': 'str',
         'merchant_id': 'str',
         'personal_conversation_pbx_voicemail_mailbox_uuid': 'str',
+        'preferred_hardware_phone_uuid': 'str',
         'record_outgoing_automatically': 'bool',
         'shared_conversation_pbx_voicemail_mailbox_uuid': 'str',
         'twilio_taskrouter_worker_id': 'str',
@@ -52,14 +54,16 @@ class ConversationPbxAgent(object):
 
     attribute_map = {
         'ai': 'ai',
+        'call_routing_preference': 'call_routing_preference',
         'cellphone': 'cellphone',
         'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',
         'extension': 'extension',
-        'forward_calls_to_cellphone': 'forward_calls_to_cellphone',
         'full_name': 'full_name',
+        'hardware_phone_uuids': 'hardware_phone_uuids',
         'login': 'login',
         'merchant_id': 'merchant_id',
         'personal_conversation_pbx_voicemail_mailbox_uuid': 'personal_conversation_pbx_voicemail_mailbox_uuid',
+        'preferred_hardware_phone_uuid': 'preferred_hardware_phone_uuid',
         'record_outgoing_automatically': 'record_outgoing_automatically',
         'shared_conversation_pbx_voicemail_mailbox_uuid': 'shared_conversation_pbx_voicemail_mailbox_uuid',
         'twilio_taskrouter_worker_id': 'twilio_taskrouter_worker_id',
@@ -70,18 +74,20 @@ class ConversationPbxAgent(object):
         'voicemail': 'voicemail'
     }
 
-    def __init__(self, ai=None, cellphone=None, conversation_pbx_agent_uuid=None, extension=None, forward_calls_to_cellphone=None, full_name=None, login=None, merchant_id=None, personal_conversation_pbx_voicemail_mailbox_uuid=None, record_outgoing_automatically=None, shared_conversation_pbx_voicemail_mailbox_uuid=None, twilio_taskrouter_worker_id=None, unavailable_play_audio_uuid=None, unavailable_say=None, unavailable_say_voice=None, user_id=None, voicemail=None):  # noqa: E501
+    def __init__(self, ai=None, call_routing_preference=None, cellphone=None, conversation_pbx_agent_uuid=None, extension=None, full_name=None, hardware_phone_uuids=None, login=None, merchant_id=None, personal_conversation_pbx_voicemail_mailbox_uuid=None, preferred_hardware_phone_uuid=None, record_outgoing_automatically=None, shared_conversation_pbx_voicemail_mailbox_uuid=None, twilio_taskrouter_worker_id=None, unavailable_play_audio_uuid=None, unavailable_say=None, unavailable_say_voice=None, user_id=None, voicemail=None):  # noqa: E501
         """ConversationPbxAgent - a model defined in Swagger"""  # noqa: E501
 
         self._ai = None
+        self._call_routing_preference = None
         self._cellphone = None
         self._conversation_pbx_agent_uuid = None
         self._extension = None
-        self._forward_calls_to_cellphone = None
         self._full_name = None
+        self._hardware_phone_uuids = None
         self._login = None
         self._merchant_id = None
         self._personal_conversation_pbx_voicemail_mailbox_uuid = None
+        self._preferred_hardware_phone_uuid = None
         self._record_outgoing_automatically = None
         self._shared_conversation_pbx_voicemail_mailbox_uuid = None
         self._twilio_taskrouter_worker_id = None
@@ -94,22 +100,26 @@ class ConversationPbxAgent(object):
 
         if ai is not None:
             self.ai = ai
+        if call_routing_preference is not None:
+            self.call_routing_preference = call_routing_preference
         if cellphone is not None:
             self.cellphone = cellphone
         if conversation_pbx_agent_uuid is not None:
             self.conversation_pbx_agent_uuid = conversation_pbx_agent_uuid
         if extension is not None:
             self.extension = extension
-        if forward_calls_to_cellphone is not None:
-            self.forward_calls_to_cellphone = forward_calls_to_cellphone
         if full_name is not None:
             self.full_name = full_name
+        if hardware_phone_uuids is not None:
+            self.hardware_phone_uuids = hardware_phone_uuids
         if login is not None:
             self.login = login
         if merchant_id is not None:
             self.merchant_id = merchant_id
         if personal_conversation_pbx_voicemail_mailbox_uuid is not None:
             self.personal_conversation_pbx_voicemail_mailbox_uuid = personal_conversation_pbx_voicemail_mailbox_uuid
+        if preferred_hardware_phone_uuid is not None:
+            self.preferred_hardware_phone_uuid = preferred_hardware_phone_uuid
         if record_outgoing_automatically is not None:
             self.record_outgoing_automatically = record_outgoing_automatically
         if shared_conversation_pbx_voicemail_mailbox_uuid is not None:
@@ -149,6 +159,35 @@ class ConversationPbxAgent(object):
         """
 
         self._ai = ai
+
+    @property
+    def call_routing_preference(self):
+        """Gets the call_routing_preference of this ConversationPbxAgent.  # noqa: E501
+
+        The call routing preference  # noqa: E501
+
+        :return: The call_routing_preference of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._call_routing_preference
+
+    @call_routing_preference.setter
+    def call_routing_preference(self, call_routing_preference):
+        """Sets the call_routing_preference of this ConversationPbxAgent.
+
+        The call routing preference  # noqa: E501
+
+        :param call_routing_preference: The call_routing_preference of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["softphone", "hardware_phone", "cellphone"]  # noqa: E501
+        if call_routing_preference not in allowed_values:
+            raise ValueError(
+                "Invalid value for `call_routing_preference` ({0}), must be one of {1}"  # noqa: E501
+                .format(call_routing_preference, allowed_values)
+            )
+
+        self._call_routing_preference = call_routing_preference
 
     @property
     def cellphone(self):
@@ -222,29 +261,6 @@ class ConversationPbxAgent(object):
         self._extension = extension
 
     @property
-    def forward_calls_to_cellphone(self):
-        """Gets the forward_calls_to_cellphone of this ConversationPbxAgent.  # noqa: E501
-
-        True if calls to this agent should be forwarded to their cellphone  # noqa: E501
-
-        :return: The forward_calls_to_cellphone of this ConversationPbxAgent.  # noqa: E501
-        :rtype: bool
-        """
-        return self._forward_calls_to_cellphone
-
-    @forward_calls_to_cellphone.setter
-    def forward_calls_to_cellphone(self, forward_calls_to_cellphone):
-        """Sets the forward_calls_to_cellphone of this ConversationPbxAgent.
-
-        True if calls to this agent should be forwarded to their cellphone  # noqa: E501
-
-        :param forward_calls_to_cellphone: The forward_calls_to_cellphone of this ConversationPbxAgent.  # noqa: E501
-        :type: bool
-        """
-
-        self._forward_calls_to_cellphone = forward_calls_to_cellphone
-
-    @property
     def full_name(self):
         """Gets the full_name of this ConversationPbxAgent.  # noqa: E501
 
@@ -266,6 +282,29 @@ class ConversationPbxAgent(object):
         """
 
         self._full_name = full_name
+
+    @property
+    def hardware_phone_uuids(self):
+        """Gets the hardware_phone_uuids of this ConversationPbxAgent.  # noqa: E501
+
+        Array of hardware phones UUIDs associated with this agent  # noqa: E501
+
+        :return: The hardware_phone_uuids of this ConversationPbxAgent.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._hardware_phone_uuids
+
+    @hardware_phone_uuids.setter
+    def hardware_phone_uuids(self, hardware_phone_uuids):
+        """Sets the hardware_phone_uuids of this ConversationPbxAgent.
+
+        Array of hardware phones UUIDs associated with this agent  # noqa: E501
+
+        :param hardware_phone_uuids: The hardware_phone_uuids of this ConversationPbxAgent.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._hardware_phone_uuids = hardware_phone_uuids
 
     @property
     def login(self):
@@ -339,6 +378,29 @@ class ConversationPbxAgent(object):
             raise ValueError("Invalid value for `personal_conversation_pbx_voicemail_mailbox_uuid`, length must be less than or equal to `50`")  # noqa: E501
 
         self._personal_conversation_pbx_voicemail_mailbox_uuid = personal_conversation_pbx_voicemail_mailbox_uuid
+
+    @property
+    def preferred_hardware_phone_uuid(self):
+        """Gets the preferred_hardware_phone_uuid of this ConversationPbxAgent.  # noqa: E501
+
+        The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone  # noqa: E501
+
+        :return: The preferred_hardware_phone_uuid of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._preferred_hardware_phone_uuid
+
+    @preferred_hardware_phone_uuid.setter
+    def preferred_hardware_phone_uuid(self, preferred_hardware_phone_uuid):
+        """Sets the preferred_hardware_phone_uuid of this ConversationPbxAgent.
+
+        The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone  # noqa: E501
+
+        :param preferred_hardware_phone_uuid: The preferred_hardware_phone_uuid of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+
+        self._preferred_hardware_phone_uuid = preferred_hardware_phone_uuid
 
     @property
     def record_outgoing_automatically(self):

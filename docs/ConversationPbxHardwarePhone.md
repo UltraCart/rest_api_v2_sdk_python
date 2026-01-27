@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**admin_username** | **str** | Admin Username | [optional] 
+**conversation_pbx_agent_uuid** | **str** | Associated Agent UUID | [optional] 
 **conversation_pbx_hardware_phone_uuid** | **str** | Conversation Pbx Hardware Phone UUID | [optional] 
 **created_at** | **object** | Created At | [optional] 
 **description** | **str** | Description | [optional] 
@@ -13,8 +15,10 @@ Name | Type | Description | Notes
 **name** | **str** | Name | [optional] 
 **provisioning_url** | **str** | Auto-provisioning URL for phone configuration | [optional] 
 **sip_domain** | **str** | SIP Domain | [optional] 
-**sip_password** | **str** | SIP Password | [optional] 
+**sip_edge_location** | **str** | SIP Edge Location | [optional] 
+**sip_password** | **str** | SIP Password (only on create or regenerate password requests) | [optional] 
 **sip_username** | **str** | SIP Username | [optional] 
+**twilio_credential_sid** | **str** | Twilio Credential SID | [optional] 
 **updated_at** | **object** | Updated At | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

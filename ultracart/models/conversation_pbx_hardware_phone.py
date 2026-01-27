@@ -31,6 +31,8 @@ class ConversationPbxHardwarePhone(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'admin_username': 'str',
+        'conversation_pbx_agent_uuid': 'str',
         'conversation_pbx_hardware_phone_uuid': 'str',
         'created_at': 'object',
         'description': 'str',
@@ -41,12 +43,16 @@ class ConversationPbxHardwarePhone(object):
         'name': 'str',
         'provisioning_url': 'str',
         'sip_domain': 'str',
+        'sip_edge_location': 'str',
         'sip_password': 'str',
         'sip_username': 'str',
+        'twilio_credential_sid': 'str',
         'updated_at': 'object'
     }
 
     attribute_map = {
+        'admin_username': 'admin_username',
+        'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',
         'conversation_pbx_hardware_phone_uuid': 'conversation_pbx_hardware_phone_uuid',
         'created_at': 'created_at',
         'description': 'description',
@@ -57,14 +63,18 @@ class ConversationPbxHardwarePhone(object):
         'name': 'name',
         'provisioning_url': 'provisioning_url',
         'sip_domain': 'sip_domain',
+        'sip_edge_location': 'sip_edge_location',
         'sip_password': 'sip_password',
         'sip_username': 'sip_username',
+        'twilio_credential_sid': 'twilio_credential_sid',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, conversation_pbx_hardware_phone_uuid=None, created_at=None, description=None, mac_address=None, manufacturer=None, merchant_id=None, model=None, name=None, provisioning_url=None, sip_domain=None, sip_password=None, sip_username=None, updated_at=None):  # noqa: E501
+    def __init__(self, admin_username=None, conversation_pbx_agent_uuid=None, conversation_pbx_hardware_phone_uuid=None, created_at=None, description=None, mac_address=None, manufacturer=None, merchant_id=None, model=None, name=None, provisioning_url=None, sip_domain=None, sip_edge_location=None, sip_password=None, sip_username=None, twilio_credential_sid=None, updated_at=None):  # noqa: E501
         """ConversationPbxHardwarePhone - a model defined in Swagger"""  # noqa: E501
 
+        self._admin_username = None
+        self._conversation_pbx_agent_uuid = None
         self._conversation_pbx_hardware_phone_uuid = None
         self._created_at = None
         self._description = None
@@ -75,11 +85,17 @@ class ConversationPbxHardwarePhone(object):
         self._name = None
         self._provisioning_url = None
         self._sip_domain = None
+        self._sip_edge_location = None
         self._sip_password = None
         self._sip_username = None
+        self._twilio_credential_sid = None
         self._updated_at = None
         self.discriminator = None
 
+        if admin_username is not None:
+            self.admin_username = admin_username
+        if conversation_pbx_agent_uuid is not None:
+            self.conversation_pbx_agent_uuid = conversation_pbx_agent_uuid
         if conversation_pbx_hardware_phone_uuid is not None:
             self.conversation_pbx_hardware_phone_uuid = conversation_pbx_hardware_phone_uuid
         if created_at is not None:
@@ -100,12 +116,62 @@ class ConversationPbxHardwarePhone(object):
             self.provisioning_url = provisioning_url
         if sip_domain is not None:
             self.sip_domain = sip_domain
+        if sip_edge_location is not None:
+            self.sip_edge_location = sip_edge_location
         if sip_password is not None:
             self.sip_password = sip_password
         if sip_username is not None:
             self.sip_username = sip_username
+        if twilio_credential_sid is not None:
+            self.twilio_credential_sid = twilio_credential_sid
         if updated_at is not None:
             self.updated_at = updated_at
+
+    @property
+    def admin_username(self):
+        """Gets the admin_username of this ConversationPbxHardwarePhone.  # noqa: E501
+
+        Admin Username  # noqa: E501
+
+        :return: The admin_username of this ConversationPbxHardwarePhone.  # noqa: E501
+        :rtype: str
+        """
+        return self._admin_username
+
+    @admin_username.setter
+    def admin_username(self, admin_username):
+        """Sets the admin_username of this ConversationPbxHardwarePhone.
+
+        Admin Username  # noqa: E501
+
+        :param admin_username: The admin_username of this ConversationPbxHardwarePhone.  # noqa: E501
+        :type: str
+        """
+
+        self._admin_username = admin_username
+
+    @property
+    def conversation_pbx_agent_uuid(self):
+        """Gets the conversation_pbx_agent_uuid of this ConversationPbxHardwarePhone.  # noqa: E501
+
+        Associated Agent UUID  # noqa: E501
+
+        :return: The conversation_pbx_agent_uuid of this ConversationPbxHardwarePhone.  # noqa: E501
+        :rtype: str
+        """
+        return self._conversation_pbx_agent_uuid
+
+    @conversation_pbx_agent_uuid.setter
+    def conversation_pbx_agent_uuid(self, conversation_pbx_agent_uuid):
+        """Sets the conversation_pbx_agent_uuid of this ConversationPbxHardwarePhone.
+
+        Associated Agent UUID  # noqa: E501
+
+        :param conversation_pbx_agent_uuid: The conversation_pbx_agent_uuid of this ConversationPbxHardwarePhone.  # noqa: E501
+        :type: str
+        """
+
+        self._conversation_pbx_agent_uuid = conversation_pbx_agent_uuid
 
     @property
     def conversation_pbx_hardware_phone_uuid(self):
@@ -354,10 +420,35 @@ class ConversationPbxHardwarePhone(object):
         self._sip_domain = sip_domain
 
     @property
+    def sip_edge_location(self):
+        """Gets the sip_edge_location of this ConversationPbxHardwarePhone.  # noqa: E501
+
+        SIP Edge Location  # noqa: E501
+
+        :return: The sip_edge_location of this ConversationPbxHardwarePhone.  # noqa: E501
+        :rtype: str
+        """
+        return self._sip_edge_location
+
+    @sip_edge_location.setter
+    def sip_edge_location(self, sip_edge_location):
+        """Sets the sip_edge_location of this ConversationPbxHardwarePhone.
+
+        SIP Edge Location  # noqa: E501
+
+        :param sip_edge_location: The sip_edge_location of this ConversationPbxHardwarePhone.  # noqa: E501
+        :type: str
+        """
+        if sip_edge_location is not None and len(sip_edge_location) > 50:
+            raise ValueError("Invalid value for `sip_edge_location`, length must be less than or equal to `50`")  # noqa: E501
+
+        self._sip_edge_location = sip_edge_location
+
+    @property
     def sip_password(self):
         """Gets the sip_password of this ConversationPbxHardwarePhone.  # noqa: E501
 
-        SIP Password  # noqa: E501
+        SIP Password (only on create or regenerate password requests)  # noqa: E501
 
         :return: The sip_password of this ConversationPbxHardwarePhone.  # noqa: E501
         :rtype: str
@@ -368,7 +459,7 @@ class ConversationPbxHardwarePhone(object):
     def sip_password(self, sip_password):
         """Sets the sip_password of this ConversationPbxHardwarePhone.
 
-        SIP Password  # noqa: E501
+        SIP Password (only on create or regenerate password requests)  # noqa: E501
 
         :param sip_password: The sip_password of this ConversationPbxHardwarePhone.  # noqa: E501
         :type: str
@@ -402,6 +493,29 @@ class ConversationPbxHardwarePhone(object):
             raise ValueError("Invalid value for `sip_username`, length must be less than or equal to `100`")  # noqa: E501
 
         self._sip_username = sip_username
+
+    @property
+    def twilio_credential_sid(self):
+        """Gets the twilio_credential_sid of this ConversationPbxHardwarePhone.  # noqa: E501
+
+        Twilio Credential SID  # noqa: E501
+
+        :return: The twilio_credential_sid of this ConversationPbxHardwarePhone.  # noqa: E501
+        :rtype: str
+        """
+        return self._twilio_credential_sid
+
+    @twilio_credential_sid.setter
+    def twilio_credential_sid(self, twilio_credential_sid):
+        """Sets the twilio_credential_sid of this ConversationPbxHardwarePhone.
+
+        Twilio Credential SID  # noqa: E501
+
+        :param twilio_credential_sid: The twilio_credential_sid of this ConversationPbxHardwarePhone.  # noqa: E501
+        :type: str
+        """
+
+        self._twilio_credential_sid = twilio_credential_sid
 
     @property
     def updated_at(self):
