@@ -56,6 +56,11 @@ class ConversationPbxAgent(ModelNormal):
     """
 
     allowed_values = {
+        ('call_routing_preference',): {
+            'SOFTPHONE': "softphone",
+            'HARDWARE_PHONE': "hardware_phone",
+            'CELLPHONE': "cellphone",
+        },
     }
 
     validations = {
@@ -104,14 +109,16 @@ class ConversationPbxAgent(ModelNormal):
         """
         return {
             'ai': (bool,),  # noqa: E501
+            'call_routing_preference': (str,),  # noqa: E501
             'cellphone': (str,),  # noqa: E501
             'conversation_pbx_agent_uuid': (str,),  # noqa: E501
             'extension': (int,),  # noqa: E501
-            'forward_calls_to_cellphone': (bool,),  # noqa: E501
             'full_name': (str,),  # noqa: E501
+            'hardware_phone_uuids': ([str],),  # noqa: E501
             'login': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'personal_conversation_pbx_voicemail_mailbox_uuid': (str,),  # noqa: E501
+            'preferred_hardware_phone_uuid': (str,),  # noqa: E501
             'record_outgoing_automatically': (bool,),  # noqa: E501
             'shared_conversation_pbx_voicemail_mailbox_uuid': (str,),  # noqa: E501
             'twilio_taskrouter_worker_id': (str,),  # noqa: E501
@@ -129,14 +136,16 @@ class ConversationPbxAgent(ModelNormal):
 
     attribute_map = {
         'ai': 'ai',  # noqa: E501
+        'call_routing_preference': 'call_routing_preference',  # noqa: E501
         'cellphone': 'cellphone',  # noqa: E501
         'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',  # noqa: E501
         'extension': 'extension',  # noqa: E501
-        'forward_calls_to_cellphone': 'forward_calls_to_cellphone',  # noqa: E501
         'full_name': 'full_name',  # noqa: E501
+        'hardware_phone_uuids': 'hardware_phone_uuids',  # noqa: E501
         'login': 'login',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'personal_conversation_pbx_voicemail_mailbox_uuid': 'personal_conversation_pbx_voicemail_mailbox_uuid',  # noqa: E501
+        'preferred_hardware_phone_uuid': 'preferred_hardware_phone_uuid',  # noqa: E501
         'record_outgoing_automatically': 'record_outgoing_automatically',  # noqa: E501
         'shared_conversation_pbx_voicemail_mailbox_uuid': 'shared_conversation_pbx_voicemail_mailbox_uuid',  # noqa: E501
         'twilio_taskrouter_worker_id': 'twilio_taskrouter_worker_id',  # noqa: E501
@@ -189,14 +198,16 @@ class ConversationPbxAgent(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             ai (bool): Flag to indicate if the agent is AI. [optional]  # noqa: E501
+            call_routing_preference (str): The call routing preference. [optional]  # noqa: E501
             cellphone (str): Cellphone number of agent in E.164 format. [optional]  # noqa: E501
             conversation_pbx_agent_uuid (str): Conversation Pbx Agent unique identifier. [optional]  # noqa: E501
             extension (int): Extension. [optional]  # noqa: E501
-            forward_calls_to_cellphone (bool): True if calls to this agent should be forwarded to their cellphone. [optional]  # noqa: E501
             full_name (str): Full name. [optional]  # noqa: E501
+            hardware_phone_uuids ([str]): Array of hardware phones UUIDs associated with this agent. [optional]  # noqa: E501
             login (str): Agent login. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             personal_conversation_pbx_voicemail_mailbox_uuid (str): Personal Conversation Pbx Voicemail Mailbox UUID. [optional]  # noqa: E501
+            preferred_hardware_phone_uuid (str): The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone. [optional]  # noqa: E501
             record_outgoing_automatically (bool): True if outgoing calls should be automatically recorded. [optional]  # noqa: E501
             shared_conversation_pbx_voicemail_mailbox_uuid (str): Shared Conversation Pbx Voicemail Mailbox UUID. [optional]  # noqa: E501
             twilio_taskrouter_worker_id (str): Twilio taskrouter worker Id. [optional]  # noqa: E501
@@ -291,14 +302,16 @@ class ConversationPbxAgent(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             ai (bool): Flag to indicate if the agent is AI. [optional]  # noqa: E501
+            call_routing_preference (str): The call routing preference. [optional]  # noqa: E501
             cellphone (str): Cellphone number of agent in E.164 format. [optional]  # noqa: E501
             conversation_pbx_agent_uuid (str): Conversation Pbx Agent unique identifier. [optional]  # noqa: E501
             extension (int): Extension. [optional]  # noqa: E501
-            forward_calls_to_cellphone (bool): True if calls to this agent should be forwarded to their cellphone. [optional]  # noqa: E501
             full_name (str): Full name. [optional]  # noqa: E501
+            hardware_phone_uuids ([str]): Array of hardware phones UUIDs associated with this agent. [optional]  # noqa: E501
             login (str): Agent login. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             personal_conversation_pbx_voicemail_mailbox_uuid (str): Personal Conversation Pbx Voicemail Mailbox UUID. [optional]  # noqa: E501
+            preferred_hardware_phone_uuid (str): The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone. [optional]  # noqa: E501
             record_outgoing_automatically (bool): True if outgoing calls should be automatically recorded. [optional]  # noqa: E501
             shared_conversation_pbx_voicemail_mailbox_uuid (str): Shared Conversation Pbx Voicemail Mailbox UUID. [optional]  # noqa: E501
             twilio_taskrouter_worker_id (str): Twilio taskrouter worker Id. [optional]  # noqa: E501

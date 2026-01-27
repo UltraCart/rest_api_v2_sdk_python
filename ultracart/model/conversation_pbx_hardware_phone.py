@@ -83,6 +83,9 @@ class ConversationPbxHardwarePhone(ModelNormal):
         ('sip_domain',): {
             'max_length': 200,
         },
+        ('sip_edge_location',): {
+            'max_length': 50,
+        },
         ('sip_password',): {
             'max_length': 100,
         },
@@ -112,6 +115,8 @@ class ConversationPbxHardwarePhone(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'admin_username': (str,),  # noqa: E501
+            'conversation_pbx_agent_uuid': (str,),  # noqa: E501
             'conversation_pbx_hardware_phone_uuid': (str,),  # noqa: E501
             'created_at': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -122,8 +127,10 @@ class ConversationPbxHardwarePhone(ModelNormal):
             'name': (str,),  # noqa: E501
             'provisioning_url': (str,),  # noqa: E501
             'sip_domain': (str,),  # noqa: E501
+            'sip_edge_location': (str,),  # noqa: E501
             'sip_password': (str,),  # noqa: E501
             'sip_username': (str,),  # noqa: E501
+            'twilio_credential_sid': (str,),  # noqa: E501
             'updated_at': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
@@ -133,6 +140,8 @@ class ConversationPbxHardwarePhone(ModelNormal):
 
 
     attribute_map = {
+        'admin_username': 'admin_username',  # noqa: E501
+        'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',  # noqa: E501
         'conversation_pbx_hardware_phone_uuid': 'conversation_pbx_hardware_phone_uuid',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -143,8 +152,10 @@ class ConversationPbxHardwarePhone(ModelNormal):
         'name': 'name',  # noqa: E501
         'provisioning_url': 'provisioning_url',  # noqa: E501
         'sip_domain': 'sip_domain',  # noqa: E501
+        'sip_edge_location': 'sip_edge_location',  # noqa: E501
         'sip_password': 'sip_password',  # noqa: E501
         'sip_username': 'sip_username',  # noqa: E501
+        'twilio_credential_sid': 'twilio_credential_sid',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
     }
 
@@ -189,6 +200,8 @@ class ConversationPbxHardwarePhone(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            admin_username (str): Admin Username. [optional]  # noqa: E501
+            conversation_pbx_agent_uuid (str): Associated Agent UUID. [optional]  # noqa: E501
             conversation_pbx_hardware_phone_uuid (str): Conversation Pbx Hardware Phone UUID. [optional]  # noqa: E501
             created_at (bool, date, datetime, dict, float, int, list, str, none_type): Created At. [optional]  # noqa: E501
             description (str): Description. [optional]  # noqa: E501
@@ -199,8 +212,10 @@ class ConversationPbxHardwarePhone(ModelNormal):
             name (str): Name. [optional]  # noqa: E501
             provisioning_url (str): Auto-provisioning URL for phone configuration. [optional]  # noqa: E501
             sip_domain (str): SIP Domain. [optional]  # noqa: E501
-            sip_password (str): SIP Password. [optional]  # noqa: E501
+            sip_edge_location (str): SIP Edge Location. [optional]  # noqa: E501
+            sip_password (str): SIP Password (only on create or regenerate password requests). [optional]  # noqa: E501
             sip_username (str): SIP Username. [optional]  # noqa: E501
+            twilio_credential_sid (str): Twilio Credential SID. [optional]  # noqa: E501
             updated_at (bool, date, datetime, dict, float, int, list, str, none_type): Updated At. [optional]  # noqa: E501
         """
 
@@ -287,6 +302,8 @@ class ConversationPbxHardwarePhone(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            admin_username (str): Admin Username. [optional]  # noqa: E501
+            conversation_pbx_agent_uuid (str): Associated Agent UUID. [optional]  # noqa: E501
             conversation_pbx_hardware_phone_uuid (str): Conversation Pbx Hardware Phone UUID. [optional]  # noqa: E501
             created_at (bool, date, datetime, dict, float, int, list, str, none_type): Created At. [optional]  # noqa: E501
             description (str): Description. [optional]  # noqa: E501
@@ -297,8 +314,10 @@ class ConversationPbxHardwarePhone(ModelNormal):
             name (str): Name. [optional]  # noqa: E501
             provisioning_url (str): Auto-provisioning URL for phone configuration. [optional]  # noqa: E501
             sip_domain (str): SIP Domain. [optional]  # noqa: E501
-            sip_password (str): SIP Password. [optional]  # noqa: E501
+            sip_edge_location (str): SIP Edge Location. [optional]  # noqa: E501
+            sip_password (str): SIP Password (only on create or regenerate password requests). [optional]  # noqa: E501
             sip_username (str): SIP Username. [optional]  # noqa: E501
+            twilio_credential_sid (str): Twilio Credential SID. [optional]  # noqa: E501
             updated_at (bool, date, datetime, dict, float, int, list, str, none_type): Updated At. [optional]  # noqa: E501
         """
 

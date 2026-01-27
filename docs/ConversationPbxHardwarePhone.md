@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**admin_username** | **str** | Admin Username | [optional] 
+**conversation_pbx_agent_uuid** | **str** | Associated Agent UUID | [optional] 
 **conversation_pbx_hardware_phone_uuid** | **str** | Conversation Pbx Hardware Phone UUID | [optional] 
 **created_at** | **bool, date, datetime, dict, float, int, list, str, none_type** | Created At | [optional] 
 **description** | **str** | Description | [optional] 
@@ -14,8 +16,10 @@ Name | Type | Description | Notes
 **name** | **str** | Name | [optional] 
 **provisioning_url** | **str** | Auto-provisioning URL for phone configuration | [optional] 
 **sip_domain** | **str** | SIP Domain | [optional] 
-**sip_password** | **str** | SIP Password | [optional] 
+**sip_edge_location** | **str** | SIP Edge Location | [optional] 
+**sip_password** | **str** | SIP Password (only on create or regenerate password requests) | [optional] 
 **sip_username** | **str** | SIP Username | [optional] 
+**twilio_credential_sid** | **str** | Twilio Credential SID | [optional] 
 **updated_at** | **bool, date, datetime, dict, float, int, list, str, none_type** | Updated At | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
