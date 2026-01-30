@@ -34,6 +34,7 @@ class ConversationPbxQueue(object):
         'ai_priority': 'str',
         'ai_timeout_seconds': 'int',
         'announce_queue_position': 'bool',
+        'automatic_coach_agent_uuid': 'str',
         'conversation_pbx_queue_uuid': 'str',
         'conversation_voicemail_mailbox_uuid': 'str',
         'hold_conversation_pbx_audio_uuid': 'str',
@@ -60,6 +61,7 @@ class ConversationPbxQueue(object):
         'ai_priority': 'ai_priority',
         'ai_timeout_seconds': 'ai_timeout_seconds',
         'announce_queue_position': 'announce_queue_position',
+        'automatic_coach_agent_uuid': 'automatic_coach_agent_uuid',
         'conversation_pbx_queue_uuid': 'conversation_pbx_queue_uuid',
         'conversation_voicemail_mailbox_uuid': 'conversation_voicemail_mailbox_uuid',
         'hold_conversation_pbx_audio_uuid': 'hold_conversation_pbx_audio_uuid',
@@ -82,12 +84,13 @@ class ConversationPbxQueue(object):
         'wrap_up_seconds': 'wrap_up_seconds'
     }
 
-    def __init__(self, ai_priority=None, ai_timeout_seconds=None, announce_queue_position=None, conversation_pbx_queue_uuid=None, conversation_voicemail_mailbox_uuid=None, hold_conversation_pbx_audio_uuid=None, max_hold_seconds=None, members=None, merchant_id=None, name=None, no_agent_available_play_audio_uuid=None, no_agent_available_say=None, no_agent_available_say_voice=None, play_audio_uuid=None, record_call=None, say=None, say_voice=None, twilio_taskrouter_workflow_sid=None, twilio_workspace_queue_sid=None, voicemail=None, wait_critical_seconds=None, wait_warning_seconds=None, wrap_up_seconds=None):  # noqa: E501
+    def __init__(self, ai_priority=None, ai_timeout_seconds=None, announce_queue_position=None, automatic_coach_agent_uuid=None, conversation_pbx_queue_uuid=None, conversation_voicemail_mailbox_uuid=None, hold_conversation_pbx_audio_uuid=None, max_hold_seconds=None, members=None, merchant_id=None, name=None, no_agent_available_play_audio_uuid=None, no_agent_available_say=None, no_agent_available_say_voice=None, play_audio_uuid=None, record_call=None, say=None, say_voice=None, twilio_taskrouter_workflow_sid=None, twilio_workspace_queue_sid=None, voicemail=None, wait_critical_seconds=None, wait_warning_seconds=None, wrap_up_seconds=None):  # noqa: E501
         """ConversationPbxQueue - a model defined in Swagger"""  # noqa: E501
 
         self._ai_priority = None
         self._ai_timeout_seconds = None
         self._announce_queue_position = None
+        self._automatic_coach_agent_uuid = None
         self._conversation_pbx_queue_uuid = None
         self._conversation_voicemail_mailbox_uuid = None
         self._hold_conversation_pbx_audio_uuid = None
@@ -116,6 +119,8 @@ class ConversationPbxQueue(object):
             self.ai_timeout_seconds = ai_timeout_seconds
         if announce_queue_position is not None:
             self.announce_queue_position = announce_queue_position
+        if automatic_coach_agent_uuid is not None:
+            self.automatic_coach_agent_uuid = automatic_coach_agent_uuid
         if conversation_pbx_queue_uuid is not None:
             self.conversation_pbx_queue_uuid = conversation_pbx_queue_uuid
         if conversation_voicemail_mailbox_uuid is not None:
@@ -231,6 +236,29 @@ class ConversationPbxQueue(object):
         """
 
         self._announce_queue_position = announce_queue_position
+
+    @property
+    def automatic_coach_agent_uuid(self):
+        """Gets the automatic_coach_agent_uuid of this ConversationPbxQueue.  # noqa: E501
+
+        AI Agent UUID to automatically engage to provide coaching  # noqa: E501
+
+        :return: The automatic_coach_agent_uuid of this ConversationPbxQueue.  # noqa: E501
+        :rtype: str
+        """
+        return self._automatic_coach_agent_uuid
+
+    @automatic_coach_agent_uuid.setter
+    def automatic_coach_agent_uuid(self, automatic_coach_agent_uuid):
+        """Sets the automatic_coach_agent_uuid of this ConversationPbxQueue.
+
+        AI Agent UUID to automatically engage to provide coaching  # noqa: E501
+
+        :param automatic_coach_agent_uuid: The automatic_coach_agent_uuid of this ConversationPbxQueue.  # noqa: E501
+        :type: str
+        """
+
+        self._automatic_coach_agent_uuid = automatic_coach_agent_uuid
 
     @property
     def conversation_pbx_queue_uuid(self):
