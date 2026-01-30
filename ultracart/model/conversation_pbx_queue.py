@@ -126,6 +126,7 @@ class ConversationPbxQueue(ModelNormal):
             'ai_priority': (str,),  # noqa: E501
             'ai_timeout_seconds': (int,),  # noqa: E501
             'announce_queue_position': (bool,),  # noqa: E501
+            'automatic_coach_agent_uuid': (str,),  # noqa: E501
             'conversation_pbx_queue_uuid': (str,),  # noqa: E501
             'conversation_voicemail_mailbox_uuid': (str,),  # noqa: E501
             'hold_conversation_pbx_audio_uuid': (str,),  # noqa: E501
@@ -157,6 +158,7 @@ class ConversationPbxQueue(ModelNormal):
         'ai_priority': 'ai_priority',  # noqa: E501
         'ai_timeout_seconds': 'ai_timeout_seconds',  # noqa: E501
         'announce_queue_position': 'announce_queue_position',  # noqa: E501
+        'automatic_coach_agent_uuid': 'automatic_coach_agent_uuid',  # noqa: E501
         'conversation_pbx_queue_uuid': 'conversation_pbx_queue_uuid',  # noqa: E501
         'conversation_voicemail_mailbox_uuid': 'conversation_voicemail_mailbox_uuid',  # noqa: E501
         'hold_conversation_pbx_audio_uuid': 'hold_conversation_pbx_audio_uuid',  # noqa: E501
@@ -223,6 +225,7 @@ class ConversationPbxQueue(ModelNormal):
             ai_priority (str): AI Agent Priority compared to human agents. [optional]  # noqa: E501
             ai_timeout_seconds (int): AI timeout seconds. [optional]  # noqa: E501
             announce_queue_position (bool): If true, the customer is told their queue position upon entering the queue. [optional]  # noqa: E501
+            automatic_coach_agent_uuid (str): AI Agent UUID to automatically engage to provide coaching. [optional]  # noqa: E501
             conversation_pbx_queue_uuid (str): Conversation Pbx Queue unique identifier. [optional]  # noqa: E501
             conversation_voicemail_mailbox_uuid (str): The voicemail mailbox associated with this queue. [optional]  # noqa: E501
             hold_conversation_pbx_audio_uuid (str): The audio to play while holding in a queue. [optional]  # noqa: E501
@@ -331,6 +334,7 @@ class ConversationPbxQueue(ModelNormal):
             ai_priority (str): AI Agent Priority compared to human agents. [optional]  # noqa: E501
             ai_timeout_seconds (int): AI timeout seconds. [optional]  # noqa: E501
             announce_queue_position (bool): If true, the customer is told their queue position upon entering the queue. [optional]  # noqa: E501
+            automatic_coach_agent_uuid (str): AI Agent UUID to automatically engage to provide coaching. [optional]  # noqa: E501
             conversation_pbx_queue_uuid (str): Conversation Pbx Queue unique identifier. [optional]  # noqa: E501
             conversation_voicemail_mailbox_uuid (str): The voicemail mailbox associated with this queue. [optional]  # noqa: E501
             hold_conversation_pbx_audio_uuid (str): The audio to play while holding in a queue. [optional]  # noqa: E501
