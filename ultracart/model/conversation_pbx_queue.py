@@ -65,6 +65,14 @@ class ConversationPbxQueue(ModelNormal):
             'FIRST': "first",
             'BACKUP': "backup",
         },
+        ('no_agent_available_say_voice',): {
+            'MAN': "man",
+            'WOMAN': "woman",
+        },
+        ('say_voice',): {
+            'MAN': "man",
+            'WOMAN': "woman",
+        },
     }
 
     validations = {

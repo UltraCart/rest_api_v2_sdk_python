@@ -83,6 +83,7 @@ class Twilio(ModelNormal):
         """
         return {
             'account_sid': (str,),  # noqa: E501
+            'ai_twiml_app_sid': (str,),  # noqa: E501
             'api_key_id': (str,),  # noqa: E501
             'api_key_name': (str,),  # noqa: E501
             'auth_token': (str,),  # noqa: E501
@@ -100,6 +101,7 @@ class Twilio(ModelNormal):
 
     attribute_map = {
         'account_sid': 'account_sid',  # noqa: E501
+        'ai_twiml_app_sid': 'ai_twiml_app_sid',  # noqa: E501
         'api_key_id': 'api_key_id',  # noqa: E501
         'api_key_name': 'api_key_name',  # noqa: E501
         'auth_token': 'auth_token',  # noqa: E501
@@ -152,6 +154,7 @@ class Twilio(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             account_sid (str): [optional]  # noqa: E501
+            ai_twiml_app_sid (str): [optional]  # noqa: E501
             api_key_id (str): [optional]  # noqa: E501
             api_key_name (str): [optional]  # noqa: E501
             auth_token (str): [optional]  # noqa: E501
@@ -246,6 +249,7 @@ class Twilio(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             account_sid (str): [optional]  # noqa: E501
+            ai_twiml_app_sid (str): [optional]  # noqa: E501
             api_key_id (str): [optional]  # noqa: E501
             api_key_name (str): [optional]  # noqa: E501
             auth_token (str): [optional]  # noqa: E501

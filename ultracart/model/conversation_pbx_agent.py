@@ -61,6 +61,10 @@ class ConversationPbxAgent(ModelNormal):
             'HARDWARE_PHONE': "hardware_phone",
             'CELLPHONE': "cellphone",
         },
+        ('unavailable_say_voice',): {
+            'MAN': "man",
+            'WOMAN': "woman",
+        },
     }
 
     validations = {
@@ -112,6 +116,7 @@ class ConversationPbxAgent(ModelNormal):
             'call_routing_preference': (str,),  # noqa: E501
             'cellphone': (str,),  # noqa: E501
             'conversation_pbx_agent_uuid': (str,),  # noqa: E501
+            'cos_uuid': (str,),  # noqa: E501
             'default_phone_number_uuid': (str,),  # noqa: E501
             'extension': (int,),  # noqa: E501
             'full_name': (str,),  # noqa: E501
@@ -140,6 +145,7 @@ class ConversationPbxAgent(ModelNormal):
         'call_routing_preference': 'call_routing_preference',  # noqa: E501
         'cellphone': 'cellphone',  # noqa: E501
         'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',  # noqa: E501
+        'cos_uuid': 'cos_uuid',  # noqa: E501
         'default_phone_number_uuid': 'default_phone_number_uuid',  # noqa: E501
         'extension': 'extension',  # noqa: E501
         'full_name': 'full_name',  # noqa: E501
@@ -203,6 +209,7 @@ class ConversationPbxAgent(ModelNormal):
             call_routing_preference (str): The call routing preference. [optional]  # noqa: E501
             cellphone (str): Cellphone number of agent in E.164 format. [optional]  # noqa: E501
             conversation_pbx_agent_uuid (str): Conversation Pbx Agent unique identifier. [optional]  # noqa: E501
+            cos_uuid (str): Class of Service UUID. If null, the merchant default CoS applies.. [optional]  # noqa: E501
             default_phone_number_uuid (str): The default phone number that this agent should dial out to the PSTN with.. [optional]  # noqa: E501
             extension (int): Extension. [optional]  # noqa: E501
             full_name (str): Full name. [optional]  # noqa: E501
@@ -308,6 +315,7 @@ class ConversationPbxAgent(ModelNormal):
             call_routing_preference (str): The call routing preference. [optional]  # noqa: E501
             cellphone (str): Cellphone number of agent in E.164 format. [optional]  # noqa: E501
             conversation_pbx_agent_uuid (str): Conversation Pbx Agent unique identifier. [optional]  # noqa: E501
+            cos_uuid (str): Class of Service UUID. If null, the merchant default CoS applies.. [optional]  # noqa: E501
             default_phone_number_uuid (str): The default phone number that this agent should dial out to the PSTN with.. [optional]  # noqa: E501
             extension (int): Extension. [optional]  # noqa: E501
             full_name (str): Full name. [optional]  # noqa: E501
