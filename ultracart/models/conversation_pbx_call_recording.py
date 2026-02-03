@@ -34,6 +34,7 @@ class ConversationPbxCallRecording(object):
         'channels': 'int',
         'duration_seconds': 'int',
         'is_primary': 'bool',
+        'recording_s3_key': 'str',
         'recording_sid': 'str',
         'recording_url': 'str',
         'status': 'str',
@@ -44,18 +45,20 @@ class ConversationPbxCallRecording(object):
         'channels': 'channels',
         'duration_seconds': 'duration_seconds',
         'is_primary': 'is_primary',
+        'recording_s3_key': 'recording_s3_key',
         'recording_sid': 'recording_sid',
         'recording_url': 'recording_url',
         'status': 'status',
         'transcript': 'transcript'
     }
 
-    def __init__(self, channels=None, duration_seconds=None, is_primary=None, recording_sid=None, recording_url=None, status=None, transcript=None):  # noqa: E501
+    def __init__(self, channels=None, duration_seconds=None, is_primary=None, recording_s3_key=None, recording_sid=None, recording_url=None, status=None, transcript=None):  # noqa: E501
         """ConversationPbxCallRecording - a model defined in Swagger"""  # noqa: E501
 
         self._channels = None
         self._duration_seconds = None
         self._is_primary = None
+        self._recording_s3_key = None
         self._recording_sid = None
         self._recording_url = None
         self._status = None
@@ -68,6 +71,8 @@ class ConversationPbxCallRecording(object):
             self.duration_seconds = duration_seconds
         if is_primary is not None:
             self.is_primary = is_primary
+        if recording_s3_key is not None:
+            self.recording_s3_key = recording_s3_key
         if recording_sid is not None:
             self.recording_sid = recording_sid
         if recording_url is not None:
@@ -145,6 +150,29 @@ class ConversationPbxCallRecording(object):
         """
 
         self._is_primary = is_primary
+
+    @property
+    def recording_s3_key(self):
+        """Gets the recording_s3_key of this ConversationPbxCallRecording.  # noqa: E501
+
+        S3 key for the recording audio file  # noqa: E501
+
+        :return: The recording_s3_key of this ConversationPbxCallRecording.  # noqa: E501
+        :rtype: str
+        """
+        return self._recording_s3_key
+
+    @recording_s3_key.setter
+    def recording_s3_key(self, recording_s3_key):
+        """Sets the recording_s3_key of this ConversationPbxCallRecording.
+
+        S3 key for the recording audio file  # noqa: E501
+
+        :param recording_s3_key: The recording_s3_key of this ConversationPbxCallRecording.  # noqa: E501
+        :type: str
+        """
+
+        self._recording_s3_key = recording_s3_key
 
     @property
     def recording_sid(self):

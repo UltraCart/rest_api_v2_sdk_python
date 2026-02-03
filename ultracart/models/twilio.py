@@ -32,6 +32,7 @@ class Twilio(object):
     """
     swagger_types = {
         'account_sid': 'str',
+        'ai_twiml_app_sid': 'str',
         'api_key_id': 'str',
         'api_key_name': 'str',
         'auth_token': 'str',
@@ -44,6 +45,7 @@ class Twilio(object):
 
     attribute_map = {
         'account_sid': 'account_sid',
+        'ai_twiml_app_sid': 'ai_twiml_app_sid',
         'api_key_id': 'api_key_id',
         'api_key_name': 'api_key_name',
         'auth_token': 'auth_token',
@@ -54,10 +56,11 @@ class Twilio(object):
         'twilio_workspace_sid': 'twilio_workspace_sid'
     }
 
-    def __init__(self, account_sid=None, api_key_id=None, api_key_name=None, auth_token=None, esp_twilio_uuid=None, inbound_twiml_app_sid=None, outbound_twiml_app_sid=None, phone_numbers=None, twilio_workspace_sid=None):  # noqa: E501
+    def __init__(self, account_sid=None, ai_twiml_app_sid=None, api_key_id=None, api_key_name=None, auth_token=None, esp_twilio_uuid=None, inbound_twiml_app_sid=None, outbound_twiml_app_sid=None, phone_numbers=None, twilio_workspace_sid=None):  # noqa: E501
         """Twilio - a model defined in Swagger"""  # noqa: E501
 
         self._account_sid = None
+        self._ai_twiml_app_sid = None
         self._api_key_id = None
         self._api_key_name = None
         self._auth_token = None
@@ -70,6 +73,8 @@ class Twilio(object):
 
         if account_sid is not None:
             self.account_sid = account_sid
+        if ai_twiml_app_sid is not None:
+            self.ai_twiml_app_sid = ai_twiml_app_sid
         if api_key_id is not None:
             self.api_key_id = api_key_id
         if api_key_name is not None:
@@ -107,6 +112,27 @@ class Twilio(object):
         """
 
         self._account_sid = account_sid
+
+    @property
+    def ai_twiml_app_sid(self):
+        """Gets the ai_twiml_app_sid of this Twilio.  # noqa: E501
+
+
+        :return: The ai_twiml_app_sid of this Twilio.  # noqa: E501
+        :rtype: str
+        """
+        return self._ai_twiml_app_sid
+
+    @ai_twiml_app_sid.setter
+    def ai_twiml_app_sid(self, ai_twiml_app_sid):
+        """Sets the ai_twiml_app_sid of this Twilio.
+
+
+        :param ai_twiml_app_sid: The ai_twiml_app_sid of this Twilio.  # noqa: E501
+        :type: str
+        """
+
+        self._ai_twiml_app_sid = ai_twiml_app_sid
 
     @property
     def api_key_id(self):

@@ -495,8 +495,12 @@ class ConversationPbxQueue(object):
         :param no_agent_available_say_voice: The no_agent_available_say_voice of this ConversationPbxQueue.  # noqa: E501
         :type: str
         """
-        if no_agent_available_say_voice is not None and len(no_agent_available_say_voice) > 50:
-            raise ValueError("Invalid value for `no_agent_available_say_voice`, length must be less than or equal to `50`")  # noqa: E501
+        allowed_values = ["man", "woman"]  # noqa: E501
+        if no_agent_available_say_voice not in allowed_values:
+            raise ValueError(
+                "Invalid value for `no_agent_available_say_voice` ({0}), must be one of {1}"  # noqa: E501
+                .format(no_agent_available_say_voice, allowed_values)
+            )
 
         self._no_agent_available_say_voice = no_agent_available_say_voice
 
@@ -591,8 +595,12 @@ class ConversationPbxQueue(object):
         :param say_voice: The say_voice of this ConversationPbxQueue.  # noqa: E501
         :type: str
         """
-        if say_voice is not None and len(say_voice) > 50:
-            raise ValueError("Invalid value for `say_voice`, length must be less than or equal to `50`")  # noqa: E501
+        allowed_values = ["man", "woman"]  # noqa: E501
+        if say_voice not in allowed_values:
+            raise ValueError(
+                "Invalid value for `say_voice` ({0}), must be one of {1}"  # noqa: E501
+                .format(say_voice, allowed_values)
+            )
 
         self._say_voice = say_voice
 

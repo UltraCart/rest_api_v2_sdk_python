@@ -35,6 +35,7 @@ class ConversationAgentAuth(object):
         'chat_user': 'bool',
         'conversation_participant_arn': 'str',
         'conversation_participant_name': 'str',
+        'default_phone_number': 'str',
         'group_ids': 'list[int]',
         'jwt': 'str',
         'merchant_id': 'str',
@@ -56,6 +57,7 @@ class ConversationAgentAuth(object):
         'chat_user': 'chat_user',
         'conversation_participant_arn': 'conversation_participant_arn',
         'conversation_participant_name': 'conversation_participant_name',
+        'default_phone_number': 'default_phone_number',
         'group_ids': 'group_ids',
         'jwt': 'jwt',
         'merchant_id': 'merchant_id',
@@ -72,13 +74,14 @@ class ConversationAgentAuth(object):
         'websocket_url': 'websocket_url'
     }
 
-    def __init__(self, chat_admin=None, chat_user=None, conversation_participant_arn=None, conversation_participant_name=None, group_ids=None, jwt=None, merchant_id=None, pbx_admin=None, pbx_jwt=None, pbx_supervisor=None, pbx_user=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, pbx_worker_token_v2=None, twilio_accounts=None, user_id=None, websocket_url=None):  # noqa: E501
+    def __init__(self, chat_admin=None, chat_user=None, conversation_participant_arn=None, conversation_participant_name=None, default_phone_number=None, group_ids=None, jwt=None, merchant_id=None, pbx_admin=None, pbx_jwt=None, pbx_supervisor=None, pbx_user=None, pbx_voice_identity=None, pbx_voice_token=None, pbx_worker_token=None, pbx_worker_token_v2=None, twilio_accounts=None, user_id=None, websocket_url=None):  # noqa: E501
         """ConversationAgentAuth - a model defined in Swagger"""  # noqa: E501
 
         self._chat_admin = None
         self._chat_user = None
         self._conversation_participant_arn = None
         self._conversation_participant_name = None
+        self._default_phone_number = None
         self._group_ids = None
         self._jwt = None
         self._merchant_id = None
@@ -103,6 +106,8 @@ class ConversationAgentAuth(object):
             self.conversation_participant_arn = conversation_participant_arn
         if conversation_participant_name is not None:
             self.conversation_participant_name = conversation_participant_name
+        if default_phone_number is not None:
+            self.default_phone_number = default_phone_number
         if group_ids is not None:
             self.group_ids = group_ids
         if jwt is not None:
@@ -215,6 +220,29 @@ class ConversationAgentAuth(object):
         """
 
         self._conversation_participant_name = conversation_participant_name
+
+    @property
+    def default_phone_number(self):
+        """Gets the default_phone_number of this ConversationAgentAuth.  # noqa: E501
+
+        The default phone number this agent should use when making an outbound call.  # noqa: E501
+
+        :return: The default_phone_number of this ConversationAgentAuth.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_phone_number
+
+    @default_phone_number.setter
+    def default_phone_number(self, default_phone_number):
+        """Sets the default_phone_number of this ConversationAgentAuth.
+
+        The default phone number this agent should use when making an outbound call.  # noqa: E501
+
+        :param default_phone_number: The default_phone_number of this ConversationAgentAuth.  # noqa: E501
+        :type: str
+        """
+
+        self._default_phone_number = default_phone_number
 
     @property
     def group_ids(self):

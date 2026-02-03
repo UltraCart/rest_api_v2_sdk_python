@@ -35,6 +35,7 @@ class ConversationPbxAgent(object):
         'call_routing_preference': 'str',
         'cellphone': 'str',
         'conversation_pbx_agent_uuid': 'str',
+        'cos_uuid': 'str',
         'default_phone_number_uuid': 'str',
         'extension': 'int',
         'full_name': 'str',
@@ -58,6 +59,7 @@ class ConversationPbxAgent(object):
         'call_routing_preference': 'call_routing_preference',
         'cellphone': 'cellphone',
         'conversation_pbx_agent_uuid': 'conversation_pbx_agent_uuid',
+        'cos_uuid': 'cos_uuid',
         'default_phone_number_uuid': 'default_phone_number_uuid',
         'extension': 'extension',
         'full_name': 'full_name',
@@ -76,13 +78,14 @@ class ConversationPbxAgent(object):
         'voicemail': 'voicemail'
     }
 
-    def __init__(self, ai=None, call_routing_preference=None, cellphone=None, conversation_pbx_agent_uuid=None, default_phone_number_uuid=None, extension=None, full_name=None, hardware_phone_uuids=None, login=None, merchant_id=None, personal_conversation_pbx_voicemail_mailbox_uuid=None, preferred_hardware_phone_uuid=None, record_outgoing_automatically=None, shared_conversation_pbx_voicemail_mailbox_uuid=None, twilio_taskrouter_worker_id=None, unavailable_play_audio_uuid=None, unavailable_say=None, unavailable_say_voice=None, user_id=None, voicemail=None):  # noqa: E501
+    def __init__(self, ai=None, call_routing_preference=None, cellphone=None, conversation_pbx_agent_uuid=None, cos_uuid=None, default_phone_number_uuid=None, extension=None, full_name=None, hardware_phone_uuids=None, login=None, merchant_id=None, personal_conversation_pbx_voicemail_mailbox_uuid=None, preferred_hardware_phone_uuid=None, record_outgoing_automatically=None, shared_conversation_pbx_voicemail_mailbox_uuid=None, twilio_taskrouter_worker_id=None, unavailable_play_audio_uuid=None, unavailable_say=None, unavailable_say_voice=None, user_id=None, voicemail=None):  # noqa: E501
         """ConversationPbxAgent - a model defined in Swagger"""  # noqa: E501
 
         self._ai = None
         self._call_routing_preference = None
         self._cellphone = None
         self._conversation_pbx_agent_uuid = None
+        self._cos_uuid = None
         self._default_phone_number_uuid = None
         self._extension = None
         self._full_name = None
@@ -109,6 +112,8 @@ class ConversationPbxAgent(object):
             self.cellphone = cellphone
         if conversation_pbx_agent_uuid is not None:
             self.conversation_pbx_agent_uuid = conversation_pbx_agent_uuid
+        if cos_uuid is not None:
+            self.cos_uuid = cos_uuid
         if default_phone_number_uuid is not None:
             self.default_phone_number_uuid = default_phone_number_uuid
         if extension is not None:
@@ -241,6 +246,29 @@ class ConversationPbxAgent(object):
         """
 
         self._conversation_pbx_agent_uuid = conversation_pbx_agent_uuid
+
+    @property
+    def cos_uuid(self):
+        """Gets the cos_uuid of this ConversationPbxAgent.  # noqa: E501
+
+        Class of Service UUID. If null, the merchant default CoS applies.  # noqa: E501
+
+        :return: The cos_uuid of this ConversationPbxAgent.  # noqa: E501
+        :rtype: str
+        """
+        return self._cos_uuid
+
+    @cos_uuid.setter
+    def cos_uuid(self, cos_uuid):
+        """Sets the cos_uuid of this ConversationPbxAgent.
+
+        Class of Service UUID. If null, the merchant default CoS applies.  # noqa: E501
+
+        :param cos_uuid: The cos_uuid of this ConversationPbxAgent.  # noqa: E501
+        :type: str
+        """
+
+        self._cos_uuid = cos_uuid
 
     @property
     def default_phone_number_uuid(self):
@@ -571,8 +599,12 @@ class ConversationPbxAgent(object):
         :param unavailable_say_voice: The unavailable_say_voice of this ConversationPbxAgent.  # noqa: E501
         :type: str
         """
-        if unavailable_say_voice is not None and len(unavailable_say_voice) > 50:
-            raise ValueError("Invalid value for `unavailable_say_voice`, length must be less than or equal to `50`")  # noqa: E501
+        allowed_values = ["man", "woman"]  # noqa: E501
+        if unavailable_say_voice not in allowed_values:
+            raise ValueError(
+                "Invalid value for `unavailable_say_voice` ({0}), must be one of {1}"  # noqa: E501
+                .format(unavailable_say_voice, allowed_values)
+            )
 
         self._unavailable_say_voice = unavailable_say_voice
 
