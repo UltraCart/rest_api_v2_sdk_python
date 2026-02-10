@@ -341,7 +341,7 @@ class EmailCommseqPostcard(object):
     def screenshot_back_url(self):
         """Gets the screenshot_back_url of this EmailCommseqPostcard.  # noqa: E501
 
-        URL to screenshot of the back of the postcard  # noqa: E501
+        URL to screenshot of the front of the postcard  # noqa: E501
 
         :return: The screenshot_back_url of this EmailCommseqPostcard.  # noqa: E501
         :rtype: str
@@ -352,7 +352,7 @@ class EmailCommseqPostcard(object):
     def screenshot_back_url(self, screenshot_back_url):
         """Sets the screenshot_back_url of this EmailCommseqPostcard.
 
-        URL to screenshot of the back of the postcard  # noqa: E501
+        URL to screenshot of the front of the postcard  # noqa: E501
 
         :param screenshot_back_url: The screenshot_back_url of this EmailCommseqPostcard.  # noqa: E501
         :type: str

@@ -5447,6 +5447,7 @@ class ConversationApi(object):
         :param async_req bool
         :param str since: ISO timestamp to filter entries since
         :param str agent_login: Filter by agent login
+        :param str action: Action
         :param int limit: Maximum number of entries to return (default 100)
         :return: ConversationPbxCosAuditLogsResponse
                  If the method is called asynchronously,
@@ -5471,13 +5472,14 @@ class ConversationApi(object):
         :param async_req bool
         :param str since: ISO timestamp to filter entries since
         :param str agent_login: Filter by agent login
+        :param str action: Action
         :param int limit: Maximum number of entries to return (default 100)
         :return: ConversationPbxCosAuditLogsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['since', 'agent_login', 'limit']  # noqa: E501
+        all_params = ['since', 'agent_login', 'action', 'limit']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5502,6 +5504,8 @@ class ConversationApi(object):
             query_params.append(('since', params['since']))  # noqa: E501
         if 'agent_login' in params:
             query_params.append(('agent_login', params['agent_login']))  # noqa: E501
+        if 'action' in params:
+            query_params.append(('action', params['action']))  # noqa: E501
         if 'limit' in params:
             query_params.append(('limit', params['limit']))  # noqa: E501
 

@@ -2831,7 +2831,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pbx_cos_audit_logs**
-> ConversationPbxCosAuditLogsResponse get_pbx_cos_audit_logs(since=since, agent_login=agent_login, limit=limit)
+> ConversationPbxCosAuditLogsResponse get_pbx_cos_audit_logs(since=since, agent_login=agent_login, action=action, limit=limit)
 
 Get pbx class of service audit logs
 
@@ -2851,11 +2851,12 @@ api_instance = ultracart.ConversationApi.fromApiKey(simple_key, False, True)
 
 since = 'since_example' # str | ISO timestamp to filter entries since (optional)
 agent_login = 'agent_login_example' # str | Filter by agent login (optional)
+action = 'action_example' # str | Action (optional)
 limit = 56 # int | Maximum number of entries to return (default 100) (optional)
 
 try:
     # Get pbx class of service audit logs
-    api_response = api_instance.get_pbx_cos_audit_logs(since=since, agent_login=agent_login, limit=limit)
+    api_response = api_instance.get_pbx_cos_audit_logs(since=since, agent_login=agent_login, action=action, limit=limit)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ConversationApi->get_pbx_cos_audit_logs: %s\n" % e)
@@ -2867,6 +2868,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **since** | **str**| ISO timestamp to filter entries since | [optional] 
  **agent_login** | **str**| Filter by agent login | [optional] 
+ **action** | **str**| Action | [optional] 
  **limit** | **int**| Maximum number of entries to return (default 100) | [optional] 
 
 ### Return type
