@@ -2970,6 +2970,7 @@ class ConversationApi(object):
                 'all': [
                     'since',
                     'agent_login',
+                    'action',
                     'limit',
                 ],
                 'required': [],
@@ -2990,17 +2991,21 @@ class ConversationApi(object):
                         (str,),
                     'agent_login':
                         (str,),
+                    'action':
+                        (str,),
                     'limit':
                         (int,),
                 },
                 'attribute_map': {
                     'since': 'since',
                     'agent_login': 'agent_login',
+                    'action': 'action',
                     'limit': 'limit',
                 },
                 'location_map': {
                     'since': 'query',
                     'agent_login': 'query',
+                    'action': 'query',
                     'limit': 'query',
                 },
                 'collection_format_map': {
@@ -11129,6 +11134,7 @@ class ConversationApi(object):
         Keyword Args:
             since (str): ISO timestamp to filter entries since. [optional]
             agent_login (str): Filter by agent login. [optional]
+            action (str): Action. [optional]
             limit (int): Maximum number of entries to return (default 100). [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

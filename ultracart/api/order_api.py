@@ -44,6 +44,7 @@ from ultracart.model.order_replacement import OrderReplacement
 from ultracart.model.order_replacement_response import OrderReplacementResponse
 from ultracart.model.order_response import OrderResponse
 from ultracart.model.order_token_response import OrderTokenResponse
+from ultracart.model.order_upsell_cart_request import OrderUpsellCartRequest
 from ultracart.model.order_validation_request import OrderValidationRequest
 from ultracart.model.order_validation_response import OrderValidationResponse
 from ultracart.model.orders_response import OrdersResponse
@@ -959,6 +960,70 @@ class OrderApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_order_upsell_cart_endpoint = _Endpoint(
+            settings={
+                'response_type': (OrderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/order/orders/{order_id}/upsell_with_cart',
+                'operation_id': 'get_order_upsell_cart',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'order_id',
+                    'upsell_cart_request',
+                    'expand',
+                ],
+                'required': [
+                    'order_id',
+                    'upsell_cart_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'order_id':
+                        (str,),
+                    'upsell_cart_request':
+                        (OrderUpsellCartRequest,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'order_id': 'order_id',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'order_id': 'path',
+                    'upsell_cart_request': 'body',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
             },
             api_client=api_client
         )
@@ -3353,6 +3418,94 @@ class OrderApi(object):
         kwargs['order_id'] = \
             order_id
         return self.get_order_edi_documents_endpoint.call_with_http_info(**kwargs)
+
+    def get_order_upsell_cart(
+        self,
+        order_id,
+        upsell_cart_request,
+        **kwargs
+    ):
+        """Get Order Upsell Cart  # noqa: E501
+
+        Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_order_upsell_cart(order_id, upsell_cart_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            order_id (str): The order id to base things on.
+            upsell_cart_request (OrderUpsellCartRequest): Request for the upsell cart
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            OrderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['order_id'] = \
+            order_id
+        kwargs['upsell_cart_request'] = \
+            upsell_cart_request
+        return self.get_order_upsell_cart_endpoint.call_with_http_info(**kwargs)
 
     def get_orders(
         self,

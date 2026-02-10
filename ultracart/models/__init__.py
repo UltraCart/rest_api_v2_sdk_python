@@ -631,8 +631,6 @@ from ultracart.model.item_internal import ItemInternal
 from ultracart.model.item_inventory_snapshot import ItemInventorySnapshot
 from ultracart.model.item_inventory_snapshot_distribution_center import ItemInventorySnapshotDistributionCenter
 from ultracart.model.item_inventory_snapshot_response import ItemInventorySnapshotResponse
-from ultracart.model.item_inventory_update import ItemInventoryUpdate
-from ultracart.model.item_inventory_update_request import ItemInventoryUpdateRequest
 from ultracart.model.item_kit_component import ItemKitComponent
 from ultracart.model.item_kit_definition import ItemKitDefinition
 from ultracart.model.item_option import ItemOption
@@ -664,7 +662,6 @@ from ultracart.model.item_shipping_case import ItemShippingCase
 from ultracart.model.item_shipping_destination_markup import ItemShippingDestinationMarkup
 from ultracart.model.item_shipping_destination_restriction import ItemShippingDestinationRestriction
 from ultracart.model.item_shipping_distribution_center import ItemShippingDistributionCenter
-from ultracart.model.item_shipping_distribution_center_response import ItemShippingDistributionCenterResponse
 from ultracart.model.item_shipping_method import ItemShippingMethod
 from ultracart.model.item_shipping_package_requirement import ItemShippingPackageRequirement
 from ultracart.model.item_tag import ItemTag
@@ -771,6 +768,7 @@ from ultracart.model.order_token_response import OrderTokenResponse
 from ultracart.model.order_tracking_number_detail import OrderTrackingNumberDetail
 from ultracart.model.order_tracking_number_details import OrderTrackingNumberDetails
 from ultracart.model.order_transactional_merchant_note import OrderTransactionalMerchantNote
+from ultracart.model.order_upsell_cart_request import OrderUpsellCartRequest
 from ultracart.model.order_utm import OrderUtm
 from ultracart.model.order_validation_request import OrderValidationRequest
 from ultracart.model.order_validation_response import OrderValidationResponse

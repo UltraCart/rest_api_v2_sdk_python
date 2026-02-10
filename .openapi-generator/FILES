@@ -636,8 +636,6 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
-docs/ItemInventoryUpdate.md
-docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -669,7 +667,6 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
-docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -778,6 +775,7 @@ docs/OrderTokenResponse.md
 docs/OrderTrackingNumberDetail.md
 docs/OrderTrackingNumberDetails.md
 docs/OrderTransactionalMerchantNote.md
+docs/OrderUpsellCartRequest.md
 docs/OrderUtm.md
 docs/OrderValidationRequest.md
 docs/OrderValidationResponse.md
@@ -1620,8 +1618,6 @@ ultracart/model/item_internal.py
 ultracart/model/item_inventory_snapshot.py
 ultracart/model/item_inventory_snapshot_distribution_center.py
 ultracart/model/item_inventory_snapshot_response.py
-ultracart/model/item_inventory_update.py
-ultracart/model/item_inventory_update_request.py
 ultracart/model/item_kit_component.py
 ultracart/model/item_kit_definition.py
 ultracart/model/item_option.py
@@ -1653,7 +1649,6 @@ ultracart/model/item_shipping_case.py
 ultracart/model/item_shipping_destination_markup.py
 ultracart/model/item_shipping_destination_restriction.py
 ultracart/model/item_shipping_distribution_center.py
-ultracart/model/item_shipping_distribution_center_response.py
 ultracart/model/item_shipping_method.py
 ultracart/model/item_shipping_package_requirement.py
 ultracart/model/item_tag.py
@@ -1760,6 +1755,7 @@ ultracart/model/order_token_response.py
 ultracart/model/order_tracking_number_detail.py
 ultracart/model/order_tracking_number_details.py
 ultracart/model/order_transactional_merchant_note.py
+ultracart/model/order_upsell_cart_request.py
 ultracart/model/order_utm.py
 ultracart/model/order_validation_request.py
 ultracart/model/order_validation_response.py

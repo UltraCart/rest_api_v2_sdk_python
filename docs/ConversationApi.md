@@ -2896,6 +2896,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **since** | **str**| ISO timestamp to filter entries since | [optional]
  **agent_login** | **str**| Filter by agent login | [optional]
+ **action** | **str**| Action | [optional]
  **limit** | **int**| Maximum number of entries to return (default 100) | [optional]
 
 ### Return type
