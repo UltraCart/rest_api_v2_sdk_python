@@ -31,12 +31,16 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.auto_order_addon_item import AutoOrderAddonItem
     from ultracart.model.auto_order_item_future_schedule import AutoOrderItemFutureSchedule
     from ultracart.model.auto_order_item_option import AutoOrderItemOption
     from ultracart.model.auto_order_item_simple_schedule import AutoOrderItemSimpleSchedule
+    from ultracart.model.auto_order_property import AutoOrderProperty
+    globals()['AutoOrderAddonItem'] = AutoOrderAddonItem
     globals()['AutoOrderItemFutureSchedule'] = AutoOrderItemFutureSchedule
     globals()['AutoOrderItemOption'] = AutoOrderItemOption
     globals()['AutoOrderItemSimpleSchedule'] = AutoOrderItemSimpleSchedule
+    globals()['AutoOrderProperty'] = AutoOrderProperty
 
 
 class AutoOrderItem(ModelNormal):
@@ -111,6 +115,7 @@ class AutoOrderItem(ModelNormal):
         """
         lazy_import()
         return {
+            'add_ons': ([AutoOrderAddonItem],),  # noqa: E501
             'arbitrary_item_id': (str,),  # noqa: E501
             'arbitrary_percentage_discount': (float,),  # noqa: E501
             'arbitrary_quantity': (float,),  # noqa: E501
@@ -136,6 +141,7 @@ class AutoOrderItem(ModelNormal):
             'paypal_payer_id': (str,),  # noqa: E501
             'paypal_recurring_payment_profile_id': (str,),  # noqa: E501
             'preshipment_notice_sent': (bool,),  # noqa: E501
+            'properties': ([AutoOrderProperty],),  # noqa: E501
             'rebill_value': (float,),  # noqa: E501
             'remaining_repeat_count': (int,),  # noqa: E501
             'simple_schedule': (AutoOrderItemSimpleSchedule,),  # noqa: E501
@@ -147,6 +153,7 @@ class AutoOrderItem(ModelNormal):
 
 
     attribute_map = {
+        'add_ons': 'add_ons',  # noqa: E501
         'arbitrary_item_id': 'arbitrary_item_id',  # noqa: E501
         'arbitrary_percentage_discount': 'arbitrary_percentage_discount',  # noqa: E501
         'arbitrary_quantity': 'arbitrary_quantity',  # noqa: E501
@@ -172,6 +179,7 @@ class AutoOrderItem(ModelNormal):
         'paypal_payer_id': 'paypal_payer_id',  # noqa: E501
         'paypal_recurring_payment_profile_id': 'paypal_recurring_payment_profile_id',  # noqa: E501
         'preshipment_notice_sent': 'preshipment_notice_sent',  # noqa: E501
+        'properties': 'properties',  # noqa: E501
         'rebill_value': 'rebill_value',  # noqa: E501
         'remaining_repeat_count': 'remaining_repeat_count',  # noqa: E501
         'simple_schedule': 'simple_schedule',  # noqa: E501
@@ -218,6 +226,7 @@ class AutoOrderItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            add_ons ([AutoOrderAddonItem]): Array of addon objects instructing which items to add to auto order and how many times they should be added.. [optional]  # noqa: E501
             arbitrary_item_id (str): Arbitrary item id that should be rebilled instead of the normal schedule. [optional]  # noqa: E501
             arbitrary_percentage_discount (float): An arbitrary percentage discount to provide on future rebills. [optional]  # noqa: E501
             arbitrary_quantity (float): Arbitrary quantity to rebill. [optional]  # noqa: E501
@@ -243,6 +252,7 @@ class AutoOrderItem(ModelNormal):
             paypal_payer_id (str): The PayPal Payer ID tied to this item. [optional]  # noqa: E501
             paypal_recurring_payment_profile_id (str): The PayPal Profile ID tied to this item. [optional]  # noqa: E501
             preshipment_notice_sent (bool): True if the preshipment notice associated with the next rebill has been sent. [optional]  # noqa: E501
+            properties ([AutoOrderProperty]): Array of property objects. [optional]  # noqa: E501
             rebill_value (float): The value of the rebills of this item. [optional]  # noqa: E501
             remaining_repeat_count (int): The number of rebills remaining before this item is complete. [optional]  # noqa: E501
             simple_schedule (AutoOrderItemSimpleSchedule): [optional]  # noqa: E501
@@ -331,6 +341,7 @@ class AutoOrderItem(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            add_ons ([AutoOrderAddonItem]): Array of addon objects instructing which items to add to auto order and how many times they should be added.. [optional]  # noqa: E501
             arbitrary_item_id (str): Arbitrary item id that should be rebilled instead of the normal schedule. [optional]  # noqa: E501
             arbitrary_percentage_discount (float): An arbitrary percentage discount to provide on future rebills. [optional]  # noqa: E501
             arbitrary_quantity (float): Arbitrary quantity to rebill. [optional]  # noqa: E501
@@ -356,6 +367,7 @@ class AutoOrderItem(ModelNormal):
             paypal_payer_id (str): The PayPal Payer ID tied to this item. [optional]  # noqa: E501
             paypal_recurring_payment_profile_id (str): The PayPal Profile ID tied to this item. [optional]  # noqa: E501
             preshipment_notice_sent (bool): True if the preshipment notice associated with the next rebill has been sent. [optional]  # noqa: E501
+            properties ([AutoOrderProperty]): Array of property objects. [optional]  # noqa: E501
             rebill_value (float): The value of the rebills of this item. [optional]  # noqa: E501
             remaining_repeat_count (int): The number of rebills remaining before this item is complete. [optional]  # noqa: E501
             simple_schedule (AutoOrderItemSimpleSchedule): [optional]  # noqa: E501

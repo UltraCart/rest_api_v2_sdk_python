@@ -23,7 +23,9 @@ from ultracart.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from ultracart.model.auto_order import AutoOrder
+from ultracart.model.auto_order_addon_items_update_request import AutoOrderAddonItemsUpdateRequest
 from ultracart.model.auto_order_consolidate import AutoOrderConsolidate
+from ultracart.model.auto_order_properties_update_request import AutoOrderPropertiesUpdateRequest
 from ultracart.model.auto_order_query import AutoOrderQuery
 from ultracart.model.auto_order_query_batch import AutoOrderQueryBatch
 from ultracart.model.auto_order_response import AutoOrderResponse
@@ -755,6 +757,210 @@ class AutoOrderApi(object):
                     'auto_order_oid': 'path',
                     'auto_order': 'body',
                     'validate_original_order': 'query',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_auto_order_item_add_ons_endpoint = _Endpoint(
+            settings={
+                'response_type': (AutoOrderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons',
+                'operation_id': 'update_auto_order_item_add_ons',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'auto_order_oid',
+                    'auto_order_item_oid',
+                    'auto_order_add_ons_update_request',
+                    'expand',
+                ],
+                'required': [
+                    'auto_order_oid',
+                    'auto_order_item_oid',
+                    'auto_order_add_ons_update_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'auto_order_oid':
+                        (int,),
+                    'auto_order_item_oid':
+                        (int,),
+                    'auto_order_add_ons_update_request':
+                        (AutoOrderAddonItemsUpdateRequest,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'auto_order_oid': 'auto_order_oid',
+                    'auto_order_item_oid': 'auto_order_item_oid',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'auto_order_oid': 'path',
+                    'auto_order_item_oid': 'path',
+                    'auto_order_add_ons_update_request': 'body',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_auto_order_item_properties_endpoint = _Endpoint(
+            settings={
+                'response_type': (AutoOrderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties',
+                'operation_id': 'update_auto_order_item_properties',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'auto_order_oid',
+                    'auto_order_item_oid',
+                    'auto_order_properties_update_request',
+                    'expand',
+                ],
+                'required': [
+                    'auto_order_oid',
+                    'auto_order_item_oid',
+                    'auto_order_properties_update_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'auto_order_oid':
+                        (int,),
+                    'auto_order_item_oid':
+                        (int,),
+                    'auto_order_properties_update_request':
+                        (AutoOrderPropertiesUpdateRequest,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'auto_order_oid': 'auto_order_oid',
+                    'auto_order_item_oid': 'auto_order_item_oid',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'auto_order_oid': 'path',
+                    'auto_order_item_oid': 'path',
+                    'auto_order_properties_update_request': 'body',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_auto_order_properties_endpoint = _Endpoint(
+            settings={
+                'response_type': (AutoOrderResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/auto_order/auto_orders/{auto_order_oid}/properties',
+                'operation_id': 'update_auto_order_properties',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'auto_order_oid',
+                    'auto_order_properties_update_request',
+                    'expand',
+                ],
+                'required': [
+                    'auto_order_oid',
+                    'auto_order_properties_update_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'auto_order_oid':
+                        (int,),
+                    'auto_order_properties_update_request':
+                        (AutoOrderPropertiesUpdateRequest,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'auto_order_oid': 'auto_order_oid',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'auto_order_oid': 'path',
+                    'auto_order_properties_update_request': 'body',
                     'expand': 'query',
                 },
                 'collection_format_map': {
@@ -1711,6 +1917,278 @@ class AutoOrderApi(object):
         kwargs['auto_order'] = \
             auto_order
         return self.update_auto_order_endpoint.call_with_http_info(**kwargs)
+
+    def update_auto_order_item_add_ons(
+        self,
+        auto_order_oid,
+        auto_order_item_oid,
+        auto_order_add_ons_update_request,
+        **kwargs
+    ):
+        """Update an auto order item add ons  # noqa: E501
+
+        Update an auto order item add ons.  Returns the auto order based upon expansion   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_auto_order_item_add_ons(auto_order_oid, auto_order_item_oid, auto_order_add_ons_update_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            auto_order_oid (int): The auto order oid to update.
+            auto_order_item_oid (int): The auto order item oid to update.
+            auto_order_add_ons_update_request (AutoOrderAddonItemsUpdateRequest): Auto order add ons update request
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AutoOrderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['auto_order_oid'] = \
+            auto_order_oid
+        kwargs['auto_order_item_oid'] = \
+            auto_order_item_oid
+        kwargs['auto_order_add_ons_update_request'] = \
+            auto_order_add_ons_update_request
+        return self.update_auto_order_item_add_ons_endpoint.call_with_http_info(**kwargs)
+
+    def update_auto_order_item_properties(
+        self,
+        auto_order_oid,
+        auto_order_item_oid,
+        auto_order_properties_update_request,
+        **kwargs
+    ):
+        """Update an auto order item properties  # noqa: E501
+
+        Update an auto order item properties.  Returns the auto order based upon expansion   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_auto_order_item_properties(auto_order_oid, auto_order_item_oid, auto_order_properties_update_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            auto_order_oid (int): The auto order oid to update.
+            auto_order_item_oid (int): The auto order item oid to update.
+            auto_order_properties_update_request (AutoOrderPropertiesUpdateRequest): Auto order property update request
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AutoOrderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['auto_order_oid'] = \
+            auto_order_oid
+        kwargs['auto_order_item_oid'] = \
+            auto_order_item_oid
+        kwargs['auto_order_properties_update_request'] = \
+            auto_order_properties_update_request
+        return self.update_auto_order_item_properties_endpoint.call_with_http_info(**kwargs)
+
+    def update_auto_order_properties(
+        self,
+        auto_order_oid,
+        auto_order_properties_update_request,
+        **kwargs
+    ):
+        """Update an auto order properties  # noqa: E501
+
+        Update an auto order properties.  Returns the auto order based upon expansion   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_auto_order_properties(auto_order_oid, auto_order_properties_update_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            auto_order_oid (int): The auto order oid to update.
+            auto_order_properties_update_request (AutoOrderPropertiesUpdateRequest): Auto order property update request
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AutoOrderResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['auto_order_oid'] = \
+            auto_order_oid
+        kwargs['auto_order_properties_update_request'] = \
+            auto_order_properties_update_request
+        return self.update_auto_order_properties_endpoint.call_with_http_info(**kwargs)
 
     def update_auto_orders_batch(
         self,

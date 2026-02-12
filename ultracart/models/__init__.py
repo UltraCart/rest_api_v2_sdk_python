@@ -34,6 +34,7 @@ from ultracart.model.apply_library_item_response import ApplyLibraryItemResponse
 from ultracart.model.auto_order import AutoOrder
 from ultracart.model.auto_order_addon_item import AutoOrderAddonItem
 from ultracart.model.auto_order_addon_item_option import AutoOrderAddonItemOption
+from ultracart.model.auto_order_addon_items_update_request import AutoOrderAddonItemsUpdateRequest
 from ultracart.model.auto_order_consolidate import AutoOrderConsolidate
 from ultracart.model.auto_order_item import AutoOrderItem
 from ultracart.model.auto_order_item_future_schedule import AutoOrderItemFutureSchedule
@@ -41,6 +42,8 @@ from ultracart.model.auto_order_item_option import AutoOrderItemOption
 from ultracart.model.auto_order_item_simple_schedule import AutoOrderItemSimpleSchedule
 from ultracart.model.auto_order_log import AutoOrderLog
 from ultracart.model.auto_order_management import AutoOrderManagement
+from ultracart.model.auto_order_properties_update_request import AutoOrderPropertiesUpdateRequest
+from ultracart.model.auto_order_property import AutoOrderProperty
 from ultracart.model.auto_order_query import AutoOrderQuery
 from ultracart.model.auto_order_query_batch import AutoOrderQueryBatch
 from ultracart.model.auto_order_response import AutoOrderResponse
@@ -631,6 +634,8 @@ from ultracart.model.item_internal import ItemInternal
 from ultracart.model.item_inventory_snapshot import ItemInventorySnapshot
 from ultracart.model.item_inventory_snapshot_distribution_center import ItemInventorySnapshotDistributionCenter
 from ultracart.model.item_inventory_snapshot_response import ItemInventorySnapshotResponse
+from ultracart.model.item_inventory_update import ItemInventoryUpdate
+from ultracart.model.item_inventory_update_request import ItemInventoryUpdateRequest
 from ultracart.model.item_kit_component import ItemKitComponent
 from ultracart.model.item_kit_definition import ItemKitDefinition
 from ultracart.model.item_option import ItemOption
@@ -662,6 +667,7 @@ from ultracart.model.item_shipping_case import ItemShippingCase
 from ultracart.model.item_shipping_destination_markup import ItemShippingDestinationMarkup
 from ultracart.model.item_shipping_destination_restriction import ItemShippingDestinationRestriction
 from ultracart.model.item_shipping_distribution_center import ItemShippingDistributionCenter
+from ultracart.model.item_shipping_distribution_center_response import ItemShippingDistributionCenterResponse
 from ultracart.model.item_shipping_method import ItemShippingMethod
 from ultracart.model.item_shipping_package_requirement import ItemShippingPackageRequirement
 from ultracart.model.item_tag import ItemTag
@@ -700,6 +706,7 @@ from ultracart.model.notification import Notification
 from ultracart.model.oauth_revoke_success_response import OauthRevokeSuccessResponse
 from ultracart.model.oauth_token_response import OauthTokenResponse
 from ultracart.model.order import Order
+from ultracart.model.order_add_items_and_release_request import OrderAddItemsAndReleaseRequest
 from ultracart.model.order_affiliate import OrderAffiliate
 from ultracart.model.order_affiliate_ledger import OrderAffiliateLedger
 from ultracart.model.order_assign_to_affiliate_request import OrderAssignToAffiliateRequest

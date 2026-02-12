@@ -147,6 +147,7 @@ class ItemShipping(ModelNormal):
             'restrict_shipment_on_thursday': (bool,),  # noqa: E501
             'restrict_shipment_on_tuesday': (bool,),  # noqa: E501
             'restrict_shipment_on_wednesday': (bool,),  # noqa: E501
+            'send_to_hold_before_fulfillment': (bool,),  # noqa: E501
             'ship_separately': (bool,),  # noqa: E501
             'ship_separately_additional_weight': (Weight,),  # noqa: E501
             'ship_separately_height': (Distance,),  # noqa: E501
@@ -205,6 +206,7 @@ class ItemShipping(ModelNormal):
         'restrict_shipment_on_thursday': 'restrict_shipment_on_thursday',  # noqa: E501
         'restrict_shipment_on_tuesday': 'restrict_shipment_on_tuesday',  # noqa: E501
         'restrict_shipment_on_wednesday': 'restrict_shipment_on_wednesday',  # noqa: E501
+        'send_to_hold_before_fulfillment': 'send_to_hold_before_fulfillment',  # noqa: E501
         'ship_separately': 'ship_separately',  # noqa: E501
         'ship_separately_additional_weight': 'ship_separately_additional_weight',  # noqa: E501
         'ship_separately_height': 'ship_separately_height',  # noqa: E501
@@ -298,6 +300,7 @@ class ItemShipping(ModelNormal):
             restrict_shipment_on_thursday (bool): Restrict shipment on Thursday. [optional]  # noqa: E501
             restrict_shipment_on_tuesday (bool): Restrict shipment on Tuesday. [optional]  # noqa: E501
             restrict_shipment_on_wednesday (bool): Restrict shipment on Wednesday. [optional]  # noqa: E501
+            send_to_hold_before_fulfillment (bool): Send order to hold stage before fulfillment. [optional]  # noqa: E501
             ship_separately (bool): Ship this item in a separate box. [optional]  # noqa: E501
             ship_separately_additional_weight (Weight): [optional]  # noqa: E501
             ship_separately_height (Distance): [optional]  # noqa: E501
@@ -433,6 +436,7 @@ class ItemShipping(ModelNormal):
             restrict_shipment_on_thursday (bool): Restrict shipment on Thursday. [optional]  # noqa: E501
             restrict_shipment_on_tuesday (bool): Restrict shipment on Tuesday. [optional]  # noqa: E501
             restrict_shipment_on_wednesday (bool): Restrict shipment on Wednesday. [optional]  # noqa: E501
+            send_to_hold_before_fulfillment (bool): Send order to hold stage before fulfillment. [optional]  # noqa: E501
             ship_separately (bool): Ship this item in a separate box. [optional]  # noqa: E501
             ship_separately_additional_weight (Weight): [optional]  # noqa: E501
             ship_separately_height (Distance): [optional]  # noqa: E501

@@ -422,7 +422,7 @@ conf = ultracart.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 2.0.0\n"\
-               "SDK Package Version: 4.1.62".\
+               "SDK Package Version: 4.1.63".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
