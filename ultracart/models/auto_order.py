@@ -55,6 +55,7 @@ class AutoOrder(object):
         'original_order': 'Order',
         'original_order_id': 'str',
         'override_affiliate_id': 'int',
+        'properties': 'list[AutoOrderProperty]',
         'rebill_orders': 'list[Order]',
         'rotating_transaction_gateway_code': 'str',
         'status': 'str'
@@ -85,12 +86,13 @@ class AutoOrder(object):
         'original_order': 'original_order',
         'original_order_id': 'original_order_id',
         'override_affiliate_id': 'override_affiliate_id',
+        'properties': 'properties',
         'rebill_orders': 'rebill_orders',
         'rotating_transaction_gateway_code': 'rotating_transaction_gateway_code',
         'status': 'status'
     }
 
-    def __init__(self, add_ons=None, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_reason=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, logs=None, management=None, merchant_id=None, merged_dts=None, merged_into_auto_order_oid=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
+    def __init__(self, add_ons=None, auto_order_code=None, auto_order_oid=None, cancel_after_next_x_orders=None, cancel_downgrade=None, cancel_reason=None, cancel_upgrade=None, canceled_by_user=None, canceled_dts=None, completed=None, credit_card_attempt=None, disabled_dts=None, enabled=None, failure_reason=None, items=None, logs=None, management=None, merchant_id=None, merged_dts=None, merged_into_auto_order_oid=None, next_attempt=None, original_order=None, original_order_id=None, override_affiliate_id=None, properties=None, rebill_orders=None, rotating_transaction_gateway_code=None, status=None):  # noqa: E501
         """AutoOrder - a model defined in Swagger"""  # noqa: E501
 
         self._add_ons = None
@@ -117,6 +119,7 @@ class AutoOrder(object):
         self._original_order = None
         self._original_order_id = None
         self._override_affiliate_id = None
+        self._properties = None
         self._rebill_orders = None
         self._rotating_transaction_gateway_code = None
         self._status = None
@@ -170,6 +173,8 @@ class AutoOrder(object):
             self.original_order_id = original_order_id
         if override_affiliate_id is not None:
             self.override_affiliate_id = override_affiliate_id
+        if properties is not None:
+            self.properties = properties
         if rebill_orders is not None:
             self.rebill_orders = rebill_orders
         if rotating_transaction_gateway_code is not None:
@@ -724,6 +729,29 @@ class AutoOrder(object):
         """
 
         self._override_affiliate_id = override_affiliate_id
+
+    @property
+    def properties(self):
+        """Gets the properties of this AutoOrder.  # noqa: E501
+
+        Array of property objects  # noqa: E501
+
+        :return: The properties of this AutoOrder.  # noqa: E501
+        :rtype: list[AutoOrderProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this AutoOrder.
+
+        Array of property objects  # noqa: E501
+
+        :param properties: The properties of this AutoOrder.  # noqa: E501
+        :type: list[AutoOrderProperty]
+        """
+
+        self._properties = properties
 
     @property
     def rebill_orders(self):

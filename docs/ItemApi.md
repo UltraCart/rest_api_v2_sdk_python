@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_inventory_snapshot**](ItemApi.md#get_inventory_snapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**get_item**](ItemApi.md#get_item) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**get_item_by_merchant_item_id**](ItemApi.md#get_item_by_merchant_item_id) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
+[**get_item_shipping_distribution_center_by_code**](ItemApi.md#get_item_shipping_distribution_center_by_code) | **GET** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Retrieve an item shipping distribution center
 [**get_items**](ItemApi.md#get_items) | **GET** /item/items | Retrieve items
 [**get_pricing_tiers**](ItemApi.md#get_pricing_tiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 [**get_review**](ItemApi.md#get_review) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
@@ -24,6 +25,8 @@ Method | HTTP request | Description
 [**insert_update_item_content_attribute**](ItemApi.md#insert_update_item_content_attribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 [**update_digital_item**](ItemApi.md#update_digital_item) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**update_item**](ItemApi.md#update_item) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**update_item_inventories**](ItemApi.md#update_item_inventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
+[**update_item_shipping_distribution_center_by_code**](ItemApi.md#update_item_shipping_distribution_center_by_code) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 [**update_items**](ItemApi.md#update_items) | **PUT** /item/items/batch | Update multiple items
 [**update_review**](ItemApi.md#update_review) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 [**upload_temporary_multimedia**](ItemApi.md#upload_temporary_multimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -480,6 +483,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_item_shipping_distribution_center_by_code**
+> ItemShippingDistributionCenterResponse get_item_shipping_distribution_center_by_code(merchant_item_oid, distribution_center_code, expand=expand, placeholders=placeholders)
+
+Retrieve an item shipping distribution center
+
+Retrieve an item shipping distribution center. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+merchant_item_oid = 56 # int | The item oid to retrieve.
+distribution_center_code = 'distribution_center_code_example' # str | 
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+placeholders = true # bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+
+try:
+    # Retrieve an item shipping distribution center
+    api_response = api_instance.get_item_shipping_distribution_center_by_code(merchant_item_oid, distribution_center_code, expand=expand, placeholders=placeholders)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ItemApi->get_item_shipping_distribution_center_by_code: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid to retrieve. | 
+ **distribution_center_code** | **str**|  | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+
+### Return type
+
+[**ItemShippingDistributionCenterResponse**](ItemShippingDistributionCenterResponse.md)
 
 ### Authorization
 
@@ -1071,6 +1130,108 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_item_inventories**
+> update_item_inventories(item_inventory_update_request)
+
+Update item inventories for a distribution center
+
+Update item inventories for a distribution center 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+item_inventory_update_request = ultracart.ItemInventoryUpdateRequest() # ItemInventoryUpdateRequest | Item inventory updates
+
+try:
+    # Update item inventories for a distribution center
+    api_instance.update_item_inventories(item_inventory_update_request)
+except ApiException as e:
+    print("Exception when calling ItemApi->update_item_inventories: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **item_inventory_update_request** | [**ItemInventoryUpdateRequest**](ItemInventoryUpdateRequest.md)| Item inventory updates | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_item_shipping_distribution_center_by_code**
+> update_item_shipping_distribution_center_by_code(item_shipping_distribution_center, merchant_item_oid, distribution_center_code)
+
+Update an item shipping distribution center
+
+Update an item shipping distribution center 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.ItemApi.fromApiKey(simple_key, False, True)
+
+item_shipping_distribution_center = ultracart.ItemShippingDistributionCenter() # ItemShippingDistributionCenter | Item shipping distribution center
+merchant_item_oid = 56 # int | The item oid to update.
+distribution_center_code = 'distribution_center_code_example' # str | 
+
+try:
+    # Update an item shipping distribution center
+    api_instance.update_item_shipping_distribution_center_by_code(item_shipping_distribution_center, merchant_item_oid, distribution_center_code)
+except ApiException as e:
+    print("Exception when calling ItemApi->update_item_shipping_distribution_center_by_code: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **item_shipping_distribution_center** | [**ItemShippingDistributionCenter**](ItemShippingDistributionCenter.md)| Item shipping distribution center | 
+ **merchant_item_oid** | **int**| The item oid to update. | 
+ **distribution_center_code** | **str**|  | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

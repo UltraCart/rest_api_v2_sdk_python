@@ -31,6 +31,7 @@ class AutoOrderItem(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'add_ons': 'list[AutoOrderAddonItem]',
         'arbitrary_item_id': 'str',
         'arbitrary_percentage_discount': 'float',
         'arbitrary_quantity': 'float',
@@ -56,12 +57,14 @@ class AutoOrderItem(object):
         'paypal_payer_id': 'str',
         'paypal_recurring_payment_profile_id': 'str',
         'preshipment_notice_sent': 'bool',
+        'properties': 'list[AutoOrderProperty]',
         'rebill_value': 'float',
         'remaining_repeat_count': 'int',
         'simple_schedule': 'AutoOrderItemSimpleSchedule'
     }
 
     attribute_map = {
+        'add_ons': 'add_ons',
         'arbitrary_item_id': 'arbitrary_item_id',
         'arbitrary_percentage_discount': 'arbitrary_percentage_discount',
         'arbitrary_quantity': 'arbitrary_quantity',
@@ -87,14 +90,16 @@ class AutoOrderItem(object):
         'paypal_payer_id': 'paypal_payer_id',
         'paypal_recurring_payment_profile_id': 'paypal_recurring_payment_profile_id',
         'preshipment_notice_sent': 'preshipment_notice_sent',
+        'properties': 'properties',
         'rebill_value': 'rebill_value',
         'remaining_repeat_count': 'remaining_repeat_count',
         'simple_schedule': 'simple_schedule'
     }
 
-    def __init__(self, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, calculated_next_shipment_dts=None, first_order_dts=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_item_id=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paused=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, rebill_value=None, remaining_repeat_count=None, simple_schedule=None):  # noqa: E501
+    def __init__(self, add_ons=None, arbitrary_item_id=None, arbitrary_percentage_discount=None, arbitrary_quantity=None, arbitrary_schedule_days=None, arbitrary_unit_cost=None, arbitrary_unit_cost_remaining_orders=None, auto_order_item_oid=None, calculated_next_shipment_dts=None, first_order_dts=None, frequency=None, future_schedules=None, last_order_dts=None, life_time_value=None, next_item_id=None, next_preshipment_notice_dts=None, next_shipment_dts=None, no_order_after_dts=None, number_of_rebills=None, options=None, original_item_id=None, original_quantity=None, paused=None, paypal_payer_id=None, paypal_recurring_payment_profile_id=None, preshipment_notice_sent=None, properties=None, rebill_value=None, remaining_repeat_count=None, simple_schedule=None):  # noqa: E501
         """AutoOrderItem - a model defined in Swagger"""  # noqa: E501
 
+        self._add_ons = None
         self._arbitrary_item_id = None
         self._arbitrary_percentage_discount = None
         self._arbitrary_quantity = None
@@ -120,11 +125,14 @@ class AutoOrderItem(object):
         self._paypal_payer_id = None
         self._paypal_recurring_payment_profile_id = None
         self._preshipment_notice_sent = None
+        self._properties = None
         self._rebill_value = None
         self._remaining_repeat_count = None
         self._simple_schedule = None
         self.discriminator = None
 
+        if add_ons is not None:
+            self.add_ons = add_ons
         if arbitrary_item_id is not None:
             self.arbitrary_item_id = arbitrary_item_id
         if arbitrary_percentage_discount is not None:
@@ -175,12 +183,37 @@ class AutoOrderItem(object):
             self.paypal_recurring_payment_profile_id = paypal_recurring_payment_profile_id
         if preshipment_notice_sent is not None:
             self.preshipment_notice_sent = preshipment_notice_sent
+        if properties is not None:
+            self.properties = properties
         if rebill_value is not None:
             self.rebill_value = rebill_value
         if remaining_repeat_count is not None:
             self.remaining_repeat_count = remaining_repeat_count
         if simple_schedule is not None:
             self.simple_schedule = simple_schedule
+
+    @property
+    def add_ons(self):
+        """Gets the add_ons of this AutoOrderItem.  # noqa: E501
+
+        Array of addon objects instructing which items to add to auto order and how many times they should be added.  # noqa: E501
+
+        :return: The add_ons of this AutoOrderItem.  # noqa: E501
+        :rtype: list[AutoOrderAddonItem]
+        """
+        return self._add_ons
+
+    @add_ons.setter
+    def add_ons(self, add_ons):
+        """Sets the add_ons of this AutoOrderItem.
+
+        Array of addon objects instructing which items to add to auto order and how many times they should be added.  # noqa: E501
+
+        :param add_ons: The add_ons of this AutoOrderItem.  # noqa: E501
+        :type: list[AutoOrderAddonItem]
+        """
+
+        self._add_ons = add_ons
 
     @property
     def arbitrary_item_id(self):
@@ -762,6 +795,29 @@ class AutoOrderItem(object):
         """
 
         self._preshipment_notice_sent = preshipment_notice_sent
+
+    @property
+    def properties(self):
+        """Gets the properties of this AutoOrderItem.  # noqa: E501
+
+        Array of property objects  # noqa: E501
+
+        :return: The properties of this AutoOrderItem.  # noqa: E501
+        :rtype: list[AutoOrderProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this AutoOrderItem.
+
+        Array of property objects  # noqa: E501
+
+        :param properties: The properties of this AutoOrderItem.  # noqa: E501
+        :type: list[AutoOrderProperty]
+        """
+
+        self._properties = properties
 
     @property
     def rebill_value(self):

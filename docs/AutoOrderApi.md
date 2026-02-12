@@ -14,6 +14,9 @@ Method | HTTP request | Description
 [**get_auto_orders_by_query**](AutoOrderApi.md#get_auto_orders_by_query) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 [**pause_auto_order**](AutoOrderApi.md#pause_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid}/pause | Pause auto order
 [**update_auto_order**](AutoOrderApi.md#update_auto_order) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+[**update_auto_order_item_add_ons**](AutoOrderApi.md#update_auto_order_item_add_ons) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons | Update an auto order item add ons
+[**update_auto_order_item_properties**](AutoOrderApi.md#update_auto_order_item_properties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties | Update an auto order item properties
+[**update_auto_order_properties**](AutoOrderApi.md#update_auto_order_properties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties
 [**update_auto_orders_batch**](AutoOrderApi.md#update_auto_orders_batch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
 
@@ -576,6 +579,172 @@ Name | Type | Description  | Notes
  **auto_order** | [**AutoOrder**](AutoOrder.md)| Auto order to update | 
  **auto_order_oid** | **int**| The auto order oid to update. | 
  **validate_original_order** | **str**| Validate original order before updating | [optional] 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_auto_order_item_add_ons**
+> AutoOrderResponse update_auto_order_item_add_ons(auto_order_add_ons_update_request, auto_order_oid, auto_order_item_oid, expand=expand)
+
+Update an auto order item add ons
+
+Update an auto order item add ons.  Returns the auto order based upon expansion 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.AutoOrderApi.fromApiKey(simple_key, False, True)
+
+auto_order_add_ons_update_request = ultracart.AutoOrderAddonItemsUpdateRequest() # AutoOrderAddonItemsUpdateRequest | Auto order add ons update request
+auto_order_oid = 56 # int | The auto order oid to update.
+auto_order_item_oid = 56 # int | The auto order item oid to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try:
+    # Update an auto order item add ons
+    api_response = api_instance.update_auto_order_item_add_ons(auto_order_add_ons_update_request, auto_order_oid, auto_order_item_oid, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AutoOrderApi->update_auto_order_item_add_ons: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_add_ons_update_request** | [**AutoOrderAddonItemsUpdateRequest**](AutoOrderAddonItemsUpdateRequest.md)| Auto order add ons update request | 
+ **auto_order_oid** | **int**| The auto order oid to update. | 
+ **auto_order_item_oid** | **int**| The auto order item oid to update. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_auto_order_item_properties**
+> AutoOrderResponse update_auto_order_item_properties(auto_order_properties_update_request, auto_order_oid, auto_order_item_oid, expand=expand)
+
+Update an auto order item properties
+
+Update an auto order item properties.  Returns the auto order based upon expansion 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.AutoOrderApi.fromApiKey(simple_key, False, True)
+
+auto_order_properties_update_request = ultracart.AutoOrderPropertiesUpdateRequest() # AutoOrderPropertiesUpdateRequest | Auto order property update request
+auto_order_oid = 56 # int | The auto order oid to update.
+auto_order_item_oid = 56 # int | The auto order item oid to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try:
+    # Update an auto order item properties
+    api_response = api_instance.update_auto_order_item_properties(auto_order_properties_update_request, auto_order_oid, auto_order_item_oid, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AutoOrderApi->update_auto_order_item_properties: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_properties_update_request** | [**AutoOrderPropertiesUpdateRequest**](AutoOrderPropertiesUpdateRequest.md)| Auto order property update request | 
+ **auto_order_oid** | **int**| The auto order oid to update. | 
+ **auto_order_item_oid** | **int**| The auto order item oid to update. | 
+ **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_auto_order_properties**
+> AutoOrderResponse update_auto_order_properties(auto_order_properties_update_request, auto_order_oid, expand=expand)
+
+Update an auto order properties
+
+Update an auto order properties.  Returns the auto order based upon expansion 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import ultracart
+from ultracart.rest import ApiException
+from pprint import pprint
+
+# Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
+api_instance = ultracart.AutoOrderApi.fromApiKey(simple_key, False, True)
+
+auto_order_properties_update_request = ultracart.AutoOrderPropertiesUpdateRequest() # AutoOrderPropertiesUpdateRequest | Auto order property update request
+auto_order_oid = 56 # int | The auto order oid to update.
+expand = 'expand_example' # str | The object expansion to perform on the result.  See documentation for examples (optional)
+
+try:
+    # Update an auto order properties
+    api_response = api_instance.update_auto_order_properties(auto_order_properties_update_request, auto_order_oid, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AutoOrderApi->update_auto_order_properties: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_properties_update_request** | [**AutoOrderPropertiesUpdateRequest**](AutoOrderPropertiesUpdateRequest.md)| Auto order property update request | 
+ **auto_order_oid** | **int**| The auto order oid to update. | 
  **expand** | **str**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

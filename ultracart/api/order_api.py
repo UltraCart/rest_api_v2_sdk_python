@@ -2226,6 +2226,220 @@ class OrderApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def held_order_add_items_and_release(self, add_items_and_release_request, order_id, **kwargs):  # noqa: E501
+        """Add items and release a held order  # noqa: E501
+
+        This method adds items to an order in the hold stage and releases it   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.held_order_add_items_and_release(add_items_and_release_request, order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param OrderAddItemsAndReleaseRequest add_items_and_release_request: Add items and release request (required)
+        :param str order_id: The order id to release. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.held_order_add_items_and_release_with_http_info(add_items_and_release_request, order_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.held_order_add_items_and_release_with_http_info(add_items_and_release_request, order_id, **kwargs)  # noqa: E501
+            return data
+
+    def held_order_add_items_and_release_with_http_info(self, add_items_and_release_request, order_id, **kwargs):  # noqa: E501
+        """Add items and release a held order  # noqa: E501
+
+        This method adds items to an order in the hold stage and releases it   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.held_order_add_items_and_release_with_http_info(add_items_and_release_request, order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param OrderAddItemsAndReleaseRequest add_items_and_release_request: Add items and release request (required)
+        :param str order_id: The order id to release. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['add_items_and_release_request', 'order_id', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method held_order_add_items_and_release" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'add_items_and_release_request' is set
+        if ('add_items_and_release_request' not in params or
+                params['add_items_and_release_request'] is None):
+            raise ValueError("Missing the required parameter `add_items_and_release_request` when calling `held_order_add_items_and_release`")  # noqa: E501
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `held_order_add_items_and_release`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'add_items_and_release_request' in params:
+            body_params = params['add_items_and_release_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/order/orders/{order_id}/hold/add_items_and_release', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def held_order_release(self, order_id, **kwargs):  # noqa: E501
+        """Release a held order  # noqa: E501
+
+        This method releases an order from the hold stage   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.held_order_release(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to release. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.held_order_release_with_http_info(order_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.held_order_release_with_http_info(order_id, **kwargs)  # noqa: E501
+            return data
+
+    def held_order_release_with_http_info(self, order_id, **kwargs):  # noqa: E501
+        """Release a held order  # noqa: E501
+
+        This method releases an order from the hold stage   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.held_order_release_with_http_info(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str order_id: The order id to release. (required)
+        :param str expand: The object expansion to perform on the result.  See documentation for examples
+        :return: OrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['order_id', 'expand']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method held_order_release" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if ('order_id' not in params or
+                params['order_id'] is None):
+            raise ValueError("Missing the required parameter `order_id` when calling `held_order_release`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in params:
+            path_params['order_id'] = params['order_id']  # noqa: E501
+
+        query_params = []
+        if 'expand' in params:
+            query_params.append(('_expand', params['expand']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json; charset=UTF-8'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ultraCartOauth', 'ultraCartSimpleApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/order/orders/{order_id}/hold/release', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def insert_order(self, order, **kwargs):  # noqa: E501
         """Insert an order  # noqa: E501
 

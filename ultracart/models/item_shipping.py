@@ -73,6 +73,7 @@ class ItemShipping(object):
         'restrict_shipment_on_thursday': 'bool',
         'restrict_shipment_on_tuesday': 'bool',
         'restrict_shipment_on_wednesday': 'bool',
+        'send_to_hold_before_fulfillment': 'bool',
         'ship_separately': 'bool',
         'ship_separately_additional_weight': 'Weight',
         'ship_separately_height': 'Distance',
@@ -126,6 +127,7 @@ class ItemShipping(object):
         'restrict_shipment_on_thursday': 'restrict_shipment_on_thursday',
         'restrict_shipment_on_tuesday': 'restrict_shipment_on_tuesday',
         'restrict_shipment_on_wednesday': 'restrict_shipment_on_wednesday',
+        'send_to_hold_before_fulfillment': 'send_to_hold_before_fulfillment',
         'ship_separately': 'ship_separately',
         'ship_separately_additional_weight': 'ship_separately_additional_weight',
         'ship_separately_height': 'ship_separately_height',
@@ -136,7 +138,7 @@ class ItemShipping(object):
         'track_inventory': 'track_inventory'
     }
 
-    def __init__(self, allow_back_order=None, amazon_fba=None, case_inner_packs=None, case_units=None, cases=None, collect_serial_numbers=None, country_code_of_origin=None, customs_description=None, customs_value=None, delivery_on_friday=None, delivery_on_monday=None, delivery_on_saturday=None, delivery_on_sunday=None, delivery_on_thursday=None, delivery_on_tuesday=None, delivery_on_wednesday=None, destination_markups=None, destination_restrictions=None, distribution_centers=None, eta=None, free_shipping=None, freight_class=None, hazmat=None, hold_for_transmission=None, include_on_packing_slip=None, made_to_order=None, made_to_order_lead_time=None, max_days_time_in_transit=None, methods=None, no_shipping_discount=None, package_requirements=None, perishable_class_name=None, perishable_class_oid=None, preorder=None, require_delivery_date=None, restrict_shipment_on_friday=None, restrict_shipment_on_monday=None, restrict_shipment_on_saturday=None, restrict_shipment_on_sunday=None, restrict_shipment_on_thursday=None, restrict_shipment_on_tuesday=None, restrict_shipment_on_wednesday=None, ship_separately=None, ship_separately_additional_weight=None, ship_separately_height=None, ship_separately_length=None, ship_separately_package_special_type=None, ship_separately_width=None, special_product_type=None, track_inventory=None):  # noqa: E501
+    def __init__(self, allow_back_order=None, amazon_fba=None, case_inner_packs=None, case_units=None, cases=None, collect_serial_numbers=None, country_code_of_origin=None, customs_description=None, customs_value=None, delivery_on_friday=None, delivery_on_monday=None, delivery_on_saturday=None, delivery_on_sunday=None, delivery_on_thursday=None, delivery_on_tuesday=None, delivery_on_wednesday=None, destination_markups=None, destination_restrictions=None, distribution_centers=None, eta=None, free_shipping=None, freight_class=None, hazmat=None, hold_for_transmission=None, include_on_packing_slip=None, made_to_order=None, made_to_order_lead_time=None, max_days_time_in_transit=None, methods=None, no_shipping_discount=None, package_requirements=None, perishable_class_name=None, perishable_class_oid=None, preorder=None, require_delivery_date=None, restrict_shipment_on_friday=None, restrict_shipment_on_monday=None, restrict_shipment_on_saturday=None, restrict_shipment_on_sunday=None, restrict_shipment_on_thursday=None, restrict_shipment_on_tuesday=None, restrict_shipment_on_wednesday=None, send_to_hold_before_fulfillment=None, ship_separately=None, ship_separately_additional_weight=None, ship_separately_height=None, ship_separately_length=None, ship_separately_package_special_type=None, ship_separately_width=None, special_product_type=None, track_inventory=None):  # noqa: E501
         """ItemShipping - a model defined in Swagger"""  # noqa: E501
 
         self._allow_back_order = None
@@ -181,6 +183,7 @@ class ItemShipping(object):
         self._restrict_shipment_on_thursday = None
         self._restrict_shipment_on_tuesday = None
         self._restrict_shipment_on_wednesday = None
+        self._send_to_hold_before_fulfillment = None
         self._ship_separately = None
         self._ship_separately_additional_weight = None
         self._ship_separately_height = None
@@ -275,6 +278,8 @@ class ItemShipping(object):
             self.restrict_shipment_on_tuesday = restrict_shipment_on_tuesday
         if restrict_shipment_on_wednesday is not None:
             self.restrict_shipment_on_wednesday = restrict_shipment_on_wednesday
+        if send_to_hold_before_fulfillment is not None:
+            self.send_to_hold_before_fulfillment = send_to_hold_before_fulfillment
         if ship_separately is not None:
             self.ship_separately = ship_separately
         if ship_separately_additional_weight is not None:
@@ -1259,6 +1264,29 @@ class ItemShipping(object):
         """
 
         self._restrict_shipment_on_wednesday = restrict_shipment_on_wednesday
+
+    @property
+    def send_to_hold_before_fulfillment(self):
+        """Gets the send_to_hold_before_fulfillment of this ItemShipping.  # noqa: E501
+
+        Send order to hold stage before fulfillment  # noqa: E501
+
+        :return: The send_to_hold_before_fulfillment of this ItemShipping.  # noqa: E501
+        :rtype: bool
+        """
+        return self._send_to_hold_before_fulfillment
+
+    @send_to_hold_before_fulfillment.setter
+    def send_to_hold_before_fulfillment(self, send_to_hold_before_fulfillment):
+        """Sets the send_to_hold_before_fulfillment of this ItemShipping.
+
+        Send order to hold stage before fulfillment  # noqa: E501
+
+        :param send_to_hold_before_fulfillment: The send_to_hold_before_fulfillment of this ItemShipping.  # noqa: E501
+        :type: bool
+        """
+
+        self._send_to_hold_before_fulfillment = send_to_hold_before_fulfillment
 
     @property
     def ship_separately(self):
