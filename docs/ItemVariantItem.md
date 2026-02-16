@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **variant_default_multimedia** | [**ItemContentMultimedia**](ItemContentMultimedia.md) |  | [optional] 
 **variant_merchant_item_id** | **str** | Variant item id | [optional] 
 **variant_merchant_item_oid** | **int** | Variant item object identifier | [optional] 
+**variant_pricing** | [**ItemPricing**](ItemPricing.md) |  | [optional] 
 **variation_options** | **list[str]** | Variation options | [optional] 
 **variations** | **list[str]** | Variations | [optional] 
 

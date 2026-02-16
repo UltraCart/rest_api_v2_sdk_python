@@ -36,6 +36,7 @@ class ItemVariantItem(object):
         'variant_default_multimedia': 'ItemContentMultimedia',
         'variant_merchant_item_id': 'str',
         'variant_merchant_item_oid': 'int',
+        'variant_pricing': 'ItemPricing',
         'variation_options': 'list[str]',
         'variations': 'list[str]'
     }
@@ -46,11 +47,12 @@ class ItemVariantItem(object):
         'variant_default_multimedia': 'variant_default_multimedia',
         'variant_merchant_item_id': 'variant_merchant_item_id',
         'variant_merchant_item_oid': 'variant_merchant_item_oid',
+        'variant_pricing': 'variant_pricing',
         'variation_options': 'variation_options',
         'variations': 'variations'
     }
 
-    def __init__(self, description=None, merchant_item_multimedia_oid=None, variant_default_multimedia=None, variant_merchant_item_id=None, variant_merchant_item_oid=None, variation_options=None, variations=None):  # noqa: E501
+    def __init__(self, description=None, merchant_item_multimedia_oid=None, variant_default_multimedia=None, variant_merchant_item_id=None, variant_merchant_item_oid=None, variant_pricing=None, variation_options=None, variations=None):  # noqa: E501
         """ItemVariantItem - a model defined in Swagger"""  # noqa: E501
 
         self._description = None
@@ -58,6 +60,7 @@ class ItemVariantItem(object):
         self._variant_default_multimedia = None
         self._variant_merchant_item_id = None
         self._variant_merchant_item_oid = None
+        self._variant_pricing = None
         self._variation_options = None
         self._variations = None
         self.discriminator = None
@@ -72,6 +75,8 @@ class ItemVariantItem(object):
             self.variant_merchant_item_id = variant_merchant_item_id
         if variant_merchant_item_oid is not None:
             self.variant_merchant_item_oid = variant_merchant_item_oid
+        if variant_pricing is not None:
+            self.variant_pricing = variant_pricing
         if variation_options is not None:
             self.variation_options = variation_options
         if variations is not None:
@@ -191,6 +196,27 @@ class ItemVariantItem(object):
         """
 
         self._variant_merchant_item_oid = variant_merchant_item_oid
+
+    @property
+    def variant_pricing(self):
+        """Gets the variant_pricing of this ItemVariantItem.  # noqa: E501
+
+
+        :return: The variant_pricing of this ItemVariantItem.  # noqa: E501
+        :rtype: ItemPricing
+        """
+        return self._variant_pricing
+
+    @variant_pricing.setter
+    def variant_pricing(self, variant_pricing):
+        """Sets the variant_pricing of this ItemVariantItem.
+
+
+        :param variant_pricing: The variant_pricing of this ItemVariantItem.  # noqa: E501
+        :type: ItemPricing
+        """
+
+        self._variant_pricing = variant_pricing
 
     @property
     def variation_options(self):
