@@ -189,7 +189,7 @@ class ConversationPbxCallTranscriptSegment(object):
         :param speaker: The speaker of this ConversationPbxCallTranscriptSegment.  # noqa: E501
         :type: str
         """
-        allowed_values = ["customer", " agent"]  # noqa: E501
+        allowed_values = ["customer", "agent"]  # noqa: E501
         if speaker not in allowed_values:
             raise ValueError(
                 "Invalid value for `speaker` ({0}), must be one of {1}"  # noqa: E501
