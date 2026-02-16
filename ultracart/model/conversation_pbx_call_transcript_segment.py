@@ -58,7 +58,7 @@ class ConversationPbxCallTranscriptSegment(ModelNormal):
     allowed_values = {
         ('speaker',): {
             'CUSTOMER': "customer",
-            '_AGENT': " agent",
+            'AGENT': "agent",
         },
     }
 
