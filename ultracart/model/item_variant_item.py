@@ -32,7 +32,9 @@ from ultracart.exceptions import ApiAttributeError
 
 def lazy_import():
     from ultracart.model.item_content_multimedia import ItemContentMultimedia
+    from ultracart.model.item_pricing import ItemPricing
     globals()['ItemContentMultimedia'] = ItemContentMultimedia
+    globals()['ItemPricing'] = ItemPricing
 
 
 class ItemVariantItem(ModelNormal):
@@ -96,6 +98,7 @@ class ItemVariantItem(ModelNormal):
             'variant_default_multimedia': (ItemContentMultimedia,),  # noqa: E501
             'variant_merchant_item_id': (str,),  # noqa: E501
             'variant_merchant_item_oid': (int,),  # noqa: E501
+            'variant_pricing': (ItemPricing,),  # noqa: E501
             'variation_options': ([str],),  # noqa: E501
             'variations': ([str],),  # noqa: E501
         }
@@ -111,6 +114,7 @@ class ItemVariantItem(ModelNormal):
         'variant_default_multimedia': 'variant_default_multimedia',  # noqa: E501
         'variant_merchant_item_id': 'variant_merchant_item_id',  # noqa: E501
         'variant_merchant_item_oid': 'variant_merchant_item_oid',  # noqa: E501
+        'variant_pricing': 'variant_pricing',  # noqa: E501
         'variation_options': 'variation_options',  # noqa: E501
         'variations': 'variations',  # noqa: E501
     }
@@ -161,6 +165,7 @@ class ItemVariantItem(ModelNormal):
             variant_default_multimedia (ItemContentMultimedia): [optional]  # noqa: E501
             variant_merchant_item_id (str): Variant item id. [optional]  # noqa: E501
             variant_merchant_item_oid (int): Variant item object identifier. [optional]  # noqa: E501
+            variant_pricing (ItemPricing): [optional]  # noqa: E501
             variation_options ([str]): Variation options. [optional]  # noqa: E501
             variations ([str]): Variations. [optional]  # noqa: E501
         """
@@ -253,6 +258,7 @@ class ItemVariantItem(ModelNormal):
             variant_default_multimedia (ItemContentMultimedia): [optional]  # noqa: E501
             variant_merchant_item_id (str): Variant item id. [optional]  # noqa: E501
             variant_merchant_item_oid (int): Variant item object identifier. [optional]  # noqa: E501
+            variant_pricing (ItemPricing): [optional]  # noqa: E501
             variation_options ([str]): Variation options. [optional]  # noqa: E501
             variations ([str]): Variations. [optional]  # noqa: E501
         """
