@@ -92,6 +92,7 @@ class ConversationAgentAuth(ModelNormal):
             'chat_user': (bool,),  # noqa: E501
             'conversation_participant_arn': (str,),  # noqa: E501
             'conversation_participant_name': (str,),  # noqa: E501
+            'customer_profile': (bool,),  # noqa: E501
             'default_phone_number': (str,),  # noqa: E501
             'group_ids': ([int],),  # noqa: E501
             'jwt': (str,),  # noqa: E501
@@ -119,6 +120,7 @@ class ConversationAgentAuth(ModelNormal):
         'chat_user': 'chat_user',  # noqa: E501
         'conversation_participant_arn': 'conversation_participant_arn',  # noqa: E501
         'conversation_participant_name': 'conversation_participant_name',  # noqa: E501
+        'customer_profile': 'customer_profile',  # noqa: E501
         'default_phone_number': 'default_phone_number',  # noqa: E501
         'group_ids': 'group_ids',  # noqa: E501
         'jwt': 'jwt',  # noqa: E501
@@ -181,6 +183,7 @@ class ConversationAgentAuth(ModelNormal):
             chat_user (bool): [optional]  # noqa: E501
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
+            customer_profile (bool): [optional]  # noqa: E501
             default_phone_number (str): The default phone number this agent should use when making an outbound call.. [optional]  # noqa: E501
             group_ids ([int]): UltraCart Groups this user belongs to. [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
@@ -285,6 +288,7 @@ class ConversationAgentAuth(ModelNormal):
             chat_user (bool): [optional]  # noqa: E501
             conversation_participant_arn (str): [optional]  # noqa: E501
             conversation_participant_name (str): [optional]  # noqa: E501
+            customer_profile (bool): [optional]  # noqa: E501
             default_phone_number (str): The default phone number this agent should use when making an outbound call.. [optional]  # noqa: E501
             group_ids ([int]): UltraCart Groups this user belongs to. [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
