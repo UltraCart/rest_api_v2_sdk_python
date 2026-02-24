@@ -100,6 +100,8 @@ class CustomerActivity(ModelNormal):
             'memberships': ([ListSegmentMembership],),  # noqa: E501
             'metrics': ([Metric],),  # noqa: E501
             'properties_list': ([ModelProperty],),  # noqa: E501
+            'sms': (str,),  # noqa: E501
+            'sms_stop': (bool,),  # noqa: E501
             'spam_complaint': (bool,),  # noqa: E501
             'spam_complaint_dts': (str,),  # noqa: E501
         }
@@ -116,6 +118,8 @@ class CustomerActivity(ModelNormal):
         'memberships': 'memberships',  # noqa: E501
         'metrics': 'metrics',  # noqa: E501
         'properties_list': 'properties_list',  # noqa: E501
+        'sms': 'sms',  # noqa: E501
+        'sms_stop': 'sms_stop',  # noqa: E501
         'spam_complaint': 'spam_complaint',  # noqa: E501
         'spam_complaint_dts': 'spam_complaint_dts',  # noqa: E501
     }
@@ -167,6 +171,8 @@ class CustomerActivity(ModelNormal):
             memberships ([ListSegmentMembership]): [optional]  # noqa: E501
             metrics ([Metric]): [optional]  # noqa: E501
             properties_list ([ModelProperty]): [optional]  # noqa: E501
+            sms (str): [optional]  # noqa: E501
+            sms_stop (bool): [optional]  # noqa: E501
             spam_complaint (bool): [optional]  # noqa: E501
             spam_complaint_dts (str): [optional]  # noqa: E501
         """
@@ -260,6 +266,8 @@ class CustomerActivity(ModelNormal):
             memberships ([ListSegmentMembership]): [optional]  # noqa: E501
             metrics ([Metric]): [optional]  # noqa: E501
             properties_list ([ModelProperty]): [optional]  # noqa: E501
+            sms (str): [optional]  # noqa: E501
+            sms_stop (bool): [optional]  # noqa: E501
             spam_complaint (bool): [optional]  # noqa: E501
             spam_complaint_dts (str): [optional]  # noqa: E501
         """

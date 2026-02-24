@@ -387,7 +387,7 @@ class Customer(ModelNormal):
             qb_tax_exemption_reason_code (int): QuickBooks tax exemption reason code. [optional]  # noqa: E501
             quotes ([Order]): Quotes associated with this customer profile. [optional]  # noqa: E501
             quotes_summary (CustomerQuotesSummary): [optional]  # noqa: E501
-            referral_source (str): Referral Source. [optional]  # noqa: E501
+            referral_source (str): Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.. [optional]  # noqa: E501
             reviewer (CustomerReviewer): [optional]  # noqa: E501
             sales_rep_code (str): Sales rep code. [optional]  # noqa: E501
             send_signup_notification (bool): Send signup notification, if true during customer creation, will send a notification.. [optional]  # noqa: E501
@@ -537,7 +537,7 @@ class Customer(ModelNormal):
             qb_tax_exemption_reason_code (int): QuickBooks tax exemption reason code. [optional]  # noqa: E501
             quotes ([Order]): Quotes associated with this customer profile. [optional]  # noqa: E501
             quotes_summary (CustomerQuotesSummary): [optional]  # noqa: E501
-            referral_source (str): Referral Source. [optional]  # noqa: E501
+            referral_source (str): Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.. [optional]  # noqa: E501
             reviewer (CustomerReviewer): [optional]  # noqa: E501
             sales_rep_code (str): Sales rep code. [optional]  # noqa: E501
             send_signup_notification (bool): Send signup notification, if true during customer creation, will send a notification.. [optional]  # noqa: E501
