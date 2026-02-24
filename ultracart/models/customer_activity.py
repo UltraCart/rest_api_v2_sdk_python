@@ -37,6 +37,8 @@ class CustomerActivity(object):
         'memberships': 'list[ListSegmentMembership]',
         'metrics': 'list[Metric]',
         'properties_list': 'list[ModelProperty]',
+        'sms': 'str',
+        'sms_stop': 'bool',
         'spam_complaint': 'bool',
         'spam_complaint_dts': 'str'
     }
@@ -48,11 +50,13 @@ class CustomerActivity(object):
         'memberships': 'memberships',
         'metrics': 'metrics',
         'properties_list': 'properties_list',
+        'sms': 'sms',
+        'sms_stop': 'sms_stop',
         'spam_complaint': 'spam_complaint',
         'spam_complaint_dts': 'spam_complaint_dts'
     }
 
-    def __init__(self, activities=None, global_unsubscribed=None, global_unsubscribed_dts=None, memberships=None, metrics=None, properties_list=None, spam_complaint=None, spam_complaint_dts=None):  # noqa: E501
+    def __init__(self, activities=None, global_unsubscribed=None, global_unsubscribed_dts=None, memberships=None, metrics=None, properties_list=None, sms=None, sms_stop=None, spam_complaint=None, spam_complaint_dts=None):  # noqa: E501
         """CustomerActivity - a model defined in Swagger"""  # noqa: E501
 
         self._activities = None
@@ -61,6 +65,8 @@ class CustomerActivity(object):
         self._memberships = None
         self._metrics = None
         self._properties_list = None
+        self._sms = None
+        self._sms_stop = None
         self._spam_complaint = None
         self._spam_complaint_dts = None
         self.discriminator = None
@@ -77,6 +83,10 @@ class CustomerActivity(object):
             self.metrics = metrics
         if properties_list is not None:
             self.properties_list = properties_list
+        if sms is not None:
+            self.sms = sms
+        if sms_stop is not None:
+            self.sms_stop = sms_stop
         if spam_complaint is not None:
             self.spam_complaint = spam_complaint
         if spam_complaint_dts is not None:
@@ -207,6 +217,48 @@ class CustomerActivity(object):
         """
 
         self._properties_list = properties_list
+
+    @property
+    def sms(self):
+        """Gets the sms of this CustomerActivity.  # noqa: E501
+
+
+        :return: The sms of this CustomerActivity.  # noqa: E501
+        :rtype: str
+        """
+        return self._sms
+
+    @sms.setter
+    def sms(self, sms):
+        """Sets the sms of this CustomerActivity.
+
+
+        :param sms: The sms of this CustomerActivity.  # noqa: E501
+        :type: str
+        """
+
+        self._sms = sms
+
+    @property
+    def sms_stop(self):
+        """Gets the sms_stop of this CustomerActivity.  # noqa: E501
+
+
+        :return: The sms_stop of this CustomerActivity.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sms_stop
+
+    @sms_stop.setter
+    def sms_stop(self, sms_stop):
+        """Sets the sms_stop of this CustomerActivity.
+
+
+        :param sms_stop: The sms_stop of this CustomerActivity.  # noqa: E501
+        :type: bool
+        """
+
+        self._sms_stop = sms_stop
 
     @property
     def spam_complaint(self):

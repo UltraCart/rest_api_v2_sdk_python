@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **memberships** | [**list[ListSegmentMembership]**](ListSegmentMembership.md) |  | [optional] 
 **metrics** | [**list[Metric]**](Metric.md) |  | [optional] 
 **properties_list** | [**list[ModelProperty]**](ModelProperty.md) |  | [optional] 
+**sms** | **str** |  | [optional] 
+**sms_stop** | **bool** |  | [optional] 
 **spam_complaint** | **bool** |  | [optional] 
 **spam_complaint_dts** | **str** |  | [optional] 
 

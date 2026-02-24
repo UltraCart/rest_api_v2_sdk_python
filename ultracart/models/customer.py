@@ -1477,7 +1477,7 @@ class Customer(object):
     def referral_source(self):
         """Gets the referral_source of this Customer.  # noqa: E501
 
-        Referral Source  # noqa: E501
+        Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.  # noqa: E501
 
         :return: The referral_source of this Customer.  # noqa: E501
         :rtype: str
@@ -1488,7 +1488,7 @@ class Customer(object):
     def referral_source(self, referral_source):
         """Sets the referral_source of this Customer.
 
-        Referral Source  # noqa: E501
+        Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.  # noqa: E501
 
         :param referral_source: The referral_source of this Customer.  # noqa: E501
         :type: str
