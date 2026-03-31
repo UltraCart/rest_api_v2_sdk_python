@@ -1041,6 +1041,58 @@ class ConversationApi(object):
             },
             api_client=api_client
         )
+        self.delete_user_pbx_audio_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxAudioResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/audio/user/{conversationPbxAudioUuid}',
+                'operation_id': 'delete_user_pbx_audio',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'conversation_pbx_audio_uuid',
+                ],
+                'required': [
+                    'conversation_pbx_audio_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'conversation_pbx_audio_uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'conversation_pbx_audio_uuid': 'conversationPbxAudioUuid',
+                },
+                'location_map': {
+                    'conversation_pbx_audio_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_agent_keep_alive_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -3906,6 +3958,103 @@ class ConversationApi(object):
             },
             api_client=api_client
         )
+        self.get_user_pbx_audio_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxAudioResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/audio/user/{conversationPbxAudioUuid}',
+                'operation_id': 'get_user_pbx_audio',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'conversation_pbx_audio_uuid',
+                ],
+                'required': [
+                    'conversation_pbx_audio_uuid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'conversation_pbx_audio_uuid':
+                        (str,),
+                },
+                'attribute_map': {
+                    'conversation_pbx_audio_uuid': 'conversationPbxAudioUuid',
+                },
+                'location_map': {
+                    'conversation_pbx_audio_uuid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_user_pbx_audios_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxAudiosResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/audio/user',
+                'operation_id': 'get_user_pbx_audios',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_virtual_agent_budget_endpoint = _Endpoint(
             settings={
                 'response_type': (ConversationVirtualAgentBudgetResponse,),
@@ -4736,6 +4885,59 @@ class ConversationApi(object):
                 },
                 'location_map': {
                     'pbx_voicemail_mailbox': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.insert_user_pbx_audio_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxAudioResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/audio/user',
+                'operation_id': 'insert_user_pbx_audio',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pbx_audio',
+                ],
+                'required': [
+                    'pbx_audio',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pbx_audio':
+                        (ConversationPbxAudio,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'pbx_audio': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -6549,6 +6751,65 @@ class ConversationApi(object):
             },
             api_client=api_client
         )
+        self.update_user_pbx_audio_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxAudioResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/audio/user/{conversationPbxAudioUuid}',
+                'operation_id': 'update_user_pbx_audio',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'conversation_pbx_audio_uuid',
+                    'pbx_audio',
+                ],
+                'required': [
+                    'conversation_pbx_audio_uuid',
+                    'pbx_audio',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'conversation_pbx_audio_uuid':
+                        (str,),
+                    'pbx_audio':
+                        (ConversationPbxAudio,),
+                },
+                'attribute_map': {
+                    'conversation_pbx_audio_uuid': 'conversationPbxAudioUuid',
+                },
+                'location_map': {
+                    'conversation_pbx_audio_uuid': 'path',
+                    'pbx_audio': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_virtual_agent_budget_endpoint = _Endpoint(
             settings={
                 'response_type': (ConversationVirtualAgentBudgetResponse,),
@@ -8078,6 +8339,89 @@ class ConversationApi(object):
         kwargs['conversation_pbx_voicemail_mailbox_uuid'] = \
             conversation_pbx_voicemail_mailbox_uuid
         return self.delete_pbx_voicemail_mailbox_endpoint.call_with_http_info(**kwargs)
+
+    def delete_user_pbx_audio(
+        self,
+        conversation_pbx_audio_uuid,
+        **kwargs
+    ):
+        """Delete user pbx audio  # noqa: E501
+
+        Delete a pbx audio file owned by the authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_user_pbx_audio(conversation_pbx_audio_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            conversation_pbx_audio_uuid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxAudioResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['conversation_pbx_audio_uuid'] = \
+            conversation_pbx_audio_uuid
+        return self.delete_user_pbx_audio_endpoint.call_with_http_info(**kwargs)
 
     def get_agent_keep_alive(
         self,
@@ -12710,6 +13054,167 @@ class ConversationApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_pbx_voicemail_mailboxes_endpoint.call_with_http_info(**kwargs)
 
+    def get_user_pbx_audio(
+        self,
+        conversation_pbx_audio_uuid,
+        **kwargs
+    ):
+        """Get user pbx audio  # noqa: E501
+
+        Retrieve a pbx audio file owned by the authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_user_pbx_audio(conversation_pbx_audio_uuid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            conversation_pbx_audio_uuid (str):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxAudioResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['conversation_pbx_audio_uuid'] = \
+            conversation_pbx_audio_uuid
+        return self.get_user_pbx_audio_endpoint.call_with_http_info(**kwargs)
+
+    def get_user_pbx_audios(
+        self,
+        **kwargs
+    ):
+        """Get user pbx audios  # noqa: E501
+
+        Retrieve pbx audio files owned by the authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_user_pbx_audios(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxAudiosResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.get_user_pbx_audios_endpoint.call_with_http_info(**kwargs)
+
     def get_virtual_agent_budget(
         self,
         **kwargs
@@ -14035,6 +14540,89 @@ class ConversationApi(object):
         kwargs['pbx_voicemail_mailbox'] = \
             pbx_voicemail_mailbox
         return self.insert_pbx_voicemail_mailbox_endpoint.call_with_http_info(**kwargs)
+
+    def insert_user_pbx_audio(
+        self,
+        pbx_audio,
+        **kwargs
+    ):
+        """Insert user pbx audio  # noqa: E501
+
+        Insert a pbx audio file for the authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_user_pbx_audio(pbx_audio, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pbx_audio (ConversationPbxAudio): Pbx Audio
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxAudioResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pbx_audio'] = \
+            pbx_audio
+        return self.insert_user_pbx_audio_endpoint.call_with_http_info(**kwargs)
 
     def join_conversation(
         self,
@@ -16694,6 +17282,93 @@ class ConversationApi(object):
         kwargs['pbx_voicemail_mailbox'] = \
             pbx_voicemail_mailbox
         return self.update_pbx_voicemail_mailbox_endpoint.call_with_http_info(**kwargs)
+
+    def update_user_pbx_audio(
+        self,
+        conversation_pbx_audio_uuid,
+        pbx_audio,
+        **kwargs
+    ):
+        """Update user pbx audio  # noqa: E501
+
+        Update a pbx audio file owned by the authenticated user   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_user_pbx_audio(conversation_pbx_audio_uuid, pbx_audio, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            conversation_pbx_audio_uuid (str):
+            pbx_audio (ConversationPbxAudio): Pbx Audio
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxAudioResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['conversation_pbx_audio_uuid'] = \
+            conversation_pbx_audio_uuid
+        kwargs['pbx_audio'] = \
+            pbx_audio
+        return self.update_user_pbx_audio_endpoint.call_with_http_info(**kwargs)
 
     def update_virtual_agent_budget(
         self,
