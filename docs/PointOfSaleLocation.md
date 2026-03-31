@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **pos_location_oid** | **int** | Object identifier of the point of sale location. | [optional] 
 **postal_code** | **str** | Postal code | [optional] 
 **state_province** | **str** | State/province | [optional] 
+**tax_county** | **str** | Tax county associated with this address.  Need when a self managed tax configuration is being used. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
