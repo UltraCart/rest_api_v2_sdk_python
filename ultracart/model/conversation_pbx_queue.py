@@ -76,6 +76,12 @@ class ConversationPbxQueue(ModelNormal):
     }
 
     validations = {
+        ('callback_announce_audio_uuid',): {
+            'max_length': 50,
+        },
+        ('callback_confirm_audio_uuid',): {
+            'max_length': 50,
+        },
         ('conversation_voicemail_mailbox_uuid',): {
             'max_length': 50,
         },
@@ -135,6 +141,18 @@ class ConversationPbxQueue(ModelNormal):
             'ai_timeout_seconds': (int,),  # noqa: E501
             'announce_queue_position': (bool,),  # noqa: E501
             'automatic_coach_agent_uuid': (str,),  # noqa: E501
+            'callback_announce_audio_uuid': (str,),  # noqa: E501
+            'callback_announce_say': (str,),  # noqa: E501
+            'callback_confirm_audio_uuid': (str,),  # noqa: E501
+            'callback_confirm_say': (str,),  # noqa: E501
+            'callback_enabled': (bool,),  # noqa: E501
+            'callback_hours_only': (bool,),  # noqa: E501
+            'callback_max_attempts': (int,),  # noqa: E501
+            'callback_max_offers': (int,),  # noqa: E501
+            'callback_max_pending': (int,),  # noqa: E501
+            'callback_offer_after_seconds': (int,),  # noqa: E501
+            'callback_offer_interval_seconds': (int,),  # noqa: E501
+            'callback_retry_delay_seconds': (int,),  # noqa: E501
             'conversation_pbx_queue_uuid': (str,),  # noqa: E501
             'conversation_voicemail_mailbox_uuid': (str,),  # noqa: E501
             'hold_conversation_pbx_audio_uuid': (str,),  # noqa: E501
@@ -167,6 +185,18 @@ class ConversationPbxQueue(ModelNormal):
         'ai_timeout_seconds': 'ai_timeout_seconds',  # noqa: E501
         'announce_queue_position': 'announce_queue_position',  # noqa: E501
         'automatic_coach_agent_uuid': 'automatic_coach_agent_uuid',  # noqa: E501
+        'callback_announce_audio_uuid': 'callback_announce_audio_uuid',  # noqa: E501
+        'callback_announce_say': 'callback_announce_say',  # noqa: E501
+        'callback_confirm_audio_uuid': 'callback_confirm_audio_uuid',  # noqa: E501
+        'callback_confirm_say': 'callback_confirm_say',  # noqa: E501
+        'callback_enabled': 'callback_enabled',  # noqa: E501
+        'callback_hours_only': 'callback_hours_only',  # noqa: E501
+        'callback_max_attempts': 'callback_max_attempts',  # noqa: E501
+        'callback_max_offers': 'callback_max_offers',  # noqa: E501
+        'callback_max_pending': 'callback_max_pending',  # noqa: E501
+        'callback_offer_after_seconds': 'callback_offer_after_seconds',  # noqa: E501
+        'callback_offer_interval_seconds': 'callback_offer_interval_seconds',  # noqa: E501
+        'callback_retry_delay_seconds': 'callback_retry_delay_seconds',  # noqa: E501
         'conversation_pbx_queue_uuid': 'conversation_pbx_queue_uuid',  # noqa: E501
         'conversation_voicemail_mailbox_uuid': 'conversation_voicemail_mailbox_uuid',  # noqa: E501
         'hold_conversation_pbx_audio_uuid': 'hold_conversation_pbx_audio_uuid',  # noqa: E501
@@ -234,6 +264,18 @@ class ConversationPbxQueue(ModelNormal):
             ai_timeout_seconds (int): AI timeout seconds. [optional]  # noqa: E501
             announce_queue_position (bool): If true, the customer is told their queue position upon entering the queue. [optional]  # noqa: E501
             automatic_coach_agent_uuid (str): AI Agent UUID to automatically engage to provide coaching. [optional]  # noqa: E501
+            callback_announce_audio_uuid (str): Custom audio file UUID for the callback offer prompt. [optional]  # noqa: E501
+            callback_announce_say (str): Custom TTS text for the callback offer prompt. [optional]  # noqa: E501
+            callback_confirm_audio_uuid (str): Custom audio file UUID for the callback confirmation message. [optional]  # noqa: E501
+            callback_confirm_say (str): Custom TTS text for the callback confirmation message. [optional]  # noqa: E501
+            callback_enabled (bool): If true, the callback option is enabled for this queue. [optional]  # noqa: E501
+            callback_hours_only (bool): When true, only offer callbacks during business hours. [optional]  # noqa: E501
+            callback_max_attempts (int): Maximum number of times the system will attempt to call the customer back. [optional]  # noqa: E501
+            callback_max_offers (int): Maximum number of times the callback option is offered to a caller per call. [optional]  # noqa: E501
+            callback_max_pending (int): Maximum number of pending callbacks allowed per queue. [optional]  # noqa: E501
+            callback_offer_after_seconds (int): Seconds a caller must wait in queue before the callback option is offered. [optional]  # noqa: E501
+            callback_offer_interval_seconds (int): Seconds between repeat callback offers to the same caller. [optional]  # noqa: E501
+            callback_retry_delay_seconds (int): Delay in seconds between callback retry attempts. [optional]  # noqa: E501
             conversation_pbx_queue_uuid (str): Conversation Pbx Queue unique identifier. [optional]  # noqa: E501
             conversation_voicemail_mailbox_uuid (str): The voicemail mailbox associated with this queue. [optional]  # noqa: E501
             hold_conversation_pbx_audio_uuid (str): The audio to play while holding in a queue. [optional]  # noqa: E501
@@ -343,6 +385,18 @@ class ConversationPbxQueue(ModelNormal):
             ai_timeout_seconds (int): AI timeout seconds. [optional]  # noqa: E501
             announce_queue_position (bool): If true, the customer is told their queue position upon entering the queue. [optional]  # noqa: E501
             automatic_coach_agent_uuid (str): AI Agent UUID to automatically engage to provide coaching. [optional]  # noqa: E501
+            callback_announce_audio_uuid (str): Custom audio file UUID for the callback offer prompt. [optional]  # noqa: E501
+            callback_announce_say (str): Custom TTS text for the callback offer prompt. [optional]  # noqa: E501
+            callback_confirm_audio_uuid (str): Custom audio file UUID for the callback confirmation message. [optional]  # noqa: E501
+            callback_confirm_say (str): Custom TTS text for the callback confirmation message. [optional]  # noqa: E501
+            callback_enabled (bool): If true, the callback option is enabled for this queue. [optional]  # noqa: E501
+            callback_hours_only (bool): When true, only offer callbacks during business hours. [optional]  # noqa: E501
+            callback_max_attempts (int): Maximum number of times the system will attempt to call the customer back. [optional]  # noqa: E501
+            callback_max_offers (int): Maximum number of times the callback option is offered to a caller per call. [optional]  # noqa: E501
+            callback_max_pending (int): Maximum number of pending callbacks allowed per queue. [optional]  # noqa: E501
+            callback_offer_after_seconds (int): Seconds a caller must wait in queue before the callback option is offered. [optional]  # noqa: E501
+            callback_offer_interval_seconds (int): Seconds between repeat callback offers to the same caller. [optional]  # noqa: E501
+            callback_retry_delay_seconds (int): Delay in seconds between callback retry attempts. [optional]  # noqa: E501
             conversation_pbx_queue_uuid (str): Conversation Pbx Queue unique identifier. [optional]  # noqa: E501
             conversation_voicemail_mailbox_uuid (str): The voicemail mailbox associated with this queue. [optional]  # noqa: E501
             hold_conversation_pbx_audio_uuid (str): The audio to play while holding in a queue. [optional]  # noqa: E501
