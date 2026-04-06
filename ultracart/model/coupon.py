@@ -65,6 +65,7 @@ def lazy_import():
     from ultracart.model.coupon_percent_off_items import CouponPercentOffItems
     from ultracart.model.coupon_percent_off_items_and_free_shipping import CouponPercentOffItemsAndFreeShipping
     from ultracart.model.coupon_percent_off_items_with_items_purchase import CouponPercentOffItemsWithItemsPurchase
+    from ultracart.model.coupon_percent_off_items_with_minimum_item_amount import CouponPercentOffItemsWithMinimumItemAmount
     from ultracart.model.coupon_percent_off_msrp_items import CouponPercentOffMsrpItems
     from ultracart.model.coupon_percent_off_retail_price_items import CouponPercentOffRetailPriceItems
     from ultracart.model.coupon_percent_off_shipping import CouponPercentOffShipping
@@ -114,6 +115,7 @@ def lazy_import():
     globals()['CouponPercentOffItems'] = CouponPercentOffItems
     globals()['CouponPercentOffItemsAndFreeShipping'] = CouponPercentOffItemsAndFreeShipping
     globals()['CouponPercentOffItemsWithItemsPurchase'] = CouponPercentOffItemsWithItemsPurchase
+    globals()['CouponPercentOffItemsWithMinimumItemAmount'] = CouponPercentOffItemsWithMinimumItemAmount
     globals()['CouponPercentOffMsrpItems'] = CouponPercentOffMsrpItems
     globals()['CouponPercentOffRetailPriceItems'] = CouponPercentOffRetailPriceItems
     globals()['CouponPercentOffShipping'] = CouponPercentOffShipping
@@ -254,6 +256,7 @@ class Coupon(ModelNormal):
             'percent_off_items': (CouponPercentOffItems,),  # noqa: E501
             'percent_off_items_and_free_shipping': (CouponPercentOffItemsAndFreeShipping,),  # noqa: E501
             'percent_off_items_with_items_purchase': (CouponPercentOffItemsWithItemsPurchase,),  # noqa: E501
+            'percent_off_items_with_minimum_item_amount': (CouponPercentOffItemsWithMinimumItemAmount,),  # noqa: E501
             'percent_off_msrp_items': (CouponPercentOffMsrpItems,),  # noqa: E501
             'percent_off_retail_price_items': (CouponPercentOffRetailPriceItems,),  # noqa: E501
             'percent_off_shipping': (CouponPercentOffShipping,),  # noqa: E501
@@ -329,6 +332,7 @@ class Coupon(ModelNormal):
         'percent_off_items': 'percent_off_items',  # noqa: E501
         'percent_off_items_and_free_shipping': 'percent_off_items_and_free_shipping',  # noqa: E501
         'percent_off_items_with_items_purchase': 'percent_off_items_with_items_purchase',  # noqa: E501
+        'percent_off_items_with_minimum_item_amount': 'percent_off_items_with_minimum_item_amount',  # noqa: E501
         'percent_off_msrp_items': 'percent_off_msrp_items',  # noqa: E501
         'percent_off_retail_price_items': 'percent_off_retail_price_items',  # noqa: E501
         'percent_off_shipping': 'percent_off_shipping',  # noqa: E501
@@ -439,6 +443,7 @@ class Coupon(ModelNormal):
             percent_off_items (CouponPercentOffItems): [optional]  # noqa: E501
             percent_off_items_and_free_shipping (CouponPercentOffItemsAndFreeShipping): [optional]  # noqa: E501
             percent_off_items_with_items_purchase (CouponPercentOffItemsWithItemsPurchase): [optional]  # noqa: E501
+            percent_off_items_with_minimum_item_amount (CouponPercentOffItemsWithMinimumItemAmount): [optional]  # noqa: E501
             percent_off_msrp_items (CouponPercentOffMsrpItems): [optional]  # noqa: E501
             percent_off_retail_price_items (CouponPercentOffRetailPriceItems): [optional]  # noqa: E501
             percent_off_shipping (CouponPercentOffShipping): [optional]  # noqa: E501
@@ -591,6 +596,7 @@ class Coupon(ModelNormal):
             percent_off_items (CouponPercentOffItems): [optional]  # noqa: E501
             percent_off_items_and_free_shipping (CouponPercentOffItemsAndFreeShipping): [optional]  # noqa: E501
             percent_off_items_with_items_purchase (CouponPercentOffItemsWithItemsPurchase): [optional]  # noqa: E501
+            percent_off_items_with_minimum_item_amount (CouponPercentOffItemsWithMinimumItemAmount): [optional]  # noqa: E501
             percent_off_msrp_items (CouponPercentOffMsrpItems): [optional]  # noqa: E501
             percent_off_retail_price_items (CouponPercentOffRetailPriceItems): [optional]  # noqa: E501
             percent_off_shipping (CouponPercentOffShipping): [optional]  # noqa: E501
