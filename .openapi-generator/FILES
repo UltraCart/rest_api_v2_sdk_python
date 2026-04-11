@@ -258,6 +258,7 @@ docs/ConversationPbxTimeRange.md
 docs/ConversationPbxTimeRangeConfig.md
 docs/ConversationPbxTimeRangeResponse.md
 docs/ConversationPbxTimeRangesResponse.md
+docs/ConversationPbxVoicemailCapabilitiesResponse.md
 docs/ConversationPbxVoicemailMailbox.md
 docs/ConversationPbxVoicemailMailboxResponse.md
 docs/ConversationPbxVoicemailMailboxesResponse.md
@@ -1256,6 +1257,7 @@ ultracart/model/conversation_pbx_time_range.py
 ultracart/model/conversation_pbx_time_range_config.py
 ultracart/model/conversation_pbx_time_range_response.py
 ultracart/model/conversation_pbx_time_ranges_response.py
+ultracart/model/conversation_pbx_voicemail_capabilities_response.py
 ultracart/model/conversation_pbx_voicemail_mailbox.py
 ultracart/model/conversation_pbx_voicemail_mailbox_response.py
 ultracart/model/conversation_pbx_voicemail_mailboxes_response.py
