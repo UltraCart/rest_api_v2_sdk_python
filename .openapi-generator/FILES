@@ -209,6 +209,7 @@ docs/ConversationPbxCall.md
 docs/ConversationPbxCallAgent.md
 docs/ConversationPbxCallAiCost.md
 docs/ConversationPbxCallAiEngagement.md
+docs/ConversationPbxCallAiSummary.md
 docs/ConversationPbxCallAiToolCall.md
 docs/ConversationPbxCallAiWhisper.md
 docs/ConversationPbxCallCaller.md
@@ -1208,6 +1209,7 @@ ultracart/model/conversation_pbx_call.py
 ultracart/model/conversation_pbx_call_agent.py
 ultracart/model/conversation_pbx_call_ai_cost.py
 ultracart/model/conversation_pbx_call_ai_engagement.py
+ultracart/model/conversation_pbx_call_ai_summary.py
 ultracart/model/conversation_pbx_call_ai_tool_call.py
 ultracart/model/conversation_pbx_call_ai_whisper.py
 ultracart/model/conversation_pbx_call_caller.py

@@ -85,6 +85,7 @@ class ConversationPbxCallFinancial(ModelNormal):
             'ai_agent_billed_minutes': (float,),  # noqa: E501
             'ai_agent_cost': (float,),  # noqa: E501
             'ai_agent_cost_currency': (str,),  # noqa: E501
+            'ai_summary_cost': (float,),  # noqa: E501
             'call_currency': (str,),  # noqa: E501
             'call_price': (float,),  # noqa: E501
             'call_price_estimated': (bool,),  # noqa: E501
@@ -100,6 +101,7 @@ class ConversationPbxCallFinancial(ModelNormal):
         'ai_agent_billed_minutes': 'ai_agent_billed_minutes',  # noqa: E501
         'ai_agent_cost': 'ai_agent_cost',  # noqa: E501
         'ai_agent_cost_currency': 'ai_agent_cost_currency',  # noqa: E501
+        'ai_summary_cost': 'ai_summary_cost',  # noqa: E501
         'call_currency': 'call_currency',  # noqa: E501
         'call_price': 'call_price',  # noqa: E501
         'call_price_estimated': 'call_price_estimated',  # noqa: E501
@@ -150,6 +152,7 @@ class ConversationPbxCallFinancial(ModelNormal):
             ai_agent_billed_minutes (float): Total AI agent billed minutes for this call. [optional]  # noqa: E501
             ai_agent_cost (float): Total AI agent cost for this call. [optional]  # noqa: E501
             ai_agent_cost_currency (str): Currency for AI agent cost. [optional]  # noqa: E501
+            ai_summary_cost (float): AI summary generation cost (LLM call made by pbx-transcript-formatter after the call ends). [optional]  # noqa: E501
             call_currency (str): Currency for call price (default USD). [optional]  # noqa: E501
             call_price (float): Twilio call cost. [optional]  # noqa: E501
             call_price_estimated (bool): True if call price is a fallback-rate estimate, false if Twilio-confirmed. [optional]  # noqa: E501
@@ -242,6 +245,7 @@ class ConversationPbxCallFinancial(ModelNormal):
             ai_agent_billed_minutes (float): Total AI agent billed minutes for this call. [optional]  # noqa: E501
             ai_agent_cost (float): Total AI agent cost for this call. [optional]  # noqa: E501
             ai_agent_cost_currency (str): Currency for AI agent cost. [optional]  # noqa: E501
+            ai_summary_cost (float): AI summary generation cost (LLM call made by pbx-transcript-formatter after the call ends). [optional]  # noqa: E501
             call_currency (str): Currency for call price (default USD). [optional]  # noqa: E501
             call_price (float): Twilio call cost. [optional]  # noqa: E501
             call_price_estimated (bool): True if call price is a fallback-rate estimate, false if Twilio-confirmed. [optional]  # noqa: E501

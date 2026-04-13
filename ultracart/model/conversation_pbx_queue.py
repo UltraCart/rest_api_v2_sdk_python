@@ -76,6 +76,9 @@ class ConversationPbxQueue(ModelNormal):
     }
 
     validations = {
+        ('ai_summary_instructions',): {
+            'max_length': 100000,
+        },
         ('callback_announce_audio_uuid',): {
             'max_length': 50,
         },
@@ -112,6 +115,9 @@ class ConversationPbxQueue(ModelNormal):
         ('twilio_workspace_queue_sid',): {
             'max_length': 50,
         },
+        ('zoho_desk_department_id',): {
+            'max_length': 50,
+        },
     }
 
     @cached_property
@@ -138,6 +144,8 @@ class ConversationPbxQueue(ModelNormal):
         lazy_import()
         return {
             'ai_priority': (str,),  # noqa: E501
+            'ai_summary_enabled': (bool,),  # noqa: E501
+            'ai_summary_instructions': (str,),  # noqa: E501
             'ai_timeout_seconds': (int,),  # noqa: E501
             'announce_queue_position': (bool,),  # noqa: E501
             'automatic_coach_agent_uuid': (str,),  # noqa: E501
@@ -173,6 +181,8 @@ class ConversationPbxQueue(ModelNormal):
             'wait_critical_seconds': (int,),  # noqa: E501
             'wait_warning_seconds': (int,),  # noqa: E501
             'wrap_up_seconds': (int,),  # noqa: E501
+            'zoho_desk_department_id': (str,),  # noqa: E501
+            'zoho_desk_ticket_enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -182,6 +192,8 @@ class ConversationPbxQueue(ModelNormal):
 
     attribute_map = {
         'ai_priority': 'ai_priority',  # noqa: E501
+        'ai_summary_enabled': 'ai_summary_enabled',  # noqa: E501
+        'ai_summary_instructions': 'ai_summary_instructions',  # noqa: E501
         'ai_timeout_seconds': 'ai_timeout_seconds',  # noqa: E501
         'announce_queue_position': 'announce_queue_position',  # noqa: E501
         'automatic_coach_agent_uuid': 'automatic_coach_agent_uuid',  # noqa: E501
@@ -217,6 +229,8 @@ class ConversationPbxQueue(ModelNormal):
         'wait_critical_seconds': 'wait_critical_seconds',  # noqa: E501
         'wait_warning_seconds': 'wait_warning_seconds',  # noqa: E501
         'wrap_up_seconds': 'wrap_up_seconds',  # noqa: E501
+        'zoho_desk_department_id': 'zoho_desk_department_id',  # noqa: E501
+        'zoho_desk_ticket_enabled': 'zoho_desk_ticket_enabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -261,6 +275,8 @@ class ConversationPbxQueue(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             ai_priority (str): AI Agent Priority compared to human agents. [optional]  # noqa: E501
+            ai_summary_enabled (bool): If true, AI summaries are generated for answered calls in this queue. [optional]  # noqa: E501
+            ai_summary_instructions (str): Custom instructions injected into the AI summary system prompt for this queue. [optional]  # noqa: E501
             ai_timeout_seconds (int): AI timeout seconds. [optional]  # noqa: E501
             announce_queue_position (bool): If true, the customer is told their queue position upon entering the queue. [optional]  # noqa: E501
             automatic_coach_agent_uuid (str): AI Agent UUID to automatically engage to provide coaching. [optional]  # noqa: E501
@@ -296,6 +312,8 @@ class ConversationPbxQueue(ModelNormal):
             wait_critical_seconds (int): Wait time in seconds before critical. [optional]  # noqa: E501
             wait_warning_seconds (int): Wait time in seconds before warning. [optional]  # noqa: E501
             wrap_up_seconds (int): Wrap up time in seconds. [optional]  # noqa: E501
+            zoho_desk_department_id (str): Zoho Desk department ID to create tickets in. [optional]  # noqa: E501
+            zoho_desk_ticket_enabled (bool): If true, a Zoho Desk ticket is automatically created for answered calls in this queue. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -382,6 +400,8 @@ class ConversationPbxQueue(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             ai_priority (str): AI Agent Priority compared to human agents. [optional]  # noqa: E501
+            ai_summary_enabled (bool): If true, AI summaries are generated for answered calls in this queue. [optional]  # noqa: E501
+            ai_summary_instructions (str): Custom instructions injected into the AI summary system prompt for this queue. [optional]  # noqa: E501
             ai_timeout_seconds (int): AI timeout seconds. [optional]  # noqa: E501
             announce_queue_position (bool): If true, the customer is told their queue position upon entering the queue. [optional]  # noqa: E501
             automatic_coach_agent_uuid (str): AI Agent UUID to automatically engage to provide coaching. [optional]  # noqa: E501
@@ -417,6 +437,8 @@ class ConversationPbxQueue(ModelNormal):
             wait_critical_seconds (int): Wait time in seconds before critical. [optional]  # noqa: E501
             wait_warning_seconds (int): Wait time in seconds before warning. [optional]  # noqa: E501
             wrap_up_seconds (int): Wrap up time in seconds. [optional]  # noqa: E501
+            zoho_desk_department_id (str): Zoho Desk department ID to create tickets in. [optional]  # noqa: E501
+            zoho_desk_ticket_enabled (bool): If true, a Zoho Desk ticket is automatically created for answered calls in this queue. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

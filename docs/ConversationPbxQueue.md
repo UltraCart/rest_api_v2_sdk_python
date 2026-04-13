@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ai_priority** | **str** | AI Agent Priority compared to human agents | [optional] 
+**ai_summary_enabled** | **bool** | If true, AI summaries are generated for answered calls in this queue | [optional] 
+**ai_summary_instructions** | **str** | Custom instructions injected into the AI summary system prompt for this queue | [optional] 
 **ai_timeout_seconds** | **int** | AI timeout seconds | [optional] 
 **announce_queue_position** | **bool** | If true, the customer is told their queue position upon entering the queue | [optional] 
 **automatic_coach_agent_uuid** | **str** | AI Agent UUID to automatically engage to provide coaching | [optional] 
@@ -40,6 +42,8 @@ Name | Type | Description | Notes
 **wait_critical_seconds** | **int** | Wait time in seconds before critical | [optional] 
 **wait_warning_seconds** | **int** | Wait time in seconds before warning | [optional] 
 **wrap_up_seconds** | **int** | Wrap up time in seconds | [optional] 
+**zoho_desk_department_id** | **str** | Zoho Desk department ID to create tickets in | [optional] 
+**zoho_desk_ticket_enabled** | **bool** | If true, a Zoho Desk ticket is automatically created for answered calls in this queue | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
