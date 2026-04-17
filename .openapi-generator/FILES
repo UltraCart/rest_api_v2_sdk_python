@@ -158,6 +158,8 @@ docs/ConversationDepartmentMember.md
 docs/ConversationDepartmentMembersResponse.md
 docs/ConversationDepartmentResponse.md
 docs/ConversationDepartmentsResponse.md
+docs/ConversationEmbedApi.md
+docs/ConversationEmbedPbxAuthResponse.md
 docs/ConversationEngagement.md
 docs/ConversationEngagementEquation.md
 docs/ConversationEngagementEquationFunction.md
@@ -988,6 +990,7 @@ ultracart/api/auto_order_api.py
 ultracart/api/channel_partner_api.py
 ultracart/api/checkout_api.py
 ultracart/api/conversation_api.py
+ultracart/api/conversation_embed_api.py
 ultracart/api/coupon_api.py
 ultracart/api/customer_api.py
 ultracart/api/datawarehouse_api.py
@@ -1159,6 +1162,7 @@ ultracart/model/conversation_department_member.py
 ultracart/model/conversation_department_members_response.py
 ultracart/model/conversation_department_response.py
 ultracart/model/conversation_departments_response.py
+ultracart/model/conversation_embed_pbx_auth_response.py
 ultracart/model/conversation_engagement.py
 ultracart/model/conversation_engagement_equation.py
 ultracart/model/conversation_engagement_equation_function.py
