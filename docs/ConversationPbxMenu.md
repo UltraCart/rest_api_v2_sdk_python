@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allow_direct_extensions** | **bool** | If true, the customer is allowed to input direct extensions within this menu | [optional] 
+**context_merchant_id** | **str** | Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group. | [optional] 
 **conversation_pbx_menu_uuid** | **str** | Conversation Pbx Menu UUID | [optional] 
 **default_action** | **str** | The default action for this menu | [optional] 
 **default_action_target** | **str** | The default action target for this menu | [optional] 

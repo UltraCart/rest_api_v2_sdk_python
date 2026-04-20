@@ -31,7 +31,9 @@ from ultracart.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from ultracart.model.conversation_agent_auth_merchant import ConversationAgentAuthMerchant
     from ultracart.model.conversation_twilio_account import ConversationTwilioAccount
+    globals()['ConversationAgentAuthMerchant'] = ConversationAgentAuthMerchant
     globals()['ConversationTwilioAccount'] = ConversationTwilioAccount
 
 
@@ -97,6 +99,8 @@ class ConversationAgentAuth(ModelNormal):
             'group_ids': ([int],),  # noqa: E501
             'jwt': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
+            'merchants': ([ConversationAgentAuthMerchant],),  # noqa: E501
+            'parent_merchant_id': (str,),  # noqa: E501
             'pbx_admin': (bool,),  # noqa: E501
             'pbx_jwt': (str,),  # noqa: E501
             'pbx_supervisor': (bool,),  # noqa: E501
@@ -125,6 +129,8 @@ class ConversationAgentAuth(ModelNormal):
         'group_ids': 'group_ids',  # noqa: E501
         'jwt': 'jwt',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
+        'merchants': 'merchants',  # noqa: E501
+        'parent_merchant_id': 'parent_merchant_id',  # noqa: E501
         'pbx_admin': 'pbx_admin',  # noqa: E501
         'pbx_jwt': 'pbx_jwt',  # noqa: E501
         'pbx_supervisor': 'pbx_supervisor',  # noqa: E501
@@ -188,6 +194,8 @@ class ConversationAgentAuth(ModelNormal):
             group_ids ([int]): UltraCart Groups this user belongs to. [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
+            merchants ([ConversationAgentAuthMerchant]): List of merchants in this linked merchant group. [optional]  # noqa: E501
+            parent_merchant_id (str): The parent merchant ID for PBX. For non-linked merchants, equals merchant_id.. [optional]  # noqa: E501
             pbx_admin (bool): [optional]  # noqa: E501
             pbx_jwt (str): [optional]  # noqa: E501
             pbx_supervisor (bool): [optional]  # noqa: E501
@@ -293,6 +301,8 @@ class ConversationAgentAuth(ModelNormal):
             group_ids ([int]): UltraCart Groups this user belongs to. [optional]  # noqa: E501
             jwt (str): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
+            merchants ([ConversationAgentAuthMerchant]): List of merchants in this linked merchant group. [optional]  # noqa: E501
+            parent_merchant_id (str): The parent merchant ID for PBX. For non-linked merchants, equals merchant_id.. [optional]  # noqa: E501
             pbx_admin (bool): [optional]  # noqa: E501
             pbx_jwt (str): [optional]  # noqa: E501
             pbx_supervisor (bool): [optional]  # noqa: E501

@@ -85,6 +85,9 @@ class ConversationPbxQueue(ModelNormal):
         ('callback_confirm_audio_uuid',): {
             'max_length': 50,
         },
+        ('context_merchant_id',): {
+            'max_length': 20,
+        },
         ('conversation_voicemail_mailbox_uuid',): {
             'max_length': 50,
         },
@@ -161,6 +164,7 @@ class ConversationPbxQueue(ModelNormal):
             'callback_offer_after_seconds': (int,),  # noqa: E501
             'callback_offer_interval_seconds': (int,),  # noqa: E501
             'callback_retry_delay_seconds': (int,),  # noqa: E501
+            'context_merchant_id': (str,),  # noqa: E501
             'conversation_pbx_queue_uuid': (str,),  # noqa: E501
             'conversation_voicemail_mailbox_uuid': (str,),  # noqa: E501
             'hold_conversation_pbx_audio_uuid': (str,),  # noqa: E501
@@ -209,6 +213,7 @@ class ConversationPbxQueue(ModelNormal):
         'callback_offer_after_seconds': 'callback_offer_after_seconds',  # noqa: E501
         'callback_offer_interval_seconds': 'callback_offer_interval_seconds',  # noqa: E501
         'callback_retry_delay_seconds': 'callback_retry_delay_seconds',  # noqa: E501
+        'context_merchant_id': 'context_merchant_id',  # noqa: E501
         'conversation_pbx_queue_uuid': 'conversation_pbx_queue_uuid',  # noqa: E501
         'conversation_voicemail_mailbox_uuid': 'conversation_voicemail_mailbox_uuid',  # noqa: E501
         'hold_conversation_pbx_audio_uuid': 'hold_conversation_pbx_audio_uuid',  # noqa: E501
@@ -292,6 +297,7 @@ class ConversationPbxQueue(ModelNormal):
             callback_offer_after_seconds (int): Seconds a caller must wait in queue before the callback option is offered. [optional]  # noqa: E501
             callback_offer_interval_seconds (int): Seconds between repeat callback offers to the same caller. [optional]  # noqa: E501
             callback_retry_delay_seconds (int): Delay in seconds between callback retry attempts. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_queue_uuid (str): Conversation Pbx Queue unique identifier. [optional]  # noqa: E501
             conversation_voicemail_mailbox_uuid (str): The voicemail mailbox associated with this queue. [optional]  # noqa: E501
             hold_conversation_pbx_audio_uuid (str): The audio to play while holding in a queue. [optional]  # noqa: E501
@@ -417,6 +423,7 @@ class ConversationPbxQueue(ModelNormal):
             callback_offer_after_seconds (int): Seconds a caller must wait in queue before the callback option is offered. [optional]  # noqa: E501
             callback_offer_interval_seconds (int): Seconds between repeat callback offers to the same caller. [optional]  # noqa: E501
             callback_retry_delay_seconds (int): Delay in seconds between callback retry attempts. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_queue_uuid (str): Conversation Pbx Queue unique identifier. [optional]  # noqa: E501
             conversation_voicemail_mailbox_uuid (str): The voicemail mailbox associated with this queue. [optional]  # noqa: E501
             hold_conversation_pbx_audio_uuid (str): The audio to play while holding in a queue. [optional]  # noqa: E501

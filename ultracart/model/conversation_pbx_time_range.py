@@ -63,6 +63,9 @@ class ConversationPbxTimeRange(ModelNormal):
     }
 
     validations = {
+        ('context_merchant_id',): {
+            'max_length': 20,
+        },
         ('conversation_pbx_time_range_uuid',): {
             'max_length': 50,
         },
@@ -101,6 +104,7 @@ class ConversationPbxTimeRange(ModelNormal):
         lazy_import()
         return {
             'configs': ([ConversationPbxTimeRangeConfig],),  # noqa: E501
+            'context_merchant_id': (str,),  # noqa: E501
             'conversation_pbx_time_range_uuid': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
             'time_range_name': (str,),  # noqa: E501
@@ -114,6 +118,7 @@ class ConversationPbxTimeRange(ModelNormal):
 
     attribute_map = {
         'configs': 'configs',  # noqa: E501
+        'context_merchant_id': 'context_merchant_id',  # noqa: E501
         'conversation_pbx_time_range_uuid': 'conversation_pbx_time_range_uuid',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
         'time_range_name': 'time_range_name',  # noqa: E501
@@ -162,6 +167,7 @@ class ConversationPbxTimeRange(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             configs ([ConversationPbxTimeRangeConfig]): Configurations for all ranges in this time range. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_time_range_uuid (str): Conversation Pbx Time Range UUID. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             time_range_name (str): Time range name. [optional]  # noqa: E501
@@ -252,6 +258,7 @@ class ConversationPbxTimeRange(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             configs ([ConversationPbxTimeRangeConfig]): Configurations for all ranges in this time range. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_time_range_uuid (str): Conversation Pbx Time Range UUID. [optional]  # noqa: E501
             merchant_id (str): Merchant Id. [optional]  # noqa: E501
             time_range_name (str): Time range name. [optional]  # noqa: E501

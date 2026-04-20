@@ -114,6 +114,7 @@ class ConversationPbxCall(ModelNormal):
             'call_uuid': (str,),  # noqa: E501
             'caller': (ConversationPbxCallCaller,),  # noqa: E501
             'conference_sid': (str,),  # noqa: E501
+            'context_merchant_id': (str,),  # noqa: E501
             'created_at_dts': (str,),  # noqa: E501
             'customer_name': (str,),  # noqa: E501
             'customer_profile_oid': (str,),  # noqa: E501
@@ -147,6 +148,7 @@ class ConversationPbxCall(ModelNormal):
         'call_uuid': 'call_uuid',  # noqa: E501
         'caller': 'caller',  # noqa: E501
         'conference_sid': 'conference_sid',  # noqa: E501
+        'context_merchant_id': 'context_merchant_id',  # noqa: E501
         'created_at_dts': 'created_at_dts',  # noqa: E501
         'customer_name': 'customer_name',  # noqa: E501
         'customer_profile_oid': 'customer_profile_oid',  # noqa: E501
@@ -215,6 +217,7 @@ class ConversationPbxCall(ModelNormal):
             call_uuid (str): Unique identifier for this call record. [optional]  # noqa: E501
             caller (ConversationPbxCallCaller): [optional]  # noqa: E501
             conference_sid (str): Twilio conference SID if this call used conferencing. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this call is attributed to. Null = no child attribution (parent-level call).. [optional]  # noqa: E501
             created_at_dts (str): Timestamp when the call record was created. [optional]  # noqa: E501
             customer_name (str): Customer name associated with this call. [optional]  # noqa: E501
             customer_profile_oid (str): UltraCart customer profile OID if the caller was matched to a customer. [optional]  # noqa: E501
@@ -325,6 +328,7 @@ class ConversationPbxCall(ModelNormal):
             call_uuid (str): Unique identifier for this call record. [optional]  # noqa: E501
             caller (ConversationPbxCallCaller): [optional]  # noqa: E501
             conference_sid (str): Twilio conference SID if this call used conferencing. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this call is attributed to. Null = no child attribution (parent-level call).. [optional]  # noqa: E501
             created_at_dts (str): Timestamp when the call record was created. [optional]  # noqa: E501
             customer_name (str): Customer name associated with this call. [optional]  # noqa: E501
             customer_profile_oid (str): UltraCart customer profile OID if the caller was matched to a customer. [optional]  # noqa: E501

@@ -59,6 +59,9 @@ class ConversationPbxClassOfService(ModelNormal):
     }
 
     validations = {
+        ('context_merchant_id',): {
+            'max_length': 20,
+        },
         ('description',): {
             'max_length': 500,
         },
@@ -93,6 +96,7 @@ class ConversationPbxClassOfService(ModelNormal):
         return {
             'allowed_countries': ([str],),  # noqa: E501
             'block_premium_numbers': (bool,),  # noqa: E501
+            'context_merchant_id': (str,),  # noqa: E501
             'conversation_pbx_class_of_service_uuid': (str,),  # noqa: E501
             'default_flag': (bool,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -110,6 +114,7 @@ class ConversationPbxClassOfService(ModelNormal):
     attribute_map = {
         'allowed_countries': 'allowed_countries',  # noqa: E501
         'block_premium_numbers': 'block_premium_numbers',  # noqa: E501
+        'context_merchant_id': 'context_merchant_id',  # noqa: E501
         'conversation_pbx_class_of_service_uuid': 'conversation_pbx_class_of_service_uuid',  # noqa: E501
         'default_flag': 'default_flag',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -162,6 +167,7 @@ class ConversationPbxClassOfService(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             allowed_countries ([str]): E.164 country calling codes (e.g. 1 for US/Canada, 44 for UK). Empty means domestic only.. [optional]  # noqa: E501
             block_premium_numbers (bool): Block calls to 900, 976, premium-rate, and shortcode destinations. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_class_of_service_uuid (str): Class of Service unique identifier. [optional]  # noqa: E501
             default_flag (bool): If true, this CoS applies to all agents without an explicit cos_uuid. Only one per merchant.. [optional]  # noqa: E501
             description (str): Description of the class of service. [optional]  # noqa: E501
@@ -256,6 +262,7 @@ class ConversationPbxClassOfService(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             allowed_countries ([str]): E.164 country calling codes (e.g. 1 for US/Canada, 44 for UK). Empty means domestic only.. [optional]  # noqa: E501
             block_premium_numbers (bool): Block calls to 900, 976, premium-rate, and shortcode destinations. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_class_of_service_uuid (str): Class of Service unique identifier. [optional]  # noqa: E501
             default_flag (bool): If true, this CoS applies to all agents without an explicit cos_uuid. Only one per merchant.. [optional]  # noqa: E501
             description (str): Description of the class of service. [optional]  # noqa: E501

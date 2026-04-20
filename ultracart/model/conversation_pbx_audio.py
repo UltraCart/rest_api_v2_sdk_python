@@ -62,6 +62,9 @@ class ConversationPbxAudio(ModelNormal):
         ('audio_s3_listing_key',): {
             'max_length': 250,
         },
+        ('context_merchant_id',): {
+            'max_length': 20,
+        },
         ('conversation_pbx_audio_uuid',): {
             'max_length': 50,
         },
@@ -101,6 +104,7 @@ class ConversationPbxAudio(ModelNormal):
         """
         return {
             'audio_s3_listing_key': (str,),  # noqa: E501
+            'context_merchant_id': (str,),  # noqa: E501
             'conversation_pbx_audio_uuid': (str,),  # noqa: E501
             'default_hold_music': (bool,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -119,6 +123,7 @@ class ConversationPbxAudio(ModelNormal):
 
     attribute_map = {
         'audio_s3_listing_key': 'audio_s3_listing_key',  # noqa: E501
+        'context_merchant_id': 'context_merchant_id',  # noqa: E501
         'conversation_pbx_audio_uuid': 'conversation_pbx_audio_uuid',  # noqa: E501
         'default_hold_music': 'default_hold_music',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -172,6 +177,7 @@ class ConversationPbxAudio(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             audio_s3_listing_key (str): Audio S3 Listing Key. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_audio_uuid (str): Conversation Pbx Audio UUID. [optional]  # noqa: E501
             default_hold_music (bool): If true, this will be the default hold music. [optional]  # noqa: E501
             description (str): Description of this audio. [optional]  # noqa: E501
@@ -267,6 +273,7 @@ class ConversationPbxAudio(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             audio_s3_listing_key (str): Audio S3 Listing Key. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_audio_uuid (str): Conversation Pbx Audio UUID. [optional]  # noqa: E501
             default_hold_music (bool): If true, this will be the default hold music. [optional]  # noqa: E501
             description (str): Description of this audio. [optional]  # noqa: E501

@@ -88,6 +88,7 @@ class ConversationPbxTimeBased(ModelNormal):
         """
         lazy_import()
         return {
+            'context_merchant_id': (str,),  # noqa: E501
             'conversation_pbx_time_based_uuid': (str,),  # noqa: E501
             'mapping_config': (ConversationPbxTimeBasedMappingConfig,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
@@ -100,6 +101,7 @@ class ConversationPbxTimeBased(ModelNormal):
 
 
     attribute_map = {
+        'context_merchant_id': 'context_merchant_id',  # noqa: E501
         'conversation_pbx_time_based_uuid': 'conversation_pbx_time_based_uuid',  # noqa: E501
         'mapping_config': 'mapping_config',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
@@ -147,6 +149,7 @@ class ConversationPbxTimeBased(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            context_merchant_id (str): [optional]  # noqa: E501
             conversation_pbx_time_based_uuid (str): [optional]  # noqa: E501
             mapping_config (ConversationPbxTimeBasedMappingConfig): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501
@@ -236,6 +239,7 @@ class ConversationPbxTimeBased(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            context_merchant_id (str): [optional]  # noqa: E501
             conversation_pbx_time_based_uuid (str): [optional]  # noqa: E501
             mapping_config (ConversationPbxTimeBasedMappingConfig): [optional]  # noqa: E501
             merchant_id (str): [optional]  # noqa: E501

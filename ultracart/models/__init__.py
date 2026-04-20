@@ -143,6 +143,7 @@ from ultracart.model.checkout_state_province_response import CheckoutStateProvin
 from ultracart.model.city_state_zip import CityStateZip
 from ultracart.model.conversation import Conversation
 from ultracart.model.conversation_agent_auth import ConversationAgentAuth
+from ultracart.model.conversation_agent_auth_merchant import ConversationAgentAuthMerchant
 from ultracart.model.conversation_agent_auth_response import ConversationAgentAuthResponse
 from ultracart.model.conversation_agent_profile import ConversationAgentProfile
 from ultracart.model.conversation_agent_profile_response import ConversationAgentProfileResponse

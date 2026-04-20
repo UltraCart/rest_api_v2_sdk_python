@@ -67,6 +67,9 @@ class ConversationPbxMenu(ModelNormal):
     }
 
     validations = {
+        ('context_merchant_id',): {
+            'max_length': 20,
+        },
         ('conversation_pbx_menu_uuid',): {
             'max_length': 50,
         },
@@ -114,6 +117,7 @@ class ConversationPbxMenu(ModelNormal):
         lazy_import()
         return {
             'allow_direct_extensions': (bool,),  # noqa: E501
+            'context_merchant_id': (str,),  # noqa: E501
             'conversation_pbx_menu_uuid': (str,),  # noqa: E501
             'default_action': (str,),  # noqa: E501
             'default_action_target': (str,),  # noqa: E501
@@ -133,6 +137,7 @@ class ConversationPbxMenu(ModelNormal):
 
     attribute_map = {
         'allow_direct_extensions': 'allow_direct_extensions',  # noqa: E501
+        'context_merchant_id': 'context_merchant_id',  # noqa: E501
         'conversation_pbx_menu_uuid': 'conversation_pbx_menu_uuid',  # noqa: E501
         'default_action': 'default_action',  # noqa: E501
         'default_action_target': 'default_action_target',  # noqa: E501
@@ -187,6 +192,7 @@ class ConversationPbxMenu(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             allow_direct_extensions (bool): If true, the customer is allowed to input direct extensions within this menu. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_menu_uuid (str): Conversation Pbx Menu UUID. [optional]  # noqa: E501
             default_action (str): The default action for this menu. [optional]  # noqa: E501
             default_action_target (str): The default action target for this menu. [optional]  # noqa: E501
@@ -283,6 +289,7 @@ class ConversationPbxMenu(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             allow_direct_extensions (bool): If true, the customer is allowed to input direct extensions within this menu. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_menu_uuid (str): Conversation Pbx Menu UUID. [optional]  # noqa: E501
             default_action (str): The default action for this menu. [optional]  # noqa: E501
             default_action_target (str): The default action target for this menu. [optional]  # noqa: E501

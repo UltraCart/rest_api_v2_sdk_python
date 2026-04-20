@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **configs** | [**[ConversationPbxTimeRangeConfig]**](ConversationPbxTimeRangeConfig.md) | Configurations for all ranges in this time range | [optional] 
+**context_merchant_id** | **str** | Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group. | [optional] 
 **conversation_pbx_time_range_uuid** | **str** | Conversation Pbx Time Range UUID | [optional] 
 **merchant_id** | **str** | Merchant Id | [optional] 
 **time_range_name** | **str** | Time range name | [optional] 

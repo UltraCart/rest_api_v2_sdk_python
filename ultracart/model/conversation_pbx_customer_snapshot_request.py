@@ -98,6 +98,7 @@ class ConversationPbxCustomerSnapshotRequest(ModelNormal):
             'metadata': (ResponseMetadata,),  # noqa: E501
             'order_expand': (str,),  # noqa: E501
             'phone_number': (str,),  # noqa: E501
+            'search_linked_accounts': (bool,),  # noqa: E501
             'success': (bool,),  # noqa: E501
             'warning': (Warning,),  # noqa: E501
         }
@@ -114,6 +115,7 @@ class ConversationPbxCustomerSnapshotRequest(ModelNormal):
         'metadata': 'metadata',  # noqa: E501
         'order_expand': 'order_expand',  # noqa: E501
         'phone_number': 'phone_number',  # noqa: E501
+        'search_linked_accounts': 'search_linked_accounts',  # noqa: E501
         'success': 'success',  # noqa: E501
         'warning': 'warning',  # noqa: E501
     }
@@ -165,6 +167,7 @@ class ConversationPbxCustomerSnapshotRequest(ModelNormal):
             metadata (ResponseMetadata): [optional]  # noqa: E501
             order_expand (str): [optional]  # noqa: E501
             phone_number (str): [optional]  # noqa: E501
+            search_linked_accounts (bool): [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
             warning (Warning): [optional]  # noqa: E501
         """
@@ -258,6 +261,7 @@ class ConversationPbxCustomerSnapshotRequest(ModelNormal):
             metadata (ResponseMetadata): [optional]  # noqa: E501
             order_expand (str): [optional]  # noqa: E501
             phone_number (str): [optional]  # noqa: E501
+            search_linked_accounts (bool): [optional]  # noqa: E501
             success (bool): Indicates if API call was successful. [optional]  # noqa: E501
             warning (Warning): [optional]  # noqa: E501
         """

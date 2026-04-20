@@ -75,6 +75,9 @@ class ConversationPbxPhoneNumber(ModelNormal):
         ('address_sid',): {
             'max_length': 50,
         },
+        ('context_merchant_id',): {
+            'max_length': 20,
+        },
         ('conversation_pbx_phone_number_uuid',): {
             'max_length': 50,
         },
@@ -110,6 +113,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
             'action': (str,),  # noqa: E501
             'action_target': (str,),  # noqa: E501
             'address_sid': (str,),  # noqa: E501
+            'context_merchant_id': (str,),  # noqa: E501
             'conversation_pbx_phone_number_uuid': (str,),  # noqa: E501
             'default_phone_number': (bool,),  # noqa: E501
             'deletion_protected': (bool,),  # noqa: E501
@@ -126,6 +130,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
         'action': 'action',  # noqa: E501
         'action_target': 'action_target',  # noqa: E501
         'address_sid': 'address_sid',  # noqa: E501
+        'context_merchant_id': 'context_merchant_id',  # noqa: E501
         'conversation_pbx_phone_number_uuid': 'conversation_pbx_phone_number_uuid',  # noqa: E501
         'default_phone_number': 'default_phone_number',  # noqa: E501
         'deletion_protected': 'deletion_protected',  # noqa: E501
@@ -177,6 +182,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
             action (str): Action. [optional]  # noqa: E501
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             address_sid (str): Twilio Address SID linked to this phone number for regulatory compliance. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_phone_number_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
             default_phone_number (bool): Default phone number for outbound calling.. [optional]  # noqa: E501
             deletion_protected (bool): If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.. [optional]  # noqa: E501
@@ -270,6 +276,7 @@ class ConversationPbxPhoneNumber(ModelNormal):
             action (str): Action. [optional]  # noqa: E501
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             address_sid (str): Twilio Address SID linked to this phone number for regulatory compliance. [optional]  # noqa: E501
+            context_merchant_id (str): Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.. [optional]  # noqa: E501
             conversation_pbx_phone_number_uuid (str): Conversation Pbx Phone Number UUID. [optional]  # noqa: E501
             default_phone_number (bool): Default phone number for outbound calling.. [optional]  # noqa: E501
             deletion_protected (bool): If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console.. [optional]  # noqa: E501
