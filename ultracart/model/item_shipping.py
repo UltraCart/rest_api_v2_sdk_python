@@ -135,6 +135,7 @@ class ItemShipping(ModelNormal):
             'max_days_time_in_transit': (int,),  # noqa: E501
             'methods': ([ItemShippingMethod],),  # noqa: E501
             'no_shipping_discount': (bool,),  # noqa: E501
+            'one_line_per_unit': (bool,),  # noqa: E501
             'package_requirements': ([ItemShippingPackageRequirement],),  # noqa: E501
             'perishable_class_name': (str,),  # noqa: E501
             'perishable_class_oid': (int,),  # noqa: E501
@@ -194,6 +195,7 @@ class ItemShipping(ModelNormal):
         'max_days_time_in_transit': 'max_days_time_in_transit',  # noqa: E501
         'methods': 'methods',  # noqa: E501
         'no_shipping_discount': 'no_shipping_discount',  # noqa: E501
+        'one_line_per_unit': 'one_line_per_unit',  # noqa: E501
         'package_requirements': 'package_requirements',  # noqa: E501
         'perishable_class_name': 'perishable_class_name',  # noqa: E501
         'perishable_class_oid': 'perishable_class_oid',  # noqa: E501
@@ -288,6 +290,7 @@ class ItemShipping(ModelNormal):
             max_days_time_in_transit (int): Maximum days allowed in transit. [optional]  # noqa: E501
             methods ([ItemShippingMethod]): Methods. [optional]  # noqa: E501
             no_shipping_discount (bool): No shipping discounts. [optional]  # noqa: E501
+            one_line_per_unit (bool): Split cart line items with quantity greater than one into individual lines of quantity one on the order. [optional]  # noqa: E501
             package_requirements ([ItemShippingPackageRequirement]): Package requirements. [optional]  # noqa: E501
             perishable_class_name (str): Perishable class name. [optional]  # noqa: E501
             perishable_class_oid (int): Perishable class object identifier. [optional]  # noqa: E501
@@ -424,6 +427,7 @@ class ItemShipping(ModelNormal):
             max_days_time_in_transit (int): Maximum days allowed in transit. [optional]  # noqa: E501
             methods ([ItemShippingMethod]): Methods. [optional]  # noqa: E501
             no_shipping_discount (bool): No shipping discounts. [optional]  # noqa: E501
+            one_line_per_unit (bool): Split cart line items with quantity greater than one into individual lines of quantity one on the order. [optional]  # noqa: E501
             package_requirements ([ItemShippingPackageRequirement]): Package requirements. [optional]  # noqa: E501
             perishable_class_name (str): Perishable class name. [optional]  # noqa: E501
             perishable_class_oid (int): Perishable class object identifier. [optional]  # noqa: E501
