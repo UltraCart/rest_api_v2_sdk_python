@@ -129,8 +129,10 @@ class CustomerBilling(ModelNormal):
             'customer_billing_oid': (int,),  # noqa: E501
             'customer_profile_oid': (int,),  # noqa: E501
             'day_phone': (str,),  # noqa: E501
+            'day_phone_e164': (str,),  # noqa: E501
             'default_billing': (bool,),  # noqa: E501
             'evening_phone': (str,),  # noqa: E501
+            'evening_phone_e164': (str,),  # noqa: E501
             'first_name': (str,),  # noqa: E501
             'last_name': (str,),  # noqa: E501
             'last_used_dts': (str,),  # noqa: E501
@@ -154,8 +156,10 @@ class CustomerBilling(ModelNormal):
         'customer_billing_oid': 'customer_billing_oid',  # noqa: E501
         'customer_profile_oid': 'customer_profile_oid',  # noqa: E501
         'day_phone': 'day_phone',  # noqa: E501
+        'day_phone_e164': 'day_phone_e164',  # noqa: E501
         'default_billing': 'default_billing',  # noqa: E501
         'evening_phone': 'evening_phone',  # noqa: E501
+        'evening_phone_e164': 'evening_phone_e164',  # noqa: E501
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
         'last_used_dts': 'last_used_dts',  # noqa: E501
@@ -214,8 +218,10 @@ class CustomerBilling(ModelNormal):
             customer_billing_oid (int): Customer profile billing object identifier. [optional]  # noqa: E501
             customer_profile_oid (int): Customer profile object identifier. [optional]  # noqa: E501
             day_phone (str): Day phone. [optional]  # noqa: E501
+            day_phone_e164 (str): Day phone in E.164 format (derived â€” read only). [optional]  # noqa: E501
             default_billing (bool): Default billing. [optional]  # noqa: E501
             evening_phone (str): Evening phone. [optional]  # noqa: E501
+            evening_phone_e164 (str): Evening phone in E.164 format (derived â€” read only). [optional]  # noqa: E501
             first_name (str): First name. [optional]  # noqa: E501
             last_name (str): Last name. [optional]  # noqa: E501
             last_used_dts (str): Last used date. [optional]  # noqa: E501
@@ -316,8 +322,10 @@ class CustomerBilling(ModelNormal):
             customer_billing_oid (int): Customer profile billing object identifier. [optional]  # noqa: E501
             customer_profile_oid (int): Customer profile object identifier. [optional]  # noqa: E501
             day_phone (str): Day phone. [optional]  # noqa: E501
+            day_phone_e164 (str): Day phone in E.164 format (derived â€” read only). [optional]  # noqa: E501
             default_billing (bool): Default billing. [optional]  # noqa: E501
             evening_phone (str): Evening phone. [optional]  # noqa: E501
+            evening_phone_e164 (str): Evening phone in E.164 format (derived â€” read only). [optional]  # noqa: E501
             first_name (str): First name. [optional]  # noqa: E501
             last_name (str): Last name. [optional]  # noqa: E501
             last_used_dts (str): Last used date. [optional]  # noqa: E501
