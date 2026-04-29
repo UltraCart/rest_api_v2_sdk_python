@@ -85,6 +85,7 @@ class ConversationPbxCallAgent(ModelNormal):
             'agent_extension': (str,),  # noqa: E501
             'agent_id': (str,),  # noqa: E501
             'agent_name': (str,),  # noqa: E501
+            'agent_user_id': (str,),  # noqa: E501
             'answered': (bool,),  # noqa: E501
             'call_sid': (str,),  # noqa: E501
             'joined_at_dts': (str,),  # noqa: E501
@@ -102,6 +103,7 @@ class ConversationPbxCallAgent(ModelNormal):
         'agent_extension': 'agent_extension',  # noqa: E501
         'agent_id': 'agent_id',  # noqa: E501
         'agent_name': 'agent_name',  # noqa: E501
+        'agent_user_id': 'agent_user_id',  # noqa: E501
         'answered': 'answered',  # noqa: E501
         'call_sid': 'call_sid',  # noqa: E501
         'joined_at_dts': 'joined_at_dts',  # noqa: E501
@@ -154,6 +156,7 @@ class ConversationPbxCallAgent(ModelNormal):
             agent_extension (str): Agent's phone extension. [optional]  # noqa: E501
             agent_id (str): Unique identifier for the agent. [optional]  # noqa: E501
             agent_name (str): Display name of the agent. [optional]  # noqa: E501
+            agent_user_id (str): UltraCart user id for the agent (denormalized at index time so reporting endpoints can join on agent_user_id without translating from the agent_id login).. [optional]  # noqa: E501
             answered (bool): Whether the agent answered the call. [optional]  # noqa: E501
             call_sid (str): Twilio call SID for the agent's call leg. [optional]  # noqa: E501
             joined_at_dts (str): Timestamp when the agent joined the call. [optional]  # noqa: E501
@@ -248,6 +251,7 @@ class ConversationPbxCallAgent(ModelNormal):
             agent_extension (str): Agent's phone extension. [optional]  # noqa: E501
             agent_id (str): Unique identifier for the agent. [optional]  # noqa: E501
             agent_name (str): Display name of the agent. [optional]  # noqa: E501
+            agent_user_id (str): UltraCart user id for the agent (denormalized at index time so reporting endpoints can join on agent_user_id without translating from the agent_id login).. [optional]  # noqa: E501
             answered (bool): Whether the agent answered the call. [optional]  # noqa: E501
             call_sid (str): Twilio call SID for the agent's call leg. [optional]  # noqa: E501
             joined_at_dts (str): Timestamp when the agent joined the call. [optional]  # noqa: E501

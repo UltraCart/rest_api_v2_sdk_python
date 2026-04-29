@@ -117,6 +117,7 @@ class ConversationAgentStatusEvent(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'agent_identifier': (str,),  # noqa: E501
             'agent_name': (str,),  # noqa: E501
             'agent_type': (str,),  # noqa: E501
             'agent_user_id': (str,),  # noqa: E501
@@ -141,6 +142,7 @@ class ConversationAgentStatusEvent(ModelNormal):
 
 
     attribute_map = {
+        'agent_identifier': 'agent_identifier',  # noqa: E501
         'agent_name': 'agent_name',  # noqa: E501
         'agent_type': 'agent_type',  # noqa: E501
         'agent_user_id': 'agent_user_id',  # noqa: E501
@@ -200,6 +202,7 @@ class ConversationAgentStatusEvent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            agent_identifier (str): Agent identifier â€” voice_identity for PBX (e.g. 'client:login'), participant_arn for chat, synthetic 'ai:<user_id>' for AI flag events. Stable across an agent's events; participates in DDB pk and GSI1 sk.. [optional]  # noqa: E501
             agent_name (str): Agent display name at the time of the event. [optional]  # noqa: E501
             agent_type (str): Agent type. [optional]  # noqa: E501
             agent_user_id (str): Agent user id (links across channels). [optional]  # noqa: E501
@@ -301,6 +304,7 @@ class ConversationAgentStatusEvent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            agent_identifier (str): Agent identifier â€” voice_identity for PBX (e.g. 'client:login'), participant_arn for chat, synthetic 'ai:<user_id>' for AI flag events. Stable across an agent's events; participates in DDB pk and GSI1 sk.. [optional]  # noqa: E501
             agent_name (str): Agent display name at the time of the event. [optional]  # noqa: E501
             agent_type (str): Agent type. [optional]  # noqa: E501
             agent_user_id (str): Agent user id (links across channels). [optional]  # noqa: E501

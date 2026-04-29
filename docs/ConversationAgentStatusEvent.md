@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**agent_identifier** | **str** | Agent identifier â€” voice_identity for PBX (e.g. &#39;client:login&#39;), participant_arn for chat, synthetic &#39;ai:&lt;user_id&gt;&#39; for AI flag events. Stable across an agent&#39;s events; participates in DDB pk and GSI1 sk. | [optional] 
 **agent_name** | **str** | Agent display name at the time of the event | [optional] 
 **agent_type** | **str** | Agent type | [optional] 
 **agent_user_id** | **str** | Agent user id (links across channels) | [optional] 
