@@ -649,6 +649,11 @@ from ultracart.model.item_ebay_market_place_analysis import ItemEbayMarketPlaceA
 from ultracart.model.item_email_notifications import ItemEmailNotifications
 from ultracart.model.item_enrollment123 import ItemEnrollment123
 from ultracart.model.item_fulfillment_addon import ItemFulfillmentAddon
+from ultracart.model.item_gated_code import ItemGatedCode
+from ultracart.model.item_gated_code_response import ItemGatedCodeResponse
+from ultracart.model.item_gated_codes_request import ItemGatedCodesRequest
+from ultracart.model.item_gated_codes_response import ItemGatedCodesResponse
+from ultracart.model.item_generate_gated_codes_request import ItemGenerateGatedCodesRequest
 from ultracart.model.item_gift_certificate import ItemGiftCertificate
 from ultracart.model.item_google_product_search import ItemGoogleProductSearch
 from ultracart.model.item_identifiers import ItemIdentifiers
@@ -658,8 +663,6 @@ from ultracart.model.item_internal import ItemInternal
 from ultracart.model.item_inventory_snapshot import ItemInventorySnapshot
 from ultracart.model.item_inventory_snapshot_distribution_center import ItemInventorySnapshotDistributionCenter
 from ultracart.model.item_inventory_snapshot_response import ItemInventorySnapshotResponse
-from ultracart.model.item_inventory_update import ItemInventoryUpdate
-from ultracart.model.item_inventory_update_request import ItemInventoryUpdateRequest
 from ultracart.model.item_kit_component import ItemKitComponent
 from ultracart.model.item_kit_definition import ItemKitDefinition
 from ultracart.model.item_option import ItemOption
@@ -691,7 +694,6 @@ from ultracart.model.item_shipping_case import ItemShippingCase
 from ultracart.model.item_shipping_destination_markup import ItemShippingDestinationMarkup
 from ultracart.model.item_shipping_destination_restriction import ItemShippingDestinationRestriction
 from ultracart.model.item_shipping_distribution_center import ItemShippingDistributionCenter
-from ultracart.model.item_shipping_distribution_center_response import ItemShippingDistributionCenterResponse
 from ultracart.model.item_shipping_method import ItemShippingMethod
 from ultracart.model.item_shipping_package_requirement import ItemShippingPackageRequirement
 from ultracart.model.item_tag import ItemTag

@@ -44,6 +44,7 @@ def lazy_import():
     from ultracart.model.item_email_notifications import ItemEmailNotifications
     from ultracart.model.item_enrollment123 import ItemEnrollment123
     from ultracart.model.item_fulfillment_addon import ItemFulfillmentAddon
+    from ultracart.model.item_gated_code import ItemGatedCode
     from ultracart.model.item_gift_certificate import ItemGiftCertificate
     from ultracart.model.item_google_product_search import ItemGoogleProductSearch
     from ultracart.model.item_identifiers import ItemIdentifiers
@@ -82,6 +83,7 @@ def lazy_import():
     globals()['ItemEmailNotifications'] = ItemEmailNotifications
     globals()['ItemEnrollment123'] = ItemEnrollment123
     globals()['ItemFulfillmentAddon'] = ItemFulfillmentAddon
+    globals()['ItemGatedCode'] = ItemGatedCode
     globals()['ItemGiftCertificate'] = ItemGiftCertificate
     globals()['ItemGoogleProductSearch'] = ItemGoogleProductSearch
     globals()['ItemIdentifiers'] = ItemIdentifiers
@@ -187,6 +189,7 @@ class Item(ModelNormal):
             'email_notifications': (ItemEmailNotifications,),  # noqa: E501
             'enrollment123': (ItemEnrollment123,),  # noqa: E501
             'fulfillment_addons': ([ItemFulfillmentAddon],),  # noqa: E501
+            'gated_codes': ([ItemGatedCode],),  # noqa: E501
             'gift_certificate': (ItemGiftCertificate,),  # noqa: E501
             'google_product_search': (ItemGoogleProductSearch,),  # noqa: E501
             'identifiers': (ItemIdentifiers,),  # noqa: E501
@@ -246,6 +249,7 @@ class Item(ModelNormal):
         'email_notifications': 'email_notifications',  # noqa: E501
         'enrollment123': 'enrollment123',  # noqa: E501
         'fulfillment_addons': 'fulfillment_addons',  # noqa: E501
+        'gated_codes': 'gated_codes',  # noqa: E501
         'gift_certificate': 'gift_certificate',  # noqa: E501
         'google_product_search': 'google_product_search',  # noqa: E501
         'identifiers': 'identifiers',  # noqa: E501
@@ -340,6 +344,7 @@ class Item(ModelNormal):
             email_notifications (ItemEmailNotifications): [optional]  # noqa: E501
             enrollment123 (ItemEnrollment123): [optional]  # noqa: E501
             fulfillment_addons ([ItemFulfillmentAddon]): Fulfillment Add-ons. [optional]  # noqa: E501
+            gated_codes ([ItemGatedCode]): Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage.. [optional]  # noqa: E501
             gift_certificate (ItemGiftCertificate): [optional]  # noqa: E501
             google_product_search (ItemGoogleProductSearch): [optional]  # noqa: E501
             identifiers (ItemIdentifiers): [optional]  # noqa: E501
@@ -476,6 +481,7 @@ class Item(ModelNormal):
             email_notifications (ItemEmailNotifications): [optional]  # noqa: E501
             enrollment123 (ItemEnrollment123): [optional]  # noqa: E501
             fulfillment_addons ([ItemFulfillmentAddon]): Fulfillment Add-ons. [optional]  # noqa: E501
+            gated_codes ([ItemGatedCode]): Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage.. [optional]  # noqa: E501
             gift_certificate (ItemGiftCertificate): [optional]  # noqa: E501
             google_product_search (ItemGoogleProductSearch): [optional]  # noqa: E501
             identifiers (ItemIdentifiers): [optional]  # noqa: E501

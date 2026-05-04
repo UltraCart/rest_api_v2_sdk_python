@@ -67,6 +67,7 @@ class OrderQuery(ModelNormal):
             'QUOTE_SENT': "Quote Sent",
             'LEAST_COST_ROUTING': "Least Cost Routing",
             'UNKNOWN': "Unknown",
+            'HOLD': "Hold",
         },
         ('payment_method',): {
             'AFFIRM': "Affirm",

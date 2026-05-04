@@ -22,20 +22,23 @@ from ultracart.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from ultracart.model.base_response import BaseResponse
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.item import Item
 from ultracart.model.item_content_attribute import ItemContentAttribute
 from ultracart.model.item_digital_item import ItemDigitalItem
 from ultracart.model.item_digital_item_response import ItemDigitalItemResponse
 from ultracart.model.item_digital_items_response import ItemDigitalItemsResponse
+from ultracart.model.item_gated_code import ItemGatedCode
+from ultracart.model.item_gated_code_response import ItemGatedCodeResponse
+from ultracart.model.item_gated_codes_request import ItemGatedCodesRequest
+from ultracart.model.item_gated_codes_response import ItemGatedCodesResponse
+from ultracart.model.item_generate_gated_codes_request import ItemGenerateGatedCodesRequest
 from ultracart.model.item_inventory_snapshot_response import ItemInventorySnapshotResponse
-from ultracart.model.item_inventory_update_request import ItemInventoryUpdateRequest
 from ultracart.model.item_response import ItemResponse
 from ultracart.model.item_review import ItemReview
 from ultracart.model.item_review_response import ItemReviewResponse
 from ultracart.model.item_reviews_response import ItemReviewsResponse
-from ultracart.model.item_shipping_distribution_center import ItemShippingDistributionCenter
-from ultracart.model.item_shipping_distribution_center_response import ItemShippingDistributionCenterResponse
 from ultracart.model.items_request import ItemsRequest
 from ultracart.model.items_response import ItemsResponse
 from ultracart.model.pricing_tiers_response import PricingTiersResponse
@@ -64,6 +67,58 @@ class ItemApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.delete_all_gated_codes_endpoint = _Endpoint(
+            settings={
+                'response_type': (BaseResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/gated_codes',
+                'operation_id': 'delete_all_gated_codes',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_digital_item_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -104,6 +159,64 @@ class ItemApi(object):
                 },
                 'location_map': {
                     'digital_item_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_gated_code_endpoint = _Endpoint(
+            settings={
+                'response_type': (BaseResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/gated_codes/{merchant_item_gated_code_oid}',
+                'operation_id': 'delete_gated_code',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                    'merchant_item_gated_code_oid',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                    'merchant_item_gated_code_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                    'merchant_item_gated_code_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                    'merchant_item_gated_code_oid': 'merchant_item_gated_code_oid',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                    'merchant_item_gated_code_oid': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -223,6 +336,65 @@ class ItemApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.generate_gated_codes_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemGatedCodesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/gated_codes/generate',
+                'operation_id': 'generate_gated_codes',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                    'generate_request',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                    'generate_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                    'generate_request':
+                        (ItemGenerateGatedCodesRequest,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                    'generate_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
             },
             api_client=api_client
         )
@@ -405,6 +577,58 @@ class ItemApi(object):
             },
             api_client=api_client
         )
+        self.get_gated_codes_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemGatedCodesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/gated_codes',
+                'operation_id': 'get_gated_codes',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_inventory_snapshot_endpoint = _Endpoint(
             settings={
                 'response_type': (ItemInventorySnapshotResponse,),
@@ -560,74 +784,6 @@ class ItemApi(object):
                 },
                 'location_map': {
                     'merchant_item_id': 'path',
-                    'expand': 'query',
-                    'placeholders': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_item_shipping_distribution_center_by_code_endpoint = _Endpoint(
-            settings={
-                'response_type': (ItemShippingDistributionCenterResponse,),
-                'auth': [
-                    'ultraCartOauth',
-                    'ultraCartSimpleApiKey'
-                ],
-                'endpoint_path': '/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}',
-                'operation_id': 'get_item_shipping_distribution_center_by_code',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'merchant_item_oid',
-                    'distribution_center_code',
-                    'expand',
-                    'placeholders',
-                ],
-                'required': [
-                    'merchant_item_oid',
-                    'distribution_center_code',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'merchant_item_oid':
-                        (int,),
-                    'distribution_center_code':
-                        (str,),
-                    'expand':
-                        (str,),
-                    'placeholders':
-                        (bool,),
-                },
-                'attribute_map': {
-                    'merchant_item_oid': 'merchant_item_oid',
-                    'distribution_center_code': 'distribution_center_code',
-                    'expand': '_expand',
-                    'placeholders': '_placeholders',
-                },
-                'location_map': {
-                    'merchant_item_oid': 'path',
-                    'distribution_center_code': 'path',
                     'expand': 'query',
                     'placeholders': 'query',
                 },
@@ -1015,6 +1171,65 @@ class ItemApi(object):
             },
             api_client=api_client
         )
+        self.insert_gated_code_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemGatedCodeResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/gated_codes',
+                'operation_id': 'insert_gated_code',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                    'gated_code',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                    'gated_code',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                    'gated_code':
+                        (ItemGatedCode,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                    'gated_code': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.insert_item_endpoint = _Endpoint(
             settings={
                 'response_type': (ItemResponse,),
@@ -1196,6 +1411,65 @@ class ItemApi(object):
             },
             api_client=api_client
         )
+        self.replace_gated_codes_endpoint = _Endpoint(
+            settings={
+                'response_type': (ItemGatedCodesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/item/items/{merchant_item_oid}/gated_codes',
+                'operation_id': 'replace_gated_codes',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'merchant_item_oid',
+                    'gated_codes_request',
+                ],
+                'required': [
+                    'merchant_item_oid',
+                    'gated_codes_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'merchant_item_oid':
+                        (int,),
+                    'gated_codes_request':
+                        (ItemGatedCodesRequest,),
+                },
+                'attribute_map': {
+                    'merchant_item_oid': 'merchant_item_oid',
+                },
+                'location_map': {
+                    'merchant_item_oid': 'path',
+                    'gated_codes_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_digital_item_endpoint = _Endpoint(
             settings={
                 'response_type': (ItemDigitalItemResponse,),
@@ -1310,124 +1584,6 @@ class ItemApi(object):
                     'item': 'body',
                     'expand': 'query',
                     'placeholders': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json; charset=UTF-8'
-                ]
-            },
-            api_client=api_client
-        )
-        self.update_item_inventories_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'ultraCartOauth',
-                    'ultraCartSimpleApiKey'
-                ],
-                'endpoint_path': '/item/items/update_item_inventories',
-                'operation_id': 'update_item_inventories',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'item_inventory_update_request',
-                ],
-                'required': [
-                    'item_inventory_update_request',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'item_inventory_update_request':
-                        (ItemInventoryUpdateRequest,),
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                    'item_inventory_update_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json; charset=UTF-8'
-                ]
-            },
-            api_client=api_client
-        )
-        self.update_item_shipping_distribution_center_by_code_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'ultraCartOauth',
-                    'ultraCartSimpleApiKey'
-                ],
-                'endpoint_path': '/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}',
-                'operation_id': 'update_item_shipping_distribution_center_by_code',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'merchant_item_oid',
-                    'distribution_center_code',
-                    'item_shipping_distribution_center',
-                ],
-                'required': [
-                    'merchant_item_oid',
-                    'distribution_center_code',
-                    'item_shipping_distribution_center',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'merchant_item_oid':
-                        (int,),
-                    'distribution_center_code':
-                        (str,),
-                    'item_shipping_distribution_center':
-                        (ItemShippingDistributionCenter,),
-                },
-                'attribute_map': {
-                    'merchant_item_oid': 'merchant_item_oid',
-                    'distribution_center_code': 'distribution_center_code',
-                },
-                'location_map': {
-                    'merchant_item_oid': 'path',
-                    'distribution_center_code': 'path',
-                    'item_shipping_distribution_center': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1630,6 +1786,89 @@ class ItemApi(object):
             api_client=api_client
         )
 
+    def delete_all_gated_codes(
+        self,
+        merchant_item_oid,
+        **kwargs
+    ):
+        """Delete all gated access codes for an item  # noqa: E501
+
+        Removes every gated access code currently configured for the item.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_all_gated_codes(merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            BaseResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        return self.delete_all_gated_codes_endpoint.call_with_http_info(**kwargs)
+
     def delete_digital_item(
         self,
         digital_item_oid,
@@ -1712,6 +1951,93 @@ class ItemApi(object):
         kwargs['digital_item_oid'] = \
             digital_item_oid
         return self.delete_digital_item_endpoint.call_with_http_info(**kwargs)
+
+    def delete_gated_code(
+        self,
+        merchant_item_oid,
+        merchant_item_gated_code_oid,
+        **kwargs
+    ):
+        """Delete a gated access code by OID  # noqa: E501
+
+        Delete a specific gated access code by its OID.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_gated_code(merchant_item_oid, merchant_item_gated_code_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid.
+            merchant_item_gated_code_oid (int): The gated code oid.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            BaseResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        kwargs['merchant_item_gated_code_oid'] = \
+            merchant_item_gated_code_oid
+        return self.delete_gated_code_endpoint.call_with_http_info(**kwargs)
 
     def delete_item(
         self,
@@ -1882,6 +2208,93 @@ class ItemApi(object):
         kwargs['merchant_item_oid'] = \
             merchant_item_oid
         return self.delete_review_endpoint.call_with_http_info(**kwargs)
+
+    def generate_gated_codes(
+        self,
+        merchant_item_oid,
+        generate_request,
+        **kwargs
+    ):
+        """Generate a batch of gated access codes  # noqa: E501
+
+        Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.generate_gated_codes(merchant_item_oid, generate_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid.
+            generate_request (ItemGenerateGatedCodesRequest): Generate request.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemGatedCodesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        kwargs['generate_request'] = \
+            generate_request
+        return self.generate_gated_codes_endpoint.call_with_http_info(**kwargs)
 
     def get_digital_item(
         self,
@@ -2133,6 +2546,89 @@ class ItemApi(object):
             external_id
         return self.get_digital_items_by_external_id_endpoint.call_with_http_info(**kwargs)
 
+    def get_gated_codes(
+        self,
+        merchant_item_oid,
+        **kwargs
+    ):
+        """Get gated access codes for an item  # noqa: E501
+
+        Retrieve all unredeemed gated access codes configured for an item.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_gated_codes(merchant_item_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemGatedCodesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        return self.get_gated_codes_endpoint.call_with_http_info(**kwargs)
+
     def get_inventory_snapshot(
         self,
         **kwargs
@@ -2380,95 +2876,6 @@ class ItemApi(object):
         kwargs['merchant_item_id'] = \
             merchant_item_id
         return self.get_item_by_merchant_item_id_endpoint.call_with_http_info(**kwargs)
-
-    def get_item_shipping_distribution_center_by_code(
-        self,
-        merchant_item_oid,
-        distribution_center_code,
-        **kwargs
-    ):
-        """Retrieve an item shipping distribution center  # noqa: E501
-
-        Retrieve an item shipping distribution center.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_item_shipping_distribution_center_by_code(merchant_item_oid, distribution_center_code, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            merchant_item_oid (int): The item oid to retrieve.
-            distribution_center_code (str):
-
-        Keyword Args:
-            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
-            placeholders (bool): Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            ItemShippingDistributionCenterResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['merchant_item_oid'] = \
-            merchant_item_oid
-        kwargs['distribution_center_code'] = \
-            distribution_center_code
-        return self.get_item_shipping_distribution_center_by_code_endpoint.call_with_http_info(**kwargs)
 
     def get_items(
         self,
@@ -2972,6 +3379,93 @@ class ItemApi(object):
             digital_item
         return self.insert_digital_item_endpoint.call_with_http_info(**kwargs)
 
+    def insert_gated_code(
+        self,
+        merchant_item_oid,
+        gated_code,
+        **kwargs
+    ):
+        """Add a single gated access code to an item  # noqa: E501
+
+        Insert a single gated access code; the server assigns the OID and created_dts.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.insert_gated_code(merchant_item_oid, gated_code, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid.
+            gated_code (ItemGatedCode): Gated code to insert.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemGatedCodeResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        kwargs['gated_code'] = \
+            gated_code
+        return self.insert_gated_code_endpoint.call_with_http_info(**kwargs)
+
     def insert_item(
         self,
         item,
@@ -3231,6 +3725,93 @@ class ItemApi(object):
             item_attribute
         return self.insert_update_item_content_attribute_endpoint.call_with_http_info(**kwargs)
 
+    def replace_gated_codes(
+        self,
+        merchant_item_oid,
+        gated_codes_request,
+        **kwargs
+    ):
+        """Replace the full list of gated access codes for an item  # noqa: E501
+
+        Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.replace_gated_codes(merchant_item_oid, gated_codes_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            merchant_item_oid (int): The item oid.
+            gated_codes_request (ItemGatedCodesRequest): Codes to replace the existing list with.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ItemGatedCodesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['merchant_item_oid'] = \
+            merchant_item_oid
+        kwargs['gated_codes_request'] = \
+            gated_codes_request
+        return self.replace_gated_codes_endpoint.call_with_http_info(**kwargs)
+
     def update_digital_item(
         self,
         digital_item_oid,
@@ -3406,180 +3987,6 @@ class ItemApi(object):
         kwargs['item'] = \
             item
         return self.update_item_endpoint.call_with_http_info(**kwargs)
-
-    def update_item_inventories(
-        self,
-        item_inventory_update_request,
-        **kwargs
-    ):
-        """Update item inventories for a distribution center  # noqa: E501
-
-        Update item inventories for a distribution center   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.update_item_inventories(item_inventory_update_request, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            item_inventory_update_request (ItemInventoryUpdateRequest): Item inventory updates
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['item_inventory_update_request'] = \
-            item_inventory_update_request
-        return self.update_item_inventories_endpoint.call_with_http_info(**kwargs)
-
-    def update_item_shipping_distribution_center_by_code(
-        self,
-        merchant_item_oid,
-        distribution_center_code,
-        item_shipping_distribution_center,
-        **kwargs
-    ):
-        """Update an item shipping distribution center  # noqa: E501
-
-        Update an item shipping distribution center   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.update_item_shipping_distribution_center_by_code(merchant_item_oid, distribution_center_code, item_shipping_distribution_center, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            merchant_item_oid (int): The item oid to update.
-            distribution_center_code (str):
-            item_shipping_distribution_center (ItemShippingDistributionCenter): Item shipping distribution center
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['merchant_item_oid'] = \
-            merchant_item_oid
-        kwargs['distribution_center_code'] = \
-            distribution_center_code
-        kwargs['item_shipping_distribution_center'] = \
-            item_shipping_distribution_center
-        return self.update_item_shipping_distribution_center_by_code_endpoint.call_with_http_info(**kwargs)
 
     def update_items(
         self,

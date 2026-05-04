@@ -655,6 +655,11 @@ docs/ItemEbayMarketPlaceAnalysis.md
 docs/ItemEmailNotifications.md
 docs/ItemEnrollment123.md
 docs/ItemFulfillmentAddon.md
+docs/ItemGatedCode.md
+docs/ItemGatedCodeResponse.md
+docs/ItemGatedCodesRequest.md
+docs/ItemGatedCodesResponse.md
+docs/ItemGenerateGatedCodesRequest.md
 docs/ItemGiftCertificate.md
 docs/ItemGoogleProductSearch.md
 docs/ItemIdentifiers.md
@@ -664,8 +669,6 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
-docs/ItemInventoryUpdate.md
-docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -697,7 +700,6 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
-docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -1671,6 +1673,11 @@ ultracart/model/item_ebay_market_place_analysis.py
 ultracart/model/item_email_notifications.py
 ultracart/model/item_enrollment123.py
 ultracart/model/item_fulfillment_addon.py
+ultracart/model/item_gated_code.py
+ultracart/model/item_gated_code_response.py
+ultracart/model/item_gated_codes_request.py
+ultracart/model/item_gated_codes_response.py
+ultracart/model/item_generate_gated_codes_request.py
 ultracart/model/item_gift_certificate.py
 ultracart/model/item_google_product_search.py
 ultracart/model/item_identifiers.py
@@ -1680,8 +1687,6 @@ ultracart/model/item_internal.py
 ultracart/model/item_inventory_snapshot.py
 ultracart/model/item_inventory_snapshot_distribution_center.py
 ultracart/model/item_inventory_snapshot_response.py
-ultracart/model/item_inventory_update.py
-ultracart/model/item_inventory_update_request.py
 ultracart/model/item_kit_component.py
 ultracart/model/item_kit_definition.py
 ultracart/model/item_option.py
@@ -1713,7 +1718,6 @@ ultracart/model/item_shipping_case.py
 ultracart/model/item_shipping_destination_markup.py
 ultracart/model/item_shipping_destination_restriction.py
 ultracart/model/item_shipping_distribution_center.py
-ultracart/model/item_shipping_distribution_center_response.py
 ultracart/model/item_shipping_method.py
 ultracart/model/item_shipping_package_requirement.py
 ultracart/model/item_tag.py
