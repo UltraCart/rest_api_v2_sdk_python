@@ -83,6 +83,7 @@ class Warning(ModelNormal):
         """
         return {
             'more_info': (str,),  # noqa: E501
+            'warning_code': (str,),  # noqa: E501
             'warning_message': (str,),  # noqa: E501
         }
 
@@ -93,6 +94,7 @@ class Warning(ModelNormal):
 
     attribute_map = {
         'more_info': 'more_info',  # noqa: E501
+        'warning_code': 'warning_code',  # noqa: E501
         'warning_message': 'warning_message',  # noqa: E501
     }
 
@@ -138,6 +140,7 @@ class Warning(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             more_info (str): Additional information often a link to additional documentation. [optional]  # noqa: E501
+            warning_code (str): A stable machine-readable code identifying the warning. See API docs for known values.. [optional]  # noqa: E501
             warning_message (str): A technical message meant to be read by a developer. [optional]  # noqa: E501
         """
 
@@ -225,6 +228,7 @@ class Warning(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             more_info (str): Additional information often a link to additional documentation. [optional]  # noqa: E501
+            warning_code (str): A stable machine-readable code identifying the warning. See API docs for known values.. [optional]  # noqa: E501
             warning_message (str): A technical message meant to be read by a developer. [optional]  # noqa: E501
         """
 
