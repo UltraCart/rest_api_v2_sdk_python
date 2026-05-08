@@ -772,6 +772,10 @@ from ultracart.model.order_item_tag import OrderItemTag
 from ultracart.model.order_linked_shipment import OrderLinkedShipment
 from ultracart.model.order_marketing import OrderMarketing
 from ultracart.model.order_packing_slip_response import OrderPackingSlipResponse
+from ultracart.model.order_page_view import OrderPageView
+from ultracart.model.order_page_view_history_response import OrderPageViewHistoryResponse
+from ultracart.model.order_page_view_meta_data import OrderPageViewMetaData
+from ultracart.model.order_page_view_param import OrderPageViewParam
 from ultracart.model.order_payment import OrderPayment
 from ultracart.model.order_payment_check import OrderPaymentCheck
 from ultracart.model.order_payment_credit_card import OrderPaymentCreditCard

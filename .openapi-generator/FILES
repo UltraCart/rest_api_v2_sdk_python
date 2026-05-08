@@ -780,6 +780,10 @@ docs/OrderItemTag.md
 docs/OrderLinkedShipment.md
 docs/OrderMarketing.md
 docs/OrderPackingSlipResponse.md
+docs/OrderPageView.md
+docs/OrderPageViewHistoryResponse.md
+docs/OrderPageViewMetaData.md
+docs/OrderPageViewParam.md
 docs/OrderPayment.md
 docs/OrderPaymentCheck.md
 docs/OrderPaymentCreditCard.md
@@ -1800,6 +1804,10 @@ ultracart/model/order_item_tag.py
 ultracart/model/order_linked_shipment.py
 ultracart/model/order_marketing.py
 ultracart/model/order_packing_slip_response.py
+ultracart/model/order_page_view.py
+ultracart/model/order_page_view_history_response.py
+ultracart/model/order_page_view_meta_data.py
+ultracart/model/order_page_view_param.py
 ultracart/model/order_payment.py
 ultracart/model/order_payment_check.py
 ultracart/model/order_payment_credit_card.py
