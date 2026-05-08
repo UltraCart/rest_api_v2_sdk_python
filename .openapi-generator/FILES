@@ -32,6 +32,8 @@ docs/AutoOrderAddonItemOption.md
 docs/AutoOrderAddonItemsUpdateRequest.md
 docs/AutoOrderApi.md
 docs/AutoOrderConsolidate.md
+docs/AutoOrderEmail.md
+docs/AutoOrderEmailsResponse.md
 docs/AutoOrderItem.md
 docs/AutoOrderItemCancelRequest.md
 docs/AutoOrderItemFutureSchedule.md
@@ -758,6 +760,8 @@ docs/OrderDigitalOrder.md
 docs/OrderEdi.md
 docs/OrderEdiDocument.md
 docs/OrderEdiDocumentsResponse.md
+docs/OrderEmail.md
+docs/OrderEmailsResponse.md
 docs/OrderFormat.md
 docs/OrderFormatResponse.md
 docs/OrderFraudScore.md
@@ -1061,6 +1065,8 @@ ultracart/model/auto_order_addon_item.py
 ultracart/model/auto_order_addon_item_option.py
 ultracart/model/auto_order_addon_items_update_request.py
 ultracart/model/auto_order_consolidate.py
+ultracart/model/auto_order_email.py
+ultracart/model/auto_order_emails_response.py
 ultracart/model/auto_order_item.py
 ultracart/model/auto_order_item_cancel_request.py
 ultracart/model/auto_order_item_future_schedule.py
@@ -1774,6 +1780,8 @@ ultracart/model/order_digital_order.py
 ultracart/model/order_edi.py
 ultracart/model/order_edi_document.py
 ultracart/model/order_edi_documents_response.py
+ultracart/model/order_email.py
+ultracart/model/order_emails_response.py
 ultracart/model/order_format.py
 ultracart/model/order_format_response.py
 ultracart/model/order_fraud_score.py

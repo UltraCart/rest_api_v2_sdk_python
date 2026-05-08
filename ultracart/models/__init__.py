@@ -37,6 +37,8 @@ from ultracart.model.auto_order_addon_item import AutoOrderAddonItem
 from ultracart.model.auto_order_addon_item_option import AutoOrderAddonItemOption
 from ultracart.model.auto_order_addon_items_update_request import AutoOrderAddonItemsUpdateRequest
 from ultracart.model.auto_order_consolidate import AutoOrderConsolidate
+from ultracart.model.auto_order_email import AutoOrderEmail
+from ultracart.model.auto_order_emails_response import AutoOrderEmailsResponse
 from ultracart.model.auto_order_item import AutoOrderItem
 from ultracart.model.auto_order_item_cancel_request import AutoOrderItemCancelRequest
 from ultracart.model.auto_order_item_future_schedule import AutoOrderItemFutureSchedule
@@ -750,6 +752,8 @@ from ultracart.model.order_digital_order import OrderDigitalOrder
 from ultracart.model.order_edi import OrderEdi
 from ultracart.model.order_edi_document import OrderEdiDocument
 from ultracart.model.order_edi_documents_response import OrderEdiDocumentsResponse
+from ultracart.model.order_email import OrderEmail
+from ultracart.model.order_emails_response import OrderEmailsResponse
 from ultracart.model.order_format import OrderFormat
 from ultracart.model.order_format_response import OrderFormatResponse
 from ultracart.model.order_fraud_score import OrderFraudScore

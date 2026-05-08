@@ -42,6 +42,7 @@ def lazy_import():
     from ultracart.model.order_current_stage_history import OrderCurrentStageHistory
     from ultracart.model.order_digital_order import OrderDigitalOrder
     from ultracart.model.order_edi import OrderEdi
+    from ultracart.model.order_email import OrderEmail
     from ultracart.model.order_fraud_score import OrderFraudScore
     from ultracart.model.order_gift import OrderGift
     from ultracart.model.order_gift_certificate import OrderGiftCertificate
@@ -70,6 +71,7 @@ def lazy_import():
     globals()['OrderCurrentStageHistory'] = OrderCurrentStageHistory
     globals()['OrderDigitalOrder'] = OrderDigitalOrder
     globals()['OrderEdi'] = OrderEdi
+    globals()['OrderEmail'] = OrderEmail
     globals()['OrderFraudScore'] = OrderFraudScore
     globals()['OrderGift'] = OrderGift
     globals()['OrderGiftCertificate'] = OrderGiftCertificate
@@ -177,6 +179,7 @@ class Order(ModelNormal):
             'customer_profile': (Customer,),  # noqa: E501
             'digital_order': (OrderDigitalOrder,),  # noqa: E501
             'edi': (OrderEdi,),  # noqa: E501
+            'emails': ([OrderEmail],),  # noqa: E501
             'exchange_rate': (float,),  # noqa: E501
             'fraud_score': (OrderFraudScore,),  # noqa: E501
             'gift': (OrderGift,),  # noqa: E501
@@ -224,6 +227,7 @@ class Order(ModelNormal):
         'customer_profile': 'customer_profile',  # noqa: E501
         'digital_order': 'digital_order',  # noqa: E501
         'edi': 'edi',  # noqa: E501
+        'emails': 'emails',  # noqa: E501
         'exchange_rate': 'exchange_rate',  # noqa: E501
         'fraud_score': 'fraud_score',  # noqa: E501
         'gift': 'gift',  # noqa: E501
@@ -306,6 +310,7 @@ class Order(ModelNormal):
             customer_profile (Customer): [optional]  # noqa: E501
             digital_order (OrderDigitalOrder): [optional]  # noqa: E501
             edi (OrderEdi): [optional]  # noqa: E501
+            emails ([OrderEmail]): Email delivery records associated with this order.. [optional]  # noqa: E501
             exchange_rate (float): Exchange rate at the time the order was placed if currency code is different than the base currency. [optional]  # noqa: E501
             fraud_score (OrderFraudScore): [optional]  # noqa: E501
             gift (OrderGift): [optional]  # noqa: E501
@@ -430,6 +435,7 @@ class Order(ModelNormal):
             customer_profile (Customer): [optional]  # noqa: E501
             digital_order (OrderDigitalOrder): [optional]  # noqa: E501
             edi (OrderEdi): [optional]  # noqa: E501
+            emails ([OrderEmail]): Email delivery records associated with this order.. [optional]  # noqa: E501
             exchange_rate (float): Exchange rate at the time the order was placed if currency code is different than the base currency. [optional]  # noqa: E501
             fraud_score (OrderFraudScore): [optional]  # noqa: E501
             gift (OrderGift): [optional]  # noqa: E501
