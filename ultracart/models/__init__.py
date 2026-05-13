@@ -964,6 +964,7 @@ from ultracart.model.users_response import UsersResponse
 from ultracart.model.verification_record import VerificationRecord
 from ultracart.model.warning import Warning
 from ultracart.model.webhook import Webhook
+from ultracart.model.webhook_event_categories_response import WebhookEventCategoriesResponse
 from ultracart.model.webhook_event_category import WebhookEventCategory
 from ultracart.model.webhook_event_subscription import WebhookEventSubscription
 from ultracart.model.webhook_log import WebhookLog

@@ -977,6 +977,7 @@ docs/VerificationRecord.md
 docs/Warning.md
 docs/Webhook.md
 docs/WebhookApi.md
+docs/WebhookEventCategoriesResponse.md
 docs/WebhookEventCategory.md
 docs/WebhookEventSubscription.md
 docs/WebhookLog.md
@@ -1996,6 +1997,7 @@ ultracart/model/users_response.py
 ultracart/model/verification_record.py
 ultracart/model/warning.py
 ultracart/model/webhook.py
+ultracart/model/webhook_event_categories_response.py
 ultracart/model/webhook_event_category.py
 ultracart/model/webhook_event_subscription.py
 ultracart/model/webhook_log.py
