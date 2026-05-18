@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **channel_partner_order_id** | **str** | The id for this order within the channel partner system. | [optional] 
 **consider_recurring** | **bool** | If true this order is marked as an auto order (recurring) | [optional] 
 **coupons** | **[str]** | Array of coupon codes | [optional] 
+**creation_dts** | **str** | Date/time the original order was placed on the channel partner&#39;s system, in ISO8601 format. Only honored when store_completed is true (historical order imports). Rejected on live orders. | [optional] 
 **credit_card_authorization_amount** | **float** | The amount authorized externally | [optional] 
 **credit_card_authorization_dts** | **str** | Date/Time of credit card authorization in ISO8601 format | [optional] 
 **credit_card_authorization_number** | **str** | The reference number provided by an externally processed transaction | [optional] 

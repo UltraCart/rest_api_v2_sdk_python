@@ -249,6 +249,7 @@ class ChannelPartnerOrder(ModelNormal):
             'channel_partner_order_id': (str,),  # noqa: E501
             'consider_recurring': (bool,),  # noqa: E501
             'coupons': ([str],),  # noqa: E501
+            'creation_dts': (str,),  # noqa: E501
             'credit_card_authorization_amount': (float,),  # noqa: E501
             'credit_card_authorization_dts': (str,),  # noqa: E501
             'credit_card_authorization_number': (str,),  # noqa: E501
@@ -350,6 +351,7 @@ class ChannelPartnerOrder(ModelNormal):
         'channel_partner_order_id': 'channel_partner_order_id',  # noqa: E501
         'consider_recurring': 'consider_recurring',  # noqa: E501
         'coupons': 'coupons',  # noqa: E501
+        'creation_dts': 'creation_dts',  # noqa: E501
         'credit_card_authorization_amount': 'credit_card_authorization_amount',  # noqa: E501
         'credit_card_authorization_dts': 'credit_card_authorization_dts',  # noqa: E501
         'credit_card_authorization_number': 'credit_card_authorization_number',  # noqa: E501
@@ -486,6 +488,7 @@ class ChannelPartnerOrder(ModelNormal):
             channel_partner_order_id (str): The id for this order within the channel partner system.. [optional]  # noqa: E501
             consider_recurring (bool): If true this order is marked as an auto order (recurring). [optional]  # noqa: E501
             coupons ([str]): Array of coupon codes. [optional]  # noqa: E501
+            creation_dts (str): Date/time the original order was placed on the channel partner's system, in ISO8601 format. Only honored when store_completed is true (historical order imports). Rejected on live orders.. [optional]  # noqa: E501
             credit_card_authorization_amount (float): The amount authorized externally. [optional]  # noqa: E501
             credit_card_authorization_dts (str): Date/Time of credit card authorization in ISO8601 format. [optional]  # noqa: E501
             credit_card_authorization_number (str): The reference number provided by an externally processed transaction. [optional]  # noqa: E501
@@ -664,6 +667,7 @@ class ChannelPartnerOrder(ModelNormal):
             channel_partner_order_id (str): The id for this order within the channel partner system.. [optional]  # noqa: E501
             consider_recurring (bool): If true this order is marked as an auto order (recurring). [optional]  # noqa: E501
             coupons ([str]): Array of coupon codes. [optional]  # noqa: E501
+            creation_dts (str): Date/time the original order was placed on the channel partner's system, in ISO8601 format. Only honored when store_completed is true (historical order imports). Rejected on live orders.. [optional]  # noqa: E501
             credit_card_authorization_amount (float): The amount authorized externally. [optional]  # noqa: E501
             credit_card_authorization_dts (str): Date/Time of credit card authorization in ISO8601 format. [optional]  # noqa: E501
             credit_card_authorization_number (str): The reference number provided by an externally processed transaction. [optional]  # noqa: E501
