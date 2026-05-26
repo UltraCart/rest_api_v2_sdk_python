@@ -31,6 +31,8 @@ docs/AutoOrderAddonItem.md
 docs/AutoOrderAddonItemOption.md
 docs/AutoOrderAddonItemsUpdateRequest.md
 docs/AutoOrderApi.md
+docs/AutoOrderCancelReason.md
+docs/AutoOrderCancelReasonsResponse.md
 docs/AutoOrderConsolidate.md
 docs/AutoOrderEmail.md
 docs/AutoOrderEmailsResponse.md
@@ -1069,6 +1071,8 @@ ultracart/model/auto_order.py
 ultracart/model/auto_order_addon_item.py
 ultracart/model/auto_order_addon_item_option.py
 ultracart/model/auto_order_addon_items_update_request.py
+ultracart/model/auto_order_cancel_reason.py
+ultracart/model/auto_order_cancel_reasons_response.py
 ultracart/model/auto_order_consolidate.py
 ultracart/model/auto_order_email.py
 ultracart/model/auto_order_emails_response.py

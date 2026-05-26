@@ -36,6 +36,8 @@ from ultracart.model.auto_order import AutoOrder
 from ultracart.model.auto_order_addon_item import AutoOrderAddonItem
 from ultracart.model.auto_order_addon_item_option import AutoOrderAddonItemOption
 from ultracart.model.auto_order_addon_items_update_request import AutoOrderAddonItemsUpdateRequest
+from ultracart.model.auto_order_cancel_reason import AutoOrderCancelReason
+from ultracart.model.auto_order_cancel_reasons_response import AutoOrderCancelReasonsResponse
 from ultracart.model.auto_order_consolidate import AutoOrderConsolidate
 from ultracart.model.auto_order_email import AutoOrderEmail
 from ultracart.model.auto_order_emails_response import AutoOrderEmailsResponse
