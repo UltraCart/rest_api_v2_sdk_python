@@ -264,34 +264,34 @@ class FraudRuleSearchRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             affiliate_oid_or_email (str): Affiliate oid (integer) or affiliate email. Email is resolved to oid before searching.. [optional]  # noqa: E501
             amount_threshold_begin (float): Lower bound on amount/score/percentage thresholds (rules backed by the same numeric column).. [optional]  # noqa: E501
-            amount_threshold_end (float): [optional]  # noqa: E501
+            amount_threshold_end (float): Upper bound on amount/score/percentage thresholds (rules backed by the same numeric column).. [optional]  # noqa: E501
             auto_note (str): Wildcard search on the rule's auto_note. Use '*' for wildcards.. [optional]  # noqa: E501
             count_threshold_begin (int): Lower bound on count thresholds (rules backed by the same integer count column).. [optional]  # noqa: E501
-            count_threshold_end (int): [optional]  # noqa: E501
-            created_by (str): [optional]  # noqa: E501
+            count_threshold_end (int): Upper bound on count thresholds (rules backed by the same integer count column).. [optional]  # noqa: E501
+            created_by (str): Filter to rules created by this user login.. [optional]  # noqa: E501
             created_date_begin (str): Rule creation date begin (MM/dd/yyyy). [optional]  # noqa: E501
             created_date_end (str): Rule creation date end (MM/dd/yyyy). [optional]  # noqa: E501
             credit_card_partial (str): Partial credit card number for matching 'credit card matches' rules. Use '*' wildcards.. [optional]  # noqa: E501
             decline_message (str): Wildcard search on the rule's decline_message. Use '*' for wildcards.. [optional]  # noqa: E501
             failure_action (str): [optional]  # noqa: E501
-            gateway_code (str): [optional]  # noqa: E501
-            merchant_item_id (str): [optional]  # noqa: E501
+            gateway_code (str): Filter to rules with this rotating transaction gateway code in their rotating_transaction_gateway_filters list.. [optional]  # noqa: E501
+            merchant_item_id (str): Filter to rules with this merchant item id in their item_filters list.. [optional]  # noqa: E501
             modifier_value (str): Wildcard search on the rule's secondary modifier (eg 'address'/'subnet', gateway codes, avs match types).. [optional]  # noqa: E501
-            modify_custom_field1 (str): [optional]  # noqa: E501
-            modify_custom_field2 (str): [optional]  # noqa: E501
-            modify_custom_field3 (str): [optional]  # noqa: E501
-            modify_custom_field4 (str): [optional]  # noqa: E501
-            modify_custom_field5 (str): [optional]  # noqa: E501
-            modify_custom_field6 (str): [optional]  # noqa: E501
-            modify_custom_field7 (str): [optional]  # noqa: E501
-            modify_skip_affiliate (bool): [optional]  # noqa: E501
-            modify_skip_affiliate_network_pixel (bool): [optional]  # noqa: E501
+            modify_custom_field1 (str): Wildcard search on rules' modify_custom_field1 value.. [optional]  # noqa: E501
+            modify_custom_field2 (str): Wildcard search on rules' modify_custom_field2 value.. [optional]  # noqa: E501
+            modify_custom_field3 (str): Wildcard search on rules' modify_custom_field3 value.. [optional]  # noqa: E501
+            modify_custom_field4 (str): Wildcard search on rules' modify_custom_field4 value.. [optional]  # noqa: E501
+            modify_custom_field5 (str): Wildcard search on rules' modify_custom_field5 value.. [optional]  # noqa: E501
+            modify_custom_field6 (str): Wildcard search on rules' modify_custom_field6 value.. [optional]  # noqa: E501
+            modify_custom_field7 (str): Wildcard search on rules' modify_custom_field7 value.. [optional]  # noqa: E501
+            modify_skip_affiliate (bool): Filter to rules whose modify_skip_affiliate flag matches this value.. [optional]  # noqa: E501
+            modify_skip_affiliate_network_pixel (bool): Filter to rules whose modify_skip_affiliate_network_pixel flag matches this value.. [optional]  # noqa: E501
             rule_group (str): Rule group to filter by.. [optional]  # noqa: E501
             rule_type (str): Rule type to filter by.. [optional]  # noqa: E501
             search_linked_accounts (bool): Include rules from accounts linked to this merchant. Defaults to false.. [optional]  # noqa: E501
-            storefront_hostname (str): [optional]  # noqa: E501
+            storefront_hostname (str): Filter to rules with this storefront hostname in their screen_branding_theme_filters list.. [optional]  # noqa: E501
             text_value (str): Wildcard search on the rule's text parameter (email / ip / bin / country / item id / avs codes - the backend disambiguates by rule_type).. [optional]  # noqa: E501
-            theme_code (str): [optional]  # noqa: E501
+            theme_code (str): Filter to rules with this screen branding theme code in their screen_branding_theme_filters list.. [optional]  # noqa: E501
             user_action (str): [optional]  # noqa: E501
         """
 
@@ -380,34 +380,34 @@ class FraudRuleSearchRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             affiliate_oid_or_email (str): Affiliate oid (integer) or affiliate email. Email is resolved to oid before searching.. [optional]  # noqa: E501
             amount_threshold_begin (float): Lower bound on amount/score/percentage thresholds (rules backed by the same numeric column).. [optional]  # noqa: E501
-            amount_threshold_end (float): [optional]  # noqa: E501
+            amount_threshold_end (float): Upper bound on amount/score/percentage thresholds (rules backed by the same numeric column).. [optional]  # noqa: E501
             auto_note (str): Wildcard search on the rule's auto_note. Use '*' for wildcards.. [optional]  # noqa: E501
             count_threshold_begin (int): Lower bound on count thresholds (rules backed by the same integer count column).. [optional]  # noqa: E501
-            count_threshold_end (int): [optional]  # noqa: E501
-            created_by (str): [optional]  # noqa: E501
+            count_threshold_end (int): Upper bound on count thresholds (rules backed by the same integer count column).. [optional]  # noqa: E501
+            created_by (str): Filter to rules created by this user login.. [optional]  # noqa: E501
             created_date_begin (str): Rule creation date begin (MM/dd/yyyy). [optional]  # noqa: E501
             created_date_end (str): Rule creation date end (MM/dd/yyyy). [optional]  # noqa: E501
             credit_card_partial (str): Partial credit card number for matching 'credit card matches' rules. Use '*' wildcards.. [optional]  # noqa: E501
             decline_message (str): Wildcard search on the rule's decline_message. Use '*' for wildcards.. [optional]  # noqa: E501
             failure_action (str): [optional]  # noqa: E501
-            gateway_code (str): [optional]  # noqa: E501
-            merchant_item_id (str): [optional]  # noqa: E501
+            gateway_code (str): Filter to rules with this rotating transaction gateway code in their rotating_transaction_gateway_filters list.. [optional]  # noqa: E501
+            merchant_item_id (str): Filter to rules with this merchant item id in their item_filters list.. [optional]  # noqa: E501
             modifier_value (str): Wildcard search on the rule's secondary modifier (eg 'address'/'subnet', gateway codes, avs match types).. [optional]  # noqa: E501
-            modify_custom_field1 (str): [optional]  # noqa: E501
-            modify_custom_field2 (str): [optional]  # noqa: E501
-            modify_custom_field3 (str): [optional]  # noqa: E501
-            modify_custom_field4 (str): [optional]  # noqa: E501
-            modify_custom_field5 (str): [optional]  # noqa: E501
-            modify_custom_field6 (str): [optional]  # noqa: E501
-            modify_custom_field7 (str): [optional]  # noqa: E501
-            modify_skip_affiliate (bool): [optional]  # noqa: E501
-            modify_skip_affiliate_network_pixel (bool): [optional]  # noqa: E501
+            modify_custom_field1 (str): Wildcard search on rules' modify_custom_field1 value.. [optional]  # noqa: E501
+            modify_custom_field2 (str): Wildcard search on rules' modify_custom_field2 value.. [optional]  # noqa: E501
+            modify_custom_field3 (str): Wildcard search on rules' modify_custom_field3 value.. [optional]  # noqa: E501
+            modify_custom_field4 (str): Wildcard search on rules' modify_custom_field4 value.. [optional]  # noqa: E501
+            modify_custom_field5 (str): Wildcard search on rules' modify_custom_field5 value.. [optional]  # noqa: E501
+            modify_custom_field6 (str): Wildcard search on rules' modify_custom_field6 value.. [optional]  # noqa: E501
+            modify_custom_field7 (str): Wildcard search on rules' modify_custom_field7 value.. [optional]  # noqa: E501
+            modify_skip_affiliate (bool): Filter to rules whose modify_skip_affiliate flag matches this value.. [optional]  # noqa: E501
+            modify_skip_affiliate_network_pixel (bool): Filter to rules whose modify_skip_affiliate_network_pixel flag matches this value.. [optional]  # noqa: E501
             rule_group (str): Rule group to filter by.. [optional]  # noqa: E501
             rule_type (str): Rule type to filter by.. [optional]  # noqa: E501
             search_linked_accounts (bool): Include rules from accounts linked to this merchant. Defaults to false.. [optional]  # noqa: E501
-            storefront_hostname (str): [optional]  # noqa: E501
+            storefront_hostname (str): Filter to rules with this storefront hostname in their screen_branding_theme_filters list.. [optional]  # noqa: E501
             text_value (str): Wildcard search on the rule's text parameter (email / ip / bin / country / item id / avs codes - the backend disambiguates by rule_type).. [optional]  # noqa: E501
-            theme_code (str): [optional]  # noqa: E501
+            theme_code (str): Filter to rules with this screen branding theme code in their screen_branding_theme_filters list.. [optional]  # noqa: E501
             user_action (str): [optional]  # noqa: E501
         """
 

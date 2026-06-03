@@ -594,8 +594,12 @@ from ultracart.model.file_manager_page_response import FileManagerPageResponse
 from ultracart.model.file_manager_upload_request import FileManagerUploadRequest
 from ultracart.model.file_manager_upload_url_response import FileManagerUploadUrlResponse
 from ultracart.model.fraud_decline_email_request import FraudDeclineEmailRequest
+from ultracart.model.fraud_lookup_affiliate import FraudLookupAffiliate
+from ultracart.model.fraud_lookup_gateway import FraudLookupGateway
+from ultracart.model.fraud_lookup_theme import FraudLookupTheme
 from ultracart.model.fraud_lookup_values import FraudLookupValues
 from ultracart.model.fraud_lookup_values_response import FraudLookupValuesResponse
+from ultracart.model.fraud_rule_from_order_request import FraudRuleFromOrderRequest
 from ultracart.model.fraud_rule_insert_request import FraudRuleInsertRequest
 from ultracart.model.fraud_rule_item_filter import FraudRuleItemFilter
 from ultracart.model.fraud_rule_public import FraudRulePublic

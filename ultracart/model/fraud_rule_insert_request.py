@@ -156,14 +156,14 @@ class FraudRuleInsertRequest(ModelNormal):
             'avs_response_codes': (str,),  # noqa: E501
             'count_threshold': (int,),  # noqa: E501
             'country_code': (str,),  # noqa: E501
-            'credit_card_bins': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'credit_card_bins': ([str],),  # noqa: E501
             'email': (str,),  # noqa: E501
             'failure_action': (str,),  # noqa: E501
             'gateway_response_codes': (str,),  # noqa: E501
             'gateway_response_value': (str,),  # noqa: E501
             'ip_address': (str,),  # noqa: E501
             'ip_range_type': (str,),  # noqa: E501
-            'item_filters': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'item_filters': ([str],),  # noqa: E501
             'merchant_item_id': (str,),  # noqa: E501
             'modify_custom_field1': (str,),  # noqa: E501
             'modify_custom_field2': (str,),  # noqa: E501
@@ -174,9 +174,9 @@ class FraudRuleInsertRequest(ModelNormal):
             'modify_custom_field7': (str,),  # noqa: E501
             'modify_skip_affiliate': (bool,),  # noqa: E501
             'modify_skip_affiliate_network_pixel': (bool,),  # noqa: E501
-            'rotating_transaction_gateway_filters': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'rotating_transaction_gateway_filters': ([int],),  # noqa: E501
             'rule_type': (str,),  # noqa: E501
-            'screen_branding_theme_filters': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'screen_branding_theme_filters': ([int],),  # noqa: E501
             'user_action': (str,),  # noqa: E501
         }
 
@@ -267,27 +267,27 @@ class FraudRuleInsertRequest(ModelNormal):
             avs_response_codes (str): AVS response codes (street). Used by the 'address street and zip avs' rule type.. [optional]  # noqa: E501
             count_threshold (int): Integer count threshold. Used by *count exceeds*, *change number*, *quantity exceeds*, and *purchased within last hours* rules.. [optional]  # noqa: E501
             country_code (str): ISO country code. Used by the 'address not in country' rule type.. [optional]  # noqa: E501
-            credit_card_bins (bool, date, datetime, dict, float, int, list, str, none_type): Credit card BINs to block (max 20). Used by the 'credit card block bin' rule type.. [optional]  # noqa: E501
+            credit_card_bins ([str]): Credit card BINs to block (max 20). Used by the 'credit card block bin' rule type.. [optional]  # noqa: E501
             email (str): Email address. Used by the 'address email' rule type.. [optional]  # noqa: E501
             failure_action (str): Action to take when this rule fires.. [optional]  # noqa: E501
             gateway_response_codes (str): Gateway response code key. Used by the 'gateway response' rule type.. [optional]  # noqa: E501
             gateway_response_value (str): Gateway response code value. Used by the 'gateway response' rule type.. [optional]  # noqa: E501
             ip_address (str): IP address or subnet (eg '192.168.1.1' or '10.0.0.0/8'). Used by 'exempt ip' and 'ip matches' rules.. [optional]  # noqa: E501
             ip_range_type (str): Specifies whether an IP rule applies to a single address or a subnet.. [optional]  # noqa: E501
-            item_filters (bool, date, datetime, dict, float, int, list, str, none_type): Optional list of merchant item ids restricting this rule to orders containing one or more of these items.. [optional]  # noqa: E501
+            item_filters ([str]): Optional list of merchant item ids restricting this rule to orders containing one or more of these items.. [optional]  # noqa: E501
             merchant_item_id (str): Merchant item id. Used by the 'item matches' rule type.. [optional]  # noqa: E501
-            modify_custom_field1 (str): [optional]  # noqa: E501
-            modify_custom_field2 (str): [optional]  # noqa: E501
-            modify_custom_field3 (str): [optional]  # noqa: E501
-            modify_custom_field4 (str): [optional]  # noqa: E501
-            modify_custom_field5 (str): [optional]  # noqa: E501
-            modify_custom_field6 (str): [optional]  # noqa: E501
-            modify_custom_field7 (str): [optional]  # noqa: E501
-            modify_skip_affiliate (bool): [optional]  # noqa: E501
-            modify_skip_affiliate_network_pixel (bool): [optional]  # noqa: E501
-            rotating_transaction_gateway_filters (bool, date, datetime, dict, float, int, list, str, none_type): Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways.. [optional]  # noqa: E501
+            modify_custom_field1 (str): When failure_action is 'Process Payment and Modify', set order custom field 1 to this value.. [optional]  # noqa: E501
+            modify_custom_field2 (str): When failure_action is 'Process Payment and Modify', set order custom field 2 to this value.. [optional]  # noqa: E501
+            modify_custom_field3 (str): When failure_action is 'Process Payment and Modify', set order custom field 3 to this value.. [optional]  # noqa: E501
+            modify_custom_field4 (str): When failure_action is 'Process Payment and Modify', set order custom field 4 to this value.. [optional]  # noqa: E501
+            modify_custom_field5 (str): When failure_action is 'Process Payment and Modify', set order custom field 5 to this value.. [optional]  # noqa: E501
+            modify_custom_field6 (str): When failure_action is 'Process Payment and Modify', set order custom field 6 to this value.. [optional]  # noqa: E501
+            modify_custom_field7 (str): When failure_action is 'Process Payment and Modify', set order custom field 7 to this value.. [optional]  # noqa: E501
+            modify_skip_affiliate (bool): When failure_action is 'Process Payment and Modify', strip the affiliate from the order.. [optional]  # noqa: E501
+            modify_skip_affiliate_network_pixel (bool): When failure_action is 'Process Payment and Modify', skip firing the affiliate network pixel.. [optional]  # noqa: E501
+            rotating_transaction_gateway_filters ([int]): Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways.. [optional]  # noqa: E501
             rule_type (str): Rule type. Also returned by GET /v2/fraud/lookup_values.. [optional]  # noqa: E501
-            screen_branding_theme_filters (bool, date, datetime, dict, float, int, list, str, none_type): Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts.. [optional]  # noqa: E501
+            screen_branding_theme_filters ([int]): Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts.. [optional]  # noqa: E501
             user_action (str): Only used by rule types that distinguish between attempted and approved transactions.. [optional]  # noqa: E501
         """
 
@@ -382,27 +382,27 @@ class FraudRuleInsertRequest(ModelNormal):
             avs_response_codes (str): AVS response codes (street). Used by the 'address street and zip avs' rule type.. [optional]  # noqa: E501
             count_threshold (int): Integer count threshold. Used by *count exceeds*, *change number*, *quantity exceeds*, and *purchased within last hours* rules.. [optional]  # noqa: E501
             country_code (str): ISO country code. Used by the 'address not in country' rule type.. [optional]  # noqa: E501
-            credit_card_bins (bool, date, datetime, dict, float, int, list, str, none_type): Credit card BINs to block (max 20). Used by the 'credit card block bin' rule type.. [optional]  # noqa: E501
+            credit_card_bins ([str]): Credit card BINs to block (max 20). Used by the 'credit card block bin' rule type.. [optional]  # noqa: E501
             email (str): Email address. Used by the 'address email' rule type.. [optional]  # noqa: E501
             failure_action (str): Action to take when this rule fires.. [optional]  # noqa: E501
             gateway_response_codes (str): Gateway response code key. Used by the 'gateway response' rule type.. [optional]  # noqa: E501
             gateway_response_value (str): Gateway response code value. Used by the 'gateway response' rule type.. [optional]  # noqa: E501
             ip_address (str): IP address or subnet (eg '192.168.1.1' or '10.0.0.0/8'). Used by 'exempt ip' and 'ip matches' rules.. [optional]  # noqa: E501
             ip_range_type (str): Specifies whether an IP rule applies to a single address or a subnet.. [optional]  # noqa: E501
-            item_filters (bool, date, datetime, dict, float, int, list, str, none_type): Optional list of merchant item ids restricting this rule to orders containing one or more of these items.. [optional]  # noqa: E501
+            item_filters ([str]): Optional list of merchant item ids restricting this rule to orders containing one or more of these items.. [optional]  # noqa: E501
             merchant_item_id (str): Merchant item id. Used by the 'item matches' rule type.. [optional]  # noqa: E501
-            modify_custom_field1 (str): [optional]  # noqa: E501
-            modify_custom_field2 (str): [optional]  # noqa: E501
-            modify_custom_field3 (str): [optional]  # noqa: E501
-            modify_custom_field4 (str): [optional]  # noqa: E501
-            modify_custom_field5 (str): [optional]  # noqa: E501
-            modify_custom_field6 (str): [optional]  # noqa: E501
-            modify_custom_field7 (str): [optional]  # noqa: E501
-            modify_skip_affiliate (bool): [optional]  # noqa: E501
-            modify_skip_affiliate_network_pixel (bool): [optional]  # noqa: E501
-            rotating_transaction_gateway_filters (bool, date, datetime, dict, float, int, list, str, none_type): Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways.. [optional]  # noqa: E501
+            modify_custom_field1 (str): When failure_action is 'Process Payment and Modify', set order custom field 1 to this value.. [optional]  # noqa: E501
+            modify_custom_field2 (str): When failure_action is 'Process Payment and Modify', set order custom field 2 to this value.. [optional]  # noqa: E501
+            modify_custom_field3 (str): When failure_action is 'Process Payment and Modify', set order custom field 3 to this value.. [optional]  # noqa: E501
+            modify_custom_field4 (str): When failure_action is 'Process Payment and Modify', set order custom field 4 to this value.. [optional]  # noqa: E501
+            modify_custom_field5 (str): When failure_action is 'Process Payment and Modify', set order custom field 5 to this value.. [optional]  # noqa: E501
+            modify_custom_field6 (str): When failure_action is 'Process Payment and Modify', set order custom field 6 to this value.. [optional]  # noqa: E501
+            modify_custom_field7 (str): When failure_action is 'Process Payment and Modify', set order custom field 7 to this value.. [optional]  # noqa: E501
+            modify_skip_affiliate (bool): When failure_action is 'Process Payment and Modify', strip the affiliate from the order.. [optional]  # noqa: E501
+            modify_skip_affiliate_network_pixel (bool): When failure_action is 'Process Payment and Modify', skip firing the affiliate network pixel.. [optional]  # noqa: E501
+            rotating_transaction_gateway_filters ([int]): Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways.. [optional]  # noqa: E501
             rule_type (str): Rule type. Also returned by GET /v2/fraud/lookup_values.. [optional]  # noqa: E501
-            screen_branding_theme_filters (bool, date, datetime, dict, float, int, list, str, none_type): Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts.. [optional]  # noqa: E501
+            screen_branding_theme_filters ([int]): Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts.. [optional]  # noqa: E501
             user_action (str): Only used by rule types that distinguish between attempted and approved transactions.. [optional]  # noqa: E501
         """
 

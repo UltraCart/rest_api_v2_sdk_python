@@ -597,8 +597,12 @@ docs/FileManagerUploadRequest.md
 docs/FileManagerUploadUrlResponse.md
 docs/FraudApi.md
 docs/FraudDeclineEmailRequest.md
+docs/FraudLookupAffiliate.md
+docs/FraudLookupGateway.md
+docs/FraudLookupTheme.md
 docs/FraudLookupValues.md
 docs/FraudLookupValuesResponse.md
+docs/FraudRuleFromOrderRequest.md
 docs/FraudRuleInsertRequest.md
 docs/FraudRuleItemFilter.md
 docs/FraudRulePublic.md
@@ -1642,8 +1646,12 @@ ultracart/model/file_manager_page_response.py
 ultracart/model/file_manager_upload_request.py
 ultracart/model/file_manager_upload_url_response.py
 ultracart/model/fraud_decline_email_request.py
+ultracart/model/fraud_lookup_affiliate.py
+ultracart/model/fraud_lookup_gateway.py
+ultracart/model/fraud_lookup_theme.py
 ultracart/model/fraud_lookup_values.py
 ultracart/model/fraud_lookup_values_response.py
+ultracart/model/fraud_rule_from_order_request.py
 ultracart/model/fraud_rule_insert_request.py
 ultracart/model/fraud_rule_item_filter.py
 ultracart/model/fraud_rule_public.py

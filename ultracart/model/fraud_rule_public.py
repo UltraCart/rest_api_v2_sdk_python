@@ -168,7 +168,7 @@ class FraudRulePublic(ModelNormal):
             'country_code': (str,),  # noqa: E501
             'created_by': (str,),  # noqa: E501
             'created_dts': (str,),  # noqa: E501
-            'credit_card_bins': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'credit_card_bins': ([str],),  # noqa: E501
             'decline_message': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'description_html': (str,),  # noqa: E501
@@ -283,42 +283,42 @@ class FraudRulePublic(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            affiliate_oid (int): [optional]  # noqa: E501
-            amount_threshold (float): [optional]  # noqa: E501
-            auto_note (str): [optional]  # noqa: E501
+            affiliate_oid (int): Affiliate oid for the 'affiliate matches' rule type.. [optional]  # noqa: E501
+            amount_threshold (float): Monetary or score threshold for amount/score/percentage rule types.. [optional]  # noqa: E501
+            auto_note (str): Note automatically appended to the order's merchant note when this rule fires.. [optional]  # noqa: E501
             avs_match_type (str): [optional]  # noqa: E501
-            avs_response_codes (str): [optional]  # noqa: E501
+            avs_response_codes (str): AVS response codes for the 'address street and zip avs' rule type.. [optional]  # noqa: E501
             card_number (str): Masked credit card number for rules tied to a specific card. [optional]  # noqa: E501
-            count_threshold (int): [optional]  # noqa: E501
-            country_code (str): [optional]  # noqa: E501
+            count_threshold (int): Integer count threshold for count/quantity/hours rule types.. [optional]  # noqa: E501
+            country_code (str): ISO country code for the 'address not in country' rule type.. [optional]  # noqa: E501
             created_by (str): [optional]  # noqa: E501
             created_dts (str): Created date. [optional]  # noqa: E501
-            credit_card_bins (bool, date, datetime, dict, float, int, list, str, none_type): Credit card BINs blocked by the 'credit card block bin' rule type.. [optional]  # noqa: E501
-            decline_message (str): [optional]  # noqa: E501
+            credit_card_bins ([str]): Credit card BINs blocked by the 'credit card block bin' rule type.. [optional]  # noqa: E501
+            decline_message (str): Message shown in the A/R review screen when this rule fires.. [optional]  # noqa: E501
             description (str): Human-readable description of the rule. [optional]  # noqa: E501
             description_html (str): HTML version of the rule description. [optional]  # noqa: E501
-            email (str): [optional]  # noqa: E501
+            email (str): Email address for the 'address email' rule type.. [optional]  # noqa: E501
             failure_action (str): Action taken when this rule fires.. [optional]  # noqa: E501
             fraud_rule_oid (int): UltraCart unique identifier for this fraud rule. [optional]  # noqa: E501
-            gateway_response_codes (str): [optional]  # noqa: E501
-            gateway_response_value (str): [optional]  # noqa: E501
-            ip_address (str): [optional]  # noqa: E501
+            gateway_response_codes (str): Gateway response code key for the 'gateway response' rule type.. [optional]  # noqa: E501
+            gateway_response_value (str): Gateway response code value for the 'gateway response' rule type.. [optional]  # noqa: E501
+            ip_address (str): IP address or subnet for 'exempt ip' and 'ip matches' rule types.. [optional]  # noqa: E501
             ip_range_type (str): [optional]  # noqa: E501
-            item_filters ([FraudRuleItemFilter]): [optional]  # noqa: E501
-            merchant_item_id (str): [optional]  # noqa: E501
-            modify_custom_field1 (str): [optional]  # noqa: E501
-            modify_custom_field2 (str): [optional]  # noqa: E501
-            modify_custom_field3 (str): [optional]  # noqa: E501
-            modify_custom_field4 (str): [optional]  # noqa: E501
-            modify_custom_field5 (str): [optional]  # noqa: E501
-            modify_custom_field6 (str): [optional]  # noqa: E501
-            modify_custom_field7 (str): [optional]  # noqa: E501
-            modify_skip_affiliate (bool): [optional]  # noqa: E501
-            modify_skip_affiliate_network_pixel (bool): [optional]  # noqa: E501
-            rotating_transaction_gateway_filters ([FraudRuleRotatingTransactionGatewayFilter]): [optional]  # noqa: E501
+            item_filters ([FraudRuleItemFilter]): Item filters restricting this rule to orders containing one or more of these items.. [optional]  # noqa: E501
+            merchant_item_id (str): Merchant item id for the 'item matches' rule type.. [optional]  # noqa: E501
+            modify_custom_field1 (str): Value the rule sets on order custom field 1 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field2 (str): Value the rule sets on order custom field 2 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field3 (str): Value the rule sets on order custom field 3 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field4 (str): Value the rule sets on order custom field 4 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field5 (str): Value the rule sets on order custom field 5 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field6 (str): Value the rule sets on order custom field 6 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field7 (str): Value the rule sets on order custom field 7 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_skip_affiliate (bool): When true, the rule strips the affiliate from the order (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_skip_affiliate_network_pixel (bool): When true, the rule suppresses the affiliate network pixel (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            rotating_transaction_gateway_filters ([FraudRuleRotatingTransactionGatewayFilter]): Gateway filters restricting this rule to orders processed by one of these rotating transaction gateways.. [optional]  # noqa: E501
             rule_group (str): Group containing this rule type (eg 'creditCardRules'). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set.. [optional]  # noqa: E501
             rule_type (str): Rule type.. [optional]  # noqa: E501
-            storefront_filters ([FraudRuleStorefrontFilter]): [optional]  # noqa: E501
+            storefront_filters ([FraudRuleStorefrontFilter]): Storefront filters restricting this rule to orders placed on one of these storefronts.. [optional]  # noqa: E501
             user_action (str): [optional]  # noqa: E501
         """
 
@@ -405,42 +405,42 @@ class FraudRulePublic(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            affiliate_oid (int): [optional]  # noqa: E501
-            amount_threshold (float): [optional]  # noqa: E501
-            auto_note (str): [optional]  # noqa: E501
+            affiliate_oid (int): Affiliate oid for the 'affiliate matches' rule type.. [optional]  # noqa: E501
+            amount_threshold (float): Monetary or score threshold for amount/score/percentage rule types.. [optional]  # noqa: E501
+            auto_note (str): Note automatically appended to the order's merchant note when this rule fires.. [optional]  # noqa: E501
             avs_match_type (str): [optional]  # noqa: E501
-            avs_response_codes (str): [optional]  # noqa: E501
+            avs_response_codes (str): AVS response codes for the 'address street and zip avs' rule type.. [optional]  # noqa: E501
             card_number (str): Masked credit card number for rules tied to a specific card. [optional]  # noqa: E501
-            count_threshold (int): [optional]  # noqa: E501
-            country_code (str): [optional]  # noqa: E501
+            count_threshold (int): Integer count threshold for count/quantity/hours rule types.. [optional]  # noqa: E501
+            country_code (str): ISO country code for the 'address not in country' rule type.. [optional]  # noqa: E501
             created_by (str): [optional]  # noqa: E501
             created_dts (str): Created date. [optional]  # noqa: E501
-            credit_card_bins (bool, date, datetime, dict, float, int, list, str, none_type): Credit card BINs blocked by the 'credit card block bin' rule type.. [optional]  # noqa: E501
-            decline_message (str): [optional]  # noqa: E501
+            credit_card_bins ([str]): Credit card BINs blocked by the 'credit card block bin' rule type.. [optional]  # noqa: E501
+            decline_message (str): Message shown in the A/R review screen when this rule fires.. [optional]  # noqa: E501
             description (str): Human-readable description of the rule. [optional]  # noqa: E501
             description_html (str): HTML version of the rule description. [optional]  # noqa: E501
-            email (str): [optional]  # noqa: E501
+            email (str): Email address for the 'address email' rule type.. [optional]  # noqa: E501
             failure_action (str): Action taken when this rule fires.. [optional]  # noqa: E501
             fraud_rule_oid (int): UltraCart unique identifier for this fraud rule. [optional]  # noqa: E501
-            gateway_response_codes (str): [optional]  # noqa: E501
-            gateway_response_value (str): [optional]  # noqa: E501
-            ip_address (str): [optional]  # noqa: E501
+            gateway_response_codes (str): Gateway response code key for the 'gateway response' rule type.. [optional]  # noqa: E501
+            gateway_response_value (str): Gateway response code value for the 'gateway response' rule type.. [optional]  # noqa: E501
+            ip_address (str): IP address or subnet for 'exempt ip' and 'ip matches' rule types.. [optional]  # noqa: E501
             ip_range_type (str): [optional]  # noqa: E501
-            item_filters ([FraudRuleItemFilter]): [optional]  # noqa: E501
-            merchant_item_id (str): [optional]  # noqa: E501
-            modify_custom_field1 (str): [optional]  # noqa: E501
-            modify_custom_field2 (str): [optional]  # noqa: E501
-            modify_custom_field3 (str): [optional]  # noqa: E501
-            modify_custom_field4 (str): [optional]  # noqa: E501
-            modify_custom_field5 (str): [optional]  # noqa: E501
-            modify_custom_field6 (str): [optional]  # noqa: E501
-            modify_custom_field7 (str): [optional]  # noqa: E501
-            modify_skip_affiliate (bool): [optional]  # noqa: E501
-            modify_skip_affiliate_network_pixel (bool): [optional]  # noqa: E501
-            rotating_transaction_gateway_filters ([FraudRuleRotatingTransactionGatewayFilter]): [optional]  # noqa: E501
+            item_filters ([FraudRuleItemFilter]): Item filters restricting this rule to orders containing one or more of these items.. [optional]  # noqa: E501
+            merchant_item_id (str): Merchant item id for the 'item matches' rule type.. [optional]  # noqa: E501
+            modify_custom_field1 (str): Value the rule sets on order custom field 1 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field2 (str): Value the rule sets on order custom field 2 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field3 (str): Value the rule sets on order custom field 3 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field4 (str): Value the rule sets on order custom field 4 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field5 (str): Value the rule sets on order custom field 5 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field6 (str): Value the rule sets on order custom field 6 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_custom_field7 (str): Value the rule sets on order custom field 7 (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_skip_affiliate (bool): When true, the rule strips the affiliate from the order (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            modify_skip_affiliate_network_pixel (bool): When true, the rule suppresses the affiliate network pixel (only meaningful for 'Process Payment and Modify').. [optional]  # noqa: E501
+            rotating_transaction_gateway_filters ([FraudRuleRotatingTransactionGatewayFilter]): Gateway filters restricting this rule to orders processed by one of these rotating transaction gateways.. [optional]  # noqa: E501
             rule_group (str): Group containing this rule type (eg 'creditCardRules'). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set.. [optional]  # noqa: E501
             rule_type (str): Rule type.. [optional]  # noqa: E501
-            storefront_filters ([FraudRuleStorefrontFilter]): [optional]  # noqa: E501
+            storefront_filters ([FraudRuleStorefrontFilter]): Storefront filters restricting this rule to orders placed on one of these storefronts.. [optional]  # noqa: E501
             user_action (str): [optional]  # noqa: E501
         """
 

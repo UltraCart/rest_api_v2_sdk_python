@@ -25,6 +25,7 @@ from ultracart.model_utils import (  # noqa: F401
 from ultracart.model.error_response import ErrorResponse
 from ultracart.model.fraud_decline_email_request import FraudDeclineEmailRequest
 from ultracart.model.fraud_lookup_values_response import FraudLookupValuesResponse
+from ultracart.model.fraud_rule_from_order_request import FraudRuleFromOrderRequest
 from ultracart.model.fraud_rule_insert_request import FraudRuleInsertRequest
 from ultracart.model.fraud_rule_response import FraudRuleResponse
 from ultracart.model.fraud_rule_search_request import FraudRuleSearchRequest
@@ -155,6 +156,59 @@ class FraudApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.establish_fraud_rules_from_order_endpoint = _Endpoint(
+            settings={
+                'response_type': (FraudRulesResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/fraud/rules/from_order',
+                'operation_id': 'establish_fraud_rules_from_order',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'fraud_rule_from_order_request',
+                ],
+                'required': [
+                    'fraud_rule_from_order_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'fraud_rule_from_order_request':
+                        (FraudRuleFromOrderRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'fraud_rule_from_order_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -330,9 +384,9 @@ class FraudApi(object):
         fraud_decline_emails_request,
         **kwargs
     ):
-        """Decline emails during checkout fraud review  # noqa: E501
+        """Decline email during checkout fraud review  # noqa: E501
 
-        Adds one or more email addresses to the fraud decline list for this merchant account.   # noqa: E501
+        Adds one email address to the fraud decline list for this merchant account.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -490,6 +544,89 @@ class FraudApi(object):
         kwargs['fraud_rule_oid'] = \
             fraud_rule_oid
         return self.delete_fraud_rule_endpoint.call_with_http_info(**kwargs)
+
+    def establish_fraud_rules_from_order(
+        self,
+        fraud_rule_from_order_request,
+        **kwargs
+    ):
+        """Establish fraud rules from an order  # noqa: E501
+
+        Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the 'establish fraud filter' action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order's /24 subnet (last octet masked). The credit card filter duplicates the order's stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.establish_fraud_rules_from_order(fraud_rule_from_order_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            fraud_rule_from_order_request (FraudRuleFromOrderRequest): Fraud rule from order request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            FraudRulesResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['fraud_rule_from_order_request'] = \
+            fraud_rule_from_order_request
+        return self.establish_fraud_rules_from_order_endpoint.call_with_http_info(**kwargs)
 
     def get_fraud_lookup_values(
         self,
