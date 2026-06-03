@@ -23,6 +23,7 @@ from ultracart.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from ultracart.model.error_response import ErrorResponse
+from ultracart.model.oauth_device_authorization_response import OauthDeviceAuthorizationResponse
 from ultracart.model.oauth_revoke_success_response import OauthRevokeSuccessResponse
 from ultracart.model.oauth_token_response import OauthTokenResponse
 
@@ -132,7 +133,7 @@ class OauthApi(object):
         )
         self.oauth_device_authorize_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (OauthDeviceAuthorizationResponse,),
                 'auth': [
                     'ultraCartBrowserApiKey',
                     'ultraCartOauth',
@@ -396,7 +397,7 @@ class OauthApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            OauthDeviceAuthorizationResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
