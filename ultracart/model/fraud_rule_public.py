@@ -80,16 +80,6 @@ class FraudRulePublic(ModelNormal):
             'ADDRESS': "address",
             'SUBNET': "subnet",
         },
-        ('rule_group',): {
-            'EXEMPTRULES': "exemptRules",
-            'CREDITCARDRULES': "creditCardRules",
-            'IPRULES': "ipRules",
-            'ADDRESSRULES': "addressRules",
-            'AFFILIATERULES': "affiliateRules",
-            'ITEMRULES': "itemRules",
-            'ORDERRULES': "orderRules",
-            'BROWSERRULES': "browserRules",
-        },
         ('rule_type',): {
             'EXEMPT_APO_FPO': "exempt apo fpo",
             'EXEMPT_IP': "exempt ip",
@@ -326,7 +316,7 @@ class FraudRulePublic(ModelNormal):
             modify_skip_affiliate (bool): [optional]  # noqa: E501
             modify_skip_affiliate_network_pixel (bool): [optional]  # noqa: E501
             rotating_transaction_gateway_filters ([FraudRuleRotatingTransactionGatewayFilter]): [optional]  # noqa: E501
-            rule_group (str): Group containing this rule type (eg 'creditCardRules'). [optional]  # noqa: E501
+            rule_group (str): Group containing this rule type (eg 'creditCardRules'). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set.. [optional]  # noqa: E501
             rule_type (str): Rule type.. [optional]  # noqa: E501
             storefront_filters ([FraudRuleStorefrontFilter]): [optional]  # noqa: E501
             user_action (str): [optional]  # noqa: E501
@@ -448,7 +438,7 @@ class FraudRulePublic(ModelNormal):
             modify_skip_affiliate (bool): [optional]  # noqa: E501
             modify_skip_affiliate_network_pixel (bool): [optional]  # noqa: E501
             rotating_transaction_gateway_filters ([FraudRuleRotatingTransactionGatewayFilter]): [optional]  # noqa: E501
-            rule_group (str): Group containing this rule type (eg 'creditCardRules'). [optional]  # noqa: E501
+            rule_group (str): Group containing this rule type (eg 'creditCardRules'). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set.. [optional]  # noqa: E501
             rule_type (str): Rule type.. [optional]  # noqa: E501
             storefront_filters ([FraudRuleStorefrontFilter]): [optional]  # noqa: E501
             user_action (str): [optional]  # noqa: E501
