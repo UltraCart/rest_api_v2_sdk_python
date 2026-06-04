@@ -321,6 +321,7 @@ from ultracart.model.countries_response import CountriesResponse
 from ultracart.model.country import Country
 from ultracart.model.coupon import Coupon
 from ultracart.model.coupon_amount_off_items import CouponAmountOffItems
+from ultracart.model.coupon_amount_off_items_and_free_shipping import CouponAmountOffItemsAndFreeShipping
 from ultracart.model.coupon_amount_off_shipping import CouponAmountOffShipping
 from ultracart.model.coupon_amount_off_shipping_with_items_purchase import CouponAmountOffShippingWithItemsPurchase
 from ultracart.model.coupon_amount_off_subtotal import CouponAmountOffSubtotal

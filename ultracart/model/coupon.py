@@ -32,6 +32,7 @@ from ultracart.exceptions import ApiAttributeError
 
 def lazy_import():
     from ultracart.model.coupon_amount_off_items import CouponAmountOffItems
+    from ultracart.model.coupon_amount_off_items_and_free_shipping import CouponAmountOffItemsAndFreeShipping
     from ultracart.model.coupon_amount_off_shipping import CouponAmountOffShipping
     from ultracart.model.coupon_amount_off_shipping_with_items_purchase import CouponAmountOffShippingWithItemsPurchase
     from ultracart.model.coupon_amount_off_subtotal import CouponAmountOffSubtotal
@@ -82,6 +83,7 @@ def lazy_import():
     from ultracart.model.coupon_tiered_percent_off_subtotal import CouponTieredPercentOffSubtotal
     from ultracart.model.coupon_tiered_percent_off_subtotal_based_on_msrp import CouponTieredPercentOffSubtotalBasedOnMSRP
     globals()['CouponAmountOffItems'] = CouponAmountOffItems
+    globals()['CouponAmountOffItemsAndFreeShipping'] = CouponAmountOffItemsAndFreeShipping
     globals()['CouponAmountOffShipping'] = CouponAmountOffShipping
     globals()['CouponAmountOffShippingWithItemsPurchase'] = CouponAmountOffShippingWithItemsPurchase
     globals()['CouponAmountOffSubtotal'] = CouponAmountOffSubtotal
@@ -214,6 +216,7 @@ class Coupon(ModelNormal):
             'affiliate_oid': (int,),  # noqa: E501
             'allow_multiple_one_time_codes': (bool,),  # noqa: E501
             'amount_off_items': (CouponAmountOffItems,),  # noqa: E501
+            'amount_off_items_and_free_shipping': (CouponAmountOffItemsAndFreeShipping,),  # noqa: E501
             'amount_off_shipping': (CouponAmountOffShipping,),  # noqa: E501
             'amount_off_shipping_with_items_purchase': (CouponAmountOffShippingWithItemsPurchase,),  # noqa: E501
             'amount_off_subtotal': (CouponAmountOffSubtotal,),  # noqa: E501
@@ -290,6 +293,7 @@ class Coupon(ModelNormal):
         'affiliate_oid': 'affiliate_oid',  # noqa: E501
         'allow_multiple_one_time_codes': 'allow_multiple_one_time_codes',  # noqa: E501
         'amount_off_items': 'amount_off_items',  # noqa: E501
+        'amount_off_items_and_free_shipping': 'amount_off_items_and_free_shipping',  # noqa: E501
         'amount_off_shipping': 'amount_off_shipping',  # noqa: E501
         'amount_off_shipping_with_items_purchase': 'amount_off_shipping_with_items_purchase',  # noqa: E501
         'amount_off_subtotal': 'amount_off_subtotal',  # noqa: E501
@@ -401,6 +405,7 @@ class Coupon(ModelNormal):
             affiliate_oid (int): Associates an order with an affiliate when this value is set.. [optional]  # noqa: E501
             allow_multiple_one_time_codes (bool): True if multiple one time codes for this coupon can be used on a cart at the same time.. [optional]  # noqa: E501
             amount_off_items (CouponAmountOffItems): [optional]  # noqa: E501
+            amount_off_items_and_free_shipping (CouponAmountOffItemsAndFreeShipping): [optional]  # noqa: E501
             amount_off_shipping (CouponAmountOffShipping): [optional]  # noqa: E501
             amount_off_shipping_with_items_purchase (CouponAmountOffShippingWithItemsPurchase): [optional]  # noqa: E501
             amount_off_subtotal (CouponAmountOffSubtotal): [optional]  # noqa: E501
@@ -554,6 +559,7 @@ class Coupon(ModelNormal):
             affiliate_oid (int): Associates an order with an affiliate when this value is set.. [optional]  # noqa: E501
             allow_multiple_one_time_codes (bool): True if multiple one time codes for this coupon can be used on a cart at the same time.. [optional]  # noqa: E501
             amount_off_items (CouponAmountOffItems): [optional]  # noqa: E501
+            amount_off_items_and_free_shipping (CouponAmountOffItemsAndFreeShipping): [optional]  # noqa: E501
             amount_off_shipping (CouponAmountOffShipping): [optional]  # noqa: E501
             amount_off_shipping_with_items_purchase (CouponAmountOffShippingWithItemsPurchase): [optional]  # noqa: E501
             amount_off_subtotal (CouponAmountOffSubtotal): [optional]  # noqa: E501

@@ -320,6 +320,7 @@ docs/CountriesResponse.md
 docs/Country.md
 docs/Coupon.md
 docs/CouponAmountOffItems.md
+docs/CouponAmountOffItemsAndFreeShipping.md
 docs/CouponAmountOffShipping.md
 docs/CouponAmountOffShippingWithItemsPurchase.md
 docs/CouponAmountOffSubtotal.md
@@ -1373,6 +1374,7 @@ ultracart/model/countries_response.py
 ultracart/model/country.py
 ultracart/model/coupon.py
 ultracart/model/coupon_amount_off_items.py
+ultracart/model/coupon_amount_off_items_and_free_shipping.py
 ultracart/model/coupon_amount_off_shipping.py
 ultracart/model/coupon_amount_off_shipping_with_items_purchase.py
 ultracart/model/coupon_amount_off_subtotal.py
