@@ -113,7 +113,9 @@ class Webhook(ModelNormal):
             'iam_secret_key': (str,),  # noqa: E501
             'maximum_events': (int,),  # noqa: E501
             'maximum_size': (int,),  # noqa: E501
+            'merchant_comments': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'next_retry_after': (str,),  # noqa: E501
             'pending': (int,),  # noqa: E501
             'webhook_oid': (int,),  # noqa: E501
@@ -140,7 +142,9 @@ class Webhook(ModelNormal):
         'iam_secret_key': 'iam_secret_key',  # noqa: E501
         'maximum_events': 'maximum_events',  # noqa: E501
         'maximum_size': 'maximum_size',  # noqa: E501
+        'merchant_comments': 'merchant_comments',  # noqa: E501
         'merchant_id': 'merchant_id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'next_retry_after': 'next_retry_after',  # noqa: E501
         'pending': 'pending',  # noqa: E501
         'webhook_oid': 'webhook_oid',  # noqa: E501
@@ -202,7 +206,9 @@ class Webhook(ModelNormal):
             iam_secret_key (str): IAM Secret Key for AWS SQS Delivery. [optional]  # noqa: E501
             maximum_events (int): The maximum number of events in the payload that UltraCart will deliver. [optional]  # noqa: E501
             maximum_size (int): The maximum size of the payload that UltraCart will deliver. [optional]  # noqa: E501
+            merchant_comments (str): Merchant comments about this webhook. [optional]  # noqa: E501
             merchant_id (str): The UltraCart merchant ID that owns this webhook. [optional]  # noqa: E501
+            name (str): Friendly name to help identify this webhook. [optional]  # noqa: E501
             next_retry_after (str): The next time UltraCart will attempt delivery if failures have been occurring. [optional]  # noqa: E501
             pending (int): The number of pending events for this webhook. [optional]  # noqa: E501
             webhook_oid (int): The object identifier for this webhook. [optional]  # noqa: E501
@@ -306,7 +312,9 @@ class Webhook(ModelNormal):
             iam_secret_key (str): IAM Secret Key for AWS SQS Delivery. [optional]  # noqa: E501
             maximum_events (int): The maximum number of events in the payload that UltraCart will deliver. [optional]  # noqa: E501
             maximum_size (int): The maximum size of the payload that UltraCart will deliver. [optional]  # noqa: E501
+            merchant_comments (str): Merchant comments about this webhook. [optional]  # noqa: E501
             merchant_id (str): The UltraCart merchant ID that owns this webhook. [optional]  # noqa: E501
+            name (str): Friendly name to help identify this webhook. [optional]  # noqa: E501
             next_retry_after (str): The next time UltraCart will attempt delivery if failures have been occurring. [optional]  # noqa: E501
             pending (int): The number of pending events for this webhook. [optional]  # noqa: E501
             webhook_oid (int): The object identifier for this webhook. [optional]  # noqa: E501
