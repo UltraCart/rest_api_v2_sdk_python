@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **delivery_dts** | **str** | Date/time of delivery | [optional] 
 **duration** | **int** | Number of milliseconds to process the notification | [optional] 
+**event_names** | **[str]** | Event names contained in this delivery | [optional] 
+**order_ids** | **[str]** | Order ids contained in this delivery | [optional] 
 **queue_delay** | **int** | Number of milliseconds of delay caused by queuing | [optional] 
 **request** | **str** | Request payload (first 100,000 characters) | [optional] 
 **request_headers** | [**[HTTPHeader]**](HTTPHeader.md) | Request headers sent to the server | [optional] 

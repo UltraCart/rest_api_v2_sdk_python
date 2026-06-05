@@ -277,6 +277,15 @@ class WebhookApi(object):
             params_map={
                 'all': [
                     'webhook_oid',
+                    'request_id',
+                    'begin_date',
+                    'end_date',
+                    'status',
+                    'success',
+                    'event',
+                    'order_id',
+                    'request',
+                    'duration',
                     'limit',
                     'offset',
                     'since',
@@ -299,6 +308,24 @@ class WebhookApi(object):
                 'openapi_types': {
                     'webhook_oid':
                         (int,),
+                    'request_id':
+                        (str,),
+                    'begin_date':
+                        (str,),
+                    'end_date':
+                        (str,),
+                    'status':
+                        (str,),
+                    'success':
+                        (bool,),
+                    'event':
+                        (str,),
+                    'order_id':
+                        (str,),
+                    'request':
+                        (str,),
+                    'duration':
+                        (int,),
                     'limit':
                         (int,),
                     'offset':
@@ -308,12 +335,30 @@ class WebhookApi(object):
                 },
                 'attribute_map': {
                     'webhook_oid': 'webhookOid',
+                    'request_id': 'requestId',
+                    'begin_date': 'beginDate',
+                    'end_date': 'endDate',
+                    'status': 'status',
+                    'success': 'success',
+                    'event': 'event',
+                    'order_id': 'orderId',
+                    'request': 'request',
+                    'duration': 'duration',
                     'limit': '_limit',
                     'offset': '_offset',
                     'since': '_since',
                 },
                 'location_map': {
                     'webhook_oid': 'path',
+                    'request_id': 'query',
+                    'begin_date': 'query',
+                    'end_date': 'query',
+                    'status': 'query',
+                    'success': 'query',
+                    'event': 'query',
+                    'order_id': 'query',
+                    'request': 'query',
+                    'duration': 'query',
                     'limit': 'query',
                     'offset': 'query',
                     'since': 'query',
@@ -924,6 +969,15 @@ class WebhookApi(object):
             webhook_oid (int): The webhook oid to retrieve log summaries for.
 
         Keyword Args:
+            request_id (str): Filter by request id. [optional]
+            begin_date (str): Filter to deliveries on or after this date/time. [optional]
+            end_date (str): Filter to deliveries on or before this date/time. [optional]
+            status (str): Filter by HTTP status code. [optional]
+            success (bool): Filter by success (true) or failure (false). [optional]
+            event (str): Filter by an event name contained in the delivery. [optional]
+            order_id (str): Filter by an order id contained in the delivery. [optional]
+            request (str): Filter by text contained in the request payload. [optional]
+            duration (int): Filter to deliveries that took at least this many milliseconds. [optional]
             limit (int): The maximum number of records to return on this one API call.. [optional] if omitted the server will use the default value of 100
             offset (int): Pagination of the record set.  Offset is a zero based index.. [optional] if omitted the server will use the default value of 0
             since (str): Fetch log summaries that have been delivered since this date/time.. [optional]

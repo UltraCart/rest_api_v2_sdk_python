@@ -364,6 +364,15 @@ if all_summaries is not None:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook_oid** | **int**| The webhook oid to retrieve log summaries for. |
+ **request_id** | **str**| Filter by request id | [optional]
+ **begin_date** | **str**| Filter to deliveries on or after this date/time | [optional]
+ **end_date** | **str**| Filter to deliveries on or before this date/time | [optional]
+ **status** | **str**| Filter by HTTP status code | [optional]
+ **success** | **bool**| Filter by success (true) or failure (false) | [optional]
+ **event** | **str**| Filter by an event name contained in the delivery | [optional]
+ **order_id** | **str**| Filter by an order id contained in the delivery | [optional]
+ **request** | **str**| Filter by text contained in the request payload | [optional]
+ **duration** | **int**| Filter to deliveries that took at least this many milliseconds | [optional]
  **limit** | **int**| The maximum number of records to return on this one API call. | [optional] if omitted the server will use the default value of 100
  **offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] if omitted the server will use the default value of 0
  **since** | **str**| Fetch log summaries that have been delivered since this date/time. | [optional]

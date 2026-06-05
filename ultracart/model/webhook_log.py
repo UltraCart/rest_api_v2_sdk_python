@@ -90,6 +90,8 @@ class WebhookLog(ModelNormal):
         return {
             'delivery_dts': (str,),  # noqa: E501
             'duration': (int,),  # noqa: E501
+            'event_names': ([str],),  # noqa: E501
+            'order_ids': ([str],),  # noqa: E501
             'queue_delay': (int,),  # noqa: E501
             'request': (str,),  # noqa: E501
             'request_headers': ([HTTPHeader],),  # noqa: E501
@@ -110,6 +112,8 @@ class WebhookLog(ModelNormal):
     attribute_map = {
         'delivery_dts': 'delivery_dts',  # noqa: E501
         'duration': 'duration',  # noqa: E501
+        'event_names': 'event_names',  # noqa: E501
+        'order_ids': 'order_ids',  # noqa: E501
         'queue_delay': 'queue_delay',  # noqa: E501
         'request': 'request',  # noqa: E501
         'request_headers': 'request_headers',  # noqa: E501
@@ -165,6 +169,8 @@ class WebhookLog(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             delivery_dts (str): Date/time of delivery. [optional]  # noqa: E501
             duration (int): Number of milliseconds to process the notification. [optional]  # noqa: E501
+            event_names ([str]): Event names contained in this delivery. [optional]  # noqa: E501
+            order_ids ([str]): Order ids contained in this delivery. [optional]  # noqa: E501
             queue_delay (int): Number of milliseconds of delay caused by queuing. [optional]  # noqa: E501
             request (str): Request payload (first 100,000 characters). [optional]  # noqa: E501
             request_headers ([HTTPHeader]): Request headers sent to the server. [optional]  # noqa: E501
@@ -262,6 +268,8 @@ class WebhookLog(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             delivery_dts (str): Date/time of delivery. [optional]  # noqa: E501
             duration (int): Number of milliseconds to process the notification. [optional]  # noqa: E501
+            event_names ([str]): Event names contained in this delivery. [optional]  # noqa: E501
+            order_ids ([str]): Order ids contained in this delivery. [optional]  # noqa: E501
             queue_delay (int): Number of milliseconds of delay caused by queuing. [optional]  # noqa: E501
             request (str): Request payload (first 100,000 characters). [optional]  # noqa: E501
             request_headers ([HTTPHeader]): Request headers sent to the server. [optional]  # noqa: E501

@@ -83,7 +83,11 @@ class WebhookLogSummary(ModelNormal):
         """
         return {
             'delivery_dts': (str,),  # noqa: E501
+            'duration': (int,),  # noqa: E501
+            'event_names': ([str],),  # noqa: E501
+            'order_ids': ([str],),  # noqa: E501
             'request_id': (str,),  # noqa: E501
+            'status_code': (int,),  # noqa: E501
             'success': (bool,),  # noqa: E501
         }
 
@@ -94,7 +98,11 @@ class WebhookLogSummary(ModelNormal):
 
     attribute_map = {
         'delivery_dts': 'delivery_dts',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
+        'event_names': 'event_names',  # noqa: E501
+        'order_ids': 'order_ids',  # noqa: E501
         'request_id': 'request_id',  # noqa: E501
+        'status_code': 'status_code',  # noqa: E501
         'success': 'success',  # noqa: E501
     }
 
@@ -140,7 +148,11 @@ class WebhookLogSummary(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             delivery_dts (str): Date/time of the delivery. [optional]  # noqa: E501
+            duration (int): Number of milliseconds to process the notification. [optional]  # noqa: E501
+            event_names ([str]): Event names contained in this delivery. [optional]  # noqa: E501
+            order_ids ([str]): Order ids contained in this delivery. [optional]  # noqa: E501
             request_id (str): Request id. [optional]  # noqa: E501
+            status_code (int): HTTP status code received from the server. [optional]  # noqa: E501
             success (bool): True if the notification was successful. [optional]  # noqa: E501
         """
 
@@ -228,7 +240,11 @@ class WebhookLogSummary(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             delivery_dts (str): Date/time of the delivery. [optional]  # noqa: E501
+            duration (int): Number of milliseconds to process the notification. [optional]  # noqa: E501
+            event_names ([str]): Event names contained in this delivery. [optional]  # noqa: E501
+            order_ids ([str]): Order ids contained in this delivery. [optional]  # noqa: E501
             request_id (str): Request id. [optional]  # noqa: E501
+            status_code (int): HTTP status code received from the server. [optional]  # noqa: E501
             success (bool): True if the notification was successful. [optional]  # noqa: E501
         """
 

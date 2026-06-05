@@ -5,7 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **delivery_dts** | **str** | Date/time of the delivery | [optional] 
+**duration** | **int** | Number of milliseconds to process the notification | [optional] 
+**event_names** | **[str]** | Event names contained in this delivery | [optional] 
+**order_ids** | **[str]** | Order ids contained in this delivery | [optional] 
 **request_id** | **str** | Request id | [optional] 
+**status_code** | **int** | HTTP status code received from the server | [optional] 
 **success** | **bool** | True if the notification was successful | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
