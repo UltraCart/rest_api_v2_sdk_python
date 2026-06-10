@@ -79,6 +79,7 @@ from ultracart.model.conversation_pbx_available_phone_numbers_response import Co
 from ultracart.model.conversation_pbx_call_response import ConversationPbxCallResponse
 from ultracart.model.conversation_pbx_call_search_request import ConversationPbxCallSearchRequest
 from ultracart.model.conversation_pbx_call_search_response import ConversationPbxCallSearchResponse
+from ultracart.model.conversation_pbx_call_update_request import ConversationPbxCallUpdateRequest
 from ultracart.model.conversation_pbx_class_of_service import ConversationPbxClassOfService
 from ultracart.model.conversation_pbx_class_of_service_response import ConversationPbxClassOfServiceResponse
 from ultracart.model.conversation_pbx_class_of_services_response import ConversationPbxClassOfServicesResponse
@@ -6888,6 +6889,65 @@ class ConversationApi(object):
                 'location_map': {
                     'conversation_pbx_audio_uuid': 'path',
                     'pbx_audio': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_pbx_call_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConversationPbxCallResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/conversation/pbx/call/{callUuid}',
+                'operation_id': 'update_pbx_call',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'call_uuid',
+                    'update_request',
+                ],
+                'required': [
+                    'call_uuid',
+                    'update_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'call_uuid':
+                        (str,),
+                    'update_request':
+                        (ConversationPbxCallUpdateRequest,),
+                },
+                'attribute_map': {
+                    'call_uuid': 'callUuid',
+                },
+                'location_map': {
+                    'call_uuid': 'path',
+                    'update_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -18179,6 +18239,93 @@ class ConversationApi(object):
         kwargs['pbx_audio'] = \
             pbx_audio
         return self.update_pbx_audio_endpoint.call_with_http_info(**kwargs)
+
+    def update_pbx_call(
+        self,
+        call_uuid,
+        update_request,
+        **kwargs
+    ):
+        """Update pbx call record  # noqa: E501
+
+        Update the agent-authored fields (notes, finalize) on a PBX call record   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_pbx_call(call_uuid, update_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            call_uuid (str):
+            update_request (ConversationPbxCallUpdateRequest): Update Request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConversationPbxCallResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['call_uuid'] = \
+            call_uuid
+        kwargs['update_request'] = \
+            update_request
+        return self.update_pbx_call_endpoint.call_with_http_info(**kwargs)
 
     def update_pbx_class_of_service(
         self,

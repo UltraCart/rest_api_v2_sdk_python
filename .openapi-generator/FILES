@@ -249,6 +249,7 @@ docs/ConversationPbxCallTimeline.md
 docs/ConversationPbxCallTranscript.md
 docs/ConversationPbxCallTranscriptSegment.md
 docs/ConversationPbxCallTransfer.md
+docs/ConversationPbxCallUpdateRequest.md
 docs/ConversationPbxClassOfService.md
 docs/ConversationPbxClassOfServiceResponse.md
 docs/ConversationPbxClassOfServicesResponse.md
@@ -1303,6 +1304,7 @@ ultracart/model/conversation_pbx_call_timeline.py
 ultracart/model/conversation_pbx_call_transcript.py
 ultracart/model/conversation_pbx_call_transcript_segment.py
 ultracart/model/conversation_pbx_call_transfer.py
+ultracart/model/conversation_pbx_call_update_request.py
 ultracart/model/conversation_pbx_class_of_service.py
 ultracart/model/conversation_pbx_class_of_service_response.py
 ultracart/model/conversation_pbx_class_of_services_response.py
