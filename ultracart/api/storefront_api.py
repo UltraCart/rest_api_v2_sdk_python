@@ -42,6 +42,8 @@ from ultracart.model.email_commseq_email_send_test_request import EmailCommseqEm
 from ultracart.model.email_commseq_email_send_test_response import EmailCommseqEmailSendTestResponse
 from ultracart.model.email_commseq_emails_request import EmailCommseqEmailsRequest
 from ultracart.model.email_commseq_emails_response import EmailCommseqEmailsResponse
+from ultracart.model.email_commseq_enrollment_request import EmailCommseqEnrollmentRequest
+from ultracart.model.email_commseq_enrollment_response import EmailCommseqEnrollmentResponse
 from ultracart.model.email_commseq_postcard import EmailCommseqPostcard
 from ultracart.model.email_commseq_postcard_response import EmailCommseqPostcardResponse
 from ultracart.model.email_commseq_postcard_send_test_request import EmailCommseqPostcardSendTestRequest
@@ -1823,6 +1825,72 @@ class StorefrontApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.enroll_commseq_customer_endpoint = _Endpoint(
+            settings={
+                'response_type': (EmailCommseqEnrollmentResponse,),
+                'auth': [
+                    'ultraCartBrowserApiKey',
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/enroll',
+                'operation_id': 'enroll_commseq_customer',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'storefront_oid',
+                    'commseq_uuid',
+                    'email_commseq_enrollment_request',
+                ],
+                'required': [
+                    'storefront_oid',
+                    'commseq_uuid',
+                    'email_commseq_enrollment_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'storefront_oid':
+                        (int,),
+                    'commseq_uuid':
+                        (str,),
+                    'email_commseq_enrollment_request':
+                        (EmailCommseqEnrollmentRequest,),
+                },
+                'attribute_map': {
+                    'storefront_oid': 'storefront_oid',
+                    'commseq_uuid': 'commseq_uuid',
+                },
+                'location_map': {
+                    'storefront_oid': 'path',
+                    'commseq_uuid': 'path',
+                    'email_commseq_enrollment_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -13296,6 +13364,97 @@ class StorefrontApi(object):
         kwargs['library_item_oid'] = \
             library_item_oid
         return self.duplicate_library_item_endpoint.call_with_http_info(**kwargs)
+
+    def enroll_commseq_customer(
+        self,
+        storefront_oid,
+        commseq_uuid,
+        email_commseq_enrollment_request,
+        **kwargs
+    ):
+        """Enroll a customer into a communication sequence  # noqa: E501
+
+        Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.enroll_commseq_customer(storefront_oid, commseq_uuid, email_commseq_enrollment_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            storefront_oid (int):
+            commseq_uuid (str):
+            email_commseq_enrollment_request (EmailCommseqEnrollmentRequest): Commseq enrollment request
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EmailCommseqEnrollmentResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['storefront_oid'] = \
+            storefront_oid
+        kwargs['commseq_uuid'] = \
+            commseq_uuid
+        kwargs['email_commseq_enrollment_request'] = \
+            email_commseq_enrollment_request
+        return self.enroll_commseq_customer_endpoint.call_with_http_info(**kwargs)
 
     def favorite_screen_recording(
         self,
