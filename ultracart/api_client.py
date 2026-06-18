@@ -77,7 +77,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/4.1.102/python'
+        self.user_agent = 'OpenAPI-Generator/4.1.103/python'
 
     def __enter__(self):
         return self
@@ -803,10 +803,10 @@ class Endpoint(object):
         Example:
 
         api_instance = AffiliateApi()
-        api_instance.get_clicks_by_query  # this is an instance of the class Endpoint
-        api_instance.get_clicks_by_query()  # this invokes api_instance.get_clicks_by_query.__call__()
+        api_instance.delete_affiliate  # this is an instance of the class Endpoint
+        api_instance.delete_affiliate()  # this invokes api_instance.delete_affiliate.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.get_clicks_by_query.callable or self.callable in this class
+        api_instance.delete_affiliate.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

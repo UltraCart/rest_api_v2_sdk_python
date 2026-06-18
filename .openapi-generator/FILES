@@ -14,7 +14,9 @@ docs/Activity.md
 docs/AddLibraryItemRequest.md
 docs/AdjustInternalCertificateRequest.md
 docs/AdjustInternalCertificateResponse.md
+docs/Affiliate.md
 docs/AffiliateApi.md
+docs/AffiliateAttribute.md
 docs/AffiliateClick.md
 docs/AffiliateClickQuery.md
 docs/AffiliateClicksResponse.md
@@ -22,6 +24,11 @@ docs/AffiliateLedger.md
 docs/AffiliateLedgerQuery.md
 docs/AffiliateLedgersResponse.md
 docs/AffiliateLink.md
+docs/AffiliateMarketingStrategy.md
+docs/AffiliateQuery.md
+docs/AffiliateResponse.md
+docs/AffiliateTierRelationship.md
+docs/AffiliatesResponse.md
 docs/AgentSummary.md
 docs/ApiUserApplicationProfile.md
 docs/ApplyLibraryItemRequest.md
@@ -1077,6 +1084,8 @@ ultracart/model/activity.py
 ultracart/model/add_library_item_request.py
 ultracart/model/adjust_internal_certificate_request.py
 ultracart/model/adjust_internal_certificate_response.py
+ultracart/model/affiliate.py
+ultracart/model/affiliate_attribute.py
 ultracart/model/affiliate_click.py
 ultracart/model/affiliate_click_query.py
 ultracart/model/affiliate_clicks_response.py
@@ -1084,6 +1093,11 @@ ultracart/model/affiliate_ledger.py
 ultracart/model/affiliate_ledger_query.py
 ultracart/model/affiliate_ledgers_response.py
 ultracart/model/affiliate_link.py
+ultracart/model/affiliate_marketing_strategy.py
+ultracart/model/affiliate_query.py
+ultracart/model/affiliate_response.py
+ultracart/model/affiliate_tier_relationship.py
+ultracart/model/affiliates_response.py
 ultracart/model/agent_summary.py
 ultracart/model/api_user_application_profile.py
 ultracart/model/apply_library_item_request.py

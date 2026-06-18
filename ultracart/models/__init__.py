@@ -21,6 +21,8 @@ from ultracart.model.activity import Activity
 from ultracart.model.add_library_item_request import AddLibraryItemRequest
 from ultracart.model.adjust_internal_certificate_request import AdjustInternalCertificateRequest
 from ultracart.model.adjust_internal_certificate_response import AdjustInternalCertificateResponse
+from ultracart.model.affiliate import Affiliate
+from ultracart.model.affiliate_attribute import AffiliateAttribute
 from ultracart.model.affiliate_click import AffiliateClick
 from ultracart.model.affiliate_click_query import AffiliateClickQuery
 from ultracart.model.affiliate_clicks_response import AffiliateClicksResponse
@@ -28,6 +30,11 @@ from ultracart.model.affiliate_ledger import AffiliateLedger
 from ultracart.model.affiliate_ledger_query import AffiliateLedgerQuery
 from ultracart.model.affiliate_ledgers_response import AffiliateLedgersResponse
 from ultracart.model.affiliate_link import AffiliateLink
+from ultracart.model.affiliate_marketing_strategy import AffiliateMarketingStrategy
+from ultracart.model.affiliate_query import AffiliateQuery
+from ultracart.model.affiliate_response import AffiliateResponse
+from ultracart.model.affiliate_tier_relationship import AffiliateTierRelationship
+from ultracart.model.affiliates_response import AffiliatesResponse
 from ultracart.model.agent_summary import AgentSummary
 from ultracart.model.api_user_application_profile import ApiUserApplicationProfile
 from ultracart.model.apply_library_item_request import ApplyLibraryItemRequest
