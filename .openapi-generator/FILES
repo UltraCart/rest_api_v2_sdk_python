@@ -1037,6 +1037,7 @@ docs/WorkflowTasksResponse.md
 docs/WorkflowUser.md
 docs/WorkflowUserResponse.md
 docs/WorkflowUsersResponse.md
+docs/ZohoDeskTicketSummary.md
 git_push.sh
 requirements.txt
 setup.cfg
@@ -2085,6 +2086,7 @@ ultracart/model/workflow_tasks_response.py
 ultracart/model/workflow_user.py
 ultracart/model/workflow_user_response.py
 ultracart/model/workflow_users_response.py
+ultracart/model/zoho_desk_ticket_summary.py
 ultracart/model_utils.py
 ultracart/models/__init__.py
 ultracart/rest.py

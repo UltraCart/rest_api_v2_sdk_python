@@ -1022,3 +1022,4 @@ from ultracart.model.workflow_tasks_response import WorkflowTasksResponse
 from ultracart.model.workflow_user import WorkflowUser
 from ultracart.model.workflow_user_response import WorkflowUserResponse
 from ultracart.model.workflow_users_response import WorkflowUsersResponse
+from ultracart.model.zoho_desk_ticket_summary import ZohoDeskTicketSummary
