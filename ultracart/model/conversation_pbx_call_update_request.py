@@ -84,6 +84,8 @@ class ConversationPbxCallUpdateRequest(ModelNormal):
         return {
             'finalize': (bool,),  # noqa: E501
             'notes': (str,),  # noqa: E501
+            'zoho_desk_ticket_id': (str,),  # noqa: E501
+            'zoho_desk_ticket_url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +96,8 @@ class ConversationPbxCallUpdateRequest(ModelNormal):
     attribute_map = {
         'finalize': 'finalize',  # noqa: E501
         'notes': 'notes',  # noqa: E501
+        'zoho_desk_ticket_id': 'zoho_desk_ticket_id',  # noqa: E501
+        'zoho_desk_ticket_url': 'zoho_desk_ticket_url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,6 +143,8 @@ class ConversationPbxCallUpdateRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             finalize (bool): True when the agent has finished after-call work (Save & finish). Stamps notes_finalized_dts, which together with transcript availability gates Zoho Desk ticket creation.. [optional]  # noqa: E501
             notes (str): Agent-authored notes for the call. Card-like values are scrubbed server-side for PCI compliance.. [optional]  # noqa: E501
+            zoho_desk_ticket_id (str): Existing zoho desk ticket id to associate this call with.. [optional]  # noqa: E501
+            zoho_desk_ticket_url (str): Existing zoho desk ticket URL. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,6 +232,8 @@ class ConversationPbxCallUpdateRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             finalize (bool): True when the agent has finished after-call work (Save & finish). Stamps notes_finalized_dts, which together with transcript availability gates Zoho Desk ticket creation.. [optional]  # noqa: E501
             notes (str): Agent-authored notes for the call. Card-like values are scrubbed server-side for PCI compliance.. [optional]  # noqa: E501
+            zoho_desk_ticket_id (str): Existing zoho desk ticket id to associate this call with.. [optional]  # noqa: E501
+            zoho_desk_ticket_url (str): Existing zoho desk ticket URL. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
