@@ -63,6 +63,14 @@ docs/Browser.md
 docs/BrowserDevice.md
 docs/BrowserOS.md
 docs/BrowserUserAgent.md
+docs/BulkApi.md
+docs/BulkJob.md
+docs/BulkJobRequest.md
+docs/BulkJobResponse.md
+docs/BulkJobsResponse.md
+docs/BulkRecord.md
+docs/BulkRecordsResponse.md
+docs/BulkUploadUrlResponse.md
 docs/Cart.md
 docs/CartAffiliate.md
 docs/CartAffirmCheckoutResponse.md
@@ -1048,6 +1056,7 @@ ultracart/__init__.py
 ultracart/api/__init__.py
 ultracart/api/affiliate_api.py
 ultracart/api/auto_order_api.py
+ultracart/api/bulk_api.py
 ultracart/api/channel_partner_api.py
 ultracart/api/checkout_api.py
 ultracart/api/conversation_api.py
@@ -1132,6 +1141,13 @@ ultracart/model/browser.py
 ultracart/model/browser_device.py
 ultracart/model/browser_os.py
 ultracart/model/browser_user_agent.py
+ultracart/model/bulk_job.py
+ultracart/model/bulk_job_request.py
+ultracart/model/bulk_job_response.py
+ultracart/model/bulk_jobs_response.py
+ultracart/model/bulk_record.py
+ultracart/model/bulk_records_response.py
+ultracart/model/bulk_upload_url_response.py
 ultracart/model/cart.py
 ultracart/model/cart_affiliate.py
 ultracart/model/cart_affirm_checkout_response.py
