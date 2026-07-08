@@ -36,6 +36,7 @@ from ultracart.model.affiliate_response import AffiliateResponse
 from ultracart.model.affiliate_tier_relationship import AffiliateTierRelationship
 from ultracart.model.affiliates_response import AffiliatesResponse
 from ultracart.model.agent_summary import AgentSummary
+from ultracart.model.anrok_config import AnrokConfig
 from ultracart.model.api_user_application_profile import ApiUserApplicationProfile
 from ultracart.model.apply_library_item_request import ApplyLibraryItemRequest
 from ultracart.model.apply_library_item_response import ApplyLibraryItemResponse
@@ -966,6 +967,7 @@ from ultracart.model.tax_county import TaxCounty
 from ultracart.model.tax_jar_config import TaxJarConfig
 from ultracart.model.tax_postal_code import TaxPostalCode
 from ultracart.model.tax_provider_activate_result import TaxProviderActivateResult
+from ultracart.model.tax_provider_anrok import TaxProviderAnrok
 from ultracart.model.tax_provider_avalara import TaxProviderAvalara
 from ultracart.model.tax_provider_avalara_companies_result import TaxProviderAvalaraCompaniesResult
 from ultracart.model.tax_provider_avalara_company import TaxProviderAvalaraCompany

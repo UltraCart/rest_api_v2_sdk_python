@@ -30,6 +30,7 @@ docs/AffiliateResponse.md
 docs/AffiliateTierRelationship.md
 docs/AffiliatesResponse.md
 docs/AgentSummary.md
+docs/AnrokConfig.md
 docs/ApiUserApplicationProfile.md
 docs/ApplyLibraryItemRequest.md
 docs/ApplyLibraryItemResponse.md
@@ -979,6 +980,7 @@ docs/TaxCounty.md
 docs/TaxJarConfig.md
 docs/TaxPostalCode.md
 docs/TaxProviderActivateResult.md
+docs/TaxProviderAnrok.md
 docs/TaxProviderAvalara.md
 docs/TaxProviderAvalaraCompaniesResult.md
 docs/TaxProviderAvalaraCompany.md
@@ -1114,6 +1116,7 @@ ultracart/model/affiliate_response.py
 ultracart/model/affiliate_tier_relationship.py
 ultracart/model/affiliates_response.py
 ultracart/model/agent_summary.py
+ultracart/model/anrok_config.py
 ultracart/model/api_user_application_profile.py
 ultracart/model/apply_library_item_request.py
 ultracart/model/apply_library_item_response.py
@@ -2044,6 +2047,7 @@ ultracart/model/tax_county.py
 ultracart/model/tax_jar_config.py
 ultracart/model/tax_postal_code.py
 ultracart/model/tax_provider_activate_result.py
+ultracart/model/tax_provider_anrok.py
 ultracart/model/tax_provider_avalara.py
 ultracart/model/tax_provider_avalara_companies_result.py
 ultracart/model/tax_provider_avalara_company.py
