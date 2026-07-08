@@ -86,6 +86,7 @@ class AnrokConfig(ModelNormal):
             'default_product_id': (str,),  # noqa: E501
             'estimate_only': (bool,),  # noqa: E501
             'last_test_dts': (str,),  # noqa: E501
+            'shipping_product_id': (str,),  # noqa: E501
             'test_results': (str,),  # noqa: E501
         }
 
@@ -99,6 +100,7 @@ class AnrokConfig(ModelNormal):
         'default_product_id': 'default_product_id',  # noqa: E501
         'estimate_only': 'estimate_only',  # noqa: E501
         'last_test_dts': 'last_test_dts',  # noqa: E501
+        'shipping_product_id': 'shipping_product_id',  # noqa: E501
         'test_results': 'test_results',  # noqa: E501
     }
 
@@ -147,6 +149,7 @@ class AnrokConfig(ModelNormal):
             default_product_id (str): Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned. [optional]  # noqa: E501
             estimate_only (bool): True if this Anrok configuration is to estimate taxes only and not report placed orders to Anrok. [optional]  # noqa: E501
             last_test_dts (str): Date/time of the connection test to Anrok. [optional]  # noqa: E501
+            shipping_product_id (str): Anrok Product ID used to classify shipping/handling charges; must be created in Anrok and mapped to the Shipping cost tax category. [optional]  # noqa: E501
             test_results (str): Test results of the last connection test to Anrok. [optional]  # noqa: E501
         """
 
@@ -237,6 +240,7 @@ class AnrokConfig(ModelNormal):
             default_product_id (str): Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned. [optional]  # noqa: E501
             estimate_only (bool): True if this Anrok configuration is to estimate taxes only and not report placed orders to Anrok. [optional]  # noqa: E501
             last_test_dts (str): Date/time of the connection test to Anrok. [optional]  # noqa: E501
+            shipping_product_id (str): Anrok Product ID used to classify shipping/handling charges; must be created in Anrok and mapped to the Shipping cost tax category. [optional]  # noqa: E501
             test_results (str): Test results of the last connection test to Anrok. [optional]  # noqa: E501
         """
 
