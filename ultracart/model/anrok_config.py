@@ -83,6 +83,7 @@ class AnrokConfig(ModelNormal):
         """
         return {
             'api_key': (str,),  # noqa: E501
+            'default_product_id': (str,),  # noqa: E501
             'estimate_only': (bool,),  # noqa: E501
             'last_test_dts': (str,),  # noqa: E501
             'test_results': (str,),  # noqa: E501
@@ -95,6 +96,7 @@ class AnrokConfig(ModelNormal):
 
     attribute_map = {
         'api_key': 'api_key',  # noqa: E501
+        'default_product_id': 'default_product_id',  # noqa: E501
         'estimate_only': 'estimate_only',  # noqa: E501
         'last_test_dts': 'last_test_dts',  # noqa: E501
         'test_results': 'test_results',  # noqa: E501
@@ -142,6 +144,7 @@ class AnrokConfig(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             api_key (str): Anrok API key. [optional]  # noqa: E501
+            default_product_id (str): Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned. [optional]  # noqa: E501
             estimate_only (bool): True if this Anrok configuration is to estimate taxes only and not report placed orders to Anrok. [optional]  # noqa: E501
             last_test_dts (str): Date/time of the connection test to Anrok. [optional]  # noqa: E501
             test_results (str): Test results of the last connection test to Anrok. [optional]  # noqa: E501
@@ -231,6 +234,7 @@ class AnrokConfig(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             api_key (str): Anrok API key. [optional]  # noqa: E501
+            default_product_id (str): Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned. [optional]  # noqa: E501
             estimate_only (bool): True if this Anrok configuration is to estimate taxes only and not report placed orders to Anrok. [optional]  # noqa: E501
             last_test_dts (str): Date/time of the connection test to Anrok. [optional]  # noqa: E501
             test_results (str): Test results of the last connection test to Anrok. [optional]  # noqa: E501
