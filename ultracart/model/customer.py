@@ -118,6 +118,9 @@ class Customer(ModelNormal):
         ('password',): {
             'max_length': 30,
         },
+        ('quickbooks_online_customer_id',): {
+            'max_length': 50,
+        },
         ('referral_source',): {
             'max_length': 50,
         },
@@ -171,6 +174,7 @@ class Customer(ModelNormal):
             'auto_approve_purchase_order': (bool,),  # noqa: E501
             'automatic_merchant_notes': (str,),  # noqa: E501
             'billing': ([CustomerBilling],),  # noqa: E501
+            'birth_date': (str,),  # noqa: E501
             'business_notes': (str,),  # noqa: E501
             'cards': ([CustomerCard],),  # noqa: E501
             'cc_emails': ([CustomerEmail],),  # noqa: E501
@@ -204,6 +208,7 @@ class Customer(ModelNormal):
             'qb_class': (str,),  # noqa: E501
             'qb_code': (str,),  # noqa: E501
             'qb_tax_exemption_reason_code': (int,),  # noqa: E501
+            'quickbooks_online_customer_id': (str,),  # noqa: E501
             'quotes': ([Order],),  # noqa: E501
             'quotes_summary': (CustomerQuotesSummary,),  # noqa: E501
             'referral_source': (str,),  # noqa: E501
@@ -244,6 +249,7 @@ class Customer(ModelNormal):
         'auto_approve_purchase_order': 'auto_approve_purchase_order',  # noqa: E501
         'automatic_merchant_notes': 'automatic_merchant_notes',  # noqa: E501
         'billing': 'billing',  # noqa: E501
+        'birth_date': 'birth_date',  # noqa: E501
         'business_notes': 'business_notes',  # noqa: E501
         'cards': 'cards',  # noqa: E501
         'cc_emails': 'cc_emails',  # noqa: E501
@@ -277,6 +283,7 @@ class Customer(ModelNormal):
         'qb_class': 'qb_class',  # noqa: E501
         'qb_code': 'qb_code',  # noqa: E501
         'qb_tax_exemption_reason_code': 'qb_tax_exemption_reason_code',  # noqa: E501
+        'quickbooks_online_customer_id': 'quickbooks_online_customer_id',  # noqa: E501
         'quotes': 'quotes',  # noqa: E501
         'quotes_summary': 'quotes_summary',  # noqa: E501
         'referral_source': 'referral_source',  # noqa: E501
@@ -352,6 +359,7 @@ class Customer(ModelNormal):
             auto_approve_purchase_order (bool): Auto approve purchase orders by this customer. [optional]  # noqa: E501
             automatic_merchant_notes (str): Automatic merchant notes are added to every order placed. [optional]  # noqa: E501
             billing ([CustomerBilling]): Billing addresses for this customer. [optional]  # noqa: E501
+            birth_date (str): Customer birthday. [optional]  # noqa: E501
             business_notes (str): Business notes (internally visible only). [optional]  # noqa: E501
             cards ([CustomerCard]): Credit Cards for this customer. [optional]  # noqa: E501
             cc_emails ([CustomerEmail]): Additional emails to CC notification. [optional]  # noqa: E501
@@ -385,6 +393,7 @@ class Customer(ModelNormal):
             qb_class (str): QuickBooks class to import this customer as. [optional]  # noqa: E501
             qb_code (str): QuickBooks name to import this customer as. [optional]  # noqa: E501
             qb_tax_exemption_reason_code (int): QuickBooks tax exemption reason code. [optional]  # noqa: E501
+            quickbooks_online_customer_id (str): QuickBooks Online customer ID used to lock this customer 1:1 with QuickBooks Online. [optional]  # noqa: E501
             quotes ([Order]): Quotes associated with this customer profile. [optional]  # noqa: E501
             quotes_summary (CustomerQuotesSummary): [optional]  # noqa: E501
             referral_source (str): Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.. [optional]  # noqa: E501
@@ -502,6 +511,7 @@ class Customer(ModelNormal):
             auto_approve_purchase_order (bool): Auto approve purchase orders by this customer. [optional]  # noqa: E501
             automatic_merchant_notes (str): Automatic merchant notes are added to every order placed. [optional]  # noqa: E501
             billing ([CustomerBilling]): Billing addresses for this customer. [optional]  # noqa: E501
+            birth_date (str): Customer birthday. [optional]  # noqa: E501
             business_notes (str): Business notes (internally visible only). [optional]  # noqa: E501
             cards ([CustomerCard]): Credit Cards for this customer. [optional]  # noqa: E501
             cc_emails ([CustomerEmail]): Additional emails to CC notification. [optional]  # noqa: E501
@@ -535,6 +545,7 @@ class Customer(ModelNormal):
             qb_class (str): QuickBooks class to import this customer as. [optional]  # noqa: E501
             qb_code (str): QuickBooks name to import this customer as. [optional]  # noqa: E501
             qb_tax_exemption_reason_code (int): QuickBooks tax exemption reason code. [optional]  # noqa: E501
+            quickbooks_online_customer_id (str): QuickBooks Online customer ID used to lock this customer 1:1 with QuickBooks Online. [optional]  # noqa: E501
             quotes ([Order]): Quotes associated with this customer profile. [optional]  # noqa: E501
             quotes_summary (CustomerQuotesSummary): [optional]  # noqa: E501
             referral_source (str): Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.. [optional]  # noqa: E501
