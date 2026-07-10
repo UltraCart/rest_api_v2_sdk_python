@@ -874,6 +874,8 @@ docs/PricingTier.md
 docs/PricingTierNotification.md
 docs/PricingTiersResponse.md
 docs/PublishLibraryItemRequest.md
+docs/QuickBooksOnlineCustomer.md
+docs/QuickBooksOnlineCustomersResponse.md
 docs/RegisterAffiliateClickRequest.md
 docs/RegisterAffiliateClickResponse.md
 docs/ReplaceOrderItemIdRequest.md
@@ -1944,6 +1946,8 @@ ultracart/model/pricing_tier.py
 ultracart/model/pricing_tier_notification.py
 ultracart/model/pricing_tiers_response.py
 ultracart/model/publish_library_item_request.py
+ultracart/model/quick_books_online_customer.py
+ultracart/model/quick_books_online_customers_response.py
 ultracart/model/register_affiliate_click_request.py
 ultracart/model/register_affiliate_click_response.py
 ultracart/model/replace_order_item_id_request.py
