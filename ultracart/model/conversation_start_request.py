@@ -85,6 +85,7 @@ class ConversationStartRequest(ModelNormal):
             'add_conversation_participant_arns': ([str],),  # noqa: E501
             'conversation_arn': (str,),  # noqa: E501
             'conversation_webchat_queue_uuid': (str,),  # noqa: E501
+            'resolve_only': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +97,7 @@ class ConversationStartRequest(ModelNormal):
         'add_conversation_participant_arns': 'add_conversation_participant_arns',  # noqa: E501
         'conversation_arn': 'conversation_arn',  # noqa: E501
         'conversation_webchat_queue_uuid': 'conversation_webchat_queue_uuid',  # noqa: E501
+        'resolve_only': 'resolve_only',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,6 +144,7 @@ class ConversationStartRequest(ModelNormal):
             add_conversation_participant_arns ([str]): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_webchat_queue_uuid (str): [optional]  # noqa: E501
+            resolve_only (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,6 +233,7 @@ class ConversationStartRequest(ModelNormal):
             add_conversation_participant_arns ([str]): [optional]  # noqa: E501
             conversation_arn (str): [optional]  # noqa: E501
             conversation_webchat_queue_uuid (str): [optional]  # noqa: E501
+            resolve_only (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
