@@ -3269,6 +3269,7 @@ class StorefrontApi(object):
                     'page_number',
                     'page_size',
                     'scan_forward',
+                    'include_detail',
                 ],
                 'required': [
                     'storefront_oid',
@@ -3301,6 +3302,8 @@ class StorefrontApi(object):
                         (int,),
                     'scan_forward':
                         (bool,),
+                    'include_detail':
+                        (bool,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
@@ -3310,6 +3313,7 @@ class StorefrontApi(object):
                     'page_number': 'pageNumber',
                     'page_size': 'pageSize',
                     'scan_forward': 'scanForward',
+                    'include_detail': 'includeDetail',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
@@ -3319,6 +3323,7 @@ class StorefrontApi(object):
                     'page_number': 'query',
                     'page_size': 'query',
                     'scan_forward': 'query',
+                    'include_detail': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -5669,6 +5674,7 @@ class StorefrontApi(object):
                     'until',
                     'page_number',
                     'page_size',
+                    'include_detail',
                 ],
                 'required': [
                     'storefront_oid',
@@ -5702,6 +5708,8 @@ class StorefrontApi(object):
                         (int,),
                     'page_size':
                         (int,),
+                    'include_detail':
+                        (bool,),
                 },
                 'attribute_map': {
                     'storefront_oid': 'storefront_oid',
@@ -5711,6 +5719,7 @@ class StorefrontApi(object):
                     'until': 'until',
                     'page_number': 'pageNumber',
                     'page_size': 'pageSize',
+                    'include_detail': 'includeDetail',
                 },
                 'location_map': {
                     'storefront_oid': 'path',
@@ -5720,6 +5729,7 @@ class StorefrontApi(object):
                     'until': 'query',
                     'page_number': 'query',
                     'page_size': 'query',
+                    'include_detail': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -15759,6 +15769,7 @@ class StorefrontApi(object):
             page_number (int): [optional]
             page_size (int): [optional]
             scan_forward (bool): [optional]
+            include_detail (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -19164,7 +19175,7 @@ class StorefrontApi(object):
     ):
         """Get a paginated, date-boundable dispatch-log feed for a step  # noqa: E501
 
-        Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts.   # noqa: E501
+        Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -19181,6 +19192,7 @@ class StorefrontApi(object):
             until (str): [optional]
             page_number (int): [optional]
             page_size (int): [optional]
+            include_detail (bool): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

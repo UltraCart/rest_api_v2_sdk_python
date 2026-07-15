@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**detail** | **str** | Dispatch detail text (free-form log of how the customer moved through the step) | [optional] 
 **email** | **str** | Customer email, resolved from the customer UUID for the page | [optional] 
 **esp_commseq_step_uuid** | **str** | Communication sequence step UUID | [optional] 
 **esp_commseq_uuid** | **str** | Communication sequence (flow/campaign) UUID | [optional] 

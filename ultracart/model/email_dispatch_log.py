@@ -82,6 +82,7 @@ class EmailDispatchLog(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'detail': (str,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'esp_commseq_step_uuid': (str,),  # noqa: E501
             'esp_commseq_uuid': (str,),  # noqa: E501
@@ -95,6 +96,7 @@ class EmailDispatchLog(ModelNormal):
 
 
     attribute_map = {
+        'detail': 'detail',  # noqa: E501
         'email': 'email',  # noqa: E501
         'esp_commseq_step_uuid': 'esp_commseq_step_uuid',  # noqa: E501
         'esp_commseq_uuid': 'esp_commseq_uuid',  # noqa: E501
@@ -143,6 +145,7 @@ class EmailDispatchLog(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            detail (str): Dispatch detail text (free-form log of how the customer moved through the step). [optional]  # noqa: E501
             email (str): Customer email, resolved from the customer UUID for the page. [optional]  # noqa: E501
             esp_commseq_step_uuid (str): Communication sequence step UUID. [optional]  # noqa: E501
             esp_commseq_uuid (str): Communication sequence (flow/campaign) UUID. [optional]  # noqa: E501
@@ -233,6 +236,7 @@ class EmailDispatchLog(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            detail (str): Dispatch detail text (free-form log of how the customer moved through the step). [optional]  # noqa: E501
             email (str): Customer email, resolved from the customer UUID for the page. [optional]  # noqa: E501
             esp_commseq_step_uuid (str): Communication sequence step UUID. [optional]  # noqa: E501
             esp_commseq_uuid (str): Communication sequence (flow/campaign) UUID. [optional]  # noqa: E501

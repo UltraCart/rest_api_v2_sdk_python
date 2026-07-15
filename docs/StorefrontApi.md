@@ -2865,6 +2865,7 @@ Name | Type | Description  | Notes
  **page_number** | **int**|  | [optional]
  **page_size** | **int**|  | [optional]
  **scan_forward** | **bool**|  | [optional]
+ **include_detail** | **bool**|  | [optional]
 
 ### Return type
 
@@ -4890,7 +4891,7 @@ Name | Type | Description  | Notes
 
 Get a paginated, date-boundable dispatch-log feed for a step
 
-Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
 
 ### Example
 
@@ -4914,6 +4915,7 @@ Name | Type | Description  | Notes
  **until** | **str**|  | [optional]
  **page_number** | **int**|  | [optional]
  **page_size** | **int**|  | [optional]
+ **include_detail** | **bool**|  | [optional]
 
 ### Return type
 
