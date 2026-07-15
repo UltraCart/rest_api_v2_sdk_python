@@ -845,6 +845,7 @@ docs/OrderProcessPaymentResponse.md
 docs/OrderProperty.md
 docs/OrderQuery.md
 docs/OrderQueryBatch.md
+docs/OrderQueryPaymentTransactionFilter.md
 docs/OrderQuote.md
 docs/OrderReason.md
 docs/OrderRefundableResponse.md
@@ -1917,6 +1918,7 @@ ultracart/model/order_process_payment_response.py
 ultracart/model/order_property.py
 ultracart/model/order_query.py
 ultracart/model/order_query_batch.py
+ultracart/model/order_query_payment_transaction_filter.py
 ultracart/model/order_quote.py
 ultracart/model/order_reason.py
 ultracart/model/order_refundable_response.py

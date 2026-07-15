@@ -835,6 +835,7 @@ from ultracart.model.order_process_payment_response import OrderProcessPaymentRe
 from ultracart.model.order_property import OrderProperty
 from ultracart.model.order_query import OrderQuery
 from ultracart.model.order_query_batch import OrderQueryBatch
+from ultracart.model.order_query_payment_transaction_filter import OrderQueryPaymentTransactionFilter
 from ultracart.model.order_quote import OrderQuote
 from ultracart.model.order_reason import OrderReason
 from ultracart.model.order_refundable_response import OrderRefundableResponse
