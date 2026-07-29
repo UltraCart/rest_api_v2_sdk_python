@@ -28,9 +28,11 @@ from ultracart.model.auto_order_cancel_reasons_response import AutoOrderCancelRe
 from ultracart.model.auto_order_consolidate import AutoOrderConsolidate
 from ultracart.model.auto_order_emails_response import AutoOrderEmailsResponse
 from ultracart.model.auto_order_item_cancel_request import AutoOrderItemCancelRequest
+from ultracart.model.auto_order_payment_update_request import AutoOrderPaymentUpdateRequest
 from ultracart.model.auto_order_properties_update_request import AutoOrderPropertiesUpdateRequest
 from ultracart.model.auto_order_query import AutoOrderQuery
 from ultracart.model.auto_order_query_batch import AutoOrderQueryBatch
+from ultracart.model.auto_order_rebill_response import AutoOrderRebillResponse
 from ultracart.model.auto_order_response import AutoOrderResponse
 from ultracart.model.auto_orders_request import AutoOrdersRequest
 from ultracart.model.auto_orders_response import AutoOrdersResponse
@@ -59,6 +61,63 @@ class AutoOrderApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.attempt_auto_order_rebill_endpoint = _Endpoint(
+            settings={
+                'response_type': (AutoOrderRebillResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/auto_order/auto_orders/{auto_order_oid}/rebill',
+                'operation_id': 'attempt_auto_order_rebill',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'auto_order_oid',
+                    'expand',
+                ],
+                'required': [
+                    'auto_order_oid',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'auto_order_oid':
+                        (int,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'auto_order_oid': 'auto_order_oid',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'auto_order_oid': 'path',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.cancel_auto_order_item_by_reference_order_id_endpoint = _Endpoint(
             settings={
                 'response_type': (AutoOrderResponse,),
@@ -1081,6 +1140,70 @@ class AutoOrderApi(object):
             },
             api_client=api_client
         )
+        self.update_auto_order_payment_endpoint = _Endpoint(
+            settings={
+                'response_type': (AutoOrderRebillResponse,),
+                'auth': [
+                    'ultraCartOauth',
+                    'ultraCartSimpleApiKey'
+                ],
+                'endpoint_path': '/auto_order/auto_orders/{auto_order_oid}/payment',
+                'operation_id': 'update_auto_order_payment',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'auto_order_oid',
+                    'auto_order_payment_update_request',
+                    'expand',
+                ],
+                'required': [
+                    'auto_order_oid',
+                    'auto_order_payment_update_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'auto_order_oid':
+                        (int,),
+                    'auto_order_payment_update_request':
+                        (AutoOrderPaymentUpdateRequest,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'auto_order_oid': 'auto_order_oid',
+                    'expand': '_expand',
+                },
+                'location_map': {
+                    'auto_order_oid': 'path',
+                    'auto_order_payment_update_request': 'body',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json; charset=UTF-8'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_auto_order_properties_endpoint = _Endpoint(
             settings={
                 'response_type': (AutoOrderResponse,),
@@ -1213,6 +1336,90 @@ class AutoOrderApi(object):
             },
             api_client=api_client
         )
+
+    def attempt_auto_order_rebill(
+        self,
+        auto_order_oid,
+        **kwargs
+    ):
+        """Attempt a failed rebill on an auto order  # noqa: E501
+
+        Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.attempt_auto_order_rebill(auto_order_oid, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            auto_order_oid (int): The auto order oid to rebill.
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AutoOrderRebillResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['auto_order_oid'] = \
+            auto_order_oid
+        return self.attempt_auto_order_rebill_endpoint.call_with_http_info(**kwargs)
 
     def cancel_auto_order_item_by_reference_order_id(
         self,
@@ -2520,6 +2727,94 @@ class AutoOrderApi(object):
         kwargs['auto_order_properties_update_request'] = \
             auto_order_properties_update_request
         return self.update_auto_order_item_properties_endpoint.call_with_http_info(**kwargs)
+
+    def update_auto_order_payment(
+        self,
+        auto_order_oid,
+        auto_order_payment_update_request,
+        **kwargs
+    ):
+        """Update the payment information on an auto order  # noqa: E501
+
+        Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_auto_order_payment(auto_order_oid, auto_order_payment_update_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            auto_order_oid (int): The auto order oid to update payment information on.
+            auto_order_payment_update_request (AutoOrderPaymentUpdateRequest): Payment information to place on the auto order
+
+        Keyword Args:
+            expand (str): The object expansion to perform on the result.  See documentation for examples. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AutoOrderRebillResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['auto_order_oid'] = \
+            auto_order_oid
+        kwargs['auto_order_payment_update_request'] = \
+            auto_order_payment_update_request
+        return self.update_auto_order_payment_endpoint.call_with_http_info(**kwargs)
 
     def update_auto_order_properties(
         self,

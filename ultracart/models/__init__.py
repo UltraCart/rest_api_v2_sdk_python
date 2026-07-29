@@ -56,10 +56,12 @@ from ultracart.model.auto_order_item_option import AutoOrderItemOption
 from ultracart.model.auto_order_item_simple_schedule import AutoOrderItemSimpleSchedule
 from ultracart.model.auto_order_log import AutoOrderLog
 from ultracart.model.auto_order_management import AutoOrderManagement
+from ultracart.model.auto_order_payment_update_request import AutoOrderPaymentUpdateRequest
 from ultracart.model.auto_order_properties_update_request import AutoOrderPropertiesUpdateRequest
 from ultracart.model.auto_order_property import AutoOrderProperty
 from ultracart.model.auto_order_query import AutoOrderQuery
 from ultracart.model.auto_order_query_batch import AutoOrderQueryBatch
+from ultracart.model.auto_order_rebill_response import AutoOrderRebillResponse
 from ultracart.model.auto_order_response import AutoOrderResponse
 from ultracart.model.auto_orders_request import AutoOrdersRequest
 from ultracart.model.auto_orders_response import AutoOrdersResponse
