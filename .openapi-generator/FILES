@@ -449,6 +449,9 @@ docs/CustomerEDI.md
 docs/CustomerEditorValues.md
 docs/CustomerEmail.md
 docs/CustomerEmailListChanges.md
+docs/CustomerEmailSuppressionRequest.md
+docs/CustomerEmailSuppressionResponse.md
+docs/CustomerEmailSuppressionResult.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
@@ -597,6 +600,7 @@ docs/EmailStepStatRequest.md
 docs/EmailStepStatResponse.md
 docs/EmailStepWaitingRequest.md
 docs/EmailStepWaitingResponse.md
+docs/EmailSuppressionSurfaces.md
 docs/EmailTemplate.md
 docs/EmailTemplatesResponse.md
 docs/EmailThirdPartyList.md
@@ -1532,6 +1536,9 @@ ultracart/model/customer_edi.py
 ultracart/model/customer_editor_values.py
 ultracart/model/customer_email.py
 ultracart/model/customer_email_list_changes.py
+ultracart/model/customer_email_suppression_request.py
+ultracart/model/customer_email_suppression_response.py
+ultracart/model/customer_email_suppression_result.py
 ultracart/model/customer_loyalty.py
 ultracart/model/customer_loyalty_ledger.py
 ultracart/model/customer_loyalty_redemption.py
@@ -1679,6 +1686,7 @@ ultracart/model/email_step_stat_request.py
 ultracart/model/email_step_stat_response.py
 ultracart/model/email_step_waiting_request.py
 ultracart/model/email_step_waiting_response.py
+ultracart/model/email_suppression_surfaces.py
 ultracart/model/email_template.py
 ultracart/model/email_templates_response.py
 ultracart/model/email_third_party_list.py
