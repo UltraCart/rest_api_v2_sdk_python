@@ -68,7 +68,6 @@ class ItemThirdPartyEmailMarketing(ModelNormal):
             'LYRIS': "Lyris",
             'LYRISHQ': "LyrisHQ",
             'MAILCHIMP': "MailChimp",
-            'SILVERPOP': "SilverPop",
         },
     }
 

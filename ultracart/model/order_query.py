@@ -101,6 +101,12 @@ class OrderQuery(ModelNormal):
     }
 
     validations = {
+        ('card_bin',): {
+            'max_length': 6,
+        },
+        ('card_last4',): {
+            'max_length': 4,
+        },
         ('cc_email',): {
             'max_length': 100,
         },
@@ -162,6 +168,8 @@ class OrderQuery(ModelNormal):
         """
         lazy_import()
         return {
+            'card_bin': (str,),  # noqa: E501
+            'card_last4': (str,),  # noqa: E501
             'cc_email': (str,),  # noqa: E501
             'channel_partner_code': (str,),  # noqa: E501
             'channel_partner_order_id': (str,),  # noqa: E501
@@ -214,6 +222,8 @@ class OrderQuery(ModelNormal):
 
 
     attribute_map = {
+        'card_bin': 'card_bin',  # noqa: E501
+        'card_last4': 'card_last4',  # noqa: E501
         'cc_email': 'cc_email',  # noqa: E501
         'channel_partner_code': 'channel_partner_code',  # noqa: E501
         'channel_partner_order_id': 'channel_partner_order_id',  # noqa: E501
@@ -301,6 +311,8 @@ class OrderQuery(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            card_bin (str): First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target=cache.. [optional]  # noqa: E501
+            card_last4 (str): Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target=cache.. [optional]  # noqa: E501
             cc_email (str): CC Email. [optional]  # noqa: E501
             channel_partner_code (str): The code of the channel partner. [optional]  # noqa: E501
             channel_partner_order_id (str): The order ID assigned by the channel partner for this order. [optional]  # noqa: E501
@@ -329,7 +341,7 @@ class OrderQuery(ModelNormal):
             payment_date_begin (str): Date/time that the order was successfully processed. [optional]  # noqa: E501
             payment_date_end (str): Date/time that the order was successfully processed. [optional]  # noqa: E501
             payment_method (str): Payment method. [optional]  # noqa: E501
-            payment_transaction_filters ([OrderQueryPaymentTransactionFilter]): Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.. [optional]  # noqa: E501
+            payment_transaction_filters ([OrderQueryPaymentTransactionFilter]): Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.. [optional]  # noqa: E501
             phone (str): Phone. [optional]  # noqa: E501
             postal_code (str): Postal code. [optional]  # noqa: E501
             purchase_order_number (str): Purchase order number. [optional]  # noqa: E501
@@ -430,6 +442,8 @@ class OrderQuery(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            card_bin (str): First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target=cache.. [optional]  # noqa: E501
+            card_last4 (str): Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target=cache.. [optional]  # noqa: E501
             cc_email (str): CC Email. [optional]  # noqa: E501
             channel_partner_code (str): The code of the channel partner. [optional]  # noqa: E501
             channel_partner_order_id (str): The order ID assigned by the channel partner for this order. [optional]  # noqa: E501
@@ -458,7 +472,7 @@ class OrderQuery(ModelNormal):
             payment_date_begin (str): Date/time that the order was successfully processed. [optional]  # noqa: E501
             payment_date_end (str): Date/time that the order was successfully processed. [optional]  # noqa: E501
             payment_method (str): Payment method. [optional]  # noqa: E501
-            payment_transaction_filters ([OrderQueryPaymentTransactionFilter]): Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.. [optional]  # noqa: E501
+            payment_transaction_filters ([OrderQueryPaymentTransactionFilter]): Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.. [optional]  # noqa: E501
             phone (str): Phone. [optional]  # noqa: E501
             postal_code (str): Postal code. [optional]  # noqa: E501
             purchase_order_number (str): Purchase order number. [optional]  # noqa: E501
