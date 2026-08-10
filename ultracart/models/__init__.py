@@ -779,6 +779,7 @@ from ultracart.model.metric import Metric
 from ultracart.model.model_property import ModelProperty
 from ultracart.model.notification import Notification
 from ultracart.model.oauth_device_authorization_response import OauthDeviceAuthorizationResponse
+from ultracart.model.oauth_me_response import OauthMeResponse
 from ultracart.model.oauth_revoke_success_response import OauthRevokeSuccessResponse
 from ultracart.model.oauth_token_response import OauthTokenResponse
 from ultracart.model.order import Order

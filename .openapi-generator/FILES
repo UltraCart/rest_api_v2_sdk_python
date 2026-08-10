@@ -788,6 +788,7 @@ docs/ModelProperty.md
 docs/Notification.md
 docs/OauthApi.md
 docs/OauthDeviceAuthorizationResponse.md
+docs/OauthMeResponse.md
 docs/OauthRevokeSuccessResponse.md
 docs/OauthTokenResponse.md
 docs/Order.md
@@ -1868,6 +1869,7 @@ ultracart/model/metric.py
 ultracart/model/model_property.py
 ultracart/model/notification.py
 ultracart/model/oauth_device_authorization_response.py
+ultracart/model/oauth_me_response.py
 ultracart/model/oauth_revoke_success_response.py
 ultracart/model/oauth_token_response.py
 ultracart/model/order.py

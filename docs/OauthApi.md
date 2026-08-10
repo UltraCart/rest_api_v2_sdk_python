@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**oauth_access_token**](OauthApi.md#oauth_access_token) | **POST** /oauth/token | Exchange authorization code for access token.
 [**oauth_device_authorize**](OauthApi.md#oauth_device_authorize) | **POST** /oauth/device/authorize | Initiate a device authorization flow.
+[**oauth_me**](OauthApi.md#oauth_me) | **GET** /oauth/me | Identify the merchant account this access token belongs to.
 [**oauth_revoke**](OauthApi.md#oauth_revoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 
 
@@ -172,6 +173,51 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **oauth_me**
+> oauth_me()
+
+Identify the merchant account this access token belongs to.
+
+Returns the UltraCart merchant account that authorized your application, along with the permissions that were granted.  Call it immediately after exchanging your authorization code so you can display the connected account to your user and map it within your own system.  Any OAuth access token may call this endpoint regardless of the permissions it holds.  The granted permissions are the ones the merchant approved, which may be narrower than the permissions your application currently requests, because permissions are recorded when the merchant authorizes and do not change afterwards.  If you add a permission to your application, already connected merchants keep the permissions they originally approved until they authorize again, so read this list rather than assuming your application's configured permissions. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
