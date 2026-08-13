@@ -310,6 +310,7 @@ class ChannelPartnerOrder(ModelNormal):
             'shipto_postal_code': (str,),  # noqa: E501
             'shipto_state_region': (str,),  # noqa: E501
             'shipto_title': (str,),  # noqa: E501
+            'skip_auto_order_setup': (bool,),  # noqa: E501
             'skip_payment_processing': (bool,),  # noqa: E501
             'special_instructions': (str,),  # noqa: E501
             'store_completed': (bool,),  # noqa: E501
@@ -414,6 +415,7 @@ class ChannelPartnerOrder(ModelNormal):
         'shipto_postal_code': 'shipto_postal_code',  # noqa: E501
         'shipto_state_region': 'shipto_state_region',  # noqa: E501
         'shipto_title': 'shipto_title',  # noqa: E501
+        'skip_auto_order_setup': 'skip_auto_order_setup',  # noqa: E501
         'skip_payment_processing': 'skip_payment_processing',  # noqa: E501
         'special_instructions': 'special_instructions',  # noqa: E501
         'store_completed': 'store_completed',  # noqa: E501
@@ -553,6 +555,7 @@ class ChannelPartnerOrder(ModelNormal):
             shipto_postal_code (str): Shipping Postal code. [optional]  # noqa: E501
             shipto_state_region (str): Shipping State for United States otherwise region or province for other countries. [optional]  # noqa: E501
             shipto_title (str): Shipping Title. [optional]  # noqa: E501
+            skip_auto_order_setup (bool): If true the setup of the auto order record is skipped. [optional]  # noqa: E501
             skip_payment_processing (bool): If true the order is placed directly into the shipping department. [optional]  # noqa: E501
             special_instructions (str): Special instructions from the customer regarding shipping. [optional]  # noqa: E501
             store_completed (bool): If true the order bypasses shipping and is marked completed. [optional]  # noqa: E501
@@ -734,6 +737,7 @@ class ChannelPartnerOrder(ModelNormal):
             shipto_postal_code (str): Shipping Postal code. [optional]  # noqa: E501
             shipto_state_region (str): Shipping State for United States otherwise region or province for other countries. [optional]  # noqa: E501
             shipto_title (str): Shipping Title. [optional]  # noqa: E501
+            skip_auto_order_setup (bool): If true the setup of the auto order record is skipped. [optional]  # noqa: E501
             skip_payment_processing (bool): If true the order is placed directly into the shipping department. [optional]  # noqa: E501
             special_instructions (str): Special instructions from the customer regarding shipping. [optional]  # noqa: E501
             store_completed (bool): If true the order bypasses shipping and is marked completed. [optional]  # noqa: E501

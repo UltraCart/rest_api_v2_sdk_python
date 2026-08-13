@@ -92,6 +92,7 @@ class OrderChannelPartner(ModelNormal):
             'channel_partner_order_id': (str,),  # noqa: E501
             'ignore_invalid_shipping_method': (bool,),  # noqa: E501
             'no_realtime_payment_processing': (bool,),  # noqa: E501
+            'skip_auto_order_setup': (bool,),  # noqa: E501
             'skip_payment_processing': (bool,),  # noqa: E501
             'store_completed': (bool,),  # noqa: E501
             'store_if_payment_declines': (bool,),  # noqa: E501
@@ -111,6 +112,7 @@ class OrderChannelPartner(ModelNormal):
         'channel_partner_order_id': 'channel_partner_order_id',  # noqa: E501
         'ignore_invalid_shipping_method': 'ignore_invalid_shipping_method',  # noqa: E501
         'no_realtime_payment_processing': 'no_realtime_payment_processing',  # noqa: E501
+        'skip_auto_order_setup': 'skip_auto_order_setup',  # noqa: E501
         'skip_payment_processing': 'skip_payment_processing',  # noqa: E501
         'store_completed': 'store_completed',  # noqa: E501
         'store_if_payment_declines': 'store_if_payment_declines',  # noqa: E501
@@ -165,6 +167,7 @@ class OrderChannelPartner(ModelNormal):
             channel_partner_order_id (str): The order ID assigned by the channel partner for this order.. [optional]  # noqa: E501
             ignore_invalid_shipping_method (bool): Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders.. [optional]  # noqa: E501
             no_realtime_payment_processing (bool): Indicates this order should be placed in Account Receivable for later payment processing. [optional]  # noqa: E501
+            skip_auto_order_setup (bool): Instructs UltraCart to skip auto order setup.  Only applicable on inserting orders.. [optional]  # noqa: E501
             skip_payment_processing (bool): Indicates this order was already paid for via a channel purchase and no payment collection should be attempted. [optional]  # noqa: E501
             store_completed (bool): Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order.. [optional]  # noqa: E501
             store_if_payment_declines (bool): If true, any failed payment will place the order in Accounts Receivable rather than rejecting it.. [optional]  # noqa: E501
@@ -261,6 +264,7 @@ class OrderChannelPartner(ModelNormal):
             channel_partner_order_id (str): The order ID assigned by the channel partner for this order.. [optional]  # noqa: E501
             ignore_invalid_shipping_method (bool): Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders.. [optional]  # noqa: E501
             no_realtime_payment_processing (bool): Indicates this order should be placed in Account Receivable for later payment processing. [optional]  # noqa: E501
+            skip_auto_order_setup (bool): Instructs UltraCart to skip auto order setup.  Only applicable on inserting orders.. [optional]  # noqa: E501
             skip_payment_processing (bool): Indicates this order was already paid for via a channel purchase and no payment collection should be attempted. [optional]  # noqa: E501
             store_completed (bool): Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order.. [optional]  # noqa: E501
             store_if_payment_declines (bool): If true, any failed payment will place the order in Accounts Receivable rather than rejecting it.. [optional]  # noqa: E501
