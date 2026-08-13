@@ -228,9 +228,11 @@ class ChannelPartnerOrder(ModelNormal):
             'affiliate_id': (str,),  # noqa: E501
             'affiliate_sub_id': (str,),  # noqa: E501
             'arbitrary_shipping_handling_total': (float,),  # noqa: E501
+            'arbitrary_subtotal_discount': (float,),  # noqa: E501
             'arbitrary_tax': (float,),  # noqa: E501
             'arbitrary_tax_rate': (float,),  # noqa: E501
             'arbitrary_taxable_subtotal': (float,),  # noqa: E501
+            'arbitrary_taxable_subtotal_discount': (float,),  # noqa: E501
             'associate_with_customer_profile_if_present': (bool,),  # noqa: E501
             'auto_approve_purchase_order': (bool,),  # noqa: E501
             'billto_address1': (str,),  # noqa: E501
@@ -330,9 +332,11 @@ class ChannelPartnerOrder(ModelNormal):
         'affiliate_id': 'affiliate_id',  # noqa: E501
         'affiliate_sub_id': 'affiliate_sub_id',  # noqa: E501
         'arbitrary_shipping_handling_total': 'arbitrary_shipping_handling_total',  # noqa: E501
+        'arbitrary_subtotal_discount': 'arbitrary_subtotal_discount',  # noqa: E501
         'arbitrary_tax': 'arbitrary_tax',  # noqa: E501
         'arbitrary_tax_rate': 'arbitrary_tax_rate',  # noqa: E501
         'arbitrary_taxable_subtotal': 'arbitrary_taxable_subtotal',  # noqa: E501
+        'arbitrary_taxable_subtotal_discount': 'arbitrary_taxable_subtotal_discount',  # noqa: E501
         'associate_with_customer_profile_if_present': 'associate_with_customer_profile_if_present',  # noqa: E501
         'auto_approve_purchase_order': 'auto_approve_purchase_order',  # noqa: E501
         'billto_address1': 'billto_address1',  # noqa: E501
@@ -467,9 +471,11 @@ class ChannelPartnerOrder(ModelNormal):
             affiliate_id (str): Affiliate Id. [optional]  # noqa: E501
             affiliate_sub_id (str): Affiliate Sub Id. [optional]  # noqa: E501
             arbitrary_shipping_handling_total (float): Arbitrary shipping handling total. [optional]  # noqa: E501
+            arbitrary_subtotal_discount (float): Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here.. [optional]  # noqa: E501
             arbitrary_tax (float): Arbitrary tax for overriding calculated taxes. [optional]  # noqa: E501
             arbitrary_tax_rate (float): Arbitrary tax rate. [optional]  # noqa: E501
             arbitrary_taxable_subtotal (float): Arbitrary taxable subtotal. [optional]  # noqa: E501
+            arbitrary_taxable_subtotal_discount (float): Arbitrary taxable subtotal discount.  If an arbitrary subtotal discount is supplied without this field, the arbitrary subtotal discount is used for both.. [optional]  # noqa: E501
             associate_with_customer_profile_if_present (bool): If true any matching customer profile based on email is associated with this order. [optional]  # noqa: E501
             auto_approve_purchase_order (bool): If true any purchase orders are automatically approved. [optional]  # noqa: E501
             billto_address1 (str): Billing Address line 1. [optional]  # noqa: E501
@@ -646,9 +652,11 @@ class ChannelPartnerOrder(ModelNormal):
             affiliate_id (str): Affiliate Id. [optional]  # noqa: E501
             affiliate_sub_id (str): Affiliate Sub Id. [optional]  # noqa: E501
             arbitrary_shipping_handling_total (float): Arbitrary shipping handling total. [optional]  # noqa: E501
+            arbitrary_subtotal_discount (float): Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here.. [optional]  # noqa: E501
             arbitrary_tax (float): Arbitrary tax for overriding calculated taxes. [optional]  # noqa: E501
             arbitrary_tax_rate (float): Arbitrary tax rate. [optional]  # noqa: E501
             arbitrary_taxable_subtotal (float): Arbitrary taxable subtotal. [optional]  # noqa: E501
+            arbitrary_taxable_subtotal_discount (float): Arbitrary taxable subtotal discount.  If an arbitrary subtotal discount is supplied without this field, the arbitrary subtotal discount is used for both.. [optional]  # noqa: E501
             associate_with_customer_profile_if_present (bool): If true any matching customer profile based on email is associated with this order. [optional]  # noqa: E501
             auto_approve_purchase_order (bool): If true any purchase orders are automatically approved. [optional]  # noqa: E501
             billto_address1 (str): Billing Address line 1. [optional]  # noqa: E501
