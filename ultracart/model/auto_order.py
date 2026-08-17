@@ -220,15 +220,15 @@ class AutoOrder(ModelNormal):
             auto_order_oid (int): Auto order object identifier. [optional]  # noqa: E501
             cancel_after_next_x_orders (int): Cancel this auto order after X additional rebills. [optional]  # noqa: E501
             cancel_downgrade (bool): True if the auto order was canceled because the customer purchased a downgrade item. [optional]  # noqa: E501
-            cancel_reason (str): The reason this auto order was canceled by either merchant or customer. [optional]  # noqa: E501
+            cancel_reason (str): The reason this auto order was canceled by either merchant or customer. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.. [optional]  # noqa: E501
             cancel_upgrade (bool): True if the auto order was canceled because the customer purchased an upgrade item. [optional]  # noqa: E501
-            canceled_by_user (str): The user that canceled the auto order. [optional]  # noqa: E501
-            canceled_dts (str): The date/time that the auto order was canceled. [optional]  # noqa: E501
+            canceled_by_user (str): The user that canceled the auto order. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.. [optional]  # noqa: E501
+            canceled_dts (str): The date/time that the auto order was canceled. Supply this to record an explicit cancellation time, otherwise it is stamped automatically when enabled is set to false along with cancel_reason or canceled_by_user.. [optional]  # noqa: E501
             completed (bool): True if the auto order ran successfully to completion. [optional]  # noqa: E501
             credit_card_attempt (int): The number of credit card attempts that have taken place. [optional]  # noqa: E501
-            disabled_dts (str): The date/time the auto order was disabled due to failed rebills. [optional]  # noqa: E501
+            disabled_dts (str): The date/time the auto order was disabled, either by a failed rebill or by setting enabled to false without a cancellation. [optional]  # noqa: E501
             emails ([AutoOrderEmail]): Email delivery records associated with this auto order.. [optional]  # noqa: E501
-            enabled (bool): True if this auto order is enabled. [optional]  # noqa: E501
+            enabled (bool): True if this auto order is enabled. Setting this to false along with cancel_reason or canceled_by_user records the change as a cancellation and fires the auto order cancel notifications. Setting it to false without either field records a disable instead.. [optional]  # noqa: E501
             failure_reason (str): The reason this auto order failed during the last rebill attempt. [optional]  # noqa: E501
             items ([AutoOrderItem]): The items that are setup to rebill. [optional]  # noqa: E501
             logs ([AutoOrderLog]): Logs associated with this auto order. [optional]  # noqa: E501
@@ -334,15 +334,15 @@ class AutoOrder(ModelNormal):
             auto_order_oid (int): Auto order object identifier. [optional]  # noqa: E501
             cancel_after_next_x_orders (int): Cancel this auto order after X additional rebills. [optional]  # noqa: E501
             cancel_downgrade (bool): True if the auto order was canceled because the customer purchased a downgrade item. [optional]  # noqa: E501
-            cancel_reason (str): The reason this auto order was canceled by either merchant or customer. [optional]  # noqa: E501
+            cancel_reason (str): The reason this auto order was canceled by either merchant or customer. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.. [optional]  # noqa: E501
             cancel_upgrade (bool): True if the auto order was canceled because the customer purchased an upgrade item. [optional]  # noqa: E501
-            canceled_by_user (str): The user that canceled the auto order. [optional]  # noqa: E501
-            canceled_dts (str): The date/time that the auto order was canceled. [optional]  # noqa: E501
+            canceled_by_user (str): The user that canceled the auto order. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.. [optional]  # noqa: E501
+            canceled_dts (str): The date/time that the auto order was canceled. Supply this to record an explicit cancellation time, otherwise it is stamped automatically when enabled is set to false along with cancel_reason or canceled_by_user.. [optional]  # noqa: E501
             completed (bool): True if the auto order ran successfully to completion. [optional]  # noqa: E501
             credit_card_attempt (int): The number of credit card attempts that have taken place. [optional]  # noqa: E501
-            disabled_dts (str): The date/time the auto order was disabled due to failed rebills. [optional]  # noqa: E501
+            disabled_dts (str): The date/time the auto order was disabled, either by a failed rebill or by setting enabled to false without a cancellation. [optional]  # noqa: E501
             emails ([AutoOrderEmail]): Email delivery records associated with this auto order.. [optional]  # noqa: E501
-            enabled (bool): True if this auto order is enabled. [optional]  # noqa: E501
+            enabled (bool): True if this auto order is enabled. Setting this to false along with cancel_reason or canceled_by_user records the change as a cancellation and fires the auto order cancel notifications. Setting it to false without either field records a disable instead.. [optional]  # noqa: E501
             failure_reason (str): The reason this auto order failed during the last rebill attempt. [optional]  # noqa: E501
             items ([AutoOrderItem]): The items that are setup to rebill. [optional]  # noqa: E501
             logs ([AutoOrderLog]): Logs associated with this auto order. [optional]  # noqa: E501

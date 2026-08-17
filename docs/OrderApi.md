@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**get_accounts_receivable_retry_stats**](OrderApi.md#get_accounts_receivable_retry_stats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 [**get_order**](OrderApi.md#get_order) | **GET** /order/orders/{order_id} | Retrieve an order
 [**get_order_by_token**](OrderApi.md#get_order_by_token) | **POST** /order/orders/token | Retrieve an order using a token
+[**get_order_customer_activity**](OrderApi.md#get_order_customer_activity) | **GET** /order/orders/{order_id}/customer_activity | Retrieve customer activity for this order.
 [**get_order_edi_documents**](OrderApi.md#get_order_edi_documents) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 [**get_order_emails**](OrderApi.md#get_order_emails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order.
 [**get_order_page_view_history**](OrderApi.md#get_order_page_view_history) | **GET** /order/orders/{order_id}/page_view_history | Retrieve page view history for this order.
@@ -1285,6 +1286,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+**500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_order_customer_activity**
+> OrderCustomerActivityResponse get_order_customer_activity(order_id)
+
+Retrieve customer activity for this order.
+
+Retrieves the customer activity associated with the email address on this order.  This includes email engagement history, email list and segment membership, lifetime metrics and email suppression status.  A customer profile is not required and is not consulted, so this method works for guest orders that have never had a customer profile established.  For the page views captured during the session that placed the order, see the page view history method instead. 
+
+### Example
+
+* OAuth Authentication (ultraCartOauth):
+* Api Key Authentication (ultraCartSimpleApiKey):
+
+
+(No example for this operation).
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order id to retrieve customer activity for. |
+
+### Return type
+
+[**OrderCustomerActivityResponse**](OrderCustomerActivityResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

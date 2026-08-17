@@ -2463,7 +2463,7 @@ class AutoOrderApi(object):
     ):
         """Update an auto order  # noqa: E501
 
-        Update an auto order on the UltraCart account.   # noqa: E501
+        Update an auto order on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2911,7 +2911,7 @@ class AutoOrderApi(object):
     ):
         """Update multiple auto orders  # noqa: E501
 
-        Update multiple auto orders on the UltraCart account.   # noqa: E501
+        Update multiple auto orders on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

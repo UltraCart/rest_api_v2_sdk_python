@@ -795,6 +795,7 @@ from ultracart.model.order_channel_partner import OrderChannelPartner
 from ultracart.model.order_checkout import OrderCheckout
 from ultracart.model.order_coupon import OrderCoupon
 from ultracart.model.order_current_stage_history import OrderCurrentStageHistory
+from ultracart.model.order_customer_activity_response import OrderCustomerActivityResponse
 from ultracart.model.order_digital_item import OrderDigitalItem
 from ultracart.model.order_digital_order import OrderDigitalOrder
 from ultracart.model.order_edi import OrderEdi

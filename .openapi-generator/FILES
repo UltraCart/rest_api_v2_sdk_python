@@ -805,6 +805,7 @@ docs/OrderChannelPartner.md
 docs/OrderCheckout.md
 docs/OrderCoupon.md
 docs/OrderCurrentStageHistory.md
+docs/OrderCustomerActivityResponse.md
 docs/OrderDigitalItem.md
 docs/OrderDigitalOrder.md
 docs/OrderEdi.md
@@ -1885,6 +1886,7 @@ ultracart/model/order_channel_partner.py
 ultracart/model/order_checkout.py
 ultracart/model/order_coupon.py
 ultracart/model/order_current_stage_history.py
+ultracart/model/order_customer_activity_response.py
 ultracart/model/order_digital_item.py
 ultracart/model/order_digital_order.py
 ultracart/model/order_edi.py
