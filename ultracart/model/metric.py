@@ -82,12 +82,10 @@ class Metric(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'active': (bool,),  # noqa: E501
             'all_time': (float,),  # noqa: E501
             'all_time_formatted': (str,),  # noqa: E501
             'last_30': (float,),  # noqa: E501
             'last_30_formatted': (str,),  # noqa: E501
-            'last_activity_dts': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'prior_30': (float,),  # noqa: E501
             'prior_30_formatted': (str,),  # noqa: E501
@@ -100,12 +98,10 @@ class Metric(ModelNormal):
 
 
     attribute_map = {
-        'active': 'active',  # noqa: E501
         'all_time': 'all_time',  # noqa: E501
         'all_time_formatted': 'all_time_formatted',  # noqa: E501
         'last_30': 'last_30',  # noqa: E501
         'last_30_formatted': 'last_30_formatted',  # noqa: E501
-        'last_activity_dts': 'last_activity_dts',  # noqa: E501
         'name': 'name',  # noqa: E501
         'prior_30': 'prior_30',  # noqa: E501
         'prior_30_formatted': 'prior_30_formatted',  # noqa: E501
@@ -153,12 +149,10 @@ class Metric(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            active (bool): [optional]  # noqa: E501
             all_time (float): [optional]  # noqa: E501
             all_time_formatted (str): [optional]  # noqa: E501
             last_30 (float): [optional]  # noqa: E501
             last_30_formatted (str): [optional]  # noqa: E501
-            last_activity_dts (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             prior_30 (float): [optional]  # noqa: E501
             prior_30_formatted (str): [optional]  # noqa: E501
@@ -248,12 +242,10 @@ class Metric(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            active (bool): [optional]  # noqa: E501
             all_time (float): [optional]  # noqa: E501
             all_time_formatted (str): [optional]  # noqa: E501
             last_30 (float): [optional]  # noqa: E501
             last_30_formatted (str): [optional]  # noqa: E501
-            last_activity_dts (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             prior_30 (float): [optional]  # noqa: E501
             prior_30_formatted (str): [optional]  # noqa: E501

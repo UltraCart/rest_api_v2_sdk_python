@@ -4,9 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**active** | **bool** |  | [optional] 
 **activities** | [**[Activity]**](Activity.md) |  | [optional] 
 **global_unsubscribed** | **bool** |  | [optional] 
 **global_unsubscribed_dts** | **str** |  | [optional] 
+**last_activity_dts** | **str** |  | [optional] 
 **memberships** | [**[ListSegmentMembership]**](ListSegmentMembership.md) |  | [optional] 
 **metrics** | [**[Metric]**](Metric.md) |  | [optional] 
 **properties_list** | [**[ModelProperty]**](ModelProperty.md) |  | [optional] 

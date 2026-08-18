@@ -94,9 +94,11 @@ class CustomerActivity(ModelNormal):
         """
         lazy_import()
         return {
+            'active': (bool,),  # noqa: E501
             'activities': ([Activity],),  # noqa: E501
             'global_unsubscribed': (bool,),  # noqa: E501
             'global_unsubscribed_dts': (str,),  # noqa: E501
+            'last_activity_dts': (str,),  # noqa: E501
             'memberships': ([ListSegmentMembership],),  # noqa: E501
             'metrics': ([Metric],),  # noqa: E501
             'properties_list': ([ModelProperty],),  # noqa: E501
@@ -112,9 +114,11 @@ class CustomerActivity(ModelNormal):
 
 
     attribute_map = {
+        'active': 'active',  # noqa: E501
         'activities': 'activities',  # noqa: E501
         'global_unsubscribed': 'global_unsubscribed',  # noqa: E501
         'global_unsubscribed_dts': 'global_unsubscribed_dts',  # noqa: E501
+        'last_activity_dts': 'last_activity_dts',  # noqa: E501
         'memberships': 'memberships',  # noqa: E501
         'metrics': 'metrics',  # noqa: E501
         'properties_list': 'properties_list',  # noqa: E501
@@ -165,9 +169,11 @@ class CustomerActivity(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            active (bool): [optional]  # noqa: E501
             activities ([Activity]): [optional]  # noqa: E501
             global_unsubscribed (bool): [optional]  # noqa: E501
             global_unsubscribed_dts (str): [optional]  # noqa: E501
+            last_activity_dts (str): [optional]  # noqa: E501
             memberships ([ListSegmentMembership]): [optional]  # noqa: E501
             metrics ([Metric]): [optional]  # noqa: E501
             properties_list ([ModelProperty]): [optional]  # noqa: E501
@@ -260,9 +266,11 @@ class CustomerActivity(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            active (bool): [optional]  # noqa: E501
             activities ([Activity]): [optional]  # noqa: E501
             global_unsubscribed (bool): [optional]  # noqa: E501
             global_unsubscribed_dts (str): [optional]  # noqa: E501
+            last_activity_dts (str): [optional]  # noqa: E501
             memberships ([ListSegmentMembership]): [optional]  # noqa: E501
             metrics ([Metric]): [optional]  # noqa: E501
             properties_list ([ModelProperty]): [optional]  # noqa: E501
