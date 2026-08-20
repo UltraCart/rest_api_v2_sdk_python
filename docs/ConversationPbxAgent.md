@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **unavailable_say_voice** | **str** | Unavailable say voice | [optional] 
 **user_id** | **int** | User Id | [optional] 
 **voicemail** | **bool** | True if this agent has voicemail configured | [optional] 
+**zoho_desk_outbound_department_id** | **str** | Zoho Desk department ID to create outbound-call tickets in for this agent | [optional] 
+**zoho_desk_outbound_ticket_enabled** | **bool** | If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

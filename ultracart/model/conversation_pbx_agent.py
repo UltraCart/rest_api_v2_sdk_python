@@ -89,6 +89,9 @@ class ConversationPbxAgent(ModelNormal):
         ('unavailable_say_voice',): {
             'max_length': 50,
         },
+        ('zoho_desk_outbound_department_id',): {
+            'max_length': 50,
+        },
     }
 
     @cached_property
@@ -133,6 +136,8 @@ class ConversationPbxAgent(ModelNormal):
             'unavailable_say_voice': (str,),  # noqa: E501
             'user_id': (int,),  # noqa: E501
             'voicemail': (bool,),  # noqa: E501
+            'zoho_desk_outbound_department_id': (str,),  # noqa: E501
+            'zoho_desk_outbound_ticket_enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -162,6 +167,8 @@ class ConversationPbxAgent(ModelNormal):
         'unavailable_say_voice': 'unavailable_say_voice',  # noqa: E501
         'user_id': 'user_id',  # noqa: E501
         'voicemail': 'voicemail',  # noqa: E501
+        'zoho_desk_outbound_department_id': 'zoho_desk_outbound_department_id',  # noqa: E501
+        'zoho_desk_outbound_ticket_enabled': 'zoho_desk_outbound_ticket_enabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -226,6 +233,8 @@ class ConversationPbxAgent(ModelNormal):
             unavailable_say_voice (str): Unavailable say voice. [optional]  # noqa: E501
             user_id (int): User Id. [optional]  # noqa: E501
             voicemail (bool): True if this agent has voicemail configured. [optional]  # noqa: E501
+            zoho_desk_outbound_department_id (str): Zoho Desk department ID to create outbound-call tickets in for this agent. [optional]  # noqa: E501
+            zoho_desk_outbound_ticket_enabled (bool): If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -332,6 +341,8 @@ class ConversationPbxAgent(ModelNormal):
             unavailable_say_voice (str): Unavailable say voice. [optional]  # noqa: E501
             user_id (int): User Id. [optional]  # noqa: E501
             voicemail (bool): True if this agent has voicemail configured. [optional]  # noqa: E501
+            zoho_desk_outbound_department_id (str): Zoho Desk department ID to create outbound-call tickets in for this agent. [optional]  # noqa: E501
+            zoho_desk_outbound_ticket_enabled (bool): If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

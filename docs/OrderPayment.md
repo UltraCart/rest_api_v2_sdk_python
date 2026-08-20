@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **surcharge_transaction_fee** | **float** | Surcharge transaction fee | [optional] 
 **surcharge_transaction_percentage** | **float** | Surcharge transaction percentage | [optional] 
 **test_order** | **bool** | True if this is a test order | [optional] 
-**transactions** | [**[OrderPaymentTransaction]**](OrderPaymentTransaction.md) | Transactions associated with processing this payment | [optional] 
+**transactions** | [**[OrderPaymentTransaction]**](OrderPaymentTransaction.md) | Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

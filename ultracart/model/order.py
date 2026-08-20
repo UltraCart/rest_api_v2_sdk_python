@@ -324,7 +324,7 @@ class Order(ModelNormal):
             order_id (str): Order ID. [optional]  # noqa: E501
             payment (OrderPayment): [optional]  # noqa: E501
             point_of_sale (OrderPointOfSale): [optional]  # noqa: E501
-            properties ([OrderProperty]): Properties, available only through update, not through insert due to the nature of how properties are handled internally. [optional]  # noqa: E501
+            properties ([OrderProperty]): Properties associated with the order. [optional]  # noqa: E501
             quote (OrderQuote): [optional]  # noqa: E501
             refund_dts (str): If the order was refunded, the date/time that the last refund occurred. [optional]  # noqa: E501
             refund_reason (str): Refund reason code.  This can only be written during a refund operation otherwise this field is read only.. [optional]  # noqa: E501
@@ -449,7 +449,7 @@ class Order(ModelNormal):
             order_id (str): Order ID. [optional]  # noqa: E501
             payment (OrderPayment): [optional]  # noqa: E501
             point_of_sale (OrderPointOfSale): [optional]  # noqa: E501
-            properties ([OrderProperty]): Properties, available only through update, not through insert due to the nature of how properties are handled internally. [optional]  # noqa: E501
+            properties ([OrderProperty]): Properties associated with the order. [optional]  # noqa: E501
             quote (OrderQuote): [optional]  # noqa: E501
             refund_dts (str): If the order was refunded, the date/time that the last refund occurred. [optional]  # noqa: E501
             refund_reason (str): Refund reason code.  This can only be written during a refund operation otherwise this field is read only.. [optional]  # noqa: E501

@@ -258,7 +258,7 @@ class OrderPayment(ModelNormal):
             surcharge_transaction_fee (float): Surcharge transaction fee. [optional]  # noqa: E501
             surcharge_transaction_percentage (float): Surcharge transaction percentage. [optional]  # noqa: E501
             test_order (bool): True if this is a test order. [optional]  # noqa: E501
-            transactions ([OrderPaymentTransaction]): Transactions associated with processing this payment. [optional]  # noqa: E501
+            transactions ([OrderPaymentTransaction]): Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -363,7 +363,7 @@ class OrderPayment(ModelNormal):
             surcharge_transaction_fee (float): Surcharge transaction fee. [optional]  # noqa: E501
             surcharge_transaction_percentage (float): Surcharge transaction percentage. [optional]  # noqa: E501
             test_order (bool): True if this is a test order. [optional]  # noqa: E501
-            transactions ([OrderPaymentTransaction]): Transactions associated with processing this payment. [optional]  # noqa: E501
+            transactions ([OrderPaymentTransaction]): Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
