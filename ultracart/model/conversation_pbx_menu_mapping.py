@@ -62,6 +62,7 @@ class ConversationPbxMenuMapping(ModelNormal):
             'QUEUE': "queue",
             'VOICEMAIL': "voicemail",
             'AGENT': "agent",
+            'SEND_TEXT': "send text",
         },
     }
 
@@ -71,6 +72,9 @@ class ConversationPbxMenuMapping(ModelNormal):
         },
         ('action_target',): {
             'max_length': 50,
+        },
+        ('text_message',): {
+            'max_length': 1600,
         },
     }
 
@@ -99,6 +103,7 @@ class ConversationPbxMenuMapping(ModelNormal):
             'action_target': (str,),  # noqa: E501
             'digits': (int,),  # noqa: E501
             'speech': (str,),  # noqa: E501
+            'text_message': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -111,6 +116,7 @@ class ConversationPbxMenuMapping(ModelNormal):
         'action_target': 'action_target',  # noqa: E501
         'digits': 'digits',  # noqa: E501
         'speech': 'speech',  # noqa: E501
+        'text_message': 'text_message',  # noqa: E501
     }
 
     read_only_vars = {
@@ -158,6 +164,7 @@ class ConversationPbxMenuMapping(ModelNormal):
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             digits (int): Digits. [optional]  # noqa: E501
             speech (str): Speech. [optional]  # noqa: E501
+            text_message (str): Text message body sent to the caller when the action is 'send text'.  Ignored for all other actions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,6 +254,7 @@ class ConversationPbxMenuMapping(ModelNormal):
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             digits (int): Digits. [optional]  # noqa: E501
             speech (str): Speech. [optional]  # noqa: E501
+            text_message (str): Text message body sent to the caller when the action is 'send text'.  Ignored for all other actions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
