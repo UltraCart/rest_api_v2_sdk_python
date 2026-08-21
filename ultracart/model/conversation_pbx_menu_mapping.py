@@ -73,6 +73,9 @@ class ConversationPbxMenuMapping(ModelNormal):
         ('action_target',): {
             'max_length': 50,
         },
+        ('sms_from_number',): {
+            'max_length': 25,
+        },
         ('text_message',): {
             'max_length': 1600,
         },
@@ -102,6 +105,7 @@ class ConversationPbxMenuMapping(ModelNormal):
             'action': (str,),  # noqa: E501
             'action_target': (str,),  # noqa: E501
             'digits': (int,),  # noqa: E501
+            'sms_from_number': (str,),  # noqa: E501
             'speech': (str,),  # noqa: E501
             'text_message': (str,),  # noqa: E501
         }
@@ -115,6 +119,7 @@ class ConversationPbxMenuMapping(ModelNormal):
         'action': 'action',  # noqa: E501
         'action_target': 'action_target',  # noqa: E501
         'digits': 'digits',  # noqa: E501
+        'sms_from_number': 'sms_from_number',  # noqa: E501
         'speech': 'speech',  # noqa: E501
         'text_message': 'text_message',  # noqa: E501
     }
@@ -163,6 +168,7 @@ class ConversationPbxMenuMapping(ModelNormal):
             action (str): Action. [optional]  # noqa: E501
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             digits (int): Digits. [optional]  # noqa: E501
+            sms_from_number (str): Optional phone number to send the text message from.  Must be a phone number configured on this merchant account and SMS enabled.  Defaults to the number the caller dialed.  Only used when the action is 'send text'.. [optional]  # noqa: E501
             speech (str): Speech. [optional]  # noqa: E501
             text_message (str): Text message body sent to the caller when the action is 'send text'.  Ignored for all other actions.. [optional]  # noqa: E501
         """
@@ -253,6 +259,7 @@ class ConversationPbxMenuMapping(ModelNormal):
             action (str): Action. [optional]  # noqa: E501
             action_target (str): Action target.  This is the UUID associated with the configuration object of that particular type.. [optional]  # noqa: E501
             digits (int): Digits. [optional]  # noqa: E501
+            sms_from_number (str): Optional phone number to send the text message from.  Must be a phone number configured on this merchant account and SMS enabled.  Defaults to the number the caller dialed.  Only used when the action is 'send text'.. [optional]  # noqa: E501
             speech (str): Speech. [optional]  # noqa: E501
             text_message (str): Text message body sent to the caller when the action is 'send text'.  Ignored for all other actions.. [optional]  # noqa: E501
         """
