@@ -14,6 +14,8 @@ docs/Activity.md
 docs/AddLibraryItemRequest.md
 docs/AdjustInternalCertificateRequest.md
 docs/AdjustInternalCertificateResponse.md
+docs/AdjustLoyaltyPointsRequest.md
+docs/AdjustLoyaltyPointsResponse.md
 docs/Affiliate.md
 docs/AffiliateApi.md
 docs/AffiliateAttribute.md
@@ -455,6 +457,7 @@ docs/CustomerEmailSuppressionResult.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
+docs/CustomerLoyaltyResponse.md
 docs/CustomerMagicLinkResponse.md
 docs/CustomerMergeRequest.md
 docs/CustomerOrdersSummary.md
@@ -1112,6 +1115,8 @@ ultracart/model/activity.py
 ultracart/model/add_library_item_request.py
 ultracart/model/adjust_internal_certificate_request.py
 ultracart/model/adjust_internal_certificate_response.py
+ultracart/model/adjust_loyalty_points_request.py
+ultracart/model/adjust_loyalty_points_response.py
 ultracart/model/affiliate.py
 ultracart/model/affiliate_attribute.py
 ultracart/model/affiliate_click.py
@@ -1544,6 +1549,7 @@ ultracart/model/customer_email_suppression_result.py
 ultracart/model/customer_loyalty.py
 ultracart/model/customer_loyalty_ledger.py
 ultracart/model/customer_loyalty_redemption.py
+ultracart/model/customer_loyalty_response.py
 ultracart/model/customer_magic_link_response.py
 ultracart/model/customer_merge_request.py
 ultracart/model/customer_orders_summary.py

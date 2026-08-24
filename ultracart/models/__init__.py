@@ -21,6 +21,8 @@ from ultracart.model.activity import Activity
 from ultracart.model.add_library_item_request import AddLibraryItemRequest
 from ultracart.model.adjust_internal_certificate_request import AdjustInternalCertificateRequest
 from ultracart.model.adjust_internal_certificate_response import AdjustInternalCertificateResponse
+from ultracart.model.adjust_loyalty_points_request import AdjustLoyaltyPointsRequest
+from ultracart.model.adjust_loyalty_points_response import AdjustLoyaltyPointsResponse
 from ultracart.model.affiliate import Affiliate
 from ultracart.model.affiliate_attribute import AffiliateAttribute
 from ultracart.model.affiliate_click import AffiliateClick
@@ -453,6 +455,7 @@ from ultracart.model.customer_email_suppression_result import CustomerEmailSuppr
 from ultracart.model.customer_loyalty import CustomerLoyalty
 from ultracart.model.customer_loyalty_ledger import CustomerLoyaltyLedger
 from ultracart.model.customer_loyalty_redemption import CustomerLoyaltyRedemption
+from ultracart.model.customer_loyalty_response import CustomerLoyaltyResponse
 from ultracart.model.customer_magic_link_response import CustomerMagicLinkResponse
 from ultracart.model.customer_merge_request import CustomerMergeRequest
 from ultracart.model.customer_orders_summary import CustomerOrdersSummary
