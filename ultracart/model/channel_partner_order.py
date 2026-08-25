@@ -227,6 +227,7 @@ class ChannelPartnerOrder(ModelNormal):
             'advertising_source': (str,),  # noqa: E501
             'affiliate_id': (str,),  # noqa: E501
             'affiliate_sub_id': (str,),  # noqa: E501
+            'arbitrary_pricing_tier_names': ([str],),  # noqa: E501
             'arbitrary_shipping_handling_total': (float,),  # noqa: E501
             'arbitrary_subtotal_discount': (float,),  # noqa: E501
             'arbitrary_tax': (float,),  # noqa: E501
@@ -332,6 +333,7 @@ class ChannelPartnerOrder(ModelNormal):
         'advertising_source': 'advertisingSource',  # noqa: E501
         'affiliate_id': 'affiliate_id',  # noqa: E501
         'affiliate_sub_id': 'affiliate_sub_id',  # noqa: E501
+        'arbitrary_pricing_tier_names': 'arbitrary_pricing_tier_names',  # noqa: E501
         'arbitrary_shipping_handling_total': 'arbitrary_shipping_handling_total',  # noqa: E501
         'arbitrary_subtotal_discount': 'arbitrary_subtotal_discount',  # noqa: E501
         'arbitrary_tax': 'arbitrary_tax',  # noqa: E501
@@ -472,6 +474,7 @@ class ChannelPartnerOrder(ModelNormal):
             advertising_source (str): advertising_source. [optional]  # noqa: E501
             affiliate_id (str): Affiliate Id. [optional]  # noqa: E501
             affiliate_sub_id (str): Affiliate Sub Id. [optional]  # noqa: E501
+            arbitrary_pricing_tier_names ([str]): Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.. [optional]  # noqa: E501
             arbitrary_shipping_handling_total (float): Arbitrary shipping handling total. [optional]  # noqa: E501
             arbitrary_subtotal_discount (float): Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here.. [optional]  # noqa: E501
             arbitrary_tax (float): Arbitrary tax for overriding calculated taxes. [optional]  # noqa: E501
@@ -654,6 +657,7 @@ class ChannelPartnerOrder(ModelNormal):
             advertising_source (str): advertising_source. [optional]  # noqa: E501
             affiliate_id (str): Affiliate Id. [optional]  # noqa: E501
             affiliate_sub_id (str): Affiliate Sub Id. [optional]  # noqa: E501
+            arbitrary_pricing_tier_names ([str]): Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.. [optional]  # noqa: E501
             arbitrary_shipping_handling_total (float): Arbitrary shipping handling total. [optional]  # noqa: E501
             arbitrary_subtotal_discount (float): Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here.. [optional]  # noqa: E501
             arbitrary_tax (float): Arbitrary tax for overriding calculated taxes. [optional]  # noqa: E501

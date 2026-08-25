@@ -85,6 +85,7 @@ class OrderChannelPartner(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'arbitrary_pricing_tier_names': ([str],),  # noqa: E501
             'auto_approve_purchase_order': (bool,),  # noqa: E501
             'channel_partner_code': (str,),  # noqa: E501
             'channel_partner_data': (str,),  # noqa: E501
@@ -105,6 +106,7 @@ class OrderChannelPartner(ModelNormal):
 
 
     attribute_map = {
+        'arbitrary_pricing_tier_names': 'arbitrary_pricing_tier_names',  # noqa: E501
         'auto_approve_purchase_order': 'auto_approve_purchase_order',  # noqa: E501
         'channel_partner_code': 'channel_partner_code',  # noqa: E501
         'channel_partner_data': 'channel_partner_data',  # noqa: E501
@@ -160,6 +162,7 @@ class OrderChannelPartner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            arbitrary_pricing_tier_names ([str]): Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.  Only applicable on inserting orders.. [optional]  # noqa: E501
             auto_approve_purchase_order (bool): If true, any purchase order submitted is automatically approved. [optional]  # noqa: E501
             channel_partner_code (str): The code of the channel partner. [optional]  # noqa: E501
             channel_partner_data (str): Additional data provided by the channel partner, read-only. [optional]  # noqa: E501
@@ -257,6 +260,7 @@ class OrderChannelPartner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            arbitrary_pricing_tier_names ([str]): Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.  Only applicable on inserting orders.. [optional]  # noqa: E501
             auto_approve_purchase_order (bool): If true, any purchase order submitted is automatically approved. [optional]  # noqa: E501
             channel_partner_code (str): The code of the channel partner. [optional]  # noqa: E501
             channel_partner_data (str): Additional data provided by the channel partner, read-only. [optional]  # noqa: E501
