@@ -1,0 +1,23 @@
+# ConversationPbxMenu
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**allow_direct_extensions** | **bool** | If true, the customer is allowed to input direct extensions within this menu | [optional] 
+**context_merchant_id** | **str** | Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group. | [optional] 
+**conversation_pbx_menu_uuid** | **str** | Conversation Pbx Menu UUID | [optional] 
+**default_action** | **str** | The default action for this menu | [optional] 
+**default_action_target** | **str** | The default action target for this menu | [optional] 
+**mappings** | [**[ConversationPbxMenuMapping]**](ConversationPbxMenuMapping.md) | Action mappings for this menu | [optional] 
+**merchant_id** | **str** | Merchant Id | [optional] 
+**name** | **str** | Menu name | [optional] 
+**play_audio_uuid** | **str** | An optional audio clip that plays when a customer enters this menu | [optional] 
+**say** | **str** | An optional saying that plays when a customer enters this menu | [optional] 
+**say_voice** | **str** | say voice | [optional] 
+**timeout** | **int** | The idle seconds before this menu times out | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
