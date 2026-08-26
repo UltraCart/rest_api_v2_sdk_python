@@ -105,11 +105,11 @@ class SfvbLibraryResponse(ModelNormal):
 
     attribute_map = {
         'facets': 'facets',  # noqa: E501
-        'first_result_number': 'firstResultNumber',  # noqa: E501
-        'last_result_number': 'lastResultNumber',  # noqa: E501
+        'first_result_number': 'first_result_number',  # noqa: E501
+        'last_result_number': 'last_result_number',  # noqa: E501
         'results': 'results',  # noqa: E501
-        'total_pages': 'totalPages',  # noqa: E501
-        'total_results': 'totalResults',  # noqa: E501
+        'total_pages': 'total_pages',  # noqa: E501
+        'total_results': 'total_results',  # noqa: E501
     }
 
     read_only_vars = {

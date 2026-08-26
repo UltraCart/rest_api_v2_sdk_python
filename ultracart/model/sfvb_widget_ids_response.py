@@ -94,7 +94,7 @@ class SfvbWidgetIdsResponse(ModelNormal):
 
     attribute_map = {
         'count': 'count',  # noqa: E501
-        'first_id': 'firstId',  # noqa: E501
+        'first_id': 'first_id',  # noqa: E501
         'ids': 'ids',  # noqa: E501
     }
 

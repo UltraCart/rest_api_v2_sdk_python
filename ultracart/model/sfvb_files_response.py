@@ -103,9 +103,9 @@ class SfvbFilesResponse(ModelNormal):
 
     attribute_map = {
         'files': 'files',  # noqa: E501
-        'fs_directory_oid': 'fsDirectoryOid',  # noqa: E501
-        'omitted_count': 'omittedCount',  # noqa: E501
-        'parent_fs_directory_oid': 'parentFsDirectoryOid',  # noqa: E501
+        'fs_directory_oid': 'fs_directory_oid',  # noqa: E501
+        'omitted_count': 'omitted_count',  # noqa: E501
+        'parent_fs_directory_oid': 'parent_fs_directory_oid',  # noqa: E501
         'path': 'path',  # noqa: E501
         'truncated': 'truncated',  # noqa: E501
     }

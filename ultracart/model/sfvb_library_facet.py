@@ -93,7 +93,7 @@ class SfvbLibraryFacet(ModelNormal):
 
 
     attribute_map = {
-        'display_name': 'displayName',  # noqa: E501
+        'display_name': 'display_name',  # noqa: E501
         'name': 'name',  # noqa: E501
         'options': 'options',  # noqa: E501
     }

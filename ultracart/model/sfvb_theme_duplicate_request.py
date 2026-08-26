@@ -94,8 +94,8 @@ class SfvbThemeDuplicateRequest(ModelNormal):
 
     attribute_map = {
         'folder': 'folder',  # noqa: E501
-        'target_storefront_oid': 'targetStorefrontOid',  # noqa: E501
-        'theme_name': 'themeName',  # noqa: E501
+        'target_storefront_oid': 'target_storefront_oid',  # noqa: E501
+        'theme_name': 'theme_name',  # noqa: E501
     }
 
     read_only_vars = {

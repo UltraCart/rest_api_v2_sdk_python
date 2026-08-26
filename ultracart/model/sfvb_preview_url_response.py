@@ -97,13 +97,13 @@ class SfvbPreviewUrlResponse(ModelNormal):
 
 
     attribute_map = {
-        'expires_in_seconds': 'expiresInSeconds',  # noqa: E501
+        'expires_in_seconds': 'expires_in_seconds',  # noqa: E501
         'path': 'path',  # noqa: E501
-        'preview_session_id': 'previewSessionId',  # noqa: E501
-        'preview_url': 'previewUrl',  # noqa: E501
-        'requires_browser_session': 'requiresBrowserSession',  # noqa: E501
+        'preview_session_id': 'preview_session_id',  # noqa: E501
+        'preview_url': 'preview_url',  # noqa: E501
+        'requires_browser_session': 'requires_browser_session',  # noqa: E501
         'shareable': 'shareable',  # noqa: E501
-        'usage_note': 'usageNote',  # noqa: E501
+        'usage_note': 'usage_note',  # noqa: E501
     }
 
     read_only_vars = {

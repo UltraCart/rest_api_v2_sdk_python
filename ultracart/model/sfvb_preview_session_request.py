@@ -93,7 +93,7 @@ class SfvbPreviewSessionRequest(ModelNormal):
 
     attribute_map = {
         'containers': 'containers',  # noqa: E501
-        'theme_oid': 'themeOid',  # noqa: E501
+        'theme_oid': 'theme_oid',  # noqa: E501
     }
 
     read_only_vars = {

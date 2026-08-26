@@ -98,7 +98,7 @@ class SfvbThemesResponse(ModelNormal):
 
 
     attribute_map = {
-        'active_theme_oid': 'activeThemeOid',  # noqa: E501
+        'active_theme_oid': 'active_theme_oid',  # noqa: E501
         'themes': 'themes',  # noqa: E501
     }
 

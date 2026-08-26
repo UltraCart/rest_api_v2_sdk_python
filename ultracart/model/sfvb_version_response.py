@@ -105,15 +105,15 @@ class SfvbVersionResponse(ModelNormal):
 
 
     attribute_map = {
-        'container_manager_version': 'containerManagerVersion',  # noqa: E501
-        'container_versions_retained': 'containerVersionsRetained',  # noqa: E501
-        'element_count': 'elementCount',  # noqa: E501
-        'max_cjson_bytes': 'maxCjsonBytes',  # noqa: E501
-        'max_preview_session_bytes': 'maxPreviewSessionBytes',  # noqa: E501
-        'max_search_results': 'maxSearchResults',  # noqa: E501
-        'max_template_bytes': 'maxTemplateBytes',  # noqa: E501
-        'max_widget_ids_per_request': 'maxWidgetIdsPerRequest',  # noqa: E501
-        'preview_session_ttl_seconds': 'previewSessionTtlSeconds',  # noqa: E501
+        'container_manager_version': 'container_manager_version',  # noqa: E501
+        'container_versions_retained': 'container_versions_retained',  # noqa: E501
+        'element_count': 'element_count',  # noqa: E501
+        'max_cjson_bytes': 'max_cjson_bytes',  # noqa: E501
+        'max_preview_session_bytes': 'max_preview_session_bytes',  # noqa: E501
+        'max_search_results': 'max_search_results',  # noqa: E501
+        'max_template_bytes': 'max_template_bytes',  # noqa: E501
+        'max_widget_ids_per_request': 'max_widget_ids_per_request',  # noqa: E501
+        'preview_session_ttl_seconds': 'preview_session_ttl_seconds',  # noqa: E501
         'release': 'release',  # noqa: E501
     }
 

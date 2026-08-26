@@ -104,11 +104,11 @@ class SfvbFileWriteResponse(ModelNormal):
 
 
     attribute_map = {
-        'compiled_path': 'compiledPath',  # noqa: E501
+        'compiled_path': 'compiled_path',  # noqa: E501
         'file': 'file',  # noqa: E501
-        'hash_sha256': 'hashSha256',  # noqa: E501
+        'hash_sha256': 'hash_sha256',  # noqa: E501
         'validation': 'validation',  # noqa: E501
-        'velocity_errors': 'velocityErrors',  # noqa: E501
+        'velocity_errors': 'velocity_errors',  # noqa: E501
         'version': 'version',  # noqa: E501
     }
 

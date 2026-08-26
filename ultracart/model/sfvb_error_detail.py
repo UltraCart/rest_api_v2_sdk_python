@@ -106,7 +106,7 @@ class SfvbErrorDetail(ModelNormal):
     attribute_map = {
         'code': 'code',  # noqa: E501
         'column': 'column',  # noqa: E501
-        'did_you_mean': 'didYouMean',  # noqa: E501
+        'did_you_mean': 'did_you_mean',  # noqa: E501
         'expected': 'expected',  # noqa: E501
         'found': 'found',  # noqa: E501
         'line': 'line',  # noqa: E501

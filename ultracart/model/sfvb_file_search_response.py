@@ -105,13 +105,13 @@ class SfvbFileSearchResponse(ModelNormal):
 
     attribute_map = {
         'files': 'files',  # noqa: E501
-        'max_results': 'maxResults',  # noqa: E501
-        'next_offset': 'nextOffset',  # noqa: E501
+        'max_results': 'max_results',  # noqa: E501
+        'next_offset': 'next_offset',  # noqa: E501
         'offset': 'offset',  # noqa: E501
-        'result_count': 'resultCount',  # noqa: E501
-        'total_count': 'totalCount',  # noqa: E501
+        'result_count': 'result_count',  # noqa: E501
+        'total_count': 'total_count',  # noqa: E501
         'truncated': 'truncated',  # noqa: E501
-        'truncation_advice': 'truncationAdvice',  # noqa: E501
+        'truncation_advice': 'truncation_advice',  # noqa: E501
     }
 
     read_only_vars = {

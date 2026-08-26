@@ -96,9 +96,9 @@ class SfvbCompileRequest(ModelNormal):
 
     attribute_map = {
         'cjson': 'cjson',  # noqa: E501
-        'container_name': 'containerName',  # noqa: E501
-        'storefront_oid': 'storefrontOid',  # noqa: E501
-        'theme_oid': 'themeOid',  # noqa: E501
+        'container_name': 'container_name',  # noqa: E501
+        'storefront_oid': 'storefront_oid',  # noqa: E501
+        'theme_oid': 'theme_oid',  # noqa: E501
         'validate': 'validate',  # noqa: E501
     }
 

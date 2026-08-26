@@ -104,7 +104,7 @@ class SfvbRenderResponse(ModelNormal):
     attribute_map = {
         'errors': 'errors',  # noqa: E501
         'html': 'html',  # noqa: E501
-        'pending_translation_count': 'pendingTranslationCount',  # noqa: E501
+        'pending_translation_count': 'pending_translation_count',  # noqa: E501
         'success': 'success',  # noqa: E501
         'truncated': 'truncated',  # noqa: E501
         'warnings': 'warnings',  # noqa: E501

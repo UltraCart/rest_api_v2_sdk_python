@@ -109,19 +109,19 @@ class SfvbWhoamiResponse(ModelNormal):
 
 
     attribute_map = {
-        'acting_as_user': 'actingAsUser',  # noqa: E501
-        'application_name': 'applicationName',  # noqa: E501
-        'authentication_type': 'authenticationType',  # noqa: E501
-        'can_publish': 'canPublish',  # noqa: E501
-        'can_read': 'canRead',  # noqa: E501
-        'can_write': 'canWrite',  # noqa: E501
-        'device_scope': 'deviceScope',  # noqa: E501
+        'acting_as_user': 'acting_as_user',  # noqa: E501
+        'application_name': 'application_name',  # noqa: E501
+        'authentication_type': 'authentication_type',  # noqa: E501
+        'can_publish': 'can_publish',  # noqa: E501
+        'can_read': 'can_read',  # noqa: E501
+        'can_write': 'can_write',  # noqa: E501
+        'device_scope': 'device_scope',  # noqa: E501
         'login': 'login',  # noqa: E501
-        'merchant_id': 'merchantId',  # noqa: E501
+        'merchant_id': 'merchant_id',  # noqa: E501
         'scopes': 'scopes',  # noqa: E501
         'storefronts': 'storefronts',  # noqa: E501
-        'storefronts_withheld': 'storefrontsWithheld',  # noqa: E501
-        'user_name': 'userName',  # noqa: E501
+        'storefronts_withheld': 'storefronts_withheld',  # noqa: E501
+        'user_name': 'user_name',  # noqa: E501
     }
 
     read_only_vars = {

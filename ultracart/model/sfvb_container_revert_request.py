@@ -93,7 +93,7 @@ class SfvbContainerRevertRequest(ModelNormal):
 
     attribute_map = {
         'comment': 'comment',  # noqa: E501
-        'container_history_oid': 'containerHistoryOid',  # noqa: E501
+        'container_history_oid': 'container_history_oid',  # noqa: E501
     }
 
     read_only_vars = {

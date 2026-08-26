@@ -92,7 +92,7 @@ class SfvbElement(ModelNormal):
 
 
     attribute_map = {
-        'schema_available': 'schemaAvailable',  # noqa: E501
+        'schema_available': 'schema_available',  # noqa: E501
         'type': 'type',  # noqa: E501
     }
 

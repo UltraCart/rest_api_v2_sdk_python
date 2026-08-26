@@ -101,10 +101,10 @@ class SfvbFileVersion(ModelNormal):
     attribute_map = {
         'comment': 'comment',  # noqa: E501
         'current': 'current',  # noqa: E501
-        'edited_by': 'editedBy',  # noqa: E501
-        'fs_file_history_oid': 'fsFileHistoryOid',  # noqa: E501
-        'hash_sha256': 'hashSha256',  # noqa: E501
-        'last_modified': 'lastModified',  # noqa: E501
+        'edited_by': 'edited_by',  # noqa: E501
+        'fs_file_history_oid': 'fs_file_history_oid',  # noqa: E501
+        'hash_sha256': 'hash_sha256',  # noqa: E501
+        'last_modified': 'last_modified',  # noqa: E501
         'revertable': 'revertable',  # noqa: E501
         'size': 'size',  # noqa: E501
         'version': 'version',  # noqa: E501

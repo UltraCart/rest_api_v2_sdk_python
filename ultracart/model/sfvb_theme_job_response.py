@@ -111,16 +111,16 @@ class SfvbThemeJobResponse(ModelNormal):
     attribute_map = {
         'complete': 'complete',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'error_message': 'errorMessage',  # noqa: E501
-        'finished_dts': 'finishedDts',  # noqa: E501
-        'job_id': 'jobId',  # noqa: E501
+        'error_message': 'error_message',  # noqa: E501
+        'finished_dts': 'finished_dts',  # noqa: E501
+        'job_id': 'job_id',  # noqa: E501
         'progress': 'progress',  # noqa: E501
-        'progress_description': 'progressDescription',  # noqa: E501
-        'started_dts': 'startedDts',  # noqa: E501
+        'progress_description': 'progress_description',  # noqa: E501
+        'started_dts': 'started_dts',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'submitted_dts': 'submittedDts',  # noqa: E501
+        'submitted_dts': 'submitted_dts',  # noqa: E501
         'success': 'success',  # noqa: E501
-        'target_path': 'targetPath',  # noqa: E501
+        'target_path': 'target_path',  # noqa: E501
     }
 
     read_only_vars = {

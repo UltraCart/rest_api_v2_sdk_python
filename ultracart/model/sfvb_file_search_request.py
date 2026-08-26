@@ -106,21 +106,21 @@ class SfvbFileSearchRequest(ModelNormal):
 
 
     attribute_map = {
-        'case_sensitive': 'caseSensitive',  # noqa: E501
-        'dynamic_html': 'dynamicHtml',  # noqa: E501
-        'file_name': 'fileName',  # noqa: E501
-        'i18n_violations': 'i18nViolations',  # noqa: E501
+        'case_sensitive': 'case_sensitive',  # noqa: E501
+        'dynamic_html': 'dynamic_html',  # noqa: E501
+        'file_name': 'file_name',  # noqa: E501
+        'i18n_violations': 'i18n_violations',  # noqa: E501
         'invalid': 'invalid',  # noqa: E501
-        'max_results': 'maxResults',  # noqa: E501
-        'merge_conflicts': 'mergeConflicts',  # noqa: E501
-        'mime_type': 'mimeType',  # noqa: E501
-        'modified_max': 'modifiedMax',  # noqa: E501
-        'modified_min': 'modifiedMin',  # noqa: E501
+        'max_results': 'max_results',  # noqa: E501
+        'merge_conflicts': 'merge_conflicts',  # noqa: E501
+        'mime_type': 'mime_type',  # noqa: E501
+        'modified_max': 'modified_max',  # noqa: E501
+        'modified_min': 'modified_min',  # noqa: E501
         'offset': 'offset',  # noqa: E501
         'path': 'path',  # noqa: E501
-        'size_max': 'sizeMax',  # noqa: E501
-        'size_min': 'sizeMin',  # noqa: E501
-        'sub_directories': 'subDirectories',  # noqa: E501
+        'size_max': 'size_max',  # noqa: E501
+        'size_min': 'size_min',  # noqa: E501
+        'sub_directories': 'sub_directories',  # noqa: E501
         'text': 'text',  # noqa: E501
     }
 

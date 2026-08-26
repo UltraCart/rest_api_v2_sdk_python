@@ -102,17 +102,17 @@ class SfvbRenderRequest(ModelNormal):
 
 
     attribute_map = {
-        'ancestors_cjson': 'ancestorsCjson',  # noqa: E501
-        'child_containers_json': 'childContainersJson',  # noqa: E501
+        'ancestors_cjson': 'ancestors_cjson',  # noqa: E501
+        'child_containers_json': 'child_containers_json',  # noqa: E501
         'cjson': 'cjson',  # noqa: E501
-        'context_affiliate_oid': 'contextAffiliateOid',  # noqa: E501
-        'context_blog_post_oid': 'contextBlogPostOid',  # noqa: E501
-        'context_group_path': 'contextGroupPath',  # noqa: E501
-        'context_item_id': 'contextItemId',  # noqa: E501
-        'context_order_id': 'contextOrderId',  # noqa: E501
-        'context_page_number': 'contextPageNumber',  # noqa: E501
-        'context_upsell_offer_oid': 'contextUpsellOfferOid',  # noqa: E501
-        'language_iso_code': 'languageIsoCode',  # noqa: E501
+        'context_affiliate_oid': 'context_affiliate_oid',  # noqa: E501
+        'context_blog_post_oid': 'context_blog_post_oid',  # noqa: E501
+        'context_group_path': 'context_group_path',  # noqa: E501
+        'context_item_id': 'context_item_id',  # noqa: E501
+        'context_order_id': 'context_order_id',  # noqa: E501
+        'context_page_number': 'context_page_number',  # noqa: E501
+        'context_upsell_offer_oid': 'context_upsell_offer_oid',  # noqa: E501
+        'language_iso_code': 'language_iso_code',  # noqa: E501
         'uri': 'uri',  # noqa: E501
     }
 

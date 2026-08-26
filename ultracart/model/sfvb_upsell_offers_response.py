@@ -97,7 +97,7 @@ class SfvbUpsellOffersResponse(ModelNormal):
 
 
     attribute_map = {
-        'upsell_offers': 'upsellOffers',  # noqa: E501
+        'upsell_offers': 'upsell_offers',  # noqa: E501
     }
 
     read_only_vars = {

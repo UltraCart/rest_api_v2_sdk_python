@@ -104,14 +104,14 @@ class SfvbLibraryEntry(ModelNormal):
         'bookmarked': 'bookmarked',  # noqa: E501
         'cjson': 'cjson',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'library_oid': 'libraryOid',  # noqa: E501
+        'library_oid': 'library_oid',  # noqa: E501
         'name': 'name',  # noqa: E501
         'owned': 'owned',  # noqa: E501
-        'referenced_files': 'referencedFiles',  # noqa: E501
-        'screenshot_key': 'screenshotKey',  # noqa: E501
-        'share_with_account': 'shareWithAccount',  # noqa: E501
-        'thumbnail_key': 'thumbnailKey',  # noqa: E501
-        'widget_type': 'widgetType',  # noqa: E501
+        'referenced_files': 'referenced_files',  # noqa: E501
+        'screenshot_key': 'screenshot_key',  # noqa: E501
+        'share_with_account': 'share_with_account',  # noqa: E501
+        'thumbnail_key': 'thumbnail_key',  # noqa: E501
+        'widget_type': 'widget_type',  # noqa: E501
     }
 
     read_only_vars = {

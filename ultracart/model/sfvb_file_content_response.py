@@ -101,16 +101,16 @@ class SfvbFileContentResponse(ModelNormal):
 
 
     attribute_map = {
-        'auto_compiled': 'autoCompiled',  # noqa: E501
+        'auto_compiled': 'auto_compiled',  # noqa: E501
         'content': 'content',  # noqa: E501
-        'fs_file_oid': 'fsFileOid',  # noqa: E501
-        'hash_sha256': 'hashSha256',  # noqa: E501
-        'mime_type': 'mimeType',  # noqa: E501
+        'fs_file_oid': 'fs_file_oid',  # noqa: E501
+        'hash_sha256': 'hash_sha256',  # noqa: E501
+        'mime_type': 'mime_type',  # noqa: E501
         'path': 'path',  # noqa: E501
         'size': 'size',  # noqa: E501
         'truncated': 'truncated',  # noqa: E501
         'valid': 'valid',  # noqa: E501
-        'velocity_errors': 'velocityErrors',  # noqa: E501
+        'velocity_errors': 'velocity_errors',  # noqa: E501
         'version': 'version',  # noqa: E501
     }
 

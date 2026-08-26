@@ -102,10 +102,10 @@ class SfvbCompileResponse(ModelNormal):
 
 
     attribute_map = {
-        'container_id': 'containerId',  # noqa: E501
+        'container_id': 'container_id',  # noqa: E501
         'directives': 'directives',  # noqa: E501
         'success': 'success',  # noqa: E501
-        'used_elements': 'usedElements',  # noqa: E501
+        'used_elements': 'used_elements',  # noqa: E501
         'validation': 'validation',  # noqa: E501
         'velocity': 'velocity',  # noqa: E501
     }

@@ -108,14 +108,14 @@ class SfvbContainerResponse(ModelNormal):
 
 
     attribute_map = {
-        'active_theme': 'activeTheme',  # noqa: E501
+        'active_theme': 'active_theme',  # noqa: E501
         'cjson': 'cjson',  # noqa: E501
-        'container_id': 'containerId',  # noqa: E501
-        'container_name': 'containerName',  # noqa: E501
-        'hash_sha256': 'hashSha256',  # noqa: E501
-        'last_modified': 'lastModified',  # noqa: E501
-        'owner_object_id': 'ownerObjectId',  # noqa: E501
-        'owner_type': 'ownerType',  # noqa: E501
+        'container_id': 'container_id',  # noqa: E501
+        'container_name': 'container_name',  # noqa: E501
+        'hash_sha256': 'hash_sha256',  # noqa: E501
+        'last_modified': 'last_modified',  # noqa: E501
+        'owner_object_id': 'owner_object_id',  # noqa: E501
+        'owner_type': 'owner_type',  # noqa: E501
         'path': 'path',  # noqa: E501
         'version': 'version',  # noqa: E501
     }

@@ -102,12 +102,12 @@ class SfvbTheme(ModelNormal):
     attribute_map = {
         'active': 'active',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'fs_directory_oid': 'fsDirectoryOid',  # noqa: E501
+        'fs_directory_oid': 'fs_directory_oid',  # noqa: E501
         'path': 'path',  # noqa: E501
-        'storefront_oid': 'storefrontOid',  # noqa: E501
-        'theme_name': 'themeName',  # noqa: E501
-        'theme_oid': 'themeOid',  # noqa: E501
-        'upgrade_available': 'upgradeAvailable',  # noqa: E501
+        'storefront_oid': 'storefront_oid',  # noqa: E501
+        'theme_name': 'theme_name',  # noqa: E501
+        'theme_oid': 'theme_oid',  # noqa: E501
+        'upgrade_available': 'upgrade_available',  # noqa: E501
         'valid': 'valid',  # noqa: E501
         'version': 'version',  # noqa: E501
     }

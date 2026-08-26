@@ -103,13 +103,13 @@ class SfvbPreviewSessionResponse(ModelNormal):
 
 
     attribute_map = {
-        'bytes_stored': 'bytesStored',  # noqa: E501
-        'expires_in_seconds': 'expiresInSeconds',  # noqa: E501
-        'max_bytes': 'maxBytes',  # noqa: E501
-        'owner_login': 'ownerLogin',  # noqa: E501
-        'preview_session_id': 'previewSessionId',  # noqa: E501
+        'bytes_stored': 'bytes_stored',  # noqa: E501
+        'expires_in_seconds': 'expires_in_seconds',  # noqa: E501
+        'max_bytes': 'max_bytes',  # noqa: E501
+        'owner_login': 'owner_login',  # noqa: E501
+        'preview_session_id': 'preview_session_id',  # noqa: E501
         'skipped': 'skipped',  # noqa: E501
-        'stored_keys': 'storedKeys',  # noqa: E501
+        'stored_keys': 'stored_keys',  # noqa: E501
     }
 
     read_only_vars = {

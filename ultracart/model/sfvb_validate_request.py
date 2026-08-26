@@ -104,10 +104,10 @@ class SfvbValidateRequest(ModelNormal):
 
     attribute_map = {
         'cjson': 'cjson',  # noqa: E501
-        'container_name': 'containerName',  # noqa: E501
-        'include_warnings': 'includeWarnings',  # noqa: E501
-        'marketing_email': 'marketingEmail',  # noqa: E501
-        'owner_type': 'ownerType',  # noqa: E501
+        'container_name': 'container_name',  # noqa: E501
+        'include_warnings': 'include_warnings',  # noqa: E501
+        'marketing_email': 'marketing_email',  # noqa: E501
+        'owner_type': 'owner_type',  # noqa: E501
     }
 
     read_only_vars = {

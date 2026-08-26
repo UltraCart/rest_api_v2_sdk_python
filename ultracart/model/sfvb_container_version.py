@@ -115,15 +115,15 @@ class SfvbContainerVersion(ModelNormal):
     attribute_map = {
         'cjson': 'cjson',  # noqa: E501
         'comment': 'comment',  # noqa: E501
-        'container_history_oid': 'containerHistoryOid',  # noqa: E501
-        'container_name': 'containerName',  # noqa: E501
-        'created_dts': 'createdDts',  # noqa: E501
+        'container_history_oid': 'container_history_oid',  # noqa: E501
+        'container_name': 'container_name',  # noqa: E501
+        'created_dts': 'created_dts',  # noqa: E501
         'current': 'current',  # noqa: E501
-        'edited_by': 'editedBy',  # noqa: E501
-        'hash_sha256': 'hashSha256',  # noqa: E501
+        'edited_by': 'edited_by',  # noqa: E501
+        'hash_sha256': 'hash_sha256',  # noqa: E501
         'operation': 'operation',  # noqa: E501
-        'owner_object_id': 'ownerObjectId',  # noqa: E501
-        'owner_type': 'ownerType',  # noqa: E501
+        'owner_object_id': 'owner_object_id',  # noqa: E501
+        'owner_type': 'owner_type',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
 

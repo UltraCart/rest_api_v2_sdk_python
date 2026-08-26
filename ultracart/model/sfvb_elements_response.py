@@ -99,7 +99,7 @@ class SfvbElementsResponse(ModelNormal):
 
 
     attribute_map = {
-        'element_count': 'elementCount',  # noqa: E501
+        'element_count': 'element_count',  # noqa: E501
         'elements': 'elements',  # noqa: E501
         'version': 'version',  # noqa: E501
     }

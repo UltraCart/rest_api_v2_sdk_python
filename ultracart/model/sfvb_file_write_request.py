@@ -95,7 +95,7 @@ class SfvbFileWriteRequest(ModelNormal):
     attribute_map = {
         'comment': 'comment',  # noqa: E501
         'content': 'content',  # noqa: E501
-        'create_if_missing': 'createIfMissing',  # noqa: E501
+        'create_if_missing': 'create_if_missing',  # noqa: E501
     }
 
     read_only_vars = {

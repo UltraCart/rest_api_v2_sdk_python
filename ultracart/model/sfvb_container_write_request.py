@@ -94,10 +94,10 @@ class SfvbContainerWriteRequest(ModelNormal):
 
 
     attribute_map = {
-        'allow_warnings': 'allowWarnings',  # noqa: E501
+        'allow_warnings': 'allow_warnings',  # noqa: E501
         'cjson': 'cjson',  # noqa: E501
         'comment': 'comment',  # noqa: E501
-        'marketing_email': 'marketingEmail',  # noqa: E501
+        'marketing_email': 'marketing_email',  # noqa: E501
     }
 
     read_only_vars = {

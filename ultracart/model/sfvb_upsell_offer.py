@@ -100,14 +100,14 @@ class SfvbUpsellOffer(ModelNormal):
 
     attribute_map = {
         'active': 'active',  # noqa: E501
-        'active_overall': 'activeOverall',  # noqa: E501
-        'cjson_size': 'cjsonSize',  # noqa: E501
-        'has_container': 'hasContainer',  # noqa: E501
+        'active_overall': 'active_overall',  # noqa: E501
+        'cjson_size': 'cjson_size',  # noqa: E501
+        'has_container': 'has_container',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'path_name': 'pathName',  # noqa: E501
-        'storefront_oid': 'storefrontOid',  # noqa: E501
-        'test_only': 'testOnly',  # noqa: E501
-        'upsell_offer_oid': 'upsellOfferOid',  # noqa: E501
+        'path_name': 'path_name',  # noqa: E501
+        'storefront_oid': 'storefront_oid',  # noqa: E501
+        'test_only': 'test_only',  # noqa: E501
+        'upsell_offer_oid': 'upsell_offer_oid',  # noqa: E501
     }
 
     read_only_vars = {

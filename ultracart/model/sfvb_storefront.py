@@ -93,9 +93,9 @@ class SfvbStorefront(ModelNormal):
 
 
     attribute_map = {
-        'active_theme_oid': 'activeThemeOid',  # noqa: E501
-        'host_name': 'hostName',  # noqa: E501
-        'storefront_oid': 'storefrontOid',  # noqa: E501
+        'active_theme_oid': 'active_theme_oid',  # noqa: E501
+        'host_name': 'host_name',  # noqa: E501
+        'storefront_oid': 'storefront_oid',  # noqa: E501
     }
 
     read_only_vars = {

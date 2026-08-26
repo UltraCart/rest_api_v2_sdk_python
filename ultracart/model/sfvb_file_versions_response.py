@@ -99,7 +99,7 @@ class SfvbFileVersionsResponse(ModelNormal):
 
 
     attribute_map = {
-        'fs_file_oid': 'fsFileOid',  # noqa: E501
+        'fs_file_oid': 'fs_file_oid',  # noqa: E501
         'path': 'path',  # noqa: E501
         'versions': 'versions',  # noqa: E501
     }

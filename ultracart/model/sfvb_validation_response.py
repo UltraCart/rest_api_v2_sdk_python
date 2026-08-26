@@ -101,7 +101,7 @@ class SfvbValidationResponse(ModelNormal):
 
     attribute_map = {
         'errors': 'errors',  # noqa: E501
-        'used_elements': 'usedElements',  # noqa: E501
+        'used_elements': 'used_elements',  # noqa: E501
         'valid': 'valid',  # noqa: E501
         'warnings': 'warnings',  # noqa: E501
     }

@@ -105,18 +105,18 @@ class SfvbFileEntry(ModelNormal):
 
 
     attribute_map = {
-        'auto_compiled': 'autoCompiled',  # noqa: E501
+        'auto_compiled': 'auto_compiled',  # noqa: E501
         'directory': 'directory',  # noqa: E501
-        'fs_directory_oid': 'fsDirectoryOid',  # noqa: E501
-        'fs_file_oid': 'fsFileOid',  # noqa: E501
-        'hash_sha256': 'hashSha256',  # noqa: E501
-        'i18n_violation': 'i18nViolation',  # noqa: E501
-        'last_modified': 'lastModified',  # noqa: E501
-        'merge_conflict': 'mergeConflict',  # noqa: E501
-        'mime_type': 'mimeType',  # noqa: E501
+        'fs_directory_oid': 'fs_directory_oid',  # noqa: E501
+        'fs_file_oid': 'fs_file_oid',  # noqa: E501
+        'hash_sha256': 'hash_sha256',  # noqa: E501
+        'i18n_violation': 'i18n_violation',  # noqa: E501
+        'last_modified': 'last_modified',  # noqa: E501
+        'merge_conflict': 'merge_conflict',  # noqa: E501
+        'mime_type': 'mime_type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'path': 'path',  # noqa: E501
-        'read_only': 'readOnly',  # noqa: E501
+        'read_only': 'read_only',  # noqa: E501
         'size': 'size',  # noqa: E501
         'valid': 'valid',  # noqa: E501
         'version': 'version',  # noqa: E501
