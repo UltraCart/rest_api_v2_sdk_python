@@ -91,6 +91,9 @@ class SfvbWhoamiResponse(ModelNormal):
             'acting_as_user': (bool,),  # noqa: E501
             'application_name': (str,),  # noqa: E501
             'authentication_type': (str,),  # noqa: E501
+            'can_publish': (bool,),  # noqa: E501
+            'can_read': (bool,),  # noqa: E501
+            'can_write': (bool,),  # noqa: E501
             'device_scope': (str,),  # noqa: E501
             'login': (str,),  # noqa: E501
             'merchant_id': (str,),  # noqa: E501
@@ -109,6 +112,9 @@ class SfvbWhoamiResponse(ModelNormal):
         'acting_as_user': 'actingAsUser',  # noqa: E501
         'application_name': 'applicationName',  # noqa: E501
         'authentication_type': 'authenticationType',  # noqa: E501
+        'can_publish': 'canPublish',  # noqa: E501
+        'can_read': 'canRead',  # noqa: E501
+        'can_write': 'canWrite',  # noqa: E501
         'device_scope': 'deviceScope',  # noqa: E501
         'login': 'login',  # noqa: E501
         'merchant_id': 'merchantId',  # noqa: E501
@@ -162,6 +168,9 @@ class SfvbWhoamiResponse(ModelNormal):
             acting_as_user (bool): True when this token resolves to a merchant user.  Preview sessions and file writes need one, because they are recorded against the person who approved the token.  Only device flow tokens resolve a user, so a plain API key will see this false.. [optional]  # noqa: E501
             application_name (str): Description of the application this credential belongs to.. [optional]  # noqa: E501
             authentication_type (str): How this token authenticated - Oauth2, Simple Key, Public/Private Key or Browser Key.. [optional]  # noqa: E501
+            can_publish (bool): True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.. [optional]  # noqa: E501
+            can_read (bool): True when this token may read.  Do not infer this from the requested scope name.. [optional]  # noqa: E501
+            can_write (bool): True when this token may write.  Writing a target that is not currently live needs only this.. [optional]  # noqa: E501
             device_scope (str): Device scope name, when this is a device flow token.. [optional]  # noqa: E501
             login (str): Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials.. [optional]  # noqa: E501
             merchant_id (str): Merchant id this token acts against.. [optional]  # noqa: E501
@@ -257,6 +266,9 @@ class SfvbWhoamiResponse(ModelNormal):
             acting_as_user (bool): True when this token resolves to a merchant user.  Preview sessions and file writes need one, because they are recorded against the person who approved the token.  Only device flow tokens resolve a user, so a plain API key will see this false.. [optional]  # noqa: E501
             application_name (str): Description of the application this credential belongs to.. [optional]  # noqa: E501
             authentication_type (str): How this token authenticated - Oauth2, Simple Key, Public/Private Key or Browser Key.. [optional]  # noqa: E501
+            can_publish (bool): True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.. [optional]  # noqa: E501
+            can_read (bool): True when this token may read.  Do not infer this from the requested scope name.. [optional]  # noqa: E501
+            can_write (bool): True when this token may write.  Writing a target that is not currently live needs only this.. [optional]  # noqa: E501
             device_scope (str): Device scope name, when this is a device flow token.. [optional]  # noqa: E501
             login (str): Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials.. [optional]  # noqa: E501
             merchant_id (str): Merchant id this token acts against.. [optional]  # noqa: E501
