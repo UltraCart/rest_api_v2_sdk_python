@@ -170,7 +170,7 @@ class SfvbContainerVersion(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             cjson (str): The CJSON this version held.  Populated only when reading a single version, and null when the operation is create.  Listings omit it because container CJSON is large.. [optional]  # noqa: E501
             comment (str): Comment recorded with the write that replaced this version.. [optional]  # noqa: E501
-            container_history_oid (int): History record oid.  Pass to the revert operation on the owning container.. [optional]  # noqa: E501
+            container_history_oid (int): History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to.. [optional]  # noqa: E501
             container_name (str): Container name, where the owner has more than one container.. [optional]  # noqa: E501
             created_dts (str): When this snapshot was taken.. [optional]  # noqa: E501
             current (bool): True for the value currently stored.. [optional]  # noqa: E501
@@ -267,7 +267,7 @@ class SfvbContainerVersion(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             cjson (str): The CJSON this version held.  Populated only when reading a single version, and null when the operation is create.  Listings omit it because container CJSON is large.. [optional]  # noqa: E501
             comment (str): Comment recorded with the write that replaced this version.. [optional]  # noqa: E501
-            container_history_oid (int): History record oid.  Pass to the revert operation on the owning container.. [optional]  # noqa: E501
+            container_history_oid (int): History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to.. [optional]  # noqa: E501
             container_name (str): Container name, where the owner has more than one container.. [optional]  # noqa: E501
             created_dts (str): When this snapshot was taken.. [optional]  # noqa: E501
             current (bool): True for the value currently stored.. [optional]  # noqa: E501
