@@ -93,6 +93,7 @@ class SfvbFileWriteResponse(ModelNormal):
             'compiled_path': (str,),  # noqa: E501
             'file': (SfvbFileEntry,),  # noqa: E501
             'hash_sha256': (str,),  # noqa: E501
+            'public_url': (str,),  # noqa: E501
             'validation': (SfvbValidationResponse,),  # noqa: E501
             'velocity_errors': (str,),  # noqa: E501
             'version': (int,),  # noqa: E501
@@ -107,6 +108,7 @@ class SfvbFileWriteResponse(ModelNormal):
         'compiled_path': 'compiled_path',  # noqa: E501
         'file': 'file',  # noqa: E501
         'hash_sha256': 'hash_sha256',  # noqa: E501
+        'public_url': 'public_url',  # noqa: E501
         'validation': 'validation',  # noqa: E501
         'velocity_errors': 'velocity_errors',  # noqa: E501
         'version': 'version',  # noqa: E501
@@ -156,6 +158,7 @@ class SfvbFileWriteResponse(ModelNormal):
             compiled_path (str): Path of the compiled output, when writing a .cjson under a theme triggered a compile.. [optional]  # noqa: E501
             file (SfvbFileEntry): [optional]  # noqa: E501
             hash_sha256 (str): New SHA-256.  Use as the next If-Match value.. [optional]  # noqa: E501
+            public_url (str): Where a shopper's browser will fetch this file, for use in an img src or a background image.  Present only for a path outside /themes/, which is served straight off the storefront root.  A file inside a theme is absent here because its public URL depends on which theme is active, and guessing it would be worse than omitting it.. [optional]  # noqa: E501
             validation (SfvbValidationResponse): [optional]  # noqa: E501
             velocity_errors (str): Velocity errors recorded by the store.  Present means the file was written but is not valid.. [optional]  # noqa: E501
             version (int): New version number.. [optional]  # noqa: E501
@@ -247,6 +250,7 @@ class SfvbFileWriteResponse(ModelNormal):
             compiled_path (str): Path of the compiled output, when writing a .cjson under a theme triggered a compile.. [optional]  # noqa: E501
             file (SfvbFileEntry): [optional]  # noqa: E501
             hash_sha256 (str): New SHA-256.  Use as the next If-Match value.. [optional]  # noqa: E501
+            public_url (str): Where a shopper's browser will fetch this file, for use in an img src or a background image.  Present only for a path outside /themes/, which is served straight off the storefront root.  A file inside a theme is absent here because its public URL depends on which theme is active, and guessing it would be worse than omitting it.. [optional]  # noqa: E501
             validation (SfvbValidationResponse): [optional]  # noqa: E501
             velocity_errors (str): Velocity errors recorded by the store.  Present means the file was written but is not valid.. [optional]  # noqa: E501
             version (int): New version number.. [optional]  # noqa: E501

@@ -981,6 +981,8 @@ from ultracart.model.sfvb_file_entry import SfvbFileEntry
 from ultracart.model.sfvb_file_revert_request import SfvbFileRevertRequest
 from ultracart.model.sfvb_file_search_request import SfvbFileSearchRequest
 from ultracart.model.sfvb_file_search_response import SfvbFileSearchResponse
+from ultracart.model.sfvb_file_upload_request import SfvbFileUploadRequest
+from ultracart.model.sfvb_file_upload_url_response import SfvbFileUploadUrlResponse
 from ultracart.model.sfvb_file_version import SfvbFileVersion
 from ultracart.model.sfvb_file_versions_response import SfvbFileVersionsResponse
 from ultracart.model.sfvb_file_write_request import SfvbFileWriteRequest

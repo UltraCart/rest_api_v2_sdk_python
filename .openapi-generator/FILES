@@ -992,6 +992,8 @@ docs/SfvbFileEntry.md
 docs/SfvbFileRevertRequest.md
 docs/SfvbFileSearchRequest.md
 docs/SfvbFileSearchResponse.md
+docs/SfvbFileUploadRequest.md
+docs/SfvbFileUploadUrlResponse.md
 docs/SfvbFileVersion.md
 docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
@@ -2122,6 +2124,8 @@ ultracart/model/sfvb_file_entry.py
 ultracart/model/sfvb_file_revert_request.py
 ultracart/model/sfvb_file_search_request.py
 ultracart/model/sfvb_file_search_response.py
+ultracart/model/sfvb_file_upload_request.py
+ultracart/model/sfvb_file_upload_url_response.py
 ultracart/model/sfvb_file_version.py
 ultracart/model/sfvb_file_versions_response.py
 ultracart/model/sfvb_file_write_request.py
