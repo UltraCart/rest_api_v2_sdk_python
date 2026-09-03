@@ -90,16 +90,12 @@ class SfvbContainerResponse(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'active_theme': (bool,),  # noqa: E501
             'cjson': (str,),  # noqa: E501
-            'container_id': (str,),  # noqa: E501
             'container_name': (str,),  # noqa: E501
             'hash_sha256': (str,),  # noqa: E501
             'last_modified': (str,),  # noqa: E501
             'owner_object_id': (str,),  # noqa: E501
             'owner_type': (str,),  # noqa: E501
-            'path': (str,),  # noqa: E501
-            'version': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -108,16 +104,12 @@ class SfvbContainerResponse(ModelNormal):
 
 
     attribute_map = {
-        'active_theme': 'active_theme',  # noqa: E501
         'cjson': 'cjson',  # noqa: E501
-        'container_id': 'container_id',  # noqa: E501
         'container_name': 'container_name',  # noqa: E501
         'hash_sha256': 'hash_sha256',  # noqa: E501
         'last_modified': 'last_modified',  # noqa: E501
         'owner_object_id': 'owner_object_id',  # noqa: E501
         'owner_type': 'owner_type',  # noqa: E501
-        'path': 'path',  # noqa: E501
-        'version': 'version',  # noqa: E501
     }
 
     read_only_vars = {
@@ -161,16 +153,12 @@ class SfvbContainerResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            active_theme (bool): True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope.. [optional]  # noqa: E501
             cjson (str): The container JSON.  Runtime state is stripped on the way out.. [optional]  # noqa: E501
-            container_id (str): Container id as the compiler will derive it.. [optional]  # noqa: E501
             container_name (str): Container name.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of the cjson.  Send back as If-Match when writing.. [optional]  # noqa: E501
-            last_modified (str): When the container was last modified, where the store records it.. [optional]  # noqa: E501
+            last_modified (str): When the container was last modified, in the store's own record of it.  Present for email, postcardfront and postcardback.  Absent for upsell and item, because those tables carry no modification timestamp at all - for those two, read created_dts on the current entry of container_versions, which records when this API last wrote the container.  Note that a postcard keeps one timestamp for both of its sides, so writing the front moves the value the back reports.. [optional]  # noqa: E501
             owner_object_id (str): Identifier of the owning object within its store.. [optional]  # noqa: E501
             owner_type (str): Where this container lives.. [optional]  # noqa: E501
-            path (str): File path, for theme and page containers only.. [optional]  # noqa: E501
-            version (int): File version, for theme and page containers only.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,16 +244,12 @@ class SfvbContainerResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            active_theme (bool): True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope.. [optional]  # noqa: E501
             cjson (str): The container JSON.  Runtime state is stripped on the way out.. [optional]  # noqa: E501
-            container_id (str): Container id as the compiler will derive it.. [optional]  # noqa: E501
             container_name (str): Container name.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of the cjson.  Send back as If-Match when writing.. [optional]  # noqa: E501
-            last_modified (str): When the container was last modified, where the store records it.. [optional]  # noqa: E501
+            last_modified (str): When the container was last modified, in the store's own record of it.  Present for email, postcardfront and postcardback.  Absent for upsell and item, because those tables carry no modification timestamp at all - for those two, read created_dts on the current entry of container_versions, which records when this API last wrote the container.  Note that a postcard keeps one timestamp for both of its sides, so writing the front moves the value the back reports.. [optional]  # noqa: E501
             owner_object_id (str): Identifier of the owning object within its store.. [optional]  # noqa: E501
             owner_type (str): Where this container lives.. [optional]  # noqa: E501
-            path (str): File path, for theme and page containers only.. [optional]  # noqa: E501
-            version (int): File version, for theme and page containers only.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

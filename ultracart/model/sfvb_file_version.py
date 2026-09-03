@@ -154,10 +154,10 @@ class SfvbFileVersion(ModelNormal):
             comment (str): Comment recorded with the write.. [optional]  # noqa: E501
             current (bool): True for the version currently on disk.. [optional]  # noqa: E501
             edited_by (str): Login of whoever wrote this version.. [optional]  # noqa: E501
-            fs_file_history_oid (int): History record oid.. [optional]  # noqa: E501
+            fs_file_history_oid (int): History record oid, for correlating an entry with the file manager.  Absent on the entry marked current, which is the content on disk right now and has no history row of its own.  Unlike container_history_oid on a container version, this is NOT addressable through this API - nothing accepts it.  Fetch and revert a file version by path plus version instead.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of this version's content.. [optional]  # noqa: E501
             last_modified (str): When this version was written.. [optional]  # noqa: E501
-            revertable (bool): True when this version can be reverted to.. [optional]  # noqa: E501
+            revertable (bool): True when this version can be reverted to, which is every entry except the one marked current.  Note that it is absent rather than false on that entry - false booleans are omitted across this API, so a generated client sees undefined rather than false.  Test whether the key is present, or simpler still, use current.. [optional]  # noqa: E501
             size (int): Size in bytes.. [optional]  # noqa: E501
             version (int): Version number.  Pass to files/content or files/revert.. [optional]  # noqa: E501
         """
@@ -248,10 +248,10 @@ class SfvbFileVersion(ModelNormal):
             comment (str): Comment recorded with the write.. [optional]  # noqa: E501
             current (bool): True for the version currently on disk.. [optional]  # noqa: E501
             edited_by (str): Login of whoever wrote this version.. [optional]  # noqa: E501
-            fs_file_history_oid (int): History record oid.. [optional]  # noqa: E501
+            fs_file_history_oid (int): History record oid, for correlating an entry with the file manager.  Absent on the entry marked current, which is the content on disk right now and has no history row of its own.  Unlike container_history_oid on a container version, this is NOT addressable through this API - nothing accepts it.  Fetch and revert a file version by path plus version instead.. [optional]  # noqa: E501
             hash_sha256 (str): SHA-256 of this version's content.. [optional]  # noqa: E501
             last_modified (str): When this version was written.. [optional]  # noqa: E501
-            revertable (bool): True when this version can be reverted to.. [optional]  # noqa: E501
+            revertable (bool): True when this version can be reverted to, which is every entry except the one marked current.  Note that it is absent rather than false on that entry - false booleans are omitted across this API, so a generated client sees undefined rather than false.  Test whether the key is present, or simpler still, use current.. [optional]  # noqa: E501
             size (int): Size in bytes.. [optional]  # noqa: E501
             version (int): Version number.  Pass to files/content or files/revert.. [optional]  # noqa: E501
         """
