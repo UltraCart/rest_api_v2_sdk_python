@@ -90,10 +90,16 @@ class SfvbVersionResponse(ModelNormal):
             'container_manager_version': (str,),  # noqa: E501
             'container_versions_retained': (int,),  # noqa: E501
             'element_count': (int,),  # noqa: E501
+            'max_asset_bytes': (int,),  # noqa: E501
             'max_cjson_bytes': (int,),  # noqa: E501
+            'max_directory_entries': (int,),  # noqa: E501
+            'max_library_results_per_page': (int,),  # noqa: E501
             'max_preview_session_bytes': (int,),  # noqa: E501
+            'max_revertable_bytes': (int,),  # noqa: E501
             'max_search_results': (int,),  # noqa: E501
             'max_template_bytes': (int,),  # noqa: E501
+            'max_text_read_bytes': (int,),  # noqa: E501
+            'max_video_bytes': (int,),  # noqa: E501
             'max_widget_ids_per_request': (int,),  # noqa: E501
             'preview_session_ttl_seconds': (int,),  # noqa: E501
             'release': (str,),  # noqa: E501
@@ -108,10 +114,16 @@ class SfvbVersionResponse(ModelNormal):
         'container_manager_version': 'container_manager_version',  # noqa: E501
         'container_versions_retained': 'container_versions_retained',  # noqa: E501
         'element_count': 'element_count',  # noqa: E501
+        'max_asset_bytes': 'max_asset_bytes',  # noqa: E501
         'max_cjson_bytes': 'max_cjson_bytes',  # noqa: E501
+        'max_directory_entries': 'max_directory_entries',  # noqa: E501
+        'max_library_results_per_page': 'max_library_results_per_page',  # noqa: E501
         'max_preview_session_bytes': 'max_preview_session_bytes',  # noqa: E501
+        'max_revertable_bytes': 'max_revertable_bytes',  # noqa: E501
         'max_search_results': 'max_search_results',  # noqa: E501
         'max_template_bytes': 'max_template_bytes',  # noqa: E501
+        'max_text_read_bytes': 'max_text_read_bytes',  # noqa: E501
+        'max_video_bytes': 'max_video_bytes',  # noqa: E501
         'max_widget_ids_per_request': 'max_widget_ids_per_request',  # noqa: E501
         'preview_session_ttl_seconds': 'preview_session_ttl_seconds',  # noqa: E501
         'release': 'release',  # noqa: E501
@@ -161,10 +173,16 @@ class SfvbVersionResponse(ModelNormal):
             container_manager_version (str): Container manager version used to compile for this merchant.. [optional]  # noqa: E501
             container_versions_retained (int): Versions kept per non-file container before the oldest are pruned.  Beyond this, history is gone - not merely paginated.. [optional]  # noqa: E501
             element_count (int): Number of element types this version recognizes.. [optional]  # noqa: E501
+            max_asset_bytes (int): Largest binary asset that can be uploaded, in bytes, for every accepted type except video.. [optional]  # noqa: E501
             max_cjson_bytes (int): Largest CJSON document that will be parsed, in bytes.. [optional]  # noqa: E501
+            max_directory_entries (int): Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries.. [optional]  # noqa: E501
+            max_library_results_per_page (int): Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.. [optional]  # noqa: E501
             max_preview_session_bytes (int): Largest payload one preview session may hold, in bytes.. [optional]  # noqa: E501
+            max_revertable_bytes (int): Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to.. [optional]  # noqa: E501
             max_search_results (int): Hard ceiling on file search results per page.. [optional]  # noqa: E501
-            max_template_bytes (int): Largest template file that can be written, in bytes.. [optional]  # noqa: E501
+            max_template_bytes (int): Largest .vm template that can be written, in bytes.  Narrow on purpose - it gates writes, only for files ending in .vm, and it is not the ceiling on reading a file back.  Use max_text_read_bytes for that.. [optional]  # noqa: E501
+            max_text_read_bytes (int): Largest file files/content will return as text, in bytes.  A file above this is refused with sfvb.too_large however small its history versions are.  Bigger than max_template_bytes, so a file can be readable here and still be too large to write back as a template.  Anything above this is still readable in full through files/download, which returns raw bytes and applies no ceiling.. [optional]  # noqa: E501
+            max_video_bytes (int): Largest video that can be uploaded, in bytes.  Video is the one type allowed past max_asset_bytes.. [optional]  # noqa: E501
             max_widget_ids_per_request (int): Most widget ids that can be reserved in one call.. [optional]  # noqa: E501
             preview_session_ttl_seconds (int): Seconds a preview session survives before expiring.. [optional]  # noqa: E501
             release (str): Release channel selected for this merchant.. [optional]  # noqa: E501
@@ -256,10 +274,16 @@ class SfvbVersionResponse(ModelNormal):
             container_manager_version (str): Container manager version used to compile for this merchant.. [optional]  # noqa: E501
             container_versions_retained (int): Versions kept per non-file container before the oldest are pruned.  Beyond this, history is gone - not merely paginated.. [optional]  # noqa: E501
             element_count (int): Number of element types this version recognizes.. [optional]  # noqa: E501
+            max_asset_bytes (int): Largest binary asset that can be uploaded, in bytes, for every accepted type except video.. [optional]  # noqa: E501
             max_cjson_bytes (int): Largest CJSON document that will be parsed, in bytes.. [optional]  # noqa: E501
+            max_directory_entries (int): Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries.. [optional]  # noqa: E501
+            max_library_results_per_page (int): Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.. [optional]  # noqa: E501
             max_preview_session_bytes (int): Largest payload one preview session may hold, in bytes.. [optional]  # noqa: E501
+            max_revertable_bytes (int): Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to.. [optional]  # noqa: E501
             max_search_results (int): Hard ceiling on file search results per page.. [optional]  # noqa: E501
-            max_template_bytes (int): Largest template file that can be written, in bytes.. [optional]  # noqa: E501
+            max_template_bytes (int): Largest .vm template that can be written, in bytes.  Narrow on purpose - it gates writes, only for files ending in .vm, and it is not the ceiling on reading a file back.  Use max_text_read_bytes for that.. [optional]  # noqa: E501
+            max_text_read_bytes (int): Largest file files/content will return as text, in bytes.  A file above this is refused with sfvb.too_large however small its history versions are.  Bigger than max_template_bytes, so a file can be readable here and still be too large to write back as a template.  Anything above this is still readable in full through files/download, which returns raw bytes and applies no ceiling.. [optional]  # noqa: E501
+            max_video_bytes (int): Largest video that can be uploaded, in bytes.  Video is the one type allowed past max_asset_bytes.. [optional]  # noqa: E501
             max_widget_ids_per_request (int): Most widget ids that can be reserved in one call.. [optional]  # noqa: E501
             preview_session_ttl_seconds (int): Seconds a preview session survives before expiring.. [optional]  # noqa: E501
             release (str): Release channel selected for this merchant.. [optional]  # noqa: E501

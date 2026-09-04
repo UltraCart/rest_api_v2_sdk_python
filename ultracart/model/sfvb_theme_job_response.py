@@ -175,7 +175,7 @@ class SfvbThemeJobResponse(ModelNormal):
             status (str): Raw job status.. [optional]  # noqa: E501
             submitted_dts (str): When the job was queued.. [optional]  # noqa: E501
             success (bool): True only when the job finished successfully.  Check complete first.. [optional]  # noqa: E501
-            target_path (str): Path the new theme was created at.  Returned when the job is started; the theme oid itself is NOT returned, because the job's product is a plain text report rather than a structured result.  Once the job completes, list themes and match on this path.. [optional]  # noqa: E501
+            target_path (str): Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -272,7 +272,7 @@ class SfvbThemeJobResponse(ModelNormal):
             status (str): Raw job status.. [optional]  # noqa: E501
             submitted_dts (str): When the job was queued.. [optional]  # noqa: E501
             success (bool): True only when the job finished successfully.  Check complete first.. [optional]  # noqa: E501
-            target_path (str): Path the new theme was created at.  Returned when the job is started; the theme oid itself is NOT returned, because the job's product is a plain text report rather than a structured result.  Once the job completes, list themes and match on this path.. [optional]  # noqa: E501
+            target_path (str): Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
